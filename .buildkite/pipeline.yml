@@ -1,0 +1,154 @@
+env:
+  AWS_DEFAULT_REGION: ap-southeast-2
+
+steps:
+
+  - command: ./scripts/build-site.sh
+    label: ':hammer: Doc Site - Build'
+    env:
+      ENVIRONMENT: dev
+    agents:
+      queue: pact-dev
+      # concurrency: 1
+      # concurrency_group: 'ghost/deploy/dev'
+    plugins:
+      - docker#v3.2.0:
+          image: "838728264948.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+          propagate-environment: true
+          propagate-uid-gid: true
+
+  # - command: ./scripts/deploy-database.sh dev
+  #   label: ':amazon-rds: Blog Site - Deploy Database - Dev'
+  #   env:
+  #     ENVIRONMENT: dev
+  #   agents:
+  #     queue: pact-dev
+  #     # concurrency: 1
+  #     # concurrency_group: 'ghost/deploy/dev'
+  #   plugins:
+  #     - docker#v3.2.0:
+  #         image: "838728264948.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+  #         propagate-environment: true
+  #         propagate-uid-gid: true
+
+  # - wait
+
+  # - command: ./scripts/build-ghost-container.sh dev
+  #   label: ':rocket: Blog Site - Deploy Ghost Container - Dev'
+  #   env:
+  #     ENVIRONMENT: dev
+  #   agents:
+  #     queue: pact-dev
+  #     # concurrency: 1
+  #     # concurrency_group: 'ghost/deploy/dev'
+
+  # - wait
+
+  # - command: ./scripts/setup-database.sh dev
+  #   label: ':mysql: Blog Site - Setup Database - Dev'
+  #   env:
+  #     ENVIRONMENT: dev
+  #   agents:
+  #     queue: pact-dev
+  #     # concurrency: 1
+  #     # concurrency_group: 'ghost/deploy/dev'
+  #   plugins:
+  #     - docker#v3.2.0:
+  #         image: "838728264948.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+  #         propagate-environment: true
+  #         always-pull: true
+  #         additional-groups: docker
+  #         volumes:
+  #           - "/var/run/docker.sock:/var/run/docker.sock"
+
+  # - wait
+
+  # - command: ./scripts/deploy-ghost.sh dev
+  #   label: ':rocket: Blog Site - Deploy Ghost - Dev'
+  #   env:
+  #     ENVIRONMENT: dev
+  #   agents:
+  #     queue: pact-dev
+  #     # concurrency: 1
+  #     # concurrency_group: 'ghost/deploy/dev'
+  #   plugins:
+  #     - docker#v3.2.0:
+  #         image: "838728264948.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+  #         propagate-environment: true
+  #         propagate-uid-gid: true
+  #         always-pull: true
+
+  # - block: ":rocket: Release!"
+
+  # - command: ./scripts/promote-docker-image.sh
+  #   label: ':aws: Blog Site - Promote docker image to Prod'
+  #   env:
+  #     ENVIRONMENT: prod
+  #   agents:
+  #     queue: pact-prod
+  #     # concurrency: 1
+  #     # concurrency_group: 'ghost/deploy/prod'
+
+  # - command: ./scripts/deploy-cluster.sh prod
+  #   label: ':aws: Blog Site - Deploy ECS Cluster - Prod'
+  #   env:
+  #     ENVIRONMENT: prod
+  #   agents:
+  #     queue: pact-prod
+  #     # concurrency: 1
+  #     # concurrency_group: 'ghost/deploy/prod'
+  #   plugins:
+  #     - docker#v3.2.0:
+  #         image: "529546285894.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+  #         propagate-environment: true
+  #         propagate-uid-gid: true
+
+  # - command: ./scripts/deploy-database.sh prod
+  #   label: ':amazon-rds: Blog Site - Deploy Database - Prod'
+  #   env:
+  #     ENVIRONMENT: prod
+  #   agents:
+  #     queue: pact-prod
+  #     # concurrency: 1
+  #     # concurrency_group: 'ghost/deploy/dev'
+  #   plugins:
+  #     - docker#v3.2.0:
+  #         image: "529546285894.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+  #         propagate-environment: true
+  #         propagate-uid-gid: true
+
+  # - wait
+
+  # - command: ./scripts/setup-database.sh prod
+  #   label: ':mysql: Blog Site - Setup Database - Prod'
+  #   env:
+  #     ENVIRONMENT: prod
+  #   agents:
+  #     queue: pact-prod
+  #     # concurrency: 1
+  #     # concurrency_group: 'ghost/deploy/dev'
+  #   plugins:
+  #     - docker#v3.2.0:
+  #         image: "529546285894.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+  #         propagate-environment: true
+  #         always-pull: true
+  #         additional-groups: docker
+  #         volumes:
+  #           - "/var/run/docker.sock:/var/run/docker.sock"
+
+  # - wait
+
+  # - command: ./scripts/deploy-ghost.sh prod
+  #   label: ':rocket: Blog Site - Deploy Ghost - Prod'
+  #   env:
+  #     ENVIRONMENT: prod
+  #   agents:
+  #     queue: pact-prod
+  #     # concurrency: 1
+  #     # concurrency_group: 'ghost/deploy/dev'
+  #   plugins:
+  #     - docker#v3.2.0:
+  #         image: "529546285894.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+  #         propagate-environment: true
+  #         propagate-uid-gid: true
+  #         always-pull: true
