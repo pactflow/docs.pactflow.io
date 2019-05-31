@@ -3,7 +3,7 @@ env:
 
 steps:
 
-  - command: ./scripts/build-site.sh
+  - command: /workdir/scripts/build-site.sh
     label: ':hammer: Doc Site - Build'
     env:
       ENVIRONMENT: dev
