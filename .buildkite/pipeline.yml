@@ -13,7 +13,7 @@ steps:
       # concurrency_group: 'ghost/deploy/dev'
     plugins:
       - docker#v3.2.0:
-          image: "838728264948.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+          image: "node:12-alpine"
           propagate-environment: true
           propagate-uid-gid: true
 
