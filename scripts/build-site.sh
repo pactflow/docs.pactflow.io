@@ -4,6 +4,7 @@ set -e
 
 ScriptDir=$(dirname $0)
 
+cat /etc/passwd
 whoami
 ls -l website
 
