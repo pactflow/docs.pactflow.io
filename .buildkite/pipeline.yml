@@ -13,5 +13,5 @@ steps:
       - docker#v3.2.0:
           image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-yarn:latest"
           propagate-environment: true
-          user: 1000
+          propagate-uid-gid: true
           always-pull: true
