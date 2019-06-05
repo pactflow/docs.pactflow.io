@@ -4,4 +4,4 @@ set -e
 
 ScriptDir=$(dirname $0)
 
-cd $ScriptDir/../website && yarn run build
+cd $ScriptDir/../website && yarn install && yarn run build
