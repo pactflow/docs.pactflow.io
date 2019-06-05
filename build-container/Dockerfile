@@ -1,22 +1,15 @@
-FROM node:12-alpine
-RUN apk -v --update add \
-        python3 \
-        py-pip \
-        groff \
-        less \
-        mailcap \
-        bash \
-        dumb-init \
+FROM node:12-stretch
+RUN apt-get update && apt-get install -y python3 \
+        python3-pip \
         jq \
         docker \
         autoconf \
         automake \
-        alpine-sdk \
+        build-essential \
         && \
-    pip install --upgrade pip && \
-    pip install --upgrade awscli python-magic && \
-    apk -v --purge del py-pip && \
-    rm /var/cache/apk/*
+    # pip3 install --upgrade pip && \
+    pip3 install --upgrade awscli python-magic && \
+    rm -rf /var/lib/apt/lists/*
 
 VOLUME /root/.aws
 VOLUME /var/run/docker.sock
