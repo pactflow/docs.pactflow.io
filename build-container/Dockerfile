@@ -16,5 +16,5 @@ VOLUME /var/run/docker.sock
 VOLUME /workdir
 WORKDIR /workdir
 
-RUN groupadd --gid 501 build \
-  && useradd --uid 502 --gid build --shell /bin/bash --create-home build
+RUN groupadd --gid 502 build \
+  && useradd --uid 501 --gid build --shell /bin/bash --create-home build
