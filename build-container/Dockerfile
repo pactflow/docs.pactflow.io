@@ -15,3 +15,5 @@ VOLUME /root/.aws
 VOLUME /var/run/docker.sock
 VOLUME /workdir
 WORKDIR /workdir
+
+COPY docker-entrypoint.sh /usr/local/bin/
