@@ -3,7 +3,7 @@ env:
 
 steps:
 
-  - command: docker --version
+  - command: ls -l
     label: ':hammer: Check docker'
     env:
       ENVIRONMENT: dev
