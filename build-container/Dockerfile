@@ -1,5 +1,6 @@
 FROM node:12-alpine
 RUN apk -v --update add \
+        python3 \
         py-pip \
         groff \
         less \
@@ -9,6 +10,8 @@ RUN apk -v --update add \
         jq \
         docker \
         autoconf \
+        automake \
+        alpine-sdk \
         && \
     pip install --upgrade pip && \
     pip install --upgrade awscli python-magic && \
@@ -19,5 +22,3 @@ VOLUME /root/.aws
 VOLUME /var/run/docker.sock
 VOLUME /workdir
 WORKDIR /workdir
-
-USER node

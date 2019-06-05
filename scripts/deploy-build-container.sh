@@ -32,8 +32,8 @@ CurrentTag=$(docker images $REPOSITORY/$IMAGE_NAME --format '{{.Tag}}' | awk '/[
 pushd $ScriptDir/../build-container
 
 docker build . -t $IMAGE_NAME
-docker tag build-container-awscli:latest $REPOSITORY/$IMAGE_NAME:$((CurrentTag+1))
-docker tag build-container-awscli:latest $REPOSITORY/$IMAGE_NAME:latest
+docker tag $IMAGE_NAME:latest $REPOSITORY/$IMAGE_NAME:$((CurrentTag+1))
+docker tag $IMAGE_NAME:latest $REPOSITORY/$IMAGE_NAME:latest
 docker push $REPOSITORY/$IMAGE_NAME:$((CurrentTag+1))
 docker push $REPOSITORY/$IMAGE_NAME:latest
 
