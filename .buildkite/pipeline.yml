@@ -3,6 +3,13 @@ env:
 
 steps:
 
+  - command: docker --version
+    label: ':hammer: Check docker'
+    env:
+      ENVIRONMENT: dev
+    agents:
+      queue: pact-dev
+
   - command: /workdir/scripts/build-site.sh
     label: ':hammer: Doc Site - Build'
     env:
