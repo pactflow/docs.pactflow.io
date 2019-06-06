@@ -3,35 +3,35 @@
   "localized-strings": {
     "next": "Next",
     "previous": "Previous",
-    "tagline": "A website for testing",
+    "tagline": "Distributed systems testing made easy",
     "docs": {
-      "doc1": {
-        "title": "Latin-ish",
-        "sidebar_label": "Example Page"
-      },
-      "doc2": {
-        "title": "document number 2"
-      },
-      "doc3": {
-        "title": "This is document number 3"
+      "api": {
+        "title": "API Reference Documentation"
       },
       "doc4": {
         "title": "Other Document"
       },
       "doc5": {
         "title": "Fifth Document"
+      },
+      "getting-started": {
+        "title": "Getting Started with Pactflow",
+        "sidebar_label": "Example Page"
+      },
+      "help": {
+        "title": "Help and Trouble shooting"
       }
     },
     "links": {
-      "Docs": "Docs",
-      "API": "API",
+      "Getting Started": "Getting Started",
       "Help": "Help",
-      "Blog": "Blog"
+      "API": "API"
     },
     "categories": {
-      "Docusaurus": "Docusaurus",
-      "First Category": "First Category",
-      "Second Category": "Second Category"
+      "Getting Started": "Getting Started",
+      "Help": "Help",
+      "Second Category": "Second Category",
+      "First Category": "First Category"
     }
   },
   "pages-strings": {

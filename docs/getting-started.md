@@ -1,6 +1,6 @@
 ---
-id: doc1
-title: Latin-ish
+id: getting-started
+title: Getting Started with Pactflow
 sidebar_label: Example Page
 ---
 
