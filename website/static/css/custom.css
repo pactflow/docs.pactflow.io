@@ -14,3 +14,39 @@
 
 @media only screen and (min-width: 1500px) {
 }
+
+.homeContainer .homeSplashFade {
+  padding-top: 20px;
+}
+
+.homeContainer .homeWrapper {
+  background-image: url(/img/hero-bg.png);
+  background-position: top;
+  background-size: inherit;
+  background-repeat: no-repeat;
+  height: 600px;
+}
+
+.homeContainer .homeWrapper .inner {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.projectTitle {
+  color: white;
+  border-radius: 6px;
+  padding-left: 12px;
+  padding-right: 6px;
+  background: rgba(0,0,0,.2);
+  padding-top: 15px;
+  padding-bottom: 1px;
+}
+
+.nav-home img {
+  border-radius: 8px
+}
+
+.fixedHeaderContainer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

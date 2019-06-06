@@ -29,45 +29,17 @@ class HomeSplash extends React.Component {
       </div>
     );
 
-    const Logo = props => (
-      <div className="projectLogo">
-        <img src={props.img_src} alt="Project Logo" />
-      </div>
-    );
-
     const ProjectTitle = () => (
       <h2 className="projectTitle">
-        {siteConfig.title}
+        Pactflow {siteConfig.title}
         <small>{siteConfig.tagline}</small>
       </h2>
     );
 
-    const PromoSection = props => (
-      <div className="section promoSection">
-        <div className="promoRow">
-          <div className="pluginRowBlock">{props.children}</div>
-        </div>
-      </div>
-    );
-
-    const Button = props => (
-      <div className="pluginWrapper buttonWrapper">
-        <a className="button" href={props.href} target={props.target}>
-          {props.children}
-        </a>
-      </div>
-    );
-
     return (
       <SplashContainer>
-        <Logo img_src={`${baseUrl}img/undraw_monitor.svg`} />
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
-          <PromoSection>
-            <Button href="#try">Try It Out</Button>
-            <Button href={docUrl('doc1.html')}>Example Link</Button>
-            <Button href={docUrl('doc2.html')}>Example Link 2</Button>
-          </PromoSection>
         </div>
       </SplashContainer>
     );
@@ -197,12 +169,12 @@ class Index extends React.Component {
       <div>
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
-          <Features />
+          {/* <Features />
           <FeatureCallout />
           <LearnHow />
           <TryOut />
           <Description />
-          <Showcase />
+          <Showcase /> */}
         </div>
       </div>
     );

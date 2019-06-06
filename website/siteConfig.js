@@ -33,7 +33,7 @@ const siteConfig = {
 
   /* Colors for website */
   colors: {
-    primaryColor: '#000000',
+    primaryColor: '#20232a',
     secondaryColor: '#25a6ad',
   },
 
@@ -84,12 +84,15 @@ const siteConfig = {
   headerLinks: [
     // Links to document with id doc1 for current language/version
     { doc: "getting-started", label: "Getting Started" },
-    { doc: "help", label: "Help" },
+    // Link to page found at pages/en/help.js or if that does not exist, pages/help.js, for current language
+    { page: "help", label: "Help" },
     { doc: "api", label: "API" },
     // Determines search bar position among links
     { search: true },
     // Determines language drop down position among links
-    { languages: true }
+    { languages: true },
+    // Links to href destination
+    { href: "https://pactflow.io/", label: "Main site" },
   ],
 
   docsSideNavCollapsible: true

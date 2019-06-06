@@ -1,5 +1,5 @@
 ---
-id: help
+id: troubleshooting
 title: Help and Trouble shooting
 ---
 

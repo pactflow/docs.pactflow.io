@@ -18,14 +18,15 @@
         "title": "Getting Started with Pactflow",
         "sidebar_label": "Example Page"
       },
-      "help": {
+      "troubleshooting": {
         "title": "Help and Trouble shooting"
       }
     },
     "links": {
       "Getting Started": "Getting Started",
       "Help": "Help",
-      "API": "API"
+      "API": "API",
+      "Main site": "Main site"
     },
     "categories": {
       "Getting Started": "Getting Started",
