@@ -14,6 +14,7 @@ steps:
           image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
           propagate-environment: true
           propagate-uid-gid: true
+          always-pull: true
 
   - wait
 
@@ -41,5 +42,22 @@ steps:
     plugins:
       - docker#v3.2.0:
           image: "{PRODECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+          propagate-environment: true
+          propagate-uid-gid: true
+          always-pull: true
+
+  - wait
+
+  - command: /workdir/scripts/sync.sh
+    label: ':hammer: Doc Site - Sync to Prod'
+    env:
+      ENVIRONMENT: prod
+    agents:
+      queue: pact-prod
+    plugins:
+      - docker#v3.2.0:
+          image: "{PRODECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+          propagate-environment: true
+          always-pull: true
           propagate-environment: true
           propagate-uid-gid: true

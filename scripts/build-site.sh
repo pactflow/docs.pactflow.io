@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -e
-set -x
 
 ScriptDir=$(dirname $0)
 
