@@ -42,11 +42,20 @@
   padding-bottom: 1px;
 }
 
-.nav-home img {
-  border-radius: 8px
+.fixedHeaderContainer header img {
+  border-radius: 6px
 }
 
 .fixedHeaderContainer {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.nav-footer .sitemap .nav-home {
+  margin: -12px 50px 0 0;
+  padding: 10px;
+  transition: opacity .15s ease-in-out;
+  width: 240px;
+  flex: 1;
+  opacity: 1.0;
 }
