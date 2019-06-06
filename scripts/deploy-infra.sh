@@ -21,7 +21,7 @@ aws cloudformation deploy \
   --stack-name $STACKNAME \
   --template-file $ScriptDir/../templates/infra.yaml \
   --parameter-overrides \
-    EnvironmentName=$ENVIRONMENT \
+    Environment=$ENVIRONMENT \
     $PARAMETERS \
   --no-fail-on-empty-changeset \
   --capabilities CAPABILITY_NAMED_IAM \

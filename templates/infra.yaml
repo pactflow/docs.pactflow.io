@@ -9,7 +9,6 @@ Parameters:
   Environment:
     Description: One of 'dev' or 'prod'
     Type: String
-    Default: dev
   WebsiteCert:
     Description: ARN of the website certificate
     Type: String
