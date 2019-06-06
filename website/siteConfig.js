@@ -9,9 +9,9 @@
 // site configuration options.
 
 const siteConfig = {
-  title: 'Documentation Site', // Title for your website.
+  title: 'Pactflow Documentation', // Title for your website.
   tagline: 'Distributed systems testing made easy',
-  url: 'https://docs.pact-dev.dius.com.au', // Your website URL
+  url: 'https://docs.pactflow.io', // Your website URL
   baseUrl: '/', // Base URL for your project */
 
   // Used for publishing and more
