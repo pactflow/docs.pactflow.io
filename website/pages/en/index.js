@@ -31,7 +31,7 @@ class HomeSplash extends React.Component {
 
     const ProjectTitle = () => (
       <h2 className="projectTitle">
-        {siteConfig.title}
+        <img src="/img/logo-white.png" alt="Pactflow Documentation"/>
         <small>{siteConfig.tagline}</small>
       </h2>
     );
