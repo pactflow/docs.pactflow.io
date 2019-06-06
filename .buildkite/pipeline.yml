@@ -59,5 +59,4 @@ steps:
           image: "{PRODECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
           propagate-environment: true
           always-pull: true
-          propagate-environment: true
-          propagate-uid-gid: true
+          user: root
