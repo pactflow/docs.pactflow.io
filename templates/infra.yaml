@@ -12,6 +12,7 @@ Parameters:
     Default: dev
   WebsiteCert:
     Description: ARN of the website certificate
+    Type: String
 
 Resources:
   WebsiteBucket:
