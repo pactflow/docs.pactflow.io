@@ -8,15 +8,8 @@
       "api": {
         "title": "API Reference Documentation"
       },
-      "doc4": {
-        "title": "Other Document"
-      },
-      "doc5": {
-        "title": "Fifth Document"
-      },
       "getting-started": {
-        "title": "Getting Started with Pactflow",
-        "sidebar_label": "Example Page"
+        "title": "Getting Started with Pactflow"
       },
       "troubleshooting": {
         "title": "Help and Trouble shooting"
@@ -24,15 +17,14 @@
     },
     "links": {
       "Getting Started": "Getting Started",
-      "Help": "Help",
       "API": "API",
-      "Main site": "Main site"
+      "Guides": "Guides",
+      "Help": "Help"
     },
     "categories": {
       "Getting Started": "Getting Started",
       "Help": "Help",
-      "Second Category": "Second Category",
-      "First Category": "First Category"
+      "API Reference": "API Reference"
     }
   },
   "pages-strings": {

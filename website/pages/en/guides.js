@@ -12,7 +12,7 @@ const CompLibrary = require('../../core/CompLibrary.js');
 const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
-function Help(props) {
+function Guides(props) {
   const {config: siteConfig, language = ''} = props;
   const {baseUrl, docsUrl} = siteConfig;
   const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
@@ -38,17 +38,17 @@ function Help(props) {
 
   return (
     <div className="docMainWrapper wrapper">
-      <Container className="mainContainer documentContainer postContainer">
+      {/* <Container className="mainContainer documentContainer postContainer">
         <div className="post">
           <header className="postHeader">
             <h1>Community</h1>
           </header>
-          <p>There is a large community who use Pact.</p>
-          {/* <GridBlock contents={supportLinks} layout="threeColumn" /> */}
+          <p>This project is maintained by a dedicated group of people.</p>
+          <GridBlock contents={supportLinks} layout="threeColumn" />
         </div>
-      </Container>
+      </Container> */}
     </div>
   );
 }
 
-module.exports = Help;
+module.exports = Guides;

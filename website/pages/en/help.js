@@ -21,18 +21,20 @@ function Help(props) {
 
   const supportLinks = [
     {
-      content: `Learn more using the [documentation on this site.](${docUrl(
-        'doc1.html',
-      )})`,
+      content: `Learn more using the [documentation on this site](${docUrl(
+        'getting-started.html',
+      )}) as well as the [general Pact documentation](https://docs.pact.io).`,
       title: 'Browse Docs',
     },
     {
-      content: 'Ask questions about the documentation and project',
-      title: 'Join the community',
+      content: `Check the [troubleshooting documentation](${docUrl(
+        'troubleshooting.html',
+      )}) if you are having problems`,
+      title: 'Troubleshooting',
     },
     {
-      content: "Find out what's new with this project",
-      title: 'Stay up to date',
+      content: "Find out what's new with the [Pactflow blog](https://blog.pact.io)",
+      title: 'Stay up to date with our blog',
     },
   ];
 
@@ -43,7 +45,6 @@ function Help(props) {
           <header className="postHeader">
             <h1>Need help?</h1>
           </header>
-          <p>This project is maintained by a dedicated group of people.</p>
           <GridBlock contents={supportLinks} layout="threeColumn" />
         </div>
       </Container>

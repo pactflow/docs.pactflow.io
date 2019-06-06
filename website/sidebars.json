@@ -2,9 +2,6 @@
   "docs": {
     "Getting Started": ["getting-started"],
     "Help": ["troubleshooting"],
-    "Second Category": ["doc3"]
-  },
-  "docs-other": {
-    "First Category": ["doc4", "doc5"]
+    "API Reference": ["api"]
   }
 }
