@@ -3,6 +3,20 @@ env:
 
 steps:
 
+  - command: ./scripts/deploy-infra.sh dev
+    label: ':aws: Doc Site - Deploy Infra - Dev'
+    env:
+      ENVIRONMENT: dev
+    agents:
+      queue: pact-dev
+    plugins:
+      - docker#v3.2.0:
+          image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+          propagate-environment: true
+          propagate-uid-gid: true
+
+  - wait
+
   - command: /workdir/scripts/build-site.sh
     label: ':hammer: Doc Site - Build'
     env:
