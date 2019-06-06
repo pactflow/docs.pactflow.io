@@ -1,3 +1,3 @@
 #!/bin/bash 
 
-sed s/{ECR}/$DEV_ACCOUNT/g .buildkite/pipeline.yml
+cat .buildkite/pipeline.yml | sed s/{ECR}/$DEV_ACCOUNT/g | sed s/{PRODECR}/$PROD_ACCOUNT/g

@@ -29,3 +29,17 @@ steps:
           propagate-environment: true
           user: root
           always-pull: true
+
+  - block: ":rocket: Release! Fly! Fly! Be FREE!!!"
+
+  - command: ./scripts/deploy-infra.sh prod
+    label: ':aws: Doc Site - Deploy Infra - Prod'
+    env:
+      ENVIRONMENT: prod
+    agents:
+      queue: pact-prod
+    plugins:
+      - docker#v3.2.0:
+          image: "{PRODECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+          propagate-environment: true
+          propagate-uid-gid: true

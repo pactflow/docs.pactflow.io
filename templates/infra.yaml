@@ -14,6 +14,10 @@ Parameters:
     Description: ARN of the website certificate
     Type: String
 
+Conditions:
+  IsProduction: !Equals [!Ref 'Environment', 'prod']
+  IsDev: !Equals [!Ref 'Environment', 'dev']
+
 Resources:
   WebsiteBucket:
       Type: AWS::S3::Bucket
@@ -50,6 +54,7 @@ Resources:
 
   OriginRecord:
     Type: AWS::Route53::RecordSet
+    Condition: IsDev
     Properties:
         AliasTarget:
           DNSName: !GetAtt WebsiteDistribution.DomainName
