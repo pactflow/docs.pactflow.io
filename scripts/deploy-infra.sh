@@ -8,7 +8,8 @@ if [ "" = "$1" ]; then
   exit 1
 fi
 
-AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION:-us-east-1}
+export AWS_DEFAULT_REGION=us-east-1
+
 ENVIRONMENT=$1
 STACKNAME=pactflow-docsite-${ENVIRONMENT}-infra
 PARAMETER_VAR=${ENVIRONMENT}_PARAMETERS

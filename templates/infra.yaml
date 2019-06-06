@@ -10,6 +10,8 @@ Parameters:
     Description: One of 'dev' or 'prod'
     Type: String
     Default: dev
+  WebsiteCert:
+    Description: ARN of the website certificate
 
 Resources:
   WebsiteBucket:
@@ -20,12 +22,6 @@ Resources:
           WebsiteConfiguration:
             ErrorDocument: 404.html
             IndexDocument: index.html
-
-  WebsiteCertificate:
-      Type: AWS::CertificateManager::Certificate
-      Properties:
-          DomainName: !Ref HostName
-          ValidationMethod: DNS
 
   WebsiteDistribution:
       Type: AWS::CloudFront::Distribution
@@ -46,7 +42,7 @@ Resources:
                   ViewerProtocolPolicy: redirect-to-https
               DefaultRootObject: index.html
               ViewerCertificate:
-                  AcmCertificateArn: !Ref WebsiteCertificate
+                  AcmCertificateArn: !Ref WebsiteCert
                   SslSupportMethod: sni-only
 
   OriginRecord:
@@ -61,10 +57,6 @@ Resources:
         Type: A
 
 Outputs:
-  CertificateArn:
-    Description: Arn of the certificate in us-east-1
-    Value: !Ref WebsiteCertificate
-
   WebsiteBucket:
     Description: Bucket that hosts the website
     Value: !Ref WebsiteBucket
