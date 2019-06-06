@@ -33,7 +33,7 @@ function Help(props) {
       title: 'Troubleshooting',
     },
     {
-      content: "Find out what's new with the [Pactflow blog](https://blog.pact.io)",
+      content: "Find out what's new with the [Pactflow blog](https://blog.pactflow.io)",
       title: 'Stay up to date with our blog',
     },
   ];
