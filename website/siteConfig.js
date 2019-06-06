@@ -27,8 +27,8 @@ const siteConfig = {
   ],
 
   /* path to images for header/footer */
-  headerIcon: 'img/logo-white.png',
-  footerIcon: 'img/apple-icon.png',
+  headerIcon: 'img/apple-icon.png',
+  footerIcon: 'img/logo-white.png',
   favicon: 'img/favicon-32x32.png',
 
   /* Colors for website */
