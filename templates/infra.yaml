@@ -42,6 +42,8 @@ Resources:
                   TargetOriginId: only-origin
                   ViewerProtocolPolicy: redirect-to-https
               DefaultRootObject: index.html
+              Aliases:
+                - !Ref HostName
               ViewerCertificate:
                   AcmCertificateArn: !Ref WebsiteCert
                   SslSupportMethod: sni-only

@@ -18,7 +18,7 @@ steps:
   - wait
 
   - command: /workdir/scripts/build-site.sh
-    label: ':hammer: Doc Site - Build'
+    label: ':hammer: Doc Site - Build - Dev'
     env:
       ENVIRONMENT: dev
     agents:
