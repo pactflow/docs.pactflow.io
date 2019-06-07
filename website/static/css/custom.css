@@ -63,3 +63,7 @@
   flex: 1;
   opacity: 1.0;
 }
+
+article a, article a:hover {
+  text-decoration: underline;
+}
