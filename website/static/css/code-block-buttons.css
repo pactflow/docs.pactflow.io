@@ -26,7 +26,7 @@ pre .btnIcon:hover {
     display: flex;
 }
 
-.btnIcon svg {
+.btnIcon img {
     fill: currentColor;
     margin-right: .4em;
 }
