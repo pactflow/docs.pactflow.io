@@ -102,7 +102,9 @@ const siteConfig = {
     { languages: true },
   ],
 
-  docsSideNavCollapsible: true
+  docsSideNavCollapsible: true,
+
+  gaTrackingId: "UA-8926693-9"
 };
 
 module.exports = siteConfig;
