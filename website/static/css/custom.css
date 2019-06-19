@@ -64,7 +64,7 @@
   opacity: 1.0;
 }
 
-article a, article a:hover {
+.container a, .container a:hover {
   text-decoration: underline;
 }
 
