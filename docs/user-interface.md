@@ -29,7 +29,7 @@ The Matrix will display more details of all the pacts and verifications of the s
 
 <img src="assets/ui/five.png" style="float: left; padding-right: 5px"/>
 The settings (or cog) button will take you to all the setting screens. Here you'll be able to setup
-tokens and webhooks.
+API tokens and webhooks.
 
 &nbsp;
 
