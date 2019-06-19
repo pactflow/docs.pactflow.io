@@ -13,7 +13,7 @@ where `<YOUR DOMAIN HERE>` is the domain name for your broker (which was specifi
 
 In your tests, make sure you are using the latest version of the Pact library for your language, to ensure that the token authentication feature is supported.
 
-Before you jump in, also make sure you've read the [Quick Start](https://github.com/pact-foundation/pact_broker/wiki) guide on the Pact Broker wiki. There is an excellent guide to [Versioning in the Pact Broker](https://docs.pact.io/getting-started/versioning-in-the-pact-broker) on the docs.pact.io website that will ensure you get the most out of Pactflow. You can find documentation on all the Pactflow screens under [Help | Pactflow User Interface Help](user-interface).
+Before you jump in, also make sure you've read the [Quick Start](https://github.com/pact-foundation/pact_broker/wiki) guide on the Pact Broker wiki. There is an excellent guide to [Versioning in the Pact Broker](https://docs.pact.io/getting-started/versioning-in-the-pact-broker) on the docs.pact.io website that will ensure you get the most out of Pactflow. You can find documentation on all the Pactflow screens under [Help | Pactflow User Interface Help](/docs/user-interface).
 
 We also have a Slack workspace where you can chat with other members and get general support with the product. Join us by registering [here](http://slack.pact.io/).
 
