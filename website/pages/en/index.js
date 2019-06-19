@@ -58,14 +58,14 @@ class Index extends React.Component {
     const supportLinks = [
       {
         content: `Learn more using the [documentation on this site](${docUrl(
-          'getting-started.html',
+          '/docs/getting-started.html',
         )}) as well as the [general Pact documentation](https://docs.pact.io). Check out the [Pactflow user interface help](${
           docUrl('user-interface.html')}) for documentation on the Pactflow screens.`,
         title: 'Browse the Docs',
       },
       {
         content: `Check the [troubleshooting documentation](${docUrl(
-          'troubleshooting.html',
+          '/docs/troubleshooting.html',
         )}) if you are having problems.`,
         title: 'Troubleshooting',
       },
