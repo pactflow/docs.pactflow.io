@@ -73,6 +73,11 @@ class Index extends React.Component {
         content: "Find out what's new with the [Pactflow blog](https://blog.pactflow.io).",
         title: 'Stay up to date with our blog.',
       },
+      ,
+      {
+        content: "You can see what we are currently working on with our [Product Road-map](https://blog.pactflow.io/pactflow-feature-roadmap/)",
+        title: 'See our upcoming product features',
+      }
     ];
 
     const Block = props => (
