@@ -56,7 +56,7 @@ Here you will be able to create and edit your webhooks.
 | Consumer | You can select a specific consumer for the webhook, or `ALL` for all consumers.  |
 | Provider | You can select a specific provider for the webhook, or `ALL` for all providers. |
 | Events | Select the events for which you want the webhook to fire (Mandatory to select one). |
-| Method | The HTTP Method to use. Defaults to a POST. |
+| Method | All webhook requests will be of type HTTP Post. |
 | URL | The URL to send the webhook request to (Mandatory). You can use dynamic variables in this field. |
 | Headers | Headers as `KEY: VALUE` pairs to set on the request. |
 | Body | The body of the request. You can use dynamic variables in the body. |
@@ -84,6 +84,6 @@ The following variables may be used in the path of the URL, the query parameters
 
 ## Settings - API Tokens
 
-Here you can copy and re-generate your API tokens. There are two tokens you can use, a read only token 
-for anything that needs to download pacts, and a read-write token for anything required to publish 
-pact files or verification results.
+Here you can copy and re-generate your API tokens. There are two tokens you can use, a read only token
+for anything that needs to download pacts, and a read-write token for anything required to publish
+pact files or verification results. The read/write token should only be used by your CI, and the read only token should be used for a developer's machine.
