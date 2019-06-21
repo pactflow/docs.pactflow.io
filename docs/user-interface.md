@@ -46,7 +46,7 @@ The settings (or cog) button will take you to all the setting screens. Here you'
 
 ## Settings
 
-## Webhooks
+### Settings - Webhooks
 
 Here you will be able to create and edit your webhooks.
 
@@ -64,9 +64,9 @@ Here you will be able to create and edit your webhooks.
 | Basic auth password | The password to use if your webhook requires Basic HTTP authentication |
 | Enabled | Uncheck this if you wish to disable the webhook |
 
-### Webhook event types
+#### Webhook event types
 
-#### Contract published with changed content or tags
+##### Contract published with changed content or tags
 
 If your pact is published _without_ any tags applied to the consumer version, then this event will be fired if the pact content is different from the previous version.
 
@@ -74,15 +74,15 @@ If your pact is published _with_ tags applied to the consumer verison, then you 
 
 If you want a provider build to be triggered by pact changes, then select this event for your webhook.
 
-#### Contract published
+##### Contract published
 
 This event fires every time a pact is published.
 
-#### Provider verification published
+##### Provider verification published
 
 This event fires every time a provider verification is published.
 
-### Dynamic Variables
+#### Dynamic Variables
 
 The following variables may be used in the path of the URL, the query parameters and body, and will be replaced with their appropriate values at runtime.
 
@@ -100,7 +100,7 @@ The following variables may be used in the path of the URL, the query parameters
 | ${pactbroker.consumerLabels} | The list of labels for the consumer associated with the pact content, separated by ", " |
 | ${pactbroker.providerLabels} | The list of labels for the provider associated with the pact content, separated by ", " |
 
-## API Tokens
+### Settings - API Tokens
 
 Here you can copy and re-generate your API tokens. There are two tokens you can use, a read only token
 for anything that needs to download pacts, and a read-write token for anything required to publish
