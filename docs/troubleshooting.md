@@ -16,4 +16,4 @@ browser cookies before logging in again.
 
 ## Getting a 401 Unauthorized when publishing or retrieving pacts
 
-To publish or retrive pacts you need to use one of the tokens from your Pactflow settings page. For publishing, you will need to use the Read/Write token.
+To publish or retrieve pacts you need to use one of the tokens from your Pactflow settings page. For publishing, you will need to use the Read/Write token.
