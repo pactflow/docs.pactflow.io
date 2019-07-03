@@ -70,7 +70,7 @@ Here you will be able to create and edit your webhooks.
 
 If your pact is published _without_ any tags applied to the consumer version, then this event will be fired if the pact content is different from the previous version.
 
-If your pact is published _with_ tags applied to the consumer verison, then you can think of all the pacts that share the same tag name as forming a time ordered "pseudo branch". This event will fire if the new pact for any of the "pseudo branches" is different from the previous version.
+If your pact is published _with_ tags applied to the consumer verison, then you can think of all the pacts that share the same tag name as forming a time ordered "pseudo branch". This event will fire if the new pact for any of the "pseudo branches" is different from the previous version. One of the implications of this is that if a pact is published with the same content as a previous verison, but with a new tag, this event will fire as it is considered to be the first version of a new pseudo branch.
 
 If you want a provider build to be triggered by pact changes, then select this event for your webhook.
 
