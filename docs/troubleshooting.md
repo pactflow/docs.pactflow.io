@@ -32,6 +32,11 @@ pact {
 
     }
   }
+
+  publish {
+    pactBrokerUrl = 'https://<YOUR_BROKER>.pact.dius.com.au/'
+    pactBrokerToken = '<TOKEN>'
+  }
 }
 ```
 
