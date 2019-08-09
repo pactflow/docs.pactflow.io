@@ -1,5 +1,5 @@
-FROM node:12-stretch
-RUN apt-get update && apt-get install -y python3.7 \
+FROM node:12-buster
+RUN apt-get update && apt-get install -y python3 \
         python3-pip \
         jq \
         docker \
