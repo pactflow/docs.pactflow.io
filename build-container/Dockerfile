@@ -1,5 +1,5 @@
 FROM node:12-stretch
-RUN apt-get update && apt-get install -y python3 \
+RUN apt-get update && apt-get install -y python3.7 \
         python3-pip \
         jq \
         docker \
@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y python3 \
         automake \
         build-essential \
         && \
-    # pip3 install --upgrade pip && \
+    pip3 install --upgrade pip && \
     pip3 install --upgrade awscli aws-sam-cli python-magic && \
     rm -rf /var/lib/apt/lists/*
 
