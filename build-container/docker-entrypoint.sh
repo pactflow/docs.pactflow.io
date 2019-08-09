@@ -6,6 +6,5 @@ if [ "${1#-}" != "${1}" ] || [ -z "$(command -v "${1}")" ]; then
 fi
 
 chown -R node:node /workdir/*
-ls -l /workdir
 
 exec "$@"

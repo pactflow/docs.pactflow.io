@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y python3 \
         build-essential \
         && \
     # pip3 install --upgrade pip && \
-    pip3 install --upgrade awscli python-magic && \
+    pip3 install --upgrade awscli aws-sam-cli python-magic && \
     rm -rf /var/lib/apt/lists/*
 
 VOLUME /root/.aws
