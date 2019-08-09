@@ -46,6 +46,20 @@ Pact.service_provider "<Service Name>" do
 end
 ```
 
+<!--Ruby Publishing-->
+```ruby
+# In Rakefile
+
+require 'pact_broker/client/tasks'
+
+PactBroker::Client::PublicationTask.new do | task |
+  require 'my_consumer/version'
+  task.consumer_version = MyConsumer::VERSION
+  task.pact_broker_base_url = "https://<YOUR_BROKER>.pact.dius.com.au"
+  task.pact_broker_token = "<TOKEN>" # Bearer token
+end
+```
+
 <!--JUnit5-->
 ```java
 @Provider("Service Name") // put the name of your service here
