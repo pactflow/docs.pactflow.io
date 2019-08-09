@@ -65,7 +65,45 @@ PactBroker::Client::PublicationTask.new do | task |
 end
 ```
 
+<!--Node-->
+
+```js
+const { Verifier } = require("@pact-foundation/pact");
+
+// See https://github.com/pact-foundation/pact-js#provider-api-testing for all options
+return new Verifier().verifyProvider({
+  provider: "Animal Profile Service",
+  providerBaseUrl: "http://localhost:8081",
+
+  // Fetch pacts from broker
+  pactBrokerUrl: "https://<YOUR_BROKER>.pact.dius.com.au/",
+  pactBrokerToken: "<TOKEN>",
+
+  // Fetch from broker with given tags
+  tags: ["prod"],
+
+  publishVerificationResult: true,
+  providerVersion: "1.0.0"
+});
+```
+
+<!--Node Publishing-->
+
+```js
+const pact = require("@pact-foundation/pact-node");
+const opts = {
+  pactFilesOrDirs: ["pacts/matching_service-animal_profile_service.json"],
+  pactBroker: "https://<YOUR_BROKER>.pact.dius.com.au",
+  pactBrokerToken: "<TOKEN>",
+  consumerVersion: "1.0.1-b48bc02288f6c1e912cae579105e43d9"
+};
+
+// See https://github.com/pact-foundation/pact-node/#pact-broker-publishing for all options
+pact.publishPacts(opts);
+```
+
 <!--JUnit5-->
+
 ```java
 @Provider("Service Name") // put the name of your service here
 @PactBroker(host = "<YOUR_BROKER>.pact.dius.com.au", scheme = "https",
