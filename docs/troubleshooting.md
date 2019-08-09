@@ -25,7 +25,7 @@ To use the token:
 ```groovy
 pact {
   serviceProviders {
-    'Service Name' { // put the name of your service here
+    '<Service Name>' { // put the name of your service here
 
       hasPactsFromPactBroker('https://<YOUR_BROKER>.pact.dius.com.au/', 
         authentication: ['Bearer', '<TOKEN>'])
@@ -34,6 +34,18 @@ pact {
   }
 }
 ```
+
+<!--Ruby-->
+```ruby
+Pact.service_provider "<Service Name>" do
+
+  honours_pact_with '<My Service Consumer>' do
+    pact_uri 'https://<YOUR_BROKER>.pact.dius.com.au', {token: '<TOKEN>'}
+  end
+
+end
+```
+
 <!--JUnit5-->
 ```java
 @Provider("Service Name") // put the name of your service here
