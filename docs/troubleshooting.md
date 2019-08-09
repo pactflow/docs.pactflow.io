@@ -16,4 +16,48 @@ browser cookies before logging in again.
 
 ## Getting a 401 Unauthorized when publishing or retrieving pacts
 
-To publish or retrieve pacts you need to use one of the tokens from your Pactflow settings page. For publishing, you will need to use the Read/Write token.
+To publish or retrieve pacts you need to use one of the tokens from your Pactflow settings page. For publishing, you will need to use the Read/Write token. See [Settings - API Tokens](docs/user-interface#settings-api-tokens)
+
+To use the token:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Gradle-->
+```groovy
+pact {
+  serviceProviders {
+    'Service Name' { // put the name of your service here
+
+      hasPactsFromPactBroker('https://<YOUR_BROKER>.pact.dius.com.au/', 
+        authentication: ['Bearer', '<TOKEN>'])
+
+    }
+  }
+}
+```
+<!--JUnit5-->
+```java
+@Provider("Service Name") // put the name of your service here
+@PactBroker(host = "<YOUR_BROKER>.pact.dius.com.au", scheme = "https",
+  authentication = @PactBrokerAuth(scheme = "bearer", username = "<TOKEN>", password = ""))
+public class PactJUnitBrokerTest {
+
+    @TestTemplate
+    @ExtendWith(PactVerificationInvocationContextProvider.class)
+    void testTemplate(Pact pact, Interaction interaction, HttpRequest request, PactVerificationContext context) {
+      context.verifyInteraction();
+    }
+}
+```
+<!--JUnit4-->
+```java
+@RunWith(PactRunner.class)
+@Provider("Service Name") // put the name of your service here
+@PactBroker(host = "<YOUR_BROKER>.pact.dius.com.au", scheme = "https",
+  authentication = @PactBrokerAuth(scheme = "bearer", username = "<TOKEN>", password = ""))
+public class PactJUnitBrokerTest {
+  @TestTarget
+  public final Target target = new HttpTarget(8080);
+}
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
