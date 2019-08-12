@@ -70,7 +70,7 @@ Here you will be able to create and edit your webhooks.
 
 If your pact is published _without_ any tags applied to the consumer version, then this event will be fired if the pact content is different from the previous version.
 
-If your pact is published _with_ tags applied to the consumer verison, then you can think of all the pacts that share the same tag name as forming a time ordered "pseudo branch". This event will fire if the new pact for any of the "pseudo branches" is different from the previous version. One of the implications of this is that if a pact is published with the same content as a previous verison, but with a new tag, this event will fire as it is considered to be the first version of a new pseudo branch.
+If your pact is published _with_ tags applied to the consumer version, then you can think of all the pacts that share the same tag name as forming a time ordered "pseudo branch". This event will fire if the new pact for any of the "pseudo branches" is different from the previous version. One of the implications of this is that if a pact is published with the same content as a previous version, but with a new tag, this event will fire as it is considered to be the first version of a new pseudo branch.
 
 If you want a provider build to be triggered by pact changes, then select this event for your webhook.
 
@@ -99,6 +99,28 @@ The following variables may be used in the path of the URL, the query parameters
 | ${pactbroker.providerVersionTags} | The list of tag names for the provider version associated with the verification result, separated by ", " |
 | ${pactbroker.consumerLabels} | The list of labels for the consumer associated with the pact content, separated by ", " |
 | ${pactbroker.providerLabels} | The list of labels for the provider associated with the pact content, separated by ", " |
+
+### Settings - Secrets
+
+&nbsp;
+
+![Secrets Screen](assets/ui/secrets.png)
+
+&nbsp;
+
+You can create your own variables to store sensitive values like usernames and passwords here. These will be encrypted and then stored in the Pactflow platform and available to use when editing your webhooks.
+
+&nbsp;
+
+![Secrets Screen](assets/ui/secrets-form.png)
+
+&nbsp;
+
+| Field | Description |
+| ---------- | ----------- |
+| Name | Give a name to your secret. This will be available as a dynamic variable prefixed with `user.`. For instance, if you create a `JenkinsUser` secret you can access it as `${user.JenkinsUser}`. |
+| Description | Describe what your secret is here. |
+| Value | The value you need encrypted. |
 
 ### Settings - API Tokens
 
