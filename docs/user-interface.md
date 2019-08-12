@@ -108,7 +108,7 @@ The following variables may be used in the path of the URL, the query parameters
 
 &nbsp;
 
-You can create your own variables to store sensitive values like usernames and passwords here. These will be encrypted and then stored in the Pactflow platform and available to use when editing your webhooks.
+You can create your own variables to store sensitive values like usernames and passwords here. These will be encrypted and then stored in the Pactflow platform and available to use when creating your webhooks.
 
 &nbsp;
 
