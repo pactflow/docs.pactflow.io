@@ -132,29 +132,28 @@ public class PactJUnitBrokerTest {
 <!--Golang-->
 
 ```go
-		// Verify the Provider - Latest Published Pacts for any known consumers
-		_, err := pact.VerifyProvider(t, types.VerifyRequest{
-			ProviderBaseURL:            fmt.Sprintf("http://127.0.0.1:%d", port),
-			BrokerURL:                  "https://<YOUR_BROKER>.pact.dius.com.au/",
-			BrokerToken:                "<TOKEN>",
-			PublishVerificationResults: true,
-			ProviderVersion:            "1.0.0",
-			StateHandlers:              stateHandlers,
-			RequestFilter:              fixBearerToken,
-		})
+_, err := pact.VerifyProvider(t, types.VerifyRequest{
+  ProviderBaseURL:            fmt.Sprintf("http://127.0.0.1:%d", port),
+  BrokerURL:                  "https://<YOUR_BROKER>.pact.dius.com.au/",
+  BrokerToken:                "<TOKEN>",
+  PublishVerificationResults: true,
+  ProviderVersion:            "1.0.0",
+  StateHandlers:              stateHandlers,
+  RequestFilter:              fixBearerToken,
+})
 ```
 
 <!--Golang Publishing-->
 
 ```go
-		p := dsl.Publisher{}
-		err := p.Publish(types.PublishRequest{
-			PactURLs:        []string{"/path/to/pact/file"},
-			PactBroker:      "https://<YOUR_BROKER>.pact.dius.com.au/",
-			ConsumerVersion: "1.0.0",
-			Tags:            []string{"prod"},
-			BrokerToken:     "<TOKEN>",
-		})
+p := dsl.Publisher{}
+err := p.Publish(types.PublishRequest{
+  PactURLs:        []string{"/path/to/pact/file"},
+  PactBroker:      "https://<YOUR_BROKER>.pact.dius.com.au/",
+  ConsumerVersion: "1.0.0",
+  Tags:            []string{"prod"},
+  BrokerToken:     "<TOKEN>",
+})
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
