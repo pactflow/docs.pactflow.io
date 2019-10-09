@@ -6,16 +6,9 @@ Parameters:
   HostName:
     Description: Domain name to host the website on
     Type: String
-  Environment:
-    Description: One of 'dev' or 'prod'
-    Type: String
   WebsiteCert:
     Description: ARN of the website certificate
     Type: String
-
-Conditions:
-  IsProduction: !Equals [!Ref 'Environment', 'prod']
-  IsDev: !Equals [!Ref 'Environment', 'dev']
 
 Resources:
   WebsiteBucket:
@@ -53,7 +46,6 @@ Resources:
 
   OriginRecord:
     Type: AWS::Route53::RecordSet
-    Condition: IsDev
     Properties:
         AliasTarget:
           DNSName: !GetAtt WebsiteDistribution.DomainName
