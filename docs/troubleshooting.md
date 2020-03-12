@@ -1,6 +1,6 @@
 ---
 id: troubleshooting
-title: Help and Trouble shooting
+title: Help and troubleshooting
 ---
 
 # Login Issues
@@ -27,7 +27,7 @@ pact {
   serviceProviders {
     '<Service Name>' { // put the name of your service here
 
-      hasPactsFromPactBroker('https://<YOUR_BROKER>.pact.dius.com.au/', 
+      hasPactsFromPactBroker('https://<YOUR_BROKER>.pact.dius.com.au/',
         authentication: ['Bearer', '<TOKEN>'])
 
     }
@@ -157,3 +157,9 @@ err := p.Publish(types.PublishRequest{
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+# Webhook Issues
+
+## Webhooks blocked by firewall
+
+You will need to whitelist the IP addresses listed on our [FAQ page](https://pactflow.io/faq/#ip-address-whitelist).
