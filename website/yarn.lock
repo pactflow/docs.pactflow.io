@@ -3291,6 +3291,11 @@ import-lazy@^3.1.0:
   resolved "https://registry.yarnpkg.com/import-lazy/-/import-lazy-3.1.0.tgz#891279202c8a2280fdbd6674dbd8da1a1dfc67cc"
   integrity sha512-8/gvXvX2JMn0F+CDlSC4l6kOmVaLOO3XLkksI7CI3Ud95KDYJuYur2b9P/PUt/i/pDAMd/DulQsNbbbmRRsDIQ==
 
+improved-yarn-audit@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/improved-yarn-audit/-/improved-yarn-audit-1.1.1.tgz#72078e146726f332eaafb7cfd8af928e335a846c"
+  integrity sha512-pZ1hrKuOy1bk7LDPWv3By3B0gdO5WPbkTfLf3K52DxxfvpbQR7aiZhBs2Ps9jRi8dI63DKW07Sx/0EMB5PG07g==
+
 indent-string@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/indent-string/-/indent-string-2.1.0.tgz#8e2d48348742121b4a8218b7a137e9a52049dc80"

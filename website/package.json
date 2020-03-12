@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "docusaurus": "^1.10.0"
+  },
+  "dependencies": {
+    "improved-yarn-audit": "^1.1.1"
   }
 }

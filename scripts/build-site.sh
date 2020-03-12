@@ -8,12 +8,7 @@ pushd $ScriptDir/../website
 
 yarn install && yarn run build
 
-echo "WARNING!!! audit check disabled because of decompress not being fixed!!!"
-# if [[ $(yarn audit --summary | grep "High" |  wc -l) -gt 0 ]]; then
-#   echo "high vulnerability found"
-#   yarn audit --summary
-#   exit 1
-# fi
+yarn run improved-yarn-audit --min-severity high --summary --exclude 1217
 
 BUCKET_VAR=${ENVIRONMENT}_BUCKET
 BUCKET=${!BUCKET_VAR}
