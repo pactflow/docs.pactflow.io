@@ -11,22 +11,27 @@
       "getting-started": {
         "title": "Getting Started with Pactflow"
       },
-      "troubleshooting": {
-        "title": "Help and Trouble shooting"
+      "index": {
+        "title": "index"
+      },
+      "login-help": {
+        "title": "Login"
       },
       "user-interface": {
-        "title": "Pactflow User Interface Help"
+        "title": "Pactflow User Interface"
+      },
+      "webhooks-help": {
+        "title": "Webhooks"
       }
     },
     "links": {
       "Getting Started": "Getting Started",
       "API": "API",
-      "Guides": "Guides",
       "Help": "Help"
     },
     "categories": {
       "Getting Started": "Getting Started",
-      "Help": "Help",
+      "Troubleshooting": "Troubleshooting",
       "API Reference": "API Reference"
     }
   },
