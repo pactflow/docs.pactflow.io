@@ -1,22 +1,22 @@
 ---
-id: troubleshooting
-title: Help and troubleshooting
+id: login-help
+title: Login
 ---
 
-# Login Issues
-
-## Unable to login into Pactflow
+## Unable to login into Pactflow user interface
 
 When you signup for Pactflow, you will be emailed the login details with a tempory password. This password is only valid for 7 days. If you need the password reset, email us at support@pactflow.io and we will be happy to reset it for you.
 
-## Github login `invalid_grant: {"error":"invalid_grant"}` error
+## Github login error
 
-If you get an `invalid_grant` error while logging into Pactflow using Github, you'll need to clear your
-browser cookies before logging in again.
+If you get an `invalid_grant: {"error":"invalid_grant"}` error while logging into Pactflow using Github, you'll need to clear your browser cookies before logging in again.
 
-## Getting a 401 Unauthorized when publishing or retrieving pacts
+## Getting a 401 Unauthorized when publishing or verifying pacts
 
-To publish or retrieve pacts you need to use one of the tokens from your Pactflow settings page. For publishing, you will need to use the Read/Write token. See [Settings - API Tokens](docs/user-interface#settings-api-tokens)
+**NOTE: You cannot use your username and password to access the Pactflow API.**
+
+To publish or retrieve pacts you need to use one of the bearer tokens from your Pactflow settings page. For publishing, you will need to use the Read/Write token. See [Settings - API Tokens](user-interface#settings-api-tokens)
+
 
 To use the token:
 
@@ -157,9 +157,3 @@ err := p.Publish(types.PublishRequest{
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
-
-# Webhook Issues
-
-## Webhooks blocked by firewall
-
-You will need to whitelist the IP addresses listed on our [FAQ page](https://pactflow.io/faq/#ip-address-whitelist).

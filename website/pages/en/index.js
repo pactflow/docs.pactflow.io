@@ -65,7 +65,7 @@ class Index extends React.Component {
       },
       {
         content: `Check the [troubleshooting documentation](${docUrl(
-          'troubleshooting.html',
+          'login-help.html',
         )}) if you are having problems.`,
         title: 'Troubleshooting',
       },

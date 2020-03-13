@@ -17,7 +17,7 @@ const siteConfig = {
   // Used for publishing and more
   projectName: 'doc-site',
   organizationName: 'Pactflow',
-  
+
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     {doc: 'doc1', label: 'Docs'},
@@ -69,7 +69,7 @@ const siteConfig = {
   ],
 
   stylesheets: [
-    
+
   ],
 
   // On page navigation for the current documentation page.
@@ -96,7 +96,7 @@ const siteConfig = {
     { doc: "getting-started", label: "Getting Started" },
     { doc: "api", label: "API" },
     // Link to page found at pages/en/help.js or if that does not exist, pages/help.js, for current language
-    { page: "guides", label: "Guides" },
+    // { page: "guides", label: "Guides" },
     { page: "help", label: "Help" },
     // Determines search bar position among links
     { search: true },

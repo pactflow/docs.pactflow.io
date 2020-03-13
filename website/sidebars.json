@@ -1,7 +1,7 @@
 {
   "docs": {
-    "Getting Started": ["getting-started"],
-    "Help": ["troubleshooting", "user-interface"],
+    "Getting Started": ["getting-started", "user-interface"],
+    "Troubleshooting": ["login-help", "webhooks-help"],
     "API Reference": ["api"]
   }
 }

@@ -29,7 +29,7 @@ function Help(props) {
     },
     {
       content: `Check the [troubleshooting documentation](${docUrl(
-        'troubleshooting.html',
+        'login-help.html',
       )}) if you are having problems`,
       title: 'Troubleshooting',
     },
