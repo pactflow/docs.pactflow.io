@@ -26,11 +26,11 @@ To publish or verify pacts you need to use one of the bearer tokens from the [AP
 
 Open your Pactflow account in a browser and log in with your username and password. Click on the settings icon (the cog wheel icon at the top right of the screen).
 
-You will see two tokens listed - a read only token, and a read/write token.
+You will see the API Tokens page with two tokens listed - a read only token, and a read/write token.
 
 ![API Token Screen](assets/ui/api-tokens.png)
 
-Pacts and verification results are generally only published from a CI machine, so use the read/write token for CI, and the read only token on a local development machine.
+Pacts and verification results are generally only published from a CI machine, so use the read only token on a local development machine, and keep the read/write token for CI.
 
 While each of the following examples shows the use of a hardcoded token, note that you would normally be accessing the token via an environment variable or build parameter that is stored and provided in a secure manner (eg. a Jenkins build secret or a Travis encrypted environment variable).
 

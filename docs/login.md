@@ -13,12 +13,9 @@ If you get an `invalid_grant: {"error":"invalid_grant"}` error while logging int
 
 ## Getting a 401 Unauthorized when publishing or verifying pacts
 
-**NOTE: You cannot use your username and password to access the Pactflow API.**
-
 The most common reasons for API authentication failures are:
 
-  1. Using an old version of a Pact library that does not support the authentication scheme that Pactflow users (bearer token authentication).
+  1. Using an old version of a Pact library that does not support the authentication scheme that Pactflow accepts (bearer token authentication).
       * To resolve this, make sure you are using the latest version of the Pact library for your language.
-  2. Missing or incorrectly configured API token.
+  2. Attempting to access the API with a username and password instead of an API token.
       * To resolve this, please see the section on [configuring your API token](/docs/getting-started#configuring-your-api-token)
-
