@@ -70,12 +70,12 @@ class Index extends React.Component {
         title: 'Troubleshooting',
       },
       {
-        content: "Find out what's new with the [Pactflow blog](https://blog.pactflow.io).",
+        content: "Find out what's new with the [Pactflow blog](https://pactflow.io/blog/).",
         title: 'Stay up to date with our blog.',
       },
       ,
       {
-        content: "You can see what we are currently working on with our [Product Road-map](https://blog.pactflow.io/pactflow-feature-roadmap/)",
+        content: "You can see what we are currently working on with our [Product Road-map](https://pactflow.io/pactflow-feature-roadmap/)",
         title: 'See our upcoming product features',
       }
     ];
