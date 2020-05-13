@@ -168,7 +168,7 @@ p := dsl.Publisher{}
 err := p.Publish(types.PublishRequest{
   PactURLs:        []string{"/path/to/pact/file"},
   PactBroker:      "https://<YOUR_BROKER>.pact.dius.com.au",
-  ConsumerVersion: "1.0.0",
+  ConsumerVersion: "<GIT_COMMIT>",
   BrokerToken:     "<TOKEN>",
 })
 ```
@@ -181,7 +181,7 @@ _, err := pact.VerifyProvider(t, types.VerifyRequest{
   BrokerURL:                  "https://<YOUR_BROKER>.pact.dius.com.au",
   BrokerToken:                "<TOKEN>",
   PublishVerificationResults: true,
-  ProviderVersion:            "1.0.0"
+  ProviderVersion:            "<GIT_COMMIT>"
 })
 ```
 
