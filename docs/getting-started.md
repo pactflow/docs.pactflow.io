@@ -47,7 +47,7 @@ To configure the token:
 
 
 ```js
-const pact = require("@pact-foundation/pact-node");
+const { Publisher } = require("@pact-foundation/pact")
 const opts = {
   pactBroker: 'https://<YOUR_BROKER>.pact.dius.com.au',
   pactBrokerToken: '<TOKEN>',
@@ -55,7 +55,7 @@ const opts = {
   pactFilesOrDirs: ['./pacts'],
 };
 
-pact.publishPacts(opts);
+new Publisher(opts).publishPacts()
 ```
 
 See the [Pact-JS documentation](https://github.com/pact-foundation/pact-node/#pact-broker-publishing) for all the pact publication options.
