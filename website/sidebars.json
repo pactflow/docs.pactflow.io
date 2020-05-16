@@ -1,7 +1,60 @@
 {
   "docs": {
-    "Getting Started": ["getting-started", "user-interface"],
-    "Troubleshooting": ["login-help", "webhooks-help"],
-    "API Reference": ["api"]
+    "Getting Started": [
+      "getting-started",
+      "user-interface"
+    ],
+    "Troubleshooting": [
+      "login-help",
+      "webhooks-help"
+    ],
+    "API Reference": [
+      "api"
+    ]
+  },
+  "ci-cd-workshop": {
+    "CI/CD Workshop": [
+      "ci-cd-workshop/index",
+      {
+        "type": "subcategory",
+        "label": "Set up CI",
+        "ids": [
+          "ci-cd-workshop/set-up-ci/index",
+          "ci-cd-workshop/set-up-ci/prerequisites",
+          "ci-cd-workshop/set-up-ci/fork-and-clone-the-repositories",
+          "ci-cd-workshop/set-up-ci/configure-the-builds-in-travis-ci",
+          "ci-cd-workshop/set-up-ci/configure-consumer-and-provider-pipelines",
+          "ci-cd-workshop/set-up-ci/configure-webhook",
+          "ci-cd-workshop/set-up-ci/conclusion"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "Set up local development",
+        "ids": [
+          "ci-cd-workshop/set-up-local-development/index",
+          "ci-cd-workshop/set-up-local-development/prerequisites",
+          "ci-cd-workshop/set-up-local-development/install-dependencies",
+          "ci-cd-workshop/set-up-local-development/run-the-applications",
+          "ci-cd-workshop/set-up-local-development/run-the-consumer-tests",
+          "ci-cd-workshop/set-up-local-development/run-the-provider-tests"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "Workshop",
+        "ids": [
+          "ci-cd-workshop/workshop/index",
+          "ci-cd-workshop/workshop/prerequisites",
+          "ci-cd-workshop/workshop/how-to-break-everything",
+          "ci-cd-workshop/workshop/protecting-the-provider",
+          "ci-cd-workshop/workshop/how-not-to-break-everything",
+          "ci-cd-workshop/workshop/implementing-the-provider-changes",
+          "ci-cd-workshop/workshop/verifying-feature-pacts",
+          "ci-cd-workshop/workshop/releasing-the-consumer-code",
+          "ci-cd-workshop/workshop/conclusion"
+        ]
+      }
+    ]
   }
 }
