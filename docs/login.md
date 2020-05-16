@@ -19,3 +19,5 @@ The most common reasons for API authentication failures are:
       * To resolve this, make sure you are using the latest version of the Pact library for your language.
   2. Attempting to access the API with a username and password instead of an API token.
       * To resolve this, please see the section on [configuring your API token](/docs/getting-started#configuring-your-api-token)
+  3. Using a read only token instead of a read/write token.
+      * To resolve this, please see the section on [configuring your API token](/docs/getting-started#configuring-your-api-token) and ensure you have copied the read/write token.
