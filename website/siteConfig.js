@@ -94,7 +94,7 @@ const siteConfig = {
   headerLinks: [
     // Links to document with id for current language/version
     { doc: "getting-started", label: "Getting Started" },
-    { doc: "ci-cd-workshop/index", label: "Workshops"},
+    { doc: "workshops/ci-cd/index", label: "Workshops"},
     { doc: "api", label: "API" },
     // Link to page found at pages/en/help.js or if that does not exist, pages/help.js, for current language
     // { page: "guides", label: "Guides" },

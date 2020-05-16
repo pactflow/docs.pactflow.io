@@ -8,76 +8,6 @@
       "api": {
         "title": "API Reference Documentation"
       },
-      "ci-cd-workshop/index": {
-        "title": "Pactflow CI/CD Workshop",
-        "sidebar_label": "Introduction"
-      },
-      "ci-cd-workshop/set-up-ci/prerequisites": {
-        "title": "Prerequisites"
-      },
-      "ci-cd-workshop/set-up-ci/fork-and-clone-the-repositories": {
-        "title": "Fork and clone the repositories"
-      },
-      "ci-cd-workshop/set-up-ci/configure-the-builds-in-travis-ci": {
-        "title": "Configure the builds in Travis CI"
-      },
-      "ci-cd-workshop/set-up-ci/configure-consumer-and-provider-pipelines": {
-        "title": "Configure consumer and provider pipelines"
-      },
-      "ci-cd-workshop/set-up-ci/configure-webhook": {
-        "title": "Configure webhook"
-      },
-      "ci-cd-workshop/set-up-ci/conclusion": {
-        "title": "Conclusion"
-      },
-      "ci-cd-workshop/set-up-ci/index": {
-        "title": "Goals"
-      },
-      "ci-cd-workshop/set-up-local-development/prerequisites": {
-        "title": "Prerequisites"
-      },
-      "ci-cd-workshop/set-up-local-development/install-dependencies": {
-        "title": "Install dependencies"
-      },
-      "ci-cd-workshop/set-up-local-development/run-the-applications": {
-        "title": "Run the applications"
-      },
-      "ci-cd-workshop/set-up-local-development/run-the-consumer-tests": {
-        "title": "Run the consumer tests"
-      },
-      "ci-cd-workshop/set-up-local-development/run-the-provider-tests": {
-        "title": "Run the provider tests"
-      },
-      "ci-cd-workshop/set-up-local-development/index": {
-        "title": "Goals"
-      },
-      "ci-cd-workshop/workshop/prerequisites": {
-        "title": "Prerequisites"
-      },
-      "ci-cd-workshop/workshop/how-to-break-everything": {
-        "title": "How to break everything"
-      },
-      "ci-cd-workshop/workshop/protecting-the-provider": {
-        "title": "Protecting provider builds from changed pacts"
-      },
-      "ci-cd-workshop/workshop/how-not-to-break-everything": {
-        "title": "How not to break everything"
-      },
-      "ci-cd-workshop/workshop/implementing-the-provider-changes": {
-        "title": "Implementing the provider changes"
-      },
-      "ci-cd-workshop/workshop/verifying-feature-pacts": {
-        "title": "Strategies for verifying feature pacts"
-      },
-      "ci-cd-workshop/workshop/releasing-the-consumer-code": {
-        "title": "Releasing the consumer code"
-      },
-      "ci-cd-workshop/workshop/conclusion": {
-        "title": "Conclusion"
-      },
-      "ci-cd-workshop/workshop/index": {
-        "title": "Goals"
-      },
       "getting-started": {
         "title": "Getting Started with Pactflow"
       },
@@ -89,6 +19,76 @@
       },
       "webhooks-help": {
         "title": "Webhooks"
+      },
+      "workshops/ci-cd/index": {
+        "title": "Pactflow CI/CD Workshop",
+        "sidebar_label": "Introduction"
+      },
+      "workshops/ci-cd/set-up-ci/prerequisites": {
+        "title": "Prerequisites"
+      },
+      "workshops/ci-cd/set-up-ci/fork-and-clone-the-repositories": {
+        "title": "Fork and clone the repositories"
+      },
+      "workshops/ci-cd/set-up-ci/configure-the-builds-in-travis-ci": {
+        "title": "Configure the builds in Travis CI"
+      },
+      "workshops/ci-cd/set-up-ci/configure-consumer-and-provider-pipelines": {
+        "title": "Configure consumer and provider pipelines"
+      },
+      "workshops/ci-cd/set-up-ci/configure-webhook": {
+        "title": "Configure webhook"
+      },
+      "workshops/ci-cd/set-up-ci/conclusion": {
+        "title": "Conclusion"
+      },
+      "workshops/ci-cd/set-up-ci/index": {
+        "title": "Goals"
+      },
+      "workshops/ci-cd/set-up-local-development/prerequisites": {
+        "title": "Prerequisites"
+      },
+      "workshops/ci-cd/set-up-local-development/install-dependencies": {
+        "title": "Install dependencies"
+      },
+      "workshops/ci-cd/set-up-local-development/run-the-applications": {
+        "title": "Run the applications"
+      },
+      "workshops/ci-cd/set-up-local-development/run-the-consumer-tests": {
+        "title": "Run the consumer tests"
+      },
+      "workshops/ci-cd/set-up-local-development/run-the-provider-tests": {
+        "title": "Run the provider tests"
+      },
+      "workshops/ci-cd/set-up-local-development/index": {
+        "title": "Goals"
+      },
+      "workshops/ci-cd/workshop/prerequisites": {
+        "title": "Prerequisites"
+      },
+      "workshops/ci-cd/workshop/how-to-break-everything": {
+        "title": "How to break everything"
+      },
+      "workshops/ci-cd/workshop/protecting-the-provider": {
+        "title": "Protecting provider builds from changed pacts"
+      },
+      "workshops/ci-cd/workshop/how-not-to-break-everything": {
+        "title": "How not to break everything"
+      },
+      "workshops/ci-cd/workshop/implementing-the-provider-changes": {
+        "title": "Implementing the provider changes"
+      },
+      "workshops/ci-cd/workshop/verifying-feature-pacts": {
+        "title": "Strategies for verifying feature pacts"
+      },
+      "workshops/ci-cd/workshop/releasing-the-consumer-code": {
+        "title": "Releasing the consumer code"
+      },
+      "workshops/ci-cd/workshop/conclusion": {
+        "title": "Conclusion"
+      },
+      "workshops/ci-cd/workshop/index": {
+        "title": "Goals"
       }
     },
     "links": {

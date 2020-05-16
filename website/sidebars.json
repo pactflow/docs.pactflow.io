@@ -12,47 +12,47 @@
       "api"
     ]
   },
-  "ci-cd-workshop": {
+  "workshops/ci-cd": {
     "CI/CD Workshop": [
-      "ci-cd-workshop/index",
+      "workshops/ci-cd/index",
       {
         "type": "subcategory",
         "label": "Set up CI",
         "ids": [
-          "ci-cd-workshop/set-up-ci/index",
-          "ci-cd-workshop/set-up-ci/prerequisites",
-          "ci-cd-workshop/set-up-ci/fork-and-clone-the-repositories",
-          "ci-cd-workshop/set-up-ci/configure-the-builds-in-travis-ci",
-          "ci-cd-workshop/set-up-ci/configure-consumer-and-provider-pipelines",
-          "ci-cd-workshop/set-up-ci/configure-webhook",
-          "ci-cd-workshop/set-up-ci/conclusion"
+          "workshops/ci-cd/set-up-ci/index",
+          "workshops/ci-cd/set-up-ci/prerequisites",
+          "workshops/ci-cd/set-up-ci/fork-and-clone-the-repositories",
+          "workshops/ci-cd/set-up-ci/configure-the-builds-in-travis-ci",
+          "workshops/ci-cd/set-up-ci/configure-consumer-and-provider-pipelines",
+          "workshops/ci-cd/set-up-ci/configure-webhook",
+          "workshops/ci-cd/set-up-ci/conclusion"
         ]
       },
       {
         "type": "subcategory",
         "label": "Set up local development",
         "ids": [
-          "ci-cd-workshop/set-up-local-development/index",
-          "ci-cd-workshop/set-up-local-development/prerequisites",
-          "ci-cd-workshop/set-up-local-development/install-dependencies",
-          "ci-cd-workshop/set-up-local-development/run-the-applications",
-          "ci-cd-workshop/set-up-local-development/run-the-consumer-tests",
-          "ci-cd-workshop/set-up-local-development/run-the-provider-tests"
+          "workshops/ci-cd/set-up-local-development/index",
+          "workshops/ci-cd/set-up-local-development/prerequisites",
+          "workshops/ci-cd/set-up-local-development/install-dependencies",
+          "workshops/ci-cd/set-up-local-development/run-the-applications",
+          "workshops/ci-cd/set-up-local-development/run-the-consumer-tests",
+          "workshops/ci-cd/set-up-local-development/run-the-provider-tests"
         ]
       },
       {
         "type": "subcategory",
         "label": "Workshop",
         "ids": [
-          "ci-cd-workshop/workshop/index",
-          "ci-cd-workshop/workshop/prerequisites",
-          "ci-cd-workshop/workshop/how-to-break-everything",
-          "ci-cd-workshop/workshop/protecting-the-provider",
-          "ci-cd-workshop/workshop/how-not-to-break-everything",
-          "ci-cd-workshop/workshop/implementing-the-provider-changes",
-          "ci-cd-workshop/workshop/verifying-feature-pacts",
-          "ci-cd-workshop/workshop/releasing-the-consumer-code",
-          "ci-cd-workshop/workshop/conclusion"
+          "workshops/ci-cd/workshop/index",
+          "workshops/ci-cd/workshop/prerequisites",
+          "workshops/ci-cd/workshop/how-to-break-everything",
+          "workshops/ci-cd/workshop/protecting-the-provider",
+          "workshops/ci-cd/workshop/how-not-to-break-everything",
+          "workshops/ci-cd/workshop/implementing-the-provider-changes",
+          "workshops/ci-cd/workshop/verifying-feature-pacts",
+          "workshops/ci-cd/workshop/releasing-the-consumer-code",
+          "workshops/ci-cd/workshop/conclusion"
         ]
       }
     ]
