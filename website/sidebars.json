@@ -6,7 +6,8 @@
     ],
     "Troubleshooting": [
       "login-help",
-      "webhooks-help"
+      "webhooks-help",
+      "powershell-guide"
     ],
     "API Reference": [
       "api"
