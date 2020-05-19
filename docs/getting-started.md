@@ -225,6 +225,16 @@ See the [Pact Ruby documentation](https://github.com/pact-foundation/pact-ruby/w
 
 #### Consumer
 
+##### PowerShell
+
+```Powershell
+# Ensure TLS1.2 is set, otherwise it will default to TLS1.0 and you won't be able to connect
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$res = Invoke-WebRequest -Uri "https://<YOUR_BROKER>.pact.dius.com.au/pacts/provider/AProvider/consumer/AConsumer/version/SomeVersion" -Method Put -InFile .\a_consumer-a_provider.json -ContentType "application/json" -Headers @{'Authorization' = 'Bearer <your token here>'}
+```
+
+##### C\#
+
 ```csharp
 var pactPublisher = new PactPublisher("http://<YOUR_BROKER>.pact.dius.com.au",
   new PactUriOptions("<TOKEN>"));
@@ -252,13 +262,6 @@ pactVerifier
 ```
 
 See the [PactNet documentation](https://github.com/pact-foundation/pact-net#publishing-provider-verification-results-to-a-broker) for all the pact verification options.
-
-### Publishing with PowerShell
-```Powershell
-# Ensure TLS1.2 is set, otherwise it will default to TLS1.0 and you won't be able to connect
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-$res = Invoke-WebRequest -Uri "https://<YOUR_BROKER>.pact.dius.com.au/pacts/provider/AProvider/consumer/AConsumer/version/SomeVersion" -Method Put -InFile .\a_consumer-a_provider.json -ContentType "application/json" -Headers @{'Authorization' = 'Bearer <your token here>'}
-```
 
 <!-- Docker -->
 
