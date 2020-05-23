@@ -6,6 +6,7 @@ Parameters:
   HostedZoneName:
     Description: HostedZoneName to attach the domain to
     Type: String
+    Default: pactflow.io
   HostName:
     Description: Domain name to host the website on
     Type: String
