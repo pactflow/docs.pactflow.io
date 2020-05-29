@@ -17,13 +17,16 @@
       "on-premises/authentication": {
         "title": "Authentication"
       },
-      "on-premises/environment_variables/index": {
+      "on-premises/database-migrations": {
+        "title": "on-premises/database-migrations"
+      },
+      "on-premises/environment-variables/index": {
         "title": "Environment variables"
       },
-      "on-premises/environment_variables/templates": {
+      "on-premises/environment-variables/templates": {
         "title": "Configuration file templates"
       },
-      "on-premises/environment_variables/timezones": {
+      "on-premises/environment-variables/timezones": {
         "title": "Timezones"
       },
       "on-premises/index": {

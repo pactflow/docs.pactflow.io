@@ -67,9 +67,9 @@
         "type": "subcategory",
         "label": "Application configuration",
         "ids": [
-          "on-premises/environment_variables/index",
-          "on-premises/environment_variables/templates",
-          "on-premises/environment_variables/timezones"
+          "on-premises/environment-variables/index",
+          "on-premises/environment-variables/templates",
+          "on-premises/environment-variables/timezones"
         ]
       }
     ],

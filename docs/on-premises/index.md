@@ -18,7 +18,7 @@ sidebar_label: Architecture
 
 ### Recommended architecture
 
-* Deploy to a service designed for managing Docker containers (ECR, Fargate, Kubernetes etc.)
+* Deploy to a service designed for managing Docker containers (ECS, Fargate, Kubernetes etc.)
 
 ## Internal architecture
 
