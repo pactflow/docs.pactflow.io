@@ -43,7 +43,7 @@ Resources:
                 - ErrorCachingMinTTL: 300
                   ErrorCode: 404
                   ResponseCode: 404
-                  ResponsePagePath: error.html
+                  ResponsePagePath: /index.html
               Enabled: 'true'
               DefaultCacheBehavior:
                   ForwardedValues:
