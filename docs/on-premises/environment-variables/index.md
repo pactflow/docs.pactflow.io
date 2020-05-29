@@ -341,7 +341,7 @@ The hosts for which to not use a proxy
 The timezone in which to display dates for server side rendered pages.
 
 **Required:** true<br/>
-**More information:** /docs/on-premises/environment_variables/timezones<br/>
+**More information:** /docs/on-premises/environment-variables/timezones<br/>
 
 ### NEW_RELIC_AGENT_ENABLED
 
