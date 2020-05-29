@@ -71,6 +71,9 @@
           "on-premises/environment_variables/timezones"
         ]
       }
+    ],
+    "Operation": [
+      "on-premises/authentication"
     ]
   }
 }
