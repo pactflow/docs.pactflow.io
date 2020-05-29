@@ -9,6 +9,9 @@ documentation pages are found in `docs`.
 
 Refer to [website/README.md](website/README.md)
 
+## Development
+
+`docker-compose up`
 
 ## Environments
 
