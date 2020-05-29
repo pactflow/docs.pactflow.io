@@ -18,14 +18,6 @@ const siteConfig = {
   projectName: 'doc-site',
   organizationName: 'Pactflow',
 
-  // For no header links in the top nav bar -> headerLinks: [],
-  headerLinks: [
-    {doc: 'doc1', label: 'Docs'},
-    {doc: 'doc4', label: 'API'},
-    {page: 'help', label: 'Help'},
-    {blog: true, label: 'Blog'},
-  ],
-
   /* path to images for header/footer */
   headerIcon: 'img/apple-icon.png',
   footerIcon: 'img/logo-white.png',
@@ -95,6 +87,7 @@ const siteConfig = {
     // Links to document with id for current language/version
     { doc: "getting-started", label: "Getting Started" },
     { doc: "workshops/ci-cd/index", label: "Workshops"},
+    { doc: "on-premises/index", label: "On-Premises"},
     { doc: "api", label: "API" },
     // Link to page found at pages/en/help.js or if that does not exist, pages/help.js, for current language
     // { page: "guides", label: "Guides" },

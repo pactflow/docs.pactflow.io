@@ -57,5 +57,20 @@
         ]
       }
     ]
+  },
+  "on-premises": {
+    "Installation": [
+      "on-premises/index",
+      "on-premises/system-requirements",
+      {
+        "type": "subcategory",
+        "label": "Configuration",
+        "ids": [
+          "on-premises/environment_variables/index",
+          "on-premises/environment_variables/templates",
+          "on-premises/environment_variables/timezones"
+        ]
+      }
+    ]
   }
 }
