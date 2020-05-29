@@ -2,6 +2,8 @@
 title: Timezones
 ---
 
+These are the valid values for the [TZ environment variable](/docs/on-premises/environment-variables/#tz).
+
 * Africa/Abidjan
 * Africa/Accra
 * Africa/Addis_Ababa
