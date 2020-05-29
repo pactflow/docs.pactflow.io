@@ -62,9 +62,10 @@
     "Installation": [
       "on-premises/index",
       "on-premises/system-requirements",
+      "on-premises/network-configuration",
       {
         "type": "subcategory",
-        "label": "Configuration",
+        "label": "Application configuration",
         "ids": [
           "on-premises/environment_variables/index",
           "on-premises/environment_variables/templates",

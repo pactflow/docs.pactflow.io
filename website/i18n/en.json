@@ -30,6 +30,9 @@
         "title": "Pactflow On-Premises Architecture",
         "sidebar_label": "Architecture"
       },
+      "on-premises/network-configuration": {
+        "title": "Network configuration"
+      },
       "on-premises/system-requirements": {
         "title": "System Requirements"
       },
