@@ -1,7 +1,6 @@
 ---
 title: Environment variables
 ---
-
 ## Logging
 
 <hr/>
@@ -216,7 +215,13 @@ Used during SP-initiated SSO. Describes the format of the username required by t
 
 ### PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY
 
-A randomly generated string which will be the master key for encrypting secrets. <br><br>To generate an appropriate value, run the following on Linux/Mac: <br/><br/>`env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\.^_|~' < /dev/urandom | fold -w 32 | head -n 1`
+A randomly generated string which will be the master key for encrypting secrets.
+
+To generate an appropriate value, run the following on Linux/Mac:
+
+```
+env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 | head -n 1
+```
 
 **Required:** true<br/>
 **Example:** `eLM5xPxPu9ftDhA34ZUw2ry2okpMnOPCrA-twxLBUUk`<br/>
@@ -229,7 +234,13 @@ A randomly generated string which will be the master key for encrypting secrets.
 
 ### PACTFLOW_ADMIN_API_KEY
 
-The value of the X-Api-Key header required to make the HTTP call to provision the admin user. <br><br>To generate an appropriate value, run the following on Linux/Mac: <br/><br/>`env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\.^_|~' < /dev/urandom | fold -w 32 | head -n 1`
+The value of the X-Api-Key header required to make the HTTP call to provision the admin user.
+
+To generate an appropriate value, run the following on Linux/Mac:
+
+```
+env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 | head -n 1
+```
 
 **Required:** true<br/>
 **Allowed values:** `A-Za-z0-9!#$%&*+-^_`|~.`<br/>
@@ -265,7 +276,12 @@ The number of seconds after which the user needs to re-authenticate with the IDP
 
 ### PACTFLOW_COOKIE_SECRET
 
-The secret used to encrypt the rack.session cookie.<br><br>To generate an appropriate value, run the following on Linux/Mac: <br/><br/>`env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\.^_|~' < /dev/urandom | fold -w 32 | head -n 1`
+The secret used to encrypt the rack.session cookie.
+To generate an appropriate value, run the following on Linux/Mac:
+
+```
+env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 | head -n 1
+```
 
 **Required:** true<br/>
 **Example:** `X-sbeCpAUgO-8FRtKxYrVhgZ2hIJhPuzCh_89PypYrI`<br/>
@@ -341,4 +357,3 @@ The Sentry DSN to send error reporting to, if desired.
 
 **Required:** false<br/>
 **Example:** `https://abcd@sentry.io/1234`<br/>
-
