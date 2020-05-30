@@ -11,7 +11,7 @@ fi
 export AWS_DEFAULT_REGION=us-east-1
 
 # Temporary override for the branch
-export dev_PARAMETERS="HostedZone=Z18BXAWWKZMALA HostedZoneName=test.pactflow.io WebsiteCert=arn:aws:acm:us-east-1:838728264948:certificate/4895019c-e035-47a7-8605-ce7b2abd4e3c"
+export dev_PARAMETERS="HostedZone=Z01331661UUQLNKTV5KCJ HostName=docs.test.pactflow.io WebsiteCert=arn:aws:acm:us-east-1:838728264948:certificate/4895019c-e035-47a7-8605-ce7b2abd4e3c"
 
 ENVIRONMENT=$1
 STACKNAME=pactflow-docsite-${ENVIRONMENT}-infra

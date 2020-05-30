@@ -3,10 +3,6 @@ Parameters:
   HostedZone:
     Description: HostedZone to attach the domain to
     Type: String
-  HostedZoneName:
-    Description: HostedZoneName to attach the domain to
-    Type: String
-    Default: pactflow.io
   HostName:
     Description: Domain name to host the website on
     Type: String
@@ -18,12 +14,40 @@ Parameters:
 Resources:
   WebsiteBucket:
       Type: AWS::S3::Bucket
+      DeletionPolicy: Retain
+      UpdateReplacePolicy: Retain
       Properties:
-          AccessControl: PublicRead
           BucketName: !Ref HostName
+          BucketEncryption:
+            ServerSideEncryptionConfiguration:
+              - ServerSideEncryptionByDefault:
+                  SSEAlgorithm: AES256
+          PublicAccessBlockConfiguration:
+            BlockPublicAcls: true
+            BlockPublicPolicy: true
+            IgnorePublicAcls: true
+            RestrictPublicBuckets: true
           WebsiteConfiguration:
             ErrorDocument: 404.html
             IndexDocument: index.html
+
+  WebsiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WebsiteBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Action:
+              - s3:GetObject*
+              - s3:GetBucket*
+              - s3:List*
+            Effect: Allow
+            Principal:
+              CanonicalUser: !GetAtt WebsiteDistributionIdentity.S3CanonicalUserId
+            Resource:
+              - !GetAtt WebsiteBucket.Arn
+              - !Sub ${WebsiteBucket.Arn}/*
 
   WebsiteDistribution:
       Type: AWS::CloudFront::Distribution
@@ -31,11 +55,12 @@ Resources:
           DistributionConfig:
               Origins:
                   - Id: only-origin
-                    DomainName: !Sub "${WebsiteBucket}.s3-website-${AWS::Region}.amazonaws.com"
-                    CustomOriginConfig:
-                      HTTPPort: 80
-                      HTTPSPort: 443
-                      OriginProtocolPolicy: http-only
+                    DomainName: !GetAtt WebsiteBucket.RegionalDomainName
+                    S3OriginConfig:
+                      OriginAccessIdentity: !Join
+                        - ''
+                        - - origin-access-identity/cloudfront/
+                          - !Ref 'WebsiteDistributionIdentity'
               CustomErrorResponses:
                 - ErrorCachingMinTTL: 300
                   ErrorCode: 404
@@ -49,10 +74,16 @@ Resources:
                   ViewerProtocolPolicy: redirect-to-https
               DefaultRootObject: index.html
               Aliases:
-                - !Sub ${HostName}.${HostedZoneName}
+                - !Sub ${HostName}
               ViewerCertificate:
                   AcmCertificateArn: !Ref WebsiteCert
                   SslSupportMethod: sni-only
+
+  WebsiteDistributionIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: Allows CloudFront to reach the bucket
 
   OriginRecord:
     Type: AWS::Route53::RecordSet
@@ -62,7 +93,7 @@ Resources:
           HostedZoneId: Z2FDTNDATAQYW2
         HostedZoneId: !Ref 'HostedZone'
         Comment: DNS name for doco site.
-        Name: !Sub ${HostName}.${HostedZoneName}
+        Name: !Sub ${HostName}
         Type: A
 
 Outputs:
