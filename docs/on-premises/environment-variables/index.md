@@ -277,9 +277,22 @@ The URL of the free service that is used to generate the build badges. Note that
 
 <hr/>
 
-### PACTFLOW_PORT
+### PACTFLOW_BASE_URL
 
-The port on which the Pactflow application will be available via HTTP. Must be greater than 1024.
+The base url, including HTTP scheme and any application context path, at which the Pactflow application will be publicly
+accessible. This is generally not required, as the `X-Forwarded-Scheme`, `X-Forwarded-Host`, `X-Forwarded-Port`
+d `X-Forwarded-Ssl` headers that are set by the reverse proxy or load balancer that sits in front of the cluster
+are used to calculate this value, however, if there are any issues, this can be set to ensure the correct behaviour.
+
+It is mandatory if the application is to be served at a context that is not the root of the domain eg. `https://mycompany.com/pactflow`.
+
+
+**Required:** false<br/>
+**Example:** `https://pactflow.mycompany.com`<br/>
+
+### PACTFLOW_HTTP_PORT
+
+The HTTP port on which the Pactflow application will be exposed on the Docker container. Must be greater than 1024.
 
 **Required:** false<br/>
 **Default:** `9292`<br/>
