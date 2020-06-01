@@ -14,7 +14,7 @@ Linux
 
 ### Disk space usage
 
-???
+4.0 GiB
 
 ## Postgres database instance
 
@@ -24,4 +24,4 @@ Linux
 
 ### Storage
 
-5GB
+5GiB
