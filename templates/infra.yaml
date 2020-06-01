@@ -55,7 +55,7 @@ Resources:
           DistributionConfig:
               Origins:
                   - Id: only-origin
-                    DomainName: !GetAtt WebsiteBucket.RegionalDomainName
+                    DomainName: !Sub "${WebsiteBucket}.s3-website-${AWS::Region}.amazonaws.com"
                     S3OriginConfig:
                       OriginAccessIdentity: !Join
                         - ''
