@@ -14,7 +14,7 @@ The migrations can be run manually against the database before upgrading the Pac
 docker run --rm \
   --env PACTFLOW_DATABASE_URL="postgres://username:password@host:port/database" \
   --entrypoint db-migrate \
-  pactflow-onprem:latest
+  quay.io/pactflow/enterprise
 ```
 
 ## Rollback
@@ -26,7 +26,7 @@ docker run --rm \
   --env PACTFLOW_DATABASE_URL="postgres://username:password@host:port/database" \
   --env PACTFLOW_DATABASE_MIGRATION_TARGET="<migration number to roll back to>" \
   --entrypoint db-migrate \
-  pactflow-onprem:latest
+  quay.io/pactflow/enterprise
 ```
 
 ## Minor and patch version upgrades
