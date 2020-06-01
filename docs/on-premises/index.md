@@ -5,9 +5,9 @@ sidebar_label: Architecture
 
 ## System architecture
 
-### Example AWS architecture
+### Example AWS deployment using ECS
 
-![System architecture](/img/SaaS%20Architecture.png)
+[![System architecture](/img/saas-architecture-aws.png)](/img/saas-architecture-aws.png "Example Pactflow deployment to AWS")
 
 
 ### Minimum requirements
