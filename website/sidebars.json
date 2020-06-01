@@ -74,7 +74,8 @@
           "on-premises/environment-variables/templates",
           "on-premises/environment-variables/timezones"
         ]
-      }
+      },
+      "on-premises/guide"
     ],
     "Upgrading": [
       "on-premises/upgrading/database-migrations"

@@ -32,6 +32,9 @@
       "on-premises/environment-variables/timezones": {
         "title": "Timezones"
       },
+      "on-premises/guide": {
+        "title": "Docker Compose Example"
+      },
       "on-premises/index": {
         "title": "Pactflow On-Premises Architecture",
         "sidebar_label": "Architecture"
@@ -43,7 +46,7 @@
         "title": "Network configuration"
       },
       "on-premises/system-requirements": {
-        "title": "System Requirements"
+        "title": "System requirements"
       },
       "on-premises/upgrading/database-migrations": {
         "title": "Database migrations"
