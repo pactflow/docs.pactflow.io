@@ -77,7 +77,6 @@
       }
     ],
     "Upgrading": [
-      "on-premises/upgrading/index",
       "on-premises/upgrading/database-migrations"
     ],
     "Operation": [

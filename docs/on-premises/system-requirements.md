@@ -1,5 +1,5 @@
 ---
-title: System Requirements
+title: System requirements
 ---
 
 ## Application server instance
