@@ -7,7 +7,7 @@ title: Configuration file templates
 ```yml
 
 - name: "PACTFLOW_DATABASE_URL"
-  value: "postgres://username:password@host/database"
+  value: "postgres://username:password@host:port/database"
 - name: "PACTFLOW_SAML_IDP_NAME"
   value: ""
 - name: "PACTFLOW_SAML_NAME_IDENTIFIER_FORMAT"
@@ -42,5 +42,7 @@ title: Configuration file templates
 - name: "PACTFLOW_WEBHOOK_HOST_WHITELIST"
   value: ""
 - name: "PACTFLOW_ISSUER"
+  value: ""
+- name: "PACTFLOW_BASE_URL"
   value: ""
 ```

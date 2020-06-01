@@ -17,8 +17,11 @@
       "on-premises/authentication": {
         "title": "Authentication"
       },
-      "on-premises/database-migrations": {
-        "title": "on-premises/database-migrations"
+      "on-premises/database": {
+        "title": "Database"
+      },
+      "on-premises/docker-image-registry": {
+        "title": "Docker image registry"
       },
       "on-premises/environment-variables/index": {
         "title": "Environment variables"
@@ -33,11 +36,20 @@
         "title": "Pactflow On-Premises Architecture",
         "sidebar_label": "Architecture"
       },
+      "on-premises/logging": {
+        "title": "Logging"
+      },
       "on-premises/network-configuration": {
         "title": "Network configuration"
       },
       "on-premises/system-requirements": {
         "title": "System Requirements"
+      },
+      "on-premises/upgrading/database-migrations": {
+        "title": "Database migrations"
+      },
+      "on-premises/upgrading/index": {
+        "title": "Docker image"
       },
       "powershell-guide": {
         "title": "PowerShell Migration guide"
@@ -132,6 +144,7 @@
       "API Reference": "API Reference",
       "CI/CD Workshop": "CI/CD Workshop",
       "Installation": "Installation",
+      "Upgrading": "Upgrading",
       "Operation": "Operation"
     }
   },

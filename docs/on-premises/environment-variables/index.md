@@ -1,6 +1,7 @@
 ---
 title: Environment variables
 ---
+
 ## Logging
 
 <hr/>
@@ -58,6 +59,15 @@ The database host
 The database name
 
 **Required:** if PACTFLOW_DATABASE_URL is not set<br/>
+
+### PACTFLOW_DATABASE_SSLMODE
+
+The Postgresql ssl mode.
+
+**Required:** false<br/>
+**Default:** `required`<br/>
+**Allowed values:** `disable`, `allow`, `prefer`, `require`, `verify-ca`, `verify-full`<br/>
+**More information:** https://ankane.org/postgres-sslmode-explained<br/>
 
 ### PACTFLOW_SQL_LOG_WARN_DURATION
 
@@ -267,6 +277,13 @@ The URL of the free service that is used to generate the build badges. Note that
 
 <hr/>
 
+### PACTFLOW_PORT
+
+The port on which the Pactflow application will be available via HTTP. Must be greater than 1024.
+
+**Required:** false<br/>
+**Default:** `9292`<br/>
+
 ### PACTFLOW_SESSION_LENGTH
 
 The number of seconds after which the user needs to re-authenticate with the IDP. Default is 1 week.
@@ -341,7 +358,7 @@ The hosts for which to not use a proxy
 The timezone in which to display dates for server side rendered pages.
 
 **Required:** true<br/>
-**More information:** /docs/on-premises/environment-variables/timezones<br/>
+**More information:** [Valid timezones](/docs/on-premises/environment-variables/timezones)<br/>
 
 ### NEW_RELIC_AGENT_ENABLED
 

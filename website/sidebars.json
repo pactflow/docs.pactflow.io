@@ -62,7 +62,10 @@
     "Installation": [
       "on-premises/index",
       "on-premises/system-requirements",
+      "on-premises/docker-image-registry",
       "on-premises/network-configuration",
+      "on-premises/database",
+      "on-premises/logging",
       {
         "type": "subcategory",
         "label": "Application configuration",
@@ -72,6 +75,10 @@
           "on-premises/environment-variables/timezones"
         ]
       }
+    ],
+    "Upgrading": [
+      "on-premises/upgrading/index",
+      "on-premises/upgrading/database-migrations"
     ],
     "Operation": [
       "on-premises/authentication"

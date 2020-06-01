@@ -15,6 +15,6 @@ Refer to [website/README.md](website/README.md)
 
 ## Environments
 
-Test: doc.pact-dev.dius.com.au
+Test: [docs.test.pactflow.io](https://docs.test.pactflow.io)
 
 Prod: docs.pactflow.io
