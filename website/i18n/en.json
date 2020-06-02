@@ -17,6 +17,9 @@
       "on-premises/authentication": {
         "title": "Authentication"
       },
+      "on-premises/authentication/index": {
+        "title": "SAML"
+      },
       "on-premises/database": {
         "title": "Database"
       },
@@ -43,7 +46,7 @@
         "title": "Network configuration"
       },
       "on-premises/system-requirements": {
-        "title": "System Requirements"
+        "title": "System requirements"
       },
       "on-premises/upgrading/database-migrations": {
         "title": "Database migrations"

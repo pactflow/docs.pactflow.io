@@ -11,10 +11,19 @@ Schema migrations are run automatically on start up, unless the [PACTFLOW_DATABA
 The migrations can be run manually against the database before upgrading the Pactflow Docker image if desired (however, this is generally not necessary).
 
 ```sh
+docker pull quay.io/pactflow/enterprise
+
+# Identify the current version before migrating
+docker run --rm \
+  --env PACTFLOW_DATABASE_URL="postgres://username:password@host:port/database" \
+  --entrypoint db-version \
+  quay.io/pactflow/enterprise
+
+# Perform the migrations
 docker run --rm \
   --env PACTFLOW_DATABASE_URL="postgres://username:password@host:port/database" \
   --entrypoint db-migrate \
-  pactflow-onprem:latest
+  quay.io/pactflow/enterprise
 ```
 
 ## Rollback
@@ -26,7 +35,7 @@ docker run --rm \
   --env PACTFLOW_DATABASE_URL="postgres://username:password@host:port/database" \
   --env PACTFLOW_DATABASE_MIGRATION_TARGET="<migration number to roll back to>" \
   --entrypoint db-migrate \
-  pactflow-onprem:latest
+  quay.io/pactflow/enterprise
 ```
 
 ## Minor and patch version upgrades

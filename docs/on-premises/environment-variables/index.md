@@ -138,7 +138,7 @@ Whether or not to disable SSL verificaton when executing webhooks.
 
 <hr/>
 
-### PACTFLOW_ISSUER
+### PACTFLOW_SAML_ISSUER
 
 The name of this application as it is known to the SAML IDP.
 
@@ -161,6 +161,13 @@ URL of a logo for IDP, to be displayed next to the login button.
 ### PACTFLOW_SAML_IDP_SSO_TARGET_URL
 
 The URL to which the authentication request should be sent. This endpoint is on the identity provider.
+
+**Required:** if PACTFLOW_SAML_IDP_METADATA_URL is not set<br/>
+**More information:** https://github.com/omniauth/omniauth-saml#options<br/>
+
+### PACTFLOW_SAML_IDP_ENTITY_ID
+
+The ID by which this IDP is known to Pactflow
 
 **Required:** if PACTFLOW_SAML_IDP_METADATA_URL is not set<br/>
 **More information:** https://github.com/omniauth/omniauth-saml#options<br/>

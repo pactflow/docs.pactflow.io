@@ -68,6 +68,13 @@
       "on-premises/logging",
       {
         "type": "subcategory",
+        "label": "Authentication",
+        "ids": [
+          "on-premises/authentication/index"
+        ]
+      },
+      {
+        "type": "subcategory",
         "label": "Application configuration",
         "ids": [
           "on-premises/environment-variables/index",

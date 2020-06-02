@@ -5,20 +5,19 @@ sidebar_label: Architecture
 
 ## System architecture
 
-### Example AWS architecture
-
-![System architecture](/img/SaaS%20Architecture.png)
-
-
 ### Minimum requirements
 
 * An application server capable of running Docker
-* Postgres database
+* PostgreSQL database
 * SAML IDP for SSO
 
 ### Recommended architecture
 
-* Deploy to a service designed for managing Docker containers (ECS, Fargate, Kubernetes etc.)
+* Deploy to a service designed for Docker container orchestration (ECS, Fargate, Kubernetes etc.)
+
+### Example AWS architecture
+
+![System architecture](/img/SaaS%20Architecture.png)
 
 ## Internal architecture
 
@@ -34,6 +33,6 @@ The Pactflow application runs on port `9292` by default. This can be configured 
 
 ### Healthcheck endpoint
 
-A healthcheck endpoint for use by a Docker container managment service is available at `http://<HOST>/diagnostic/status/elb-heartbeat`. No authentication is required. This endpoint does not make a connection to the database.
+A healthcheck endpoint for use by a Docker container managment service is available at `http://<HOST>/diagnostic/status/heartbeat`. No authentication is required. This endpoint does not make a connection to the database.
 
 To check the connection to the database, use the endpoint `/diagnostic/status/dependencies`. This endpoint should not be used by Docker container managment services, as unrelated database issues might cause the Docker container to churn.
