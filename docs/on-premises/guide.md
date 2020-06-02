@@ -13,7 +13,7 @@ In this guide, we'll provide an example `docker-compose` setup so that you can s
 * [Docker](https://docs.docker.com/engine/install/)
 * [Docker Compose](https://docs.docker.com/compose/install/)
 * A working *nix environment and access to a terminal
-* Valide credentials to authenticate to our [Docker image registry](/docker-image-registry)
+* Valid credentials to authenticate to our [Docker image registry](/docker-image-registry)
 
 ## 1. Authenticating to Quay.io
 
@@ -62,13 +62,13 @@ services:
     depends_on:
       - postgres
     environment:
-      - RACK_ENV=development
-      - PASSENGER_APP_ENV=development
-      - PACTFLOW_PORT=9293
+      - PACTFLOW_HTTP_PORT=9293
       - PACTFLOW_DATABASE_URL=postgres://postgres:password@postgres/postgres
-      - PACTFLOW_LOG_FORMAT=short
-      - NEW_RELIC_AGENT_ENABLED=false
+      # insecure settings only for the purposes of this demo! Not to be used in production.
+      - PACTFLOW_DATABASE_SSLMODE=disable
       - PACTFLOW_REQUIRE_HTTPS=false
+      - PACTFLOW_SECURE_COOKIES=false
+      - PACTFLOW_LOG_FORMAT=short
       - PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY=thisissomerandombytes
       - PACTFLOW_SAML_IDP_NAME=Simple SAML
       - PACTFLOW_SAML_IDP_SSO_TARGET_URL=http://localhost:8080/simplesaml/saml2/idp/SSOService.php
@@ -81,10 +81,12 @@ services:
     ports:
       - "80:9293"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost/diagnostic/status/elb-heartbeat"]
+      test: ["CMD", "curl", "-f", "http://localhost/diagnostic/status/heartbeat"]
       interval: 30s
       timeout: 10s
       retries: 3
+    entrypoint: dockerize
+    command: -wait tcp://postgres:5432 docker-entrypoint
 
   postgres:
     image: postgres

@@ -380,17 +380,3 @@ The timezone in which to display dates for server side rendered pages.
 **Required:** true<br/>
 **More information:** [Valid timezones](/docs/on-premises/environment-variables/timezones)<br/>
 
-### NEW_RELIC_AGENT_ENABLED
-
-Whether or not to enable New Relic
-
-**Required:** false<br/>
-**Default:** `false`<br/>
-**Example:** `true`<br/>
-
-### SENTRY_DSN
-
-The Sentry DSN to send error reporting to, if desired.
-
-**Required:** false<br/>
-**Example:** `https://abcd@sentry.io/1234`<br/>
