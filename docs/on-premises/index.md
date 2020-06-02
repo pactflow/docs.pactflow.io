@@ -15,9 +15,9 @@ sidebar_label: Architecture
 
 * Deploy to a service designed for Docker container orchestration (ECS, Fargate, Kubernetes etc.)
 
-### Example AWS architecture
+### Example AWS deployment using ECS
 
-![System architecture](/img/SaaS%20Architecture.png)
+[![System architecture](/img/saas-architecture-aws.png)](/img/saas-architecture-aws.png "Example Pactflow deployment to AWS")
 
 ## Internal architecture
 

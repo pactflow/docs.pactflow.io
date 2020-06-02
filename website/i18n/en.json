@@ -35,6 +35,9 @@
       "on-premises/environment-variables/timezones": {
         "title": "Timezones"
       },
+      "on-premises/guide": {
+        "title": "Docker Compose example"
+      },
       "on-premises/index": {
         "title": "Pactflow On-Premises Architecture",
         "sidebar_label": "Architecture"

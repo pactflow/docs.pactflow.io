@@ -15,15 +15,20 @@
 @media only screen and (min-width: 1500px) {
 }
 
+.homeContainer {
+
+  background-image: url(/img/hero-background.webp);
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
 .homeContainer .homeSplashFade {
   padding-top: 20px;
 }
 
 .homeContainer .homeWrapper {
-  background-image: url(/img/hero-bg.png);
-  background-position: top;
-  background-size: inherit;
-  background-repeat: no-repeat;
   height: 260px;
 }
 
@@ -37,13 +42,12 @@
   border-radius: 6px;
   padding-left: 12px;
   padding-right: 6px;
-  background: rgba(0,0,0,.2);
   padding-top: 15px;
   padding-bottom: 1px;
 }
 
 .projectTitle img {
-  width: 500px;
+  width: 200px;
 }
 
 .fixedHeaderContainer header img {
