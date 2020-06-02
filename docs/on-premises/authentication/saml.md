@@ -4,7 +4,7 @@ title: SAML
 
 ## Metadata URL
 
-The SAML metadata URL is available at `https://<your Pactflow host>/auth/saml/metadata`.
+Once deployed, the Pactflow SAML service provider metadata URL is available at `https://<your Pactflow host>/auth/saml/metadata`.
 
 ## Configuring Azure Active Directory
 
@@ -17,7 +17,6 @@ The SAML metadata URL is available at `https://<your Pactflow host>/auth/saml/me
 * When the application has been created, assign the users that should be allowed to login to Pactflow.
 
 * Once the users have been assigned, select the `Single sign-on` tab. Select `SAML`.
-  * Unfortunately, the metadata format provided by the SAML library that Pactflow uses is not accepted by Azure AD, so manual configuration is required.
 
 * Set the Identifier (Entity ID) to `https://pactflow.<your company domain>` eg. `https://pactflow.mycompany.com`. This field must match the [PACTFLOW_SAML_ISSUER](/docs/on-premises/environment-variables/#pactflow_saml_issuer) environment variable.
 
