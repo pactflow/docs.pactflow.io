@@ -70,7 +70,7 @@
         "type": "subcategory",
         "label": "Authentication",
         "ids": [
-          "on-premises/authentication/index"
+          "on-premises/authentication/saml"
         ]
       },
       {
@@ -82,7 +82,8 @@
           "on-premises/environment-variables/timezones"
         ]
       },
-      "on-premises/guide"
+      "on-premises/docker-compose-example",
+      "on-premises/installation/checklist"
     ],
     "Upgrading": [
       "on-premises/upgrading/database-migrations"

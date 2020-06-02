@@ -17,11 +17,14 @@
       "on-premises/authentication": {
         "title": "Authentication"
       },
-      "on-premises/authentication/index": {
+      "on-premises/authentication/saml": {
         "title": "SAML"
       },
       "on-premises/database": {
         "title": "Database"
+      },
+      "on-premises/docker-compose-example": {
+        "title": "Docker Compose example"
       },
       "on-premises/docker-image-registry": {
         "title": "Docker image registry"
@@ -35,12 +38,12 @@
       "on-premises/environment-variables/timezones": {
         "title": "Timezones"
       },
-      "on-premises/guide": {
-        "title": "Docker Compose example"
-      },
       "on-premises/index": {
         "title": "Pactflow On-Premises Architecture",
         "sidebar_label": "Architecture"
+      },
+      "on-premises/installation/checklist": {
+        "title": "Installation checklist"
       },
       "on-premises/logging": {
         "title": "Logging"
