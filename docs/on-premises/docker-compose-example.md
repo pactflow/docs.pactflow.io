@@ -71,6 +71,7 @@ services:
       - PACTFLOW_LOG_FORMAT=short
       - PACTFLOW_ADMIN_API_KEY=admin
       - PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY=thisissomerandombytes
+      - PACTFLOW_SAML_AUTH_ENABLED=true
       - PACTFLOW_SAML_IDP_NAME=Simple SAML
       - PACTFLOW_SAML_IDP_SSO_TARGET_URL=http://localhost:8080/simplesaml/saml2/idp/SSOService.php
       - PACTFLOW_SAML_IDP_CERT_FINGERPRINT=11:9B:9E:02:79:59:CD:B7:C6:62:CF:D0:75:D9:E2:EF:38:4E:44:5F
