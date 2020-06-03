@@ -138,6 +138,14 @@ Whether or not to disable SSL verificaton when executing webhooks.
 
 <hr/>
 
+### PACTFLOW_SAML_AUTH_ENABLED
+
+Whether or not to enable SAML authentication.
+
+**Required:** false<br/>
+**Default:** `false`<br/>
+**Allowed values:** `true`, `false`<br/>
+
 ### PACTFLOW_SAML_ISSUER
 
 The name of this application as it is known to the SAML IDP.
@@ -223,6 +231,44 @@ Used during SP-initiated SSO. Describes the format of the username required by t
 **Required:** false<br/>
 **Default:** `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`<br/>
 **Allowed values:** `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`, `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`<br/>
+
+<br/>
+
+## Basic authentication
+
+<hr/>
+
+### PACTFLOW_BASIC_AUTH_ENABLED
+
+Whether or not to enable basic authentication. For demo purposes only - not to be set to `true` for production use. Cannot be set to `true` at the same time as PACTFLOW_SAML_AUTH_ENABLED.
+
+**Required:** false<br/>
+**Default:** `false`<br/>
+**Allowed values:** `true`, `false`<br/>
+
+### PACTFLOW_BASIC_AUTH_USERNAME
+
+The username for HTTP basic authentication. For demo purposes only - not to be set for production use.
+
+**Required:** false<br/>
+
+### PACTFLOW_BASIC_AUTH_PASSWORD
+
+The password for HTTP basic authentication. For demo purposes only - not to be set for production use.
+
+**Required:** false<br/>
+
+### PACTFLOW_BASIC_AUTH_READ_ONLY_USERNAME
+
+The username for HTTP basic authentication. Allows read access only. For demo purposes only - not to be set for production use.
+
+**Required:** false<br/>
+
+### PACTFLOW_BASIC_AUTH_READ_ONLY_PASSWORD
+
+The password for HTTP basic authentication. Allows read access only. For demo purposes only - not to be set for production use.
+
+**Required:** false<br/>
 
 <br/>
 
