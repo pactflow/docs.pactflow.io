@@ -306,7 +306,7 @@ env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 
 ```
 
 **Required:** true<br/>
-**Allowed values:** `A-Za-z0-9!#$%&*+-^_`|~.`<br/>
+**Allowed values:** `A-Za-z0-9!#$%&*+-^_``|~.`<br/>
 **Example:** `4wmplZfucVG-LdIHD9L`<br/>
 **More information:** https://tools.ietf.org/html/rfc7230#section-3.2.6<br/>
 
