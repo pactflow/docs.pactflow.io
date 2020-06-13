@@ -49,7 +49,7 @@ To configure the token:
 ```js
 const { Publisher } = require("@pact-foundation/pact")
 const opts = {
-  pactBroker: 'https://<YOUR_BROKER>.pact.dius.com.au',
+  pactBroker: 'https://<YOUR_BROKER>.pactflow.io',
   pactBrokerToken: '<TOKEN>',
   consumerVersion: process.env.GIT_COMMIT
   pactFilesOrDirs: ['./pacts'],
@@ -71,7 +71,7 @@ return new Verifier().verifyProvider({
   providerBaseUrl: 'http://localhost:8081',
 
   // Fetch pacts from broker
-  pactBrokerUrl: 'https://<YOUR_BROKER>.pact.dius.com.au/',
+  pactBrokerUrl: 'https://<YOUR_BROKER>.pactflow.io/',
   pactBrokerToken: '<TOKEN>',
 
   publishVerificationResult: process.env.CI === 'true',
@@ -89,7 +89,7 @@ See the [Pact-JS documentation](https://github.com/pact-foundation/pact-js#verif
 pact {
   publish {
     providerVersion = {  '<GIT_COMMIT>' } //yes, this field name is correct :(
-    pactBrokerUrl = 'https://<YOUR_BROKER>.pact.dius.com.au/'
+    pactBrokerUrl = 'https://<YOUR_BROKER>.pactflow.io/'
     pactBrokerToken = '<TOKEN>'
   }
 }
@@ -108,7 +108,7 @@ pact {
     '<Your provider name here>' {
 
       providerVersion = { '<GIT_COMMIT>' }
-      hasPactsFromPactBroker('https://<YOUR_BROKER>.pact.dius.com.au/',
+      hasPactsFromPactBroker('https://<YOUR_BROKER>.pactflow.io/',
         authentication: ['Bearer', '<TOKEN>'])
 
     }
@@ -129,7 +129,7 @@ See the Gradle documentation.
 
 ```java
 @Provider("<Your provider name here>")
-@PactBroker(host = "<YOUR_BROKER>.pact.dius.com.au", scheme = "https",
+@PactBroker(host = "<YOUR_BROKER>.pactflow.io", scheme = "https",
   authentication = @PactBrokerAuth(scheme = "bearer", username = "<TOKEN>", password = ""))
 public class PactJUnitBrokerTest {
 
@@ -151,7 +151,7 @@ See the Gradle documentation.
 ```java
 @RunWith(PactRunner.class)
 @Provider("<Your provider name here>")
-@PactBroker(host = "<YOUR_BROKER>.pact.dius.com.au", scheme = "https",
+@PactBroker(host = "<YOUR_BROKER>.pactflow.io", scheme = "https",
   authentication = @PactBrokerAuth(scheme = "bearer", username = "<TOKEN>", password = ""))
 public class PactJUnitBrokerTest {
   @TestTarget
@@ -167,7 +167,7 @@ public class PactJUnitBrokerTest {
 p := dsl.Publisher{}
 err := p.Publish(types.PublishRequest{
   PactURLs:        []string{"/path/to/pact/file"},
-  PactBroker:      "https://<YOUR_BROKER>.pact.dius.com.au",
+  PactBroker:      "https://<YOUR_BROKER>.pactflow.io",
   ConsumerVersion: "<GIT_COMMIT>",
   BrokerToken:     "<TOKEN>",
 })
@@ -178,7 +178,7 @@ err := p.Publish(types.PublishRequest{
 ```go
 _, err := pact.VerifyProvider(t, types.VerifyRequest{
   ProviderBaseURL:            fmt.Sprintf("http://127.0.0.1:%d", port),
-  BrokerURL:                  "https://<YOUR_BROKER>.pact.dius.com.au",
+  BrokerURL:                  "https://<YOUR_BROKER>.pactflow.io",
   BrokerToken:                "<TOKEN>",
   PublishVerificationResults: true,
   ProviderVersion:            "<GIT_COMMIT>"
@@ -197,7 +197,7 @@ require 'pact_broker/client/tasks'
 
 PactBroker::Client::PublicationTask.new do | task |
   task.consumer_version = ENV['GIT_COMMIT']
-  task.pact_broker_base_url = "https://<YOUR_BROKER>.pact.dius.com.au"
+  task.pact_broker_base_url = "https://<YOUR_BROKER>.pactflow.io"
   task.pact_broker_token = "<TOKEN>"
 end
 ```
@@ -214,7 +214,7 @@ Pact.service_provider "<Your provider name here>" do
   publish_verification_results ENV['CI'] == 'true'
 
   honours_pacts_from_pact_broker do
-    pact_broker_base_url "https://<YOUR_BROKER>.pact.dius.com.au", { token: "<TOKEN>" }
+    pact_broker_base_url "https://<YOUR_BROKER>.pactflow.io", { token: "<TOKEN>" }
   end
 end
 ```
@@ -230,13 +230,13 @@ See the [Pact Ruby documentation](https://github.com/pact-foundation/pact-ruby/w
 ```Powershell
 # Ensure TLS1.2 is set, otherwise it will default to TLS1.0 and you won't be able to connect
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-$res = Invoke-WebRequest -Uri "https://<YOUR_BROKER>.pact.dius.com.au/pacts/provider/AProvider/consumer/AConsumer/version/SomeVersion" -Method Put -InFile .\a_consumer-a_provider.json -ContentType "application/json" -Headers @{'Authorization' = 'Bearer <your token here>'}
+$res = Invoke-WebRequest -Uri "https://<YOUR_BROKER>.pactflow.io/pacts/provider/AProvider/consumer/AConsumer/version/SomeVersion" -Method Put -InFile .\a_consumer-a_provider.json -ContentType "application/json" -Headers @{'Authorization' = 'Bearer <your token here>'}
 ```
 
 ##### C\#
 
 ```csharp
-var pactPublisher = new PactPublisher("http://<YOUR_BROKER>.pact.dius.com.au",
+var pactPublisher = new PactPublisher("http://<YOUR_BROKER>.pactflow.io",
   new PactUriOptions("<TOKEN>"));
 pactPublisher.PublishToBroker("/pact/to/pacts/dir",
   Environment.GetEnvironmentVariable("GIT_COMMIT"));
@@ -257,7 +257,7 @@ var config = new PactVerifierConfig
 IPactVerifier pactVerifier = new PactVerifier(config);
 pactVerifier
     .ServiceProvider("<Your provider name here>", "http://your-test-provider-url")
-   .PactBroker("https://<YOUR_BROKER>.pact.dius.com.au", uriOptions: new PactUriOptions("<TOKEN>"))
+   .PactBroker("https://<YOUR_BROKER>.pactflow.io", uriOptions: new PactUriOptions("<TOKEN>"))
    .Verify();
 ```
 
@@ -271,7 +271,7 @@ See the [PactNet documentation](https://github.com/pact-foundation/pact-net#publ
 
 docker run --rm \
  -v ${PWD}:${PWD} \
- -e PACT_BROKER_BASE_URL="https://<YOUR_BROKER>.pact.dius.com.au" \
+ -e PACT_BROKER_BASE_URL="https://<YOUR_BROKER>.pactflow.io" \
  -e PACT_BROKER_TOKEN="<TOKEN>" \
   pactfoundation/pact-cli:latest \
   publish \
@@ -298,7 +298,7 @@ services:
     depends_on:
       - api
     environment:
-      - PACT_BROKER_BASE_URL="https://<YOUR_BROKER>.pact.dius.com.au"
+      - PACT_BROKER_BASE_URL="https://<YOUR_BROKER>.pactflow.io"
       - PACT_BROKER_TOKEN="<TOKEN>"
     command: >
       verify

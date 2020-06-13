@@ -5,11 +5,11 @@ title: Configure consumer and provider pipelines
 
 ## Configure consumer pipeline
 
-The source repositories are configured to use the Pactflow Github and Travis accounts, and the public broker at test.pact.dius.com.au. You will need to update these settings to point to your own accounts.
+The source repositories are configured to use the Pactflow Github and Travis accounts, and the public broker at test.pactflow.io. You will need to update these settings to point to your own accounts.
 
 1. In `.travis.yml` of the example-consumer project, set `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account (you will have received an email with this information).
 1. To update the encrypted `PACT_BROKER_TOKEN` you will need to use the Travis CI CLI which is released as a Rubygem. To avoid having to install yet another dependency, we are using the `lirantal/travis-cli` docker image, which coincidentally is maintained by a long time Pact fan and user, the awesome [@lirantal](https://github.com/lirantal).
-    1. Log in to your Pactflow account (`https://<your-subdomain>.pact.dius.com.au`), and go to Settings > API Tokens.
+    1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens.
     1. Click the Copy button for the read/write CI token.
     1. Open a terminal in the directory where you checked out your example-consumer.
 
