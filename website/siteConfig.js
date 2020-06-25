@@ -91,7 +91,6 @@ const siteConfig = {
     { doc: "api", label: "API" },
     // Link to page found at pages/en/help.js or if that does not exist, pages/help.js, for current language
     // { page: "guides", label: "Guides" },
-    { page: "help", label: "Help" },
     // Determines search bar position among links
     { search: true },
     // Determines language drop down position among links
