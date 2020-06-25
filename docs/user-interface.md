@@ -9,27 +9,30 @@ The main Pactflow screen has four functional areas.
 
 &nbsp;
 
-![Main Screen](assets/ui/main-screen.png)
+![Main Screen](assets/ui/dashboard.png)
 
 &nbsp;
 
-<img src="/docs/assets/ui/one.png" alt="one" style="float: left; padding-right: 5px"/>
+**1**
 The list of all integrations are displayed on the left panel. An integration here is the pair of a consumer and provider that have a pact. Select an integration to have its details displayed in the center panel. The status icon (see table below) will be displayed for the verification result of latest pact.
 
-<img src="/docs/assets/ui/two.png" alt="two" style="float: left; padding-right: 5px"/>
+**2**
 The details of the selected integration will be displayed here.
 
-<img src="/docs/assets/ui/three.png" alt="three" style="float: left; padding-right: 5px"/>
+**3**
 You can filter the list of integrations here by either the Consumer or Provider name.
 
-<img src="/docs/assets/ui/four.png" alt="four" style="float: left; padding-right: 5px"/>
+**4**
 The tabs at the top provide different views of the currently selected integration. The Network
 Diagram will display a graph view of all the integrations that are reachable from the selected one.
 The Matrix will display more details of all the pacts and verifications of the selected integration.
 
-<img src="/docs/assets/ui/five.png" alt="five" style="float: left; padding-right: 5px"/>
+**5**
 The settings (or cog) button will take you to all the setting screens. Here you'll be able to setup
-[API tokens](#settings-api-tokens) and [webhooks](#settings-webhooks).
+[API tokens](#settings-api-tokens), [webhooks](#settings-webhooks), [users](#settings-users) and more.
+
+**6**
+Displays the current logged in user and subscription status.
 
 &nbsp;
 
@@ -132,3 +135,44 @@ pact files or verification results. The read/write token should only be used by 
 
 The *Copy* button allows you to copy the token values without displaying them, and the *Regenerate* button will allow you to generate a new value for that token.
 
+### Settings - Users
+
+The user management scrceens have the following capabilities:
+
+* See the users in their team as well as their last login date (all)
+* Invite new users to join the team [Administrator only]
+* Enable and disable users [Administrator only]
+
+_NOTE: by default, the Administrator of the account is automatically set to the account creator._
+
+![User Management Screen](assets/ui/users.png)
+
+**1**
+The current plan details are displayed, alongside remaining user seat limits.
+
+**2**
+If the current user is an Administrator, the option to invite new users will be presented here.
+
+**3**
+Current active and disabled users
+
+
+#### Enabling and Disabling Users
+
+You may disable (or enable) a user by choosing the action via the `"..."` menu. This action applies to local users or federated identities (such as SAML2.0, Google or GitHub providers).
+
+![Disable Users Option](assets/ui/users-disable-user-action.png)
+
+_NOTE: disabled users do not count toward your user limit._
+
+#### Invite users
+
+Administators can invite one or more users from the following dialog:
+
+![Invite Users Dialog](assets/ui/invite.png)
+
+After a successful invitation, the user will receive an email with a temporary password. They will need to login to your account to set a new password before they will be able to login.
+
+This option will create a local user account in the system - it will not create accounts in federated Identity Providers.
+
+_NOTE_: if the user being invited (as identified by their email address) already exists in Pactflow, they **will not** receive another email and will now be able to login to your account with their existing credentials.
