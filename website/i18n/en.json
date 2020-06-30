@@ -8,6 +8,9 @@
       "api": {
         "title": "API Reference Documentation"
       },
+      "billing": {
+        "title": "Billing and Subscription Management"
+      },
       "getting-started": {
         "title": "Getting Started with Pactflow"
       },
@@ -144,8 +147,7 @@
       "Getting Started": "Getting Started",
       "Workshops": "Workshops",
       "On-Premises": "On-Premises",
-      "API": "API",
-      "Help": "Help"
+      "API": "API"
     },
     "categories": {
       "Getting Started": "Getting Started",
