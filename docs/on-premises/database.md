@@ -26,3 +26,7 @@ The application's PostgreSQL SSL mode is set to `required` by default, which mea
 ## Schema migrations
 
 The database schema migrations will be run automatically on start up. See the documentation on [Database migrations](/docs/on-premises/upgrading/database-migrations) for more information.
+
+### Migrating from OSS Pact Broker to Pactflow
+
+If you have been hosting your own instance of the open source Pact Broker, you can point the new Pactflow On-Premises application at the same database, and the missing migrations will be applied.
