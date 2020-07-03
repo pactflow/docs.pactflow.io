@@ -137,13 +137,14 @@ The *Copy* button allows you to copy the token values without displaying them, a
 
 ### Settings - Users
 
-The user management scrceens have the following capabilities:
+Our User Management featue allows you manage the following capabilities:
 
-* See the users in their team as well as their last login date (all)
+* See the users in their team as well as their login activity (all)
 * Invite new users to join the team (Administrator only)
+* Grant Administrator access to other users (Administrator only)
 * Enable and disable users (Administrator only)
 
-_NOTE: by default, the Administrator of the account is automatically set to the account creator. Please email support@pactflow.io to update your administrator_
+_NOTE: by default, the Administrator of the account is automatically set to the account creator._
 
 ![User Management Screen](assets/ui/users.png)
 
