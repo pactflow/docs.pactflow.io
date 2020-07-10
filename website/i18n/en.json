@@ -66,6 +66,9 @@
       "powershell-guide": {
         "title": "PowerShell Migration guide"
       },
+      "stubs": {
+        "title": "Stubs"
+      },
       "user-interface": {
         "title": "Pactflow User Interface"
       },
