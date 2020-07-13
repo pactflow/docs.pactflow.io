@@ -150,7 +150,17 @@ By default, [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) reque
 
 ## Finding the URL to a pact resource
 
-In order to find the stub URL, you need to first know the pact URL. Here's how you can find it through the user interface.
+### Via the User Interface
+
+You can copy the stub URL template from the pact dashboard or pact drill-down view via the `⫶` drop-down:
+
+![Integration Dashboard](assets/ui/stubs/stub-copy-url.png)
+
+This is the simplest method, and is easily customised as per the URL format described above.
+
+### Via the API
+
+Sometimes you have the need to find the exact version. To do this, you can navigate the API user the HAL browser (and also directly via the API on the command line).
 
 ### 1. Find the integration
 
@@ -165,6 +175,8 @@ Open the API Browser by selecting "API" in the header toolbar.
 ![API Browser](assets/ui/stubs/stubs-api-browser.png)
 
 ### 3. Find the pact
+
+From here, you will be at the latest version for the integration. You can navigate from here to the specific version of an integration to get the URL you need:
 
 1. Select the `->` to navigate to the latest version
 1. Select the `->` to navigate to the latest tagged version of the pact
