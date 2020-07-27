@@ -50,6 +50,8 @@ version: "3"
 services:
   simplesaml:
     image: kristophjunge/test-saml-idp
+    logging:
+      driver: syslog # comment out the logging config to see the SAML server logs
     ports:
       - "8080:8080"
       - "8443:8443"
