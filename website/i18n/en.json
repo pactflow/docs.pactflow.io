@@ -54,6 +54,9 @@
       "on-premises/network-configuration": {
         "title": "Network configuration"
       },
+      "on-premises/releases/1.4.0": {
+        "title": "1.4.0"
+      },
       "on-premises/system-requirements": {
         "title": "System requirements"
       },
@@ -159,7 +162,8 @@
       "CI/CD Workshop": "CI/CD Workshop",
       "Installation": "Installation",
       "Upgrading": "Upgrading",
-      "Operation": "Operation"
+      "Operation": "Operation",
+      "Releases": "Releases"
     }
   },
   "pages-strings": {

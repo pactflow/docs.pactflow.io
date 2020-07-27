@@ -92,6 +92,9 @@
     ],
     "Operation": [
       "on-premises/authentication"
+    ],
+    "Releases": [
+      "on-premises/releases/1.4.0"
     ]
   }
 }
