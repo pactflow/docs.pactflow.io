@@ -6,6 +6,7 @@ title: Prerequisites
 * CI/CD pipelines for the consumer and provider as per the [Setup CI/CD page](/docs/ci-cd-workshop/set-up-ci)
 * A working local development set up as per the [Setup local development](/docs/ci-cd-workshop/set-up-local-development) page.
 * Both consumer and provider builds in Travis CI should both be passing on master.
+* If you have access to a second screen, we recommend that you use it for this workshop, as there is a lot of window switching involved.
 * Suggested window configuration:
     * In [Travis CI][travis-ci]:
         * One tab for the example-consumer build

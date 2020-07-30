@@ -14,4 +14,6 @@ title: Prerequisites
 
 ⚠️ Note: these instructions have been written for, and tested, in a bash shell on Mac. They should work correctly on Linux. If you are using Windows, then you will need to know how to run git/make/node CLI commands, or pair with someone who does.
 
+> If you have access to a second screen, we recommend that you use it for this workshop, as there is a lot of window switching involved.
+
 [travis-ci]: https://travis-ci.com
