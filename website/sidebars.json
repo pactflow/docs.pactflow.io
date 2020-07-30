@@ -93,6 +93,9 @@
     "Operation": [
       "on-premises/authentication"
     ],
+    "Troubleshooting": [
+      "on-premises/troubleshooting"
+    ],
     "Releases": [
       "on-premises/releases/1.4.0"
     ]

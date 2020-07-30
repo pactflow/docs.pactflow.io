@@ -60,6 +60,9 @@
       "on-premises/system-requirements": {
         "title": "System requirements"
       },
+      "on-premises/troubleshooting": {
+        "title": "Troubleshooting"
+      },
       "on-premises/upgrading/database-migrations": {
         "title": "Database migrations"
       },
