@@ -97,7 +97,8 @@
       "on-premises/troubleshooting"
     ],
     "Releases": [
-      "on-premises/releases/1.4.0"
+      "on-premises/releases/1.4.0",
+      "on-premises/releases/1.4.1"
     ]
   }
 }
