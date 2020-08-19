@@ -247,6 +247,67 @@ Send your unique metadata URL to us by contacting support at <a href="mailto:sup
     1. Last Name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
     1. Email Address: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
+### OneLogin
+
+#### 1. Create a OneLogin application
+
+1.    On the OneLogin portal page, choose Administration.
+2.    From the Administration page, choose Applications, and then choose Add App.
+3.    In the search bar under Find Applications, enter saml, and then choose SAML Test Connector (Advanced) to open the Add SAML Test Connector page.
+4.    (Optional) Do any of the following:
+  For Display Name, enter a name and description. For example, Pactflow.
+  For Rectangular Icon and Square Icon, you can add icons for Pactflow.
+  For Description, enter a short summary description.
+5.    Choose Save.
+
+#### 2. Edit your OneLogin application configuration
+
+1.    Choose Configuration.
+2.    On the Configuration page, do the following:
+  For RelayState, leave it blank.
+  For Audience, enter `urn:amazon:cognito:sp:ap-southeast-2_x0L1olP0D`
+  Leave Recipient blank.
+  For ACS (Consumer) URL Validator, enter `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
+  For ACS (Consumer) URL, enter `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
+  Leave Single Logout URL blank.
+
+#### 3. Edit your OneLogin application's parameters
+
+1.    Choose Parameters.
+  Note: One parameter (NameID (fka Email)) is already listed—this is expected.
+2.    Choose Add parameter to create a new, custom parameter.
+3.    In the New Field dialog, for Field name, enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
+4.    For Flags, select the Include in SAML assertion check box.
+5.    Choose Save.
+6.    For Value, choose Email from the list.
+7.    Choose Save.
+
+You then need to repeat the steps for first name and last name.
+
+8.    Choose Add parameter to create a new, custom parameter.
+9.    In the New Field dialog, for Field name, enter Firstname
+10.   For Flags, select the Include in SAML assertion check box.
+11.    Choose Save.
+12.    For Value, choose First Name from the list.
+13.    Choose Save.
+14.    Choose Add parameter to create a new, custom parameter.
+15.    In the New Field dialog, for Field name, enter Lastname
+16.    For Flags, select the Include in SAML assertion check box.
+17.    Choose Save.
+18.    For Value, choose First Name from the list.
+19.    Choose Save.
+
+
+You should have the following attributes defined:
+
+![Onelogin Attributes](assets/saml/onelogin_attributes.png)
+
+
+#### 4. Copy the IdP metadata for your OneLogin application
+
+1.    Choose SSO.
+2.    Under Issuer URL, copy the URL to your clipboard. You need to provide this URL to us.
+3.    Choose Save to save all your changes to your OneLogin application.
 
 ## Debugging
 
