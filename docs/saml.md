@@ -231,6 +231,23 @@ See https://developer.okta.com/docs/guides/build-sso-integration/saml2/overview/
 
 Send your unique metadata URL to us by contacting support at <a href="mailto:support@pactflow.io">support@pactflow.io</a>.
 
+### Azure Active Directory
+
+1. Create a non gallery application
+1. Follow the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-non-gallery-app) for creating a non gallery application.
+  * Choose `Non-gallery application` at the `Add your own app` screen.
+  * Set the name to `Pactflow On-Premesis` when prompted.
+1. When the application has been created, assign the users that should be allowed to login to Pactflow.
+1. Once the users have been assigned, select the `Single sign-on` tab. Select `SAML`.
+1. Set the Identifier (Entity ID) to `urn:amazon:cognito:sp:ap-southeast-2_x0L1olP0D`
+1. Set the Reply URL to `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
+1. Leave the Sign On URL, Relay State and Logout Url fields blank.
+1. Map the following attributes:
+    1. First Name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    1. Last Name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    1. Email Address: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+
+
 ## Debugging
 
 ### Debug SAML Assertions
