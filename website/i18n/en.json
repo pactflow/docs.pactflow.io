@@ -72,6 +72,9 @@
       "powershell-guide": {
         "title": "PowerShell Migration guide"
       },
+      "saml": {
+        "title": "SAML Integration"
+      },
       "stubs": {
         "title": "Stubs"
       },
