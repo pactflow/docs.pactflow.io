@@ -233,21 +233,58 @@ Send your unique metadata URL to us by contacting support at <a href="mailto:sup
 
 ### Azure Active Directory
 
+See https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-federated-single-sign-on-non-gallery-applications for more information.
 1. Create a non gallery application
-1. Follow the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-non-gallery-app) for creating a non gallery application.
+
+![Create a non-gallery app](assets/saml/azure-add-non-gallery-application.png)
+
+2. Follow the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-non-gallery-app) for creating a non gallery application.
   * Choose `Non-gallery application` at the `Add your own app` screen.
-  * Set the name to `Pactflow On-Premesis` when prompted.
-1. When the application has been created, assign the users that should be allowed to login to Pactflow.
-1. Once the users have been assigned, select the `Single sign-on` tab. Select `SAML`.
-1. Set the Identifier (Entity ID) to `urn:amazon:cognito:sp:ap-southeast-2_x0L1olP0D`
-1. Set the Reply URL to `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
-1. Leave the Sign On URL, Relay State and Logout Url fields blank.
-1. Map the following attributes:
+  * Set the name to `pactflow` when prompted.
+
+![Create a non-gallery app](assets/saml/azure-add-pactflow.png)
+
+2. When the application has been created, assign the users that should be allowed to login to Pactflow.
+
+![Assign Users](assets/saml/azure-app-quickstart.png)
+
+3. Once the users have been assigned, select the `Single sign-on` tab. Select `SAML`.
+
+![Configure SSO](assets/saml/azure-single-sign-on-saml.png)
+
+4. Proceed to the next step.
+
+![Configure SAML](assets/saml/azure-configure-saml.png)
+
+4. Set the Identifier (Entity ID) to `urn:amazon:cognito:sp:ap-southeast-2_x0L1olP0D`
+5. Set the Reply URL to `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
+6. Leave the Sign On URL, Relay State and Logout Url fields blank.
+7. To add user attributes, click "View and edit all other user attributes" to edit the attributes to be sent to the application in the SAML token when users sign in. Add the following 3 attributes:
     1. First Name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
     1. Last Name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
     1. Email Address: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-### OneLogin
+### OneLogin - via Pactflow Connector
+
+1.    On the OneLogin portal page, choose Administration.
+2.    From the Administration page, choose Applications, and then choose Add App.
+
+![Find Pactflow Connector](assets/saml/saml-onelogin-find-pactflow.png)
+
+3.    In the search bar under Find Applications, enter "pactflow", and then choose the Pactflow Connector
+4.    (Optional) Do any of the following:
+  For Display Name, enter a name and description. For example, Pactflow.
+  For Rectangular Icon and Square Icon, you can add icons for Pactflow.
+  For Description, enter a short summary description.
+5.    Choose Save.
+6. On the homepage for the new application, choose "More Actions > SAML Metadata" from the main menu
+
+![Configure Onelogin metadata](assets/saml/saml-onelogin-metadata.png)
+
+
+
+
+### OneLogin - manual setup
 
 #### 1. Create a OneLogin application
 
