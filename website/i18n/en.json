@@ -57,6 +57,9 @@
       "on-premises/releases/1.4.0": {
         "title": "1.4.0"
       },
+      "on-premises/releases/1.4.1": {
+        "title": "1.4.1"
+      },
       "on-premises/system-requirements": {
         "title": "System requirements"
       },
@@ -80,6 +83,21 @@
       },
       "user-interface": {
         "title": "Pactflow User Interface"
+      },
+      "user-interface/dashboard": {
+        "title": "Dashboard"
+      },
+      "user-interface/settings/api-tokens": {
+        "title": "API Tokens"
+      },
+      "user-interface/settings/secrets": {
+        "title": "Secrets"
+      },
+      "user-interface/settings/users": {
+        "title": "Users"
+      },
+      "user-interface/settings/webhooks": {
+        "title": "Webhooks"
       },
       "webhooks-help": {
         "title": "Webhooks"
@@ -163,6 +181,7 @@
     },
     "categories": {
       "Getting Started": "Getting Started",
+      "User Interface": "User Interface",
       "Troubleshooting": "Troubleshooting",
       "API Reference": "API Reference",
       "CI/CD Workshop": "CI/CD Workshop",
