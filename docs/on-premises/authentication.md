@@ -12,5 +12,5 @@ The SAML IDP is configured via [environment variables](/docs/on-premises/environ
 
 ## API
 
-The API is accessed using a bearer token that is set in the HTTP header of the request (eg. `Authorization: Bearer <your token here>`). The tokens are administered on a per user basis in the [settings page](/docs/user-interface#settings---api-tokens) of the Pactflow application.
+The API is accessed using a bearer token that is set in the HTTP header of the request (eg. `Authorization: Bearer <your token here>`). The tokens are administered on a per user basis in the [settings page](/docs/user-interface/settings/api-tokens) of the Pactflow application.
 

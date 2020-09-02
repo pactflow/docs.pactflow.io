@@ -11,7 +11,7 @@ Before you jump in, here are some resources to get you started:
 * The [Pact Broker overview](https://docs.pact.io/pact_broker/overview)
 * [Versioning in the Pact Broker](https://docs.pact.io/getting_started/versioning_in_the_pact_broker)
 * [General Pact documentation](https://docs.pact.io)
-* You can find documentation on all the Pactflow screens under [Pactflow User Interface](/docs/user-interface).
+* You can find documentation on all the Pactflow screens under [Pactflow User Interface](/docs/user-interface/dashboard).
 
 We also have a Slack workspace where you can chat with other members and get general support with the product. Join us by registering [here](http://slack.pact.io/).
 
@@ -26,7 +26,7 @@ If you need Pactflow specific support, you can email us at <a href="mailto:suppo
 
 **NOTE: You cannot use your username and password to access the Pactflow API.**
 
-To publish or verify pacts you need to use one of the bearer tokens from the [API Tokens](user-interface#settings-api-tokens) section of your Pactflow settings page.
+To publish or verify pacts you need to use one of the bearer tokens from the [API Tokens](user-interface/settings/api-tokens) section of your Pactflow settings page.
 
 Open your Pactflow account in a browser and log in with your username and password. Click on the settings icon (the cog wheel icon at the top right of the screen).
 

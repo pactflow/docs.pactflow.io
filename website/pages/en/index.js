@@ -60,7 +60,7 @@ class Index extends React.Component {
         content: `Learn more using the [documentation on this site](${docUrl(
           'getting-started.html',
         )}) as well as the [general Pact documentation](https://docs.pact.io). Check out the [Pactflow user interface help](${
-          docUrl('user-interface.html')}) for documentation on the Pactflow screens.`,
+          docUrl('user-interface/dashboard')}) for documentation on the Pactflow screens.`,
         title: 'Browse the Docs',
       },
       {
