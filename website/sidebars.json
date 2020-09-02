@@ -2,10 +2,22 @@
   "docs": {
     "Getting Started": [
       "getting-started",
-      "user-interface",
       "stubs",
       "saml",
       "billing"
+    ],
+    "User Interface": [
+      "user-interface/dashboard",
+      {
+        "type": "subcategory",
+        "label": "Settings",
+        "ids": [
+          "user-interface/settings/api-tokens",
+          "user-interface/settings/webhooks",
+          "user-interface/settings/secrets",
+          "user-interface/settings/users"
+        ]
+      }
     ],
     "Troubleshooting": [
       "login-help",
