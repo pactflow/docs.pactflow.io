@@ -93,6 +93,9 @@
       "user-interface/settings/secrets": {
         "title": "Secrets"
       },
+      "user-interface/settings/teams": {
+        "title": "Teams"
+      },
       "user-interface/settings/users": {
         "title": "Users"
       },

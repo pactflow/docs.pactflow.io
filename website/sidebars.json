@@ -15,7 +15,8 @@
           "user-interface/settings/api-tokens",
           "user-interface/settings/webhooks",
           "user-interface/settings/secrets",
-          "user-interface/settings/users"
+          "user-interface/settings/users",
+          "user-interface/settings/teams"
         ]
       }
     ],
