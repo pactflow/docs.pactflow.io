@@ -2,7 +2,7 @@
 title: Teams
 ---
 
-Our Team Management featue allows you manage the following capabilities:
+Our Team Management feature allows you manage the following capabilities:
 
 * Allocate users to teams
 * Allocate applications to teams
