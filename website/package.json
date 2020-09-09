@@ -13,5 +13,8 @@
   },
   "dependencies": {
     "improved-yarn-audit": "^1.1.1"
+  },
+  "resolutions": {
+    "**/bl": "^1.2.3"
   }
 }
