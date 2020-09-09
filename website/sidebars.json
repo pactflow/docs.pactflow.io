@@ -112,7 +112,8 @@
     ],
     "Releases": [
       "on-premises/releases/1.4.0",
-      "on-premises/releases/1.4.1"
+      "on-premises/releases/1.4.1",
+      "on-premises/releases/1.5.0",
     ]
   }
 }
