@@ -23,6 +23,10 @@ The source repositories are configured to use the Pactflow Github and Travis acc
     1. Commit and push the changes to your `.travis.yml` file.
     1. Open the example-consumer project in Travis CI. This build should now successfully publish the pact, but it will fail on the `can-i-deploy` step when it tries to deploy. This is because the provider has not published a successful verification result for the pact.
 
+> NOTE: If you're unable to generate an encrypted token here, you can also set the credentials directly in Travis. Go to `https://travis-ci.com/github/<your org>/<your project>/settings` and choose
+> "More options" > "Settings" > "Environment Variables" and set the `PACT_BROKER_TOKEN` environment variable.
+
+
 ## Configure provider pipeline
 
 🔁 Repeat the above instructions to configure the Pactflow account for your provider project.
