@@ -5,42 +5,41 @@ title: Configure consumer and provider pipelines
 
 ## Configure consumer pipeline
 
-The source repositories are configured to use the Pactflow Github and Travis accounts, and the public broker at test.pactflow.io. You will need to update these settings to point to your own accounts.
+The source repositories are configured to use the the public broker at test.pactflow.io. You will need to update the credentials to point to your own Pactflow account. To do this, we need to update the `PACT_BROKER_BASE_URL` environment variable in the Github workflow file, and create a Github Secret to store the Pactflow API token in.
 
-1. In `.travis.yml` of the example-consumer project, set `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account (you will have received an email with this information).
-1. To update the encrypted `PACT_BROKER_TOKEN` you will need to use the Travis CI CLI which is released as a Rubygem. To avoid having to install yet another dependency, we are using the `lirantal/travis-cli` docker image, which coincidentally is maintained by a long time Pact fan and user, the awesome [@lirantal](https://github.com/lirantal).
-    1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens.
-    1. Click the Copy button for the read/write CI token.
-    1. Open a terminal in the directory where you checked out your example-consumer.
+1. Create a Github Secret to store your Pactflow API token in.
+    1. In Pactflow:
+        1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens.
+        1. Click the Copy button for the read/write CI token (make sure it's the read _write_ one, not the read only one).
+    1. In Github:
+        1. Open your forked `example-consumer` project (`https://github.com/<your-username>/example-consumer`)
+        1. Click on the `Settings` tab.
+        1. Select `Secrets` from the side menu.
+        1. Click `New Secret`
+        1. Set the name of the secret to `PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP`
+        1. Paste in the Pactflow API token value you copied in the previous step.
+1. Configure the Pact Broker base URL.
+    1. On your local machine:
+        1. Open the `example-consumer` project in your IDE.
+        1. Open `.github/workflows/build.yml`
+        1. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account (eg. `https://<your-tenant>.pactflow.io`, no slash on the end.)
+        1. Commit and push your changes.
+1. View the build:
+    1. In Github:
+        1. Go to the `Actions` tab, and select the `Build` workflow.
+        1. Select the most recent build.
 
-        ```
-        export PACT_BROKER_TOKEN="<paste your token here>"
-
-        make travis_login # you'll need to input your github credentials and 2FA if configured
-        make travis_encrypt_pact_broker_token
-        ```
-    1. Copy the output of the encrypt command, including the quotation marks, and replace the `- secure:` value in the `env > global` section of your `.travis.yml` file.
-    1. Commit and push the changes to your `.travis.yml` file.
-    1. Open the example-consumer project in Travis CI. This build should now successfully publish the pact, but it will fail on the `can-i-deploy` step when it tries to deploy. This is because the provider has not published a successful verification result for the pact.
-
-> NOTE: If you're unable to generate an encrypted token here, you can also set the credentials directly in Travis. Go to `https://travis-ci.com/github/<your org>/<your project>/settings` and choose
-> "More options" > "Settings" > "Environment Variables" and set the `PACT_BROKER_TOKEN` environment variable.
-
+This build should now successfully publish the pact, but it will fail on the `can-i-deploy` step before it tries to deploy. This is because the provider has not published a successful verification result for the pact.
 
 ## Configure provider pipeline
 
-🔁 Repeat the above instructions to configure the Pactflow account for your provider project.
+🔁 Repeat the above instructions to configure the Pactflow account for your provider project. There are _TWO_ files to be updated in the provider project - `.github/workflows/build.yml` and `.github/workflows/verify_changed_pact.yml`.
 
-Note:
-
-* You shouldn't need to repeat the Travis login step.
-* The environment variable must be encrypted in the context of the repository to which it will be added, so you can't just reuse the output of the encrypt step from the consumer project.
-
-After you have pushed your changes to `.travis.yml`, the provider pipeline will run, fetching and verifying the configured pacts from your Pactflow account, and publishing the results back. The `can-i-deploy` command will pass, and allow the provider to be deployed.
+After you have pushed your changes to the workflow files, the provider pipeline will run, fetching and verifying the configured pacts from your Pactflow account, and publishing the results back. The `can-i-deploy` command will pass, and allow the provider to be deployed.
 
 ## Back to the consumer
 
-✅ If you would like to see all your builds go green, you can re-trigger the consumer build by selecting "More options" > "Trigger build" > "Trigger custom build".
+✅ To make all your builds go green, trigger the `example-consumer` workflow again in the Github Actions page (`Actions` -> Under `Workflows`, select `Build` -> `Run workflow` -> `Run workflow`).
 
 ## Expected state by the end of this step
 
