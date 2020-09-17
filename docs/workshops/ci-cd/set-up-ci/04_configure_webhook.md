@@ -3,75 +3,71 @@ id: configure-webhook
 title: Configure webhook
 ---
 
-To ensure that the verification step is run whenever a pact changes, we need to configure a webhook to trigger a provider verification build in Travis CI. The webhook will need an authentication token to be able to make this call to the Travis API. We don't want the Travis token to be stored in clear text in the webhook, so we will create a secret in Pactflow to contain token.
+To ensure that the verification step is run whenever a pact changes, we need to configure a webhook to trigger a provider verification build in Github Actions. The webhook will need an authentication token to be able to make this call to the Github API. We don't want the Github token to be stored in clear text in the webhook, so we will create a secret in Pactflow to contain token.
 
-1. Copy your Travis CI token
-    1. In [Travis CI][travis-ci], click on your profile picture in the top right of the window, and select "Settings".
-    1. Select the "Settings" tab.
-    1. Under the API Authentication section, click "COPY TOKEN".
+1. Create a Github token
+    1. In Github:
+        1. Click on your profile picture in the top right of the window.
+        1. Select `Settings`
+        1. Select `Developer settings` from the bottom of the menu on the left.
+        1. Select `Personal access tokens` from the menu on the left.
+        1. Click `Generate new token`
+        1. Set `Note` to `Token for triggering example-provider pact verification build`
+        1. Select `public_repo` scope.
+        1. Click `Generate token`
+        1. Copy the value of the token and put it in an open file (or better yet, store it in your password manager!)
 
 1. Create a Pactflow secret for the Travis token.
-    1. In your Pactflow account, click on the Settings icon.
-    1. Select the Secrets tab from the menu on the left.
-    1. Click "ADD SECRET"
-    1. Enter the name `travisToken` and paste the value that you copied earlier.
-    1. Click "CREATE"
+    1. In your Pactflow account:
+        1. Click on the Settings icon.
+        1. Select the Secrets tab from the menu on the left.
+        1. Click "ADD SECRET"
+        1. Enter the name `githubToken` and paste the value that you copied in the previous step.
+        1. Click "CREATE"
 
 1. Create the webhook.
-    1. In your Pactflow account, select the Webhooks tab from the settings page.
-    1. Click "ADD WEBHOOK".
-    1. Set:
-        * Description:
+    1. In your Pactflow account:
+        1. Select the Webhooks tab from the settings page.
+        1. Click "ADD WEBHOOK".
+        1. Set:
+            * Description:
 
-            ```
-            Travis CI webhook for pactflow-example-provider
-            ```
-        * Consumer: leave as "ALL"
-        * Provider: select `pactflow-example-provider`
-        * Events: select `Contract published with changed content or tags`
-        * URL:
+                ```
+                Pact changed webhook for pactflow-example-provider
+                ```
+            * Consumer: leave as "ALL"
+            * Provider: select `pactflow-example-provider`
+            * Events: select `Contract published with changed content or tags`
+            * URL:
 
-            ```
-            https://api.travis-ci.com/repo/<YOUR GITHUB ACCOUNT HERE>%2Fexample-provider/requests
-            ```
+                ```
+                https://api.github.com/repos/<YOUR GITHUB ACCOUNT HERE>/example-provider/dispatches
+                ```
 
-            eg. `https://api.travis-ci.com/repo/bethesque%2Fexample-provider/requests` - you must leave the %2F in there.
+                ```
+                Content-Type: application/json
+                Accept: Accept: application/vnd.github.everest-preview+json
+                Authorization: Bearer ${user.githubToken}
+                ```
+            * Body:
 
-        * Headers:
-
-            ```
-            Content-Type: application/json
-            Accept: application/json
-            Travis-API-Version: 3
-            Authorization: token ${user.travisToken}
-            ```
-        * Body:
-
-            ```
-            {
-              "request": {
-                "message": "Triggered by changed pact for ${pactbroker.consumerName} version ${pactbroker.consumerVersionNumber}",
-                "branch": "master",
-                "merge_mode": "deep_merge_append",
-                "config": {
-                  "env": {
-                    "global": [
-                      "PACT_URL=${pactbroker.pactUrl}"
-                    ]
+                ```
+                {
+                  "event_type": "pact_changed",
+                  "client_payload":
+                    {
+                      "pact_url": "${pactbroker.pactUrl}"
+                    }
                   }
                 }
-              }
-            }
-            ```
-      1. Click the "TEST" button and ensure that it runs successfully.
-      1. Click the "CREATE" button.
+                ```
+          1. Click the "TEST" button and ensure that it runs successfully.
+          1. Click the "CREATE" button.
 
-1. Verify that the pact verification build for the provider is running correctly by opening [Travis CI][travis-ci] and checking the output of the triggered build.
+1. Verify that the pact verification build for the provider is running correctly by opening the Github Actions tab of your `example-provider` project, and checking the output of the triggered build.
 
 👉 Each of the above steps can be automated - you can see the targets for them in the provider's Makefile.
 
 ## Expected state by the end of this step
 
 Both consumer and provider builds passing, and a webhook that has been tested and shown to trigger a pact verification build of the provider.
-
-[travis-ci]: https://travis-ci.com
