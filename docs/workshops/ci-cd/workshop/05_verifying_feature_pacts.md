@@ -59,7 +59,8 @@ The reason for this is that if support for a new feature pact is added on a `fea
 
 1. Commit and push
 
-1. Open the provider build in Travis CI and wait for the successful verification result for `feat/new-field` to be be published.
+1. Open the provider build in Github Actions and wait for the successful verification result for `feat/new-field` to be be published.
+
     * 👉 Note that the provider has now successfully deployed this change to production, so the consumer is now free to release their code.
 
 1. On your local machine, run `GIT_BRANCH=master make test` - you will now see that the `feat/new-field` pact is not included, as it is no longer a work in progress pact.

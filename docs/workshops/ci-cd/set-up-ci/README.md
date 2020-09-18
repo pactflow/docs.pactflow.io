@@ -3,7 +3,7 @@ id: index
 title: Goals
 ---
 
-By the end of this step, you will have a CI/CD pipeline for a consumer and provider project. It will run the builds on Travis CI, and use Pactflow to exchange pacts and verification results, to trigger webhooks when pacts change, and to make sure each project is safe to deploy.
+By the end of this step, you will have a CI/CD pipeline for a consumer and provider project. It will run the builds using Github Actions, and use Pactflow to exchange pacts and verification results, to trigger webhooks when pacts change, and to make sure each project is safe to deploy.
 
 ## Method
 

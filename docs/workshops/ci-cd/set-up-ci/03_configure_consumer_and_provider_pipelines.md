@@ -35,11 +35,11 @@ This build should now successfully publish the pact, but it will fail on the `ca
 
 🔁 Repeat the above instructions to configure the Pactflow account for your provider project. There are _TWO_ files to be updated in the provider project - `.github/workflows/build.yml` and `.github/workflows/verify_changed_pact.yml`.
 
-After you have pushed your changes to the workflow files, the provider pipeline will run, fetching and verifying the configured pacts from your Pactflow account, and publishing the results back. The `can-i-deploy` command will pass, and allow the provider to be deployed.
+After you have pushed your changes to the workflow files, the provider pipeline will run, fetching and verifying the configured pacts from your Pactflow account, and publishing the results back. The `can-i-deploy` command will pass, and allow the provider to be deployed. ✅
 
 ## Back to the consumer
 
-✅ To make all your builds go green, trigger the `example-consumer` workflow again in the Github Actions page (`Actions` -> Under `Workflows`, select `Build` -> `Run workflow` -> `Run workflow`).
+✅ To make both your builds go green, trigger the `example-consumer` workflow again in the Github Actions page (`Actions` -> Under `Workflows`, select `Build` -> `Run workflow` -> `Run workflow`).
 
 ## Expected state by the end of this step
 

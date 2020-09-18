@@ -39,7 +39,7 @@
           "workshops/ci-cd/set-up-ci/index",
           "workshops/ci-cd/set-up-ci/prerequisites",
           "workshops/ci-cd/set-up-ci/fork-and-clone-the-repositories",
-          "workshops/ci-cd/set-up-ci/configure-the-builds-in-travis-ci",
+          "workshops/ci-cd/set-up-ci/configure-the-builds-in-github-actions",
           "workshops/ci-cd/set-up-ci/configure-consumer-and-provider-pipelines",
           "workshops/ci-cd/set-up-ci/configure-webhook",
           "workshops/ci-cd/set-up-ci/conclusion"

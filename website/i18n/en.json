@@ -118,8 +118,8 @@
       "workshops/ci-cd/set-up-ci/fork-and-clone-the-repositories": {
         "title": "Fork and clone the repositories"
       },
-      "workshops/ci-cd/set-up-ci/configure-the-builds-in-travis-ci": {
-        "title": "Configure the builds in Travis CI"
+      "workshops/ci-cd/set-up-ci/configure-the-builds-in-github-actions": {
+        "title": "Test the builds in Github Actions"
       },
       "workshops/ci-cd/set-up-ci/configure-consumer-and-provider-pipelines": {
         "title": "Configure consumer and provider pipelines"
