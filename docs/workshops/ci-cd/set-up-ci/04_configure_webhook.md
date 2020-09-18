@@ -7,10 +7,9 @@ To ensure that the verification step is run whenever a pact changes, we need to 
 
 1. Create a Github token
     1. In Github:
-        1. Click on your profile picture in the top right of the window.
-        1. Select `Settings`
-        1. Select `Developer settings` from the bottom of the menu on the left.
-        1. Select `Personal access tokens` from the menu on the left.
+        1. Open the `Personal acesss tokens page`
+            1. Click on your profile picture in the top right of the window.
+            1. Select `Settings` -> Select `Developer settings` from the bottom of the menu on the left -> Select `Personal access tokens` from the menu on the left.
         1. Click `Generate new token`
         1. Set `Note` to `Token for triggering example-provider pact verification build`
         1. Select `public_repo` scope.
@@ -19,15 +18,15 @@ To ensure that the verification step is run whenever a pact changes, we need to 
 
 1. Create a Pactflow secret for the Travis token.
     1. In your Pactflow account:
-        1. Click on the Settings icon.
-        1. Select the Secrets tab from the menu on the left.
+        1. Go to the Secrets page
+            1. Click on the Settings icon in the top left (it looks like a cog wheel) -> Select the `Secrets` tab from the menu on the left.
         1. Click "ADD SECRET"
         1. Enter the name `githubToken` and paste the value that you copied in the previous step.
         1. Click "CREATE"
 
 1. Create the webhook.
     1. In your Pactflow account:
-        1. Select the Webhooks tab from the settings page.
+        1. Select the `Webhooks` tab from the settings page.
         1. Click "ADD WEBHOOK".
         1. Set:
             * Description:
@@ -64,9 +63,13 @@ To ensure that the verification step is run whenever a pact changes, we need to 
           1. Click the "TEST" button and ensure that it runs successfully.
           1. Click the "CREATE" button.
 
-1. Verify that the pact verification build for the provider is running correctly by opening the Github Actions tab of your `example-provider` project, and checking the output of the triggered build.
+1. Verify that the pact verification build for the provider is running correctly
+    1. In Github:
+        1. Open the Github Actions page for the "Verify changed pact" workflow
+            1. Click `Actions` -> Under `Workflows`, select `Verify changed pact`
+        1. Select the latest execution
 
-👉 Each of the above steps can be automated - you can see the targets for them in the provider's Makefile.
+👉 Each of the above steps can be automated in Pactflow - you can see the targets for them in the provider's Makefile.
 
 ## Expected state by the end of this step
 

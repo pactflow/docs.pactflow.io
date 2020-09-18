@@ -21,7 +21,7 @@ When a new "feature" pact is created, there are a few ways you could bring that 
 
     ```js
     consumerVersionSelectors: [
-        { tag: process.env.TRAVIS_BRANCH, fallbackTag: 'master', latest: true },
+        { tag: process.env.GIT_BRANCH, fallbackTag: 'master', latest: true },
         { tag: 'prod', latest: true }
     ]
     ```
@@ -29,7 +29,7 @@ When a new "feature" pact is created, there are a few ways you could bring that 
     (or old syntax):
 
     ```js
-    consumerVersionTags: [ process.env.TRAVIS_BRANCH, "master", "prod" ]
+    consumerVersionTags: [ process.env.GIT_BRANCH, "master", "prod" ]
     ```
 
     * This is a reasonably common approach, where the two teams coordinate feature development using matching branch names.
@@ -54,15 +54,15 @@ The reason for this is that if support for a new feature pact is added on a `fea
 
 1. In the provider project, open `src/product/product.pact.test.js` and in the options for the dynamically fetched pacts, set `includeWipPactsSince: "2020-01-01"`
 
-1. Run `TRAVIS_BRANCH=master make test` and you will see that the `feat/new-field` pact has been included in the verifications, running in pending mode.
-    * We need to set the `TRAVIS_BRANCH` when running locally so that the WIP calculations know which pending pacts to include.
+1. Run `GIT_BRANCH=master make test` and you will see that the `feat/new-field` pact has been included in the verifications, running in pending mode.
+    * We need to set the `GIT_BRANCH` when running locally so that the WIP calculations know which pending pacts to include.
 
 1. Commit and push
 
 1. Open the provider build in Travis CI and wait for the successful verification result for `feat/new-field` to be be published.
     * 👉 Note that the provider has now successfully deployed this change to production, so the consumer is now free to release their code.
 
-1. On your local machine, run `TRAVIS_BRANCH=master make test` - you will now see that the `feat/new-field` pact is not included, as it is no longer a work in progress pact.
+1. On your local machine, run `GIT_BRANCH=master make test` - you will now see that the `feat/new-field` pact is not included, as it is no longer a work in progress pact.
 
 ## Expected state by the end of this step
 
