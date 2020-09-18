@@ -8,10 +8,10 @@ title: Prerequisites
 * Both consumer and provider builds in Github Actions should both be passing on master.
 * If you have access to a second screen, we recommend that you use it for this workshop, as there is a lot of window switching involved. You might want to put all the consumer windows on one screen, and all the provider windows on the other.
 * Suggested window configuration:
-    * In [Github][github]:
+    * In Github:
         * One tab for the example-consumer build
         * One tab for the example-provider build
-    * In Pactflow
+    * In Pactflow:
         * A tab for the example pact dashboard
     * In your editor of choice:
         * One window for the example-consumer

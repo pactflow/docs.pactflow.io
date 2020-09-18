@@ -7,7 +7,7 @@ Shut down the consumer and provider by pressing `ctl+c` in each of the terminals
 
 In the consumer project, run:
 
-```
+```bash
 make test
 ```
 

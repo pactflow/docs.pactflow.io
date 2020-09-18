@@ -9,10 +9,14 @@ Open a separate terminal for the consumer.
 
 Before starting the consumer, create a `.env` file in the root of the project and add:
 
-`REACT_APP_API_BASE_URL=http://localhost:8080`
+```bash
+REACT_APP_API_BASE_URL=http://localhost:8080
+```
 
 Then run:
 
-`npm run start`
+```bash
+npm run start
+```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser. You should see a list of products.

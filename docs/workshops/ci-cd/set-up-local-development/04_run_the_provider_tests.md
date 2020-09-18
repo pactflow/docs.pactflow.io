@@ -8,14 +8,14 @@ Go to the `Settings > API Tokens` page in your Pactflow account, and copy the re
 
 Create a `.env` file in the root of your project and add:
 
-```
+```bash
 PACT_BROKER_BASE_URL=<the base URL of your Pactflow account>
 PACT_BROKER_TOKEN=<the read only token you copied from your settings page>
 ```
 
 Then run:
 
-```
+```bash
 make test
 ```
 

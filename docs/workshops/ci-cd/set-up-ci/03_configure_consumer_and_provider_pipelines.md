@@ -43,4 +43,4 @@ After you have pushed your changes to the workflow files, the provider pipeline 
 
 ## Expected state by the end of this step
 
-Both consumer and provider builds passing.
+* Both consumer and provider builds passing ✅
