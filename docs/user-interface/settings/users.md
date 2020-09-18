@@ -2,7 +2,7 @@
 title: Users
 ---
 
-Our User Management featue allows you manage the following capabilities:
+Our User Management feature allows you manage the following capabilities:
 
 * See the users in their team as well as their login activity (all)
 * Invite new users to join the team (Administrator only)
