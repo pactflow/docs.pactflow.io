@@ -29,7 +29,6 @@ You can demonstrate this by running a provider build in Github (`Actions` -> Und
 
 ## Check the pact's status in Pactflow
 
-
 1. Open up the pact in Pactflow. You'll see that there is a pact tagged `master` with a failed verification result.
 
 1. Click on "VIEW PACT" and you'll see that each interaction has a status next to it.

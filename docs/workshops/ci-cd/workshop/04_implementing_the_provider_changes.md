@@ -67,7 +67,7 @@ The next step is to implement the changes that have been requested in the pact.
 
 * A provider that implements the features required by the `feat/new-field` pact on its `master` branch.
 * The new version of the provider is "deployed" to production.
-* A passing provider build in Travis CI.
+* A passing provider build in Github Actions.
 * A `feat/new-field` pact in Pactflow that still does not have a verification result.
 
 ## Conclusion
