@@ -47,7 +47,7 @@ _NOTE_: if the user being invited (as identified by their email address) already
 ## System accounts
 
 You can have a number of system accounts, based on your plan. System accounts are a type of user account to be used with API
-access only. They are primary for use with CI/CD systems to access Pactflow. From the system account screen (by selecting it from the user type dropdown), you can create new system accounts, disable existing ones and get or renegerate the access tokens for the account. These functions require administrator access. You can also see the last time a token for that account was
+access only. They are primarily for use with CI/CD systems to access Pactflow. From the system account screen (by selecting it from the user type dropdown), you can create new system accounts, disable existing ones and get or renegerate the access tokens for the account. These functions require administrator access. You can also see the last time a token for that account was
 used to access any Pactflow API.
 
 ![System accounts](assets/ui/system-accounts.png)
