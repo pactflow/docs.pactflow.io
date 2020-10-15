@@ -3,9 +3,15 @@ id: getting-started
 title: Getting Started with Pactflow
 ---
 
-Pactflow is a fully-managed, highly-available, and hardened deployment of the open source "Pact Broker" with an improved user experience. It allows you to integrate Pact into your CI/CD pipelines by providing a central point for managing your consumer driven contracts.
+Pactflow is a fully-managed, highly-available, and hardened deployment of the open source "Pact Broker" with a re-imagined user experience. It allows you to integrate Pact into your CI/CD pipelines by providing a central point for managing your consumer driven contracts.
 
-Before you jump in, here are some resources to get you started:
+## Tutorials
+
+To get you started, we have created a few short in-browser [tutorials](./tutorials). If you're new to Pact, or want some help integrating to Pactflow, you should start here.
+
+## Essential reading
+
+Here are some key resources to help you on your way:
 
 * [How Pact works](https://pactflow.io/how-pact-works)
 * The [Pact Broker overview](https://docs.pact.io/pact_broker/overview)
