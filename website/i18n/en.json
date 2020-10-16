@@ -84,6 +84,9 @@
       "stubs": {
         "title": "Stubs"
       },
+      "tutorials": {
+        "title": "Tutorials"
+      },
       "user-interface": {
         "title": "Pactflow User Interface"
       },
