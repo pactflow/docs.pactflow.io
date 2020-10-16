@@ -7,7 +7,7 @@ Pactflow is a fully-managed, highly-available, and hardened deployment of the op
 
 ## Tutorials
 
-To get you started, we have created a few short in-browser [tutorials](./tutorials). If you're new to Pact, or want some help integrating to Pactflow, you should start here.
+To get you started, we have created a few short in-browser [tutorials](/docs/tutorials). If you're new to Pact, or want some help integrating to Pactflow, you should start here.
 
 ## Essential reading
 
