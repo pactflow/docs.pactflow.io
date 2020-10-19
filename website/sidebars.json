@@ -21,6 +21,11 @@
         ]
       }
     ],
+    "Roles and permissions": [
+      "permissions/predefined-roles",
+      "permissions/permissions",
+      "permissions/api-tokens"
+    ],
     "Troubleshooting": [
       "login-help",
       "webhooks-help",
