@@ -31,6 +31,15 @@ module.exports = {
     },
     {
       type: "category",
+      label: "Roles and permissions",
+      items: [
+          "docs/permissions/predefined-roles",
+          "docs/permissions/permissions",
+          "docs/permissions/api-tokens"
+      ]
+    },
+    {
+      type: "category",
       label: "Troubleshooting",
       items: ["docs/login-help", "docs/webhooks-help", "docs/powershell-guide"],
     },
