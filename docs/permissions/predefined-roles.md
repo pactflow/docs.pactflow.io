@@ -4,6 +4,8 @@ title: Predefined roles
 
 The Pactflow application comes with the following predefined roles. Each role is assigned a collection of [permissions](./permissions).
 
+Modification of role/permission/user assignments is not yet supported, but will be released soon. See the [Pactflow Roadmap](https://github.com/pactflow/roadmap/projects/1) for more information.
+
 ## Administrator
 
 The user who signed up for the Pactflow tenant will be assigned the Administrator role. They are then able to assign the Administrator role to other users.
