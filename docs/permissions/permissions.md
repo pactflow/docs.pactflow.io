@@ -4,7 +4,7 @@ title: Permissions
 
 ## contract_data:bulk_delete:*
 
-Bulk delete pacts (which just removes the pacts and their associated verifications) or an integration (which also removes webhooks).
+Bulk delete pacts (which just removes the pacts and their associated verifications), applications (which removes associated pacts, verification results, application versions and webhooks) or an integration (which removes all pacts, verification results and webhooks, but will leave any application which is referenced by another integration).
 
 ## contract_data:manage:*
 
