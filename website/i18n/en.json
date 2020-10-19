@@ -75,6 +75,15 @@
       "on-premises/upgrading/index": {
         "title": "Docker image"
       },
+      "permissions/api-tokens": {
+        "title": "API token permissions"
+      },
+      "permissions/permissions": {
+        "title": "Permissions"
+      },
+      "permissions/predefined-roles": {
+        "title": "Predefined roles"
+      },
       "powershell-guide": {
         "title": "PowerShell Migration guide"
       },
@@ -191,6 +200,7 @@
     "categories": {
       "Getting Started": "Getting Started",
       "User Interface": "User Interface",
+      "Roles and permissions": "Roles and permissions",
       "Troubleshooting": "Troubleshooting",
       "API Reference": "API Reference",
       "CI/CD Workshop": "CI/CD Workshop",
