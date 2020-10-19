@@ -2,7 +2,7 @@
 title: Predefined roles
 ---
 
-The Pactflow application comes with the following predefined roles. Each role is assigned a collection of [permissions](./permissions). The permissions assigned to these roles can be modified, but the roles themselves cannot be deleted.
+The Pactflow application comes with the following predefined roles. Each role is assigned a collection of [permissions](./permissions).
 
 ## Administrator
 
