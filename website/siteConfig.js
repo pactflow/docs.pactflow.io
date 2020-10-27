@@ -85,7 +85,7 @@ const siteConfig = {
 
   headerLinks: [
     // Links to document with id for current language/version
-    { doc: "getting-started", label: "Getting Started" },
+    { doc: "getting-started", label: "Docs" },
     { doc: "workshops/ci-cd/index", label: "Workshops"},
     { doc: "on-premises/index", label: "On-Premises"},
     { doc: "api", label: "API" },
