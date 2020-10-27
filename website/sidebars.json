@@ -22,7 +22,7 @@
       }
     ],
     "Roles and permissions": [
-      "permissions/predefined-roles",
+      "permissions/system-defined-roles",
       "permissions/permissions",
       "permissions/api-tokens"
     ],

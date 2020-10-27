@@ -81,8 +81,8 @@
       "permissions/permissions": {
         "title": "Permissions"
       },
-      "permissions/predefined-roles": {
-        "title": "Predefined roles"
+      "permissions/system-defined-roles": {
+        "title": "System defined roles"
       },
       "powershell-guide": {
         "title": "PowerShell Migration guide"
