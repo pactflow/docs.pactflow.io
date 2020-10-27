@@ -1,5 +1,5 @@
 ---
-title: Predefined roles
+title: System defined roles
 ---
 
 The Pactflow application comes with the following predefined roles. Each role is assigned a collection of [permissions](permissions).
