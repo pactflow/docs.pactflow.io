@@ -6,7 +6,6 @@
     "docusaurus": "docusaurus",
     "start": "docusaurus start --host 0.0.0.0 --port 3000",
     "build": "docusaurus build",
-    "postbuild": "./scripts/copy-index-pages.sh",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve"
