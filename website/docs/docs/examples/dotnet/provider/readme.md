@@ -1,0 +1,52 @@
+---
+custom_edit_url: https://github.com/pactflow/example-provider-dotnet/edit/master/README.md
+title: Example Provider
+sidebar_label: Example Provider
+---
+
+<!-- This file has been synced from the pactflow/example-provider-dotnet repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
+
+## Source Code
+
+https://github.com/pactflow/example-provider-dotnet
+
+
+[![Build Status](https://travis-ci.com/pactflow/pactflow-example-provider-dotnet.svg?branch=master)](https://travis-ci.com/pactflow/pactflow-example-provider-dotnet)
+
+[![Pact Status](https://dius.pactflow.io/pacts/provider/pactflow-example-provider-dotnet/consumer/pactflow-pactflow-example-provider-dotnet/latest/badge.svg?label=provider)](https://dius.pactflow.io/pacts/provider/pactflow-example-provider-dotnet/consumer/pactflow-pactflow-example-provider-dotnet/latest) (latest pact)
+
+[![Pact Status](https://dius.pactflow.io/matrix/provider/pactflow-example-provider-dotnet/latest/prod/consumer/pactflow-pactflow-example-provider-dotnet/latest/prod/badge.svg?label=provider)](https://dius.pactflow.io/pacts/provider/pactflow-example-provider-dotnet/consumer/pactflow-pactflow-example-provider-dotnet/latest/prod) (prod/prod pact)
+
+This is an example of a .NET Core (3.1) provider that uses Pact, [Pactflow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
+
+The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
+
+The latest version of the Example Consumer/Example Provider pact is published [here](https://test.pact.dius.com.au/pacts/provider/pactflow-example-provider/consumer/pactflow-example-provider/latest).
+
+## Project Phases
+
+The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
+
+* Test
+  * Run tests (including the pact tests that generate the contract)
+  * Publish pacts, tagging the consumer version with the name of the current branch
+  * Check if we are safe to deploy to prod (ie. has the pact content been successfully verified)
+* Deploy (only from master)
+  * Deploy app (just pretend for the purposes of this example!)
+  * Tag the deployed consumer version as 'prod'
+
+## Usage
+
+See the [Pactflow CI/CD Workshop](https://github.com/pactflow/ci-cd-workshop).
+
+The below commands are designed for a Linux/OSX environment, please translate for use on Windows/PowerShell as necessary:
+
+### Run tests
+
+Export the following into your shell before running
+```
+export PACT_BROKER_TOKEN=<insert token here> # do not a user/email/password here e.g. it should like something like 8Axvelr123xCq98h1
+export PACT_BROKER_HOST=<insert host here> # e.g. https://foo.pactflow.io
+
+make test
+```
