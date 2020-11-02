@@ -13,3 +13,16 @@ for index_page in ${index_pages}; do        # eg. foo/index.html
     cp "${index_page}" "${directory}/index" # eg foo/index/index.html
   fi
 done
+
+# index_dirs=$(find build -name index -type d)
+
+# for index_dir in ${index_dirs}; do        # eg. index
+#   directory=$(dirname "${index_dir}")      # eg. my-page from my-page/index
+#   index_page="${directory}/index/index.html"          # eg. path/to/my-page/index/index.html
+#   target_page="${directory}/index.html"          # eg. path/to/my-page/index.html
+#   echo $index_page
+#   if [ -f "${index_page}" ]; then
+#     echo "Copying ${index_page} to ${directory}/index.html"
+#     cp "${index_page}" "${directory}/index.html" # eg foo/index.html
+#   fi
+# done
