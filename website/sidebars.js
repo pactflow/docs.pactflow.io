@@ -46,11 +46,7 @@ module.exports = {
       label: "Troubleshooting",
       items: ["docs/login-help", "docs/webhooks-help", "docs/powershell-guide"],
     },
-    {
-      type: "category",
-      label: "API Reference",
-      items: ["docs/api"],
-    },
+    "docs/api",
   ],
   university: [
     {
