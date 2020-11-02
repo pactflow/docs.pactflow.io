@@ -9,7 +9,7 @@ The courses are written in NodeJS, however, extensive experience with the langua
 
 _NOTE: To complete the workshop, you will need to authenticate with GitHub, Google, Twitter or LinkedIn._
 
-![NodeJS Tutorial](assets/workshops/katacoda-screenshot.png)
+![NodeJS Tutorial](/workshops/katacoda-screenshot.png)
 
 ## Getting Started with Pactflow
 

@@ -1,16 +1,7 @@
 module.exports = {
   docs: [
-    {
-      type: "category",
-      label: "Docs",
-      items: [
-        "docs/getting-started",
-        "docs/tutorials",
-        "docs/stubs",
-        "docs/saml",
-        "docs/billing",
-      ],
-    },
+    "docs/getting-started",
+    "docs/tutorials",
     {
       type: "category",
       label: "User Interface",
@@ -31,12 +22,24 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Roles and permissions",
+      label: "Features",
       items: [
-          "docs/permissions/predefined-roles",
-          "docs/permissions/permissions",
-          "docs/permissions/api-tokens"
-      ]
+        "docs/stubs",
+        {
+          type: "category",
+          label: "Roles and permissions",
+          items: [
+            "docs/permissions/predefined-roles",
+            "docs/permissions/permissions",
+            "docs/permissions/api-tokens",
+          ],
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Account",
+      items: ["docs/saml", "docs/billing"],
     },
     {
       type: "category",
@@ -115,7 +118,10 @@ module.exports = {
         "docs/examples/index",
         {
           Cypress: ["docs/examples/cypress/readme"],
-          JS: ["docs/examples/js/consumer/readme", "docs/examples/js/provider/readme"],
+          JS: [
+            "docs/examples/js/consumer/readme",
+            "docs/examples/js/provider/readme",
+          ],
           ".NET": [
             "docs/examples/dotnet/consumer/readme",
             "docs/examples/dotnet/provider/readme",
