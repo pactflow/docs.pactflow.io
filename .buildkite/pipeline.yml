@@ -32,6 +32,8 @@ steps:
           always-pull: true
 
   - block: ":rocket: Release! Fly! Fly! Be FREE!!!"
+    if: build.branch != "master"
+    key: "confirm"
 
   - command: ./scripts/deploy-infra.sh prod
     label: ':aws: Doc Site - Deploy Infra - Prod'
