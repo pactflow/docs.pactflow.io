@@ -18,6 +18,8 @@ on:
       - pactflow-example-consumer-python-updated
       - pactflow-example-provider-python-updated
       - pact-workshop-js-updated
+      - pactflow-example-provider-js-sns-updated
+      - pactflow-example-consumer-js-sns-updated
 
 jobs:
   build:
