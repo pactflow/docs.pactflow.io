@@ -54,8 +54,8 @@ jobs:
       run: bundle exec scripts/sync/example_consumer_js.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_consumer_js docs'
       if: github.event.action == 'pactflow-example-consumer-js-updated'
 
-    - name: Sync example_consumer_js_kafka docs
-      run: bundle exec scripts/sync/example_consumer_js_kafka.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_consumer_js_kafka docs'
+    - name: Sync example_consumer_js_sns docs
+      run: bundle exec scripts/sync/example_consumer_js_sns.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_consumer_js_kafka docs'
       if: github.event.action == 'pactflow-example-consumer-js-kafka-updated'
 
     - name: Sync example_provider_java_kafka docs
@@ -89,6 +89,14 @@ jobs:
     - name: Sync pact-js-workshop docs
       run: bundle exec scripts/sync/introduction_workshop.rb && echo '::set-env name=COMMIT_MESSAGE::synced introduction_workshop docs'
       if: github.event.action == 'pact-workshop-js-updated'
+
+    - name: Sync example_consumer_js_sns docs
+      run: bundle exec scripts/sync/example_consumer_js_sns.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_consumer_js_sns docs'
+      if: github.event.action == 'pactflow-example-consumer-js-sns-updated'
+
+    - name: Sync example_provider_js_sns docs
+      run: bundle exec scripts/sync/example_provider_js_sns.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_provider_js_sns docs'
+      if: github.event.action == 'pactflow-example-provider-js-sns-updated'
 
     - name: Commit and push changes
       uses: EndBug/add-and-commit@v4

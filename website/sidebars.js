@@ -113,6 +113,10 @@ module.exports = {
       items: [
         "docs/examples/index",
         {
+          AWS: [
+            "docs/examples/aws/sns/consumer/readme",
+            "docs/examples/aws/sns/provider/readme",
+          ],
           Cypress: ["docs/examples/cypress/readme"],
           JS: [
             "docs/examples/js/consumer/readme",
