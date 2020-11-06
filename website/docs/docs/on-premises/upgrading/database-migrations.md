@@ -4,7 +4,7 @@ title: Database migrations
 
 ## Auto migration
 
-Schema migrations are run automatically on start up, unless the [PACTFLOW_DATABASE_AUTO_MIGRATE](../environment-variables/index#pactflow_database_auto_migrate) environment variable is set to `false`. Data migrations are also run automatically on start up, after the schema migrations, and ensure that any data inserted into the database by a previous version of the application are migrated. This allows you to perform no-downtime, rolling upgrades across your cluster, ensuring any data inserted into latest database schema by the nodes running the previous version of the application are safely migrated.
+Schema migrations are run automatically on start up, unless the [PACTFLOW_DATABASE_AUTO_MIGRATE](../environment-variables#pactflow_database_auto_migrate) environment variable is set to `false`. Data migrations are also run automatically on start up, after the schema migrations, and ensure that any data inserted into the database by a previous version of the application are migrated. This allows you to perform no-downtime, rolling upgrades across your cluster, ensuring any data inserted into latest database schema by the nodes running the previous version of the application are safely migrated.
 
 ## Manual migration
 
