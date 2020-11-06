@@ -29,7 +29,7 @@ The Pactflow application does not need any elevated privileges to run. It runs u
 
 ### Application port
 
-The Pactflow application runs on port `9292` by default. This can be configured by setting the [PACTFLOW_HTTP_PORT](environment-variables#pactflow_http_port) environment variable.
+The Pactflow application runs on port `9292` by default. This can be configured by setting the [PACTFLOW_HTTP_PORT](/docs/on-premises/environment-variables#pactflow_http_port) environment variable.
 
 ### Healthcheck endpoint
 
