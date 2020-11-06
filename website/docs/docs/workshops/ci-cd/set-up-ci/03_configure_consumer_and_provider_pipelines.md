@@ -14,6 +14,9 @@ The source repositories are configured to use the Pactflow Github and Travis acc
 1. In `.travis.yml` of the example-consumer project, set `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account (you will have received an email with this information). Commit and push this change.
 1. Open the example-consumer project in Travis CI. This build should now successfully publish the pact, but it will fail on the `can-i-deploy` step when it tries to deploy. This is because the provider has not published a successful verification result for the pact.
 
+After completing the above, your settings page should look something like this (note the "Environment Variables"):
+
+![Travis Settings](/workshops/travis-settings.png)
 
 ## Configure provider pipeline
 
