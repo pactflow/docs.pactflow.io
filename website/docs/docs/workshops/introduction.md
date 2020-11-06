@@ -1,5 +1,4 @@
 ---
-id: index
 title: Pactflow - Introduction to Pact
 sidebar_label: Introduction
 ---

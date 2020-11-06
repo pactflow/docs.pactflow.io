@@ -18,9 +18,9 @@ module.exports = {
       },
       items: [
         { to: "/", label: "Docs", position: "left" },
-        { to: "docs/workshops/index", label: "Pactflow University", position: "left" },
-        { to: "docs/examples/index", label: "Examples", position: "left" },
-        { to: "docs/on-premises/index", label: "On-Premises", position: "left" },
+        { to: "docs/workshops", label: "Pactflow University", position: "left" },
+        { to: "docs/examples", label: "Examples", position: "left" },
+        { to: "docs/on-premises", label: "On-Premises", position: "left" },
         // {
         //   href: 'https://github.com/facebook/docusaurus',
         //   label: 'GitHub',

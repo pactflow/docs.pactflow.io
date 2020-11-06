@@ -1,5 +1,4 @@
 ---
-id: index
 title: Pactflow University
 sidebar_label: Overview
 ---

@@ -1,5 +1,4 @@
 ---
-id: index
 title: Pactflow Code Demos
 sidebar_label: Overview
 ---
