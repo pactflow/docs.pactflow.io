@@ -53,12 +53,12 @@ module.exports = {
       type: "category",
       label: "Pactflow University",
       items: [
-        "docs/workshops/index",
+        "docs/workshops",
         {
           type: "category",
           label: "Introduction to Pact",
           items: [
-            "docs/workshops/introduction/index",
+            "docs/workshops/introduction",
             "docs/workshops/introduction/learning",
             "docs/workshops/introduction/readme",
             "docs/workshops/introduction/further",
@@ -68,10 +68,10 @@ module.exports = {
           type: "category",
           label: "CI/CD Workshop",
           items: [
-            "docs/workshops/ci-cd/index",
+            "docs/workshops/ci-cd",
             {
               "Set up CI": [
-                "docs/workshops/ci-cd/set-up-ci/index",
+                "docs/workshops/ci-cd/set-up-ci",
                 "docs/workshops/ci-cd/set-up-ci/prerequisites",
                 "docs/workshops/ci-cd/set-up-ci/fork-and-clone-the-repositories",
                 "docs/workshops/ci-cd/set-up-ci/configure-the-builds-in-travis-ci",
@@ -80,7 +80,7 @@ module.exports = {
                 "docs/workshops/ci-cd/set-up-ci/conclusion",
               ],
               "Setup Local Development": [
-                "docs/workshops/ci-cd/set-up-local-development/index",
+                "docs/workshops/ci-cd/set-up-local-development",
                 "docs/workshops/ci-cd/set-up-local-development/prerequisites",
                 "docs/workshops/ci-cd/set-up-local-development/install-dependencies",
                 "docs/workshops/ci-cd/set-up-local-development/run-the-applications",
@@ -88,7 +88,7 @@ module.exports = {
                 "docs/workshops/ci-cd/set-up-local-development/run-the-provider-tests",
               ],
               Workshop: [
-                "docs/workshops/ci-cd/workshop/index",
+                "docs/workshops/ci-cd/workshop",
                 "docs/workshops/ci-cd/workshop/prerequisites",
                 "docs/workshops/ci-cd/workshop/how-to-break-everything",
                 "docs/workshops/ci-cd/workshop/protecting-the-provider",
@@ -101,8 +101,8 @@ module.exports = {
             },
           ],
         },
-        "docs/workshops/advanced/index",
-        "docs/workshops/tutorials/index",
+        "docs/workshops/advanced",
+        "docs/workshops/tutorials",
       ],
     },
   ],
@@ -111,7 +111,7 @@ module.exports = {
       type: "category",
       label: "Examples",
       items: [
-        "docs/examples/index",
+        "docs/examples",
         {
           AWS: [
             "docs/examples/aws/sns/consumer/readme",
@@ -153,7 +153,7 @@ module.exports = {
           type: "category",
           label: "Installation",
           items: [
-            "docs/on-premises/index",
+            "docs/on-premises",
             "docs/on-premises/system-requirements",
             "docs/on-premises/docker-image-registry",
             "docs/on-premises/network-configuration",
@@ -168,7 +168,7 @@ module.exports = {
               type: "category",
               label: "Application configuration",
               items: [
-                "docs/on-premises/environment-variables/index",
+                "docs/on-premises/environment-variables",
                 "docs/on-premises/environment-variables/templates",
                 "docs/on-premises/environment-variables/timezones",
               ],

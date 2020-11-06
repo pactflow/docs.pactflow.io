@@ -1,5 +1,4 @@
 ---
-id: index
 title: Pactflow - Advanced Pact
 sidebar_label: Advanced Pact
 ---

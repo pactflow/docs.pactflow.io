@@ -8,8 +8,8 @@ Pactflow application logs are sent to the standard output stream of the Docker c
 
 ## Format
 
-The default log format is JSON. This can be changed by setting the [PACTFLOW_LOG_FORMAT](environment-variables/index#pactflow_log_format) environment variable.
+The default log format is JSON. This can be changed by setting the [PACTFLOW_LOG_FORMAT](environment-variables#pactflow_log_format) environment variable.
 
 ## Level
 
-The default log level is `INFO`. This can be changed by setting the [PACTFLOW_LOG_LEVEL](environment-variables/index#pactflow_log_level) environment variable.
+The default log level is `INFO`. This can be changed by setting the [PACTFLOW_LOG_LEVEL](environment-variables#pactflow_log_level) environment variable.

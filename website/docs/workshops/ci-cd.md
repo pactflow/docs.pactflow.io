@@ -1,5 +1,4 @@
 ---
-id: index
 title: Pactflow CI/CD Workshop
 sidebar_label: Introduction
 ---

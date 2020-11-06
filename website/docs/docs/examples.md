@@ -1,5 +1,4 @@
 ---
-id: index
 title: Pactflow Code Demos
 sidebar_label: Overview
 ---
@@ -38,21 +37,21 @@ The single get product endpoint is not a spelling mistake, and is used to show e
 
 | Language | Use Case | Framework/Tech | Description |
 | --------- | ------- | ----------- | -------------- |
-| JS/NodeJS | Web | [React](js/consumer/readme) | React JS website relying on a Products API |
-| JS/NodeJS | Web | [Cypress](cypress/readme) | Example demonstrating how Cypress could be used to generate consumer pacts |
-| JS/NodeJS | AWS/SNS/Messages | [SNS Lambda](aws/sns/consumer/readme) | AWS Lambda SNS Consumer |
-| Java | Messages | [Kafka](kafka/java/consumer) | Java Kafka consumer |
-| NodeJS | Messages | [Kafka](kafka/js/consumer) | NodeJS Kafka consumer |
-| Java | SOAP | [Java](soap/java/consumer) | Java SOAP API consumer (_note: only compatible with the SOAP provider_) |
-| .NET | API | [.NET](dotnet/consumer/readme) | .NET Products API consumer |
+| JS/NodeJS | Web | [React](/docs/examples/js/consumer/readme) | React JS website relying on a Products API |
+| JS/NodeJS | Web | [Cypress](/docs/examples/cypress/readme) | Example demonstrating how Cypress could be used to generate consumer pacts |
+| JS/NodeJS | AWS/SNS/Messages | [SNS Lambda](/docs/examples/aws/sns/consumer/readme) | AWS Lambda SNS Consumer |
+| Java | Messages | [Kafka](/docs/examples/kafka/java/consumer) | Java Kafka consumer |
+| NodeJS | Messages | [Kafka](/docs/examples/kafka/js/consumer) | NodeJS Kafka consumer |
+| Java | SOAP | [Java](/docs/examples/soap/java/consumer) | Java SOAP API consumer (_note: only compatible with the SOAP provider_) |
+| .NET | API | [.NET](/docs/examples/dotnet/consumer/readme) | .NET Products API consumer |
 
 ### Providers
 
 | Language | Use Case | Framework/Tech | Description |
 | --------- | ------- | ----------- | -------------- |
-| JS/NodeJS | API | [Express JS](js/provider/readme) | ExpressJS API provider |
-| JS/NodeJS | AWS/SNS/Messages | [ExpressJS / AWS SNS](aws/sns/provider/readme) | AWS Lambda SNS Provider |
-| Java | API | [Spring Boot](java/provider-springboot/readme) | Java Spring Boot API provider |
-| Java | Messages | [Kafka](kafka/java/provider) | Java Kafka message provider |
-| Java | SOAP | [Java](soap/java/provider)  | Java SOAP API provider (_note: only compatible with the SOAP consumer_) |
-| .NET | API | [.NET](dotnet/provider/readme) | .NET API provider |
+| JS/NodeJS | API | [Express JS](/docs/examples/js/provider/readme) | ExpressJS API provider |
+| JS/NodeJS | AWS/SNS/Messages | [ExpressJS / AWS SNS](/docs/examples/aws/sns/provider/readme) | AWS Lambda SNS Provider |
+| Java | API | [Spring Boot](/docs/examples/java/provider-springboot/readme) | Java Spring Boot API provider |
+| Java | Messages | [Kafka](/docs/examples/kafka/java/provider) | Java Kafka message provider |
+| Java | SOAP | [Java](/docs/examples/soap/java/provider)  | Java SOAP API provider (_note: only compatible with the SOAP consumer_) |
+| .NET | API | [.NET](/docs/examples/dotnet/provider/readme) | .NET API provider |

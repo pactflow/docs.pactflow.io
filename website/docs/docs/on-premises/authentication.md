@@ -8,7 +8,7 @@ The Pactflow On-Premises application currently supports single sign for SAML ide
 
 Any user who is able to authenticate to the configured IDP is allowed access to Pactflow.
 
-The SAML IDP is configured via [environment variables](environment-variables/index#saml-authentication).
+The SAML IDP is configured via [environment variables](environment-variables#saml-authentication).
 
 ## API
 
