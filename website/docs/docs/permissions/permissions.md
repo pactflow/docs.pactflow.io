@@ -6,9 +6,25 @@ title: Permissions
 
 Bulk delete pacts (which just removes the pacts and their associated verifications), applications (which removes associated pacts, verification results, application versions and webhooks) or an integration (which removes all pacts, verification results and webhooks, but will leave any application which is referenced by another integration).
 
+## contract_data:bulk_delete:team
+
+Bulk delete pacts (see above) where consumer is assigned to the user's teams.
+
+## contract_data:bulk_delete:own
+
+Bulk delete pacts (see above) where consumer was created by the logged in user.
+
 ## contract_data:manage:*
 
 Create, update, and delete any contract related data. This includes applications, application labels, application versions, tags, pacts, and verification results. It does not allow the user to perform bulk deletions (see [contract_data:bulk_delete:\*](#contract_data-bulk_delete)).
+
+## contract_data:manage:team
+
+Create, update, and delete contract related data for applications that are assigned to the user's teams. Pacts are managed by the consumer's team(s) and verification results are managed by the provider's team(s).
+
+## contract_data:manage:own
+
+Create, update, and delete contract related data for applications that where created by the logged in user. This permission is required to allow an application to be created in Pactflow before it is assigned to a team.
 
 ## contract_data:read:*
 
