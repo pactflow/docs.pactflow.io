@@ -14,9 +14,9 @@ The user who signed up for the Pactflow tenant will be assigned the Administrato
 
 * [`contract_data:bulk_delete:*`](permissions#contract_data-bulk_delete)
 * [`contract_data:manage:*`](permissions#contract_data-manage)
+* [`role:manage:*`](permissions#role-manage)
 * [`secret:manage:*`](permissions#secret-manage)
 * [`system_account:manage:*`](permissions#system_account-manage)
-* [`role:manage:*`](permissions#role-manage)
 * [`team:manage:*`](permissions#team-manage)
 * [`token:manage:own`](permissions#token-manage-own)
 * [`user:invite`](permissions#user-invite)
@@ -29,7 +29,10 @@ All new users are assigned the `Test Maintainer` role.
 
 #### Default permissions
 
-* [`contract_data:manage:*`](permissions#contract_data-manage)
+* [`contract_data:bulk_delete:own`](permissions#contract_databulk_deleteown)
+* [`contract_data:manage:own`](permissions#contract_datamanageown)
+* [`contract_data:manage:team`](permissions#contract_datamanageteam)
+* [`contract_data:read:*`](permissions#contract_dataread)
 * [`role:read:*`](permissions#role-read)
 * [`secret:manage:*`](permissions#secret-manage)
 * [`system_account:read:*`](permissions#system_account-read)
@@ -52,4 +55,5 @@ This is the default role associated with a system account.
 
 * [`contract_data:read:*`](permissions#contract_data-read)
 * [`read_token:manage:own`](permissions#read_token-manage-own)
+* [`team:read:*`](permissions#team-read)
 * [`user:read:*`](permissions#user-read)
