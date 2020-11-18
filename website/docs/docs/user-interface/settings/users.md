@@ -23,7 +23,7 @@ _NOTE: by default, the Administrator of the account is automatically set to the 
 
 **(4)**&nbsp;&nbsp;&nbsp;When multiple users are selected, bulk actions will become available.
 
-**(5)**&nbsp;&nbsp;&nbsp;Individual user actions are present from these menu.
+**(5)**&nbsp;&nbsp;&nbsp;Individual user actions are present from these menus.
 
 
 ## Enabling and Disabling Users
