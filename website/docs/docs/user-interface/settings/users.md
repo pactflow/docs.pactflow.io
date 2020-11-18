@@ -9,26 +9,32 @@ Our User Management feature allows you manage the following capabilities:
 * Grant or remove administrator access for other users (Administrator only)
 * Enable and disable users (Administrator only)
 * Create system accounts (Administrator only)
+* Edit any user's roles (Administrator only)
 
 _NOTE: by default, the Administrator of the account is automatically set to the account creator._
 
 ![User Management Screen](/ui/users.png)
 
-**1**
-The current plan details are displayed, alongside remaining user seat and system account limits.
+**(1)**&nbsp;&nbsp;&nbsp;The current plan details are displayed, alongside remaining user seat and system account limits.
 
-**2**
-If the current user is an Administrator, the option to invite new users will be presented here.
+**(2)**&nbsp;&nbsp;&nbsp;If the current user is an Administrator, the option to invite new users will be presented here.
 
-**3**
-Change to view between active users, system accounts and disabled users here.
+**(3)**&nbsp;&nbsp;&nbsp;Change to view between active users, system accounts and disabled users here.
+
+**(4)**&nbsp;&nbsp;&nbsp;When multiple users are selected, bulk actions will become available.
+
+**(5)**&nbsp;&nbsp;&nbsp;Individual user actions are present from these menu.
 
 
 ## Enabling and Disabling Users
 
-You may disable (or enable) a user by choosing the action via the `"..."` menu. This action applies to local users or federated identities (such as SAML2.0, Google or GitHub providers).
+You may disable (or enable) a user by either choosing the action via the `"..."` menu to the right of the user's record or by selecting the user with the checkbox and using the bulk action menu. These actions apply to local users or federated identities (such as SAML2.0, Google or GitHub providers).
 
 ![Disable Users Option](/ui/users-disable-user-action.png)
+
+Bulk actions can be applied to multiple users:
+
+![Bulk Actions](/ui/bulk-actions.png)
 
 _NOTE: disabled users do not count toward your user limit._
 
@@ -43,6 +49,12 @@ After a successful invitation, the user will receive an email with a temporary p
 This option will create a local user account in the system - it will not create accounts in federated Identity Providers.
 
 _NOTE_: if the user being invited (as identified by their email address) already exists in Pactflow, they **will not** receive another email and will now be able to login to your account with their existing credentials.
+
+## User roles
+
+By default, each user is assigned the `Test Maintainer` role. The account creator is also assigned the `Administrator` role. See [Roles and Permissons](/docs/permissions/predefined-roles) for more information.
+
+There are a few options to change a user's roles. The `Make Administrator`/`Remove Administrator` menu items allow the administrator role to be added or removed. `Edit Roles` allows all the roles of a user to be edited. The `Add Role`/`Remove Role` bulk action menu items can add or remove a role from multiple users.
 
 ## System accounts
 
