@@ -16,7 +16,7 @@ The Pactflow SAML service provider metadata URL is available at `https://<your P
 
 ## Configuring multiple SAML providers
 
-In Pactflow 1.7.0 and later, multiple SAML providers may be configured. To configure a second SAML provider, create another set of the [SAML environment variables]((/docs/on-premises/environment-variables#saml-authentication)) with the prefix `PACTFLOW_SAML_2_` (and `PACTFLOW_SAML_3_` for the third, etc). The `PACTFLOW_SAML_ISSUER` does not need to be specified again, as it is shared between all SAML providers.
+In Pactflow 1.7.0 and later, multiple SAML providers may be configured. To configure a second SAML provider, create another set of the [SAML environment variables](/docs/on-premises/environment-variables#saml-authentication) with the prefix `PACTFLOW_SAML_2_` (and `PACTFLOW_SAML_3_` for the third, etc). The `PACTFLOW_SAML_ISSUER` does not need to be specified again, as it is shared between all SAML providers.
 
 The callback path for the second provider is `/auth/saml/2/callback`, and for the third `/auth/saml/3/callback` etc. The path for the metadata for subsequent SAML providers will be `/auth/saml/2/metadata`, `/auth/saml/3/metadata` etc.
 
