@@ -41,6 +41,7 @@ module.exports = {
       label: "Account",
       items: ["docs/saml", "docs/billing"],
     },
+    "docs/how_to",
     {
       type: "category",
       label: "Troubleshooting",
