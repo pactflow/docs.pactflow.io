@@ -33,76 +33,72 @@ jobs:
         ruby-version: '2.6'
     - run: gem install bundler -v 2.0.2 && bundle install --without test development
 
-    - name: Sync pactflow docs
-      run: bundle exec scripts/sync/pactflow_docs.rb && echo '::set-env name=COMMIT_MESSAGE::synced pactflow docs'
-      if: github.event.action == 'pactflow-docs-updated'
-
     - name: Sync example_consumer_cypress docs
-      run: bundle exec scripts/sync/example_consumer_cypress.rb && echo '::set-env name=COMMIT_MESSAGE::synced pactflow_consumer_cypress docs'
+      run: bundle exec scripts/sync/example_consumer_cypress.rb && echo 'COMMIT_MESSAGE="synced pactflow_consumer_cypress docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-cypress-example-updated'
 
     - name: Sync example_consumer_dotnet docs
-      run: bundle exec scripts/sync/example_consumer_dotnet.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_consumer_dotnet docs'
+      run: bundle exec scripts/sync/example_consumer_dotnet.rb && echo 'COMMIT_MESSAGE="synced example_consumer_dotnet docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-consumer-dotnet-updated'
 
     - name: Sync example_provider_dotnet docs
-      run: bundle exec scripts/sync/example_provider_dotnet.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_provider_dotnet docs'
+      run: bundle exec scripts/sync/example_provider_dotnet.rb && echo 'COMMIT_MESSAGE="synced example_provider_dotnet docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-provider-dotnet-updated'
 
     - name: Sync example_consumer_java_kafka docs
-      run: bundle exec scripts/sync/example_consumer_java_kafka.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_consumer_java_kafka docs'
+      run: bundle exec scripts/sync/example_consumer_java_kafka.rb && echo 'COMMIT_MESSAGE="synced example_consumer_java_kafka docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-consumer-java-kafka-updated'
 
     - name: Sync example_consumer_js docs
-      run: bundle exec scripts/sync/example_consumer_js.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_consumer_js docs'
+      run: bundle exec scripts/sync/example_consumer_js.rb && echo 'COMMIT_MESSAGE="synced example_consumer_js docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-consumer-js-updated'
 
     - name: Sync example_consumer_js_sns docs
-      run: bundle exec scripts/sync/example_consumer_js_sns.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_consumer_js_kafka docs'
+      run: bundle exec scripts/sync/example_consumer_js_sns.rb && echo 'COMMIT_MESSAGE="synced example_consumer_js_kafka docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-consumer-js-kafka-updated'
 
     - name: Sync example_provider_java_kafka docs
-      run: bundle exec scripts/sync/example_provider_java_kafka.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_provider_java_kafka docs'
+      run: bundle exec scripts/sync/example_provider_java_kafka.rb && echo 'COMMIT_MESSAGE="synced example_provider_java_kafka docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-provider-java-kafka-updated'
 
     - name: Sync example_consumer_java_soap docs
-      run: bundle exec scripts/sync/example_consumer_java_soap.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_consumer_java_kafka docs'
+      run: bundle exec scripts/sync/example_consumer_java_soap.rb && echo 'COMMIT_MESSAGE="synced example_consumer_java_kafka docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-consumer-java-soap-updated'
 
     - name: Sync example_provider_java_soap docs
-      run: bundle exec scripts/sync/example_provider_java_soap.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_provider_js_kafka docs'
+      run: bundle exec scripts/sync/example_provider_java_soap.rb && echo 'COMMIT_MESSAGE="synced example_provider_js_kafka docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-provider-java-soap-updated'
 
     - name: Sync example_provider_java_spring_boot docs
-      run: bundle exec scripts/sync/example_provider_java_spring_boot.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_provider_java_spring_boot docs'
+      run: bundle exec scripts/sync/example_provider_java_spring_boot.rb && echo 'COMMIT_MESSAGE="synced example_provider_java_spring_boot docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-provider-java-spring-boot-updated'
 
     - name: Sync example_consumer_java_junit docs
-      run: bundle exec scripts/sync/example_consumer_java_junit.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_consumer_java_junit docs'
+      run: bundle exec scripts/sync/example_consumer_java_junit.rb && echo 'COMMIT_MESSAGE="synced example_consumer_java_junit docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-consumer-java-junit-updated'
 
     - name: Sync example_provider_js docs
-      run: bundle exec scripts/sync/example_provider_js.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_provider_js docs'
+      run: bundle exec scripts/sync/example_provider_js.rb && echo 'COMMIT_MESSAGE="synced example_provider_js docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-provider-js-updated'
 
     - name: Sync example_consumer_python docs
-      run: bundle exec scripts/sync/example_consumer_python.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_consumer_python docs'
+      run: bundle exec scripts/sync/example_consumer_python.rb && echo 'COMMIT_MESSAGE="synced example_consumer_python docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-consumer-python-updated'
 
     - name: Sync example_provider_python docs
-      run: bundle exec scripts/sync/example_provider_python.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_provider_python docs'
+      run: bundle exec scripts/sync/example_provider_python.rb && echo 'COMMIT_MESSAGE="synced example_provider_python docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-provider-python-updated'
 
     - name: Sync pact-js-workshop docs
-      run: bundle exec scripts/sync/introduction_workshop.rb && echo '::set-env name=COMMIT_MESSAGE::synced introduction_workshop docs'
+      run: bundle exec scripts/sync/introduction_workshop.rb && echo 'COMMIT_MESSAGE="synced introduction_workshop docs"' >> $GITHUB_ENV
       if: github.event.action == 'pact-workshop-js-updated'
 
     - name: Sync example_consumer_js_sns docs
-      run: bundle exec scripts/sync/example_consumer_js_sns.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_consumer_js_sns docs'
+      run: bundle exec scripts/sync/example_consumer_js_sns.rb && echo 'COMMIT_MESSAGE="synced example_consumer_js_sns docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-consumer-js-sns-updated'
 
     - name: Sync example_provider_js_sns docs
-      run: bundle exec scripts/sync/example_provider_js_sns.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_provider_js_sns docs'
+      run: bundle exec scripts/sync/example_provider_js_sns.rb && echo 'COMMIT_MESSAGE="synced example_provider_js_sns docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-provider-js-sns-updated'
 
     - name: Commit and push changes
@@ -114,4 +110,3 @@ jobs:
         message: 'chore: ${{ env.COMMIT_MESSAGE }}'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
-
