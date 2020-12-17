@@ -14,6 +14,7 @@ on:
       - pactflow-example-consumer-java-soap-updated
       - pactflow-example-provider-java-soap-updated
       - pactflow-example-provider-java-spring-boot-updated
+      - pactflow-example-consumer-java-junit-updated
       - pactflow-example-provider-js-updated
       - pactflow-example-consumer-python-updated
       - pactflow-example-provider-python-updated
@@ -75,6 +76,10 @@ jobs:
     - name: Sync example_provider_java_spring_boot docs
       run: bundle exec scripts/sync/example_provider_java_spring_boot.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_provider_java_spring_boot docs'
       if: github.event.action == 'pactflow-example-provider-java-spring-boot-updated'
+
+    - name: Sync example_consumer_java_junit docs
+      run: bundle exec scripts/sync/example_consumer_java_junit.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_consumer_java_junit docs'
+      if: github.event.action == 'pactflow-example-consumer-java-junit-updated'
 
     - name: Sync example_provider_js docs
       run: bundle exec scripts/sync/example_provider_js.rb && echo '::set-env name=COMMIT_MESSAGE::synced example_provider_js docs'

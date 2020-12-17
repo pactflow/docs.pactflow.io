@@ -127,7 +127,10 @@ module.exports = {
             "docs/examples/dotnet/consumer/readme",
             "docs/examples/dotnet/provider/readme",
           ],
-          Java: ["docs/examples/java/provider-springboot/readme"],
+          Java: [
+            "docs/examples/java/consumer/junit/readme",
+            "docs/examples/java/provider-springboot/readme"
+          ],
           Kafka: [
             "docs/examples/kafka/js/consumer",
             "docs/examples/kafka/java/consumer",
