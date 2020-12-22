@@ -40,6 +40,8 @@ _NOTE: disabled users do not count toward your user limit._
 
 ## Invite users
 
+_NOTE: You do not need to invite users if your account is setup to authenticate via Google, GitHub or SAML2.0_
+
 Administators can invite one or more users from the following dialog:
 
 ![Invite Users Dialog](/ui/invite.png)
@@ -63,3 +65,9 @@ access only. They are primarily for use with CI/CD systems to access Pactflow. F
 used to access any Pactflow API.
 
 ![System accounts](/ui/system-accounts.png)
+
+## Federation with Google, GitHub or SAML2.0
+
+Federation allows team members to join your account without being invited - i.e. they will be provisioned into Pactflow on demand, up until your account limit. You can simply share the link to the account https://<account>.pactflow.io and they may choose to login with Google, GitHub or your SAML provider.
+
+Other user management features such as team management, roles and the ability to disable users still applies to your federated user.
