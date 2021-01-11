@@ -29,7 +29,10 @@ You will:
 1. Get hands-on experience with the key aspects of writing, publishing and verifying pacts.
 1. See how Pactflow fits into the picture so that you can get up and running quickly.
 
-You can complete the course at https://katacoda.com/pact/scenarios/pactflow-getting-started-js.
+| Language | Link |
+| --------- | ----- |
+| Node JS  | https://katacoda.com/pact/scenarios/pactflow-getting-started-js |
+| Java     | https://katacoda.com/pact/scenarios/pactflow-getting-started-java |
 
 
 ## Gating deployments with Pactflow
