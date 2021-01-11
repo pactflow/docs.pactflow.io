@@ -68,6 +68,6 @@ used to access any Pactflow API.
 
 ## Federation with Google, GitHub or SAML2.0
 
-Federation allows team members to join your account without being invited - i.e. they will be provisioned into Pactflow on demand, up until your account limit. You can simply share the link to the account https://<account>.pactflow.io and they may choose to login with Google, GitHub or your SAML provider.
+Federation allows team members to join your account without being invited - i.e. they will be provisioned into Pactflow on demand, up until your account limit. You can simply share the link to the account `https://<account>.pactflow.io` and they may choose to login with Google, GitHub or your SAML provider.
 
 Other user management features such as team management, roles and the ability to disable users still applies to your federated user.
