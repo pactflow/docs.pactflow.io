@@ -119,22 +119,26 @@ module.exports = {
             "docs/examples/aws/sns/provider/readme",
           ],
           Cypress: ["docs/examples/cypress/readme"],
-          JS: [
-            "docs/examples/js/consumer/readme",
-            "docs/examples/js/provider/readme",
-          ],
-          ".NET": [
-            "docs/examples/dotnet/consumer/readme",
-            "docs/examples/dotnet/provider/readme",
+          "Golang": [
+            "docs/examples/golang/consumer/readme",
+            "docs/examples/golang/provider/readme",
           ],
           Java: [
             "docs/examples/java/consumer/junit/readme",
             "docs/examples/java/provider-springboot/readme"
           ],
+          JS: [
+            "docs/examples/js/consumer/readme",
+            "docs/examples/js/provider/readme",
+          ],
           Kafka: [
             "docs/examples/kafka/js/consumer",
             "docs/examples/kafka/java/consumer",
             "docs/examples/kafka/java/provider",
+          ],
+          ".NET": [
+            "docs/examples/dotnet/consumer/readme",
+            "docs/examples/dotnet/provider/readme",
           ],
           Python: [
             "docs/examples/python/consumer/readme",
