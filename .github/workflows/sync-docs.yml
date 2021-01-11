@@ -21,6 +21,8 @@ on:
       - pact-workshop-js-updated
       - pactflow-example-provider-js-sns-updated
       - pactflow-example-consumer-js-sns-updated
+      - pactflow-example-provider-golang-updated
+      - pactflow-example-consumer-golang-updated
 
 jobs:
   build:
@@ -100,6 +102,14 @@ jobs:
     - name: Sync example_provider_js_sns docs
       run: bundle exec scripts/sync/example_provider_js_sns.rb && echo 'COMMIT_MESSAGE="synced example_provider_js_sns docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-provider-js-sns-updated'
+
+    - name: Sync example_consumer_golang docs
+      run: bundle exec scripts/sync/example_consumer_golang.rb && echo 'COMMIT_MESSAGE="synced example_consumer_golang docs"' >> $GITHUB_ENV
+      if: github.event.action == 'pactflow-example-consumer-golang-updated'
+
+    - name: Sync example_provider_golang docs
+      run: bundle exec scripts/sync/example_provider_golang.rb && echo 'COMMIT_MESSAGE="synced example_provider_golang docs"' >> $GITHUB_ENV
+      if: github.event.action == 'pactflow-example-provider-golang-updated'
 
     - name: Commit and push changes
       uses: EndBug/add-and-commit@v4
