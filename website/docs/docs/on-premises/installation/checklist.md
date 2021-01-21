@@ -24,3 +24,4 @@ Configure the Pactflow On-Premises application in your identity provider. See th
 * Create a [PostgreSQL database](/docs/on-premises/database)
 * Ensure the [network](/docs/on-premises/network-configuration) is configured appropriately.
 * Ensure the [logs](/docs/on-premises/logging) are forwarded to a log aggregation service.
+* Ensure you have [load tested](load-testing) the system and have confidence the system can handle your baseline load, and can scale with increased demand

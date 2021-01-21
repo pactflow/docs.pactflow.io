@@ -182,6 +182,7 @@ module.exports = {
               ],
             },
             "docs/on-premises/docker-compose-example",
+            "docs/on-premises/installation/load-testing",
             "docs/on-premises/installation/checklist",
           ],
         },
