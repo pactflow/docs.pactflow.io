@@ -205,6 +205,7 @@ module.exports = {
           type: "category",
           label: "Releases",
           items: [
+            "docs/on-premises/releases/1.9.0",
             "docs/on-premises/releases/1.8.0",
             "docs/on-premises/releases/1.7.0",
             "docs/on-premises/releases/1.6.1",
