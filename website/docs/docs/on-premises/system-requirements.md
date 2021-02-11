@@ -113,7 +113,7 @@ new units = expected users / 500
           = 2 units
 ```
 
-You should therefore add 2 CPUs and 512 MiB to your total compute budget, and add 2 CPUs, 512 MiB of memory and 104 GiB storage capacity to each of your database instances in year 1:
+You should therefore add 2 CPUs and 512 MiB to your total compute budget, and add 2 CPUs, 512 MiB of memory and 104 GiB storage capacity to each of your database instances in year 1, for a total budget:
 
 * **Compute**: 10 CPU, 8.5 GiB RAM (measured by total resources and not physical instances)
 * **Database**: 2 x database servers each with 6 CPU, 4.5 GiB RAM, 75 writes/s, 30 read/s, 129 GiB storage
@@ -125,7 +125,7 @@ new units = expected users / 500
           = 1300 / 500
           = 3 units (rounded)
 ```
-You should therefore add 3 CPUs and 768 MiB to your total compute budget, and add 3 CPUs, 768 MiB of memory and 156 GiB storage capacity to each of your database instances in year 2:
+You should therefore add 3 CPUs and 768 MiB to your total compute budget, and add 3 CPUs, 768 MiB of memory and 156 GiB storage capacity to each of your database instances in year 2, for a total budget:
 
 * **Compute**: 13 CPU, 9.25 GiB RAM (measured by total resources and not physical instances)
 * **Database**: 2 x database servers each with 9 CPU, 5.25 GiB RAM, 150 writes/s, 60 read/s, 285 GiB storage
