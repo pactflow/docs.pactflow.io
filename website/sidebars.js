@@ -16,6 +16,7 @@ module.exports = {
             "docs/user-interface/settings/secrets",
             "docs/user-interface/settings/users",
             "docs/user-interface/settings/teams",
+            "docs/user-interface/settings/authentication",
           ],
         },
       ],
