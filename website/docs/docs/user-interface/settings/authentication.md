@@ -5,7 +5,9 @@ title: Authentication
 You can enable SSO user authentication using either Github or Google. Pactflow also supports authenticating
 with a SAML IDP on supported plans, please <a href="mailto:support@pactflow.io">email the Pactflow team</a> to enable that.
 
-_NOTE:_ &nbsp; SSO users are autmatically provisioned when they first authenticate.
+SSO users are automatically provisioned when they first authenticate.
+
+**NOTE:** &nbsp; Changing these settings may require users to either do a hard refresh in their browser (CTRL-F5 on Windows and Linux, CMD-R on Mac OSX) before the next time they try login, or may require them to clear their browser cookies and cache.
 
 ## GitHub Authentication
 
