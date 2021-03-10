@@ -44,6 +44,7 @@ The single get product endpoint is not a spelling mistake, and is used to show e
 | NodeJS | Messages | [Kafka](/docs/examples/kafka/js/consumer) | NodeJS Kafka consumer |
 | Java | SOAP | [Java](/docs/examples/soap/java/consumer) | Java SOAP API consumer (_note: only compatible with the SOAP provider_) |
 | .NET | API | [.NET](/docs/examples/dotnet/consumer/readme) | .NET Products API consumer |
+| Golang | API | [Golang](docs/examples/golang/consumer/readme) | Go API Client |
 
 ### Providers
 
@@ -55,3 +56,4 @@ The single get product endpoint is not a spelling mistake, and is used to show e
 | Java | Messages | [Kafka](/docs/examples/kafka/java/provider) | Java Kafka message provider |
 | Java | SOAP | [Java](/docs/examples/soap/java/provider)  | Java SOAP API provider (_note: only compatible with the SOAP consumer_) |
 | .NET | API | [.NET](/docs/examples/dotnet/provider/readme) | .NET API provider |
+| Golang | API | [Golang](docs/examples/golang/provider/readme) | Gin API Provider |
