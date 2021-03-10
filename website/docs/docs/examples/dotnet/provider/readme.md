@@ -35,18 +35,32 @@ The project uses a Makefile to simulate a very simple build pipeline with two st
   * Deploy app (just pretend for the purposes of this example!)
   * Tag the deployed consumer version as 'prod'
 
+## Dependencies
+
+* Docker
+* A [Pactflow](https://pactflow.io) account
+* A [read/write API Token](https://docs.pactflow.io/#configuring-your-api-token) from your Pactflow account
+* .NET 3.1.201 installed. You can install it from here: https://docs.microsoft.com/en-us/dotnet/core/install/macos
+
 ## Usage
 
 See the [Pactflow CI/CD Workshop](https://github.com/pactflow/ci-cd-workshop).
 
 The below commands are designed for a Linux/OSX environment, please translate for use on Windows/PowerShell as necessary:
 
-### Run tests
+Please ensure the following environment variables have been exported in the process that you run the tests (generally a terminal):
 
-Export the following into your shell before running
 ```
-export PACT_BROKER_TOKEN=<insert token here> # do not a user/email/password here e.g. it should like something like 8Axvelr123xCq98h1
-export PACT_BROKER_HOST=<insert host here> # e.g. https://foo.pactflow.io
+export PACT_BROKER_TOKEN=<your pactflow read/write token here>
+export PACT_BROKER_BASE_URL=https://<your pactflow subdomain>.pactflow.io
+```
 
-make test
+### Simulating CI
+
+Usually, you would integrate this into a real CI system (such as Buildkite/Jenkins/CircleCI etc., or Travis as this repository is built against).
+
+You can simulate a CI process with the following command:
+
+```
+make fake_ci
 ```

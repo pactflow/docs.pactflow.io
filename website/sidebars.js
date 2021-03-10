@@ -149,6 +149,10 @@ module.exports = {
             "docs/examples/soap/java/consumer",
             "docs/examples/soap/java/provider",
           ],
+          "Bi-directional Contracts": [
+            "docs/examples/bi-directional/js/consumer/readme",
+            "docs/examples/bi-directional/js/provider/readme",
+          ],
         },
       ],
     },

@@ -45,6 +45,7 @@ The single get product endpoint is not a spelling mistake, and is used to show e
 | Java | SOAP | [Java](/docs/examples/soap/java/consumer) | Java SOAP API consumer (_note: only compatible with the SOAP provider_) |
 | .NET | API | [.NET](/docs/examples/dotnet/consumer/readme) | .NET Products API consumer |
 | Golang | API | [Golang](docs/examples/golang/consumer/readme) | Go API Client |
+| JS | OpenAPI Spec | [ExpressJS / Dredd](docs/examples/bi-directional/consumer/readme) | React JS website |
 
 ### Providers
 
@@ -57,3 +58,4 @@ The single get product endpoint is not a spelling mistake, and is used to show e
 | Java | SOAP | [Java](/docs/examples/soap/java/provider)  | Java SOAP API provider (_note: only compatible with the SOAP consumer_) |
 | .NET | API | [.NET](/docs/examples/dotnet/provider/readme) | .NET API provider |
 | Golang | API | [Golang](docs/examples/golang/provider/readme) | Gin API Provider |
+| JS | OpenAPI Spec | [ExpressJS / Dredd](docs/examples/bi-directional/provider/readme) | ExpressJS API Provider tested with Dredd+OAS |
