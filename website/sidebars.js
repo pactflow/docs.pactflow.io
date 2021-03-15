@@ -40,7 +40,7 @@ module.exports = {
     {
       type: "category",
       label: "Account",
-      items: ["docs/saml", "docs/billing"],
+      items: ["docs/billing"],
     },
     "docs/how_to",
     {
