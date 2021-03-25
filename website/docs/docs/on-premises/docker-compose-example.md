@@ -43,10 +43,10 @@ quay.io/pactflow/enterprise   1.8.0               7f9b3c3aa50e        3 months a
 
 ## 2. Pactflow license file
 
-The Pactflow on-premises version requires a license file to run. You should recieve this from us during the
-on-boarding process. If not, please contract us at support@pactflow.io.
+The Pactflow on-premises version requires a license file to run. You should have received this from us during the
+on-boarding process. If not, please contact us at support@pactflow.io.
 
-Save the license file into a temporary directory (It needs to be the same directory as used in step 3).
+Save the license file into a temporary directory (it needs to be the same directory as used in step 3).
 
 ## 3. Startup Pactflow and supporting services
 

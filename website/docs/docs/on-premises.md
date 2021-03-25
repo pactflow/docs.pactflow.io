@@ -40,5 +40,5 @@ To check the connection to the database, use the endpoint `/diagnostic/status/de
 
 ### License file
 
-Pactflow on-premises version requires a license file to run. Contract us at support@pactflow.io if you have not
-recieved one when your account was setup. See [License file](/docs/on-premises/license).
+Pactflow on-premises version requires a license file to run. Contact us at support@pactflow.io if you have not
+received one when your account was setup. See the [section on licenses for installation instructions](/docs/on-premises/license).
