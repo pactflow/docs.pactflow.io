@@ -14,6 +14,7 @@ In this guide, we'll provide an example `docker-compose` setup so that you can s
 * [Docker Compose](https://docs.docker.com/compose/install/)
 * A working *nix environment and access to a terminal
 * Valid credentials to authenticate to our [Docker image registry](docker-image-registry)
+* Pactflow license file
 
 ## 1. Authenticating to Quay.io
 
@@ -35,12 +36,19 @@ Which should produce an output such as:
 ```sh
 > docker images quay.io/pactflow/enterprise
 REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
-quay.io/pactflow/enterprise   latest              a6040acd6228        3 days ago          404MB
-quay.io/pactflow/enterprise   30fcf918            58745fb6ef75        3 days ago          410MB
-quay.io/pactflow/enterprise   e2bae41b            9acaaa671ed5        3 days ago          410MB
+quay.io/pactflow/enterprise   1.9.0               32db429fda01        7 weeks ago         454MB
+quay.io/pactflow/enterprise   latest              32db429fda01        7 weeks ago         454MB
+quay.io/pactflow/enterprise   1.8.0               7f9b3c3aa50e        3 months ago        462MB
 ```
 
-## 2. Startup Pactflow and supporting services
+## 2. Pactflow license file
+
+The Pactflow on-premises version requires a license file to run. You should have received this from us during the
+on-boarding process. If not, please contact us at support@pactflow.io.
+
+Save the license file into a temporary directory (it needs to be the same directory as used in step 3).
+
+## 3. Startup Pactflow and supporting services
 
 Save the below file as `docker-compose.yml` into a temporary directory and then run `docker-compose up`:
 
@@ -91,6 +99,8 @@ services:
       retries: 3
     entrypoint: dockerize
     command: -wait tcp://postgres:5432 docker-entrypoint
+    volumes:
+      - ./pactflow-onprem.lic:/home/pactflow-onprem.lic
 
   postgres:
     image: postgres

@@ -12,8 +12,9 @@ Docker images for our self-hosted Pactflow Enterprise product are hosted at [Qua
 In most cases, we expect to create a new user (1). Once we have granted access to your given email address, you should receive an email from Quay, where you will need to create a new account and setup credentials to download the image.
 
 ## Getting started
-Once we have created you a new user, you will receive an email from Quay.io inviting you to join a new team. You can setup the new account as follows:
+Once we have created you a new user, you will receive an email from Quay.io inviting you to join a new team and a license file from us. You can setup the new account as follows:
 
+1. Make sure you have received a Pactflow on-premises license file.
 1. Follow the link in your email and create a new Quay account
 1. Head to the [Repositories](https://quay.io/repository/) page 
 1. Click on your user (e.g. https://quay.io/user/mfellowstestquaycustomer)

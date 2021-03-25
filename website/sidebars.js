@@ -184,6 +184,7 @@ module.exports = {
                 "docs/on-premises/environment-variables",
                 "docs/on-premises/environment-variables/templates",
                 "docs/on-premises/environment-variables/timezones",
+                "docs/on-premises/license",
               ],
             },
             "docs/on-premises/docker-compose-example",
