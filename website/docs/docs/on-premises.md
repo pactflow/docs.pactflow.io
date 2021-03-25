@@ -10,7 +10,7 @@ sidebar_label: Architecture
 * An application server capable of running Docker
 * PostgreSQL database
 * SAML IDP for SSO
-* Pactflow license file (versions 1.10.0+)
+* Pactflow license file
 
 ### Recommended architecture
 
@@ -38,7 +38,7 @@ A healthcheck endpoint for use by a Docker container managment service is availa
 
 To check the connection to the database, use the endpoint `/diagnostic/status/dependencies`. This endpoint should not be used by Docker container managment services, as unrelated database issues might cause the Docker container to churn.
 
-### License file (versions 1.10.0+)
+### License file
 
 Pactflow on-premises version requires a license file to run. Contract us at support@pactflow.io if you have not
 recieved one when your account was setup. See [License file](/docs/on-premises/license).
