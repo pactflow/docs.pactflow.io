@@ -10,6 +10,7 @@ sidebar_label: Architecture
 * An application server capable of running Docker
 * PostgreSQL database
 * SAML IDP for SSO
+* Pactflow license file (versions 1.10.0+)
 
 ### Recommended architecture
 
@@ -36,3 +37,8 @@ The Pactflow application runs on port `9292` by default. This can be configured 
 A healthcheck endpoint for use by a Docker container managment service is available at `http://<HOST>/diagnostic/status/heartbeat`. No authentication is required. This endpoint does not make a connection to the database.
 
 To check the connection to the database, use the endpoint `/diagnostic/status/dependencies`. This endpoint should not be used by Docker container managment services, as unrelated database issues might cause the Docker container to churn.
+
+### License file (versions 1.10.0+)
+
+Pactflow on-premises version requires a license file to run. Contract us at support@pactflow.io if you have not
+recieved one when your account was setup. See [License file](/docs/on-premises/license).
