@@ -8,7 +8,15 @@ Pactflow is a fully-managed, highly-available, and hardened deployment of the op
 
 ## Tutorials
 
-To get you started, we have created a few short in-browser [tutorials](/docs/tutorials). If you're new to Pact, or want some help integrating to Pactflow, you should start here.
+### Videos
+
+We've created an introductory level [video series on contract-testing](https://youtube.com/playlist?list=PLwy9Bnco-IpfZ72VQ7hce8GicVZs7nm0i) to help you learn and understand what it's all about.
+
+### Workshops
+
+To get you started, we have created a several short in-browser [tutorials](/docs/tutorials). If you're new to Pact, or want some help integrating to Pactflow, you should start here.
+
+If you want something a little more in-depth, check out [Pactflow University](/docs/workshops).
 
 ## Essential reading
 

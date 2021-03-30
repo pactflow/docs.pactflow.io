@@ -17,6 +17,7 @@ The full introductory workshop can be run within 2 - 2.5 hours, and we recommend
 
 | Step | Description | Material | Duration |
 | ---- | ----------- | -------- | -------- |
+| n/a    | **Preparation step**: watch introductory series on contract-testing and Pact  | [Youtube playlist](https://youtube.com/playlist?list=PLwy9Bnco-IpfZ72VQ7hce8GicVZs7nm0i) | 45 minutes |
 | 1    | Introduction to contract-testing with Pact presentation (slides 1 - 46) | <a href="/resources/pact-workshop-introduction_2020.pdf" target="_blank">pdf</a> \| <a href="/resources/pact-workshop-introduction_2020.pptx" target="_blank">pptx</a> | 30 minutes |
 | 2    | Pact in action (optional) | See [demos](/docs/examples)  | 15 minutes |
 | 3    | Run the Node JS workshop | [workshop](/docs/workshops/introduction/readme) | 2-3 hours|
