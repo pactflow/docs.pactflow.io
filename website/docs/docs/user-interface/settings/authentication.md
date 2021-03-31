@@ -73,7 +73,7 @@ The following attributes are required by Pactflow and must be mapped in your IdP
 |----------|------|-------------|
 | First name | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` | URI Reference |
 | Last name | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` | URI Reference |
-| Email Address | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | URI Reference |
+| Email Address | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` | URI Reference |
 
 #### 3. Export IdP metadata
 
@@ -198,7 +198,7 @@ This is the assertion sent to the Pactflow Reply URL
       <saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
         <saml2:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Bloggs</saml2:AttributeValue>
       </saml2:Attribute>
-      <saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+      <saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
         <saml2:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">joe@bloggs.com</saml2:AttributeValue>
       </saml2:Attribute>
     </saml2:AttributeStatement>
@@ -233,7 +233,7 @@ See https://developer.okta.com/docs/guides/build-sso-integration/saml2/overview/
     1. For Value, enter `user.firstName`.
     1. For Name, enter the SAML attribute name `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
     1. For Value, enter `user.lastName`.
-    1. For Name, enter the SAML attribute name `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`.
+    1. For Name, enter the SAML attribute name `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
     1. For Value, enter `user.email`.
 1. Choose Next.
 1. Choose a feedback response for Okta Support.
@@ -292,7 +292,7 @@ See https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configur
 7. To add user attributes, click "View and edit all other user attributes" to edit the attributes to be sent to the application in the SAML token when users sign in. Add the following 3 attributes:
     1. First Name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
     1. Last Name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
-    1. Email Address: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`.
+    1. Email Address: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
 ### OneLogin - via Pactflow Connector
 
