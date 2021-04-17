@@ -43,7 +43,7 @@ In the scenario, we extend the workshop from above, learning how to gate deploym
 
 ### Goals
 
-Learne how to prevent releasing incompatible changes to production, by using integrating `can-i-deploy` into your CI/CD process.
+Learn how to prevent releasing incompatible changes to production, by using integrating `can-i-deploy` into your CI/CD process.
 
 You will:
 
