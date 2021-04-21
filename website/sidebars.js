@@ -12,6 +12,7 @@ module.exports = {
           label: "Settings",
           items: [
             "docs/user-interface/settings/api-tokens",
+            "docs/user-interface/settings/preferences",
             "docs/user-interface/settings/webhooks",
             "docs/user-interface/settings/secrets",
             "docs/user-interface/settings/users",
