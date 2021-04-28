@@ -440,3 +440,31 @@ The timezone in which to display dates for server side rendered pages.
 **Required:** true<br/>
 **More information:** [Valid timezones](/docs/on-premises/environment-variables/timezones)<br/>
 
+
+## API Tokens
+
+<hr/>
+
+
+### PACTFLOW_API_TOKEN_ENCRYPTION (1.10.0+)
+
+Enables encryption of API token values in the database. Requires `PACTFLOW_API_TOKEN_IV` and `PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY` to also be set.
+
+**Required:** false<br/>
+**Default:** not set<br/>
+**Allowed values:** `true`, `false`<br/>
+
+### PACTFLOW_API_TOKEN_IV (1.10.0+)
+
+If `PACTFLOW_API_TOKEN_ENCRYPTION` is set to `true`, then this value must contain a base 64 encoded string of random 16 bytes for the 
+encryption initialization vector.
+
+To generate an appropriate value, run the following on Linux/Mac:
+
+```
+env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 16 | head -n 1 | base64
+```
+
+**Required:** if `PACTFLOW_API_TOKEN_ENCRYPTION` is set to `true`<br/>
+**Default:** not set<br/>
+**Example:** JUVDdnRzLXZyWHA7UF93RAo=<br/>
