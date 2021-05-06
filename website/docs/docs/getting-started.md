@@ -95,7 +95,7 @@ return new Verifier().verifyProvider({
 });
 ```
 
-See the [Pact-JS documentation](https://github.com/pact-foundation/pact-js#verification-options) for all the pact verification options.
+See the [Pact-JS documentation](https://docs.pact.io/implementation_guides/javascript/readme#verification-options) for all the pact verification options.
 
 <!--Gradle -->
 ### Gradle
@@ -112,7 +112,7 @@ pact {
 }
 ```
 
-See the [Pact-JVM documentation](https://github.com/DiUS/pact-jvm/tree/master/provider/pact-jvm-provider-gradle#publishing-pact-files-to-a-pact-broker) for all the pact publication options.
+See the [Pact-JVM documentation](https://docs.pact.io/implementation_guides/jvm/provider/gradle#publishing-pact-files-to-a-pact-broker) for all the pact publication options.
 
 #### Provider
 
@@ -133,7 +133,7 @@ pact {
 }
 ```
 
-See the [Pact-JVM documentation](https://github.com/DiUS/pact-jvm/tree/master/provider/pact-jvm-provider-gradle#publishing-verification-results-to-a-pact-broker) for all the pact verification options.
+See the [Pact-JVM documentation](https://docs.pact.io/implementation_guides/jvm/provider/gradle#publishing-verification-results-to-a-pact-broker) for all the pact verification options.
 
 <!--Java - JUnit5-->
 ### Java / JUnit 5
@@ -240,7 +240,7 @@ Pact.service_provider "<Your provider name here>" do
 end
 ```
 
-See the [Pact Ruby documentation](https://github.com/pact-foundation/pact-ruby/wiki/Verifying-pacts#fetching-pacts-from-a-pact-broker) for all the verification options.
+See the [Pact Ruby documentation](https://docs.pact.io/implementation_guides/ruby/verifying_pacts/) for all the verification options.
 
 <!-- .NET -->
 ### .NET
