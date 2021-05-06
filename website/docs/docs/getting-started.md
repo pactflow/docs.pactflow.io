@@ -55,6 +55,7 @@ While each of the following examples shows the use of a hardcoded token, note th
 
 To configure the token:
 
+### Pact JS (Node JS)
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Node-->
 
@@ -97,6 +98,7 @@ return new Verifier().verifyProvider({
 See the [Pact-JS documentation](https://github.com/pact-foundation/pact-js#verification-options) for all the pact verification options.
 
 <!--Gradle -->
+### Gradle
 
 #### Consumer
 
@@ -134,6 +136,7 @@ pact {
 See the [Pact-JVM documentation](https://github.com/DiUS/pact-jvm/tree/master/provider/pact-jvm-provider-gradle#publishing-verification-results-to-a-pact-broker) for all the pact verification options.
 
 <!--Java - JUnit5-->
+### Java / JUnit 5
 
 #### Consumer
 
@@ -156,6 +159,7 @@ public class PactJUnitBrokerTest {
 }
 ```
 <!-- Java - JUnit4-->
+### Java / JUnit 4
 
 #### Consumer
 
@@ -175,6 +179,7 @@ public class PactJUnitBrokerTest {
 ```
 
 <!--Golang-->
+### Golang
 
 #### Consumer
 
@@ -201,6 +206,7 @@ _, err := pact.VerifyProvider(t, types.VerifyRequest{
 ```
 
 <!--Ruby-->
+### Ruby
 
 #### Consumer
 
@@ -237,6 +243,7 @@ end
 See the [Pact Ruby documentation](https://github.com/pact-foundation/pact-ruby/wiki/Verifying-pacts#fetching-pacts-from-a-pact-broker) for all the verification options.
 
 <!-- .NET -->
+### .NET
 
 #### Consumer
 
@@ -279,7 +286,7 @@ pactVerifier
 See the [PactNet documentation](https://github.com/pact-foundation/pact-net#publishing-provider-verification-results-to-a-broker) for all the pact verification options.
 
 <!-- Docker -->
-
+### Docker
 #### Consumer
 
 ```bash
