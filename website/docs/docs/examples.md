@@ -45,7 +45,8 @@ The single get product endpoint is not a spelling mistake, and is used to show e
 | Java | SOAP | [Java](/docs/examples/soap/java/consumer) | Java SOAP API consumer (_note: only compatible with the SOAP provider_) |
 | .NET | API | [.NET](/docs/examples/dotnet/consumer/readme) | .NET Products API consumer |
 | Golang | API | [Golang](/docs/examples/golang/consumer/readme) | Go API Client |
-| JS | OpenAPI Spec | [ExpressJS / Dredd](/docs/examples/bi-directional/js/consumer/readme) | React JS website |
+| JS | OpenAPI | [Pact / Record Replay with Nock](/docs/examples/bi-directional/consumer/recordreplay/readme) | React JS website |
+| Java | OpenAPI | [Wiremock](/docs/examples/bi-directional/consumer/wiremock/readme) | Java API client |
 
 ### Providers
 
@@ -58,4 +59,6 @@ The single get product endpoint is not a spelling mistake, and is used to show e
 | Java | SOAP | [Java](/docs/examples/soap/java/provider)  | Java SOAP API provider (_note: only compatible with the SOAP consumer_) |
 | .NET | API | [.NET](/docs/examples/dotnet/provider/readme) | .NET API provider |
 | Golang | API | [Golang](/docs/examples/golang/provider/readme) | Gin API Provider |
-| JS | OpenAPI Spec | [ExpressJS / Dredd](/docs/examples/bi-directional/js/provider/readme) | ExpressJS API Provider tested with Dredd+OAS |
+| JS | OpenAPI Spec | [ExpressJS / Dredd](/docs/examples/bi-directional/provider/dredd/readme) | ExpressJS API Provider tested with Dredd+OAS |
+| JS | OpenAPI Spec | [Postman + ExpressJS](/docs/examples/bi-directional/provider/postman/readme) | Spring Boot API Provider tested with Postman+OAS |
+| Java | OpenAPI Spec | [RestAssured + SpringBoot](/docs/examples/bi-directional/provider/restassured/readme) | SpringBoot API Provider tested with Dredd+OAS |
