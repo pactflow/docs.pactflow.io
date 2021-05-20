@@ -1,7 +1,7 @@
 ---
 custom_edit_url: https://github.com/pactflow/example-consumer/edit/master/README-bi-directional.md
-title: Bi-directional Contracts Feature (BYO Tools)
-sidebar_label: Bi-directional Contracts Feature (BYO Tools)
+title: Example Consumer (record and replay)
+sidebar_label: Example Consumer (record and replay)
 ---
 
 <!-- This file has been synced from the pactflow/example-consumer repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
@@ -11,11 +11,7 @@ sidebar_label: Bi-directional Contracts Feature (BYO Tools)
 https://github.com/pactflow/example-consumer
 
 
-![Build](https://github.com/pactflow/example-consumer/workflows/Build/badge.svg)
-
-[![Pact Status](https://test.pact.dius.com.au/pacts/provider/pactflow-example-provider/consumer/pactflow-example-consumer/latest/badge.svg?label=provider)](https://test.pact.dius.com.au/pacts/provider/pactflow-example-provider/consumer/pactflow-example-consumer/latest) (latest pact)
-
-[![Pact Status](https://test.pact.dius.com.au/matrix/provider/pactflow-example-provider/latest/prod/consumer/pactflow-example-consumer/latest/prod/badge.svg?label=provider)](https://test.pact.dius.com.au/pacts/provider/pactflow-example-provider/consumer/pactflow-example-consumer/latest/prod) (prod/prod pact)
+_NOTE: if you're running the CI/CD workshop, you can ignore this section. This is an extension to the example that demonstrates a new [feature](https://github.com/pactflow/roadmap/issues/4) in developer preview._
 
 This is an example of a Node consumer using Pact to create a consumer driven contract, and sharing it via [Pactflow](https://pactflow.io).
 
@@ -47,8 +43,9 @@ To be able to run some of the commands locally, you will need to export the foll
 
 * `PACT_BROKER_TOKEN`: a valid [API token](https://docs.pactflow.io/docs/getting-started/#configuring-your-api-token) for Pactflow
 * `PACT_BROKER_BASE_URL`: a fully qualified domain name with protocol to your pact broker e.g. https://testdemo.pactflow.io
-* `PACT_PROVIDER=pactflow-example-provider-dredd`: this changes the default provider
-
+* `PACT_PROVIDER=pactflow-example-provider-dredd`: this changes the default provider to the Dredd based provider (https://github.com/pactflow/example-provider-dredd)
+* `PACT_PROVIDER=pactflow-example-provider-postman`: ... Postman (https://github.com/pactflow/example-provider-postman)
+* `PACT_PROVIDER=pactflow-example-provider-restassured`: ... Rest Assured (https://github.com/pactflow/example-provider-restassured)
 ### Usage
 
 #### Pact use case
