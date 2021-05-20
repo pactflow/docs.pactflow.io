@@ -151,8 +151,11 @@ module.exports = {
             "docs/examples/soap/java/provider",
           ],
           "Bi-directional Contracts": [
-            "docs/examples/bi-directional/js/consumer/readme",
-            "docs/examples/bi-directional/js/provider/readme",
+            "docs/examples/bi-directional/consumer/recordreplay/readme",
+            "docs/examples/bi-directional/consumer/wiremock/readme",
+            "docs/examples/bi-directional/provider/dredd/readme",
+            "docs/examples/bi-directional/provider/postman/readme",
+            "docs/examples/bi-directional/provider/restassured/readme",
           ],
         },
       ],

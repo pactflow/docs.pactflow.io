@@ -23,6 +23,10 @@ on:
       - pactflow-example-consumer-js-sns-updated
       - pactflow-example-provider-golang-updated
       - pactflow-example-consumer-golang-updated
+      - pactflow-example-provider-dredd-updated
+      - pactflow-example-provider-postman-updated
+      - pactflow-example-provider-restassured-updated
+      - pactflow-example-consumer-wiremock-updated
 
 jobs:
   build:
@@ -111,9 +115,21 @@ jobs:
       run: bundle exec scripts/sync/example_provider_golang.rb && echo 'COMMIT_MESSAGE="synced example_provider_golang docs"' >> $GITHUB_ENV
       if: github.event.action == 'pactflow-example-provider-golang-updated'
 
-    - name: Sync example_bi_directional_contracts_provider docs
-      run: bundle exec scripts/sync/example_provider_bidirectional_js.rb && echo 'COMMIT_MESSAGE="synced example_bi_directional_contracts_provider docs"' >> $GITHUB_ENV
-      if: github.event.action == 'pactflow-example-bi-directional-contracts-provider-updated'
+    - name: Sync example_provider_bidirectional_dredd docs
+      run: bundle exec scripts/sync/example_provider_bidirectional_dredd.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_dredd docs"' >> $GITHUB_ENV
+      if: github.event.action == 'pactflow-example-provider-dredd-updated'
+
+    - name: Sync example_provider_bidirectional_postman docs
+      run: bundle exec scripts/sync/example_provider_bidirectional_postman.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_postman docs"' >> $GITHUB_ENV
+      if: github.event.action == 'pactflow-example-provider-postman-updated'
+
+    - name: Sync example_provider_bidirectional_restassured docs
+      run: bundle exec scripts/sync/example_provider_bidirectional_restassured.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_restassured docs"' >> $GITHUB_ENV
+      if: github.event.action == 'pactflow-example-provider-restassured-updated'
+
+    - name: Sync example_consumer_bidirectional_wiremock docs
+      run: bundle exec scripts/sync/example_consumer_bidirectional_wiremock.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_wiremock docs"' >> $GITHUB_ENV
+      if: github.event.action == 'pactflow-example-consumer-wiremock-updated'
 
     - name: Commit and push changes
       uses: EndBug/add-and-commit@v4

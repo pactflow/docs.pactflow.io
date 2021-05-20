@@ -1,17 +1,17 @@
 ---
-custom_edit_url: https://github.com/pactflow/example-bi-directional-contracts-provider/edit/master/README.md
-title: Example Provider
-sidebar_label: Example Provider
+custom_edit_url: https://github.com/pactflow/example-provider-dredd/edit/master/README.md
+title: Example Dredd Provider
+sidebar_label: Example Dredd Provider
 ---
 
-<!-- This file has been synced from the pactflow/example-bi-directional-contracts-provider repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
+<!-- This file has been synced from the pactflow/example-provider-dredd repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
 
 ## Source Code
 
-https://github.com/pactflow/example-bi-directional-contracts-provider
+https://github.com/pactflow/example-provider-dredd
 
 
-[![Build Status](https://travis-ci.com/pactflow/example-collaborative-contracts-provider.svg?branch=master)](https://travis-ci.com/pactflow/example-collaborative-contracts-provider)
+[![Build Status](https://travis-ci.com/pactflow/example-pactflow-example-provider-dredd.svg?branch=master)](https://travis-ci.com/pactflow/example-pactflow-example-provider-dredd)
 
 This is an example "Product" API Provider, to demonstrate the new bi-directional contract capability of Pactflow (previously referred to as Provider driven contracts, or collaborative contracts). It:
 
@@ -19,17 +19,17 @@ This is an example "Product" API Provider, to demonstrate the new bi-directional
 * Has OAS 3.0 spec documenting the API
 * Uses Dredd for API testing to check spec compliance
 
-It is using a public tenant on Pactflow, which you can access [here](https://test.pact.dius.com.au) using the credentials `dXfltyFMgNOFZAxr8io9wJ37iUpY42M`/`O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1`. The latest version of the Example Consumer/Example Provider pact is published [here](https://test.pact.dius.com.au/pacts/provider/pactflow-example-collaborative-contracts-provider/consumer/pactflow-example-consumer/latest).
+It is using a public tenant on Pactflow, which you can access [here](https://test.pact.dius.com.au) using the credentials `dXfltyFMgNOFZAxr8io9wJ37iUpY42M`/`O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1`. The latest version of the Example Consumer/Example Provider pact is published [here](https://test.pact.dius.com.au/pacts/provider/pactflow-example-pactflow-example-provider-dredd/consumer/pactflow-example-consumer/latest).
 
 In the following diagram, you can see how the provider testing process works. Starting with our OAS, we use Dredd to verify that all
 
 When we call "can-i-deploy" the cross-contract validation process kicks off on Pactflow, to ensure any consumer consumes a valid subset of the OAS for the provider.
 
-![Provider Test](https://raw.githubusercontent.com/pactflow/example-bi-directional-contracts-provider/master/docs/provider-scope.png)
+![Provider Test](https://raw.githubusercontent.com/pactflow/example-provider-dredd/master/docs/provider-scope.png)
 
 When you run the CI pipeline (see below for doing this), the pipeline should perform the following activities (simplified):
 
-![Provider Pipeline](https://raw.githubusercontent.com/pactflow/example-bi-directional-contracts-provider/master/docs/provider-pipeline.png)
+![Provider Pipeline](https://raw.githubusercontent.com/pactflow/example-provider-dredd/master/docs/provider-pipeline.png)
 
 ## Pre-requisites
 

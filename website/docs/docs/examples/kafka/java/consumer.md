@@ -32,6 +32,6 @@ https://docs.pactflow.io/docs/workshops/ci-cd/set-up-ci/prerequisites/
 
 ## Usage
 
-* Running the API locally: `make start`
+* Running the API and kafka listener locally: `make start`
 * Producing test events into the `product` topic: `make test-events`
 * Retrieve latest products: `curl localhost:8080/products`
