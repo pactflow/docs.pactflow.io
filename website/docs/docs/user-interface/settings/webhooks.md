@@ -6,6 +6,7 @@ Here you will be able to create and edit your webhooks.
 
 | Field | Description |
 | ----- | ----------- |
+| Team |  When creating or editing a webhook, users with the `webhook:manage:team` permission (by default, assigned to the `Test Maintainer` role) must assign a webhook to a team. Users with the `webhook:manage:*` permission (by default, assigned to the `Administrator` role) may choose not to assign a webhook to any team. Team selection affects which secrets are available for use in the webhook. See the [Secrets](#secrets) section below. |
 | Description | A description of your webhook |
 | Consumer | You can select a specific consumer for the webhook, or `ALL` for all consumers.  |
 | Provider | You can select a specific provider for the webhook, or `ALL` for all providers. |
@@ -38,18 +39,31 @@ This event fires every time a provider verification is published.
 
 #### Dynamic Variables
 
-The following variables may be used in the path of the URL, the query parameters and body, and will be replaced with their appropriate values at runtime.
+##### Secrets
+
+User defined secrets that have the same team assigned as the webhook may be used in the path of the URL, the headers, body, username and password, and will be replaced with their appropriate values at runtime. For webhooks that have no team assigned, only secrets that also have no team assigned may be used. The list of secrets that are available for use in a particular webhook are shown in the `Dynamic variables` section (click on the heading to display the values).
+
+To use a secret in a webhook, use the expression `${user.<SECRET_NAME>}` eg. ``${user.ciToken}``. 
+
+##### Pactflow
+
+The following variables may be used in the path and query parameters of the URL, the headers, body, username and password, and will be replaced with their appropriate values at runtime.
 
 | Expression | Description |
 | ---------- | ----------- |
-| ${pactbroker.consumerName} | The consumer name |
-| ${pactbroker.providerName} | The provider name |
-| ${pactbroker.pactUrl} | The URL to the newly published or most recently verified pact |
-| ${pactbroker.verificationResultUrl} | The URL to the relevant verification result |
-| ${pactbroker.githubVerificationStatus} | The verification status using the correct keywords for posting to the the Github commit status API |
-| ${pactbroker.consumerVersionNumber} | The version number of the most recent consumer version associated with the pact content |
-| ${pactbroker.providerVersionNumber} | The provider version number for the verification result |
-| ${pactbroker.consumerVersionTags} | The list of tag names for the most recent consumer version associated with the pact content, separated by ", " |
-| ${pactbroker.providerVersionTags} | The list of tag names for the provider version associated with the verification result, separated by ", " |
-| ${pactbroker.consumerLabels} | The list of labels for the consumer associated with the pact content, separated by ", " |
-| ${pactbroker.providerLabels} | The list of labels for the provider associated with the pact content, separated by ", " |
+| `${pactbroker.consumerName}` | The consumer name |
+| `${pactbroker.providerName}` | The provider name |
+| `${pactbroker.consumerVersionNumber}` | The version number of the most recent consumer version associated with the pact content. |
+| `${pactbroker.providerVersionNumber}` | The provider version number for the verification result |
+| `${pactbroker.providerVersionTags}` | The list of tag names for the provider version associated with the verification result, separated by ", ". |
+| `${pactbroker.providerVersionBranch}` | The repository branch associated with the provider version |
+| `${pactbroker.consumerVersionTags}` | The list of tag names for the most recent consumer version associated with the pact content, separated by ", " |
+| `${pactbroker.consumerVersionBranch}` | The repository branch associated with the consumer version |
+| `${pactbroker.pactUrl}` | The "permalink" URL to the newly published pact (the URL specifying the consumer version URL, rather than the "/latest" format. |
+| `${pactbroker.verificationResultUrl}` | The URL to the relevant verification result. |
+| `${pactbroker.githubVerificationStatus}` | The verification status using the correct keywords for posting to the Github commit status API. See https://developer.github.com/v3/repos/statuses. |
+| `${pactbroker.bitbucketVerificationStatus}` | The verification status using the correct keywords for posting to the Bitbucket commit status API. See https://developer.atlassian.com/server/bitbucket/how-tos/updating-build-status-for-commits/. |
+| `${pactbroker.consumerLabels}` | The list of labels for the consumer associated with the pact content, separated by ", ". |
+| `${pactbroker.providerLabels}` | The list of labels for the provider associated with the pact content, separated by ", ". |
+| `${pactbroker.eventName}` | The name of the event that triggered the webhook |
+| `${pactbroker.currentlyDeployedProviderVersionNumber}` | The version number of the currently deployed provider version (when used in a template, the webhook will be triggered once for each currently deployed provider version) |

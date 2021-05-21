@@ -18,6 +18,7 @@ You can create your own variables to store sensitive values like usernames and p
 
 | Field | Description |
 | ---------- | ----------- |
+| Team | When creating or updating a secret, users with the `secret:manage:team` permission (by default, assigned to the `Test Maintainer` role) must assign a secret to a team. Team secrets may only be used in webhooks that are assigned to the same team. Users with the `secret:manage:*` permission (by default, assigned to the `Administrator` role) may choose not to assign a secret to any team. Secrets without a team assigned may only be used in webhooks that also have no team assigned. |
 | Name | Give a name to your secret. This will be available as a dynamic variable prefixed with `user.`. For instance, if you create a `JenkinsUser` secret you can access it as `${user.JenkinsUser}`. |
 | Description | Describe what your secret is here. |
 | Value | The value you need encrypted. |
