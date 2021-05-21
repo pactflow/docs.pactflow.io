@@ -46,6 +46,14 @@ View all roles.
 
 Create, update and delete all secrets.
 
+## secret:manage:team
+
+Create, update and delete secrets assigned to the teams of which the user is a member.
+
+## secret:read:team
+
+View the names and descriptions of secrets assigned to the teams of which the user is a member.
+
 ## system_account:manage:*
 
 Create, update, disable any system account and associated API tokens.
@@ -82,3 +90,6 @@ Invite a user to the Pactflow application.
 
 Create, update and delete any webhook.
 
+## webhook:manage:team
+
+Create, update and delete webhooks assigned to the teams of which the user is a member.
