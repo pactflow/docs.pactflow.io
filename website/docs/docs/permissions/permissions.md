@@ -62,6 +62,14 @@ Create, update, disable any system account and associated API tokens.
 
 View all system accounts.
 
+## system_preference:manage:*
+
+Manage the global system settings such as API token expiration and application notices.
+
+## system_preference:read:*
+
+View the global system settings such as API token expiration and application notices.
+
 ## team:manage:*
 
 Create, update and delete teams. Add and remove users and applications to/from teams.
