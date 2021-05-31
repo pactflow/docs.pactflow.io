@@ -106,8 +106,17 @@ module.exports = {
         },
         "docs/workshops/advanced",
         "docs/workshops/tutorials",
-      ],
-    },
+        {
+          type: "category",
+          label: "Bi-directional Contracts",
+          items: [
+            "docs/workshops/bi-directional/index",
+            "docs/workshops/bi-directional/consumer",
+            "docs/workshops/bi-directional/provider"
+          ],
+        }
+      ]
+    }
   ],
   examples: [
     {
