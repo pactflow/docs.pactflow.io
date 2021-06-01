@@ -30,3 +30,7 @@ The database schema migrations will be run automatically on start up. See the do
 ### Migrating from OSS Pact Broker to Pactflow
 
 If you have been hosting your own instance of the open source Pact Broker, you can point the new Pactflow On-Premises application at the same database, and the missing migrations will be applied.
+
+## Schema
+
+![SNS Architecture](/on-premises/schema.png)
