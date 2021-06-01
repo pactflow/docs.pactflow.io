@@ -3,6 +3,10 @@ title: Bi-directional Contracts Guide
 sidebar_label: Overview
 ---
 
+## ⚠️ Project Status
+
+Bi-directional contracts is in **developer preview**, and currently supports pact files (consumer) and OpenAPI Specification (provider). If you'd like to know mare about this feature, please [get in touch](mailto:hello@pactflow.io).
+
 ## Introduction
 
 Bi-directional contracts is a Pactflow only feature that allows teams to generate a contract from existing mocks (such as Wiremock) and to verify API providers using the functional API testing tools they are already using (such as Postman). Teams can use our plug-and-play adapters for popular tools or write their own.
@@ -10,12 +14,6 @@ Bi-directional contracts is a Pactflow only feature that allows teams to generat
 When contract-testing with Pact, you need to write and maintain a separate set of tests that are responsible for ensuring systems are compatible.
 
 Bi-directional contracts provides the ability to “upgrade” your existing tools into a powerful contract-testing solution, simplifying adoption and reducing the time to implement contract testing across your architecture.
-
-:::info
-
-Bi-directional contracts is currently in **developer preview**, and supports pact files (consumer) and OpenAPI Specification (provider)
-
-:::
 
 ## Use Cases
 
