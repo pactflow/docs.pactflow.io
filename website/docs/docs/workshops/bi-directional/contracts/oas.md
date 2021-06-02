@@ -25,6 +25,7 @@ Here is an example bash script that uses `cURL` to upload the the OAS and test r
 
 The standard authorization environment variables are used here.
 
+_publish.sh_
 ```sh
 #!/bin/bash
 
@@ -53,6 +54,8 @@ curl \
    }
  }'
 ```
+
+Usage: `./publish.sh true|false`
 
 ### Request Details
 
