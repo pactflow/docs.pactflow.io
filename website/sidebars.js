@@ -112,7 +112,12 @@ module.exports = {
           items: [
             "docs/workshops/bi-directional/index",
             "docs/workshops/bi-directional/consumer",
-            "docs/workshops/bi-directional/provider"
+            "docs/workshops/bi-directional/provider",
+            {
+              type: "category",
+              label: "Supported Contracts",
+              items: ["docs/workshops/bi-directional/contracts/pact", "docs/workshops/bi-directional/contracts/oas"],
+            },
           ],
         }
       ]
