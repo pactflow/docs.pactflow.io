@@ -110,7 +110,7 @@ module.exports = {
           type: "category",
           label: "Bi-directional Contracts",
           items: [
-            "docs/workshops/bi-directional/index",
+            "docs/workshops/bi-directional",
             "docs/workshops/bi-directional/consumer",
             "docs/workshops/bi-directional/provider",
             {
