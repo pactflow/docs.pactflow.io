@@ -4,45 +4,44 @@ title: Predefined roles
 
 The Pactflow application comes with the following predefined roles. Each role is assigned a collection of [permissions](permissions).
 
-Modification of role/permission/user assignments is not yet supported, but will be released soon. See the [Pactflow Roadmap](https://github.com/pactflow/roadmap/projects/1) for more information.
-
 ## Administrator
 
 The user who signed up for the Pactflow tenant will be assigned the Administrator role. They are then able to assign the Administrator role to other users.
 
 #### Default permissions
 
-* [`contract_data:bulk_delete:*`](permissions#contract_data-bulk_delete)
-* [`contract_data:manage:*`](permissions#contract_data-manage)
-* [`role:manage:*`](permissions#role-manage)
-* [`secret:manage:*`](permissions#secret-manage)
-* [`system_account:manage:*`](permissions#system_account-manage)
-* [`system_preferences:manage:*`](permissions#system_preferences-manage)
-* [`system_preferences:read:*`](permissions#system_preferences-read)
-* [`team:manage:*`](permissions#team-manage)
-* [`token:manage:own`](permissions#token-manage-own)
-* [`user:invite`](permissions#user-invite)
-* [`user:manage:*`](permissions#user-manage)
-* [`webhook:manage:*`](permissions#webhook-manage)
+* [`authentication_settings:manage:*`](/docs/permissions/permissions/#authentication_settings-manage)
+* [`contract_data:bulk_delete:*`](/docs/permissions/permissions#contract_data-bulk_delete)
+* [`contract_data:manage:*`](/docs/permissions/permissions#contract_data-manage)
+* [`role:manage:*`](/docs/permissions/permissions#role-manage)
+* [`secret:manage:*`](/docs/permissions/permissions#secret-manage)
+* [`system_account:manage:*`](/docs/permissions/permissions#system_account-manage)
+* [`system_preference:manage:*`](/docs/permissions/permissions#system_preference-manage)
+* [`team:manage:*`](/docs/permissions/permissions#team-manage)
+* [`token:manage:own`](/docs/permissions/permissions#token-manage-own)
+* [`user:invite`](/docs/permissions/permissions#user-invite)
+* [`user:manage:*`](/docs/permissions/permissions#user-manage)
+* [`webhook:manage:*`](/docs/permissions/permissions#webhook-manage)
 
-## Test Maintainer
+## User
 
-All new users are assigned the `Test Maintainer` role.
+All new users are assigned the `User` role. The `User` role is intended to work in conjunction with [team assignments](/docs/user-interface/settings/teams), and therefore has `manage:team` permissions (rather than `manage:*` permissions) for all resources that can be associated with a team. 
 
 #### Default permissions
 
-* [`contract_data:bulk_delete:own`](permissions#contract_databulk_deleteown)
-* [`contract_data:manage:own`](permissions#contract_datamanageown)
-* [`contract_data:manage:team`](permissions#contract_datamanageteam)
-* [`contract_data:read:*`](permissions#contract_dataread)
-* [`role:read:*`](permissions#role-read)
-* [`secret:manage:*`](permissions#secret-manage)
-* [`system_account:read:*`](permissions#system_account-read)
-* [`system_preferences:read:*`](permissions#system_preferences-read)
-* [`team:read:*`](permissions#team-read)
-* [`token:manage:own`](permissions#token:manage:own)
-* [`user:read:*`](permissions#user-read)
-* [`webhook:manage:*`](permissions#webhook-manage)
+* [`contract_data:bulk_delete:own`](/docs/permissions/permissions#contract_databulk_deleteown)
+* [`contract_data:bulk_delete:team`](/docs/permissions/permissions#contract_databulk_deleteteam)
+* [`contract_data:manage:own`](/docs/permissions/permissions#contract_datamanageown)
+* [`contract_data:manage:team`](/docs/permissions/permissions#contract_datamanageteam)
+* [`contract_data:read:*`](/docs/permissions/permissions#contract_dataread)
+* [`role:read:*`](/docs/permissions/permissions#role-read)
+* [`secret:manage:team`](/docs/permissions/permissions#secret-manage-team)
+* [`system_account:manage:team`](/docs/permissions/permissions#system_account-read)
+* [`system_account:read:*`](/docs/permissions/permissions#system_account-read)
+* [`team:read:*`](/docs/permissions/permissions#team-read)
+* [`token:manage:own`](/docs/permissions/permissions#token:manage:own)
+* [`user:read:*`](/docs/permissions/permissions#user-read)
+* [`webhook:manage:team`](/docs/permissions/permissions#webhook-manage-team)
 
 ## CI/CD
 
@@ -50,15 +49,44 @@ This is the default role associated with a system account.
 
 #### Default permissions
 
-* [`contract_data:manage:*`](permissions#contract_data-manage)
-* [`system_preferences:read:*`](permissions#system_preferences-read)
+* [`contract_data:manage:own`](/docs/permissions/permissions#contract_data-manageown)
+* [`contract_data:manage:*`](/docs/permissions/permissions#contract_data-manage)
+* [`contract_data:read:*`](/docs/permissions/permissions#contract_data-read)
+
+## Team Administrator
+
+This role is automatically assigned to any user who is set as an administrator of a specific team. This role may not be edited or deleted, and cannot be assigned directly via the user roles APIs or UIs.
+
+#### Default permissions
+
+* [`team:manage:{uuid}`](/docs/permissions/permissions#teammanageuuid)
 
 ## Viewer
 
 #### Default permissions
 
-* [`contract_data:read:*`](permissions#contract_data-read)
-* [`read_token:manage:own`](permissions#read_token-manage-own)
-* [`system_preferences:read:*`](permissions#system_preferences-read)
-* [`team:read:*`](permissions#team-read)
-* [`user:read:*`](permissions#user-read)
+* [`contract_data:read:*`](/docs/permissions/permissions#contract_data-read)
+* [`read_token:manage:own`](/docs/permissions/permissions#read_token-manage-own)
+* [`system_preferences:read:*`](/docs/permissions/permissions#system_preferences-read)
+* [`team:read:*`](/docs/permissions/permissions#team-read)
+* [`user:read:*`](/docs/permissions/permissions#user-read)
+
+
+## Test Maintainer (deprecated)
+
+The Test Maintainer role has been replaced by the User role. The difference between the User and Test Maintainer roles is that the User role has team scoped permissions for Webhook and Secret management.
+
+#### Default permissions
+
+* [`contract_data:bulk_delete:own`](/docs/permissions/permissions#contract_databulk_deleteown)
+* [`contract_data:manage:own`](/docs/permissions/permissions#contract_datamanageown)
+* [`contract_data:manage:team`](/docs/permissions/permissions#contract_datamanageteam)
+* [`contract_data:read:*`](/docs/permissions/permissions#contract_dataread)
+* [`role:read:*`](/docs/permissions/permissions#role-read)
+* [`secret:manage:*`](/docs/permissions/permissions#secret-manage)
+* [`system_account:read:*`](/docs/permissions/permissions#system_account-read)
+* [`system_preferences:read:*`](/docs/permissions/permissions#system_preferences-read)
+* [`team:read:*`](/docs/permissions/permissions#team-read)
+* [`token:manage:own`](/docs/permissions/permissions#token:manage:own)
+* [`user:read:*`](/docs/permissions/permissions#user-read)
+* [`webhook:manage:*`](/docs/permissions/permissions#webhook-manage)
