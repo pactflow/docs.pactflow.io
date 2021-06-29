@@ -42,7 +42,7 @@ View any contract related data. This includes applications, application labels, 
 
 ## read_token:manage:own
 
-Mange own *read only* API token. This permission is for users/system accounts that are not allowed to modify any resources (eg. those with the [Viewer](./system-defined-roles#viewer) role), for whom it does not make sense to have a read/write token.
+Mange own *read only* API token. This permission is for users/system accounts that are not allowed to modify any resources (eg. those with the [Viewer](./predefined-roles#viewer) role), for whom it does not make sense to have a read/write token.
 
 ## role:manage:*
 
