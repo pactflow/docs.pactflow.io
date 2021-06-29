@@ -90,3 +90,16 @@ The Test Maintainer role has been replaced by the User role. The difference betw
 * [`token:manage:own`](/docs/permissions/permissions#token:manage:own)
 * [`user:read:*`](/docs/permissions/permissions#user-read)
 * [`webhook:manage:*`](/docs/permissions/permissions#webhook-manage)
+
+
+## Resetting permissions for predefined roles
+
+Should you wish to reset the permissions assigned to each of the predefined roles back to their defaults as documented above (or upgrade from the globally scoped Test Maintainer role to the team scoped User role) you can follow these steps. Note that any custom roles will remain unaffected, and the user/role assignments are not changed.
+
+* Click on the `API` button at the top right of the Pactflow dashboard.
+* In the `Links` section, scroll down to the line where `rel` column has a value of `pf:admin-roles`.
+* Click on the green arrow in the `GET` column that has the hover text "Follow link".
+* Scroll up to the top of the page.
+* In the Links section, if you can see the line with a `rel` of `pf:reset`, then you have the permissions required to reset the roles. If you cannot see this relation, then you do not have the required permissions.
+* Click on the yellow `!` button in the `NON-GET` column.
+* Click on the blue `Make Request` button. You will see a 200 OK response with the updated list of roles.
