@@ -56,6 +56,12 @@ The database host
 
 **Required:** if PACTFLOW_DATABASE_URL is not set<br/>
 
+### PACTFLOW_DATABASE_PORT
+
+The database port
+
+**Required:** if PACTFLOW_DATABASE_URL is not set<br/>
+
 ### PACTFLOW_DATABASE_NAME
 
 The database name
@@ -140,7 +146,6 @@ Whether or not to disable SSL verificaton when executing webhooks.
 ## SAML authentication
 
 <hr/>
-
 To configure more than one SAML identity provider, specify another set of the following environment variables with a `_2` after the `PACTFLOW_SAML` prefix (and `_3` for the third etc.). The `PACTFLOW_SAML_ISSUER` is shared between all the SAML providers so does not need to be duplicated.
 
 eg. For the second SAML identity provider set `PACTFLOW_SAML_2_AUTH_ENABLED`, `PACTFLOW_SAML_2_IDP_NAME` etc and for the third `PACTFLOW_SAML_3_AUTH_ENABLED`, `PACTFLOW_SAML_3_IDP_NAME` etc.
@@ -281,14 +286,14 @@ The password for HTTP basic authentication. Allows read access only. For demo pu
 
 <br/>
 
-## Secrets
+## Encryption
 
 <hr/>
 
 
-### PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY
+### PACTFLOW_MASTER_ENCRYPTION_KEY
 
-A randomly generated string which will be the master key for encrypting secrets.
+A randomly generated string which will be the master key for encrypting secrets and API tokens. Renamed from `PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY`.
 
 To generate an appropriate value, run the following on Linux/Mac:
 
@@ -298,6 +303,19 @@ env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 
 
 **Required:** true<br/>
 **Example:** `eLM5xPxPu9ftDhA34ZUw2ry2okpMnOPCrA-twxLBUUk`<br/>
+
+<br/>
+
+## Secrets
+
+<hr/>
+
+
+### PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY
+
+Deprecated in favour of `PACTFLOW_MASTER_ENCRYPTION_KEY`. If you have a previous installation of Pactflow with `PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY` set, please rename it to `PACTFLOW_MASTER_ENCRYPTION_KEY`.
+
+**Required:** false<br/>
 
 <br/>
 
@@ -346,15 +364,12 @@ The URL of the free service that is used to generate the build badges. Note that
 ### PACTFLOW_BASE_URL
 
 The base url, including HTTP scheme and any application context path, at which the Pactflow application will be publicly
-accessible. This is generally not required, as the `X-Forwarded-Scheme`, `X-Forwarded-Host`, `X-Forwarded-Port`
-d `X-Forwarded-Ssl` headers that are set by the reverse proxy or load balancer that sits in front of the cluster
-are used to calculate this value, however, if there are any issues, this can be set to ensure the correct behaviour.
-
-It is mandatory if the application is to be served at a context that is not the root of the domain eg. `https://mycompany.com/pactflow`.
+accessible. It should not include a trailing slash. If there are multiple interfaces on which the application will be addressed,
+list all the base URLs separated by spaces.
 
 
-**Required:** false<br/>
-**Example:** `https://pactflow.mycompany.com`<br/>
+**Required:** true<br/>
+**Example:** `https://pactflow.mycompany.com https://pactflow.internal.mycompany.com`<br/>
 
 ### PACTFLOW_HTTP_PORT
 
@@ -439,4 +454,33 @@ The timezone in which to display dates for server side rendered pages.
 
 **Required:** true<br/>
 **More information:** [Valid timezones](/docs/on-premises/environment-variables/timezones)<br/>
+
+<br/>
+
+## API Tokens
+
+<hr/>
+
+
+### PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED
+
+Enables encryption of API token values in the database. Requires `PACTFLOW_API_TOKEN_IV` and `PACTFLOW_MASTER_ENCRYPTION_KEY` to also be set.
+
+**Required:** false<br/>
+**Default:** `not set`<br/>
+
+### PACTFLOW_API_TOKEN_IV
+
+If `PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED` is set to `true`, then this value must contain a base 64 encoded string of random 16 bytes for the
+encryption initialization vector.
+
+To generate an appropriate value, run the following on Linux/Mac:
+
+```
+head < /dev/random -c 16 | base64
+```
+
+**Required:** if `PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED` is set to `true`<br/>
+**Default:** `not set`<br/>
+**Example:** `JUVDdnRzLXZyWHA7UF93RAo=`<br/>
 
