@@ -63,6 +63,7 @@ The following variables may be used in the path and query parameters of the URL,
 | `${pactbroker.verificationResultUrl}` | The URL to the relevant verification result. |
 | `${pactbroker.githubVerificationStatus}` | The verification status using the correct keywords for posting to the Github commit status API. See https://developer.github.com/v3/repos/statuses. |
 | `${pactbroker.bitbucketVerificationStatus}` | The verification status using the correct keywords for posting to the Bitbucket commit status API. See https://developer.atlassian.com/server/bitbucket/how-tos/updating-build-status-for-commits/. |
+| `${pactbroker.azureDevOpsVerificationStatus}` | The verification status using the correct keywords for posting to the Azure DevOps GitStatusState API. See https://docs.microsoft.com/en-us/rest/api/azure/devops/git/statuses/create?view=azure-devops-rest-6.0 |
 | `${pactbroker.consumerLabels}` | The list of labels for the consumer associated with the pact content, separated by ", ". |
 | `${pactbroker.providerLabels}` | The list of labels for the provider associated with the pact content, separated by ", ". |
 | `${pactbroker.eventName}` | The name of the event that triggered the webhook |
