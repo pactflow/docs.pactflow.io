@@ -6,8 +6,9 @@ Our Team Management feature allows you manage the following capabilities:
 
 * Allocate users to teams
 * Allocate applications to teams
+* Assign team administrators
 
-_NOTE: Editing of teams is restricted to the administrators of the account._
+_NOTE: Editing of teams is restricted to users with the `team:manage:*` permission (Administrators) or who have been assigned as Team Administrators by an existing user with the team manage permission._
 
 ![Teams Management Screen](/ui/teams.png)
 
@@ -15,13 +16,13 @@ _NOTE: Editing of teams is restricted to the administrators of the account._
 
 **Delete Team** allows you to unlink all users and applications from a team and remove it.
 
-**Edit Name & Applications** allows you to change the name and applications of an existing team.
+**Edit Name & Applications** allows you to change the name and applications of an existing team, and assign Team Administrators.
 
 Clicking on the team name will take you to the allocate users screen.
 
 ## The "Default" team
 
-The `contract_data:manage:team` permission that comes with the `Test Maintainer` role allows users to manage contract related data (eg. publish pacts and verification results) for applications that are assigned to their teams. To help you get started with teams quickly, every new Pactflow account is set up with a special, system defined "Default" team. All new users and applications are automatically added to this team on creation.
+The `contract_data:manage:team` permission that comes with the `User` role allows users to manage contract related data (eg. publish pacts and verification results) for applications that are assigned to their teams. To help you get started with teams quickly, every new Pactflow account is set up with a special, system defined "Default" team. All new users and applications are automatically added to this team on creation.
 
 The Default team can be deleted once your own user defined teams have been created. From then on, users and applications will need to be assigned to teams explicitly though the UI. To ensure that your users can continue to manage their applications, you should create your own teams with the appropiate users and applications assigned before deleting the Default team.
 
@@ -31,6 +32,8 @@ The Default team can be deleted once your own user defined teams have been creat
 
 With the team applications, you can search for applications and add them to the team. This allows the users in the team
 to be able to filter the main dashboard by those applications.
+
+Team Administrators can also be assigned in this screen. Team Administrators can assign users and applications to a team, and update the team name.
 
 ## Allocating users to a team
 
