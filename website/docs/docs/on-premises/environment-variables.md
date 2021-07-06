@@ -295,6 +295,8 @@ The password for HTTP basic authentication. Allows read access only. For demo pu
 
 A randomly generated string which will be the master key for encrypting secrets and API tokens. Renamed from `PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY`.
 
+Do not change or lose the value of this key. All encrypted data (secrets and API keys) will be unretrievable if this key is lost. Rotation is not currently supported but will be added in a future release.
+
 To generate an appropriate value, run the following on Linux/Mac:
 
 ```
