@@ -26,17 +26,13 @@ title: Prerequisites
 
 Tags are used to wire up the consumer project to the provider project and make sure we are verifying the right pacts.
 
-In the [publish.pact.js](https://github.com/pactflow/example-consumer/blob/master/publish.pact.js) file in the consumer project, we tag the consumer version with the name of the branch.
+In the [Makefile](https://github.com/pactflow/example-consumer/blob/master/Makefile) file in the consumer project, we tag the consumer version with the name of the branch.
 
-```js
-
-const opts = {
-  ...,
-  tags: [process.env.GIT_BRANCH]
-};
+```sh
+@"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --tag ${GIT_BRANCH}
 ```
 
-In the [src/product.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the pacts that belong to the latest consumer versions with `master` and `prod` tags.
+In the [src/products/product.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the pacts that belong to the latest consumer versions with the `master` tag, and the pacts that belong to the currently deployed versions.
 
 ```js
 
@@ -48,8 +44,8 @@ const baseOpts = {
 const fetchPactsDynamicallyOpts = {
   ...,
   provider: "pactflow-example-provider",
-  consumerVersionSelectors: [{ tag: 'master', latest: true }, { tag: 'prod', latest: true } ],
+  consumerVersionSelectors: [{ tag: 'master', latest: true }, { deployed: true } ],
 }
 ```
 
-[github]: https://github.com
+[travis-ci]: https://travis-ci.com
