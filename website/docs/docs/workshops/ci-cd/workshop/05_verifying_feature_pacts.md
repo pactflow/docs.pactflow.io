@@ -17,19 +17,19 @@ When a new "feature" pact is created, there are a few ways you could bring that 
 
     * This does the job, but there are better options.
 
-1. Make a matching feature branch in the provider, and dynamically fetch the pact for the matching consumer branch, falling back to master if a pact for the specified tag does not exist.
+1. Make a matching feature branch in the provider, and dynamically fetch the pact for the matching consumer branch if it exists (no error will be raised if a pact does not exist for a particular tag.)
 
     ```js
     consumerVersionSelectors: [
-        { tag: process.env.TRAVIS_BRANCH, fallbackTag: 'master', latest: true },
-        { tag: 'prod', latest: true }
+        { tag: process.env.TRAVIS_BRANCH, latest: true },
+        { tag: 'master', latest: true }
     ]
     ```
 
     (or old syntax):
 
     ```js
-    consumerVersionTags: [ process.env.TRAVIS_BRANCH, "master", "prod" ]
+    consumerVersionTags: [ process.env.TRAVIS_BRANCH, "master" ]
     ```
 
     * This is a reasonably common approach, where the two teams coordinate feature development using matching branch names.
