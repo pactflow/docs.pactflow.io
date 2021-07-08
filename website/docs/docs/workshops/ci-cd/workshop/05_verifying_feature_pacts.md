@@ -9,20 +9,21 @@ When a new "feature" pact is created, there are a few ways you could bring that 
 
     ```js
     consumerVersionSelectors: [
-        { tag: 'feat/new-field', latest: true },
         { tag: 'master', latest: true },
+        { tag: 'feat/new-field', latest: true },
         ...
     ]
     ```
 
     * This does the job, but there are better options.
 
-1. Make a matching feature branch in the provider, and dynamically fetch the pact for the matching consumer branch, falling back to master if a pact for the specified tag does not exist.
+1. Make a matching feature branch in the provider, and dynamically fetch the pact for the matching consumer branch if it exists (no error will be raised if a pact does not exist for a particular tag.)
 
     ```js
     consumerVersionSelectors: [
-        { tag: process.env.GIT_BRANCH, fallbackTag: 'master', latest: true },
-        { tag: 'prod', latest: true }
+        { tag: 'master', latest: true },
+        { tag: process.env.GIT_BRANCH, latest: true },
+        ...
     ]
     ```
 
