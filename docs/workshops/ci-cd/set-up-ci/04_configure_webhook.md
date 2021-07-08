@@ -28,6 +28,7 @@ The Pactflow webhook will need a Github access token to be able to trigger the b
         1. Go to the Secrets page
             1. Click on the Settings icon in the top left (it looks like a cog wheel) -> Select the `Secrets` tab from the menu on the left.
         1. Click "ADD SECRET"
+        1. Select "None" in the team drop down box.
         1. Enter the name `githubToken` and paste the value that you copied in the previous step.
         1. Click "CREATE"
 
@@ -36,6 +37,7 @@ The Pactflow webhook will need a Github access token to be able to trigger the b
         1. Select the `Webhooks` tab from the settings page.
         1. Click "ADD WEBHOOK".
         1. Set:
+            * Team: None
             * Description:
 
                 ```
@@ -62,10 +64,8 @@ The Pactflow webhook will need a Github access token to be able to trigger the b
                 ```
                 {
                   "event_type": "pact_changed",
-                  "client_payload":
-                    {
-                      "pact_url": "${pactbroker.pactUrl}"
-                    }
+                  "client_payload": {
+                    "pact_url": "${pactbroker.pactUrl}"
                   }
                 }
                 ```

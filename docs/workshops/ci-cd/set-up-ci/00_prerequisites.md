@@ -10,6 +10,6 @@ title: Prerequisites
 * A [Github](http://github.com/) account.
 * A Pactflow account - ideally, your own personal one. You can sign up for a free developer account [here](https://pactflow.io/pricing/). You can use a shared company Pactflow account, but it will make things a bit fiddly, as you'll need to change the identifiers of the various resources that get created so that they don't clash with those from other workshop participants. We've found from past experience running workshops that it's much simpler if everyone has their own account.
 
-⚠️ Note: these instructions have been written for, and tested, in a bash shell on Mac. They should work correctly on Linux. If you are using Windows, then you will need to know how to run git/make/node CLI commands, or pair with someone who does.
+⚠️ Note: these instructions have been written for, and tested, in a *bash* (not zsh) shell on Mac. They should work correctly on Linux. If you are using Windows, then you will need to know how to run git/make/node CLI commands, or pair with someone who does.
 
 > If you have access to a second screen, we recommend that you use it for this workshop, as there is a lot of window switching involved.

@@ -15,14 +15,15 @@ The source repositories are configured to use the the public broker at test.pact
         1. Open your forked `example-consumer` project (`https://github.com/<your-username>/example-consumer`)
         1. Click on the `Settings` tab.
         1. Select `Secrets` from the side menu.
-        1. Click `New Secret`
+        1. Click `New repository secret` (the button is to the right of the "Actions secrets" heading)
         1. Set the name of the secret to `PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP`
         1. Paste in the Pactflow API token value you copied in the previous step.
 1. Configure the Pact Broker base URL.
     1. On your local machine:
         1. Open the `example-consumer` project in your IDE.
         1. Open `.github/workflows/build.yml`
-        1. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account (eg. `https://<your-tenant>.pactflow.io`, no slash on the end.)
+        1. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account. You can easily get this by clicking the `COPY PACTFLOW BASE URL` button on the API Tokens page in Pactflow.
+        1. While you're in there, you can delete the `.github/workflows/trigger_partner_docs_update.yml` workflow. It's not used in the execution of workshop, and deleting it will remove some noise from the Github Actions page.
         1. Commit and push your changes.
 1. View the build:
     1. In Github:
@@ -33,7 +34,9 @@ This build should now successfully publish the pact, but it will fail on the `ca
 
 ## Configure provider pipeline
 
-🔁 Repeat the above instructions to configure the Pactflow account for your provider project. There are _TWO_ files to be updated in the provider project - `.github/workflows/build.yml` and `.github/workflows/verify_changed_pact.yml`.
+🔁 Repeat the above instructions to configure the Pactflow account for your provider project. 
+
+⚠️ There are _TWO_ workflow files to be updated in the provider project - `.github/workflows/build.yml` and `.github/workflows/verify_changed_pact.yml`.
 
 After you have pushed your changes to the workflow files, the provider pipeline will run, fetching and verifying the configured pacts from your Pactflow account, and publishing the results back. The `can-i-deploy` command will pass, and allow the provider to be deployed. ✅
 
