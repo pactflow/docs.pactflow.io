@@ -5,7 +5,7 @@ title: How not to break everything
 
 When we made first made the change to the pact on the master branch of the consumer, we ended up with broken consumer and provider builds, stopping them both from releasing. In the previous step, we learned how to configure the provider so that it could still continue to be released, even if it was not able to successfully verify the new pact.
 
-The consumer is still unable to make a release from its master however, as the `can-i-deploy` step correctly identifies that the verification for the `master` pact has failed. This is a reflection of the reality of the state of this integration - the API does not yet implement the features we require to deploy.
+The consumer is still unable to make a release from its master however, as the `can-i-deploy` step correctly identifies that the verification for the `master` pact has failed. This is a correct report on the state of this integration - the API does not yet implement the features we require to deploy.
 
 Let's make our changes on a branch this time.
 
@@ -34,7 +34,7 @@ Let's make our changes on a branch this time.
 
 ## Expected state by the end of this step
 
-* In Travis CI:
+* In Github Actions:
     * A `master` consumer build that passes and deploys.
     * A `feat/new-field` consumer build that fails at `can-i-deploy`.
 * In Pactflow:
@@ -44,6 +44,3 @@ Let's make our changes on a branch this time.
 ## Conclusion
 
 By making changes on a branch of the consumer, and publishing a 'feature pact', we keep our main release branch green, and make sure we're not blocked from deploying. The `can-i-deploy` call acts as a "can I merge?" check when we're on a branch.
-
-<!-- This file has been synced from the pactflow/docs.pactflow.io repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
-

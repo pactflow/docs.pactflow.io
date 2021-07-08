@@ -3,15 +3,15 @@ id: prerequisites
 title: Prerequisites
 ---
 
-* CI/CD pipelines for the consumer and provider as per the [Setup CI/CD page](https://raw.githubusercontent.com/pactflow/docs.pactflow.io/master/docs/ci-cd-workshop/set-up-ci)
-* A working local development set up as per the [Setup local development](https://raw.githubusercontent.com/pactflow/docs.pactflow.io/master/docs/ci-cd-workshop/set-up-local-development) page.
-* Both consumer and provider builds in Travis CI should both be passing on master.
-* If you have access to a second screen, we recommend that you use it for this workshop, as there is a lot of window switching involved.
+* CI/CD pipelines for the consumer and provider as per the [Setup CI/CD page](/docs/ci-cd-workshop/set-up-ci)
+* A working local development set up as per the [Setup local development](/docs/ci-cd-workshop/set-up-local-development) page.
+* Both consumer and provider builds in Github Actions should both be passing on master.
+* If you have access to a second screen, we recommend that you use it for this workshop, as there is a lot of window switching involved. You might want to put all the consumer windows on one screen, and all the provider windows on the other.
 * Suggested window configuration:
-    * In [Travis CI][travis-ci]:
+    * In Github:
         * One tab for the example-consumer build
         * One tab for the example-provider build
-    * In Pactflow
+    * In Pactflow:
         * A tab for the example pact dashboard
     * In your editor of choice:
         * One window for the example-consumer
@@ -26,29 +26,30 @@ title: Prerequisites
 
 Tags are used to wire up the consumer project to the provider project and make sure we are verifying the right pacts.
 
-In the [Makefile](https://github.com/pactflow/example-consumer/blob/master/Makefile) file in the consumer project, we tag the consumer version with the name of the branch.
+In the [publish.pact.js](https://github.com/pactflow/example-consumer/blob/master/publish.pact.js) file in the consumer project, we tag the consumer version with the name of the branch.
 
-```sh
-@"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${TRAVIS_COMMIT} --tag ${TRAVIS_BRANCH}
+```js
+
+const opts = {
+  ...,
+  tags: [process.env.GIT_BRANCH]
+};
 ```
 
-In the [src/products/product.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the pacts that belong to the latest consumer versions with the `master` tag, and the pacts that belong to the currently deployed versions.
+In the [src/product.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the pacts that belong to the latest consumer versions with `master` and `prod` tags.
 
 ```js
 
 const baseOpts = {
   ...,
-  providerVersionTag: process.env.TRAVIS_BRANCH
+  providerVersionTag: process.env.GIT_BRANCH
 }
 
 const fetchPactsDynamicallyOpts = {
   ...,
   provider: "pactflow-example-provider",
-  consumerVersionSelectors: [{ tag: 'master', latest: true }, { deployed: true } ],
+  consumerVersionSelectors: [{ tag: 'master', latest: true }, { tag: 'prod', latest: true } ],
 }
 ```
 
-[travis-ci]: https://travis-ci.com
-
-<!-- This file has been synced from the pactflow/docs.pactflow.io repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
-
+[github]: https://github.com

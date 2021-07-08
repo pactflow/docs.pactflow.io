@@ -17,7 +17,7 @@ Refresh the example pact page in Pactflow to see that the `feat/new-field` pact 
     git push origin master
     ```
 
-1. Open up the build in Travis CI. This build will pass, and the consumer will be able to deploy to production as the production version of the provider already supports this new feature.
+1. Open up the consumer build in Github Actions. This build will pass, and the consumer will be able to deploy to production as the production version of the provider already supports this new feature.
 
 ## Some ideas on how to communicate that the feature pact has been successfully verified to the consumer team
 
@@ -30,6 +30,3 @@ The most elegant solution for this is to create a webhook for the 'provider veri
 ## Conclusion
 
 Even though the new expectations from the consumer come first, the provider still has to release the code to support the new feature before the new features in the consumer can be released.
-
-<!-- This file has been synced from the pactflow/docs.pactflow.io repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
-

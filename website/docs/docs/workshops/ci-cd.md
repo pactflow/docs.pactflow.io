@@ -1,9 +1,10 @@
 ---
+id: ci-cd
 title: Pactflow CI/CD Workshop
 sidebar_label: Introduction
 ---
 
-A workshop demonstrating how to set up a CI/CD pipeline for a consumer and provider using Pact, Pactflow and Travis CI.
+A workshop demonstrating how to set up a CI/CD pipeline for a consumer and provider using Pact, Pactflow and Github Actions.
 
 It uses the Pactflow [example-consumer][example-consumer] and [example-provider][example-provider] repositories. These are written in Node, however, extensive node experience will not be required for the workshop.
 
@@ -15,6 +16,3 @@ It uses the Pactflow [example-consumer][example-consumer] and [example-provider]
 
 [example-consumer]: https://github.com/pactflow/example-consumer
 [example-provider]: https://github.com/pactflow/example-provider
-
-<!-- This file has been synced from the pactflow/docs.pactflow.io repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
-
