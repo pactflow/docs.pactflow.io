@@ -93,6 +93,7 @@ module.exports = {
               Workshop: [
                 "docs/workshops/ci-cd/workshop",
                 "docs/workshops/ci-cd/workshop/prerequisites",
+                "docs/workshops/ci-cd/workshop/prerequisite-concepts",
                 "docs/workshops/ci-cd/workshop/how-to-break-everything",
                 "docs/workshops/ci-cd/workshop/protecting-the-provider",
                 "docs/workshops/ci-cd/workshop/how-not-to-break-everything",

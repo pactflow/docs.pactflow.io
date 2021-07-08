@@ -15,9 +15,9 @@ When a new "feature" pact is created, there are a few ways you could bring that 
     ]
     ```
 
-    * This does the job, but there are better options.
+    * This does the job, but it's a bit fiddly, and there are better options.
 
-1. Make a matching feature branch in the provider, and dynamically fetch the pact for the matching consumer branch if it exists (no error will be raised if a pact does not exist for a particular tag.)
+1. Make a matching feature branch in the provider, and dynamically fetch the pact for the matching consumer branch if it exists (no error will be raised if a pact does not exist for a particular tag). This is a reasonably common approach, where the two teams coordinate feature development using matching branch names.
 
     ```js
     consumerVersionSelectors: [
@@ -26,14 +26,6 @@ When a new "feature" pact is created, there are a few ways you could bring that 
         ...
     ]
     ```
-
-    (or old syntax):
-
-    ```js
-    consumerVersionTags: [ process.env.GIT_BRANCH, "master", "prod" ]
-    ```
-
-    * This is a reasonably common approach, where the two teams coordinate feature development using matching branch names.
 
 1. Enable "work in progress" pacts.
 

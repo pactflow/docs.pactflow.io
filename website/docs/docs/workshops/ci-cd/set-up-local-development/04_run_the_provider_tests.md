@@ -19,6 +19,6 @@ Then run:
 make test
 ```
 
-This runs the test suite for the provider codebase. The pacts for this provider are verified in `product/product.pact.test.js`. It is configured to fetch the latest pacts for this provider that have been tagged by the consumer as 'master' or 'prod'.
+This runs the test suite for the provider codebase. The pacts for this provider are verified in `product/product.pact.test.js`. It is configured to fetch the latest pacts for this provider that have been tagged by the consumer as 'master', and the pacts for the application versions that are currently deployed.
 
 When we run the verification step on a local development machine, we do not publish the verification results. This is why we only need a read only token for development work.

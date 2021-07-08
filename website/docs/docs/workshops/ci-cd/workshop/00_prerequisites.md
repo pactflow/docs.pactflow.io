@@ -20,32 +20,3 @@ title: Prerequisites
         * One shell for the example-consumer
         * One shell for the example-provider
     * Close everything else that you can! It can get confusing switching backwards and forwards between all the windows in the workshop.
-* Have a look at the configuration in the consumer and provider projects that deals with the *tags*. Read more below.
-
-## Tag configuration
-
-Tags are used to wire up the consumer project to the provider project and make sure we are verifying the right pacts.
-
-In the [Makefile](https://github.com/pactflow/example-consumer/blob/master/Makefile) file in the consumer project, we tag the consumer version with the name of the branch.
-
-```sh
-@"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --tag ${GIT_BRANCH}
-```
-
-In the [src/product/product.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the pacts that belong to the latest consumer versions with the `master` tag, and the pacts that belong to the currently deployed versions.
-
-```js
-
-const baseOpts = {
-  ...,
-  providerVersionTag: process.env.GIT_BRANCH
-}
-
-const fetchPactsDynamicallyOpts = {
-  ...,
-  provider: "pactflow-example-provider",
-  consumerVersionSelectors: [{ tag: 'master', latest: true }, { deployed: true } ],
-}
-```
-
-[travis-ci]: https://travis-ci.com
