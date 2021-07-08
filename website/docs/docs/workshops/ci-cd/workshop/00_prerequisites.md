@@ -32,7 +32,7 @@ In the [Makefile](https://github.com/pactflow/example-consumer/blob/master/Makef
 @"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${TRAVIS_COMMIT} --tag ${TRAVIS_BRANCH}
 ```
 
-In the [src/products/product.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the pacts that belong to the latest consumer versions with `master` and `prod` tags.
+In the [src/products/product.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the pacts that belong to the latest consumer versions with the `master` tag, and the pacts that belong to the currently deployed versions.
 
 ```js
 
@@ -44,7 +44,7 @@ const baseOpts = {
 const fetchPactsDynamicallyOpts = {
   ...,
   provider: "pactflow-example-provider",
-  consumerVersionSelectors: [{ tag: 'master', latest: true }, { tag: 'prod', latest: true } ],
+  consumerVersionSelectors: [{ tag: 'master', latest: true }, { deployed: true } ],
 }
 ```
 
