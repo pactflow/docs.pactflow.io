@@ -77,7 +77,7 @@ module.exports = {
                 "docs/workshops/ci-cd/set-up-ci",
                 "docs/workshops/ci-cd/set-up-ci/prerequisites",
                 "docs/workshops/ci-cd/set-up-ci/fork-and-clone-the-repositories",
-                "docs/workshops/ci-cd/set-up-ci/configure-the-builds-in-travis-ci",
+                "docs/workshops/ci-cd/set-up-ci/test-the-builds-in-github-actions",
                 "docs/workshops/ci-cd/set-up-ci/configure-consumer-and-provider-pipelines",
                 "docs/workshops/ci-cd/set-up-ci/configure-webhook",
                 "docs/workshops/ci-cd/set-up-ci/conclusion",

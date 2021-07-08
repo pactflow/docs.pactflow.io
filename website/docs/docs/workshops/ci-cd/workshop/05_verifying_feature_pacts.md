@@ -17,19 +17,19 @@ When a new "feature" pact is created, there are a few ways you could bring that 
 
     * This does the job, but there are better options.
 
-1. Make a matching feature branch in the provider, and dynamically fetch the pact for the matching consumer branch if it exists (no error will be raised if a pact does not exist for a particular tag.)
+1. Make a matching feature branch in the provider, and dynamically fetch the pact for the matching consumer branch, falling back to master if a pact for the specified tag does not exist.
 
     ```js
     consumerVersionSelectors: [
-        { tag: process.env.TRAVIS_BRANCH, latest: true },
-        { tag: 'master', latest: true }
+        { tag: process.env.GIT_BRANCH, fallbackTag: 'master', latest: true },
+        { tag: 'prod', latest: true }
     ]
     ```
 
     (or old syntax):
 
     ```js
-    consumerVersionTags: [ process.env.TRAVIS_BRANCH, "master" ]
+    consumerVersionTags: [ process.env.GIT_BRANCH, "master", "prod" ]
     ```
 
     * This is a reasonably common approach, where the two teams coordinate feature development using matching branch names.
@@ -54,15 +54,16 @@ The reason for this is that if support for a new feature pact is added on a `fea
 
 1. In the provider project, open `src/product/product.pact.test.js` and in the options for the dynamically fetched pacts, set `includeWipPactsSince: "2020-01-01"`
 
-1. Run `TRAVIS_BRANCH=master make test` and you will see that the `feat/new-field` pact has been included in the verifications, running in pending mode.
-    * We need to set the `TRAVIS_BRANCH` when running locally so that the WIP calculations know which pending pacts to include.
+1. Run `GIT_BRANCH=master make test` and you will see that the `feat/new-field` pact has been included in the verifications, running in pending mode.
+    * We need to set the `GIT_BRANCH` when running locally so that the WIP calculations know which pending pacts to include.
 
 1. Commit and push
 
-1. Open the provider build in Travis CI and wait for the successful verification result for `feat/new-field` to be be published.
+1. Open the provider build in Github Actions and wait for the successful verification result for `feat/new-field` to be be published.
+
     * 👉 Note that the provider has now successfully deployed this change to production, so the consumer is now free to release their code.
 
-1. On your local machine, run `TRAVIS_BRANCH=master make test` - you will now see that the `feat/new-field` pact is not included, as it is no longer a work in progress pact.
+1. On your local machine, run `GIT_BRANCH=master make test` - you will now see that the `feat/new-field` pact is not included, as it is no longer a work in progress pact.
 
 ## Expected state by the end of this step
 
@@ -73,6 +74,3 @@ The reason for this is that if support for a new feature pact is added on a `fea
 Enabling 'work in progress' pacts allows the consumer to get feedback on a changed pact without the provider having to make configuration changes on their end.
 
 If the verification for the changed pact passes without the provider having to make any changes to the code, then the consumer is free to release their feature, without making the provider a bottleneck.
-
-<!-- This file has been synced from the pactflow/docs.pactflow.io repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
-

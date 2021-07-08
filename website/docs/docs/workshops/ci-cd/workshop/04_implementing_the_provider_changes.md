@@ -67,7 +67,7 @@ The next step is to implement the changes that have been requested in the pact.
 
 * A provider that implements the features required by the `feat/new-field` pact on its `master` branch.
 * The new version of the provider is "deployed" to production.
-* A passing provider build in Travis CI.
+* A passing provider build in Github Actions.
 * A `feat/new-field` pact in Pactflow that still does not have a verification result.
 
 ## Conclusion
@@ -75,6 +75,3 @@ The next step is to implement the changes that have been requested in the pact.
 The `master` provider is now compatible with the `feat/new-field` pact. However, there is no verification result published for the `feat/new-field` pact, because it was only verified on a development machine, and we don't typically publish verification results from dev machines.
 
 The next step is getting a result back to Pactflow so that the consumer knows they are safe to merge.
-
-<!-- This file has been synced from the pactflow/docs.pactflow.io repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
-
