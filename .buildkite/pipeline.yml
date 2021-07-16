@@ -2,13 +2,12 @@ env:
   AWS_DEFAULT_REGION: ap-southeast-2
 
 steps:
-
   - command: ./scripts/deploy-infra.sh dev
-    label: ':aws: Doc Site - Deploy Infra - Dev'
+    label: ":aws: Doc Site - Deploy Infra - Dev"
     env:
       ENVIRONMENT: dev
     agents:
-      queue: pact-dev
+      queue: pactflow-dev
     plugins:
       - docker#v3.2.0:
           image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
@@ -19,11 +18,11 @@ steps:
   - wait
 
   - command: /workdir/scripts/build-site.sh
-    label: ':hammer: Doc Site - Build - Dev'
+    label: ":hammer: Doc Site - Build - Dev"
     env:
       ENVIRONMENT: dev
     agents:
-      queue: pact-dev
+      queue: pactflow-dev
     plugins:
       - docker#v3.2.0:
           image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-yarn:latest"
@@ -36,11 +35,11 @@ steps:
     key: "confirm"
 
   - command: ./scripts/deploy-infra.sh prod
-    label: ':aws: Doc Site - Deploy Infra - Prod'
+    label: ":aws: Doc Site - Deploy Infra - Prod"
     env:
       ENVIRONMENT: prod
     agents:
-      queue: pact-prod
+      queue: pactflow-prod
     plugins:
       - docker#v3.2.0:
           image: "{PRODECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
@@ -51,11 +50,11 @@ steps:
   - wait
 
   - command: /workdir/scripts/sync.sh
-    label: ':hammer: Doc Site - Sync to Prod'
+    label: ":hammer: Doc Site - Sync to Prod"
     env:
       ENVIRONMENT: prod
     agents:
-      queue: pact-prod
+      queue: pactflow-prod
     plugins:
       - docker#v3.2.0:
           image: "{PRODECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
