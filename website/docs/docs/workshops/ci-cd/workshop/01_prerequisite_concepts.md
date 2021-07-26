@@ -48,7 +48,7 @@ To allow Pact to ensure your APIs are always backwards compatible with the consu
 ```bash
 
 record_deployment:
-    @"${PACT_CLI}" broker record_deployment --pacticipant ${PACTICIPANT} --version ${GIT_COMMIT} --environment production
+    @"${PACT_CLI}" broker record-deployment --pacticipant ${PACTICIPANT} --version ${GIT_COMMIT} --environment production
 ```
 
 Though our example is hardcoded to "production", this command should be run after a successful deployment to any environment for both consumers and providers. The "production" and "test" environments have been seeded for you in your Pactflow account, but if you want to add any more environments, you will need to add them yourself using the Pact Broker CLI.
@@ -58,3 +58,8 @@ For mobile applications and code libraries that are "released" to an app store/r
 Recording the deployment allows us to use the consumer version selector `{ deployed: true }` in `src/product/product.pact.test.js`, to make sure we are verifying the pacts for all the currently deployed versions.
 
 It also allows us to use the `can-i-deploy` command (more on this later) to make sure we're safe to deploy to an environment.
+
+:::info
+
+As of July 2021, recording deployments using the `record-deployment` command has just been released, and support for the corresponding selector `{ deployed: true }` has not yet been added to all the Pact client libraries. The previous method of recording releases was to use [tags](https://docs.pact.io/pact_broker/tags). If you are not using one of the libraries that currently supports the `{ deployed: true}` selector (currently Javscript and Ruby support it), you will need to use tags in the meantime as per the documentation in the Tags page.
+:::  
