@@ -62,4 +62,5 @@ It also allows us to use the `can-i-deploy` command (more on this later) to make
 :::info
 
 As of July 2021, recording deployments using the `record-deployment` command has just been released, and support for the corresponding selector `{ deployed: true }` has not yet been added to all the Pact client libraries. The previous method of recording releases was to use [tags](https://docs.pact.io/pact_broker/tags). If you are not using one of the libraries that currently supports the `{ deployed: true}` selector (currently Javscript and Ruby support it), you will need to use tags in the meantime as per the documentation in the Tags page.
+
 :::  
