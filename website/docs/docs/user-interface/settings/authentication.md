@@ -11,6 +11,7 @@ SSO users are automatically provisioned when they first authenticate.
 **NOTE:** &nbsp; Changing these settings may require users to either do a hard refresh in their browser (CTRL-F5 on Windows and Linux, CMD-R on Mac OSX) before the next time they try login, or may require them to clear their browser cookies and cache.
 
 ## GitHub Authentication
+
 _Eligable plans: all_
 
 For GitHub authentication, you need to configure the GitHub organisations that you would like users who belong to
@@ -45,15 +46,15 @@ SAML2.0 allows you to externalse the authentication and access to your Pactflow 
 
 Supported capabilities:
 
-* Authorization from an external IdP
-* Automated user provisioning into your account
-* SP initated login
+- Authorization from an external IdP
+- Automated user provisioning into your account
+- SP initated login
 
 We do not current support the following:
 
-* Automated user de-provisioning (users will appear "active" and count toward user limits, although will not be able to login if disabled in the IdP)
-* IdP initiated login
-* Service Provider (SP) initiated logout flow
+- Automated user de-provisioning (users will appear "active" and count toward user limits, although will not be able to login if disabled in the IdP)
+- IdP initiated login
+- Service Provider (SP) initiated logout flow
 
 ### Setup
 
@@ -61,19 +62,27 @@ We do not current support the following:
 
 In your IdP, create a new Service Provider with the following properties:
 
-* Audience URI (SP Entity ID): `urn:amazon:cognito:sp:ap-southeast-2_x0L1olP0D`
-* Single sign on URL (Reply URL): `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
-* Name ID format must be set to "Persistent": `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
+- Audience URI (SP Entity ID): `urn:amazon:cognito:sp:ap-southeast-2_x0L1olP0D`
+- Single sign on URL (Reply URL): `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
+- Name ID format must be set to "Persistent": `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
 
 #### 2. Map the required SAML2.0 attributes
 
 The following attributes are required by Pactflow and must be mapped in your IdP to be sent through during the authentication flow:
 
-| Property | Name | Name Format |
-|----------|------|-------------|
-| First name | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` | URI Reference |
-| Last name | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` | URI Reference |
-| Email Address | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` | URI Reference |
+| Property to map from your IDP | Attribute Name in SAML Assertion                                     | Name Format   |
+| ----------------------------- | -------------------------------------------------------------------- | ------------- |
+| First Name                    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`    | URI Reference |
+| Last Name                     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`      | URI Reference |
+| Email Address                 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` | URI Reference |
+
+For example, a valid Attribute in the SAML assertion for a user's first name would look like this:
+
+```
+<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+  <AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Joe</AttributeValue>
+</Attribute>
+```
 
 #### 3. Export IdP metadata
 
@@ -229,12 +238,12 @@ See https://developer.okta.com/docs/guides/build-sso-integration/saml2/overview/
 1. Under GENERAL, for Single sign on URL, enter `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`.
 1. For Audience URI (SP Entity ID), enter urn: `urn:amazon:cognito:sp:ap-southeast-2_x0L1olP0D`
 1. Under ATTRIBUTE STATEMENTS (OPTIONAL), add 3 statements with the following information:
-    1. For Name, enter the SAML attribute name `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
-    1. For Value, enter `user.firstName`.
-    1. For Name, enter the SAML attribute name `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
-    1. For Value, enter `user.lastName`.
-    1. For Name, enter the SAML attribute name `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-    1. For Value, enter `user.email`.
+   1. For Name, enter the SAML attribute name `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+   1. For Value, enter `user.firstName`.
+   1. For Name, enter the SAML attribute name `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+   1. For Value, enter `user.lastName`.
+   1. For Name, enter the SAML attribute name `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+   1. For Value, enter `user.email`.
 1. Choose Next.
 1. Choose a feedback response for Okta Support.
 1. Choose Finish.
@@ -264,13 +273,15 @@ Send your unique metadata URL to us by contacting support at <a href="mailto:sup
 ### Azure Active Directory
 
 See https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-federated-single-sign-on-non-gallery-applications for more information.
+
 1. Create a non gallery application
 
 ![Create a non-gallery app](/saml/azure-add-non-gallery-application.png)
 
 2. Follow the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-non-gallery-app) for creating a non gallery application.
-  * Choose `Non-gallery application` at the `Add your own app` screen.
-  * Set the name to `pactflow` when prompted.
+
+- Choose `Non-gallery application` at the `Add your own app` screen.
+- Set the name to `pactflow` when prompted.
 
 ![Create a non-gallery app](/saml/azure-add-pactflow.png)
 
@@ -290,91 +301,86 @@ See https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configur
 5. Set the Reply URL to `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
 6. Leave the Sign On URL, Relay State and Logout Url fields blank.
 7. To add user attributes, click "View and edit all other user attributes" to edit the attributes to be sent to the application in the SAML token when users sign in. Add the following 3 attributes:
-    1. First Name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
-    1. Last Name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
-    1. Email Address: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+   1. First Name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+   1. Last Name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+   1. Email Address: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
 ### OneLogin - via Pactflow Connector
 
-1.    On the OneLogin portal page, choose Administration.
-2.    From the Administration page, choose Applications, and then choose Add App.
+1.  On the OneLogin portal page, choose Administration.
+2.  From the Administration page, choose Applications, and then choose Add App.
 
 ![Find Pactflow Connector](/saml/saml-onelogin-find-pactflow.png)
 
-3.    In the search bar under Find Applications, enter "pactflow", and then choose the Pactflow Connector
-4.    (Optional) Do any of the following:
-  For Display Name, enter a name and description. For example, Pactflow.
-  For Rectangular Icon and Square Icon, you can add icons for Pactflow.
-  For Description, enter a short summary description.
-5.    Choose Save.
-6. On the homepage for the new application, choose "More Actions > SAML Metadata" from the main menu
+3.  In the search bar under Find Applications, enter "pactflow", and then choose the Pactflow Connector
+4.  (Optional) Do any of the following:
+    For Display Name, enter a name and description. For example, Pactflow.
+    For Rectangular Icon and Square Icon, you can add icons for Pactflow.
+    For Description, enter a short summary description.
+5.  Choose Save.
+6.  On the homepage for the new application, choose "More Actions > SAML Metadata" from the main menu
 
 ![Configure Onelogin metadata](/saml/saml-onelogin-metadata.png)
-
-
-
 
 ### OneLogin - manual setup
 
 #### 1. Create a OneLogin application
 
-1.    On the OneLogin portal page, choose Administration.
-2.    From the Administration page, choose Applications, and then choose Add App.
-3.    In the search bar under Find Applications, enter saml, and then choose SAML Test Connector (Advanced) to open the Add SAML Test Connector page.
-4.    (Optional) Do any of the following:
-  For Display Name, enter a name and description. For example, Pactflow.
-  For Rectangular Icon and Square Icon, you can add icons for Pactflow.
-  For Description, enter a short summary description.
-5.    Choose Save.
+1.  On the OneLogin portal page, choose Administration.
+2.  From the Administration page, choose Applications, and then choose Add App.
+3.  In the search bar under Find Applications, enter saml, and then choose SAML Test Connector (Advanced) to open the Add SAML Test Connector page.
+4.  (Optional) Do any of the following:
+    For Display Name, enter a name and description. For example, Pactflow.
+    For Rectangular Icon and Square Icon, you can add icons for Pactflow.
+    For Description, enter a short summary description.
+5.  Choose Save.
 
 #### 2. Edit your OneLogin application configuration
 
-1.    Choose Configuration.
-2.    On the Configuration page, do the following:
-  For RelayState, leave it blank.
-  For Audience, enter `urn:amazon:cognito:sp:ap-southeast-2_x0L1olP0D`
-  Leave Recipient blank.
-  For ACS (Consumer) URL Validator, enter `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
-  For ACS (Consumer) URL, enter `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
-  Leave Single Logout URL blank.
+1.  Choose Configuration.
+2.  On the Configuration page, do the following:
+    For RelayState, leave it blank.
+    For Audience, enter `urn:amazon:cognito:sp:ap-southeast-2_x0L1olP0D`
+    Leave Recipient blank.
+    For ACS (Consumer) URL Validator, enter `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
+    For ACS (Consumer) URL, enter `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
+    Leave Single Logout URL blank.
 
 #### 3. Edit your OneLogin application's parameters
 
-1.    Choose Parameters.
-  Note: One parameter (NameID (fka Email)) is already listed—this is expected.
-2.    Choose Add parameter to create a new, custom parameter.
-3.    In the New Field dialog, for Field name, enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
-4.    For Flags, select the Include in SAML assertion check box.
-5.    Choose Save.
-6.    For Value, choose Email from the list.
-7.    Choose Save.
+1.  Choose Parameters.
+    Note: One parameter (NameID (fka Email)) is already listed—this is expected.
+2.  Choose Add parameter to create a new, custom parameter.
+3.  In the New Field dialog, for Field name, enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
+4.  For Flags, select the Include in SAML assertion check box.
+5.  Choose Save.
+6.  For Value, choose Email from the list.
+7.  Choose Save.
 
 You then need to repeat the steps for first name and last name.
 
-8.    Choose Add parameter to create a new, custom parameter.
-9.    In the New Field dialog, for Field name, enter Firstname
-10.   For Flags, select the Include in SAML assertion check box.
-11.    Choose Save.
-12.    For Value, choose First Name from the list.
-13.    Choose Save.
-14.    Choose Add parameter to create a new, custom parameter.
-15.    In the New Field dialog, for Field name, enter Lastname
-16.    For Flags, select the Include in SAML assertion check box.
-17.    Choose Save.
-18.    For Value, choose First Name from the list.
-19.    Choose Save.
-
+8.  Choose Add parameter to create a new, custom parameter.
+9.  In the New Field dialog, for Field name, enter Firstname
+10. For Flags, select the Include in SAML assertion check box.
+11. Choose Save.
+12. For Value, choose First Name from the list.
+13. Choose Save.
+14. Choose Add parameter to create a new, custom parameter.
+15. In the New Field dialog, for Field name, enter Lastname
+16. For Flags, select the Include in SAML assertion check box.
+17. Choose Save.
+18. For Value, choose First Name from the list.
+19. Choose Save.
 
 You should have the following attributes defined:
 
 ![Onelogin Attributes](/saml/onelogin_attributes.png)
 
-
 #### 4. Copy the IdP metadata for your OneLogin application
 
-1.    Choose SSO.
-2.    Under Issuer URL, copy the URL to your clipboard. You need to provide this URL to us.
-3.    Choose Save to save all your changes to your OneLogin application.
+1.  Choose SSO.
+2.  Under Issuer URL, copy the URL to your clipboard. You need to provide this URL to us.
+3.  Choose Save to save all your changes to your OneLogin application.
 
 ### Debugging
 
