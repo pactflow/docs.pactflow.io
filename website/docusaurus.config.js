@@ -1,8 +1,8 @@
 const path = require("path");
 
 module.exports = {
-  title: 'Pactflow Documentation', // Title for your website.
-  tagline: 'Distributed systems testing made easy',
+  title: "Pactflow Documentation", // Title for your website.
+  tagline: "Distributed systems testing made easy",
   url: "https://docs.pactflow.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -18,7 +18,11 @@ module.exports = {
       },
       items: [
         { to: "/", label: "Docs", position: "left" },
-        { to: "docs/workshops", label: "Pactflow University", position: "left" },
+        {
+          to: "docs/workshops",
+          label: "Pactflow University",
+          position: "left",
+        },
         { to: "docs/examples", label: "Examples", position: "left" },
         { to: "docs/on-premises", label: "On-Premises", position: "left" },
         { to: "https://docs.pact.io", label: "Pact Docs ↗️", position: "left" },
@@ -67,25 +71,28 @@ module.exports = {
             {
               label: "Pactflow roadmap",
               to: "https://go.pactflow.io/roadmap",
-            }
+            },
           ],
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Pactflow`,
     },
     googleAnalytics: {
-      trackingID: 'UA-8926693-9'
+      trackingID: "UA-8926693-9",
     },
     hideableSidebar: true,
     cleanUrl: true,
   },
-  plugins: [path.resolve(__dirname, "src/plugins/plugin-noindex")],
+  plugins: [
+    path.resolve(__dirname, "src/plugins/plugin-noindex"),
+    path.resolve(__dirname, "src/plugins/plugin-segment"),
+  ],
   presets: [
     [
       "@docusaurus/preset-classic",
       {
         docs: {
-          routeBasePath: '/',
+          routeBasePath: "/",
           // It is recommended to set document id as docs home page (`docs/` path).
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
