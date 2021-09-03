@@ -7,16 +7,17 @@ Our Team Management feature allows you manage the following capabilities:
 * Allocate users to teams
 * Allocate applications to teams
 * Assign team administrators
+* Allocate environments to teams
 
 _NOTE: Editing of teams is restricted to users with the `team:manage:*` permission (Administrators) or who have been assigned as Team Administrators by an existing user with the team manage permission._
 
 ![Teams Management Screen](/ui/teams.png)
 
-**New Team** will allow you to create a new team and assign applications to that team.
+**New Team** will allow you to create a new team and assign applications and environments to that team.
 
-**Delete Team** allows you to unlink all users and applications from a team and remove it.
+**Delete** allows you to unlink all users, applications and environments from a team and remove it.
 
-**Edit Name & Applications** allows you to change the name and applications of an existing team, and assign Team Administrators.
+**Edit** allows you to change the name and applications of an existing team, assign Team Administrators and assign environments.
 
 Clicking on the team name will take you to the allocate users screen.
 
