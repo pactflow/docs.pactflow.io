@@ -40,17 +40,13 @@ Create, update, and delete contract related data for applications that where cre
 
 View any contract related data. This includes applications, application labels, application versions, tags, pacts, and verification results.
 
-## environment:read:*
-
-View a list of all environments.
-
 ## environment:manage:*
 
 Create, update, and delete any environment. When creating a new environment the user can associate it with any teams.
 
-## environment:manage:team
+## environment:read:*
 
-Create, update, and delete environments associated with the user's teams. Cannot add or remove teams from the environment 
+View a list of all environments.
 
 ## environment:read:team
 

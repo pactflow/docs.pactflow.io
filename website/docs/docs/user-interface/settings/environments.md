@@ -3,7 +3,7 @@ title: Environments
 ---
 
 Here you will be able to manage the list of environments used by your organization. These represent your real world deployment or release environments.
-Maintaining this list, along with the `record-deployment` and `record-release` commands, allows Pactflow to ensure you are safe to deploy using the `can-i-deploy tool`. You can read more about the process [here.](https://docs.pact.io/pact_broker/recording_deployments_and_releases/)
+Maintaining this list, along with the `record-deployment` and `record-release` commands, allows Pactflow to ensure you are safe to deploy using the `can-i-deploy` tool. You can read more about the process [here.](https://docs.pact.io/pact_broker/recording_deployments_and_releases/)
 
 | Field | Description |
 | ----- | ----------- |
@@ -23,9 +23,15 @@ Environments can be associated with Teams via creating or editing an Environment
 #### environment:manage:* 
 Users with this permission can view, edit and delete all environments. When creating or editing an environment the user can add or remove any team, regardless of their 'teams' permissions. 
 
-#### environment:manage:team
-Users with this permission can view and edit the environments associated with their teams. When creating or editing an environment the user cannot add or remove any teams to/from the environment, however they can edit other fields on the environment (DisplayName, Production). 
+#### team:manage:*
+When creating or editing any team the user can change the environments associated with the team.
 
-#### team:manage:* and team:manage:uuid
-When creating or editing a team the user has permission for they can add or remove any environment to/from the team. 
+#### team:manage:uuid
+When creating or editing a team they have permission for, the user can change the environments associated with that team.
+
+### environment:read:*
+The user can view a list of all environments, but not edit or delete environments.
+
+### environment:read:team
+The user can view a list of all the environments associated with their teams, but cannot edit or delete environments.
 
