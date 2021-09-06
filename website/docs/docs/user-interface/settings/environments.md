@@ -4,7 +4,7 @@ title: Environments
 
 Here you will be able to manage the list of environments used by your organization. These represent your real world deployment or release environments.
 Maintaining this list, along with the `record-deployment` and `record-release` commands, allows Pactflow to ensure you are safe to deploy using the `can-i-deploy` tool. You can read more about the process [here.](https://docs.pact.io/pact_broker/recording_deployments_and_releases/)
-
+`can-i-deploy` tool.
 | Field | Description |
 | ----- | ----------- |
 | Teams | Associates the environment with teams, used to determine which teams are able to view and edit the environment after it is created. See permissions section below for details. |
