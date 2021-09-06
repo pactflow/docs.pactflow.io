@@ -26,7 +26,7 @@ Users with this permission can view, edit and delete all environments. When crea
 #### team:manage:*
 When creating or editing any team the user can change the environments associated with the team.
 
-#### team:manage:uuid
+#### team:manage:{uuid}
 When creating or editing a team they have permission for, the user can change the environments associated with that team.
 
 ### environment:read:*
