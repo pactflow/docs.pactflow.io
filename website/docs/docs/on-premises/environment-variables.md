@@ -24,6 +24,14 @@ The Pactflow application log format
 **Allowed values:** `json`, `default`, `color`<br/>
 **More information:** https://github.com/rocketjob/semantic_logger/tree/master/lib/semantic_logger/formatters<br/>
 
+### PACTFLOW_HTTP_LOGGING_ENABLED
+
+When true, HTTP request details and response status and duration will be logged to stdout in json format
+
+**Required:** false<br/>
+**Default:** `false`<br/>
+**Allowed values:** `true`, `false`<br/>
+
 <br/>
 
 ## Database
