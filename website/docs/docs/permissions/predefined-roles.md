@@ -25,7 +25,7 @@ The user who signed up for the Pactflow tenant will be assigned the Administrato
 
 ## User
 
-All new users are assigned the `User` role. The `User` role is intended to work in conjunction with [team assignments](/docs/user-interface/settings/teams), and therefore has `manage:team` permissions (rather than `manage:*` permissions) for all resources that can be associated with a team. 
+All new users are assigned the `User` role (unless the default role has been updated in the [system preferences](/docs/user-interface/settings/preferences#system-preferences)). The `User` role is intended to work in conjunction with [team assignments](/docs/user-interface/settings/teams), and therefore has `manage:team` permissions (rather than `manage:*` permissions) for all resources that can be associated with a team. The `User` role should be assigned to all developers, testers and other users who create and verify contracts in the Pactflow platform.
 
 #### Default permissions
 
@@ -67,10 +67,18 @@ This role is automatically assigned to any user who is set as an administrator o
 
 * [`contract_data:read:*`](/docs/permissions/permissions#contract_data-read)
 * [`read_token:manage:own`](/docs/permissions/permissions#read_token-manage-own)
-* [`system_preferences:read:*`](/docs/permissions/permissions#system_preferences-read)
 * [`team:read:*`](/docs/permissions/permissions#team-read)
 * [`user:read:*`](/docs/permissions/permissions#user-read)
 
+## Guest
+
+A user with the guest role can only view contract related data through the UI, and has no API access. For some [Pactflow SaaS plans](https://pactflow.io/pricing/), users with only the guest role are free.
+
+The permissions associated with the guest role may not be modified.
+
+#### Permissions
+
+* [`contract_data:read:*`](/docs/permissions/permissions#contract_data-read)
 
 ## Test Maintainer (deprecated)
 
@@ -85,7 +93,6 @@ The Test Maintainer role has been replaced by the User role. The difference betw
 * [`role:read:*`](/docs/permissions/permissions#role-read)
 * [`secret:manage:*`](/docs/permissions/permissions#secret-manage)
 * [`system_account:read:*`](/docs/permissions/permissions#system_account-read)
-* [`system_preferences:read:*`](/docs/permissions/permissions#system_preferences-read)
 * [`team:read:*`](/docs/permissions/permissions#team-read)
 * [`token:manage:own`](/docs/permissions/permissions#token:manage:own)
 * [`user:read:*`](/docs/permissions/permissions#user-read)

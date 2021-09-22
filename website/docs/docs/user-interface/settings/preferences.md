@@ -36,3 +36,11 @@ management screen](./users#system-accounts) (for system accounts).
 This setting configures an announcement banner to be displayed to all users when they login. The banner content can contain [Markdown
 formatted text](https://commonmark.org/help/) (which also supports HTML markup). Note that text will be santised in the UI, so you
 can not add any Javascript to the banner.
+
+#### Default Role
+
+The default role to assign new users. If this preference is not set, new users will be assigned the [User](/docs/permissions/predefined-roles#user) role.
+
+#### Default Team
+
+The default team to which new team members will be added. If this preference is not set, new users will be assigned to the system defined team named "[Default team](/docs/user-interface/settings/teams#the-default-team)" if it exists.
