@@ -5,6 +5,14 @@ sidebar_label: OpenAPI Specification
 
 Providers may specify an OpenAPI Specification as a Provider Contract, enabling teams to get reuse out of existing tools and processes.
 
+## Supported versions
+
+| Version           | Supported? |
+| ----------------- | ---------- |
+| Swagger (1.x)     | ❌         |
+| Swagger (2.0)     | ✅         |
+| OAS (up to 3.0.3) | ✅         |
+
 ## Compatibility with Consumer Contracts
 
 Pact Consumer Contracts are the only compatible contracts at this time.

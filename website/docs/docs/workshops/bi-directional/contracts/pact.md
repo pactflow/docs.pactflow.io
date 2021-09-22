@@ -3,12 +3,22 @@ title: Pact Contracts
 sidebar_label: Pact
 ---
 
+## Supported Pact Specification versions
+
+| Version | Supported? |
+| ------- | ---------- |
+| 1       | ✅         |
+| 1.1     | ✅         |
+| 2       | ✅         |
+| 3       | ✅         |
+| 4+      | ❌         |
+
 ## Compatibility with Provider Contracts
 
 Pact contracts may be used in the following situations:
 
 | Consumer Contract | Provider Verification    |
-|-------------------|--------------------------|
+| ----------------- | ------------------------ |
 | Pact              | Pact                     |
 | Pact              | OpenAPI (bi-directional) |
 
