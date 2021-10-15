@@ -13,6 +13,7 @@ The user who signed up for the Pactflow tenant will be assigned the Administrato
 * [`authentication_settings:manage:*`](/docs/permissions/permissions/#authentication_settings-manage)
 * [`contract_data:bulk_delete:*`](/docs/permissions/permissions#contract_data-bulk_delete)
 * [`contract_data:manage:*`](/docs/permissions/permissions#contract_data-manage)
+* [`environment:manage:*`](/docs/permissions/permissions#environment-manage)
 * [`role:manage:*`](/docs/permissions/permissions#role-manage)
 * [`secret:manage:*`](/docs/permissions/permissions#secret-manage)
 * [`system_account:manage:*`](/docs/permissions/permissions#system_account-manage)
@@ -34,6 +35,7 @@ All new users are assigned the `User` role. The `User` role is intended to work 
 * [`contract_data:manage:own`](/docs/permissions/permissions#contract_datamanageown)
 * [`contract_data:manage:team`](/docs/permissions/permissions#contract_datamanageteam)
 * [`contract_data:read:*`](/docs/permissions/permissions#contract_dataread)
+* [`environment:read:team*`](/docs/permissions/permissions#environment-read-team)
 * [`role:read:*`](/docs/permissions/permissions#role-read)
 * [`secret:manage:team`](/docs/permissions/permissions#secret-manage-team)
 * [`system_account:manage:team`](/docs/permissions/permissions#system_account-read)
@@ -52,6 +54,8 @@ This is the default role associated with a system account.
 * [`contract_data:manage:own`](/docs/permissions/permissions#contract_data-manageown)
 * [`contract_data:manage:*`](/docs/permissions/permissions#contract_data-manage)
 * [`contract_data:read:*`](/docs/permissions/permissions#contract_data-read)
+* [`environment:read:*`](/docs/permissions/permissions#environment-read)
+
 
 ## Team Administrator
 
