@@ -40,6 +40,18 @@ Create, update, and delete contract related data for applications that where cre
 
 View any contract related data. This includes applications, application labels, application versions, tags, pacts, and verification results.
 
+## environment:manage:*
+
+Create, update, and delete any environment. When creating a new environment the user can associate it with any teams.
+
+## environment:read:*
+
+View a list of all environments.
+
+## environment:read:team
+
+View a list of environments associated with the user's teams
+
 ## read_token:manage:own
 
 Mange own *read only* API token. This permission is for users/system accounts that are not allowed to modify any resources (eg. those with the [Viewer](./predefined-roles#viewer) role), for whom it does not make sense to have a read/write token.
@@ -86,11 +98,11 @@ Manage the global system settings such as API token expiration and application n
 
 ## team:manage:*
 
-Create, update and delete teams. Add and remove users and applications to/from teams.
+Create, update and delete teams. Add and remove users, environments and applications to/from teams.
 
 ## team:manage:{uuid}
 
-Manage administrators, users and applications associated with a particular team. This permission is only associated with the [Team Administator](./predefined-roles#team-administrator) role, and cannot be assigned to any other roles.
+Manage administrators, users, environments and applications associated with a particular team. This permission is only associated with the [Team Administator](./predefined-roles#team-administrator) role, and cannot be assigned to any other roles.
 
 ## team:read:*
 
