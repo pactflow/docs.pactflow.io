@@ -36,6 +36,8 @@ to be able to filter the main dashboard by those applications.
 
 Team Administrators can also be assigned in this screen. Team Administrators can assign users and applications to a team, and update the team name.
 
+Lastly, environments can be allocated to the team here. Once selected the environments can be re-ordered and will be saved in that order. 
+
 ## Allocating users to a team
 
 ![Edit Team Users](/ui/edit_team_users.png)
