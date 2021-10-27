@@ -24,6 +24,14 @@ The Pactflow application log format
 **Allowed values:** `json`, `default`, `color`<br/>
 **More information:** https://github.com/rocketjob/semantic_logger/tree/master/lib/semantic_logger/formatters<br/>
 
+### PACTFLOW_HTTP_LOGGING_ENABLED
+
+When true, HTTP request details and response status and duration will be logged to stdout in json format
+
+**Required:** false<br/>
+**Default:** `false`<br/>
+**Allowed values:** `true`, `false`<br/>
+
 <br/>
 
 ## Database
@@ -244,6 +252,13 @@ Used during SP-initiated SSO. Describes the format of the username required by t
 **Required:** false<br/>
 **Default:** `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`<br/>
 **Allowed values:** `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`, `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`<br/>
+
+### PACTFLOW_SAML_ALLOWED_CLOCK_DRIFT
+
+To allow for a small amount of clock drift between Pactflow and the Identity Provider, the allowed clock drift may be specified. Its value must be given in a number (and/or fraction) of seconds. The value is added to the current time at which the response is validated, before it is tested against the NotBefore assertion.
+
+**Required:** false<br/>
+**Default:** `0`<br/>
 
 <br/>
 
@@ -485,4 +500,3 @@ head < /dev/random -c 16 | base64
 **Required:** if `PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED` is set to `true`<br/>
 **Default:** `not set`<br/>
 **Example:** `JUVDdnRzLXZyWHA7UF93RAo=`<br/>
-
