@@ -43,4 +43,4 @@ You can demonstrate this by running a provider build in Github (`Actions` -> Und
 
 ## Conclusion
 
-Making changes to the pact for the on the master branch can break both consumer and provider builds, and may stop both projects from being able to deploy.
+Making changes to the pact on the master branch can break both consumer and provider builds, and may stop both projects from being able to deploy.
