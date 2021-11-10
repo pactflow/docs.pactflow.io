@@ -66,5 +66,5 @@ The following variables may be used in the path and query parameters of the URL,
 | `${pactbroker.azureDevOpsVerificationStatus}` | The verification status using the correct keywords for posting to the Azure DevOps GitStatusState API. See https://docs.microsoft.com/en-us/rest/api/azure/devops/git/statuses/create?view=azure-devops-rest-6.0 |
 | `${pactbroker.consumerLabels}` | The list of labels for the consumer associated with the pact content, separated by ", ". |
 | `${pactbroker.providerLabels}` | The list of labels for the provider associated with the pact content, separated by ", ". |
+| `${pactbroker.providerVersionDescriptions}`| The descriptions of the provider version(s) for which the contract_requiring_verification_published webhook has been triggered. Only populated for the contract_requiring_verification_published event. |
 | `${pactbroker.eventName}` | The name of the event that triggered the webhook |
-| `${pactbroker.currentlyDeployedProviderVersionNumber}` | The version number of the currently deployed provider version (when used in a template, the webhook will be triggered once for each currently deployed provider version) |
