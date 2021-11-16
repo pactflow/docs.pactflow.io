@@ -14,6 +14,7 @@ The user who signed up for the Pactflow tenant will be assigned the Administrato
 * [`contract_data:bulk_delete:*`](/docs/permissions/permissions#contract_data-bulk_delete)
 * [`contract_data:manage:*`](/docs/permissions/permissions#contract_data-manage)
 * [`environment:manage:*`](/docs/permissions/permissions#environment-manage)
+* [`deployment_and_release:record:*`](/docs/permissions/permissions#edeployment_and_release:record:*)
 * [`role:manage:*`](/docs/permissions/permissions#role-manage)
 * [`secret:manage:*`](/docs/permissions/permissions#secret-manage)
 * [`system_account:manage:*`](/docs/permissions/permissions#system_account-manage)
@@ -54,6 +55,7 @@ This is the default role associated with a system account.
 * [`contract_data:manage:own`](/docs/permissions/permissions#contract_data-manageown)
 * [`contract_data:manage:*`](/docs/permissions/permissions#contract_data-manage)
 * [`contract_data:read:*`](/docs/permissions/permissions#contract_data-read)
+* [`deployment_and_release:record:team`](/docs/permissions/permissions#deployment_and_release:record:team)
 * [`environment:read:*`](/docs/permissions/permissions#environment-read)
 
 
