@@ -83,10 +83,7 @@ module.exports = {
     hideableSidebar: true,
     cleanUrl: true,
   },
-  plugins: [
-    path.resolve(__dirname, "src/plugins/plugin-noindex"),
-    path.resolve(__dirname, "src/plugins/plugin-segment"),
-  ],
+  plugins: [path.resolve(__dirname, "src/plugins/plugin-segment")],
   presets: [
     [
       "@docusaurus/preset-classic",
