@@ -299,8 +299,10 @@ See https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configur
 
 4. Set the Identifier (Entity ID) to `urn:amazon:cognito:sp:ap-southeast-2_x0L1olP0D`
 5. Set the Reply URL to `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
-6. Leave the Sign On URL, Relay State and Logout Url fields blank.
-7. To add user attributes, click "View and edit all other user attributes" to edit the attributes to be sent to the application in the SAML token when users sign in. Add the following 3 attributes:
+6. Relay State and Logout Url fields blank.
+7. Set the [Sign On URL](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso#update-single-sign-on-values) to point to your unique Pactflow URL (e.g. https://companyaccount.pactflow.io) (this is required as we don't support IDP initiated sign-on)
+8. To add user attributes, click "View and edit all other user attributes" to edit the attributes to be sent to the application in the SAML token when users sign in. Add the following 3 attributes:
+
    1. First Name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
    1. Last Name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
    1. Email Address: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
