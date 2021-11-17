@@ -42,11 +42,11 @@ View any contract related data. This includes applications, application labels, 
 
 ## deployment_and_release:record:*
 
-Notify the Pact Broker that a particular version of an application has been deployed or released. 
+Notify Pactflow that a particular version of an application has been deployed or released. 
 
 ## deployment_and_release:record:team
 
-Notify the Pact Broker that a particular version of an application associated with your team has been deployed or released. 
+Notify Pactflow that a particular version of an application associated with your team has been deployed or released. 
 
 ## environment:manage:*
 
