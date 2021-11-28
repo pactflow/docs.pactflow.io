@@ -55,7 +55,7 @@ This is the default role associated with a system account.
 * [`contract_data:manage:own`](/docs/permissions/permissions#contract_data-manageown)
 * [`contract_data:manage:*`](/docs/permissions/permissions#contract_data-manage)
 * [`contract_data:read:*`](/docs/permissions/permissions#contract_data-read)
-* [`deployment_and_release:record:team`](/docs/permissions/permissions#deployment_and_release:record:team)
+* [`deployment_and_release:record:*`](/docs/permissions/permissions#edeployment_and_release:record:*)
 * [`environment:read:*`](/docs/permissions/permissions#environment-read)
 
 
