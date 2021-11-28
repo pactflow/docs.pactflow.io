@@ -40,6 +40,14 @@ Create, update, and delete contract related data for applications that where cre
 
 View any contract related data. This includes applications, application labels, application versions, tags, pacts, and verification results.
 
+## deployment_and_release:record:*
+
+Notify Pactflow that a particular version of an application has been deployed or released. 
+
+## deployment_and_release:record:team
+
+Notify Pactflow that a particular version of an application associated with your team has been deployed or released. 
+
 ## environment:manage:*
 
 Create, update, and delete any environment. When creating a new environment the user can associate it with any teams.
