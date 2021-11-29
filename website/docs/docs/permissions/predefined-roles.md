@@ -10,20 +10,20 @@ The user who signed up for the Pactflow tenant will be assigned the Administrato
 
 #### Default permissions
 
-* [`authentication_settings:manage:*`](/docs/permissions/permissions/#authentication_settings-manage)
-* [`contract_data:bulk_delete:*`](/docs/permissions/permissions#contract_data-bulk_delete)
-* [`contract_data:manage:*`](/docs/permissions/permissions#contract_data-manage)
-* [`deployment_and_release:record:*`](/docs/permissions/permissions#edeployment_and_release-record)
-* [`environment:manage:*`](/docs/permissions/permissions#environment-manage)
-* [`role:manage:*`](/docs/permissions/permissions#role-manage)
-* [`secret:manage:*`](/docs/permissions/permissions#secret-manage)
-* [`system_account:manage:*`](/docs/permissions/permissions#system_account-manage)
-* [`system_preference:manage:*`](/docs/permissions/permissions#system_preference-manage)
-* [`team:manage:*`](/docs/permissions/permissions#team-manage)
-* [`token:manage:own`](/docs/permissions/permissions#token-manage-own)
-* [`user:invite`](/docs/permissions/permissions#user-invite)
-* [`user:manage:*`](/docs/permissions/permissions#user-manage)
-* [`webhook:manage:*`](/docs/permissions/permissions#webhook-manage)
+* [`authentication_settings:manage:*`](/docs/permissions/permissions/#authentication_settingsmanage)
+* [`contract_data:bulk_delete:*`](/docs/permissions/permissions#contract_databulk_delete)
+* [`contract_data:manage:*`](/docs/permissions/permissions#contract_datamanage)
+* [`deployment_and_release:record:*`](/docs/permissions/permissions#deployment_and_releaserecord)
+* [`environment:manage:*`](/docs/permissions/permissions#environmentmanage)
+* [`role:manage:*`](/docs/permissions/permissions#rolemanage)
+* [`secret:manage:*`](/docs/permissions/permissions#secretmanage)
+* [`system_account:manage:*`](/docs/permissions/permissions#system_accountmanage)
+* [`system_preference:manage:*`](/docs/permissions/permissions#system_preferencemanage)
+* [`team:manage:*`](/docs/permissions/permissions#teammanage)
+* [`token:manage:own`](/docs/permissions/permissions#tokenmanageown)
+* [`user:invite`](/docs/permissions/permissions#userinvite)
+* [`user:manage:*`](/docs/permissions/permissions#usermanage)
+* [`webhook:manage:*`](/docs/permissions/permissions#webhookmanage)
 
 ## User
 
@@ -36,15 +36,15 @@ All new users are assigned the `User` role (unless the default role has been upd
 * [`contract_data:manage:own`](/docs/permissions/permissions#contract_datamanageown)
 * [`contract_data:manage:team`](/docs/permissions/permissions#contract_datamanageteam)
 * [`contract_data:read:*`](/docs/permissions/permissions#contract_dataread)
-* [`environment:read:team*`](/docs/permissions/permissions#environment-read-team)
-* [`role:read:*`](/docs/permissions/permissions#role-read)
-* [`secret:manage:team`](/docs/permissions/permissions#secret-manage-team)
-* [`system_account:manage:team`](/docs/permissions/permissions#system_account-read)
-* [`system_account:read:*`](/docs/permissions/permissions#system_account-read)
-* [`team:read:*`](/docs/permissions/permissions#team-read)
-* [`token:manage:own`](/docs/permissions/permissions#token:manage:own)
-* [`user:read:*`](/docs/permissions/permissions#user-read)
-* [`webhook:manage:team`](/docs/permissions/permissions#webhook-manage-team)
+* [`environment:read:team*`](/docs/permissions/permissions#environmentreadteam)
+* [`role:read:*`](/docs/permissions/permissions#roleread)
+* [`secret:manage:team`](/docs/permissions/permissions#secretmanageteam)
+* [`system_account:manage:team`](/docs/permissions/permissions#system_accountmanageteam)
+* [`system_account:read:*`](/docs/permissions/permissions#system_accountread)
+* [`team:read:*`](/docs/permissions/permissions#teamread)
+* [`token:manage:own`](/docs/permissions/permissions#tokenmanageown)
+* [`user:read:*`](/docs/permissions/permissions#userread)
+* [`webhook:manage:team`](/docs/permissions/permissions#webhookmanageteam)
 
 ## CI/CD
 
@@ -52,11 +52,11 @@ This is the default role associated with a system account.
 
 #### Default permissions
 
-* [`contract_data:manage:own`](/docs/permissions/permissions#contract_data-manageown)
-* [`contract_data:manage:*`](/docs/permissions/permissions#contract_data-manage)
-* [`contract_data:read:*`](/docs/permissions/permissions#contract_data-read)
-* [`deployment_and_release:record:*`](/docs/permissions/permissions#edeployment_and_release-record)
-* [`environment:read:*`](/docs/permissions/permissions#environment-read)
+* [`contract_data:manage:own`](/docs/permissions/permissions#contract_datamanageown)
+* [`contract_data:manage:*`](/docs/permissions/permissions#contract_datamanage)
+* [`contract_data:read:*`](/docs/permissions/permissions#contract_dataread)
+* [`deployment_and_release:record:*`](/docs/permissions/permissions#deployment_and_releaserecord)
+* [`environment:read:*`](/docs/permissions/permissions#environmentread)
 
 
 ## Team Administrator
@@ -71,10 +71,10 @@ This role is automatically assigned to any user who is set as an administrator o
 
 #### Default permissions
 
-* [`contract_data:read:*`](/docs/permissions/permissions#contract_data-read)
-* [`read_token:manage:own`](/docs/permissions/permissions#read_token-manage-own)
-* [`team:read:*`](/docs/permissions/permissions#team-read)
-* [`user:read:*`](/docs/permissions/permissions#user-read)
+* [`contract_data:read:*`](/docs/permissions/permissions#contract_dataread)
+* [`read_token:manage:own`](/docs/permissions/permissions#read_tokenmanageown)
+* [`team:read:*`](/docs/permissions/permissions#teamread)
+* [`user:read:*`](/docs/permissions/permissions#userread)
 
 ## Guest
 
@@ -84,7 +84,7 @@ The permissions associated with the guest role may not be modified.
 
 #### Permissions
 
-* [`contract_data:read:*`](/docs/permissions/permissions#contract_data-read)
+* [`contract_data:read:*`](/docs/permissions/permissions#contract_dataread)
 
 ## Test Maintainer (deprecated)
 
@@ -96,13 +96,13 @@ The Test Maintainer role has been replaced by the User role. The difference betw
 * [`contract_data:manage:own`](/docs/permissions/permissions#contract_datamanageown)
 * [`contract_data:manage:team`](/docs/permissions/permissions#contract_datamanageteam)
 * [`contract_data:read:*`](/docs/permissions/permissions#contract_dataread)
-* [`role:read:*`](/docs/permissions/permissions#role-read)
-* [`secret:manage:*`](/docs/permissions/permissions#secret-manage)
-* [`system_account:read:*`](/docs/permissions/permissions#system_account-read)
-* [`team:read:*`](/docs/permissions/permissions#team-read)
-* [`token:manage:own`](/docs/permissions/permissions#token:manage:own)
-* [`user:read:*`](/docs/permissions/permissions#user-read)
-* [`webhook:manage:*`](/docs/permissions/permissions#webhook-manage)
+* [`role:read:*`](/docs/permissions/permissions#roleread)
+* [`secret:manage:*`](/docs/permissions/permissions#secretmanage)
+* [`system_account:read:*`](/docs/permissions/permissions#system_accountread)
+* [`team:read:*`](/docs/permissions/permissions#teamread)
+* [`token:manage:own`](/docs/permissions/permissions#tokenmanageown)
+* [`user:read:*`](/docs/permissions/permissions#userread)
+* [`webhook:manage:*`](/docs/permissions/permissions#webhookmanage)
 
 
 ## Resetting permissions for predefined roles
