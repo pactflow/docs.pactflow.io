@@ -85,6 +85,18 @@ The Postgresql ssl mode.
 **Allowed values:** `disable`, `allow`, `prefer`, `require`, `verify-ca`, `verify-full`<br/>
 **More information:** https://ankane.org/postgres-sslmode-explained<br/>
 
+### PACTFLOW_DATABASE_CONNECTION_VALIDATION_TIMEOUT
+
+The number of seconds after which to check the health of a connection from a connection pool before passing it to the application.
+
+`-1` means that connections will be validated every time, which avoids errors
+when databases are restarted and connections are killed.  This has a performance
+penalty, so consider increasing this timeout if building a frequently accessed service.
+
+**Required:** false<br/>
+**Default:** `3600`<br/>
+**More information:** https://sequel.jeremyevans.net/rdoc-plugins/files/lib/sequel/extensions/connection_validator_rb.html<br/>
+
 ### PACTFLOW_SQL_LOG_WARN_DURATION
 
 The duration in seconds, as a float, after which to log an SQL statement
@@ -358,6 +370,45 @@ env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 
 
 <br/>
 
+## Domain
+
+<hr/>
+
+
+### PACTFLOW_ALLOW_DANGEROUS_CONTRACT_MODIFICATION
+
+Whether or not to allow the pact content for an existing consumer version to be modified. It is strongly recommended that this is set to false,
+as allowing modification makes the results of can-i-deploy unreliable. When this is set to false as recommended, each commit must publish pacts
+with a unique version number.
+
+**Required:** false<br/>
+**Allowed values:** `true`, `false`<br/>
+**More information:** https://docs.pact.io/versioning<br/>
+
+### PACTFLOW_USE_FIRST_TAG_AS_BRANCH
+
+When the value is `true`, the first tag applied to a version (within 10 seconds)
+will be used to populate the `branch` property of the version.
+
+This is to assist in the migration from using tags to track branches to using the branches feature.
+
+**Required:** false<br/>
+**Default:** `true`<br/>
+**Allowed values:** `true`, `false`<br/>
+
+### PACTFLOW_CREATE_DEPLOYED_VERSIONS_FOR_TAGS
+
+When the value is `true` and a tag is created, if there is an environment with the name of the newly created tag, a deployed version is
+also created for the pacticipant version.
+
+This is to assist in the migration from using tags to track deployments to using the deployed and released versions feature.
+
+**Required:** false<br/>
+**Allowed values:** `true`, `false`<br/>
+**More information:** https://docs.pact.io/pact_broker/recording_deployments_and_releases/<br/>
+
+<br/>
+
 ## Badges
 
 <hr/>
@@ -373,7 +424,7 @@ The URL of the free service that is used to generate the build badges. Note that
 
 <br/>
 
-## HTTP
+## Resources
 
 <hr/>
 
@@ -458,6 +509,14 @@ The hosts for which to not use a proxy
 
 **Required:** false<br/>
 
+### PACTFLOW_USE_HAL_BROWSER
+
+Whether or not to enable the embedded HAL Browser.
+
+**Required:** false<br/>
+**Allowed values:** `true`, `false`<br/>
+**More information:** https://github.com/mikekelly/hal-browser<br/>
+
 <br/>
 
 ## Miscellaneous
@@ -500,3 +559,4 @@ head < /dev/random -c 16 | base64
 **Required:** if `PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED` is set to `true`<br/>
 **Default:** `not set`<br/>
 **Example:** `JUVDdnRzLXZyWHA7UF93RAo=`<br/>
+
