@@ -14,7 +14,7 @@ module.exports = {
       title: "Pactflow Documentation",
       logo: {
         alt: "Pactflow Logo",
-        src: "img/pactflow.svg",
+        src: "img/logo.png",
       },
       items: [
         { to: "/", label: "Docs", position: "left" },
