@@ -1,5 +1,5 @@
 ---
-slug: 2022-12-16-log4j-security-advisory
+slug: 2021-12-16-log4j-security-advisory
 title: Security Advisory - Apache Log4j (CVE-2021-44228)
 author: Matt Fellows
 author_title: Co-founder @ Pactflow
