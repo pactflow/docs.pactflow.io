@@ -44,3 +44,7 @@ The default role to assign new users. If this preference is not set, new users w
 #### Default Team
 
 The default team to which new team members will be added. If this preference is not set, new users will be assigned to the system defined team named "[Default team](/docs/user-interface/settings/teams#the-default-team)" if it exists.
+
+#### Operational Notification Contacts
+
+Platform maintenance, operations and security related notifications will be sent to these email addresses. For accounts that existed when this field was added, this has been initialised to the email addresses of the users with the Administrator role. The default value for new accounts will be the email address of the user who created the account. Note that any email address can be set here, the owner of the email address does not need to have a Pactflow account to be be able to receive these notifications.
