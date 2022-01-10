@@ -15,7 +15,7 @@ A test result for bi-directional contract is known as `Contract Comparison`; whe
 
 &nbsp;
 
-// add screenshot
+![Bi-directional Contract Overview Screen](/ui/bdc-dashboard.png)
 
 &nbsp;
 
