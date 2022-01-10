@@ -1,5 +1,5 @@
 ---
-title: Bi-Directional Contract
+title: Bi-Directional Contract (Preview)
 ---
 
 A bi-directional contract is a test result by comparing between your provider contract (eg. OpenAPI Swagger document) and your consumer contract (pact).
