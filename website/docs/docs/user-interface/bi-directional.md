@@ -10,7 +10,7 @@ This section contains information about the bi-directional UI on Pactflow.
 
 Bi-directional results are listed at dashboard. 
 
-A test result for bi-directional contract is known as `Contract Comparison`; wheareas a classic pact test result is a `Contract Replay`
+A test result for a bi-directional contract is known as  a `Contract Comparison`; whereas a classic pact test result is a `Contract Replay`
 
 
 &nbsp;
