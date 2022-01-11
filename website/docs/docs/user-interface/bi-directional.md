@@ -51,7 +51,7 @@ Clicking on interaction item toggles interaction detail in relation of the curre
 Show verification result of the provider contract by provider itself.
 
 ### Provider Contract Tab
-Show provider contract detail, currently only support OpenAPI Swagger.
+Show provider contract detail, currently OpenAPI Swagger is supported.
 
 
 
