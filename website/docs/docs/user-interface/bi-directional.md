@@ -25,7 +25,7 @@ A test result for bi-directional contract is known as `Contract Comparison`; whe
 |-------------|-------------|
 | ![success](/ui/success.png) | The consumer contract is compatible with provider's contract.|
 | ![failed](/ui/failed.png) | The consumer contract is imcompatible with provider's contract.|
-| ![unverified](/ui/unverified.png) | No scheme comparison has been found for the consumer contract. |
+| ![unverified](/ui/unverified.png) | No schema comparison has been found for the consumer contract. |
 
 </div>
 
