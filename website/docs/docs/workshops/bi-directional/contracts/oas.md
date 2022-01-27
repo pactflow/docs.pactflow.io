@@ -34,6 +34,7 @@ Here is an example bash script that uses `cURL` to upload the the OAS and test r
 The standard authorization environment variables are used here.
 
 _publish.sh_
+
 ```sh
 #!/bin/bash
 
@@ -75,15 +76,15 @@ The request should be a `POST` to the following path:
 {baseUrl}/contracts/provider/{application}/version/{version}
 ```
 
-* `baseURL`
+- `baseURL`
 
   The base URL of your Pactflow account e.g. https://myaccount.pactflow.io
 
-* `application`
+- `application`
 
   The name of the provider API application
 
-* `version`
+- `version`
 
   The version of the provider API application
 
@@ -91,35 +92,35 @@ The request should be a `POST` to the following path:
 
 The following describes the body that should be sent in the API
 
-* `content`
+- `content`
 
   The base64 encoded contents of the OAS
 
-* `contractType`
+- `contractType`
 
   Must be `oas`
 
-* `content_type`
+- `content_type`
 
   Must be `application/yaml`
 
-* `verificationResults`
+- `verificationResults`
 
   This object contains the information about the test results
 
-* `verificationResults.success`
+- `verificationResults.success`
 
   A boolean value indicating if the tests passed or failed (one of `true` or `false`)
 
-* `verificationResults.content`
+- `verificationResults.content`
 
   The base64 encoded test results (may be any output of your choosing)
 
-* `verificationResults.contentType`
+- `verificationResults.contentType`
 
   The content type of the results. Must be a valid mime type
 
-* `verificationResults.verifier`
+- `verificationResults.verifier`
 
   The name of the tool used to perform the verification
 
@@ -145,22 +146,20 @@ Clicking on the verification results will take you to the resource in Pactflow a
 
 ### Response Object
 
+- `summary`
 
+  Whether or not the verification was successful
 
-* `summary`
+- `crossContractVerificationResults`
 
-    Whether or not the verification was successful
+  This element contains the results of comparing the mock (pact contract) to the OpenAPI specification
 
-* `crossContractVerificationResults`
+- `providerContractVerificationResults`
 
-    This element contains the results of comparing the mock (pact contract) to the OpenAPI specification
-
-* `providerContractVerificationResults`
-
-    This containts the results of the provider verification, including the tool used to verify it, whether the test passed or failed and the base64 encoded OAS contract.
-
+  This containts the results of the provider verification, including the tool used to verify it, whether the test passed or failed and the base64 encoded OAS contract.
 
 ### Successful result
+
 ```
 {
   "summary": {
@@ -192,6 +191,7 @@ Clicking on the verification results will take you to the resource in Pactflow a
 ```
 
 ### Failure result
+
 ```
 {
   "summary": {
@@ -267,25 +267,33 @@ Clicking on the verification results will take you to the resource in Pactflow a
 
 In the case of a failure, the following elements of the `error` are most helpful in diagnosing the problem:
 
-* `message`
+- `message`
 
-    Summary of the problem. In most cases, you can understand the problem immediately. As above, you can see there are two errors - one for the request body, and another for the response body.
-    In both cases (the request and response body), there is an additional unexpected property `price` expected by the consumer.
+  Summary of the problem. In most cases, you can understand the problem immediately. As above, you can see there are two errors - one for the request body, and another for the response body.
+  In both cases (the request and response body), there is an additional unexpected property `price` expected by the consumer.
 
-* `mockDetails`
+- `mockDetails`
 
-    Contains details of the Consumer Contract (mock) that are problematic, including the path to the interaction in the contract and the request/response details.
+  Contains details of the Consumer Contract (mock) that are problematic, including the path to the interaction in the contract and the request/response details.
 
-* `specDetails`
+- `specDetails`
 
-    Contains details of the Provider Contract (spec) that are problematic, including the path to the component of the resource in the OpenAPI specification the mock is incompatible with.
+  Contains details of the Provider Contract (spec) that are problematic, including the path to the component of the resource in the OpenAPI specification the mock is incompatible with.
 
 ## Considerations
 
 When using OpenAPI Specifications as a Provider Contract, you should be aware of the following limitations.
 
-* You must ensure `additionalProperties` in your OAS is set to `false` on any response body, to ensure a consumer won't get false positives if they add a new field that isn't actually part of the spec (see
-https://bitbucket.org/atlassian/swagger-mock-validator/issues/84/test-incorrectly-passes-when-mock-expects for an interesting read on why this is necessary. TL;DR - it's JSON Schemas fault)
-* It is recommended to allow `additionalProperties` on request items to align with [Postel's Law](https://en.wikipedia.org/wiki/Robustness_principle)
-* _Implementing_ a spec is not the same as being _compatible_ with a spec ([read more](https://pactflow.io/blog/contract-testing-using-json-schemas-and-open-api-part-1/)). Most tools only tell you that what you’re doing is _not incompatible_ with the spec. _NOTE: We plan to address this problem in the future via our OAS Testing Tool_
-* You are responsible for ensuring sufficient OAS coverage. To highlight this point, in our [Dredd example](https://github.com/pactflow/example-provider-dredd), we do _not_ test the 404 case on the provider, but the consumer has a pact for it and it's tests still pass! _NOTE: We plan to address this problem in the future via our OAS Testing Tool_
+### Document limitations
+
+- The OAS must be a valid YAML or JSON file. Pactflow will pre-validate the document is parseable and error if they aren't valid.
+- OAS documents must not be split across multiple files. You should combine any documents together, using tools like [OpenAPI Merge](https://github.com/robertmassaioli/openapi-merge).
+- YAML formatted OAS documents must not use [anchors](https://yaml.org/spec/1.2.2/#3222-anchors-and-aliases), due to the potential security issues (see [YAML bomb](https://en.wikipedia.org/wiki/Billion_laughs_attack) for more). If your auto-generated specs have anchors, you can pre-process them via tools like [spruce](https://github.com/geofffranks/spruce), that will expand them for you.
+
+### Testing
+
+- You must ensure `additionalProperties` in your OAS is set to `false` on any response body, to ensure a consumer won't get false positives if they add a new field that isn't actually part of the spec (see
+  https://bitbucket.org/atlassian/swagger-mock-validator/issues/84/test-incorrectly-passes-when-mock-expects for an interesting read on why this is necessary. TL;DR - it's JSON Schemas fault)
+- It is recommended to allow `additionalProperties` on request items to align with [Postel's Law](https://en.wikipedia.org/wiki/Robustness_principle)
+- _Implementing_ a spec is not the same as being _compatible_ with a spec ([read more](https://pactflow.io/blog/contract-testing-using-json-schemas-and-open-api-part-1/)). Most tools only tell you that what you’re doing is _not incompatible_ with the spec. _NOTE: We plan to address this problem in the future via our OAS Testing Tool_
+- You are responsible for ensuring sufficient OAS coverage. To highlight this point, in our [Dredd example](https://github.com/pactflow/example-provider-dredd), we do _not_ test the 404 case on the provider, but the consumer has a pact for it and it's tests still pass! _NOTE: We plan to address this problem in the future via our OAS Testing Tool_
