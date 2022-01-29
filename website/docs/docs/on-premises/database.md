@@ -33,4 +33,4 @@ If you have been hosting your own instance of the open source Pact Broker, you c
 
 ## Schema
 
-![SNS Architecture](/on-premises/schema.png)
+![Database schema](/on-premises/schema.png)
