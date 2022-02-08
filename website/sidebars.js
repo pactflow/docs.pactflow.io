@@ -224,6 +224,11 @@ module.exports = {
         },
         {
           type: "category",
+          label: "Security and support",
+          items: ["docs/on-premises/security-audit-report"],
+        },
+        {
+          type: "category",
           label: "Troubleshooting",
           items: ["docs/on-premises/troubleshooting"],
         },
