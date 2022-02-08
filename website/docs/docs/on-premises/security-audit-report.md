@@ -1,8 +1,8 @@
 ---
-title: Something
+title: Security audit report
 ---
 
-# Vulnerability scanning
+## Vulnerability scanning
 
 Pactflow uses the following tools to ensure the On-Premises image is kept as secure as possible.
 
@@ -12,13 +12,13 @@ Pactflow uses the following tools to ensure the On-Premises image is kept as sec
 * Quay Security Scanner
 * Amazon ECR Image scanning
 
-# Reporting vulnerabilities
+## Reporting vulnerabilities
 
 To report a vulnerability, please email us at [support@pactflow.io](mailto:support@pactflow.io) and ensure you include the relevant CVE, and the name and/or path to the vulnerable component.
 
-# Known vulnerabilities
+## Known vulnerabilities
 
-## CVE-2015-9284
+### CVE-2015-9284
 
 #### Component
 
@@ -36,7 +36,7 @@ This is a CSRF vulnerability during sign in.
 
 This vulnerability is mitigated in code. Pactflow uses a POST request method with a CSRF token for the initial request to the IDP, as per the instructions [here](https://github.com/omniauth/omniauth/wiki/Resolving-CVE-2015-9284).
 
-## CVE-2021-23358
+### CVE-2021-23358
 
 #### Component
 

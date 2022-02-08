@@ -224,8 +224,8 @@ module.exports = {
         },
         {
           type: "category",
-          label: "Something",
-          items: ["docs/on-premises/something"],
+          label: "Security and support",
+          items: ["docs/on-premises/security-audit-report"],
         },
         {
           type: "category",
