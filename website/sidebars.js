@@ -224,6 +224,11 @@ module.exports = {
         },
         {
           type: "category",
+          label: "Something",
+          items: ["docs/on-premises/something"],
+        },
+        {
+          type: "category",
           label: "Troubleshooting",
           items: ["docs/on-premises/troubleshooting"],
         },
