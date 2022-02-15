@@ -16,6 +16,10 @@ Linux
 
 4.0 GiB
 
+### Docker version
+
+20.10.0 or later
+
 ## Postgres database instance
 
 ### HA Configuration

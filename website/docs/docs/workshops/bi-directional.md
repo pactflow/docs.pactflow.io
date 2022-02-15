@@ -59,7 +59,7 @@ Here is an at-a-glance view of
 ### Trade-offs
 
 |                                   | Traditional | Consumer Driven Contract Testing                            | Bi-directional Contract Testing                                                                                                    |
-| --------------------------------- | ----------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --- |
+| --------------------------------- | ----------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 |                                   | E2E Testing | Contract test<br/><br/>_(e.g. Pact, Spring Cloud Contract)_ | Specification or code generated contract tests<br/><br/>_(e.g. OAS, Postman Collections, Wiremock, Mountebank, GraphQL, Protobuf)_ |
 | **Outcomes**                      |             |                                                             |
 | Guarantees                        | ++++        | +++                                                         | +                                                                                                                                  |
@@ -68,15 +68,15 @@ Here is an at-a-glance view of
 | Learning curve                    | ++++        | \-                                                          | +                                                                                                                                  |
 | Team coupling                     | \---        | +                                                           | +++                                                                                                                                |
 | **Testing Properties**            |             |                                                             |
-| Isolation                         | \-          | +++                                                         | +                                                                                                                                  | +   |
-| Complexity                        | \-          | +                                                           | +++                                                                                                                                | ++  |
-| Test data setup                   | \-          | ++                                                          | +++                                                                                                                                | +++ |
-| Testing data semantics            | +           | \-                                                          | \-                                                                                                                                 | +   |
-| Feedback time                     | \-          | ++                                                          | +++                                                                                                                                | ++  |
-| Stability                         | \-          | ++                                                          | +++                                                                                                                                | ++  |
-| Reveal unused interfaces / fields | \-          | +++                                                         | +                                                                                                                                  | +   |
-| Well fittedness                   | \-          | +++                                                         | \-                                                                                                                                 | \-  |
-| Unknown consumers                 | +           | \-                                                          | +                                                                                                                                  | \-  |
+| Isolation                         | \-          | +++                                                         | +                                                                                                                                  |
+| Complexity                        | \-          | +                                                           | +++                                                                                                                                |
+| Test data setup                   | \-          | ++                                                          | +++                                                                                                                                |
+| Testing data semantics            | +           | \-                                                          | \-                                                                                                                                 |
+| Feedback time                     | \-          | ++                                                          | +++                                                                                                                                |
+| Stability                         | \-          | ++                                                          | +++                                                                                                                                |
+| Reveal unused interfaces / fields | \-          | +++                                                         | +                                                                                                                                  |
+| Well fittedness                   | \-          | +++                                                         | \-                                                                                                                                 |
+| Unknown consumers                 | +           | \-                                                          | +                                                                                                                                  |
 
 :::note understanding the trade-off table
 
