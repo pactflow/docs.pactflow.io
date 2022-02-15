@@ -227,7 +227,6 @@ module.exports = {
           label: "Security and support",
           items: [
             "docs/on-premises/security-audit-report",
-            "docs/on-premises/versioning-policy",
             "docs/on-premises/support-policy"
           ],
         },
