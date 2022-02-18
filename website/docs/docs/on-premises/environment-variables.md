@@ -41,10 +41,18 @@ When true, HTTP request details and response status and duration will be logged 
 
 ### PACTFLOW_DATABASE_URL
 
-The fully qualifed database connection string
+The fully qualifed database connection string. If using Postgres on RDS with IAM authentication, the scheme must be `postgresiam` and the port must also be set.
 
 **Required:** if separate host, name, username, password environment variables are not set<br/>
-**Example:** `postgresql://username:password@host/database`<br/>
+**Example:** `postgresql://username:password@host:port/database`<br/>
+
+### PACTFLOW_DATABASE_ADAPTER
+
+The database adapter to use. Use `postgresiam` when using Postgres on RDS with IAM authentication (rather than username/password authentication).
+
+**Required:** false<br/>
+**Default:** `postgres`<br/>
+**Allowed values:** `postgres`, `postgresiam`<br/>
 
 ### PACTFLOW_DATABASE_USERNAME
 
@@ -56,7 +64,7 @@ The database username
 
 The database password
 
-**Required:** if PACTFLOW_DATABASE_URL is not set<br/>
+**Required:** if PACTFLOW_DATABASE_URL is not set, unless using Postgres on RDS with IAM authentication<br/>
 
 ### PACTFLOW_DATABASE_HOST
 
@@ -78,10 +86,10 @@ The database name
 
 ### PACTFLOW_DATABASE_SSLMODE
 
-The Postgresql ssl mode.
+The Postgresql ssl mode. Note, if using Postgres on AWS RDS with IAM authentication, this must be `require`.
 
 **Required:** false<br/>
-**Default:** `required`<br/>
+**Default:** `require`<br/>
 **Allowed values:** `disable`, `allow`, `prefer`, `require`, `verify-ca`, `verify-full`<br/>
 **More information:** https://ankane.org/postgres-sslmode-explained<br/>
 
@@ -95,6 +103,7 @@ penalty, so consider increasing this timeout if building a frequently accessed s
 
 **Required:** false<br/>
 **Default:** `3600`<br/>
+**Allowed values:** -1 or any positive integer.<br/>
 **More information:** https://sequel.jeremyevans.net/rdoc-plugins/files/lib/sequel/extensions/connection_validator_rb.html<br/>
 
 ### PACTFLOW_SQL_LOG_WARN_DURATION
@@ -119,6 +128,12 @@ Whether or not to automatically apply the schema and data migrations to the data
 **Required:** false<br/>
 **Default:** `true`<br/>
 **Allowed values:** `true`, `false`<br/>
+
+### AWS_REGION
+
+Required for running Postgres on RDS with IAM authentication. This must be set to the AWS region where the RDS database instance is running.
+
+**Required:** false<br/>
 
 <br/>
 
@@ -381,7 +396,9 @@ Whether or not to allow the pact content for an existing consumer version to be 
 as allowing modification makes the results of can-i-deploy unreliable. When this is set to false as recommended, each commit must publish pacts
 with a unique version number.
 
+**Supported versions:** From v1.14.0<br/>
 **Required:** false<br/>
+**Default:** For new installations of v1.14.0 and later, this defaults to `false`.<br/>
 **Allowed values:** `true`, `false`<br/>
 **More information:** https://docs.pact.io/versioning<br/>
 
@@ -403,7 +420,9 @@ also created for the pacticipant version.
 
 This is to assist in the migration from using tags to track deployments to using the deployed and released versions feature.
 
+**Supported versions:** From v1.14.0<br/>
 **Required:** false<br/>
+**Default:** `true`<br/>
 **Allowed values:** `true`, `false`<br/>
 **More information:** https://docs.pact.io/pact_broker/recording_deployments_and_releases/<br/>
 
@@ -514,6 +533,7 @@ The hosts for which to not use a proxy
 Whether or not to enable the embedded HAL Browser.
 
 **Required:** false<br/>
+**Default:** `true`<br/>
 **Allowed values:** `true`, `false`<br/>
 **More information:** https://github.com/mikekelly/hal-browser<br/>
 
@@ -538,12 +558,19 @@ The timezone in which to display dates for server side rendered pages.
 <hr/>
 
 
+### PACTFLOW_API_TOKEN_AUTH_ENABLED
+
+Whether or not to enable the inbuilt Pactflow API tokens used for bearer authentication. Used to disable API tokens if an external Identify Provider is configured for API authentication.
+
+**Required:** false<br/>
+**Default:** `true`<br/>
+**Allowed values:** `true`, `false`<br/>
+
 ### PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED
 
 Enables encryption of API token values in the database. Requires `PACTFLOW_API_TOKEN_IV` and `PACTFLOW_MASTER_ENCRYPTION_KEY` to also be set.
 
 **Required:** false<br/>
-**Default:** `not set`<br/>
 
 ### PACTFLOW_API_TOKEN_IV
 
@@ -557,6 +584,4 @@ head < /dev/random -c 16 | base64
 ```
 
 **Required:** if `PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED` is set to `true`<br/>
-**Default:** `not set`<br/>
 **Example:** `JUVDdnRzLXZyWHA7UF93RAo=`<br/>
-
