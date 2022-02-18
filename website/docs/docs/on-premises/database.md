@@ -31,7 +31,7 @@ Database access between the Pactflow application and Postgres instance can be se
 
 ## AWS IAM authentication
 
-When deploying Pactflow on AWS Cloud infrastructure, database access between the Pactflow application and RDS instance can be secured using IAM. Please see the [AWS RDS IAM documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.html) for more information.
+When deploying Pactflow on AWS Cloud infrastructure, database access between the Pactflow application and the RDS Postgres instance can be secured using IAM. Please see the [AWS RDS IAM documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.html) for more information.
 
 The following environmet variables must be set for the Pactflow application:
 
