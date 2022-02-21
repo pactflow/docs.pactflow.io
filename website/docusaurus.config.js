@@ -78,9 +78,6 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Pactflow`,
     },
-    googleAnalytics: {
-      trackingID: "UA-8926693-9",
-    },
     hideableSidebar: true,
     cleanUrl: true,
   },
@@ -106,6 +103,9 @@ module.exports = {
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
+        googleAnalytics: {
+          trackingID: "UA-8926693-9",
+        }
       },
     ],
   ],
