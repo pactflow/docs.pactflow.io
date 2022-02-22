@@ -29,11 +29,12 @@ You will:
 1. Get hands-on experience with the key aspects of writing, publishing and verifying pacts.
 1. See how Pactflow fits into the picture so that you can get up and running quickly.
 
-| Language | Link |
-| --------- | ----- |
-| Node JS  | https://katacoda.com/pact/scenarios/pactflow-getting-started-js |
-| Java     | https://katacoda.com/pact/scenarios/pactflow-getting-started-java |
+### Tutorial
 
+| Language | Link                                                              |
+| -------- | ----------------------------------------------------------------- |
+| Node JS  | https://katacoda.com/pact/scenarios/pactflow-getting-started-js   |
+| Java     | https://katacoda.com/pact/scenarios/pactflow-getting-started-java |
 
 ## Gating deployments with Pactflow
 
@@ -52,4 +53,24 @@ You will:
 1. Understand important Pact CLI tools
 1. Learn how deployments work with Pactflow
 
+### Tutorial
+
 You can complete the course at https://katacoda.com/pact/scenarios/pactflow-can-i-deploy-js.
+
+## Bi-Directional Contracts
+
+TBC
+
+### Goals
+
+TBC
+
+You will:
+
+1. X
+1. Y
+1. Z
+
+### Tutorial
+
+You can complete the course at TBC

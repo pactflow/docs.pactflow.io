@@ -1,7 +1,6 @@
 module.exports = {
   docs: [
     "docs/getting-started",
-    "docs/tutorials",
     {
       type: "category",
       label: "User Interface",
@@ -37,6 +36,23 @@ module.exports = {
             "docs/permissions/api-tokens",
           ],
         },
+        {
+          type: "category",
+          label: "Bi-directional Contracts",
+          items: [
+            "docs/bi-directional",
+            "docs/bi-directional/consumer",
+            "docs/bi-directional/provider",
+            {
+              type: "category",
+              label: "Supported Contracts",
+              items: [
+                "docs/bi-directional/contracts/pact",
+                "docs/bi-directional/contracts/oas",
+              ],
+            },
+          ],
+        },
       ],
     },
     {
@@ -58,6 +74,7 @@ module.exports = {
       label: "Pactflow University",
       items: [
         "docs/workshops",
+        "docs/tutorials",
         {
           type: "category",
           label: "Introduction to Pact",
@@ -106,24 +123,48 @@ module.exports = {
             },
           ],
         },
-        "docs/workshops/advanced",
-        "docs/workshops/tutorials",
         {
           type: "category",
-          label: "Bi-directional Contracts",
+          label: "Bi-Directional Contract Testing",
           items: [
-            "docs/workshops/bi-directional",
-            "docs/workshops/bi-directional/consumer",
-            "docs/workshops/bi-directional/provider",
+            "docs/workshops/bi-directional-contract-testing",
             {
-              type: "category",
-              label: "Supported Contracts",
-              items: ["docs/workshops/bi-directional/contracts/pact", "docs/workshops/bi-directional/contracts/oas"],
+              "Set up CI": [
+                "docs/workshops/bi-directional-contract-testing/set-up-ci",
+                "docs/workshops/bi-directional-contract-testing/set-up-ci/prerequisites",
+                "docs/workshops/bi-directional-contract-testing/set-up-ci/fork-and-clone-the-repositories",
+                "docs/workshops/bi-directional-contract-testing/set-up-ci/test-the-builds-in-github-actions",
+                "docs/workshops/bi-directional-contract-testing/set-up-ci/configure-consumer-and-provider-pipelines",
+                "docs/workshops/bi-directional-contract-testing/set-up-ci/configure-webhook",
+                "docs/workshops/bi-directional-contract-testing/set-up-ci/conclusion",
+              ],
+              "Setup Local Development": [
+                "docs/workshops/bi-directional-contract-testing/set-up-local-development",
+                "docs/workshops/bi-directional-contract-testing/set-up-local-development/prerequisites",
+                "docs/workshops/bi-directional-contract-testing/set-up-local-development/install-dependencies",
+                "docs/workshops/bi-directional-contract-testing/set-up-local-development/run-the-applications",
+                "docs/workshops/bi-directional-contract-testing/set-up-local-development/run-the-consumer-tests",
+                "docs/workshops/bi-directional-contract-testing/set-up-local-development/run-the-provider-tests",
+              ],
+              Workshop: [
+                "docs/workshops/bi-directional-contract-testing/workshop",
+                "docs/workshops/bi-directional-contract-testing/workshop/prerequisites",
+                "docs/workshops/bi-directional-contract-testing/workshop/prerequisite-concepts",
+                "docs/workshops/bi-directional-contract-testing/workshop/how-to-break-everything",
+                "docs/workshops/bi-directional-contract-testing/workshop/protecting-the-provider",
+                "docs/workshops/bi-directional-contract-testing/workshop/how-not-to-break-everything",
+                "docs/workshops/bi-directional-contract-testing/workshop/implementing-the-provider-changes",
+                "docs/workshops/bi-directional-contract-testing/workshop/verifying-feature-pacts",
+                "docs/workshops/bi-directional-contract-testing/workshop/releasing-the-consumer-code",
+                "docs/workshops/bi-directional-contract-testing/workshop/conclusion",
+              ],
             },
           ],
-        }
-      ]
-    }
+        },
+        "docs/workshops/advanced",
+        "docs/workshops/tutorials",
+      ],
+    },
   ],
   examples: [
     {
@@ -137,13 +178,13 @@ module.exports = {
             "docs/examples/aws/sns/provider/readme",
           ],
           Cypress: ["docs/examples/cypress/readme"],
-          "Golang": [
+          Golang: [
             "docs/examples/golang/consumer/readme",
             "docs/examples/golang/provider/readme",
           ],
           Java: [
             "docs/examples/java/consumer/junit/readme",
-            "docs/examples/java/provider-springboot/readme"
+            "docs/examples/java/provider-springboot/readme",
           ],
           JS: [
             "docs/examples/js/consumer/readme",
@@ -260,7 +301,7 @@ module.exports = {
             "docs/on-premises/releases/1.6.0",
             "docs/on-premises/releases/1.5.0",
             "docs/on-premises/releases/1.4.1",
-            "docs/on-premises/releases/1.4.0"
+            "docs/on-premises/releases/1.4.0",
           ],
         },
       ],
