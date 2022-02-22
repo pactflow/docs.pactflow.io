@@ -19,6 +19,18 @@ Maintaining this list, along with the `record-deployment` and `record-release` c
 
 &nbsp;
 
+#### Recording deployments and releases
+
+To successfully record a deployment or release to an environment, the user must be allowed to record a deployment/release for the application, AND be allowed to view the environment resource.
+
+In terms of the permissions and resource relationships, that means:
+
+1. The user must have `deployment_and_release:record:team` and `environment:view:team` (or `environment:manage:team`) AND the environment, application and user must be assigned to the same team.
+
+OR 
+ 
+2. The user must have `deployment_and_release:record:*` and `environment:view:*` (or `environment:manage:*`).
+
 #### Creating Production Environments
 
 If all the services in the Broker are deployed to the same "public" internet, then there only needs to be one Production environment. If there are multiple segregated production environments (eg. when maintaining on-premises software for multiple customers) then you should create a separate production Environment for each logical deployment environment.
