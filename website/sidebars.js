@@ -225,7 +225,10 @@ module.exports = {
         {
           type: "category",
           label: "Security and support",
-          items: ["docs/on-premises/security-audit-report"],
+          items: [
+            "docs/on-premises/security-audit-report",
+            "docs/on-premises/support-policy"
+          ],
         },
         {
           type: "category",
