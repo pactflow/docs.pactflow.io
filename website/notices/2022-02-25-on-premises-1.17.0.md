@@ -1,5 +1,5 @@
 ---
-slug: 2022-02-25-on-premises-1.17.0.md
+slug: 2022-02-25-on-premises-1.17.0
 title: On-premises release v1.17.0
 tags: [on-premises, release]
 ---
