@@ -12,6 +12,10 @@ module.exports = function (context, options) {
               analytics.page();
               }}();`,
           },
+          {
+            tagName: "script",
+            innerHTML: `const uuid = localStorage.getItem('ajs_user_id'); if (analytics && uuid) {analytics.identify(uuid);}`,
+          },
         ],
       };
     },
