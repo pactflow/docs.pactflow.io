@@ -18,14 +18,18 @@ AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION:-ap-southeast-2}
 IMAGE_NAME="build-container-yarn"
 
 if [ "$environment" == "prod" ]; then
-  REPOSITORY="$PROD_ACCOUNT.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com"
-  ECR_ACCOUNT=$PROD_ACCOUNT
+  ECR_ACCOUNT="$PROD_ACCOUNT"
 else
-  REPOSITORY="$DEV_ACCOUNT.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com"
-  ECR_ACCOUNT=$DEV_ACCOUNT
+  ECR_ACCOUNT="$DEV_ACCOUNT"
 fi
 
-$(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION --registry-ids $ECR_ACCOUNT)
+REPOSITORY="$DEV_ACCOUNT.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com"
+
+aws ecr get-login-password \
+    --region "$AWS_DEFAULT_REGION" \
+    | docker login \
+      --username AWS \
+      --password-stdin "${ECR_ACCOUNT}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
 
 CurrentTag=$(docker images $REPOSITORY/$IMAGE_NAME --format '{{.Tag}}' | awk '/[0-9]/' | sort -g | tail -n 1)
 
