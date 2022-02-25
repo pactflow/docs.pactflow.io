@@ -14,7 +14,7 @@ module.exports = function (context, options) {
           },
           {
             tagName: "script",
-            innerHTML: `const uuid = localStorage.getItem('ajs_user_id'); if (analytics && uuid) {analytics.identify(uuid.replaceAll(/[^a-zA-z0-9\-]/ig, '').replaceAll('\\', ''));}`,
+            innerHTML: `const uuid = localStorage.getItem('ajs_user_id'); if (analytics && uuid) {analytics.identify(uuid.replaceAll(/[^a-zA-z0-9\-]/ig, '').replaceAll('\\\\', ''));}`,
           },
         ],
       };
