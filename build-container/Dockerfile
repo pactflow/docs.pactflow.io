@@ -1,4 +1,4 @@
-FROM node:12-buster
+FROM node:14-stretch
 RUN apt-get update && apt-get install -y python3 \
         python3-pip \
         jq \
