@@ -41,12 +41,12 @@ Displays the current logged in user and subscription status.
 
 <div class="status-table">
 
-| Status | Description |
-|-------------|-------------|
-| ![success](/ui/success.png) | The pact has a successful verification published for it. |
-| ![failed](/ui/failed.png) | The latest verification for the pact had failed. |
-| ![unverified](/ui/unverified.png) | No verification result has been published for the pact. |
-| ![waiting](/ui/waiting.png) | A new version of the pact has been published since the last verification result was received. |
+| Status                            | Description                                                                                   |
+| --------------------------------- | --------------------------------------------------------------------------------------------- |
+| ![success](/ui/success.png)       | The pact has a successful verification published for it.                                      |
+| ![failed](/ui/failed.png)         | The latest verification for the pact had failed.                                              |
+| ![unverified](/ui/unverified.png) | No verification result has been published for the pact.                                       |
+| ![waiting](/ui/waiting.png)       | A new version of the pact has been published since the last verification result was received. |
 
 </div>
 
@@ -74,15 +74,15 @@ Clicking on a tag pill for a consumer version tag will make the following menu a
 
 ##### Resources
 
-* Copy pact URL - selecting this menu item will copy the URL of the latest pact with the given tag into the clipboard.
-* Copy stub URL - selecting this menu item will copy the URL of the [stub](/docs/stubs) that is created from the latest pact for the given tag.
-* Copy badge URL - selecting this menu item will copy the URL of the [verification status badge](https://docs.pact.io/pact_broker/advanced_topics/provider_verification_badges/) for the latest pact for the given tag into the clipboard.
-* Copy tag URL - selecting this menu item will copy the URL of the application version tag into the clipboard.
-* Copy tag name - selecting this menu item will copy the name of the tag into the clipboard.
+- Copy pact URL - selecting this menu item will copy the URL of the latest pact with the given tag into the clipboard.
+- Copy stub URL - selecting this menu item will copy the URL of the [stub](/docs/stubs) that is created from the latest pact for the given tag.
+- Copy badge URL - selecting this menu item will copy the URL of the [verification status badge](https://docs.pact.io/pact_broker/advanced_topics/provider_verification_badges/) for the latest pact for the given tag into the clipboard.
+- Copy tag URL - selecting this menu item will copy the URL of the application version tag into the clipboard.
+- Copy tag name - selecting this menu item will copy the name of the tag into the clipboard.
 
 ##### Delete
 
-* Delete all pacts with the given tag - selecting this menu item allows you to delete all pacts that belong to application versions with the given tag. This item will only be visible if the current user has the [contract_data:bulk_delete](/docs/permissions/permissions#contract_databulk_delete) permission.
+- Delete all pacts with the given tag - selecting this menu item allows you to delete all pacts that belong to application versions with the given tag. This item will only be visible if the current user has the [contract_data:bulk_delete](/docs/permissions#contract_databulk_delete) permission.
 
 ### Provider version tags
 
@@ -91,7 +91,8 @@ Clicking on a tag pill for a provider version tag will make the following menu a
 ![Provider version tag menu](/ui/provider-version-tag-menu.png)
 
 #### Menu Items
+
 ##### Resources
 
-* Copy tag URL - selecting this menu item will copy the URL of the application version tag into the clipboard.
-* Copy tag name - selecting this menu item will copy the name of the tag into the clipboard.
+- Copy tag URL - selecting this menu item will copy the URL of the application version tag into the clipboard.
+- Copy tag name - selecting this menu item will copy the name of the tag into the clipboard.

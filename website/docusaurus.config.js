@@ -25,13 +25,8 @@ module.exports = {
         },
         { to: "docs/examples", label: "Examples", position: "left" },
         { to: "docs/on-premises", label: "On-Premises", position: "left" },
-        { to: "blog", label: "Notices", position: "left" },
+        { to: "notices", label: "Notices", position: "left" },
         { to: "https://docs.pact.io", label: "Pact Docs ↗️", position: "left" },
-        // {
-        //   href: 'https://github.com/facebook/docusaurus',
-        //   label: 'GitHub',
-        //   position: 'right',
-        // },
       ],
     },
     footer: {
@@ -66,8 +61,8 @@ module.exports = {
               to: "https://pactflow.io/",
             },
             {
-              label: "Pactflow blog site",
-              to: "https://pactflow.io/blog/",
+              label: "Pactflow notices",
+              to: "https://pactflow.io/notices/",
             },
             {
               label: "Pactflow roadmap",
@@ -94,18 +89,29 @@ module.exports = {
           editUrl:
             "https://github.com/pactflow/docs.pactflow.io/edit/master/website/",
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   // Please change this to your repo.
-        //   editUrl:
-        //     "https://github.com/facebook/docusaurus/edit/master/website/blog/",
-        // },
+        blog: {
+          routeBasePath: "notices",
+          postsPerPage: 25,
+          blogSidebarCount: 25,
+          path: "notices",
+          showReadingTime: true,
+          blogTitle: "Pactflow Updates",
+          blogDescription:
+            "Updates on the Pactflow platform, including security notices and new on-premises releases",
+          // Please change this to your repo.
+          editUrl:
+            "https://github.com/pactflow/docs.pactflow.io/edit/master/website/blog/",
+          feedOptions: {
+            type: "all",
+            copyright: `Copyright © ${new Date().getFullYear()} DiUS Computing Pty. Ltd.`,
+          },
+        },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
         googleAnalytics: {
           trackingID: "UA-8926693-9",
-        }
+        },
       },
     ],
   ],

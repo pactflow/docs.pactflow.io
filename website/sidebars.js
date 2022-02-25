@@ -118,12 +118,15 @@ module.exports = {
             {
               type: "category",
               label: "Supported Contracts",
-              items: ["docs/workshops/bi-directional/contracts/pact", "docs/workshops/bi-directional/contracts/oas"],
+              items: [
+                "docs/workshops/bi-directional/contracts/pact",
+                "docs/workshops/bi-directional/contracts/oas",
+              ],
             },
           ],
-        }
-      ]
-    }
+        },
+      ],
+    },
   ],
   examples: [
     {
@@ -137,13 +140,13 @@ module.exports = {
             "docs/examples/aws/sns/provider/readme",
           ],
           Cypress: ["docs/examples/cypress/readme"],
-          "Golang": [
+          Golang: [
             "docs/examples/golang/consumer/readme",
             "docs/examples/golang/provider/readme",
           ],
           Java: [
             "docs/examples/java/consumer/junit/readme",
-            "docs/examples/java/provider-springboot/readme"
+            "docs/examples/java/provider-springboot/readme",
           ],
           JS: [
             "docs/examples/js/consumer/readme",
@@ -227,7 +230,7 @@ module.exports = {
           label: "Security and support",
           items: [
             "docs/on-premises/security-audit-report",
-            "docs/on-premises/support-policy"
+            "docs/on-premises/support-policy",
           ],
         },
         {
@@ -263,7 +266,7 @@ module.exports = {
             "docs/on-premises/releases/1.6.0",
             "docs/on-premises/releases/1.5.0",
             "docs/on-premises/releases/1.4.1",
-            "docs/on-premises/releases/1.4.0"
+            "docs/on-premises/releases/1.4.0",
           ],
         },
       ],

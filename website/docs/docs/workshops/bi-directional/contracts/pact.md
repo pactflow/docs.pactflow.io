@@ -39,7 +39,7 @@ If you have your own custom mocking server, or want to test against a real envir
 Tools like [VCR](https://github.com/vcr/vcr) and [Polly](https://netflix.github.io/pollyjs) can record the actualy calls your application makes and story them as a fixture file for future use.
 This makes your tests reliable, but introduces the possibility of drift. Converting this mocks into a pact file reduces that possibility.
 
-See our [record/replay](/docs/examples/bi-directional/consumer/recordreplay/readme) example for more.
+See our [record/replay](/docs/examples/bi-directional/consumer/recordreplay) example for more.
 
 ### API integration
 
@@ -47,7 +47,7 @@ Most tools have language specific APIs you can use to introspect the actual call
 
 In this mode, you must be careful only to serialise the mocks that were invoked by the application.
 
-See our [Wiremock](/docs/examples/bi-directional/consumer/wiremock/readme) example for more.
+See our [Wiremock](/docs/examples/bi-directional/consumer/wiremock) example for more.
 
 ## Converting mocks into a Pact compatible format
 
@@ -55,7 +55,7 @@ When converting your mocks into a pact file, take note of the following consider
 
 1. You **must** generate a [Pact V2 specification](https://github.com/pact-foundation/pact-specification/tree/version-2/) compatible file.
 1. You **should not** include any [matchers](https://github.com/pact-foundation/pact-specification/tree/version-2/#matchers), unless you are confident in their application.
-    - Matchers are currently ignored by the cross-contract validation process, but may be supported at a later date
+   - Matchers are currently ignored by the cross-contract validation process, but may be supported at a later date
 1. You **should** validate the pact file is correct prior to uploading to Pactflow. You can use the JSON schema below, or attempt to load it into a [stub server](https://docs.pact.io/getting_started/stubs/).
 
 Below is an pact file based off the [Wiremock](/docs/examples) example project.
@@ -71,7 +71,8 @@ Below is an pact file based off the [Wiremock](/docs/examples) example project.
         "method": "POST",
         "path": "/products",
         "query": "foo=bar&baz=bat&bat=1&bat=2", // note array syntax is not supported for multiple query params (i.e. the bat param)
-        "body": { // this may be any valid JSON value such as a string or object
+        "body": {
+          // this may be any valid JSON value such as a string or object
           "id": "27",
           "name": "pizza",
           "type": "food",
@@ -88,7 +89,8 @@ Below is an pact file based off the [Wiremock](/docs/examples) example project.
   ],
   "metadata": {
     "pactSpecification": { "version": "2.0.0" },
-    "client": { // These aren't mandatory, but are useful in
+    "client": {
+      // These aren't mandatory, but are useful in
       "name": "name of the adapter",
       "version": "semver compatible version of the adapter"
     }
