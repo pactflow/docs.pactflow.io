@@ -472,6 +472,13 @@ The number of seconds after which the user needs to re-authenticate with the IDP
 **Required:** false<br/>
 **Default:** `604800`<br/>
 
+### PACTFLOW_SESSION_INACTIVITY_TIMEOUT
+
+The number of seconds of inactivity after which the user needs to re-authenticate with the IDP. By default, this will be set to the value of the `PACTFLOW_SESSION_LENGTH`, effectively disabling the feature, unless a value is specified by the user.
+
+**Required:** false<br/>
+**Default:** `604800`<br/>
+
 ### PACTFLOW_COOKIE_SECRET
 
 The secret used to encrypt the rack.session cookie.
@@ -585,3 +592,4 @@ head < /dev/random -c 16 | base64
 
 **Required:** if `PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED` is set to `true`<br/>
 **Example:** `JUVDdnRzLXZyWHA7UF93RAo=`<br/>
+
