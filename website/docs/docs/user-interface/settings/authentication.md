@@ -23,7 +23,7 @@ Steps to configure
 1. After configuring Github, you will need to logout.
 1. Once logged out navigate back to your login screen. You should now have a Github option
 1. Login with the new Github option
-1. On first authentication attempt, it will required authorization with Github. Follow the in-app prompts to guide you.
+1. On first authentication attempt, it will require authorization with Github. Follow the in-app prompts to guide you.
 
 ![GitHub Authentication Settings](/ui/github-auth.png)
 
