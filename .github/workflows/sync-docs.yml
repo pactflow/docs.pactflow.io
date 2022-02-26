@@ -30,6 +30,7 @@ on:
       - pactflow-example-bdc-consumer-dotnet-updated
       - pactflow-example-bdc-consumer-cypress-updated
       - pactflow-example-bdc-provider-dotnet-updated
+      - pactflow-example-bdc-consumer-mountebank-updated
 
 jobs:
   build:
@@ -145,6 +146,10 @@ jobs:
       - name: Sync example_consumer_bidirectional_cypress docs
         run: bundle exec scripts/sync/example_consumer_bidirectional_cypress.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_cypress docs"' >> $GITHUB_ENV
         if: github.event.action == 'pactflow-example-bdc-consumer-cypress-updated'
+
+      - name: Sync example_consumer_bidirectional_mountebank docs
+        run: bundle exec scripts/sync/example_consumer_bidirectional_mountebank.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_mountebank docs"' >> $GITHUB_ENV
+        if: github.event.action == 'pactflow-example-bdc-consumer-mountebank-updated'
 
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v4
