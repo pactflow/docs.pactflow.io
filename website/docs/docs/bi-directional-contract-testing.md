@@ -116,6 +116,18 @@ _Consumer_
 4. When we call `can-i-deploy` the cross-contract validation process in Pactflow generates a `Verification Result` determining if the consumer consumes a valid subset of the provider contract.
 5. If that passes, we deploy the consumer and record the deployment via the `pact-broker record-deployment` command.
 
+### Terminology
+
+- **Consumer**: An application that makes use of the functionality or data from another application to do its job. For applications that use HTTP, the consumer is always the application that initiates the HTTP request (eg. the web front end), regardless of the direction of data flow. For applications that use queues, the consumer is the application that reads the message from the queue.
+
+- **Provider**: An application (often called a service) that provides functionality or data for other applications to use, often via an API. For applications that use HTTP, the provider is the application that returns the response. For applications that use queues, the provider (also called producer) is the application that writes the messages to the queue.
+
+- A **consumer contract** is a collection of interactions which describe how the Consumer expects the Provider to behave. Each Consumer will have its own unique consumer contract for each of its Providers.
+
+- A **provider contract** specifies the capability of the Provider. In this workshop, it will take the form of an OpenAPI document, but may be other formats such as a GraphQL schema, a SOAP XSD, a protobuf definition and so on.
+
+- **cross-contract validation** or **contract comparison**: the process by which Pactflow confirms that the consumer contract is a valid subset of a provider contract. For example, it will ensure that all request/responses defined in a pact file and valid resources and match the schemas in a provider OAS file.
+
 ## Contract support
 
 ### Pact
