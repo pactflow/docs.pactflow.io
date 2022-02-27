@@ -21,7 +21,7 @@ Some tools have options to serialise their mocks to a file, and others will requ
 
 Once you have chosen your tool, you must implement your consumer side tests. It is important here that you exercise all of the API behaviour your system expects to ensure you have the coverage you need.
 
-One notably deviation from Pact advice is that you need not concern yourself with finding the minimual set of tests for a contract, and are free to use mocks for any fuctional testing. In fact, this is encouraged.
+One notably deviation from Pact advice is that you need not concern yourself with finding the minimul set of tests for a contract, and are free to use mocks for any fuctional testing. In fact, this is encouraged.
 
 (Reference to standard contract testing advice: https://docs.pact.io/consumer/contract_tests_not_functional_tests/)
 
@@ -36,6 +36,7 @@ Read the [documentation](./contracts/pact) on how to generate a pact contract fr
 We will be building adapters for common mocking tools as we expand this feature. See current [community contributed adapters](#community-adapters) below.
 
 :::
+
 ### Step 3: Publish your contract
 
 Uploading a pact file is the same as the standard [Pact process](https://docs.pact.io/pact_broker/publishing_and_retrieving_pacts/).
@@ -60,7 +61,6 @@ _Golden rule of tagging:_
 
 > Tag with the branch name when you publish pacts or verification results, and tag with the environment name when you deploy.
 
-
 ## Integrating it into your CI/CD pipeline
 
 A simplified view of a CI/CD pipeline for Pact looks like this:
@@ -73,7 +73,8 @@ The standard [principles](https://docs.pact.io/pact_nirvana) are still relevent.
 
 The following are adapters for common tools that provide a mocking capability that you can use to immediately generate pact files from:
 
-* Mock Service Worker (MSW): https://github.com/YOU54F/msw-pact
-* Wiremock: https://bitbucket.org/atlassian/wiremock-pact-generator
+- Cypress: https://github.com/pactflow/cypress-pact
+- Mock Service Worker (MSW): https://github.com/YOU54F/msw-pact
+- Wiremock: https://bitbucket.org/atlassian/wiremock-pact-generator
 
 If you'd like to create or request one, please [contact us](mailto:hello@pactflow.io).

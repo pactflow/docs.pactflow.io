@@ -3,18 +3,17 @@ title: Pactflow University
 sidebar_label: Overview
 ---
 
-Learn how Pact works through a series of purpose built workshops and training material.
+Learn how Pact works through a series of purpose built videos, workshops and training material.
 
 ## Courses
 
-We currently have 3 courses available:
-
-| Course                                 | Description \ Format                                             | Duration    |
-| -------------------------------------- | ---------------------------------------------------------------- | ----------- |
-| 1. Introduction to Pact                | Introduction presentation and hands-on lab                       | 2 - 3 hours |
-| 2. Pact CI/CD Workshop                 | Integrating Pact into a CI/CD pipeline (hands-on lab)            | ~2 hours    |
-| 3. Advanced contract testing with Pact | Presentation (theory)                                            | ~2 hours    |
-| 4. Bi-Directional-Contract-Testing     | Complete workshop on the Bi-Directional Contract Testing feature | 1-2 hours   |
+| Course                                 | Format   | Description \ Format                                                                                                       | Duration    |
+| -------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| 1. Introduction to Pact (Video series) | Video    | We've created an introductory level video series on contract-testing to help you learn and understand what it's all about. | 40 minutes  |
+| 2. Introduction to Pact                | Workshop | Introduction presentation and hands-on lab                                                                                 | 2 - 3 hours |
+| 3. Pact CI/CD Workshop                 | Workshop | Integrating Pact into a CI/CD pipeline (hands-on lab)                                                                      | ~2 hours    |
+| 4. Advanced contract testing with Pact | Workshop | Presentation (theory)                                                                                                      | ~2 hours    |
+| 5. Bi-Directional-Contract-Testing     | Workshop | Complete workshop on the Bi-Directional Contract Testing feature                                                           | 1-2 hours   |
 
 ## Usage and License
 

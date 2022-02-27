@@ -36,6 +36,13 @@ module.exports = {
             "docs/permissions/api-tokens",
           ],
         },
+      ],
+    },
+    {
+      type: "category",
+      label: "Contract Testing",
+      items: [
+        "docs/pact",
         {
           type: "category",
           label: "Bi-directional Contracts",
@@ -43,12 +50,24 @@ module.exports = {
             "docs/bi-directional-contract-testing",
             "docs/bi-directional-contract-testing/consumer",
             "docs/bi-directional-contract-testing/provider",
+            "docs/bi-directional-contract-testing/publishing",
+            "docs/bi-directional-contract-testing/compatibility-checks",
+            "docs/bi-directional-contract-testing/deploying",
             {
               type: "category",
               label: "Supported Contracts",
               items: [
                 "docs/bi-directional-contract-testing/contracts/pact",
                 "docs/bi-directional-contract-testing/contracts/oas",
+              ],
+            },
+            {
+              type: "category",
+              label: "Tool Integration",
+              items: [
+                "docs/bi-directional-contract-testing/tools/cypress",
+                "docs/bi-directional-contract-testing/tools/msw",
+                "docs/bi-directional-contract-testing/tools/wiremock",
               ],
             },
           ],

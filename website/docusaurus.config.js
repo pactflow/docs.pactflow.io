@@ -26,7 +26,6 @@ module.exports = {
         { to: "docs/examples", label: "Examples", position: "left" },
         { to: "docs/on-premises", label: "On-Premises", position: "left" },
         { to: "notices", label: "Notices", position: "left" },
-        { to: "https://docs.pact.io", label: "Pact Docs ↗️", position: "left" },
       ],
     },
     footer: {
