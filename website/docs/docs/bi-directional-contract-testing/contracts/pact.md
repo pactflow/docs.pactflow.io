@@ -10,7 +10,7 @@ sidebar_label: Pact
 | 1       | ✅         |
 | 1.1     | ✅         |
 | 2       | ✅         |
-| 3       | ✅         |
+| 3       | ❌         |
 | 4+      | ❌         |
 
 ## Compatibility with Provider Contracts

@@ -3,9 +3,9 @@ title: Bi-directional Contracts Guide
 sidebar_label: Overview
 ---
 
-## ⚠️ Project Status
+## Project Status
 
-Bi-directional contracts is in **developer preview**, and currently supports pact files (consumer) and OpenAPI Specification (provider). If you'd like to know more about this feature, please [get in touch](mailto:hello@pactflow.io).
+Bi-directional contracts is in **developer preview**, and currently supports pact files (consumer) and OpenAPI Specification (provider). If you have any comments about this feature, please [get in touch](mailto:hello@pactflow.io).
 
 ## High Level Roadmap
 
@@ -144,8 +144,8 @@ Read the documentation using [OpenAPI Specification as provider contract](/docs/
 
 ### GraphQL
 
-TBC
+Work for GraphQL support is planned to be started Q3 2022.
 
 ### gRPC/Protobufs
 
-TBC
+Work for GraphQL support is planned to be started Q3 2022.
