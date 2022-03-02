@@ -5,7 +5,7 @@ sidebar_label: Overview
 
 ## ⚠️ Project Status
 
-Bi-directional contract Test is in **developer preview**, and currently supports pact files (consumer) and OpenAPI Specification (provider). If you'd like to know more about this feature, please [get in touch](mailto:hello@pactflow.io).
+Bi-Directional Contract Test is in **developer preview**, and currently supports pact files (consumer) and OpenAPI Specification (provider). If you'd like to know more about this feature, please [get in touch](mailto:hello@pactflow.io).
 
 ## High Level Roadmap
 

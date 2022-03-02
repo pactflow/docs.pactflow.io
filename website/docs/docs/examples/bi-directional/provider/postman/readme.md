@@ -51,7 +51,7 @@ To be able to run some of the commands locally, you will need to export the foll
 ## Usage
 
 * `make test` - run the newman testing suite
-* `make convert` - converts the Postman collection to an OAS for bi-directional contract (automatically done by the `make fake_ci` step)
+* `make convert` - converts the Postman collection to an OAS for Bi-Directional Contract Test(automatically done by the `make fake_ci` step)
 * `make fake_ci` - run the CI process, but locally
 
 ## Caveats
