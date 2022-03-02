@@ -1,5 +1,5 @@
 ---
-title: Bi-directional Contracts Guide
+title: Bi-Directional Contract Testing Guide
 sidebar_label: Overview
 ---
 

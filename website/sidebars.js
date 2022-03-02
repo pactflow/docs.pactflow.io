@@ -227,7 +227,7 @@ module.exports = {
             "docs/examples/soap/java/consumer",
             "docs/examples/soap/java/provider",
           ],
-          "Bi-directional Contracts": [
+          "Bi-Directional Contract Testing": [
             "docs/examples/bi-directional/consumer/recordreplay/readme",
             "docs/examples/bi-directional/consumer/wiremock/readme",
             "docs/examples/bi-directional/consumer/cypress/readme",

@@ -13,7 +13,7 @@ https://github.com/pactflow/example-provider-restassured
 
 [![Build Status](https://travis-ci.com/pactflow/example-provider-restassured.svg?branch=master)](https://travis-ci.com/pactflow/example-provider-restassured)
 
-This is an example of a Spring boot API provider that uses RestAssured, [Pactflow](https://pactflow.io) and its [bi-directional contracts feature](https://pactflow.io/blog/bi-directional-contracts/) to ensure that it is compatible with the expectations its consumers have of it.
+This is an example of a Spring boot API provider that uses RestAssured, [Pactflow](https://pactflow.io) and its [Bi-Directional Contract Testing feature](https://pactflow.io/blog/bi-directional-contracts/) to ensure that it is compatible with the expectations its consumers have of it.
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 

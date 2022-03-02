@@ -13,7 +13,7 @@ https://github.com/pactflow/example-provider-dredd
 
 [![Build Status](https://travis-ci.com/pactflow/example-pactflow-example-provider-dredd.svg?branch=master)](https://travis-ci.com/pactflow/example-pactflow-example-provider-dredd)
 
-This is an example "Product" API Provider, to demonstrate the new bi-directional contract capability of Pactflow (previously referred to as Provider driven contracts, or collaborative contracts). It:
+This is an example "Product" API Provider, to demonstrate the new Bi-Directional Contract Testing capability of Pactflow (previously referred to as Provider driven contracts, or collaborative contracts). It:
 
 * Is an API written in Express JS
 * Has OAS 3.0 spec documenting the API
