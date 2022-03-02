@@ -23,6 +23,7 @@ If you want something a little more in-depth, check out [Pactflow University](/d
 Here are some key resources to help you on your way:
 
 * [How Pact works](https://pactflow.io/how-pact-works)
+* [Bi-Directional Contracts Guide](docs/bi-directional-contract-testing)
 * The [Pact Broker overview](https://docs.pact.io/pact_broker/overview)
 * [Versioning in the Pact Broker](https://docs.pact.io/getting_started/versioning_in_the_pact_broker)
 * [General Pact documentation](https://docs.pact.io)
