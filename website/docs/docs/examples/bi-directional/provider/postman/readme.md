@@ -13,12 +13,12 @@ https://github.com/pactflow/example-provider-postman
 
 [![Build Status](https://travis-ci.com/pactflow/example-provider-postman.svg?branch=master)](https://travis-ci.com/pactflow/example-provider-postman)
 
-This is an example "Product" API Provider, to demonstrate the new bi-directional contract capability of Pactflow (previously referred to as Provider driven contracts, or collaborative contracts). It:
+This is an example "Product" API Provider, to demonstrate the new Bi-Directional Contract Test capability of Pactflow (previously referred to as Provider driven contracts, or collaborative contracts). It:
 
 * Is an API written in Express JS
 * Has a Postman 2.1 collection (see `./test/PactflowPorductsAPI.postman_collection.json`)
 * Uses Newman to test the API against the postman collection
-* Uses [Postman2OpenAPI](https://github.com/kevinswiber/postman2openapi) to convert a Postman collection to an OAS for use in the bi-directional contracts feature.
+* Uses [Postman2OpenAPI](https://github.com/kevinswiber/postman2openapi) to convert a Postman collection to an OAS for use in the Bi-Directional Contract Test feature.
 
 What is uploaded to Pactflow is an OpenAPI specification that represents what you actually tested from the Postman collection, to give us confidence it is compatible with a Pact consumer.
 

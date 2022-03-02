@@ -35,7 +35,7 @@ The project uses a Makefile to simulate a very simple build pipeline with two st
 
 See the [Pactflow CI/CD Workshop](https://github.com/pactflow/ci-cd-workshop).
 
-## Bi-directional Contracts Feature (BYO Tools)
+## Bi-directional Contract Test Feature (BYO Tools)
 
 _NOTE: if you're running the CI/CD workshop, you can ignore this section. This is an extension to the example that demonstrates a new [feature](https://github.com/pactflow/roadmap/issues/4) in developer preview._
 
