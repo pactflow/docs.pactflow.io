@@ -110,7 +110,7 @@ module.exports = {
         "docs/workshops/tutorials",
         {
           type: "category",
-          label: "Bi-directional Contracts",
+          label: "Bi-Directional Contract Test",
           items: [
             "docs/workshops/bi-directional",
             "docs/workshops/bi-directional/consumer",
@@ -169,7 +169,7 @@ module.exports = {
             "docs/examples/soap/java/consumer",
             "docs/examples/soap/java/provider",
           ],
-          "Bi-directional Contracts": [
+          "Bi-Directional Contract Test": [
             "docs/examples/bi-directional/consumer/recordreplay/readme",
             "docs/examples/bi-directional/consumer/wiremock/readme",
             "docs/examples/bi-directional/provider/dredd/readme",
