@@ -1,5 +1,5 @@
 ---
-title: Bi-directional Contracts Guide
+title: Bi-directional Contracts (BDC) Guide
 sidebar_label: Overview
 ---
 

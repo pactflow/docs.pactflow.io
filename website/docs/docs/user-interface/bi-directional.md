@@ -8,7 +8,7 @@ This section contains information about the bi-directional contract test UI on P
 
 ## Overview tab
 
-Bi-directional contract test results are listed at overview tab. 
+Bi-directional contract test results are listed one the overview tab.
 
 &nbsp;
 
