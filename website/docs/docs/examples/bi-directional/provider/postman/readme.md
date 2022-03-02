@@ -13,12 +13,12 @@ https://github.com/pactflow/example-provider-postman
 
 [![Build Status](https://travis-ci.com/pactflow/example-provider-postman.svg?branch=master)](https://travis-ci.com/pactflow/example-provider-postman)
 
-This is an example "Product" API Provider, to demonstrate the new Bi-Directional Contract Test capability of Pactflow (previously referred to as Provider driven contracts, or collaborative contracts). It:
+This is an example "Product" API Provider, to demonstrate the new Bi-Directional Contract Testing capability of Pactflow (previously referred to as Provider driven contracts, or collaborative contracts). It:
 
 * Is an API written in Express JS
 * Has a Postman 2.1 collection (see `./test/PactflowPorductsAPI.postman_collection.json`)
 * Uses Newman to test the API against the postman collection
-* Uses [Postman2OpenAPI](https://github.com/kevinswiber/postman2openapi) to convert a Postman collection to an OAS for use in the Bi-Directional Contract Test feature.
+* Uses [Postman2OpenAPI](https://github.com/kevinswiber/postman2openapi) to convert a Postman collection to an OAS for use in the Bi-Directional Contract Testing feature.
 
 What is uploaded to Pactflow is an OpenAPI specification that represents what you actually tested from the Postman collection, to give us confidence it is compatible with a Pact consumer.
 
@@ -51,7 +51,7 @@ To be able to run some of the commands locally, you will need to export the foll
 ## Usage
 
 * `make test` - run the newman testing suite
-* `make convert` - converts the Postman collection to an OAS for Bi-Directional Contract Test(automatically done by the `make fake_ci` step)
+* `make convert` - converts the Postman collection to an OAS for Bi-Directional Contract Testing(automatically done by the `make fake_ci` step)
 * `make fake_ci` - run the CI process, but locally
 
 ## Caveats
