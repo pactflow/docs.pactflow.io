@@ -1,5 +1,5 @@
 ---
-title: Bi-Directional Contract Tests
+title: Bi-Directional Contract Testing
 ---
 
 A bi-directional contract test is a test that compares your provider contract (eg. an OpenAPI/Swagger document) and your consumer contract (pact).
