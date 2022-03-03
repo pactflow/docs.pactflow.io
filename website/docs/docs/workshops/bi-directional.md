@@ -1,11 +1,11 @@
 ---
-title: Bi-Directional Contract Testing Guide
+title: Bi-Directional Contract Test Guide
 sidebar_label: Overview
 ---
 
-## Project Status
+## ⚠️ Project Status
 
-Bi-Directional Contract Testing is in **developer preview**, and currently supports pact files (consumer) and OpenAPI Specification (provider). If you have any comments about this feature, please [get in touch](mailto:hello@pactflow.io).
+Bi-Directional Contract Test is in **developer preview**, and currently supports pact files (consumer) and OpenAPI Specification (provider). If you'd like to know more about this feature, please [get in touch](mailto:hello@pactflow.io).
 
 ## High Level Roadmap
 
@@ -14,7 +14,7 @@ Below summarises some of the key items on our feature rollout. See the full Pact
 | #   | Item                          | Description                                                                                                     |             Status             |
 | --- | :---------------------------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------: |
 | 1   | OpenAPI Specification support | Support via API only                                                                                            |               ✅               |
-| 2   | User interface support        | Visibility of bi-directional features in Pactflow UI                                                            |               ✅               |
+| 2   | User interface support        | Visibility of bi-directional features in Pactflow UI                                                            |           In design            |
 | 3   | Contract adapters             | Adapters to convert common mocks into pact files(e.g. Cypress, MSW, Wiremock)                                   | In Progress / Seeking feedback |
 | 4   | SOAP/XML support              | Support for comparing SOAP requests with SOAP XSD Schemas                                                       |            Planned             |
 | 5   | Protobuf support              | Support for protobuf schemas as the contract format                                                             |            Planned             |
@@ -24,25 +24,25 @@ Below summarises some of the key items on our feature rollout. See the full Pact
 
 ## Introduction
 
-Bi-Directional Contract Testing is a Pactflow only feature that allows teams to generate a contract from existing mocks (such as Wiremock) and to verify API providers using the functional API testing tools they are already using (such as Postman). Teams can use our plug-and-play adapters for popular tools or write their own.
+Bi-Directional Contract Test is a Pactflow only feature that allows teams to generate a contract from existing mocks (such as Wiremock) and to verify API providers using the functional API testing tools they are already using (such as Postman). Teams can use our plug-and-play adapters for popular tools or write their own.
 
 When contract-testing with Pact, you need to write and maintain a separate set of tests that are responsible for ensuring systems are compatible.
 
-Bi-Directional Contract Testing provides the ability to “upgrade” your existing tools into a powerful contract-testing solution, simplifying adoption and reducing the time to implement contract testing across your architecture.
+Bi-Directional Contract Test provides the ability to “upgrade” your existing tools into a powerful contract-testing solution, simplifying adoption and reducing the time to implement contract testing across your architecture.
 
 ## Use Cases
 
-| Use Case                                                                           | Description                                                                                                                                                                                                                                                                                                     | How Bi-Directional Contract Testing Help                                                                                                                                                               |
+| Use Case                                                                           | Description                                                                                                                                                                                                                                                                                                     | How Bi-Directional Contract Test Help                                                                                                                                                               |
 | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Retrofitting contract-testing onto an existing system                              | Writing many Pact tests to cover all scenarios can be time-consuming                                                                                                                                                                                                                                            | Bi-Directional Contract Testing lets you re-use existing tools to get greater coverage faster                                                                                                          |
+| Retrofitting contract-testing onto an existing system                              | Writing many Pact tests to cover all scenarios can be time-consuming                                                                                                                                                                                                                                            | Bi-Directional Contract Test lets you re-use existing tools to get greater coverage faster                                                                                                          |
 | API Gateways                                                                       | Pass through systems can be cumbersome to test with Pact (particularly handling state and mocking systems)                                                                                                                                                                                                      | Using specifications as the contract simplifies the approach                                                                                                                                    |
-| Internal APIs with large numbers of consumers                                      | Many consumers can make testing with Pact difficult, due to challenges with provider states and release co-ordination                                                                                                                                                                                           | Bi-Directional Contract Testing is ideally suited as it decouples teams, and is particularly useful with fairly stable APIs (e.g. Auth)                                                                |
+| Internal APIs with large numbers of consumers                                      | Many consumers can make testing with Pact difficult, due to challenges with provider states and release co-ordination                                                                                                                                                                                           | Bi-Directional Contract Test is ideally suited as it decouples teams, and is particularly useful with fairly stable APIs (e.g. Auth)                                                                |
 | Testing against 3rd party APIs                                                     | Pact is not ideally suited to 3rd party APIs because 3rd parties are unlikely to validate your Pacts                                                                                                                                                                                                            | By pulling in the third party's API specification (OAS) regularly, you can continually ensure your consumers are compatible                                                                     |
-| Internal microservices following a contract-first approach (OpenAPI Specification) | Contract testing is ideally suited to internal service-to-service testing                                                                                                                                                                                                                                       | Bi-Directional Contract Testing can speed this process up by re-using the OAS as the provider spec                                                                                                     |
-| Web based contract tests (e.g. Cypress, MSW)                                       | Web applications tend to make heavy use of mocking/stubbing, which could result in of getting out of sync with the Provider API implementation. Further, using Pact from these tools can [lead to challenges](https://pactflow.io/blog/a-disastrous-tale-of-ui-testing-with-pact/) if not carefully implemented | Bi-Directional Contract Testing removes the need for additional Pact tests and the problem associated with too many interactions in a contract                                                         |
+| Internal microservices following a contract-first approach (OpenAPI Specification) | Contract testing is ideally suited to internal service-to-service testing                                                                                                                                                                                                                                       | Bi-Directional Contract Test can speed this process up by re-using the OAS as the provider spec                                                                                                     |
+| Web based contract tests (e.g. Cypress, MSW)                                       | Web applications tend to make heavy use of mocking/stubbing, which could result in of getting out of sync with the Provider API implementation. Further, using Pact from these tools can [lead to challenges](https://pactflow.io/blog/a-disastrous-tale-of-ui-testing-with-pact/) if not carefully implemented | Bi-Directional Contract Test removes the need for additional Pact tests and the problem associated with too many interactions in a contract                                                         |
 | Monolith to microservice migrations                                                | For example, gradually splitting of microservices using the "strangler" pattern, or to a complete new design                                                                                                                                                                                                    | Contract testing helps you migrate from your legacy applications to a modernised architecture by preventing breaking changes. When existing contract tests pass, you know it's safe to cutover. |
 
-<!-- | Public APIs (documented via OpenAPI Specifications) | Open Banking | Pact is not ideally suited to public APIs because you don't have consumers creating tests. With Bi-Directional Contract Testing, you could allow consumers to use contract-testing in a more decoupled way | -->
+<!-- | Public APIs (documented via OpenAPI Specifications) | Open Banking | Pact is not ideally suited to public APIs because you don't have consumers creating tests. With Bi-Directional Contract Test, you could allow consumers to use contract-testing in a more decoupled way | -->
 
 ## Comparison to Pact
 
@@ -100,33 +100,19 @@ The testing process may be initiated from either the consumer side (_consumer dr
 
 ### Steps
 
-_Provider_
-
-1. Provider starts with its specification (e.g. an OpenAPI specification) referred to as the `Provider Contract`. This may be created by hand or generated by code (e.g. swagger codegen)
-2. The `Provider Contract` is tested against the provider, using a functional API testing tool (such as RestAssured, Dredd, or Postman) or generated by code (such as via Swashbuckle, Spring Docs)
-3. The `Provider Contract` is uploaded to Pactflow
-4. When we call `can-i-deploy` the cross-contract validation process in Pactflow generates a `Verification Result` ensuring the provider doesn't break any of its consumers
-5. If that passes, we deploy the provider and record the deployment via the `pact-broker record-deployment` command.
-
 _Consumer_
 
 1. Consumer tests its behaviour against a mock (such as Pact or Wiremock)
 2. The `Consumer Contract` is produced, in the form of a pact file, that captures _only_ the actual interactions generated by the consumer code
 3. The `Consumer Contract` is uploaded to Pactflow
 4. When we call `can-i-deploy` the cross-contract validation process in Pactflow generates a `Verification Result` determining if the consumer consumes a valid subset of the provider contract.
-5. If that passes, we deploy the consumer and record the deployment via the `pact-broker record-deployment` command.
 
-### Terminology
+_Provider_
 
-- **Consumer**: An application that makes use of the functionality or data from another application to do its job. For applications that use HTTP, the consumer is always the application that initiates the HTTP request (eg. the web front end), regardless of the direction of data flow. For applications that use queues, the consumer is the application that reads the message from the queue.
-
-- **Provider**: An application (often called a service) that provides functionality or data for other applications to use, often via an API. For applications that use HTTP, the provider is the application that returns the response. For applications that use queues, the provider (also called producer) is the application that writes the messages to the queue.
-
-- A **consumer contract** is a collection of interactions which describe how the Consumer expects the Provider to behave. Each Consumer will have its own unique consumer contract for each of its Providers.
-
-- A **provider contract** specifies the capability of the Provider. In this workshop, it will take the form of an OpenAPI document, but may be other formats such as a GraphQL schema, a SOAP XSD, a protobuf definition and so on.
-
-- **cross-contract validation** or **contract comparison**: the process by which Pactflow confirms that the consumer contract is a valid subset of a provider contract. For example, it will ensure that all request/responses defined in a pact file and valid resources and match the schemas in a provider OAS file.
+1. Provider starts with its specification (e.g. an OpenAPI specification) referred to as the `Provider Contract`. This may be created by hand or generated by code (e.g. swagger codegen)
+2. The `Provider Contract` is tested against the provider, using a functional API testing tool (such as RestAssured, Dredd, or Postman) or
+3. The `Provider Contract` is uploaded to Pactflow
+4. When we call `can-i-deploy` the cross-contract validation process in Pactflow generates a `Verification Result` ensuring the provider doesn't break any of its consumers
 
 ## Contract support
 
@@ -134,18 +120,18 @@ _Consumer_
 
 Consumer contracts must currently be specified in a pact format. You may use any tool, including Pact, to generate a pact file.
 
-Read the documentation on using [Pact as a consumer contract](/docs/bi-directional-contract-testing/contracts/pact) for more on how to convert mocks into the Pact format.
+Read the documentation on using [Pact as a consumer contract](/docs/workshops/bi-directional/contracts/pact) for more on how to convert mocks into the Pact format.
 
 ### OpenAPI Specification
 
 Provider contracts may be specified using an OpenAPI Specification.
 
-Read the documentation using [OpenAPI Specification as provider contract](/docs/bi-directional-contract-testing/contracts/oas) for more.
+Read the documentation using [OpenAPI Specification as provider contract](/docs/workshops/bi-directional/contracts/oas) for more.
 
 ### GraphQL
 
-Work for GraphQL support is planned to be started Q3 2022.
+TBC
 
 ### gRPC/Protobufs
 
-Work for GraphQL support is planned to be started Q3 2022.
+TBC

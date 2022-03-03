@@ -46,7 +46,7 @@ module.exports = {
         "docs/pact",
         {
           type: "category",
-          label: "Bi-directional Contract Testing",
+          label: "Bi-Directional Contract Testing",
           items: [
             "docs/bi-directional-contract-testing",
             "docs/bi-directional-contract-testing/consumer",
