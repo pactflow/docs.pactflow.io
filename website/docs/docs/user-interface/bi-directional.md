@@ -50,7 +50,7 @@ Note: When a classic pact test is performed along with Bi-Directional Contract T
 Show provider contract detail and provider self verification result. Currently, only OpenAPI/Swagger is supported. 
 
 
-## Bi-Directional Contract Testing UI Incompatibility Messages
+## Contract Incompatibility Messages
 When provider and consumer contracts are incompatible, incompatibility messages and mismatches are listed at [Contract Comparison Tab](#contract-comparison-tab). You can also find incompatibility messages under interaction items at [Consumer Contract Tab](#consumer-contract-tab)
 
 | Error Messsage | Description |

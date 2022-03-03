@@ -24,7 +24,7 @@ The [detail screen](../user-interface/bi-directional) for the BDC interaction ha
 
 This tab will display the details of the comparison between the Pact file and the OAS.
 
-## Contract Incompatibility Message List
+## Contract Incompatibility Messages
 
 | Error Messsage | Description |
 | ---------- | ----------- |
