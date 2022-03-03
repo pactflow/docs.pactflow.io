@@ -24,3 +24,18 @@ The [detail screen](../user-interface/bi-directional) for the BDC interaction ha
 
 This tab will display the details of the comparison between the Pact file and the OAS.
 
+## Contract Incompatibility Messages
+
+| Error Messsage | Description |
+| ---------- | ----------- |
+| Request accept header is incompatible | Pact request's accept header content is incompatible with provider contract |
+| Request misses authorization header | Pact request's authorization header is missing |
+| Request body is incompatible | Pact request's body content is incompatible with provider contract |
+| Request content type header is incompatible | Pact request's content type header is incompatible with provider contract |
+| Request header is incompatible | Pact request's header content is incompatible with provider contract|
+| Request contains unknown path or method | Pact contains unknown request's path or method compared with provider contract |
+| Request query is incompatible | Pact request query content is incompatible with provider contract |
+| Response body is incompatible | Pact response's body content is incompatible with provider contract |
+| Response body contains unknown information | Pact response's body contains unknown content compared with provider contract|
+| Response request is incompatible | Pact response's request content is incompatible with provider contract|
+| Reponse header contains unknown information | Pact response's header contains unknown content compared with provider contract |

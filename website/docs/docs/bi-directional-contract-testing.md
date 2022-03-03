@@ -58,7 +58,7 @@ Here is an at-a-glance view of
 
 ### Trade-offs
 
-|                                   | Traditional | Consumer Driven Contract Testing                            | Bi-directional Contract Testing                                                                                                    |
+|                                   | Traditional | Consumer Driven Contract Testing                            | Bi-Directional Contract Testing                                                                                                    |
 | --------------------------------- | ----------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 |                                   | E2E Testing | Contract test<br/><br/>_(e.g. Pact, Spring Cloud Contract)_ | Specification or code generated contract tests<br/><br/>_(e.g. OAS, Postman Collections, Wiremock, Mountebank, GraphQL, Protobuf)_ |
 | **Outcomes**                      |             |                                                             |
