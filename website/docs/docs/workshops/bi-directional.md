@@ -120,13 +120,13 @@ _Provider_
 
 Consumer contracts must currently be specified in a pact format. You may use any tool, including Pact, to generate a pact file.
 
-Read the documentation on using [Pact as a consumer contract](/docs/workshops/bi-directional/contracts/pact) for more on how to convert mocks into the Pact format.
+Read the documentation on using [Pact as a consumer contract](/docs/bi-directional-testing/contracts/pact) for more on how to convert mocks into the Pact format.
 
 ### OpenAPI Specification
 
 Provider contracts may be specified using an OpenAPI Specification.
 
-Read the documentation using [OpenAPI Specification as provider contract](/docs/workshops/bi-directional/contracts/oas) for more.
+Read the documentation using [OpenAPI Specification as provider contract](docs/bi-directional-contract-testing/contracts/oas) for more.
 
 ### GraphQL
 
