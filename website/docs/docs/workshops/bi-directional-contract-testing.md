@@ -1,18 +1,46 @@
 ---
 id: bi-directional-contract-testing
 title: Bi-Directional Contract Testing Workshop
-sidebar_label: Introduction
+sidebar_label: Overview
 ---
 
-A workshop demonstrating how to set up a CI/CD pipeline for a consumer and provider using Pact, Pactflow and Github Actions.
+_Level: Intermediate_
 
-It uses the Pactflow [example-consumer][example-consumer] and [example-provider][example-provider] repositories. These are written in Node, however, extensive node experience will not be required for the workshop.
+Learn how to implement a Bi-Directional Contract Testing workflow from end-to-end, including integration with your CI/CD system.
 
-## Goals
+_NOTE: To complete the workshop, you will need to authenticate to Katacoda (the online learning platform) with GitHub, Google, Twitter or LinkedIn._
 
-- To understand how Pact and Pactflow fit into the CI/CD pipelines of a consumer and provider.
-- To understand the workflows involved in making changes to both consumer and provider.
-- To understand how Pact + Pactflow stop breaking changes from being deployed to a given environment.
+### Goals
 
-[example-consumer]: https://github.com/pactflow/example-consumer
-[example-provider]: https://github.com/pactflow/example-provider
+You will learn how:
+
+1. To use OpenAPI as part of a contract testing strategy
+1. API testing tools such as Dredd or Postman can be used with Pactflow
+1. To publish contracts (such as a pact file or an OpenAPI document) to Pactflow
+1. To prevent deploying breaking changes to an environment, such as production
+1. To use existing mocking tools (such as Mountebank or Wiremock) to create a consumer contract
+
+### Agenda
+
+You will:
+
+1. Create and document an API using [OpenAPI Specification](https://www.openapis.org/)
+1. Write tests for the API using the Dredd API testing tool
+1. Publish the _provider contract_ (an OpenAPI document) to Pactflow
+1. Deploy the provider to production
+1. Write the API consumer
+1. Write tests for an API client using Mountebank to mock the API, and convert those mocks into a _consumer contract_
+1. Publish the consumer contract to Pactflow
+1. Deploy the consumer to production
+1. Learn about Pactflow's breaking change detection system
+
+### Tools used
+
+- Node - for the applications being tested
+- [Mountebank](https://mbtest.org) - for API mocking
+- [Dredd](https://dredd.org/en/latest/index.html) - for API Testing
+- Github Actions - for CI/CD pipeline
+
+### Tutorial
+
+You can complete the course at https://katacoda.com/pact/scenarios/pactflow-bi-directional-contracts-intro.

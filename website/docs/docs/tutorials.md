@@ -81,7 +81,7 @@ You will learn how:
 1. To prevent deploying breaking changes to an environment, such as production
 1. To use existing mocking tools (such as Mountebank or Wiremock) to create a consumer contract
 
-## Agenda
+### Agenda
 
 You will:
 
