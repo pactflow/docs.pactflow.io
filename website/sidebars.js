@@ -199,6 +199,7 @@ module.exports = {
             "docs/examples/bi-directional/consumer/wiremock/readme",
             "docs/examples/bi-directional/consumer/cypress/readme",
             "docs/examples/bi-directional/consumer/mountebank/readme",
+            "docs/examples/bi-directional/consumer/msw/readme",
             "docs/examples/bi-directional/consumer/dotnet/readme",
             "docs/examples/bi-directional/provider/dredd/readme",
             "docs/examples/bi-directional/provider/postman/readme",
