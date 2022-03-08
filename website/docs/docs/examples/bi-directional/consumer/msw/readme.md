@@ -48,15 +48,10 @@ To be able to run some of the commands locally, you will need to export the foll
 
 Reuse your API mocks generated with MSW and generate pacts from specified interactions using [msw-pact](https://www.npmjs.com/package/msw-pact)
 
-- `make test_msw` - run msw test locally
-- `make fake_ci_msw` - emulate the CI process locally
+- `make test` - run msw test locally
+- `make fake_ci` - emulate the CI process locally
 
 The test file can be seen here `./src/api.msw.spec.js`
-
-A traditional pact file is also available here `./src/api.pact.spec.js`
-
-- `make test` - run pact test locally
-- `make fake_ci` - emulate the CI process locally
 
 ## Key points
 
