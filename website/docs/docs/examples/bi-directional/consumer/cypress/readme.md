@@ -11,19 +11,9 @@ sidebar_label: Example Cypress Consumer
 https://github.com/pactflow/example-bdc-consumer-cypress
 
 
-This is an example of a React consumer using Cypress to demonstrate the bi-directional contract testing capability of [Pactflow](https://pactflow.io).
+This is an example of a React consumer using Cypress and [pact-cypress-adaptor](https://www.npmjs.com/package/@pactflow/pact-cypress-adaptor) to demonstrate the bi-directional contract testing capability of [Pactflow](https://pactflow.io).
 
 It implements a "Product" website. You can see the [Provider](https://github.com/pactflow/example-pactflow-example-provider-dredd) counterpart (see below for other compatible example providers).
-
-It is using a public tenant on Pactflow, which you can access [here](https://test.pactflow.io) using the credentials `dXfltyFMgNOFZAxr8io9wJ37iUpY42M`/`O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1`.
-
-Unlike with Pact, the provider does not need to replay any tests to ensure it remains compatible with its consumers. This is achieved with a call to "can-i-deploy", which performs a cross-contract validation, ensuring any consumer consumes a valid subset of the OAS for the provider.
-
-![Consumer Test](https://raw.githubusercontent.com/pactflow/example-bdc-consumer-cypress/main/docs/consumer-scope.png)
-
-When you run the CI pipeline (see below for doing this), the pipeline should perform the following activities (simplified):
-
-![Consumer Pipeline](https://raw.githubusercontent.com/pactflow/example-bdc-consumer-cypress/main/docs/consumer-pipeline.png)
 
 ### Pre-requisites
 
@@ -64,7 +54,6 @@ _How to use Cypress_
 - `npm run cypress:run` - this will run cypress e2e test with browser ui
 
 ### FAQ
-
 
 #### 1. Do this work with `cy.route`?
 
