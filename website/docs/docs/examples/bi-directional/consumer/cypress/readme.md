@@ -1,5 +1,5 @@
 ---
-custom_edit_url: https://github.com/pactflow/example-bdc-consumer-cypress/edit/${branch}/README.md
+custom_edit_url: https://github.com/pactflow/example-bdc-consumer-cypress/edit/main/README.md
 title: Example Cypress Consumer
 sidebar_label: Example Cypress Consumer
 ---

@@ -1,5 +1,5 @@
 ---
-custom_edit_url: https://github.com/pactflow/example-bi-directional-provider-dotnet/edit/${branch}/README.md
+custom_edit_url: https://github.com/pactflow/example-bi-directional-provider-dotnet/edit/main/README.md
 title: Example .NET Schemathesis Provider
 sidebar_label: Example .NET Schemathesis Provider
 ---

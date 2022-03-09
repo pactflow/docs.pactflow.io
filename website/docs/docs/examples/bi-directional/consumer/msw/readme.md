@@ -1,5 +1,5 @@
 ---
-custom_edit_url: https://github.com/pactflow/example-consumer-msw/edit/${branch}/README.md
+custom_edit_url: https://github.com/pactflow/example-consumer-msw/edit/master/README.md
 title: Example Mock Service Worker Consumer
 sidebar_label: Example Mock Service Worker Consumer
 ---

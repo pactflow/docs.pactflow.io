@@ -1,5 +1,5 @@
 ---
-custom_edit_url: https://github.com/pactflow/example-bi-directional-consumer-mountebank/edit/${branch}/README.md
+custom_edit_url: https://github.com/pactflow/example-bi-directional-consumer-mountebank/edit/master/README.md
 title: Example Consumer Mountebank
 sidebar_label: Example Consumer Mountebank
 ---
@@ -10,6 +10,8 @@ sidebar_label: Example Consumer Mountebank
 
 https://github.com/pactflow/example-bi-directional-consumer-mountebank
 
+
+[![Build](https://github.com/pactflow/example-bi-directional-consumer-mountebank/actions/workflows/build.yml/badge.svg)](https://github.com/pactflow/example-bi-directional-consumer-mountebank/actions/workflows/build.yml)
 
 This is an example of a Node consumer using Mountebank stubs, and using the Bi-Directional Contract Testing feature of [Pactflow](https://pactflow.io).
 

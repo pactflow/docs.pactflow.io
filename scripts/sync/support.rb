@@ -161,7 +161,7 @@ end
 
 def process_file(path, content, path_transformer, custom_actions, comment, source_file_paths = nil, source_repository_slug = nil, branch = 'master')
   destination = path_transformer.call(path)
-  fields = { custom_edit_url: "https://github.com/#{source_repository_slug}/edit/${branch}/#{path}" }
+  fields = { custom_edit_url: "https://github.com/#{source_repository_slug}/edit/#{branch}/#{path}" }
   md_file_contents = MarkdownFileContents.new(content.split("\n"), fields, [comment])
   select_actions(custom_actions, path).each { |action| action.call(md_file_contents) }
   if source_file_paths && source_repository_slug
