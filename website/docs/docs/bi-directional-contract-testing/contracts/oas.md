@@ -94,7 +94,7 @@ The following describes the body that should be sent in the API
 
 - `content`
 
-  The base64 encoded contents of the OAS
+  The base64 encoded contents of the OAS, where the base64 encoding follows RFC 4648 standard (no spaces or newlines).
 
 - `contractType`
 
@@ -114,7 +114,7 @@ The following describes the body that should be sent in the API
 
 - `verificationResults.content`
 
-  The base64 encoded test results (may be any output of your choosing)
+  The base64 encoded test results, which may be any output of your choosing. The base64 encoding must follow the RFC 4648 standard (no spaces or newlines).
 
 - `verificationResults.contentType`
 
