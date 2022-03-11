@@ -14,7 +14,7 @@ Bi-Directional Contract Testing (BDCT) provides the ability to "upgrade" your ex
 :::info
 **A note for Pact users**: when contract testing with Pact, you need to write and maintain a separate set of (Pact) tests that are responsible for ensuring systems are compatible. The tests on the consumer side produce a consumer contract containing the example scenarios which must be supported for the consumer to work, which are then replayed against an actual running provider in a **record and replay** style interaction. If the Provider responds correctly, the contract is valid.
 
-With BDCT, the key difference is that a Provider uploads its own **provider contract** advertising its full capability which is statically compared to the expectations in the consumer contract - the consumer contract is never replayed against the provider code base. This creates a much [simpler](/#comparison-to-pact) and decoupled workflow. See the [trade-offs](#trade-offs) for more.
+With BDCT, the key difference is that a Provider uploads its own **provider contract** advertising its full capability which is statically compared to the expectations in the consumer contract - the consumer contract is never replayed against the provider code base. This creates a much [simpler](#comparison-to-pact) and decoupled workflow. See the [trade-offs](#trade-offs) for more.
 
 BDCT is not intended to replace Pact testing, but to provide an alternative in the cases where Pact may not be best suited.
 
