@@ -42,7 +42,7 @@ SUCCESS=true
 if [ "${1}" != "true" ]; then
   SUCCESS=false
 fi
-OAS=$(cat oas/swagger.yml | base64)
+OAS=$(cat oas/swagger.yml | base64) # Pass the "-w 0" flag if on linux
 REPORT=$(cat /path/to/report.file | base64)
 
 echo "==> Uploading OAS to Pactflow"
@@ -94,7 +94,7 @@ The following describes the body that should be sent in the API
 
 - `content`
 
-  The base64 encoded contents of the OAS, where the base64 encoding follows RFC 4648 standard (no spaces or newlines).
+  The base64 encoded contents of the OAS (see [base64 encoding](#base64-encoding) below)
 
 - `contractType`
 
@@ -114,7 +114,7 @@ The following describes the body that should be sent in the API
 
 - `verificationResults.content`
 
-  The base64 encoded test results, which may be any output of your choosing. The base64 encoding must follow the RFC 4648 standard (no spaces or newlines).
+  The base64 encoded test results, which may be any output of your choosing (see [base64 encoding](#base64-encoding) below).
 
 - `verificationResults.contentType`
 
@@ -297,3 +297,28 @@ When using OpenAPI Specifications as a Provider Contract, you should be aware of
 - It is recommended to allow `additionalProperties` on request items to align with [Postel's Law](https://en.wikipedia.org/wiki/Robustness_principle)
 - _Implementing_ a spec is not the same as being _compatible_ with a spec ([read more](https://pactflow.io/blog/contract-testing-using-json-schemas-and-open-api-part-1/)). Most tools only tell you that what you’re doing is _not incompatible_ with the spec. _NOTE: We plan to address this problem in the future via our OAS Testing Tool_
 - You are responsible for ensuring sufficient OAS coverage. To highlight this point, in our [Dredd example](https://github.com/pactflow/example-provider-dredd), we do _not_ test the 404 case on the provider, but the consumer has a pact for it and it's tests still pass! _NOTE: We plan to address this problem in the future via our OAS Testing Tool_
+
+## Base64 Encoding
+
+Base64 encoded strings must be encoded according to RFC 4648.
+
+:::warning
+
+Pactflow uses strict decoding of base64 payloads using RFC 4648 encoded strings, which means that the presence of additional non-Alphabet Characters will cause an error (see https://datatracker.ietf.org/doc/html/rfc4648#section-3.3).
+
+This means that spaces or newlines will cause the publishing to fail.
+:::
+
+Assuming the contents of the file is `oas.yaml`, you can obtain the base64 encoded bytes as follows:
+
+On OSX:
+
+    base64 oas.yaml
+
+On Linux:
+
+    base64 -w 0 oas.yaml
+
+On Windows
+
+    [convert]::ToBase64String((Get-Content -path "oas.yaml" -Encoding byte))
