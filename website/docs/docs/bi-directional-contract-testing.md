@@ -5,11 +5,20 @@ sidebar_label: Overview
 
 ## Introduction
 
-Bi-Directional Contract Testing is a Pactflow only feature that allows teams to generate a contract from existing mocks (such as Wiremock) and to verify API providers using the functional API testing tools they are already using (such as Postman). Teams can use our plug-and-play adapters for popular tools or write their own.
+Bi-Directional Contract Testing is a type of **schema-based contract testing**, where consumer contracts (representing consumer expectations) and provider contracts (describing the provider API) are **statically compared** to ensure they remain compatible.
 
-When contract-testing with Pact, you need to write and maintain a separate set of tests that are responsible for ensuring systems are compatible.
+Teams generate a consumer contract from a mocking tool (such as Pact or Wiremock) and API providers verify a provider contract (such as an OAS) using the functional API testing tools they are already using (such as Postman). Pactflow then statically compares the contracts down to the field level to ensure that they remain compatible.
 
-Bi-Directional Contract Testing provides the ability to “upgrade” your existing tools into a powerful contract-testing solution, simplifying adoption and reducing the time to implement contract testing across your architecture.
+Bi-Directional Contract Testing (BDCT) provides the ability to "upgrade" your existing tools into a powerful contract-testing solution, simplifying adoption and reducing the time to implement contract testing across your architecture.
+
+:::info
+**A note for Pact users**: when contract testing with Pact, you need to write and maintain a separate set of (Pact) tests that are responsible for ensuring systems are compatible. The tests on the consumer side produce a consumer contract containing the example scenarios which must be supported for the consumer to work, which are then replayed against an actual running provider in a **record and replay** style interaction. If the Provider responds correctly, the contract is valid.
+
+With BDCT, the key difference is that a Provider uploads its own **provider contract** advertising its full capability which is statically compared to the expectations in the consumer contract - the consumer contract is never replayed against the provider code base. This creates a much [simpler](/#comparison-to-pact) and decoupled workflow. See the [trade-offs](#trade-offs) for more.
+
+BDCT is not intended to replace Pact testing, but to provide an alternative in the cases where Pact may not be best suited.
+
+:::
 
 ## High Level Roadmap
 
