@@ -5,7 +5,7 @@ sidebar_label: Overview
 
 ## Introduction
 
-Bi-Directional Contract Testing is a type of **schema-based contract testing**, where consumer contracts (representing consumer expectations) and provider contracts (describing the provider API) are **statically compared** to ensure they remain compatible.
+Bi-Directional Contract Testing is a type of **static contract testing** where two contracts - one representing the consumer expectations, and another representing the provider capability - are compared to ensure they are compatible.
 
 Teams generate a consumer contract from a mocking tool (such as Pact or Wiremock) and API providers verify a provider contract (such as an OAS) using the functional API testing tools they are already using (such as Postman). Pactflow then statically compares the contracts down to the field level to ensure that they remain compatible.
 
