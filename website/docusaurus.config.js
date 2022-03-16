@@ -97,9 +97,6 @@ module.exports = {
           blogTitle: "Pactflow Updates",
           blogDescription:
             "Updates on the Pactflow platform, including security notices and new on-premises releases",
-          // Please change this to your repo.
-          editUrl:
-            "https://github.com/pactflow/docs.pactflow.io/edit/master/website/blog/",
           feedOptions: {
             type: "all",
             copyright: `Copyright © ${new Date().getFullYear()} DiUS Computing Pty. Ltd.`,
