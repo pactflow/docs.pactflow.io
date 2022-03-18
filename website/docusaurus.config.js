@@ -74,7 +74,7 @@ module.exports = {
     },
     hideableSidebar: true,
     cleanUrl: true,
-
+    trailingSlash:true,
     algolia: {
       appId: "LY8MHW6MWQ",
       apiKey: "6d5a0494675f3e1d9ea2b3483a38f44b",
