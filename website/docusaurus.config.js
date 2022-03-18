@@ -74,6 +74,15 @@ module.exports = {
     },
     hideableSidebar: true,
     cleanUrl: true,
+    
+    algolia: {
+      appId: "LY8MHW6MWQ",
+      apiKey: "6d5a0494675f3e1d9ea2b3483a38f44b",
+      indexName: "pactflow",
+    },
+    
+    metadata: [ {name: 'docsearch:docusaurus_tag', content: 'docs-default-current'} ],
+
   },
   plugins: [path.resolve(__dirname, "src/plugins/plugin-segment")],
   presets: [
