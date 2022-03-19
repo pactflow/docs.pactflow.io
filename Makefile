@@ -17,4 +17,4 @@ _start:
 	cd website && yarn start
 
 crawl:
-	cd website && node updateCrawlerCreds.js && npx algolia-webcrawler --config doc-scaper.config.json 
+	./scripts/crawl-site.sh

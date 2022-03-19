@@ -16,14 +16,17 @@
         "anchor",
         "url",
         "url_without_anchor",
-        "type"
+        "type",
+        "language",
+        "docusaurus_tag"
       ],
       "attributesForFaceting": [
         "lang",
         "type",
         "lang",
         "language",
-        "version"
+        "version",
+        "docusaurus_tag"
       ]
     }
   },
@@ -46,12 +49,17 @@
     "lvl3": "article h3",
     "lvl4": "article h4",
     "lvl5": "article h5, article td:first-child",
-    "lvl6": "article h6"
+    "lvl6": "article h6",
+    "language": "language",
+    "docusaurus_tag": "docs-default-current"
   },
   "exclusions": {},
   "formatters": {},
   "types": {},
-  "defaults": {},
+  "defaults": {
+    "language": "en",
+    "docusaurus_tag": "docs-default-current"
+  },
   "plugins": [],
   "pingbackUrl": "",
   "blacklist": []
