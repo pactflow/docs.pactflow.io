@@ -15,3 +15,6 @@ stop:
 
 _start:
 	cd website && yarn start
+
+crawl:
+	cd scripts && ./crawl-site.sh

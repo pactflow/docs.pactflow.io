@@ -1,0 +1,24 @@
+{
+    "app_id": "LY8MHW6MWQ",
+    "start_urls": [
+        "https://docs.pactflow.io"
+    ],
+    "index_name": "Pactflow",
+    "sitemap_urls": [
+        "http://docs.pactflow.io/sitemap.xml"
+    ],
+    "sitemap_alternate_links": true,
+    "selectors": {
+        "lvl1": "header h1",
+        "content": "article p, article li, article td:last-child",
+        "lvl0": {
+            "selector": ".menu__link--sublist.menu__link--active",
+            "default_value": "Documentation"
+        },
+        "lvl2": "article h2",
+        "lvl3": "article h3",
+        "lvl4": "article h4",
+        "lvl5": "article h5, article td:first-child",
+        "lvl6": "article h6"
+    }
+}
