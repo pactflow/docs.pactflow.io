@@ -76,6 +76,7 @@ module.exports = {
     cleanUrl: true,
     trailingSlash:true,
     algolia: {
+      contextualSearch: false,
       appId: "LY8MHW6MWQ",
       apiKey: "6d5a0494675f3e1d9ea2b3483a38f44b",
       indexName: "Pactflow"
