@@ -1,0 +1,15 @@
+name: Crawl Pactflow docs
+
+on:
+  schedule:
+  - cron: "0 0 * * 0"
+
+jobs:
+  pactflow_docs_crawler:
+    runs-on: ubuntu-latest
+    env:
+      PACTFLOW_ALGOLIA_APP_ID: LY8MHW6MWQ
+      PACTFLOW_ALGOLIA_API_KEY: ${{secrets.PACTFLOW_ALGOLIA_API_KEY}}
+    name: Index Pactflow site
+    steps:
+      - run: make crawl

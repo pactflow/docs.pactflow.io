@@ -78,7 +78,7 @@ module.exports = {
     algolia: {
       appId: "LY8MHW6MWQ",
       apiKey: "6d5a0494675f3e1d9ea2b3483a38f44b",
-      indexName: "Pactflow",
+      indexName: "Pactflow"
     },
     
     metadata: [ {name: 'docsearch:docusaurus_tag', content: 'docs-default-current'} ],

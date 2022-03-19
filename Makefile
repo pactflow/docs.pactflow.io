@@ -17,4 +17,4 @@ _start:
 	cd website && yarn start
 
 crawl:
-	./scripts/crawl-site.sh
+	cd scripts && ./crawl-site.sh
