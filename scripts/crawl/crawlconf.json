@@ -4,7 +4,9 @@
         "https://docs.pactflow.io"
     ],
     "index_name": "Pactflow",
-    "sitemap_urls": ["http://docs.pactflow.io/sitemap.xml"],
+    "sitemap_urls": [
+        "http://docs.pactflow.io/sitemap.xml"
+    ],
     "sitemap_alternate_links": true,
     "selectors": {
         "lvl1": "header h1",
@@ -18,9 +20,5 @@
         "lvl4": "article h4",
         "lvl5": "article h5, article td:first-child",
         "lvl6": "article h6"
-    },
-    "variables": {
-        "lang": ["en"],
-        "docusaurus_tag": ["docs-default-current"]
-      }
+    }
 }

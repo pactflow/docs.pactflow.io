@@ -19,7 +19,6 @@
     "react-dom": "^16.14.0"
     },
   "devDependencies": {
-    "algolia-webcrawler": "^3.2.3",
     "improved-yarn-audit": "^2.3.2"
   },
   "browserslist": {
