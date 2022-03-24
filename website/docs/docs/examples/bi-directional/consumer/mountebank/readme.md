@@ -15,7 +15,7 @@ https://github.com/pactflow/example-bi-directional-consumer-mountebank
 
 This is an example of a Node consumer using Mountebank stubs, and using the Bi-Directional Contract Testing feature of [Pactflow](https://pactflow.io).
 
-It implements a simple Product API client for the [Provider](https://github.com/pactflow/example-pactflow-example-provider-dredd) counterpart.
+It implements a simple Product API client for the [Provider](https://github.com/pactflow/example-provider-dredd) counterpart.
 
 ### Pre-requisites
 
