@@ -13,7 +13,7 @@ https://github.com/pactflow/example-consumer-msw
 
 This is an example of a React consumer using mock-service-worker to demonstrate the bi-directional contract testing capability of [Pactflow](https://pactflow.io).
 
-It implements a "Product" website. You can see the [Provider](https://github.com/pactflow/example-pactflow-example-provider-dredd) counterpart (see below for other compatible example providers).
+It implements a "Product" website. You can see the [Provider](https://github.com/pactflow/example-provider-dredd) counterpart (see below for other compatible example providers).
 
 It is using a public tenant on Pactflow, which you can access [here](https://test.pactflow.io) using the credentials `dXfltyFMgNOFZAxr8io9wJ37iUpY42M`/`O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1`.
 
