@@ -84,6 +84,12 @@ module.exports = {
     
     metadata: [ {name: 'docsearch:docusaurus_tag', content: 'docs-default-current'} ],
 
+    prism: {
+      // default list https://github.com/FormidableLabs/prism-react-renderer/blob/master/src/vendor/prism/includeLangs.js
+      // additional supported langs https://prismjs.com/#supported-languages
+      additionalLanguages: ['powershell','ruby','csharp','java','docker','groovy'],
+    },
+
   },
   plugins: [path.resolve(__dirname, "src/plugins/plugin-segment")],
   presets: [
