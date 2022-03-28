@@ -70,7 +70,7 @@ Usage: `./publish.sh true|false`
 
 **Path**
 
-The request should be a `POST` to the following path:
+The request should be a `PUT` to the following path:
 
 ```
 {baseUrl}/contracts/provider/{application}/version/{version}
