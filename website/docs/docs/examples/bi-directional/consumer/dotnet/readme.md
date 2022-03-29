@@ -29,7 +29,7 @@ The project uses a Makefile to simulate a very simple build pipeline with two st
 
 This is an example of a .NET consumer using Pact to create a consumer driven contract, and sharing it via [Pactflow](https://pactflow.io).
 
-It implements a "Product" website, to demonstrate the new bi-directional contract capability of Pactflow (previously referred to as Provider driven contracts, or collaborative contracts). See the [Provider](https://github.com/pactflow/example-provider-dredd) counterpart.
+It implements a "Product" website, to demonstrate the new bi-directional contract capability of Pactflow (previously referred to as Provider driven contracts, or collaborative contracts). See the [Provider](https://github.com/pactflow/example-bi-directional-provider-dotnet) counterpart.
 
 In the following diagram, you can see how the consumer testing process works - it's the same as the current Pact process! (We do show an alternative using Nock's record/replay functionality)
 
