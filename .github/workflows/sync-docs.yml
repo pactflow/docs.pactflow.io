@@ -141,7 +141,7 @@ jobs:
         if: github.event.action == 'pactflow-example-consumer-wiremock-updated'
 
       - name: Sync example_provider_bidirectional_dotnet docs
-        run: bundle exec scripts/sync/example_provider_bidirectional_dotnet.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_dotnet docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_bidirectional_dotnet_schemathesis.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_dotnet docs"' >> $GITHUB_ENV
         if: github.event.action == 'pactflow-example-bdc-provider-dotnet-updated'
 
       - name: Sync example_consumer_bidirectional_dotnet docs
