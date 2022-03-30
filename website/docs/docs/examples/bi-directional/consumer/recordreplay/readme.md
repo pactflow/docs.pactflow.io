@@ -1,7 +1,7 @@
 ---
 custom_edit_url: https://github.com/pactflow/example-consumer/edit/master/README-bi-directional.md
-title: Example Consumer (record and replay - Bi-directional Contracts Feature  - BYO Tools with Nock )
-sidebar_label: Example Consumer (record and replay - Bi-directional Contracts Feature  - BYO Tools with Nock )
+title: Example JS Nock Consumer
+sidebar_label: Example JS Nock Consumer
 ---
 
 <!-- This file has been synced from the pactflow/example-consumer repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
