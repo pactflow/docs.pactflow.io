@@ -50,7 +50,7 @@ The single get product endpoint is not a spelling mistake, and is used to show e
 | Java          | OpenAPI          | [Wiremock](/docs/examples/bi-directional/consumer/wiremock/)                            | Java API client                                                                                  |
 | JS/NodeJS     | OpenAPI          | [Cypress](/docs/examples/bi-directional/consumer/cypress/)                            | Example demonstrating Cypress with the bi-directional contract testing feature                   |
 | JS/NodeJS     | OpenAPI          | [MSW](/docs/examples/bi-directional/consumer/msw/)                                    | Example demonstrating Mock Service Worker (MSW) with the bi-directional contract testing feature |
-| JS/NodeJS     | OpenAPI          | [Mountebank](/docs/examples/bi-directional/consumer/mountbank/)                                    | Example demonstrating Mountebank with the bi-directional contract testing feature |
+| JS/NodeJS     | OpenAPI          | [Mountebank](/docs/examples/bi-directional/consumer/mountebank/)                                    | Example demonstrating Mountebank with the bi-directional contract testing feature |
 | Python    | API          | [Python](/docs/examples/python/consumer/)                                    | Python API Consumer |
 
 ### Providers
