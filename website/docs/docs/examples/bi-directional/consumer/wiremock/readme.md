@@ -15,7 +15,7 @@ https://github.com/pactflow/example-consumer-wiremock
 
 [![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-wiremock/branches/master/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-wiremock/branches/master/latest-version/can-i-deploy/to-environment/production/badge)
 
-This is an example of a Java consumer that uses Wiremock (with Junit5), [Pactflow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
+This is an example of a Java consumer that uses Wiremock (with Junit5), [Pactflow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 
