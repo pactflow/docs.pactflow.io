@@ -13,9 +13,11 @@ https://github.com/pactflow/example-bi-directional-consumer-mountebank
 
 [![Build](https://github.com/pactflow/example-bi-directional-consumer-mountebank/actions/workflows/build.yml/badge.svg)](https://github.com/pactflow/example-bi-directional-consumer-mountebank/actions/workflows/build.yml)
 
+[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-mountebank/branches/master/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-mountebank/branches/master/latest-version/can-i-deploy/to-environment/production/badge)
+
 This is an example of a Node consumer using Mountebank stubs, and using the Bi-Directional Contract Testing feature of [Pactflow](https://pactflow.io).
 
-It implements a simple Product API client for the [Provider](https://github.com/pactflow/example-provider-dredd) counterpart.
+It implements a simple Product API client for the [Provider](https://github.com/pactflow/example-pactflow-example-provider-dredd) counterpart.
 
 ### Pre-requisites
 
