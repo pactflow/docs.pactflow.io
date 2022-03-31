@@ -11,7 +11,10 @@ sidebar_label: Example .NET Pact Consumer
 https://github.com/pactflow/example-bi-directional-consumer-dotnet
 
 
-![Build](https://github.com/pactflow/example-consumer/workflows/Build/badge.svg)
+[![Build](https://github.com/pactflow/example-bi-directional-consumer-dotnet/actions/workflows/build.yml/badge.svg)](https://github.com/pactflow/example-bi-directional-consumer-dotnet/actions/workflows/build.yml)
+
+[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-bi-directional-provider-dotnet/branches/main/latest-version/can-i-deploy/to-environment/production/badge.svg)](https://testdemo.pactflow.io/pacticipants/pactflow-example-bi-directional-provider-dotnet/branches/main/latest-version/can-i-deploy/to-environment/production/badge)
+
 
 This is an example of a .NET consumer using Pact to create a consumer driven contract, and sharing it via [Pactflow](https://pactflow.io).
 
