@@ -19,7 +19,7 @@ https://github.com/pactflow/example-provider-js-sns
 
 [![Pact Status](https://testdemo.pactflow.io/matrix/provider/pactflow-example-provider-js-sns/latest/master/consumer/pactflow-example-consumer-js-sns/latest/master/badge.svg?label=provider)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-js-sns/consumer/pactflow-example-consumer-js-sns/latest/master) (prod/prod pact)
 
-This is an example of a NodeJS provider that uses Pact, [Pactflow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
+This is an example of a NodeJS provider that uses Pact, [Pactflow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
 
 It is using a public tenant on Pactflow, which you can access [here](https://testdemo.pactflow.io) using the credentials `dXfltyFMgNOFZAxr8io9wJ37iUpY42M`/`O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1`. The latest version of the Example Consumer/Example Provider pact is published [here](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-js-sns/consumer/pactflow-example-consumer-js-sns/latest).
 
