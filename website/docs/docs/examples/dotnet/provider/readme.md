@@ -36,7 +36,7 @@ The project uses a Makefile to simulate a very simple build pipeline with two st
   * Tag the deployed consumer version as 'prod'
 
 ## Dependencies
-
+ 
 * Docker
 * A [Pactflow](https://pactflow.io) account
 * A [read/write API Token](https://docs.pactflow.io/#configuring-your-api-token) from your Pactflow account
