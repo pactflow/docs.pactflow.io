@@ -11,6 +11,11 @@ sidebar_label: Example Mock Service Worker Consumer
 https://github.com/pactflow/example-consumer-msw
 
 
+[![Build](https://github.com/pactflow/example-consumer-msw/actions/workflows/build.yml/badge.svg)](https://github.com/pactflow/example-consumer-msw/actions/workflows/build.yml)
+
+[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-msw/branches/master/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-msw/branches/master/latest-version/can-i-deploy/to-environment/production/badge)
+
+
 This is an example of a React consumer using mock-service-worker to demonstrate the bi-directional contract testing capability of [Pactflow](https://pactflow.io).
 
 It implements a "Product" website. You can see the [Provider](https://github.com/pactflow/example-provider-dredd) counterpart (see below for other compatible example providers).
@@ -46,8 +51,9 @@ To be able to run some of the commands locally, you will need to export the foll
 
 #### Use case with Mock Service Worker
 
-Reuse your API mocks generated with MSW and generate pacts from specified interactions using [msw-pact](https://www.npmjs.com/package/msw-pact)
+Reuse your API mocks generated with MSW and generate pacts from specified interactions using [pact-msw-adapter](https://www.npmjs.com/package/@pactflow/pact-msw-adapter)
 
+- `make clean` - ensure previous pacts are cleared
 - `make test` - run msw test locally
 - `make fake_ci` - emulate the CI process locally
 
