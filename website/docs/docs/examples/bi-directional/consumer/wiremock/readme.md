@@ -11,7 +11,9 @@ sidebar_label: Example Java Wiremock Consumer
 https://github.com/pactflow/example-consumer-wiremock
 
 
-[![Build Status](https://travis-ci.com/pactflow/pactflow-example-consumer-wiremock.svg?branch=master)](https://travis-ci.com/pactflow/pactflow-example-consumer-wiremock)
+![Build](https://github.com/pactflow/example-consumer-wiremock/workflows/Build/badge.svg)
+
+[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-wiremock/branches/master/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-wiremock/branches/master/latest-version/can-i-deploy/to-environment/production/badge)
 
 This is an example of a Java consumer that uses Wiremock (with Junit5), [Pactflow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
 
