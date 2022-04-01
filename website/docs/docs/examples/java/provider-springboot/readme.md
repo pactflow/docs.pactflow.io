@@ -11,7 +11,7 @@ sidebar_label: Example Java Spring Boot Provider
 https://github.com/pactflow/example-provider-springboot
 
 
-This is an example of a Java Spring Boot provider that uses Pact, [Pactflow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
+This is an example of a Java Spring Boot provider that uses Pact, [Pactflow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 
@@ -58,7 +58,7 @@ make test
 
 ### Simulating CI
 
-Usually, you would integrate this into a real CI system (such as Buildkite/Jenkins/CircleCI etc., or Travis as this repository is built against).
+Usually, you would integrate this into a real CI system (such as Buildkite/Jenkins/CircleCI etc., or GitHub Actions as this repository is built against).
 
 You can simulate a CI process with the following command:
 
