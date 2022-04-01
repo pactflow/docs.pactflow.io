@@ -11,9 +11,15 @@ sidebar_label: Example Node Kafka Consumer
 https://github.com/pactflow/example-consumer-js-kafka
 
 
-[![Build Status](https://travis-ci.com/pactflow/example-consumer-js-kafka.svg?token=Kys1s4kjp8EWzwqKWwhy&branch=master)](https://travis-ci.com/pactflow/example-consumer-js-kafka)
+![Build](https://github.com/pactflow/example-consumer-js-kafka/workflows/Build/badge.svg)
 
-This is an example of a Node kafka consumer that uses Pact, [Pactflow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
+[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-js-kafka/branches/master/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/overview/provider/pactflow-example-provider-java-kafka/consumer/pactflow-example-consumer-js-kafka)
+
+[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-kafka/consumer/pactflow-example-consumer-js-kafka/latest/badge)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-kafka/consumer/pactflow-example-consumer-js-kafka/latest) (latest pact)
+
+[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-kafka/consumer/pactflow-example-consumer-js-kafka/latest/master/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-kafka/consumer/pactflow-example-consumer-js-kafka/latest/master) (master/master pact)
+
+This is an example of a Node kafka consumer that uses Pact, [Pactflow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 
