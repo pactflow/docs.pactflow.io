@@ -68,8 +68,8 @@ jobs:
         run: bundle exec scripts/sync/example_consumer_js.rb && echo 'COMMIT_MESSAGE="synced example_consumer_js docs"' >> $GITHUB_ENV
         if: github.event.action == 'pactflow-example-consumer-js-updated'
 
-      - name: Sync example_consumer_js_sns docs
-        run: bundle exec scripts/sync/example_consumer_js_sns.rb && echo 'COMMIT_MESSAGE="synced example_consumer_js_kafka docs"' >> $GITHUB_ENV
+      - name: Sync example_consumer_js_kafka docs
+        run: bundle exec scripts/sync/example_consumer_js_kafka.rb && echo 'COMMIT_MESSAGE="synced example_consumer_js_kafka docs"' >> $GITHUB_ENV
         if: github.event.action == 'pactflow-example-consumer-js-kafka-updated'
 
       - name: Sync example_provider_java_kafka docs
