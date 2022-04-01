@@ -11,9 +11,15 @@ sidebar_label: Example Java XML Consumer
 https://github.com/pactflow/example-consumer-java-soap
 
 
-[![Build Status](https://travis-ci.com/pactflow/example-consumer-java-soap.svg?branch=master)](https://travis-ci.com/pactflow/example-consumer-java-soap)
+![Build](https://github.com/pactflow/example-consumer-java-soap/workflows/Build/badge.svg)
 
-This is an example of a Java SOAP consumer that uses Pact, [Pactflow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
+[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-java-soap/branches/master/latest-version/can-i-deploy/to-environment/production/badge.svg)](https://testdemo.pactflow.io/overview/provider/pactflow-example-consumer-java-soap/consumer/pactflow-example-consumer-js-soap)
+
+[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-soap/consumer/pactflow-example-consumer-java-soap/latest/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-soap/consumer/pactflow-example-consumer-java-soap/latest) (latest pact)
+
+[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-soap/consumer/pactflow-example-consumer-java-soap/latest/master/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-soap/consumer/pactflow-example-consumer-java-soap/latest/master) (master/master pact) 
+
+This is an example of a Java SOAP consumer that uses Pact, [Pactflow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 
