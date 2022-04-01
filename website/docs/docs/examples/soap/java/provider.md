@@ -11,9 +11,16 @@ sidebar_label: Example Java XML Provider
 https://github.com/pactflow/example-provider-java-soap
 
 
-[![Build Status](https://travis-ci.com/pactflow/example-provider-java-soap.svg?branch=master)](https://travis-ci.com/pactflow/example-provider-java-soap)
+![Build](https://github.com/pactflow/example-provider-java-soap/workflows/Build/badge.svg)
 
-This is an example of a Java XML provider that uses Pact, [Pactflow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
+[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-provider-java-soap/branches/master/latest-version/can-i-deploy/to-environment/production/badge.svg)](https://testdemo.pactflow.io/overview/provider/pactflow-example-provider-java-soap/consumer/pactflow-example-consumer-soap)
+
+[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-soap/consumer/pactflow-example-consumer-java-soap/latest/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-soap/consumer/pactflow-example-consumer-java-soap/latest) (latest pact)
+
+[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-soap/consumer/pactflow-example-consumer-java-soap/latest/master/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-soap/consumer/pactflow-example-consumer-java-soap/latest/master) (master/master pact)
+
+
+This is an example of a Java XML provider that uses Pact, [Pactflow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 
@@ -28,7 +35,7 @@ When the provider changes, the pact verification task runs as part the provider'
 
 To ensure that a verification is also run whenever a pact changes, we create a webhook in Pactflow that triggers a provider build, and passes in the URL of the changed pact. Ideally, this would be a completely separate build from your normal provider pipeline, and it should just verify the changed pact.
 
-Because Travis CI only allows us to have one build configuration per repository, we switch between the main pipeline mode and the webhook-triggered mode based on the presence of an environment variable that is only set via the webhook. Keep in mind that this is just a constraint of the tools we're using for this example, and is not necessarily the way you would implement Pact your own pipeline.
+Because GitHub Actions only allows us to have one build configuration per repository, we switch between the main pipeline mode and the webhook-triggered mode based on the presence of an environment variable that is only set via the webhook. Keep in mind that this is just a constraint of the tools we're using for this example, and is not necessarily the way you would implement Pact your own pipeline.
 
 ## Usage
 
@@ -40,7 +47,7 @@ export PACT_BROKER_BASE_URL=https://dius.pactflow.io
 export PACT_BROKER_HOST=dius.pactflow.io
 
 make test # runs the local tests
-make fake_ci # pretends to show what you would do in a CI/CD through Travis
+make fake_ci # pretends to show what you would do in a CI/CD through GitHub Actions
 ```
 
 See the [Pactflow CI/CD Workshop](https://github.com/pactflow/ci-cd-workshop) for further details.
