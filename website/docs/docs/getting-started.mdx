@@ -7,20 +7,16 @@ slug: /
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import {
-  generateIconWithLabel,
   languageIconsWithLabels,
-  generateTab,
-  generateLanguageTab
-} from "../../src/components/iconTabGenerator";
+} from "../../src/data/icons";
+import {
+  generateLanguageTab,
+} from "../../src/components/tabGenerator";
+import { meta } from "../../src/data/meta";
 
 Pactflow is a fully-managed, highly-available, and hardened deployment of the open source "Pact Broker" with a re-imagined user experience. It allows you to integrate Pact into your CI/CD pipelines by providing a central point for managing your consumer driven contracts.
 
 ## Tutorials
-
-<div>
-  {generateLanguageTab()}
-</div>
-
 
 ### Videos
 
@@ -241,7 +237,6 @@ return new Verifier().verifyProvider({
 
 <TabItem value="java" label={languageIconsWithLabels.label_java} >
 
-
 #### Java / JUnit 5
 
 - [Pact-JVM documentation](https://docs.pact.io/implementation_guides/jvm/provider/gradle#publishing-verification-results-to-a-pact-broker) for all the pact verification options.
@@ -393,4 +388,12 @@ docker-compose -f docker-compose-verify.yml up \
 </Tabs>
 
 
+## Supported Languages
 
+<div>
+  {generateLanguageTab({
+    data: meta.languages,
+    withLabel: false,
+    withLink: true,
+  })}
+</div>
