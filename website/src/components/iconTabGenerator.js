@@ -146,19 +146,58 @@ const label_with_link_python = generateIconWithLabel(data["python"]);
 const label_with_link_swift = generateIconWithLabel(data["swift"]);
 const label_with_link_php = generateIconWithLabel(data["php"]);
 const label_with_link_cplusplus = generateIconWithLabel(data["cplusplus"]);
-const label_javascript = generateIconWithLabel({...data["js"], iconLink: undefined });
-const label_java = generateIconWithLabel({...data["java"], iconLink: undefined });
-const label_golang = generateIconWithLabel({...data["golang"], iconLink: undefined });
-const label_ruby = generateIconWithLabel({...data["ruby"], iconLink: undefined });
-const label_dotnet = generateIconWithLabel({...data["dotnet"], iconLink: undefined });
-const label_docker = generateIconWithLabel({...data["docker"], iconLink: undefined });
-const label_kotlin = generateIconWithLabel({...data["kotlin"], iconLink: undefined });
-const label_scala = generateIconWithLabel({...data["scala"], iconLink: undefined });
-const label_clojure = generateIconWithLabel({...data["clojure"], iconLink: undefined });
-const label_python = generateIconWithLabel({...data["python"], iconLink: undefined });
-const label_swift = generateIconWithLabel({...data["swift"], iconLink: undefined });
-const label_php = generateIconWithLabel({...data["php"], iconLink: undefined });
-const label_cplusplus = generateIconWithLabel({...data["cplusplus"], iconLink: undefined });
+const label_javascript = generateIconWithLabel({
+  ...data["js"],
+  iconLink: undefined,
+});
+const label_java = generateIconWithLabel({
+  ...data["java"],
+  iconLink: undefined,
+});
+const label_golang = generateIconWithLabel({
+  ...data["golang"],
+  iconLink: undefined,
+});
+const label_ruby = generateIconWithLabel({
+  ...data["ruby"],
+  iconLink: undefined,
+});
+const label_dotnet = generateIconWithLabel({
+  ...data["dotnet"],
+  iconLink: undefined,
+});
+const label_docker = generateIconWithLabel({
+  ...data["docker"],
+  iconLink: undefined,
+});
+const label_kotlin = generateIconWithLabel({
+  ...data["kotlin"],
+  iconLink: undefined,
+});
+const label_scala = generateIconWithLabel({
+  ...data["scala"],
+  iconLink: undefined,
+});
+const label_clojure = generateIconWithLabel({
+  ...data["clojure"],
+  iconLink: undefined,
+});
+const label_python = generateIconWithLabel({
+  ...data["python"],
+  iconLink: undefined,
+});
+const label_swift = generateIconWithLabel({
+  ...data["swift"],
+  iconLink: undefined,
+});
+const label_php = generateIconWithLabel({
+  ...data["php"],
+  iconLink: undefined,
+});
+const label_cplusplus = generateIconWithLabel({
+  ...data["cplusplus"],
+  iconLink: undefined,
+});
 const icon_javascript = generateIcon({ ...data["js"], iconLink: undefined });
 const icon_java = generateIcon({ ...data["java"], iconLink: undefined });
 const icon_golang = generateIcon({ ...data["golang"], iconLink: undefined });
@@ -247,7 +286,12 @@ export const languageIcons = {
   icon_with_link_cplusplus,
 };
 
-export function generateTabItem({ key, content, withLabel, withLink = false }) {
+export function generateTabItem({
+  key,
+  content = undefined,
+  withLabel = false,
+  withLink = false,
+}) {
   const dataToRetrieve = withLink
     ? data[key]
     : { ...data[key], iconLink: undefined };
@@ -269,7 +313,12 @@ export function generateTab({ withLabel, withLink }) {
     <Tabs groupId="languages">
       {generateTabItem({ key: "js", content: `###js`, withLabel, withLink })}
       {generateTabItem({ key: "java", content: `###js`, withLabel, withLink })}
-      {generateTabItem({ key: "golang", content: `###golang`, withLabel, withLink })}
+      {generateTabItem({
+        key: "golang",
+        content: `###golang`,
+        withLabel,
+        withLink,
+      })}
       {generateTabItem({
         key: "ruby",
         content: `###ruby`,
@@ -293,3 +342,13 @@ export function generateTab({ withLabel, withLink }) {
   return generatedTab;
 }
 
+export function generateLanguageTab() {
+  const generatedTab = (
+    <Tabs groupId="languages">
+      {Object.keys(data).map((key) => {
+        return generateTabItem({ key, content: key });
+      })}
+    </Tabs>
+  );
+  return generatedTab;
+}
