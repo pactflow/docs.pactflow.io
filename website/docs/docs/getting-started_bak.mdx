@@ -1,4 +1,4 @@
----
+<!-- ---
 id: getting-started
 title: Getting Started with Pactflow
 slug: /
@@ -8,19 +8,32 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import {
   generateIconWithLabel,
-  languageIconsWithLabels,
-  generateTab,
-  generateLanguageTab
-} from "../../src/components/iconTabGenerator";
+  languageIcons
+} from "../../src/components/svgGenerator";
 
 Pactflow is a fully-managed, highly-available, and hardened deployment of the open source "Pact Broker" with a re-imagined user experience. It allows you to integrate Pact into your CI/CD pipelines by providing a central point for managing your consumer driven contracts.
 
-## Tutorials
+
 
 <div>
-  {generateTab({withLabel: false, withLink: false})}
+    {languageIcons.icon_javascript}
+    {languageIcons.icon_java}
+    {languageIcons.icon_golang}
+    {languageIcons.icon_ruby}
+    {languageIcons.icon_dotnet}
+    {languageIcons.icon_docker}
+    {languageIcons.icon_kotlin}
+    {languageIcons.icon_scala}
+    {languageIcons.icon_clojure}
+    {languageIcons.icon_python}
+    {languageIcons.icon_swift}
+    {languageIcons.icon_php}
+    {languageIcons.icon_cplusplus}
 </div>
 
+         
+
+## Tutorials
 
 ### Videos
 
@@ -73,7 +86,7 @@ To configure the token:
 ### Consumer
 
 <Tabs groupId="languages">
-<TabItem value="js" label={languageIconsWithLabels.label_javascript} >
+<TabItem value="js" label={<a href="https://docs.pact.io/implementation_guides/javascript"><img src="https://raw.githubusercontent.com/pact-foundation/pact.io/master/pages/assets/img/languages/javascript-original.svg" alt="foo" /> JavaScript</a>} >
 
 #### Pact JS (Node JS)
 
@@ -93,7 +106,7 @@ new Publisher(opts).publishPacts()
 
 </TabItem>
 
-<TabItem value="java" label={languageIconsWithLabels.label_java} >
+<TabItem value="java" label="Java">
 
 #### Java / JUnit 5
 
@@ -135,7 +148,7 @@ pact {
 
 </TabItem>
 
-<TabItem value="golang" label={languageIconsWithLabels.label_golang} >
+<TabItem value="golang" label="Golang">
 
 #### Golang
 
@@ -150,8 +163,7 @@ err := p.Publish(types.PublishRequest{
 ```
 
 </TabItem>
-
-<TabItem value="ruby" label={languageIconsWithLabels.label_ruby} >
+<TabItem value="ruby" label="Ruby">
 
 #### Ruby
 
@@ -168,8 +180,7 @@ end
 ```
 
 </TabItem>
-
-<TabItem value="dotnet" label={languageIconsWithLabels.label_dotnet} >
+<TabItem value="dotnetcsharp" label=".NET">
 
 #### .NET
 
@@ -178,11 +189,11 @@ end
 ```powershell title='powershell'
 # Ensure TLS1.2 is set, otherwise it will default to TLS1.0 and you won't be able to connect
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-\$res = Invoke-WebRequest -Uri "https://<YOUR_BROKER>.pactflow.io/pacts/provider/AProvider/consumer/AConsumer/version/SomeVersion" -Method Put -InFile .\a_consumer-a_provider.json -ContentType "application/json" -Headers @{'Authorization' = 'Bearer <your token here>'}
+$res = Invoke-WebRequest -Uri "https://<YOUR_BROKER>.pactflow.io/pacts/provider/AProvider/consumer/AConsumer/version/SomeVersion" -Method Put -InFile .\a_consumer-a_provider.json -ContentType "application/json" -Headers @{'Authorization' = 'Bearer <your token here>'}
 ```
 
 ```csharp title='C#'
-var pactPublisher = new PactPublisher("http://<YOUR_BROKER>.pactflow.io"),
+var pactPublisher = new PactPublisher("http://<YOUR_BROKER>.pactflow.io",
   new PactUriOptions("<TOKEN>"));
 pactPublisher.PublishToBroker("/pact/to/pacts/dir",
   Environment.GetEnvironmentVariable("GIT_COMMIT"));
@@ -190,7 +201,7 @@ pactPublisher.PublishToBroker("/pact/to/pacts/dir",
 
 </TabItem>
 
- <TabItem value="docker" label={languageIconsWithLabels.label_docker} >
+<TabItem value="docker" label="Docker">
 
 #### Docker
 
@@ -215,7 +226,11 @@ ${PWD}/pacts \
 
 <Tabs groupId="languages">
 
- <TabItem value="js" label={languageIconsWithLabels.label_javascript} >
+ <TabItem value="js" label={
+   generateIconWithLabel('JavaScript',
+ "https://raw.githubusercontent.com/pact-foundation/pact.io/master/pages/assets/img/languages/javascript-original.svg",
+ "https://docs.pact.io/implementation_guides/javascript"
+ )} >
 
 #### Pact JS (Node JS)
 
@@ -239,7 +254,12 @@ return new Verifier().verifyProvider({
 
 </TabItem>
 
-<TabItem value="java" label={languageIconsWithLabels.label_java} >
+<TabItem value="java" label={
+   generateIconWithLabel('Java',
+ "https://raw.githubusercontent.com/pact-foundation/pact.io/master/pages/assets/img/languages/java-original.svg",
+ "https://docs.pact.io/implementation_guides/jvm"
+ )} >
+
 
 
 #### Java / JUnit 5
@@ -298,7 +318,11 @@ pact {
 
 </TabItem>
 
-<TabItem value="golang" label={languageIconsWithLabels.label_golang}>
+<TabItem value="golang" label={
+   generateIconWithLabel('Golang',
+ "https://raw.githubusercontent.com/pact-foundation/pact.io/master/pages/assets/img/languages/go-original.svg",
+ "https://docs.pact.io/implementation_guides/go"
+ )}>
 
 #### Golang
 
@@ -314,7 +338,11 @@ _, err := pact.VerifyProvider(t, types.VerifyRequest{
 
 </TabItem>
 
-<TabItem value="ruby" label={languageIconsWithLabels.label_ruby}>
+<TabItem value="ruby" label={
+   generateIconWithLabel('Ruby',
+ "https://raw.githubusercontent.com/pact-foundation/pact.io/master/pages/assets/img/languages/ruby-original.svg",
+ "https://docs.pact.io/implementation_guides/ruby/readme"
+ )}>
 
 #### Ruby
 
@@ -332,7 +360,11 @@ end
 ```
 
 </TabItem>
-<TabItem value="dotnet" label={languageIconsWithLabels.label_cplusplus}>
+<TabItem value="dotnetcsharp" label={
+   generateIconWithLabel('.Net',
+ "https://raw.githubusercontent.com/pact-foundation/pact.io/master/pages/assets/img/languages/csharp-original.svg",
+ "https://docs.pact.io/implementation_guides/net"
+ )}>
 
 #### .NET
 
@@ -355,7 +387,11 @@ pactVerifier
 
 </TabItem>
 
-<TabItem value="docker" label={languageIconsWithLabels.label_docker} >
+<TabItem value="docker" label={
+   generateIconWithLabel('Docker',
+ "https://www.svgrepo.com/show/331370/docker.svg",
+ "/docker"
+ )} >
 
 #### Docker
 
@@ -393,4 +429,4 @@ docker-compose -f docker-compose-verify.yml up \
 </Tabs>
 
 
-
+ -->
