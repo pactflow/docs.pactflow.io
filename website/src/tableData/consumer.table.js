@@ -6,11 +6,31 @@ export const tableData = [
     linkUrl: "/docs/examples/js/consumer",
     badges: [
       "https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider/consumer/pactflow-example-consumer/latest/badge.svg",
+    ],
+    language: "JS/NodeJS",
+    useCase: "Web",
+    side: "Consumer",
+  },
+  {
+    linkTitle: "Example demonstrating how Cypress could be used to generate consumer pacts",
+    linkUrl: "/docs/examples/cypress",
+    badges: [
       "https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider/consumer/example-consumer-cypress/latest/badge.svg",
     ],
     language: "JS/NodeJS",
     useCase: "Web",
     side: "Consumer",
+  },
+  {
+    linkTitle: "ExpressJS API provider",
+    linkUrl: "/docs/examples/js/provider",
+    badges: [
+      "https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider/consumer/pactflow-example-consumer/latest/badge.svg",
+      "https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider/consumer/example-consumer-cypress/latest/badge.svg",
+    ],
+    language: "JS/NodeJS",
+    useCase: "API",
+    side: "Provider",
   },
 ];
 
