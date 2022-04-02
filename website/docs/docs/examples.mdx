@@ -4,6 +4,7 @@ sidebar_label: Overview
 ---
 
 import ApiSchema from "@theme/ApiSchema";
+import { DataTable, DataButton } from "../../src/components/index"; import { columns, tableData } from "../../src/tableData/consumer.table";
 
 ## Introduction
 
@@ -44,13 +45,17 @@ The single get product endpoint is not a spelling mistake, and is used to show e
 
 ## Demos
 
+
+<DataTable columns={columns} data={ tableData } />
+
+
 ### Consumers
 
 | Language      | Use Case         | Framework/Tech                                                                        | Description                                                                                                                                                                                                                                                                                                      |
 | ------------- | ---------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | JS/NodeJS     | Web              | [React](/docs/examples/js/consumer)                                                   | React JS website relying on a Products API                                                                                                                                                                                                                                                                       |
 | JS/NodeJS     | Web              | [Cypress](/docs/examples/cypress)                                                     | Example demonstrating how Cypress could be used to generate consumer pacts                                                                                                                                                                                                                                       |
-| JS/NodeJS     | AWS/SNS/Messages | [SNS Lambda](/docs/examples/aws/sns/consumer)                                         | AWS Lambda SNS Consumer [![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-js-sns/consumer/pactflow-example-consumer-js-sns/latest/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-js-sns/consumer/pactflow-example-consumer-js-sns/latest) |
+| JS/NodeJS     | AWS/SNS/Messages | [SNS Lambda](/docs/examples/aws/sns/consumer)                                         | AWS Lambda SNS Consumer |
 | Java          | Messages         | [Kafka](/docs/examples/kafka/java/consumer)                                           | Java Kafka consumer                                                                                                                                                                                                                                                                                              |
 | NodeJS        | Messages         | [Kafka](/docs/examples/kafka/js/consumer)                                             | NodeJS Kafka consumer                                                                                                                                                                                                                                                                                            |
 | Java          | SOAP             | [Java](/docs/examples/soap/java/consumer)                                             | Java SOAP API consumer (_note: only compatible with the SOAP provider_)                                                                                                                                                                                                                                          |
@@ -81,3 +86,4 @@ The single get product endpoint is not a spelling mistake, and is used to show e
 | JS        | OpenAPI Spec     | [Postman + ExpressJS](/docs/examples/bi-directional/provider/postman)          | Spring Boot API Provider tested with Postman+OAS                        |
 | Java      | OpenAPI Spec     | [RestAssured + SpringBoot](/docs/examples/bi-directional/provider/restassured) | SpringBoot API Provider tested with Dredd+OAS                           |
 | .NET      | OpenAPI Spec     | [.NET / Schemathesis](/docs/examples/bi-directional/provider/dotnet/)          | .NET API Provider using Swashbuckle and Schemathesis                    |
+
