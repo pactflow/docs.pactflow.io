@@ -72,6 +72,9 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Pactflow`,
     },
+    tableOfContents: {
+      maxHeadingLevel: 4,
+    },
     hideableSidebar: true,
     cleanUrl: true,
     trailingSlash:true,

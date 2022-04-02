@@ -59,12 +59,12 @@ While each of the following examples shows the use of a hardcoded token, note th
 
 To configure the token:
 
-<Tabs>
+### Consumer
+
+<Tabs groupId="languages">
 <TabItem value="js" label="JavaScript">
 
-### Pact JS (Node JS)
-
-#### Consumer
+#### Pact JS (Node JS)
 
 ```js
 const { Publisher } = require("@pact-foundation/pact")
@@ -80,7 +80,146 @@ new Publisher(opts).publishPacts()
 
 - [Pact-JS documentation](https://github.com/pact-foundation/pact-node/#pact-broker-publishing) for all the pact publication options.
 
-  #### Provider
+</TabItem>
+<TabItem value="java-junit5" label="Java / JUnit5">
+
+#### Java / JUnit 5
+
+```groovy
+pact {
+  publish {
+    providerVersion = {  '<GIT_COMMIT>' } //yes, this field name is correct :(
+    pactBrokerUrl = 'https://<YOUR_BROKER>.pactflow.io/'
+    pactBrokerToken = '<TOKEN>'
+  }
+}
+```
+
+- [Pact-JVM documentation](https://docs.pact.io/implementation_guides/jvm/provider/gradle#publishing-pact-files-to-a-pact-broker) for all the pact publication options.
+
+</TabItem>
+
+<TabItem value="java-junit4" label="Java / JUnit4">
+
+#### Java / JUnit 4
+
+```groovy
+pact {
+  publish {
+    providerVersion = {  '<GIT_COMMIT>' } //yes, this field name is correct :(
+    pactBrokerUrl = 'https://<YOUR_BROKER>.pactflow.io/'
+    pactBrokerToken = '<TOKEN>'
+  }
+}
+```
+
+- [Pact-JVM documentation](https://docs.pact.io/implementation_guides/jvm/provider/gradle#publishing-pact-files-to-a-pact-broker) for all the pact publication options.
+
+</TabItem>
+
+<TabItem value="java-gradle" label="Java / Gradle">
+
+#### Gradle
+
+```groovy
+pact {
+  publish {
+    providerVersion = {  '<GIT_COMMIT>' } //yes, this field name is correct :(
+    pactBrokerUrl = 'https://<YOUR_BROKER>.pactflow.io/'
+    pactBrokerToken = '<TOKEN>'
+  }
+}
+```
+
+- [Pact-JVM documentation](https://docs.pact.io/implementation_guides/jvm/provider/gradle#publishing-pact-files-to-a-pact-broker) for all the pact publication options.
+
+</TabItem>
+
+<TabItem value="golang" label="Golang">
+
+#### Golang
+
+```go
+p := dsl.Publisher{}
+err := p.Publish(types.PublishRequest{
+  PactURLs:        []string{"/path/to/pact/file"},
+  PactBroker:      "https://<YOUR_BROKER>.pactflow.io",
+  ConsumerVersion: "<GIT_COMMIT>",
+  BrokerToken:     "<TOKEN>",
+})
+```
+
+</TabItem>
+<TabItem value="ruby" label="Ruby">
+
+#### Ruby
+
+```ruby title='Rakefile'
+require 'pact_broker/client/tasks'
+
+PactBroker::Client::PublicationTask.new do | task |
+task.consumer_version = ENV['GIT_COMMIT']
+task.pact_broker_base_url = "https://<YOUR_BROKER>.pactflow.io"
+task.pact_broker_token = "<TOKEN>"
+end
+```
+
+- [Pact Ruby documentation](https://github.com/pact-foundation/pact_broker-client#usage---ruby) for all the pact publishing options.
+
+</TabItem>
+<TabItem value="dotnetcsharp" label=".NET">
+
+#### .NET
+
+```powershell title='powershell'
+# Ensure TLS1.2 is set, otherwise it will default to TLS1.0 and you won't be able to connect
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$res = Invoke-WebRequest -Uri "https://<YOUR_BROKER>.pactflow.io/pacts/provider/AProvider/consumer/AConsumer/version/SomeVersion" -Method Put -InFile .\a_consumer-a_provider.json -ContentType "application/json" -Headers @{'Authorization' = 'Bearer <your token here>'}
+```
+
+```csharp title='C#'
+var pactPublisher = new PactPublisher("http://<YOUR_BROKER>.pactflow.io",
+  new PactUriOptions("<TOKEN>"));
+pactPublisher.PublishToBroker("/pact/to/pacts/dir",
+  Environment.GetEnvironmentVariable("GIT_COMMIT"));
+```
+
+- [PactNet documentation](https://github.com/pact-foundation/pact-net#using-the-c-client) for all the pact publishing options.
+
+</TabItem>
+
+<TabItem value="docker" label="Docker">
+
+#### Docker
+
+```bash
+docker run --rm \
+-v ${PWD}:${PWD} \
+-e PACT_BROKER_BASE_URL="https://<YOUR_BROKER>.pactflow.io" \
+-e PACT_BROKER_TOKEN="<TOKEN>" \
+pactfoundation/pact-cli:latest \
+publish \
+${PWD}/pacts \
+--consumer-app-version ${GIT_COMMIT}
+```
+
+- [Pact CLI Docker documentation](https://hub.docker.com/r/pactfoundation/pact-cli) for all the pact publishing options.
+
+
+</TabItem>
+
+</Tabs>
+
+
+### Provider
+
+<Tabs groupId="languages">
+
+
+
+<TabItem value="js" label="JavaScript">
+
+#### Pact JS (Node JS)
 
 ```js
 const { Verifier } = require("@pact-foundation/pact");
@@ -103,24 +242,7 @@ return new Verifier().verifyProvider({
 </TabItem>
 <TabItem value="java-junit5" label="Java / JUnit5">
 
-### Java / JUnit 5
-
-#### Consumer
-
-```groovy
-pact {
-  publish {
-    providerVersion = {  '<GIT_COMMIT>' } //yes, this field name is correct :(
-    pactBrokerUrl = 'https://<YOUR_BROKER>.pactflow.io/'
-    pactBrokerToken = '<TOKEN>'
-  }
-}
-```
-
-- [Pact-JVM documentation](https://docs.pact.io/implementation_guides/jvm/provider/gradle#publishing-pact-files-to-a-pact-broker) for all the pact publication options.
-
-
-#### Provider
+#### Java / JUnit 5
 
 ```java
 @Provider("<Your provider name here>")
@@ -142,23 +264,7 @@ public class PactJUnitBrokerTest {
 
 <TabItem value="java-junit4" label="Java / JUnit4">
 
-### Java / JUnit 4
-
-#### Consumer
-
-```groovy
-pact {
-  publish {
-    providerVersion = {  '<GIT_COMMIT>' } //yes, this field name is correct :(
-    pactBrokerUrl = 'https://<YOUR_BROKER>.pactflow.io/'
-    pactBrokerToken = '<TOKEN>'
-  }
-}
-```
-
-- [Pact-JVM documentation](https://docs.pact.io/implementation_guides/jvm/provider/gradle#publishing-pact-files-to-a-pact-broker) for all the pact publication options.
-
-#### Provider
+#### Java / JUnit 4
 
 ```java
 @RunWith(PactRunner.class)
@@ -177,23 +283,8 @@ public class PactJUnitBrokerTest {
 
 <TabItem value="java-gradle" label="Java / Gradle">
 
-### Gradle
+#### Gradle
 
-#### Consumer
-
-```groovy
-pact {
-  publish {
-    providerVersion = {  '<GIT_COMMIT>' } //yes, this field name is correct :(
-    pactBrokerUrl = 'https://<YOUR_BROKER>.pactflow.io/'
-    pactBrokerToken = '<TOKEN>'
-  }
-}
-```
-
-- [Pact-JVM documentation](https://docs.pact.io/implementation_guides/jvm/provider/gradle#publishing-pact-files-to-a-pact-broker) for all the pact publication options.
-
-  #### Provider
 
 ```groovy
 // To turn on the verification publishing,
@@ -218,21 +309,7 @@ pact {
 
 <TabItem value="golang" label="Golang">
 
-### Golang
-
-#### Consumer
-
-```go
-p := dsl.Publisher{}
-err := p.Publish(types.PublishRequest{
-  PactURLs:        []string{"/path/to/pact/file"},
-  PactBroker:      "https://<YOUR_BROKER>.pactflow.io",
-  ConsumerVersion: "<GIT_COMMIT>",
-  BrokerToken:     "<TOKEN>",
-})
-```
-
-#### Provider
+#### Golang
 
 ```go
 _, err := pact.VerifyProvider(t, types.VerifyRequest{
@@ -247,24 +324,7 @@ _, err := pact.VerifyProvider(t, types.VerifyRequest{
 </TabItem>
 <TabItem value="ruby" label="Ruby">
 
-### Ruby
-
-#### Consumer
-
-```ruby title='Rakefile'
-require 'pact_broker/client/tasks'
-
-PactBroker::Client::PublicationTask.new do | task |
-task.consumer_version = ENV['GIT_COMMIT']
-task.pact_broker_base_url = "https://<YOUR_BROKER>.pactflow.io"
-task.pact_broker_token = "<TOKEN>"
-end
-```
-
-- [Pact Ruby documentation](https://github.com/pact-foundation/pact_broker-client#usage---ruby) for all the pact publishing options.
-
-
-  #### Provider
+#### Ruby
 
 ```ruby title='spec/pact_helper.rb'
 Pact.service_provider "<Your provider name here>" do
@@ -282,27 +342,7 @@ end
 </TabItem>
 <TabItem value="dotnetcsharp" label=".NET">
 
-### .NET
-
-#### Consumer
-
-```powershell title='powershell'
-# Ensure TLS1.2 is set, otherwise it will default to TLS1.0 and you won't be able to connect
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-$res = Invoke-WebRequest -Uri "https://<YOUR_BROKER>.pactflow.io/pacts/provider/AProvider/consumer/AConsumer/version/SomeVersion" -Method Put -InFile .\a_consumer-a_provider.json -ContentType "application/json" -Headers @{'Authorization' = 'Bearer <your token here>'}
-```
-
-```csharp title='C#'
-var pactPublisher = new PactPublisher("http://<YOUR_BROKER>.pactflow.io",
-  new PactUriOptions("<TOKEN>"));
-pactPublisher.PublishToBroker("/pact/to/pacts/dir",
-  Environment.GetEnvironmentVariable("GIT_COMMIT"));
-```
-
-- [PactNet documentation](https://github.com/pact-foundation/pact-net#using-the-c-client) for all the pact publishing options.
-
-
-  #### Provider
+#### .NET
 
 ```csharp
 
@@ -325,25 +365,7 @@ pactVerifier
 
 <TabItem value="docker" label="Docker">
 
-### Docker
-
-#### Consumer
-
-```bash
-docker run --rm \
--v ${PWD}:${PWD} \
--e PACT_BROKER_BASE_URL="https://<YOUR_BROKER>.pactflow.io" \
--e PACT_BROKER_TOKEN="<TOKEN>" \
-pactfoundation/pact-cli:latest \
-publish \
-${PWD}/pacts \
---consumer-app-version ${GIT_COMMIT}
-```
-
-- [Pact CLI Docker documentation](https://hub.docker.com/r/pactfoundation/pact-cli) for all the pact publishing options.
-
-
-  #### Provider
+#### Docker
 
 ```docker title=docker-compose-verify.yml
 version: "3"
