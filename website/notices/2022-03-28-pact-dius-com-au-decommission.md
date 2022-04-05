@@ -4,7 +4,7 @@ title: Decommission notice for pact.dius.com.au
 tags: [decommission]
 ---
 
-On Monday 4th April at 01:00 UTC we will be decommissioning the legacy domain name pact.dius.com.au. We don't expect any outage for the Pactflow application.
+On Monday 2nd May at 01:00 UTC we will be decommissioning the legacy domain name pact.dius.com.au. We don't expect any outage for the Pactflow application.
 
 :::caution ACTION REQUIRED
 If you currently use a domain name ending in `pact.dius.com.au` when accessing Pactflow (via the UI, API or Pact client tooling), you need to update the hostname you use to connect to our services to the pactflow.io domain immediately to avoid losing access to your service.

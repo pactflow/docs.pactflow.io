@@ -13,13 +13,13 @@ https://github.com/pactflow/example-consumer-golang
 
 ![Build](https://github.com/pactflow/example-consumer-golang/workflows/Build/badge.svg)
 
-[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest/badge.svg?label=provider)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest) (latest pact)
+[![Pact Status](https://test.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest/badge.svg?label=provider)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest) (latest pact)
 
-[![Pact Status](https://testdemo.pactflow.io/matrix/provider/pactflow-example-provider-golang/latest/prod/consumer/pactflow-example-consumer-golang/latest/prod/badge.svg?label=provider)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest/prod) (prod/prod pact)
+[![Pact Status](https://test.pactflow.io/matrix/provider/pactflow-example-provider-golang/latest/prod/consumer/pactflow-example-consumer-golang/latest/prod/badge.svg?label=provider)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest/prod) (prod/prod pact)
 
 This is an example of a Golang consumer using Pact to create a consumer driven contract, and sharing it via [Pactflow](https://pactflow.io).
 
-It is using a public tenant on Pactflow, which you can access [here](https://testdemo.pactflow.io) using the credentials `dXfltyFMgNOFZAxr8io9wJ37iUpY42M`/`O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1`. The latest version of the Example Consumer/Example Provider pact is published [here](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest).
+It is using a public tenant on Pactflow, which you can access [here](https://test.pactflow.io) using the credentials `dXfltyFMgNOFZAxr8io9wJ37iUpY42M`/`O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1`. The latest version of the Example Consumer/Example Provider pact is published [here](https://test.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest).
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 
