@@ -146,7 +146,25 @@ module.exports = {
         {
           type: "category",
           label: "Bi-Directional Contract Testing",
-          items: ["docs/workshops/bi-directional-contract-testing"],
+          items:    [
+            "docs/workshops/bi-directional-contract-testing",
+            {
+              "Set up CI": [
+                "docs/workshops/bi-directional/intro",
+                "docs/workshops/bi-directional/step1",
+                "docs/workshops/bi-directional/step2",
+                "docs/workshops/bi-directional/step3",
+                "docs/workshops/bi-directional/step4",
+                "docs/workshops/bi-directional/step5",
+                "docs/workshops/bi-directional/step6",
+                "docs/workshops/bi-directional/step7",
+                "docs/workshops/bi-directional/step8",
+                "docs/workshops/bi-directional/step9",
+                "docs/workshops/bi-directional/step10",
+                "docs/workshops/bi-directional/step11",
+              ],
+            },
+          ],
         },
         "docs/workshops/advanced",
         "docs/workshops/tutorials",

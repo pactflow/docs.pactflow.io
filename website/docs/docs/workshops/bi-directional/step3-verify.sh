@@ -1,0 +1,1 @@
+[ -f /root/example-bi-directional-provider-dredd/output/report.md ] && echo "done"
