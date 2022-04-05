@@ -77,23 +77,33 @@ module.exports = {
     },
     hideableSidebar: true,
     cleanUrl: true,
-    trailingSlash:true,
+    trailingSlash: true,
     algolia: {
       contextualSearch: false,
       appId: "LY8MHW6MWQ",
       apiKey: "6d5a0494675f3e1d9ea2b3483a38f44b",
-      indexName: "Pactflow"
+      indexName: "Pactflow",
     },
-    
-    metadata: [ {name: 'docsearch:docusaurus_tag', content: 'docs-default-current'} ],
+
+    metadata: [
+      { name: "docsearch:docusaurus_tag", content: "docs-default-current" },
+    ],
+
 
     prism: {
       // default list https://github.com/FormidableLabs/prism-react-renderer/blob/master/src/vendor/prism/includeLangs.js
       // additional supported langs https://prismjs.com/#supported-languages
-      additionalLanguages: ['powershell','ruby','csharp','java','docker','groovy'],
+      additionalLanguages: [
+        "powershell",
+        "ruby",
+        "csharp",
+        "java",
+        "docker",
+        "groovy",
+      ],
     },
-
   },
+  themes: ["@you54f/theme-github-codeblock"], // switch to @saucelabs/theme-github-codeblock when merged https://github.com/saucelabs/docusaurus-theme-github-codeblock/pull/19
   plugins: [path.resolve(__dirname, "src/plugins/plugin-segment")],
   presets: [
     [

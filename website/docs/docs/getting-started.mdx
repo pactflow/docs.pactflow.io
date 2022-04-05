@@ -171,17 +171,8 @@ end
 
 - [PactNet documentation](https://github.com/pact-foundation/pact-net#using-the-c-client) for all the pact publishing options.
 
-```powershell title='powershell'
-# Ensure TLS1.2 is set, otherwise it will default to TLS1.0 and you won't be able to connect
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-\$res = Invoke-WebRequest -Uri "https://<YOUR_BROKER>.pactflow.io/pacts/provider/AProvider/consumer/AConsumer/version/SomeVersion" -Method Put -InFile .\a_consumer-a_provider.json -ContentType "application/json" -Headers @{'Authorization' = 'Bearer <your token here>'}
-```
-
-```csharp title='C#'
-var pactPublisher = new PactPublisher("http://<YOUR_BROKER>.pactflow.io"),
-  new PactUriOptions("<TOKEN>"));
-pactPublisher.PublishToBroker("/pact/to/pacts/dir",
-  Environment.GetEnvironmentVariable("GIT_COMMIT"));
+```csharp reference title="Provider verification options"
+https://github.com/pact-foundation/pact-net/blob/ffa6ab841cf602ee5d4644165387e77971393550/README.md?plain=1#L461-L462
 ```
 
 </TabItem>
@@ -331,22 +322,12 @@ end
 
 #### .NET
 
-- [PactNet documentation](https://github.com/pact-foundation/pact-net#publishing-provider-verification-results-to-a-broker) for all the pact verification options.
+[PactNet documentation](https://github.com/pact-foundation/pact-net#publishing-provider-verification-results-to-a-broker) for all the pact verification options.
 
-```csharp
-
-var config = new PactVerifierConfig
-{
-    ProviderVersion = Environment.GetEnvironmentVariable("GIT_COMMIT")
-    PublishVerificationResults = "true".Equals(Environment.GetEnvironmentVariable("CI"))
-};
-
-IPactVerifier pactVerifier = new PactVerifier(config);
-pactVerifier
-    .ServiceProvider("<Your provider name here>", "http://your-test-provider-url")
-   .PactBroker("https://<YOUR_BROKER>.pactflow.io", uriOptions: new PactUriOptions("<TOKEN>"))
-   .Verify();
+```csharp reference title="Provider verification options"
+https://github.com/pact-foundation/pact-net/blob/ffa6ab841cf602ee5d4644165387e77971393550/README.md?plain=1#L474-L487
 ```
+
 
 </TabItem>
 
@@ -397,3 +378,7 @@ docker-compose -f docker-compose-verify.yml up \
     withLink: true,
   })}
 </div>
+
+
+
+
