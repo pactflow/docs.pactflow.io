@@ -6,7 +6,7 @@ require 'fileutils'
 require 'pathname'
 require_relative 'support'
 
-SOURCE_REPO = 'pactflow/example-bdc-consumer-cypress'.freeze
+SOURCE_REPO = 'pactflow/example-bi-directional-consumer-cypress'.freeze
 DESTINATION_DIR = relative_path_to('website/docs/docs/examples/bi-directional/consumer/cypress')
 TRANSFORM_PATH = ->(path) { File.join(DESTINATION_DIR, path.downcase) }
 INCLUDE = [

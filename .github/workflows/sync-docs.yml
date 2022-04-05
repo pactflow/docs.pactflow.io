@@ -23,19 +23,19 @@ on:
       - pactflow-example-consumer-js-sns-updated
       - pactflow-example-provider-golang-updated
       - pactflow-example-consumer-golang-updated
-      - pactflow-example-provider-dredd-updated
-      - pactflow-example-provider-postman-updated
-      - pactflow-example-provider-restassured-updated
-      - pactflow-example-consumer-wiremock-updated
+      - pactflow-example-bi-directional-provider-dredd-updated
+      - pactflow-example-bi-directional-provider-postman-updated
+      - pactflow-example-bi-directional-provider-restassured-updated
+      - pactflow-example-bi-directional-consumer-wiremock-updated
       - pactflow-example-bdc-consumer-dotnet-updated
-      - pactflow-example-bdc-consumer-cypress-updated
+      - pactflow-example-bi-directional-consumer-cypress-updated
       - pactflow-example-bdc-provider-dotnet-updated
       - pactflow-example-bdc-consumer-mountebank-updated
       - pactflow-example-bdc-consumer-dotnet-updated
-      - pactflow-example-bdc-consumer-cypress-updated
+      - pactflow-example-bi-directional-consumer-cypress-updated
       - pactflow-example-bdc-provider-dotnet-updated
       - pactflow-example-bdc-consumer-mountebank-updated
-      - pactflow-example-consumer-msw-js-updated
+      - pactflow-example-bi-directional-consumer-msw-js-updated
 
 jobs:
   build:
@@ -126,19 +126,19 @@ jobs:
 
       - name: Sync example_provider_bidirectional_dredd docs
         run: bundle exec scripts/sync/example_provider_bidirectional_dredd.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_dredd docs"' >> $GITHUB_ENV
-        if: github.event.action == 'pactflow-example-provider-dredd-updated'
+        if: github.event.action == 'pactflow-example-bi-directional-provider-dredd-updated'
 
       - name: Sync example_provider_bidirectional_postman docs
         run: bundle exec scripts/sync/example_provider_bidirectional_postman.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_postman docs"' >> $GITHUB_ENV
-        if: github.event.action == 'pactflow-example-provider-postman-updated'
+        if: github.event.action == 'pactflow-example-bi-directional-provider-postman-updated'
 
       - name: Sync example_provider_bidirectional_restassured docs
         run: bundle exec scripts/sync/example_provider_bidirectional_restassured.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_restassured docs"' >> $GITHUB_ENV
-        if: github.event.action == 'pactflow-example-provider-restassured-updated'
+        if: github.event.action == 'pactflow-example-bi-directional-provider-restassured-updated'
 
       - name: Sync example_consumer_bidirectional_wiremock docs
         run: bundle exec scripts/sync/example_consumer_bidirectional_wiremock.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_wiremock docs"' >> $GITHUB_ENV
-        if: github.event.action == 'pactflow-example-consumer-wiremock-updated'
+        if: github.event.action == 'pactflow-example-bi-directional-consumer-wiremock-updated'
 
       - name: Sync example_provider_bidirectional_dotnet docs
         run: bundle exec scripts/sync/example_provider_bidirectional_dotnet_schemathesis.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_dotnet docs"' >> $GITHUB_ENV
@@ -150,7 +150,7 @@ jobs:
 
       - name: Sync example_consumer_bidirectional_cypress docs
         run: bundle exec scripts/sync/example_consumer_bidirectional_cypress.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_cypress docs"' >> $GITHUB_ENV
-        if: github.event.action == 'pactflow-example-bdc-consumer-cypress-updated'
+        if: github.event.action == 'pactflow-example-bi-directional-consumer-cypress-updated'
 
       - name: Sync example_consumer_bidirectional_mountebank docs
         run: bundle exec scripts/sync/example_consumer_bidirectional_mountebank.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_mountebank docs"' >> $GITHUB_ENV
@@ -158,7 +158,7 @@ jobs:
 
       - name: Sync example_consumer_bidirectional_msw docs
         run: bundle exec scripts/sync/example_consumer_bidirectional_msw.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_msw docs"' >> $GITHUB_ENV
-        if: github.event.action == 'pactflow-example-consumer-msw-js-updated'
+        if: github.event.action == 'pactflow-example-bi-directional-consumer-msw-js-updated'
 
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v4

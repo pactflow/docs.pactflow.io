@@ -62,8 +62,8 @@ Below is an pact file based off the [Wiremock](/docs/examples) example project.
 
 ```json
 {
-  "consumer": { "name": "pactflow-example-consumer-wiremock" }, // The name of the consumer application
-  "provider": { "name": "pactflow-example-provider-restassured" }, // the name of the provider application
+  "consumer": { "name": "pactflow-example-bi-directional-consumer-wiremock" }, // The name of the consumer application
+  "provider": { "name": "pactflow-example-bi-directional-provider-restassured" }, // the name of the provider application
   "interactions": [
     {
       "description": "POST_/products_f25f7b8e-35f2-4796-bebf-5f61d31d06b3", // Ideally a human readable description of the scenario, if possible
