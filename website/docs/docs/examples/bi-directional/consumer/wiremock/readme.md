@@ -27,7 +27,6 @@ https://github.com/pactflow/example-bi-directional-consumer-wiremock
     - [Environment variables](#environment-variables)
   - [Usage](#usage)
     - [Steps](#steps)
-    - [Use case](#use-case)
   - [OS/Platform specific considerations](#osplatform-specific-considerations)
     - [Windows](#windows)
   - [Caveats](#caveats)
@@ -45,35 +44,32 @@ It performs pre-deployment cross-compatibility checks to ensure that it is compa
 
 <!-- General -->
 
-See the full [Pactflow Bi-Directional Workshop](https://docs.pactflow.io/docs/workshops/bi-directional-contract-testing) for which this can be substituted in as the "provider".
+See the full [Pactflow Bi-Directional Workshop](https://docs.pactflow.io/docs/workshops/bi-directional-contract-testing) for which this can be substituted in as the "consumer".
 
 
 ## Overview of Part of Bi-Directional Contract Testing Flow
 
-<!-- Provider Overview -->
+<!-- Consumer Overview -->
 
-In the following diagram, you can see how the provider testing process works.
+In the following diagram, You can see how the consumer testing process works - it's the same as the current Pact process.
 
 When we call "can-i-deploy" the cross-contract validation process kicks off on Pactflow, to ensure any consumer consumes a valid subset of the OAS for the provider.
 
-![Provider Test](https://raw.githubusercontent.com/pactflow/example-bi-directional-consumer-wiremock/master/docs/provider-scope.png)
+![Consumer Test](https://raw.githubusercontent.com/pactflow/example-bi-directional-consumer-wiremock/master/docs/consumer-scope.png)
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 
 When you run the CI pipeline (see below for doing this), the pipeline should perform the following activities (simplified):
 
 * Test
-  * Run tests to check spec compliance with openAPI spec
-  * Create branch tag via Pact CLI
-  * Publish openAPI spec, along with a version with the name of the current branch
+  * Run tests (including the pact tests that generate the contract)
+  * Publish pacts, tagging the consumer version with the name of the current branch
   * Check if we are safe to deploy to Production with `can-i-deploy` (ie. has the cross-contract validation has been successfully performed)
-* Deploy (only from <main|master>)
+* Deploy (only from master)
   * Deploy app to Production
   * Record the Production deployment in the Pact Broker
-  * 
 
-![Provider Pipeline](https://raw.githubusercontent.com/pactflow/example-bi-directional-consumer-wiremock/master/docs/provider-pipeline.png)
-
+![Consumer Pipeline](https://raw.githubusercontent.com/pactflow/example-bi-directional-consumer-wiremock/master/docs./../docs/consumer-pipeline.png)
 
 ## Compatibile with Providers
 
