@@ -27,7 +27,7 @@ https://github.com/pactflow/example-bi-directional-consumer-wiremock
     - [Environment variables](#environment-variables)
   - [Usage](#usage)
     - [Steps](#steps)
-    - [Use case with <Tool>](#use-case-with-tool)
+    - [Use case](#use-case)
   - [OS/Platform specific considerations](#osplatform-specific-considerations)
     - [Windows](#windows)
   - [Caveats](#caveats)
@@ -114,12 +114,6 @@ NOTE:- It defaults to `pactflow-example-bi-directional-provider-restassured` for
 ## Usage
 
 ### Steps
-
-1. Create x
-2. Publish x
-3. Verify x
-
-### Use case with <Tool>
 
 * `make test` - run the tests locally
 * `make fake_ci` - run the CI process, but locally
