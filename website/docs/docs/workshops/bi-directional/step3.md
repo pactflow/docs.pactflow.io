@@ -1,4 +1,4 @@
-# Testing the provider
+# Write tests for your Provider
 
 Now that we have our working Provider, we need to do two things to prevent introducing breaking changes to our consumers.
 

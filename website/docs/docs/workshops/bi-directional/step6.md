@@ -1,3 +1,5 @@
+# Write the API consumer
+
 ## The Consumer
 
 Time to create our consumer code base. For the sake of simplicity, we're going to focus only on the bits of our application that communicate to the provider. In our project, they are:

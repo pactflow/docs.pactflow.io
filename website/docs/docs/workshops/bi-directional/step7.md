@@ -1,4 +1,6 @@
-# Consumer Contract Test
+# Write tests for your consumer using any mocking tool and convert those mocks into a consumer contract
+
+##  Consumer Contract Test
 
 Now that we have written our consumer code, we need to test it, and ensure that it is compatible with its provider.
 

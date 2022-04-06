@@ -1,4 +1,4 @@
-# When things go bad
+# Learn about Pactflow's breaking change detection system
 
 So far everything has been really easy. Let's go a bit deeper and introduce a breaking change into the system. Breaking changes come in two main ways:
 

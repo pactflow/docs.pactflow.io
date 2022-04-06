@@ -1,4 +1,4 @@
-# Publish consumer contract to Pactflow
+# Publish your consumer contract to Pactflow
 
 Now that we have created our consumer contract, we need to share it to our provider. This is where Pactflow comes in to the picture. This step is referred to as "publishing" the consumer contract.
 

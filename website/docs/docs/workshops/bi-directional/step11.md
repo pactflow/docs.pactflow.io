@@ -1,3 +1,5 @@
+# Conclusion
+
 If you've made it this far, you should now have a good understanding of how Pactflow's bi-directional contract testinsg feature works to make it safe to release software into production quickly and reliably.
 
 ## Summary

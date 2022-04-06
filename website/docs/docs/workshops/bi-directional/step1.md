@@ -1,3 +1,5 @@
+# Setting the scene
+
 ## An example scenario: Product API
 
 To learn the basic concepts of Bi-Directional-Contract-testing, we will work through an example scenario authoring a consumer test between a consumer (Product Web) and its provider (the Product API).

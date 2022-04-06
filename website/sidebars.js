@@ -149,7 +149,7 @@ module.exports = {
           items:    [
             "docs/workshops/bi-directional-contract-testing",
             {
-              "Set up CI": [
+              Workshop: [
                 "docs/workshops/bi-directional/intro",
                 "docs/workshops/bi-directional/step1",
                 "docs/workshops/bi-directional/step2",

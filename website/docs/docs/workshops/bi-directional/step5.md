@@ -1,4 +1,4 @@
-# Deploy the provider
+# Deploy the provider to production
 
 Now that we have tested our provider and published our provider contract, we can deploy the application to production.
 

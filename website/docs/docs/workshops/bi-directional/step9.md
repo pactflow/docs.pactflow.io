@@ -1,4 +1,4 @@
-# Deploy the consumer
+# Deploy your consumer to Production
 
 Now that we have tested our consumer and published our consumer contract, we can deploy the application to production.
 
