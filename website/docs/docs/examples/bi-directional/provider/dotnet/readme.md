@@ -32,7 +32,6 @@ https://github.com/pactflow/example-bi-directional-provider-dotnet
     - [Windows](#windows)
   - [Caveats](#caveats)
   - [Related topics / posts / discussions](#related-topics--posts--discussions)
-  - [Other examples of how to do this form of testing](#other-examples-of-how-to-do-this-form-of-testing)
   - [Found an issue?](#found-an-issue)
 
 ## Overview of Example
@@ -116,11 +115,13 @@ To be able to run some of the commands locally, you will need to export the foll
 
       `make verify_swagger`
 
-  4. If the Schemathasis test is successful run the publish_contract target, this will publish the Swagger document, Schemathesis report, and success status of the verification to your Pactflow account
+  4. If the Schemathasis test is successful run the publish_success target, this will publish the Swagger document, Schemathesis report, and success status of the verification to your Pactflow account
 
-      `make publish_contract`
+      `make publish_success`
 
 ### Use case with Schemathesis
+
+_note_ - Make sure you have built the .dll first with `make publish_dll`
 
 * `make test` - run the tests locally
 * `make fake_ci` - run the CI process (the above steps) locally, this will publish the Swagger document and Schemathesis report to Pactflow.
