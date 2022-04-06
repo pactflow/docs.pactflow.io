@@ -6,7 +6,7 @@ require 'fileutils'
 require 'pathname'
 require_relative 'support'
 
-SOURCE_REPO = 'pactflow/example-provider-postman'
+SOURCE_REPO = 'pactflow/example-bi-directional-provider-postman'
 DESTINATION_DIR = relative_path_to('website/docs/docs/examples/bi-directional/provider/postman')
 TRANSFORM_PATH = -> (path) { File.join(DESTINATION_DIR, path.downcase) }
 INCLUDE = [

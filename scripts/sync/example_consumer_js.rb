@@ -26,12 +26,3 @@ CUSTOM_ACTIONS = [
 
 FileUtils.mkdir_p DESTINATION_DIR
 sync(SOURCE_REPO, INCLUDE, IGNORE, TRANSFORM_PATH, CUSTOM_ACTIONS)
-
-# Duplicate for bi-directional
-DESTINATION_DIR2 = relative_path_to('website/docs/docs/examples/bi-directional/consumer/recordreplay')
-TRANSFORM_PATH2 = -> (path) { File.join(DESTINATION_DIR2, "readme.md") }
-INCLUDE2 = [
-  ->(path) { %w{README-bi-directional.md}.include?(path) }
-]
-FileUtils.mkdir_p DESTINATION_DIR2
-sync(SOURCE_REPO, INCLUDE2, IGNORE, TRANSFORM_PATH2, CUSTOM_ACTIONS)

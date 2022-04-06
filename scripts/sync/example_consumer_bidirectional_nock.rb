@@ -6,8 +6,8 @@ require 'fileutils'
 require 'pathname'
 require_relative 'support'
 
-SOURCE_REPO = 'pactflow/example-bi-directional-consumer-cypress'.freeze
-DESTINATION_DIR = relative_path_to('website/docs/docs/examples/bi-directional/consumer/cypress')
+SOURCE_REPO = 'pactflow/example-bi-directional-consumer-nock'.freeze
+DESTINATION_DIR = relative_path_to('website/docs/docs/examples/bi-directional/consumer/recordreplay')
 TRANSFORM_PATH = ->(path) { File.join(DESTINATION_DIR, path.downcase) }
 INCLUDE = [
   ->(path) { %w[README.md].include?(path) }
@@ -25,4 +25,4 @@ CUSTOM_ACTIONS = [
 
 FileUtils.mkdir_p DESTINATION_DIR
 
-sync(SOURCE_REPO, INCLUDE, IGNORE, TRANSFORM_PATH, CUSTOM_ACTIONS, 'main')
+sync(SOURCE_REPO, INCLUDE, IGNORE, TRANSFORM_PATH, CUSTOM_ACTIONS, 'master')
