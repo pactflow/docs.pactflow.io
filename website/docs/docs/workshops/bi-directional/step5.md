@@ -1,4 +1,4 @@
-# Deploy the provider to production
+# 5. Deploy the provider to production
 
 Now that we have tested our provider and published our provider contract, we can deploy the application to production.
 
@@ -8,7 +8,7 @@ The `can-i-deploy` command is an important part of a CI/CD workflow, adding stag
 
 This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
 
-![first provider pipeline run](./assets/provider-pipeline.png)
+![first provider pipeline run](../../../../static/workshops/bi-directional/provider-pipeline.png)
 
 Let's run the command:
 

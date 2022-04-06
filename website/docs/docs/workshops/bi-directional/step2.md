@@ -1,4 +1,4 @@
-# Create and document an API using OpenAPI Specification
+# 2. Create and document an API using OpenAPI Specification
 
 ## The Provider
 

@@ -1,4 +1,4 @@
-# Write tests for your consumer using any mocking tool and convert those mocks into a consumer contract
+# 7. Write tests for your consumer using any mocking tool and convert those mocks into a consumer contract
 
 ##  Consumer Contract Test
 
@@ -12,7 +12,7 @@ _NOTE: In Bi-Directional Contract Testing however, you don't need to worry as mu
 
 Usually, your application will be broken down into a number of sub-components, depending on what type of application your consumer is \(e.g. a Web application or another API\). This is how you might visualise the focus of a consumer contract test:
 
-![Scope of a consumer contract test](./assets/consumer-test-coverage.png)
+![Scope of a consumer contract test](../../../../static/workshops/bi-directional/consumer-test-coverage.png)
 
 Here, a _Collaborator_ is a component whose job is to communicate with another system. In our case, this is the `API` class communicating with the external `Product API` system. This is what we want our consumer test to inspect.
 
@@ -20,7 +20,7 @@ Here, a _Collaborator_ is a component whose job is to communicate with another s
 
 Pactflow currently supports pact files as a consumer contract format. In order to produce a consumer contract, you need to decide on a testing approach to capture the contract:
 
-1. Use [Pact](docs.pact.io) - this will be the default choice for many, as it can both mock the API calls and produce a pact file
+1. Use [Pact](https://docs.pact.io) - this will be the default choice for many, as it can both mock the API calls and produce a pact file
 2. Use an existing mocking tools such as Wiremock or Mountebank, or record/replay tools (such as VCR or Polly), and convert the mocks to a pact file after a successful run.
 
 [Read more](https://docs.pactflow.io/docs/bi-directional-contract-testing/contracts/pact#strategies-to-capture-consumer-contracts) on these strategies.

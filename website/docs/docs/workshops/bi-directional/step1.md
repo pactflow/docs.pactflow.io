@@ -1,10 +1,10 @@
-# Setting the scene
+# 1. Setting the scene
 
 ## An example scenario: Product API
 
 To learn the basic concepts of Bi-Directional-Contract-testing, we will work through an example scenario authoring a consumer test between a consumer (Product Web) and its provider (the Product API).
 
-![Scenario](./assets/scenario.png)
+![Scenario](../../../../static/workshops/bi-directional/scenario.png)
 
 We will implement this system using an approach referred to as _specification first design_, where we will first design the API by hand and then write the actual implementation of the provider.
 

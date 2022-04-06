@@ -1,4 +1,4 @@
-# Learn about Pactflow's breaking change detection system
+# 10. Learn about Pactflow's breaking change detection system
 
 So far everything has been really easy. Let's go a bit deeper and introduce a breaking change into the system. Breaking changes come in two main ways:
 
@@ -15,18 +15,18 @@ Change directories into `cd /root/example-bi-directional-provider-dredd`{{execut
 
 1.  Try changing the provider code in a backwards incompatible way, what happens?
 
-        ```
+        
         // First comment out the 'price' key in the product.js file and from the OAS, then run
         npm t
         npm run publish
         npm run can-i-deploy
-        ```
+        
 
 OK, that was a trick! Note how in the consumer's `Product` definition, it doesn't actually use the `price` field? Pactflow knows all of the consumers needs down to the field level. Because no consumer uses `price` this is a safe operation.
 
 Revert the change `git checkout --`{{execute}}
 
-2.  Try changing the provider code in a way that will break it's existing consumer. For example, comment out all references to `name` in the OAS and run the steps from above:
+1.  Try changing the provider code in a way that will break it's existing consumer. For example, comment out all references to `name` in the OAS and run the steps from above:
 
 ```
 ✗ npm run can-i-deploy
@@ -50,7 +50,7 @@ The cross contract verification between the pact for the version of pactflow-exa
 
 If you head into the Pactflow UI and drill down into the "contract comparison" tab, you'll see the output from comparing the consumer and provider contracts:
 
-![pactflow dashboard - completed](./assets/cross-contract-failure.png)
+![pactflow dashboard - completed](../../../../static/workshops/bi-directional/cross-contract-failure.png)
 
 As you can see, it's alerting us to the fact that the consumer needs a field `name` but the provider doesn't support it.
 
@@ -62,32 +62,33 @@ Change directories into your consumer project: `cd /root/example-bi-directional-
 
 1.  Try adding a new expectation on the provider by updating the contract. For example, add a new property to the `expectedProduct` field in `example-bi-directional-consumer-mountebank/src/api.spec.js`{{open}}:
 
-        ```
+     
         npm t
         npm run publish
         npm run can-i-deploy
-        ```
-        You shouldn't be able to deploy!
+      
+You shouldn't be able to deploy!
 
-```
-✗ npm run can-i-deploy
 
-> consumer@0.1.0 can-i-deploy /Users/matthewfellows/development/public/pactflow-example-consumer-mountebank
-> pact-broker can-i-deploy --pacticipant pactflow-example-consumer-mountebank --version="$(npx @pact-foundation/absolute-version)" --to-environment production
 
-npx: installed 47 in 2.64s
-Computer says no ¯_(ツ)_/¯
+        ✗ npm run can-i-deploy
 
-CONSUMER                             | C.VERSION                                | PROVIDER                        | P.VERSION          | SUCCESS? | RESULT#
--------------------------------------|------------------------------------------|---------------------------------|--------------------|----------|--------
-pactflow-example-consumer-mountebank | 009e94-master+009e94.SNAPSHOT.Matts-iMac | pactflow-example-bi-directional-provider-dredd | caec911+1645930967 | false    | 1
+        > consumer@0.1.0 can-i-deploy /Users/matthewfellows/development/public/pactflow-example-consumer-mountebank
+        > pact-broker can-i-deploy --pacticipant pactflow-example-consumer-mountebank --version="$(npx @pact-foundation/absolute-version)" --to-environment production
 
-VERIFICATION RESULTS
---------------------
-1. https://testdemo.pactflow.io/hal-browser/browser.html#https://testdemo.pactflow.io/contracts/provider/pactflow-example-bi-directional-provider-dredd/version/caec911%2B1645930967/consumer/pactflow-example-consumer-mountebank/pact-version/a34e535ec10e8c1fd04202ae4b9d3943b780c332/verification-results (failure)
+        npx: installed 47 in 2.64s
+        Computer says no ¯_(ツ)_/¯
 
-The cross contract verification between the pact for version 009e94-master+009e94.SNAPSHOT.Matts-iMac of pactflow-example-consumer-mountebank and the oas for the version of pactflow-example-bi-directional-provider-dredd currently deployed to production (caec911+1645930967) failed
-```
+        CONSUMER                             | C.VERSION                                | PROVIDER                        | P.VERSION          | SUCCESS? | RESULT#
+        -------------------------------------|------------------------------------------|---------------------------------|--------------------|----------|--------
+        pactflow-example-consumer-mountebank | 009e94-master+009e94.SNAPSHOT.Matts-iMac | pactflow-example-bi-directional-provider-dredd | caec911+1645930967 | false    | 1
+
+        VERIFICATION RESULTS
+        --------------------
+        1. https://testdemo.pactflow.io/hal-browser/browser.html#https://testdemo.pactflow.io/contracts/provider/pactflow-example-bi-directional-provider-dredd/version/caec911%2B1645930967/consumer/pactflow-example-consumer-mountebank/pact-version/a34e535ec10e8c1fd04202ae4b9d3943b780c332/verification-results (failure)
+
+        The cross contract verification between the pact for version 009e94-master+009e94.SNAPSHOT.Matts-iMac of pactflow-example-consumer-mountebank and the oas for the version of pactflow-example-bi-directional-provider-dredd currently deployed to production (caec911+1645930967) failed
+
 
 As per the previous failure, you can see it's alerting us to the fact that the consumer needs a field `colour` but the provider doesn't support it.
 

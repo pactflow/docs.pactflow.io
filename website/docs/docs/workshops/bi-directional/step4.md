@@ -1,4 +1,4 @@
-# Publish the provider contract to Pactflow
+# 4. Publish the provider contract to Pactflow
 
 Now that we have created and verified our provider contract, we need to share the contract to our consumers. This is where Pactflow comes in to the picture. This step is referred to as "publishing" the provider contract.
 
@@ -22,4 +22,4 @@ This information will be helpful later on, when we need to check compatibility w
 
 Your dashboard should look something like this:
 
-![pactflow-dashboard-unverified](.//assets/dashboard-provider-only.png)
+![pactflow-dashboard-unverified](../../../../static/workshops/bi-directional/dashboard-provider-only.png)

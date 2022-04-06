@@ -1,4 +1,4 @@
-# Publish your consumer contract to Pactflow
+# 8. Publish your consumer contract to Pactflow
 
 Now that we have created our consumer contract, we need to share it to our provider. This is where Pactflow comes in to the picture. This step is referred to as "publishing" the consumer contract.
 
@@ -17,18 +17,7 @@ As per step 4, we're going to need credentials to our Pactflow account here:
 
 Your dashboard should look something like this:
 
-![pactflow-dashboard-unverified](./assets/pactflow-dashboard-unverified.png)
-
-## Don't have a Pactflow account?
-
-If you don't have a Pactflow account, you can publish a [test broker](https://test.pactflow.io).
-
-```
-export PACT_BROKER_BASE_URL=https://test.pactflow.io
-export PACT_BROKER_TOKEN=129cCdfCWhMzcC9pFwb4bw
-```{{execute}}
-
-If you use this account, note that you won't have access to the UI.
+![pactflow-dashboard-unverified](../../../../static/workshops/bi-directional/pactflow-dashboard-unverified.png)
 
 ## Check
 

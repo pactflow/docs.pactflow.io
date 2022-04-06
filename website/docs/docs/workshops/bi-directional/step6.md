@@ -1,4 +1,4 @@
-# Write the API consumer
+# 6. Write the API consumer
 
 ## The Consumer
 

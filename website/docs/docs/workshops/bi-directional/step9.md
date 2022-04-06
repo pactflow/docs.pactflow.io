@@ -1,4 +1,4 @@
-# Deploy your consumer to Production
+# 9. Deploy your consumer to Production
 
 Now that we have tested our consumer and published our consumer contract, we can deploy the application to production.
 
@@ -6,9 +6,9 @@ Just like our provider counterpart, we're going to call `can-i-deploy` to check 
 
 _REMEMBER: The `can-i-deploy` command is an important part of a CI/CD workflow, adding stage gates to prevent deploying incompatible applications to environments such as production_
 
-<!-- This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
+This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
 
-![consumer pipeline run](./assets/consumer-pipeline.png) -->
+![consumer pipeline run](../../../../static/workshops/bi-directional/consumer-pipeline.png)
 
 Let's run the command:
 
@@ -41,4 +41,4 @@ This allows Pactflow to prevent any providers from deploying an incompatible cha
 
 Your dashboard should look something like this, where both your consumer and consumer are marked as having been deployed to `production`:
 
-![pactflow dashboard - completed](./assets/pactflow-dashboard-complete.png)
+![pactflow dashboard - completed](../../../../static/workshops/bi-directional/pactflow-dashboard-complete.png)
