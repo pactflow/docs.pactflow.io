@@ -17,7 +17,7 @@ https://github.com/pactflow/example-bi-directional-consumer-mountebank
 
 <!-- Can I Deploy Badge -->
 
-[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-mountebank/branches/master/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-mountebank/branches/master/latest-version/can-i-deploy/to-environment/production/badge)
+[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-bi-directional-consumer-mountebank/branches/master/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/pactflow-example-bi-directional-consumer-mountebank/branches/master/latest-version/can-i-deploy/to-environment/production/badge)
 
 - [Example NodeJS Consumer - Mountebank (BYO Adapter)](#example-nodejs-consumer---mountebank-byo-adapter)
   - [Overview of Example](#overview-of-example)
