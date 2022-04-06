@@ -17,7 +17,7 @@ https://github.com/pactflow/example-bi-directional-consumer-wiremock
 
 <!-- Can I Deploy Badge -->
 
-[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-wiremock/branches/master/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-wiremock/branches/master/latest-version/can-i-deploy/to-environment/production/badge)
+[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-bi-directional-consumer-wiremock/branches/master/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/pactflow-example-bi-directional-consumer-wiremock/branches/master/latest-version/can-i-deploy/to-environment/production/badge)
 
 - [Example Java Consumer - Wiremock (BYO Adapter)](#example-java-consumer---wiremock-byo-adapter)
   - [Overview of Example](#overview-of-example)
