@@ -215,15 +215,12 @@ Some notes:
 
 ## Caveats
 
-1. TBC
+- [OAS considerations](https://docs.pactflow.io/docs/bi-directional-contract-testing/contracts/oas#considerations)
 
 ## Related topics / posts / discussions
 
-- TBC
-
-## Other examples of how to do this form of testing
-
-- TBC
+- [Consumer Side Bi-Directional Contract Testing Guide](https://docs.pactflow.io/docs/bi-directional-contract-testing/consumer)
+- [Provider Side Bi-Directional Contract Testing Guide](https://docs.pactflow.io/docs/bi-directional-contract-testing/provider)
 
 ## Found an issue?
 
