@@ -32,42 +32,42 @@ function generateGettingStartedTab({ data, withLabel, withLink }) {
       {generateTabItem({
         data,
         key: "js",
-        content: `###js`,
+        content: `### js`,
         withLabel,
         withLink,
       })}
       {generateTabItem({
         data,
         key: "java",
-        content: `###js`,
+        content: `### js`,
         withLabel,
         withLink,
       })}
       {generateTabItem({
         data,
         key: "golang",
-        content: `###golang`,
+        content: `### golang`,
         withLabel,
         withLink,
       })}
       {generateTabItem({
         data,
         key: "ruby",
-        content: `###ruby`,
+        content: `### ruby`,
         withLabel,
         withLink,
       })}
       {generateTabItem({
         data,
         key: "cplusplus",
-        content: `###C++`,
+        content: `### C++`,
         withLabel,
         withLink,
       })}
       {generateTabItem({
         data,
         key: "docker",
-        content: `###Docker`,
+        content: `### Docker`,
         withLabel,
         withLink,
       })}
@@ -83,7 +83,7 @@ function generateLanguageTab({ data, withLabel, withLink }) {
         return generateTabItem({
           data,
           key,
-          content: key, // for demo, need to add our own content
+          content: <a href={data[key].iconLink}>{data[key].iconTitle} Implemenation Guide</a>, // for demo, need to add our own content
           withLabel,
           withLink,
         });

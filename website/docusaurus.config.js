@@ -100,6 +100,7 @@ module.exports = {
         "java",
         "docker",
         "groovy",
+        "scala"
       ],
     },
   },
