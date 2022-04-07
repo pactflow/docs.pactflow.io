@@ -13,7 +13,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Provider",
-        link: "https://github.com/pactflow/example-provider",
+        link: "/docs/examples/js/provider",
       },
     ],
   },
@@ -29,8 +29,8 @@ export const tableData = [
     side: "Consumer",
     compatible_clients: [
       {
-        name: "Example Consumer Cypress",
-        link: "https://github.com/pactflow/example-consumer-cypress",
+        name: "Example Provider",
+        link: "/docs/examples/js/provider",
       },
     ],
   },
@@ -47,11 +47,11 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Consumer Cypress",
-        link: "https://github.com/pactflow/example-consumer-cypress",
+        link: "/docs/examples/cypress/",
       },
       {
-        name: "Example Provider",
-        link: "https://github.com/pactflow/example-provider",
+        name: "Example Consumer",
+        link: "/docs/examples/js/consumer",
       },
     ],
   },
@@ -66,7 +66,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Bi-Directional Consumer .NET",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-dotnet",
+        link: "/docs/examples/bi-directional/provider/dotnet/",
       },
     ],
   },
@@ -80,23 +80,23 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Bi-Directional Consumer Cypress",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-cypress",
+        link: "/docs/examples/bi-directional/consumer/cypress/",
       },
       {
         name: "Example Bi-Directional Consumer Mountebank",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-mountebank",
+        link: "/docs/examples/bi-directional/consumer/mountebank/",
       },
       {
         name: "Example Bi-Directional Consumer Wiremock",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-wiremock",
+        link: "/docs/examples/bi-directional/consumer/wiremock/",
       },
       {
         name: "Example Bi-Directional Consumer Nock",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-nock",
+        link: "/docs/examples/bi-directional/consumer/nock/",
       },
       {
         name: "Example Bi-Directional Consumer MSW",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-msw",
+        link: "/docs/examples/bi-directional/consumer/msw/",
       },
     ],
   },
@@ -110,23 +110,23 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Bi-Directional Consumer Cypress",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-cypress",
+        link: "/docs/examples/bi-directional/consumer/cypress/",
       },
       {
         name: "Example Bi-Directional Consumer Mountebank",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-mountebank",
+        link: "/docs/examples/bi-directional/consumer/mountebank/",
       },
       {
         name: "Example Bi-Directional Consumer Wiremock",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-wiremock",
+        link: "/docs/examples/bi-directional/consumer/wiremock/",
       },
       {
         name: "Example Bi-Directional Consumer Nock",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-nock",
+        link: "/docs/examples/bi-directional/consumer/nock/",
       },
       {
         name: "Example Bi-Directional Consumer MSW",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-msw",
+        link: "/docs/examples/bi-directional/consumer/msw/",
       },
     ],
   },
@@ -140,23 +140,23 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Bi-Directional Consumer Cypress",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-cypress",
+        link: "/docs/examples/bi-directional/consumer/cypress/",
       },
       {
         name: "Example Bi-Directional Consumer Mountebank",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-mountebank",
+        link: "/docs/examples/bi-directional/consumer/mountebank/",
       },
       {
         name: "Example Bi-Directional Consumer Wiremock",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-wiremock",
+        link: "/docs/examples/bi-directional/consumer/wiremock/",
       },
       {
         name: "Example Bi-Directional Consumer Nock",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-nock",
+        link: "/docs/examples/bi-directional/consumer/nock/",
       },
       {
         name: "Example Bi-Directional Consumer MSW",
-        link: "https://github.com/pactflow/example-bi-directional-consumer-msw",
+        link: "/docs/examples/bi-directional/consumer/msw/",
       },
     ],
   },
@@ -170,7 +170,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Python Consumer",
-        link: "https://github.com/pactflow/example-consumer-python",
+        link: "/docs/examples/python/consumer/",
       },
     ],
   },
@@ -184,7 +184,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Golang Consumer",
-        link: "https://github.com/pactflow/example-consumer-golang",
+        link: "/docs/examples/golang/consumer/",
       },
     ],
   },
@@ -197,8 +197,8 @@ export const tableData = [
     side: "Provider",
     compatible_clients: [
       {
-        name: "Example Python Consumer",
-        link: "https://github.com/pactflow/example-consumer-python",
+        name: "Example .NET Consumer",
+        link: "/docs/examples/dotnet/consumer/",
       },
     ],
   },
@@ -212,7 +212,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Java XML Consumer",
-        link: "https://github.com/pactflow/example-consumer-java-soap",
+        link: "/docs/examples/soap/java/consumer/",
       },
     ],
   },
@@ -226,11 +226,11 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Java Kafka Consumer",
-        link: "https://github.com/pactflow/example-consumer-java-kafka",
+        link: "/docs/examples/kafka/java/consumer/",
       },
       {
         name: "Example NodeJS Kafka Consumer",
-        link: "https://github.com/pactflow/example-consumer-js-kafka",
+        link: "/docs/examples/kafka/js/consumer/",
       },
     ],
   },
@@ -244,7 +244,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Java Junit Consumer",
-        link: "https://github.com/pactflow/example-consumer-java-junit",
+        link: "/docs/examples/java/consumer/junit/",
       },
     ],
   },
@@ -258,7 +258,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Node AWS SNS Consumer",
-        link: "https://github.com/pactflow/example-consumer-js-sns",
+        link: "/docs/examples/aws/sns/consumer//docs/examples/aws/sns/consumer/",
       },
     ],
   },
@@ -273,19 +273,19 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Bi-Directional Provider Dredd",
-        link: "https://github.com/pactflow/example-bi-directional-provider-dredd",
+        link: "/docs/examples/bi-directional/provider/dredd/",
       },
       {
         name: "Example Bi-Directional Provider Postman",
-        link: "https://github.com/pactflow/example-bi-directional-provider-postman",
+        link: "/docs/examples/bi-directional/provider/postman/",
       },
       {
         name: "Example Bi-Directional Provider RestAssured",
-        link: "https://github.com/pactflow/example-bi-directional-provider-restassured",
+        link: "/docs/examples/bi-directional/provider/restassured/",
       },
       {
         name: "Example Provider",
-        link: "https://github.com/pactflow/example-provider",
+        link: "/docs/examples/js/provider",
       },
     ],
   },
@@ -300,19 +300,19 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Bi-Directional Provider Dredd",
-        link: "https://github.com/pactflow/example-bi-directional-provider-dredd",
+        link: "/docs/examples/bi-directional/provider/dredd/",
       },
       {
         name: "Example Bi-Directional Provider Postman",
-        link: "https://github.com/pactflow/example-bi-directional-provider-postman",
+        link: "/docs/examples/bi-directional/provider/postman/",
       },
       {
         name: "Example Bi-Directional Provider RestAssured",
-        link: "https://github.com/pactflow/example-bi-directional-provider-restassured",
+        link: "/docs/examples/bi-directional/provider/restassured/",
       },
       {
         name: "Example Provider",
-        link: "https://github.com/pactflow/example-provider",
+        link: "/docs/examples/js/provider",
       },
     ],
   },
@@ -327,19 +327,19 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Bi-Directional Provider Dredd",
-        link: "https://github.com/pactflow/example-bi-directional-provider-dredd",
+        link: "/docs/examples/bi-directional/provider/dredd/",
       },
       {
         name: "Example Bi-Directional Provider Postman",
-        link: "https://github.com/pactflow/example-bi-directional-provider-postman",
+        link: "/docs/examples/bi-directional/provider/postman/",
       },
       {
         name: "Example Bi-Directional Provider RestAssured",
-        link: "https://github.com/pactflow/example-bi-directional-provider-restassured",
+        link: "/docs/examples/bi-directional/provider/restassured/",
       },
       {
         name: "Example Provider",
-        link: "https://github.com/pactflow/example-provider",
+        link: "/docs/examples/js/provider",
       },
     ],
   },
@@ -354,19 +354,19 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Bi-Directional Provider Dredd",
-        link: "https://github.com/pactflow/example-bi-directional-provider-dredd",
+        link: "/docs/examples/bi-directional/provider/dredd/",
       },
       {
         name: "Example Bi-Directional Provider Postman",
-        link: "https://github.com/pactflow/example-bi-directional-provider-postman",
+        link: "/docs/examples/bi-directional/provider/postman/",
       },
       {
         name: "Example Bi-Directional Provider RestAssured",
-        link: "https://github.com/pactflow/example-bi-directional-provider-restassured",
+        link: "/docs/examples/bi-directional/provider/restassured/",
       },
       {
         name: "Example Provider",
-        link: "https://github.com/pactflow/example-provider",
+        link: "/docs/examples/js/provider",
       },
     ],    
   },
@@ -381,19 +381,19 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Bi-Directional Provider Dredd",
-        link: "https://github.com/pactflow/example-bi-directional-provider-dredd",
+        link: "/docs/examples/bi-directional/provider/dredd/",
       },
       {
         name: "Example Bi-Directional Provider Postman",
-        link: "https://github.com/pactflow/example-bi-directional-provider-postman",
+        link: "/docs/examples/bi-directional/provider/postman/",
       },
       {
         name: "Example Bi-Directional Provider RestAssured",
-        link: "https://github.com/pactflow/example-bi-directional-provider-restassured",
+        link: "/docs/examples/bi-directional/provider/restassured/",
       },
       {
         name: "Example Provider",
-        link: "https://github.com/pactflow/example-provider",
+        link: "/docs/examples/js/provider",
       },
     ],
     
@@ -410,7 +410,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Python Provider",
-        link: "https://github.com/pactflow/example-provider-python",
+        link: "/docs/examples/python/provider/",
       },
     ],
   },
@@ -425,7 +425,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Golang Provider",
-        link: "https://github.com/pactflow/example-provider-golang",
+        link: "/docs/examples/golang/provider/",
       },
     ],
   },
@@ -440,7 +440,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Provider .NET",
-        link: "https://github.com/pactflow/example-provider-dotnet",
+        link: "/docs/examples/dotnet/provider/",
       },
     ],
   },
@@ -455,7 +455,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Bi-Directional Provider .NET",
-        link: "https://github.com/pactflow/example-bi-directional-provider-dotnet",
+        link: "/docs/examples/bi-directional/consumer/dotnet/",
       },
     ],
   },
@@ -470,7 +470,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Java Spring Boot Provider",
-        link: "https://github.com/pactflow/example-provider-springboot",
+        link: "/docs/examples/java/provider-springboot/",
       },
     ],
   },
@@ -500,7 +500,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Java Kafka Producer",
-        link: "https://github.com/pactflow/example-provider-java-kafka",
+        link: "/docs/examples/kafka/java/provider",
       },
     ],
   },
@@ -515,7 +515,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Java Kafka Producer",
-        link: "https://github.com/pactflow/example-provider-java-kafka",
+        link: "/docs/examples/kafka/java/provider",
       },
     ],
   },
@@ -530,7 +530,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example NodeJS SNS Provider",
-        link: "https://github.com/pactflow/example-provider-js-sns",
+        link: "/docs/examples/aws/sns/provider/",
       },
     ],
   },
