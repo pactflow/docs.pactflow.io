@@ -23,7 +23,7 @@ Your dashboard should look something like this:
 
 ### Expected state by the end of this step
 
-* There should be a contract published in your Pactflow account before moving on
+- There should be a contract published in your Pactflow account before moving on
 
 ## Publish the consumer build in Github Actions
 
@@ -40,4 +40,4 @@ Your dashboard should look something like this:
 
 ### Expected state by the end of this step
 
-* The consumer build fails with authentication errors, don't worry, we will address this in the next step ❌
+- The consumer build fails with authentication errors, don't worry, we will address this in the next step ❌

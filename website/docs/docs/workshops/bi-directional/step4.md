@@ -19,13 +19,12 @@ This information will be helpful later on, when we need to check compatibility w
    export PACT_BROKER_TOKEN=YOUR_API_TOKEN
    ```
 
-2. `npm run publish`
-3. Go to your Pactflow dashboard and check that a new contract has appeared
+1. `npm run publish`
+1. Go to your Pactflow dashboard and check that a new contract has appeared
 
 Your dashboard should look something like this:
 
 ![pactflow-dashboard-unverified](../../../../static/workshops/bi-directional/dashboard-provider-only.png)
-
 
 ## Publish the provider contract in Github Actions
 
@@ -42,7 +41,6 @@ Your dashboard should look something like this:
 
 ❌ The build will fail with an authentication error when it tries to publish the pact - that's expected. We need to update the configuration to point it at your new Pactflow account.
 
-
 #### Expected state by the end of this step
 
-* The provider builds fails with authentication errors, don't worry, we will address this in the next step ❌
+- The provider builds fails with authentication errors, don't worry, we will address this in the next step ❌

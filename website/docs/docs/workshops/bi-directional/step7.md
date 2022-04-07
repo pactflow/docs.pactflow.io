@@ -1,6 +1,8 @@
-# 7. Write tests for your consumer using any mocking tool and convert those mocks into a consumer contract
+# 7. Write consumer tests
 
-##  Consumer Contract Test
+Now is the time to write consumer tests using your mocking tool of choice, and convert those mocks into a consumer contract.
+
+## Consumer Contract Test
 
 Now that we have written our consumer code, we need to test it, and ensure that it is compatible with its provider.
 
@@ -41,15 +43,15 @@ The following key libraries and tools are used:
 At the start of our test, we configure a few important lifecycle hooks:
 
 ```javascript
-  const mb = new Mountebank();                                          // (1)
-  const api = new ProductAPIClient(`http://localhost:${imposterPort}`); // (2)
-  const imposter = new Imposter()                                       // (3)
-    .withPort(imposterPort)
-    .withRecordRequests(true);
+const mb = new Mountebank(); // (1)
+const api = new ProductAPIClient(`http://localhost:${imposterPort}`); // (2)
+const imposter = new Imposter() // (3)
+  .withPort(imposterPort)
+  .withRecordRequests(true);
 
-  beforeAll(() => startAndClearStubs());         // (4)
-  afterEach(() => writeStubs(mb, imposterPort)); // (5)
-  afterAll(() => stopStubs());                   // (6)
+beforeAll(() => startAndClearStubs()); // (4)
+afterEach(() => writeStubs(mb, imposterPort)); // (5)
+afterAll(() => stopStubs()); // (6)
 ```
 
 1. First, we use a [neat little library](https://github.com/AngelaE/ts-mountebank) that wraps the Mountebank API for us, enabling us to configure Mountebank mocks in code.
@@ -67,30 +69,27 @@ We then have a few lifecycle methods:
 Now that we have the infrastructure in place, we can simply write our tests.
 
 ```javascript
-  describe("retrieving products", () => {
-    test("products exists", async () => {
-      // (1) Arrange
-      imposter
-        .withStub(
-          new Stub()
-            .withPredicate(
-              new EqualPredicate()
-                .withMethod(HttpMethod.GET)
-                .withPath("/products")
-            )
-            .withResponse(
-              new Response().withStatusCode(200).withJSONBody([expectedProduct])
-            )
+describe("retrieving products", () => {
+  test("products exists", async () => {
+    // (1) Arrange
+    imposter.withStub(
+      new Stub()
+        .withPredicate(
+          new EqualPredicate().withMethod(HttpMethod.GET).withPath("/products")
         )
-      await mb.createImposter(imposter);
+        .withResponse(
+          new Response().withStatusCode(200).withJSONBody([expectedProduct])
+        )
+    );
+    await mb.createImposter(imposter);
 
-      // (2) Act
-      const products = await api.getAllProducts();
+    // (2) Act
+    const products = await api.getAllProducts();
 
-      // (3) Assert that we got the expected response
-      expect(products).toStrictEqual([new Product(expectedProduct)]);
-    });
+    // (3) Assert that we got the expected response
+    expect(products).toStrictEqual([new Product(expectedProduct)]);
   });
+});
 ```
 
 There's a lot here, so let's break it down a little.

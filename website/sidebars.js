@@ -146,7 +146,7 @@ module.exports = {
         {
           type: "category",
           label: "Bi-Directional Contract Testing",
-          items:    [
+          items: [
             "docs/workshops/bi-directional-contract-testing",
             {
               Workshop: [
@@ -160,7 +160,6 @@ module.exports = {
                 "docs/workshops/bi-directional/step7",
                 "docs/workshops/bi-directional/step8",
                 "docs/workshops/bi-directional/step9",
-                "docs/workshops/bi-directional/step9a",
                 "docs/workshops/bi-directional/step10",
                 "docs/workshops/bi-directional/step11",
               ],

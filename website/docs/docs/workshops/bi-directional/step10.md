@@ -1,4 +1,4 @@
-# 10. Learn about Pactflow's breaking change detection system
+# 10. Breaking change detection
 
 So far everything has been really easy. Let's go a bit deeper and introduce a breaking change into the system. Breaking changes come in two main ways:
 
@@ -15,12 +15,10 @@ Change directories into `cd /root/example-bi-directional-provider-dredd`
 
 1.  Try changing the provider code in a backwards incompatible way, what happens?
 
-        
         // First comment out the 'price' key in the product.js file and from the OAS, then run
         npm t
         npm run publish
         npm run can-i-deploy
-        
 
 OK, that was a trick! Note how in the consumer's `Product` definition, it doesn't actually use the `price` field? Pactflow knows all of the consumers needs down to the field level. Because no consumer uses `price` this is a safe operation.
 
@@ -62,14 +60,11 @@ Change directories into your consumer project: `cd /root/example-bi-directional-
 
 1.  Try adding a new expectation on the provider by updating the contract. For example, add a new property to the `expectedProduct` field in `example-bi-directional-consumer-mountebank/src/api.spec.js`:
 
-     
         npm t
         npm run publish
         npm run can-i-deploy
-      
+
 You shouldn't be able to deploy!
-
-
 
         ✗ npm run can-i-deploy
 
@@ -88,7 +83,6 @@ You shouldn't be able to deploy!
         1. https://testdemo.pactflow.io/hal-browser/browser.html#https://testdemo.pactflow.io/contracts/provider/pactflow-example-bi-directional-provider-dredd/version/caec911%2B1645930967/consumer/pactflow-example-consumer-mountebank/pact-version/a34e535ec10e8c1fd04202ae4b9d3943b780c332/verification-results (failure)
 
         The cross contract verification between the pact for version 009e94-master+009e94.SNAPSHOT.Matts-iMac of pactflow-example-consumer-mountebank and the oas for the version of pactflow-example-bi-directional-provider-dredd currently deployed to production (caec911+1645930967) failed
-
 
 As per the previous failure, you can see it's alerting us to the fact that the consumer needs a field `colour` but the provider doesn't support it.
 
