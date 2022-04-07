@@ -61,7 +61,7 @@ export const tableData = [
     linkUrl: "/docs/examples/bi-directional/provider/dotnet",
     badges: [],
     language: ".NET",
-    useCase: "OpenAPI Spec",
+    useCase: "OpenAPI",
     side: "Provider",
     compatible_clients: [
       {
@@ -75,7 +75,7 @@ export const tableData = [
     linkUrl: "/docs/examples/bi-directional/provider/restassured",
     badges: [],
     language: "Java",
-    useCase: "OpenAPI Spec",
+    useCase: "OpenAPI",
     side: "Provider",
     compatible_clients: [
       {
@@ -105,7 +105,7 @@ export const tableData = [
     linkUrl: "/docs/examples/bi-directional/provider/postman",
     badges: [],
     language: "JS",
-    useCase: "OpenAPI Spec",
+    useCase: "OpenAPI",
     side: "Provider",
     compatible_clients: [
       {
@@ -135,7 +135,7 @@ export const tableData = [
     linkUrl: "/docs/examples/bi-directional/provider/dredd",
     badges: [],
     language: "JS",
-    useCase: "OpenAPI Spec",
+    useCase: "OpenAPI",
     side: "Provider",
     compatible_clients: [
       {
@@ -253,7 +253,7 @@ export const tableData = [
     linkUrl: "/docs/examples/aws/sns/provider",
     badges: [],
     language: "JS/NodeJS",
-    useCase: "AWS/SNS/Messages",
+    useCase: "Messages",
     side: "Provider",
     compatible_clients: [
       {
@@ -485,7 +485,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: "Example Java XML Provider",
-        link: "https://github.com/pactflow/example-provider-java-soap",
+        link: "/docs/examples/soap/java/provider",
       },
     ],
   },
@@ -525,7 +525,7 @@ export const tableData = [
     linkUrl: "/docs/examples/aws/sns/consumer",
     badges: [],
     language: "NodeJS",
-    useCase: "AWS/SNS/Messages",
+    useCase: "Messages",
     side: "Consumer",
     compatible_clients: [
       {
@@ -553,7 +553,7 @@ export const columns = [
     className: "data-table",
   },
   {
-    Header: "Description",
+    Header: "Demo",
     accessor: "linkTitle",
     className: "data-table left",
     Cell: ({ cell: { value }, row: { original } }) => (
