@@ -29,7 +29,7 @@ As there are plenty of [example projects](https://docs.pactflow.io/docs/examples
 
 ### The contract test
 
-Let's dive in! First, let's open up the API spec and go through the key bits: `example-bi-directional-consumer-mountebank/src/api.spec.js`{{open}}
+Let's dive in! First, let's open up the API spec and go through the key bits: `example-bi-directional-consumer-mountebank/src/api.spec.js`
 
 The following key libraries and tools are used:
 
@@ -105,8 +105,8 @@ After each `test` block finishes successfully, the `afterEach` block will append
 
 To generate our pact file, we have created a few helper functions to inspect Mountebank and write the mocks to file
 
-- `example-bi-directional-consumer-mountebank/test/mountebank.js`{{open}}
-- `example-bi-directional-consumer-mountebank/test/mountebankSerialiser.js`{{open}}
+- `example-bi-directional-consumer-mountebank/test/mountebank.js`
+- `example-bi-directional-consumer-mountebank/test/mountebankSerialiser.js`
 
 To extract the mock information, we have a few choices (see http://www.mbtest.org/docs/api/mocks). In this case, when we start Mountebank, we actually pass the `--debug` [flag](http://www.mbtest.org/docs/commandLine#start) giving us a really important behaviour:
 
@@ -124,9 +124,9 @@ This process is essentially same for any mocking tool, such as Wiremock or Cypre
 
 OK, time to run the tests!
 
-1. Run the tests `npm t`{{execute}}
+1. Run the tests `npm t`
 
 ### Check
 
-1. It has generated a pact file `example-bi-directional-consumer-mountebank/pacts/pactflow-example-consumer-mountebank-pactflow-example-bi-directional-provider-dredd.json`{{open}}
-2. You have studied the API spec and understood how it works: `example-bi-directional-consumer-mountebank/src/api.spec.js`{{open}}
+1. It has generated a pact file `example-bi-directional-consumer-mountebank/pacts/pactflow-example-consumer-mountebank-pactflow-example-bi-directional-provider-dredd.json`
+2. You have studied the API spec and understood how it works: `example-bi-directional-consumer-mountebank/src/api.spec.js`

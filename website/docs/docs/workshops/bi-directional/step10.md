@@ -11,7 +11,7 @@ Let's see it in action.
 
 ## Provider breaking changes
 
-Change directories into `cd /root/example-bi-directional-provider-dredd`{{execute interrupt}}
+Change directories into `cd /root/example-bi-directional-provider-dredd`
 
 1.  Try changing the provider code in a backwards incompatible way, what happens?
 
@@ -24,7 +24,7 @@ Change directories into `cd /root/example-bi-directional-provider-dredd`{{execut
 
 OK, that was a trick! Note how in the consumer's `Product` definition, it doesn't actually use the `price` field? Pactflow knows all of the consumers needs down to the field level. Because no consumer uses `price` this is a safe operation.
 
-Revert the change `git checkout --`{{execute}}
+Revert the change `git checkout --`
 
 1.  Try changing the provider code in a way that will break it's existing consumer. For example, comment out all references to `name` in the OAS and run the steps from above:
 
@@ -58,9 +58,9 @@ Read more about how to [interpret failures](https://docs.pactflow.io/docs/bi-dir
 
 ## Consumer breaking changes
 
-Change directories into your consumer project: `cd /root/example-bi-directional-consumer-mountebank`{{execute}}
+Change directories into your consumer project: `cd /root/example-bi-directional-consumer-mountebank`
 
-1.  Try adding a new expectation on the provider by updating the contract. For example, add a new property to the `expectedProduct` field in `example-bi-directional-consumer-mountebank/src/api.spec.js`{{open}}:
+1.  Try adding a new expectation on the provider by updating the contract. For example, add a new property to the `expectedProduct` field in `example-bi-directional-consumer-mountebank/src/api.spec.js`:
 
      
         npm t
@@ -102,4 +102,4 @@ The consumer won't be able to release this change until the Provider API support
 
 ## Further material
 
-You may be interested in one of our longer form [workshops](https://docs.pact.io/implementation_guides/workshops), or getting deeper into [CI/CD](https://docs.pactflow.io/docs/workshops/ci-cd/) with Pact.
+You may be interested in a dive into our [CI/CD](https://docs.pactflow.io/docs/workshops/ci-cd/) workshop with Pact and the consumer driven contract testing approach
