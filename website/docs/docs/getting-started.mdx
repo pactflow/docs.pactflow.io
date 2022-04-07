@@ -11,6 +11,7 @@ import {
 } from "../../src/data/icons";
 import {
   generateLanguageTab,
+  generateTestingToolsTab,
 } from "../../src/components/tabGenerator";
 import { meta } from "../../src/data/meta";
 
@@ -373,9 +374,27 @@ docker-compose -f docker-compose-verify.yml up \
 
 Pact, is available in many different implemenations, Click on a language icon to take you to the implementation guide or readme.
 
+The guides cover the consumer-driven contract testing flow.
+
 <div>
   {generateLanguageTab({
     data: meta.languages,
+    withLabel: false,
+    withLink: true,
+  })}
+</div>
+
+
+
+## Supported Testing Tools
+
+Pactflow supports many different testing tools for Bi-Directional Contract Testing.
+
+Click on a testing tool icon to see the implementation guide and example
+
+<div >
+  {generateTestingToolsTab({
+    data: meta.testing_tools,
     withLabel: false,
     withLink: true,
   })}

@@ -1,5 +1,13 @@
 # 2. Create and document an API using OpenAPI Specification
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+import {
+  generateTestingToolsTab,
+} from "../../../../src/components/tabGenerator";
+import { meta } from "../../../../src/data/meta";
+
 ## The Provider
 
 ### Design the API
@@ -141,115 +149,57 @@ Having designed our API, we can now set about building it.
 
 Here is the Product API using the [Express JS](https://expressjs.com) framework. Once again, writing an API is beyond the scope of this tutorial.
 
-_NOTE: you can see the full project here: https://github.com/pactflow/example-bi-directional-provider-dredd_
-
 We define our product, the available routes, the datastore (an simple in-memory database) and the server.
 
-`example-bi-directional-provider-dredd/src/product/product.js`{{open}}
-
-```
-class Product {
-    constructor(id, type, name, version, price) {
-        this.id = id;
-        this.type = type;
-        this.name = name;
-        this.version = version;
-        this.price = price;
-    }
-}
-
-module.exports = Product;
+```js reference
+https://github.com/pactflow/example-bi-directional-provider-dredd/blob/master/src/product/product.js#L1-L8
 ```
 
-`example-bi-directional-provider-dredd/src/product/product.routes.js`{{open}}
-
-```
-const router = require('express').Router();
-const controller = require('./product.controller');
-
-router.get("/product/:id", controller.getById);
-router.get("/products", controller.getAll);
-router.post("/products", controller.create);
-
-module.exports = router;
+```js reference
+https://github.com/pactflow/example-bi-directional-provider-dredd/blob/master/src/product/product.routes.js#L1-L8
 ```
 
-`example-bi-directional-provider-dredd/src/product/product.repository.js`{{open}}
-
-```
-const Product = require('./product');
-
-class ProductRepository {
-
-    constructor() {
-        this.products = new Map([
-            ["09", new Product("09", "CREDIT_CARD", "Gem Visa", "v1", 99.99)],
-            ["10", new Product("10", "CREDIT_CARD", "28 Degrees", "v1", 49.49)],
-            ["11", new Product("11", "PERSONAL_LOAN", "MyFlexiPay", "v2", 16.50)],
-        ]);
-    }
-
-    async fetchAll() {
-        return [...this.products.values()]
-    }
-
-    async getById(id) {
-        return this.products.get(id);
-    }
-
-    async create(product) {
-        return this.products.set(product.id, product)
-    }
-}
-
-module.exports = ProductRepository;
+```js reference
+https://github.com/pactflow/example-bi-directional-provider-dredd/blob/master/src/product/product.repository.js#L1-L26
 ```
 
-`example-bi-directional-provider-dredd/src/product/product.controller.js`{{open}}
-
-```
-const Product = require("./product");
-const ProductRepository = require("./product.repository");
-
-const repository = new ProductRepository();
-
-exports.create = async (req, res) => {
-    const data = req.body
-    const product = new Product(data.id, data.type, data.name, data.version, data.price)
-    product ? res.send(product) : res.status(400).send({message: "invalid product"})
-};
-exports.getAll = async (req, res) => {
-    res.send(await repository.fetchAll())
-};
-exports.getById = async (req, res) => {
-    const product = await repository.getById(req.params.id);
-    product ? res.send(product) : res.status(404).send({message: "Product not found"})
-};
-
-exports.repository = repository;
+```js reference
+https://github.com/pactflow/example-bi-directional-provider-dredd/blob/master/src/product/product.controller.js#L1-L19
 ```
 
-`example-bi-directional-provider-dredd/src/server.js`{{open}}
-
+```js reference
+https://github.com/pactflow/example-bi-directional-provider-dredd/blob/master/server.js#L1-L16
 ```
-const express = require("express");
-const app = express();
-const cors = require("cors");
-const routes = require("./src/product/product.routes");
 
-const port = 3000;
 
-const init = () => {
-  app.use(express.json());
-  app.use(cors());
-  app.use(routes);
-  return app.listen(port, () =>
-    console.log(`Provider API listening on port ${port}...`)
-  );
-};
+:::info
+You can pick your provider now
+:::
 
-init();
-```
+<div>
+  {generateTestingToolsTab({
+    data: meta.testing_tools_provider_side,
+    withLabel: true,
+    withLink: true,
+  })}
+</div>
+
+### Fork and clone the provider
+
+1. Fork the [example-bi-directional-provider-dredd][https://github.com/pactflow/example-bi-directional-provider-dredd] project in to your own Github account (click the 'Fork' button in the top right).
+2. Clone the repository on to your local machine.
+
+    ```bash
+    git clone git@github.com:<YOUR_GITHUB_USERNAME>/example-bi-directional-provider-dreddr.git
+    ```
+
+3. Install the dependencies in each project.
+
+    ```bash
+    npm install
+    ```
+
+[example-bi-directional-provider-dredd]: https://github.com/pactflow/example-bi-directional-provider-dredd
 
 ### Check
 
@@ -257,14 +207,14 @@ Before moving to the next step, cd into the `example-bi-directional-provider-dre
 
 The tutorial environment should have installed 2 projects and their dependencies. Once the terminal process completes you can run:
 
-1. `cd /root/example-bi-directional-provider-dredd`{{execute}}
-1. `npm i`{{execute}}
-1. `npm start`{{execute}}
+1. `cd /root/example-bi-directional-provider-dredd`
+1. `npm i`
+1. `npm start`
 
 Open up a separate terminal and run the following command:
 
-1. `cd /root/example-bi-directional-provider-dredd`{{execute}}
-1. `curl localhost:3000/products | jq .`{{execute}}
+1. `cd /root/example-bi-directional-provider-dredd`
+1. `curl localhost:3000/products | jq .`
 
 You should see the following output:
 

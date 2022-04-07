@@ -83,7 +83,11 @@ function generateLanguageTab({ data, withLabel, withLink }) {
         return generateTabItem({
           data,
           key,
-          content: <a href={data[key].iconLink}>{data[key].iconTitle} Implemenation Guide</a>, // for demo, need to add our own content
+          content: (
+            <a href={data[key].iconLink}>
+              {data[key].iconTitle} Implemenation Guide
+            </a>
+          ), // for demo, need to add our own content
           withLabel,
           withLink,
         });
@@ -93,4 +97,30 @@ function generateLanguageTab({ data, withLabel, withLink }) {
   return generatedTab;
 }
 
-export { generateTabItem, generateGettingStartedTab, generateLanguageTab };
+function generateTestingToolsTab({ data, withLabel, withLink}) {
+  const generatedTestingTab = (
+    <Tabs groupId="testing_tools">
+      {Object.keys(data).map((key) => {
+          return generateTabItem({
+            data,
+            key,
+            content: (
+              <a href={data[key].iconLink}>
+                {data[key].iconTitle} Integration Guide
+              </a>
+            ), // for demo, need to add our own content
+            withLabel,
+            withLink,
+          });
+      })}
+    </Tabs>
+  );
+  return generatedTestingTab;
+}
+
+export {
+  generateTabItem,
+  generateGettingStartedTab,
+  generateLanguageTab,
+  generateTestingToolsTab,
+};

@@ -4,6 +4,127 @@ import {
   generateIcon,
 } from "../components/iconGenerator";
 
+const label_with_link_postman = generateIconWithLabel(
+  meta.testing_tools["postman"]
+);
+const label_with_link_restassured = generateIconWithLabel(
+  meta.testing_tools["restassured"]
+);
+const label_with_link_dredd = generateIconWithLabel(
+  meta.testing_tools["dredd"]
+);
+const label_with_link_schemathesis = generateIconWithLabel(
+  meta.testing_tools["schemathesis"]
+);
+const label_with_link_cypress = generateIconWithLabel(
+  meta.testing_tools["cypress"]
+);
+const label_with_link_wiremock = generateIconWithLabel(
+  meta.testing_tools["wiremock"]
+);
+const label_with_link_nock = generateIconWithLabel(meta.testing_tools["nock"]);
+const label_with_link_mountebank = generateIconWithLabel(
+  meta.testing_tools["mountebank"]
+);
+const label_with_link_pact = generateIconWithLabel(meta.testing_tools["pact"]);
+const label_with_link_msw = generateIconWithLabel(meta.testing_tools["msw"]);
+const label_postman = generateIconWithLabel({
+  ...meta.testing_tools["postman"],
+  iconLink: undefined,
+});
+const label_restassured = generateIconWithLabel({
+  ...meta.testing_tools["restassured"],
+  iconLink: undefined,
+});
+const label_dredd = generateIconWithLabel({
+  ...meta.testing_tools["dredd"],
+  iconLink: undefined,
+});
+const label_schemathesis = generateIconWithLabel({
+  ...meta.testing_tools["schemathesis"],
+  iconLink: undefined,
+});
+const label_cypress = generateIconWithLabel({
+  ...meta.testing_tools["cypress"],
+  iconLink: undefined,
+});
+const label_wiremock = generateIconWithLabel({
+  ...meta.testing_tools["wiremock"],
+  iconLink: undefined,
+});
+const label_nock = generateIconWithLabel({
+  ...meta.testing_tools["nock"],
+  iconLink: undefined,
+});
+const label_mountebank = generateIconWithLabel({
+  ...meta.testing_tools["mountebank"],
+  iconLink: undefined,
+});
+const label_pact = generateIconWithLabel({
+  ...meta.testing_tools["pact"],
+  iconLink: undefined,
+});
+const label_msw = generateIconWithLabel({
+  ...meta.testing_tools["msw"],
+  iconLink: undefined,
+});
+const icon_with_link_postman = generateIcon(meta.testing_tools["postman"]);
+const icon_with_link_restassured = generateIcon(
+  meta.testing_tools["restassured"]
+);
+const icon_with_link_dredd = generateIcon(meta.testing_tools["dredd"]);
+const icon_with_link_schemathesis = generateIcon(
+  meta.testing_tools["schemathesis"]
+);
+const icon_with_link_cypress = generateIcon(meta.testing_tools["cypress"]);
+const icon_with_link_wiremock = generateIcon(meta.testing_tools["wiremock"]);
+const icon_with_link_nock = generateIcon(meta.testing_tools["nock"]);
+const icon_with_link_mountebank = generateIcon(
+  meta.testing_tools["mountebank"]
+);
+const icon_with_link_pact = generateIcon(meta.testing_tools["pact"]);
+const icon_with_link_msw = generateIcon(meta.testing_tools["msw"]);
+const icon_postman = generateIcon({
+  ...meta.testing_tools["postman"],
+  iconLink: undefined,
+});
+const icon_restassured = generateIcon({
+  ...meta.testing_tools["restassured"],
+  iconLink: undefined,
+});
+const icon_dredd = generateIcon({
+  ...meta.testing_tools["dredd"],
+  iconLink: undefined,
+});
+const icon_schemathesis = generateIcon({
+  ...meta.testing_tools["schemathesis"],
+  iconLink: undefined,
+});
+const icon_cypress = generateIcon({
+  ...meta.testing_tools["cypress"],
+  iconLink: undefined,
+});
+const icon_wiremock = generateIcon({
+  ...meta.testing_tools["wiremock"],
+  iconLink: undefined,
+});
+const icon_nock = generateIcon({
+  ...meta.testing_tools["nock"],
+  iconLink: undefined,
+});
+const icon_mountebank = generateIcon({
+  ...meta.testing_tools["mountebank"],
+  iconLink: undefined,
+});
+const icon_pact = generateIcon({
+  ...meta.testing_tools["pact"],
+  iconLink: undefined,
+});
+const icon_msw = generateIcon({
+  ...meta.testing_tools["msw"],
+  iconLink: undefined,
+});
+
 const label_with_link_javascript = generateIconWithLabel(meta.languages["js"]);
 const label_with_link_java = generateIconWithLabel(meta.languages["java"]);
 const label_with_link_golang = generateIconWithLabel(meta.languages["golang"]);
@@ -195,4 +316,49 @@ export const languageIcons = {
   icon_with_link_swift,
   icon_with_link_php,
   icon_with_link_cplusplus,
+};
+
+const testingToolIconsWithLabels = {
+  label_with_link_postman,
+  label_with_link_restassured,
+  label_with_link_dredd,
+  label_with_link_schemathesis,
+  label_with_link_cypress,
+  label_with_link_wiremock,
+  label_with_link_nock,
+  label_with_link_mountebank,
+  label_with_link_pact,
+  label_with_link_msw,
+  label_postman,
+  label_restassured,
+  label_dredd,
+  label_schemathesis,
+  label_cypress,
+  label_wiremock,
+  label_nock,
+  label_mountebank,
+  label_pact,
+  label_msw,
+};
+const testingToolIcons = {
+  icon_with_link_postman,
+  icon_with_link_restassured,
+  icon_with_link_dredd,
+  icon_with_link_schemathesis,
+  icon_with_link_cypress,
+  icon_with_link_wiremock,
+  icon_with_link_nock,
+  icon_with_link_mountebank,
+  icon_with_link_pact,
+  icon_with_link_msw,
+  icon_postman,
+  icon_restassured,
+  icon_dredd,
+  icon_schemathesis,
+  icon_cypress,
+  icon_wiremock,
+  icon_nock,
+  icon_mountebank,
+  icon_pact,
+  icon_msw,
 };
