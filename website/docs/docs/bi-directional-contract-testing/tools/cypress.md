@@ -5,4 +5,4 @@ sidebar_label: Cypress
 
 > Generate pact contracts from Cypress tests.
 
-Visit project: https://github.com/pactflow/cypress-pact
+Visit project: https://github.com/pactflow/pact-cypress-adapter
