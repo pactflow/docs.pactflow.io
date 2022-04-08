@@ -149,11 +149,27 @@ module.exports = {
           items: [
             "docs/workshops/bi-directional-contract-testing",
             {
+              
               'Workshop': [
-                "docs/workshops/quick_starts/bdc",
+                "docs/workshops/bi-directional/pre_requisites",
+                "docs/workshops/bi-directional/step1",
+                "docs/workshops/bi-directional/step2",
+                "docs/workshops/bi-directional/step3",
+                "docs/workshops/bi-directional/step4",
+                "docs/workshops/bi-directional/step5",
+                "docs/workshops/bi-directional/step6",
+                "docs/workshops/bi-directional/step7",
+                "docs/workshops/bi-directional/step8",
+                "docs/workshops/bi-directional/step9",
+                "docs/workshops/bi-directional/step10",
+                "docs/workshops/bi-directional/step11",
               ],
             },
+            "docs/workshops/quick_starts/bdc",
           ],
+
+
+         
         },
         "docs/workshops/advanced",
         "docs/workshops/tutorials",
