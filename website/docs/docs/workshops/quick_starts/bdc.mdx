@@ -25,7 +25,7 @@ You can get started via your phone or tablet, but it's easier at a computer, wit
 - [Pick a provider](#pick-a-provider)
 - [Fork the repo](#fork-the-repo)
 - [Create a Github Secret to store your Pactflow API token in.](#create-a-github-secret-to-store-your-pactflow-api-token-in)
-- [Create a Github Secret to store your Pactflow Base url in.](#create-a-github-secret-to-store-your-pactflow-base-url-in)
+- [Update your Pactflow Broker Base Url](#update-your-pactflow-broker-base-url)
 - [Run the build workflow](#run-the-build-workflow)
 - [Setting the scene for our Consumer](#setting-the-scene-for-our-consumer)
   - [The consumer](#the-consumer)
@@ -298,10 +298,10 @@ In the GitHub address bar you can see `https://github.com/<your_github_id>/examp
 You've successfully updated your PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP to your read/write CI token from Pactflow ✅
 :::
 
-## Create a Github Secret to store your Pactflow Base url in.
+## Update your Pactflow Broker Base Url
 
 :::info
-💡 We don't need to store this as a secret, but it's the quickest way to get you started. You can also press `.` when viewing any public GitHub repo, and open a live code editor, or swap the your repo from `.com` to `.dev`. Try it [out](https://github.com/github/dev)
+We are going to edit our GitHub actions built-in file editor. If you need more info on how to, check their docs [here](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files) 
 :::
 
 1.  In Pactflow:
@@ -310,11 +310,9 @@ You've successfully updated your PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP to your read/
 1.  In Github:
     1. Open your forked `example-bi-directional-provider` project (`https://github.com/<your-username>/example-bi-directional-provider`)
        1. Open `.github/workflows/build.yml`
-       2. Click on the `Settings` tab.
-       3. Select `Secrets` from the side menu.
-       4. Click `New repository secret` (the button is to the right of the "Actions secrets" heading)
-       5. Set the name of the secret to `PACT_BROKER_BASE_URL`
-       6. Paste in the Pactflow Base Url value you copied in the previous step.
+       2. In the upper right corner of the file view, click 🖊️ to open the file editor.
+       3. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account. You can easily get this by clicking the COPY PACTFLOW BASE URL button on the API Tokens page in Pactflow.
+       4. Press the green `Commit changes` button
 
 :::success
 You've successfully updated your PACT_BROKER_BASE_URL to be the same as shown in your web browser address bar, when you view your Pactflow account ✅
@@ -583,7 +581,7 @@ You can pick your consumer now
 
 1. Fork the repo - [click here to see the instructions again](#fork-the-repo)
 2. Create a Github Secret to store your Pactflow API token in. - [click here to see the instructions again](#create-a-github-secret-to-store-your-pactflow-api-token-in)
-3. Create a Github Secret to store your Pactflow Base url in. - [click here to see the instructions again](#create-a-github-secret-to-store-your-pactflow-base-url-in)
+3. Update your Pactflow Broker Base Url - [click here to see the instructions again](#update-your-pactflow-broker-base-url)
 4. Run the build workflow - [click here to see the instructions again](#run-the-build-workflow)
 
 This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
