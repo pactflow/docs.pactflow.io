@@ -163,6 +163,9 @@ module.exports = {
                 "docs/workshops/bi-directional/step10",
                 "docs/workshops/bi-directional/step11",
               ],
+              'Quick Starts': [
+                "docs/workshops/quick_starts/bdc",
+              ],
             },
           ],
         },
