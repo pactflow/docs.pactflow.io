@@ -149,7 +149,8 @@ module.exports = {
           items: [
             "docs/workshops/bi-directional-contract-testing",
             {
-              Workshop: [
+              
+              'Workshop': [
                 "docs/workshops/bi-directional/pre_requisites",
                 "docs/workshops/bi-directional/step1",
                 "docs/workshops/bi-directional/step2",
@@ -164,7 +165,11 @@ module.exports = {
                 "docs/workshops/bi-directional/step11",
               ],
             },
+            "docs/workshops/quick_starts/bdc",
           ],
+
+
+         
         },
         "docs/workshops/advanced",
         "docs/workshops/tutorials",
