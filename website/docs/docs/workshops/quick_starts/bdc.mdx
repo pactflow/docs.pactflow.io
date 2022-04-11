@@ -223,7 +223,7 @@ The `can-i-deploy` command is an important part of a CI/CD workflow, adding stag
 
 This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
 
-![first provider pipeline run](../../../../static/workshops/bi-directional/provider-pipeline.png)
+![first provider pipeline run](../../../../static/workshops/bi-directional/3-bi-directional-provider-pipeline-with_consumer.png)
 
 ##### Deploy the provider to production
 
@@ -284,7 +284,7 @@ In the GitHub address bar you can see `https://github.com/<your_github_id>/examp
 ## Create a Github Secret to store your Pactflow API token in.
 
 1.  In Pactflow:
-    1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens.
+    1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens - See [here](/#configuring-your-api-token) for the docs.
     1. Click the Copy button for the read/write CI token (make sure it's the read _write_ one, not the read only one).
 1.  In Github:
     1. Open your forked `example-bi-directional-provider` project (`https://github.com/<your-username>/example-bi-directional-provider`)
@@ -332,7 +332,7 @@ You've successfully updated your PACT_BROKER_BASE_URL to be the same as shown in
 
 This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
 
-![first provider pipeline run](../../../../static/workshops/bi-directional/provider-pipeline.png)
+![first provider pipeline run](../../../../static/workshops/bi-directional/2-bi-directional-provider-pipeline-first-run.png)
 
 Your dashboard should look something like this:
 
@@ -530,7 +530,7 @@ _REMEMBER: The `can-i-deploy` command is an important part of a CI/CD workflow, 
 
 This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
 
-![consumer pipeline run](../../../../static/workshops/bi-directional/consumer-pipeline.png)
+![consumer pipeline run](../../../../static/workshops/bi-directional/3-bi-directional-consumer-pipeline-deployed.png)
 
 Let's run the command:
 
@@ -586,7 +586,7 @@ You can pick your consumer now
 
 This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
 
-![consumer pipeline run](../../../../static/workshops/bi-directional/consumer-pipeline.png)
+![consumer pipeline run](../../../../static/workshops/bi-directional/3-bi-directional-consumer-pipeline-deployed.png)
 
 Your dashboard should look something like this, where both your consumer and consumer are marked as having been deployed to `production`:
 

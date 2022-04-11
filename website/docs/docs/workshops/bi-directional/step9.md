@@ -12,7 +12,7 @@ _REMEMBER: The `can-i-deploy` command is an important part of a CI/CD workflow, 
 
 This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
 
-![consumer pipeline run](../../../../static/workshops/bi-directional/consumer-pipeline.png)
+![consumer pipeline run](../../../../static/workshops/bi-directional/3-bi-directional-consumer-pipeline-deployed.png)
 
 ## Deploying the consumer build to Production locally
 

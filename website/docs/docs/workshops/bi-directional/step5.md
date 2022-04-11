@@ -12,7 +12,7 @@ The `can-i-deploy` command is an important part of a CI/CD workflow, adding stag
 
 This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
 
-![first provider pipeline run](../../../../static/workshops/bi-directional/provider-pipeline.png)
+![first provider pipeline run](../../../../static/workshops/bi-directional/2-bi-directional-provider-pipeline-first-run.png)
 
 ## Deploy the provider to production via your local machine
 
