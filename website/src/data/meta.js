@@ -172,7 +172,7 @@ const testing_tools = {
   },
   mountebank: {
     iconTitle: "Mountebank",
-    iconLocation: "http://www.mbtest.org/images/mountebank.png",
+    iconLocation: "https://www.mbtest.org/images/mountebank.png",
     iconLink: "/docs/examples/bi-directional/consumer/mountebank/",
     contentUrl: "",
     content: "",

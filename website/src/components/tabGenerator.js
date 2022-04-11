@@ -19,7 +19,7 @@ function generateTabItem({
     : generateIcon(retrievedData);
 
   const generatedTab = (
-    <TabItem value={key} label={iconGenerator}>
+    <TabItem value={key} label={iconGenerator} key={key}>
       {iconGenerator.content ? iconGenerator.content : content}
     </TabItem>
   );
@@ -105,7 +105,7 @@ function generateTestingToolsTab({ data, withLabel, withLink}) {
             data,
             key,
             content: (
-              <a href={data[key].iconLink}>
+              <a href={data[key].iconLink} key={key}>
                 {data[key].iconTitle} Integration Guide
               </a>
             ), // for demo, need to add our own content
