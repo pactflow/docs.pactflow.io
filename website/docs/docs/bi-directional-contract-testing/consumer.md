@@ -9,7 +9,7 @@ It is important you use a _mock_ and not a _stub_. The crucial difference is tha
 
 ## Writing Consumer Contracts
 
-![Consumer Test](/workshops/bi-directional/consumer-scope.png "Consumer Test")
+![Consumer Test](/workshops/bi-directional/1-bi-directional-consumer-testing-scope.png "Consumer Test")
 
 ### Prerequisite: choose a mocking tool
 
@@ -43,7 +43,7 @@ Uploading a pact file is the same as the standard [Pact process](https://docs.pa
 
 We recommend using the `pact-broker publish` command from [CLI Tools](https://docs.pact.io/implementation_guides/cli/#distributions) for this step. Our examples use the Docker version of this to simplify administration.
 
-![Contract Upload](/workshops/bi-directional/bi-directional-upload.png "Contract Upload")
+![Contract Upload](/workshops/bi-directional/1-bi-directional-how_it_works_overview.png "Contract Upload")
 
 ### Step 4: Run can-i-deploy
 
@@ -52,6 +52,10 @@ We recommend using the `pact-broker publish` command from [CLI Tools](https://do
 We recommend using the `pact-broker can-i-deploy` command from [CLI Tools](https://docs.pact.io/implementation_guides/cli/#distributions) for this step. Our examples use the Docker version of this to simplify administration.
 
 The output from the command will provide a link to the verification result in Pactflow. Interpreting these results is contract specific.
+
+Here is our pipeline to date on the first run of a consumer:
+
+![Consumer Pipeline First Run](/workshops/bi-directional/2-bi-directional-consumer-pipeline-first-run.png "Consumer Pipeline First Run")
 
 ### Step 5: Deploy your application
 
@@ -65,7 +69,7 @@ _Golden rule of tagging:_
 
 A simplified view of a CI/CD pipeline for Pact looks like this:
 
-![Consumer Pipeline](/workshops/bi-directional/consumer-pipeline.png "Consumer Pipeline")
+![Consumer Pipeline](/workshops/bi-directional/3-bi-directional-consumer-pipeline-deployed.png "Consumer Pipeline")
 
 The standard [principles](https://docs.pact.io/pact_nirvana) are still relevent. Our [CI/CD workshop](/docs/workshops/ci-cd) is a useful reference (NOTE: the CI/CD workshop uses the consumer-driven mode using Pact).
 

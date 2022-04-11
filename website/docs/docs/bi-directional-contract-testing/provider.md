@@ -13,7 +13,7 @@ sidebar_label: Provider
 
 ## Writing Provider Contracts
 
-![Provider Test](/workshops/bi-directional/provider-scope.png "Provider Test")
+![Provider Test](/workshops/bi-directional/1-bi-directional-provider-testing-scope.png "Provider Test")
 
 ### Step 1: Authoring or generating your OpenAPI  Specification
 
@@ -52,6 +52,10 @@ We recommend using the `pact-broker can-i-deploy` command from [CLI Tools](https
 
 The output from the command will provide a link to the verification result in Pactflow. Interpreting these results is contract specific.
 
+Here is our pipeline to date on the first run of a provider:
+
+![Provider Pipeline First Run](/workshops/bi-directional/2-bi-directional-provider-pipeline-first-run.png "Provider Pipeline First Run")
+
 ### Step 5: Deploy your application
 
 If `can-i-deploy` returns a successful response, you can deploy your application. Once your application is deployed, you can notify Pactflow of the release - follow the golden rule of [tagging](https://docs.pact.io/pact_broker/tags/) here.
@@ -65,7 +69,7 @@ _Golden rule of tagging:_
 
 A simplified view of a CI/CD pipeline for Pact looks like this:
 
-![Provider Pipeline](/workshops/bi-directional/provider-pipeline.png "Provider Pipeline")
+![Provider Pipeline](/workshops/bi-directional/3-bi-directional-provider-pipeline-with_consumer.png "Provider Pipeline")
 
 The standard [principles](https://docs.pact.io/pact_nirvana) are still relevent. Our [CI/CD workshop](/docs/workshops/ci-cd) is a useful reference (NOTE: the CI/CD workshop uses the consumer-driven mode using Pact).
 

@@ -6,13 +6,37 @@ import { meta } from "../../../../src/data/meta";
 
 :::success Welcome to the Quick Start Guide
 If you want to get hands-on and learn about Bi-Directional Contract testing, and see it come to life, then you are in the right place.
-
-If you want a recap on the [agenda](docs/workshops/bi-directional-contract-testing#agenda), otherwise see the table of contents and lets get stuck in.
 :::
 
 :::note Bring your own devices
 You can get started via your phone or tablet, but it's easier at a computer, with just a web browser!
 :::
+
+:::info Guides
+
+These testing guides will help provide describe each step in more detail and should serve as a handy reference point
+
+[Provider Testing Guide](/docs/bi-directional-contract-testing/provider)
+
+[Consumer Testing Guide](/docs/bi-directional-contract-testing/consumer) 
+:::
+
+## Agenda
+
+You will get to see a full development workflow in actions, it will follow the scenario below, we will simplify it for demonstration by using GitHub to fork the example repositories
+and GitHub actions to run the CI pipelines
+
+1. Create and document an API using OpenAPI Specification
+1. Write tests for the API using an API testing tool such as RestAssured,Dredd,Postman and Schemathesis/Swashbuckle
+1. Publish the provider contract (an OpenAPI document) to Pactflow
+1. Deploy the provider to production
+1. Write the API consumer
+1. Write tests for an API client using tools such as Mountebank,Nock,Wiremock,Nock,Cypress and Mock-Service-Worker or traditional Pact .NET to mock the API, and convert those mocks into a consumer contract
+1. Publish the consumer contract to Pactflow
+1. Deploy the consumer to production
+1. Learn about Pactflow's breaking change detection system
+
+## Table of Contents
 
 - [Get a GitHub account](#get-a-github-account)
 - [Get a Pactflow account](#get-a-pactflow-account)
@@ -154,7 +178,7 @@ For (2), we'll use Pactflow's contract comparison capability to prevent breaking
 There are severals ways we can test the Provider, to ensure it doesn't drift from the OAS. This process is referred to as _verifying the provider contract_.
 
 1. Generate the OAS from code. This is the most reliable, because whenever the implementation changes, the OAS will change with it. Tools like Spring Docs (Java) and Swashbuckle (.NET) will do this for you.
-1. White-box style tests that run as part of your unit tests. Tools such as RestAssured (Java) or Supertest (NodeJS) are examples of
+1. White-box style tests that run as part of your unit tests. Tools such as RestAssured (Java) or Supertest (NodeJS) are examples.
 1. Black-box style functional API testing, using tools like Dredd or Postman.
 
 In our case, (1) is not acceptable as we've chosen to following design first approach. We decided to use (3), using a tool called Dredd. Dredd will read in our OAS, and issue HTTP calls to our locally running provider to ensure it's compatible with the spec.
@@ -192,8 +216,14 @@ Dredd will start our provider (`npm start`), read in the OAS file (`./oas/produc
 
 #### Publish your provider contracts
 
+
 <details>
   <summary>Publish the provider contract to Pactflow</summary>
+
+
+:::success Find out more
+See our Publishing contracts [docs](http://localhost:3000/docs/bi-directional-contract-testing/publishing) for more info
+:::
 
 Now that we have created and verified our provider contract, we need to share the contract to our consumers. This is where Pactflow comes in to the picture. This step is referred to as "publishing" the provider contract.
 
@@ -223,7 +253,7 @@ The `can-i-deploy` command is an important part of a CI/CD workflow, adding stag
 
 This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
 
-![first provider pipeline run](../../../../static/workshops/bi-directional/provider-pipeline.png)
+![first provider pipeline run](../../../../static/workshops/bi-directional/2-bi-directional-provider-pipeline-first-run.png)
 
 ##### Deploy the provider to production
 
@@ -262,7 +292,7 @@ This allows Pactflow to communicate to any future consumers of the provider, tha
 ## Pick a provider
 
 :::info
-You can pick your provider now, compatibility is shown in the project readme's or in our [examples page](docs/examples#demos)
+You can pick your provider now, compatibility is shown in the project readme's or in our [examples page](/docs/examples#demos)
 :::
 
 <div>
@@ -284,7 +314,7 @@ In the GitHub address bar you can see `https://github.com/<your_github_id>/examp
 ## Create a Github Secret to store your Pactflow API token in.
 
 1.  In Pactflow:
-    1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens.
+    1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens - See [here](/#configuring-your-api-token) for the docs.
     1. Click the Copy button for the read/write CI token (make sure it's the read _write_ one, not the read only one).
 1.  In Github:
     1. Open your forked `example-bi-directional-provider` project (`https://github.com/<your-username>/example-bi-directional-provider`)
@@ -332,7 +362,7 @@ You've successfully updated your PACT_BROKER_BASE_URL to be the same as shown in
 
 This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
 
-![first provider pipeline run](../../../../static/workshops/bi-directional/provider-pipeline.png)
+![first provider pipeline run](../../../../static/workshops/bi-directional/2-bi-directional-provider-pipeline-first-run.png)
 
 Your dashboard should look something like this:
 
@@ -520,7 +550,7 @@ Your dashboard should look something like this:
 #### Deploy your consumer safely to production
 
 <details>
-  <summary>Publish your consumer contract to Pactflow</summary>
+  <summary>Deploy your consumer safely to production</summary>
 
 Now that we have tested our consumer and published our consumer contract, we can deploy the application to production.
 
@@ -530,7 +560,7 @@ _REMEMBER: The `can-i-deploy` command is an important part of a CI/CD workflow, 
 
 This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
 
-![consumer pipeline run](../../../../static/workshops/bi-directional/consumer-pipeline.png)
+![consumer pipeline run](../../../../static/workshops/bi-directional/3-bi-directional-consumer-pipeline-deployed.png)
 
 Let's run the command:
 
@@ -586,7 +616,7 @@ You can pick your consumer now
 
 This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
 
-![consumer pipeline run](../../../../static/workshops/bi-directional/consumer-pipeline.png)
+![consumer pipeline run](../../../../static/workshops/bi-directional/3-bi-directional-consumer-pipeline-deployed.png)
 
 Your dashboard should look something like this, where both your consumer and consumer are marked as having been deployed to `production`:
 
@@ -647,8 +677,10 @@ This build should pass, Pactflow knows all of the consumers needs down to the fi
 
 You may be interested in one of
 
-- our quick [katacodas](docs/tutorials)
-- our other [workshops](https://docs.pact.io/implementation_guides/workshops), or
-- getting deeper into [BDCT](docs/bi-directional-contract-testing)
-- a dive into our [CI/CD](https://docs.pactflow.io/docs/workshops/ci-cd/) workshop with Pact and the consumer driven contract testing approach.
-  :::
+- [Provider Testing Guide](/docs/bi-directional-contract-testing/provider)
+- [Consumer Testing Guide](/docs/bi-directional-contract-testing/consumer) 
+- our quick [katacodas](/docs/tutorials)
+- our other [workshops](/docs/workshops), or
+- getting deeper into [BDCT](/docs/bi-directional-contract-testing)
+- a dive into our [CI/CD](/docs/workshops/ci-cd/) workshop with Pact and the consumer driven contract testing approach.
+:::
