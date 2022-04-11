@@ -5,7 +5,7 @@ module.exports = {
   tagline: "Distributed systems testing made easy",
   url: "https://docs.pactflow.io",
   baseUrl: "/",
-  onBrokenLinks: "throw",
+  onBrokenLinks: "error", // Fail the build on broken links
   favicon: "img/favicon.ico",
   organizationName: "Pactflow", // Usually your GitHub org/user name.
   projectName: "doc-site", // Usually your repo name.
