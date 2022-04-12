@@ -12,7 +12,7 @@ SSO users are automatically provisioned when they first authenticate.
 
 ## GitHub Authentication
 
-_Eligable plans: all_
+_Eligible plans: all_
 
 For GitHub authentication, you need to configure the GitHub organisations that you would like users who belong to
 be able to log into your broker instance.
@@ -29,7 +29,7 @@ Steps to configure
 
 ## Google Authentication
 
-_Eligable plans: all_
+_Eligible plans: all_
 
 For Google authentication, you must configure the Google hosted domains of the users that will be allowed to
 log into your broker instance. On your next login, you will see an option to login with Google has been added.
@@ -38,21 +38,21 @@ log into your broker instance. On your next login, you will see an option to log
 
 ## SAML Support
 
-_Eligable plans: Business and Enterprise_
+_Eligible plans: Business and Enterprise_
 
 Pactflow has support for a [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0) integration with a compatible Identity Provider (IdP) such as Okta, Ping, Auth0, Azure AD, OneLogin etc.
 
-SAML2.0 allows you to externalse the authentication and access to your Pactflow account. Authorization and fine grained permissions are managed within your account by an account Administrator.
+SAML2.0 allows you to externalise the authentication and access to your Pactflow account. Authorization and fine grained permissions are managed within your account by an account Administrator.
 
 Supported capabilities:
 
 - Authorization from an external IdP
 - Automated user provisioning into your account
-- SP initated login
+- SP initiated login
 
 We do not current support the following:
 
-- Automated user de-provisioning (users will appear "active" and count toward user limits, although will not be able to login if disabled in the IdP)
+- Automated user deprovisioning (users will appear "active" and count toward user limits, although will not be able to login if disabled in the IdP)
 - IdP initiated login
 - Service Provider (SP) initiated logout flow
 
