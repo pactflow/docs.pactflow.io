@@ -53,7 +53,7 @@ If you need Pactflow specific support, you can email us at support@pactflow.io
 
 **NOTE: You cannot use your username and password to access the Pactflow API.**
 
-To publish or verify pacts you need to use one of the bearer tokens from the [API Tokens](docs/user-interface/settings/api-tokens) section of your Pactflow settings page.
+To publish or verify contracts you need to use one of the bearer tokens from the [API Tokens](docs/user-interface/settings/api-tokens) section of your Pactflow settings page.
 
 Open your Pactflow account in a browser and log in with your username and password. Click on the settings icon (the cog wheel icon at the top right of the screen).
 
@@ -61,7 +61,7 @@ You will see the API Tokens page with two tokens listed - a read only token, and
 
 ![API Token Screen](/ui/api-tokens.png)
 
-Pacts and verification results are generally only published from a CI machine, so use the read only token on a local development machine, and keep the read/write token for CI.
+Contracts and verification results are generally only published from a CI machine, so use the read only token on a local development machine, and keep the read/write token for CI.
 
 While each of the following examples shows the use of a hardcoded token, note that you would normally be accessing the token via an environment variable or build parameter that is stored and provided in a secure manner (eg. a Jenkins build secret or a Travis encrypted environment variable).
 
@@ -386,7 +386,7 @@ docker-compose -f docker-compose-verify.yml up \
 
 ## Supported Languages
 
-Pact, is available in many different implemenations, Click on a language icon to take you to the implementation guide or readme.
+Pact is available in many different implementations, Click on a language icon to take you to the implementation guide or readme.
 
 The guides cover the consumer-driven contract testing flow.
 
@@ -397,7 +397,6 @@ The guides cover the consumer-driven contract testing flow.
     withLink: true,
   })}
 </div>
-
 
 
 ## Supported Testing Tools
