@@ -42,7 +42,7 @@ Running against a dedicated testing environment will likely result in flakey tes
 
 After your tests have completed (pass/fail), you should upload the specification and results to Pactflow.
 
-See [publishing your OpenAPI Provider Contract to Pactflow](./contracts/pact/#publishing-the-provider-contract--results-to-pactflow) for more.
+See [publishing your OpenAPI Provider Contract to Pactflow](./contracts/oas#publishing-the-provider-contract--results-to-pactflow) for more.
 
 ### Step 4: Run can-i-deploy
 
