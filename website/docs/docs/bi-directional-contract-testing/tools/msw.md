@@ -123,7 +123,7 @@ The adapter uses by default node’s filesystem to write pact files to disk. Thi
 This example is using Cypress's `cy.writeFile` method
 
  ```javascript reference
- https://github.com/pactflow/pact-msw-adapter/blob/main/examples/react/cypress/integration/pactFromMswWorker.spec.js#L8-L75
+ https://github.com/pactflow/pact-msw-adapter/blob/main/examples/react/cypress/integration/pactFromMswWorker.spec.js#L1-L75
  ```
 
 </TabItem>
