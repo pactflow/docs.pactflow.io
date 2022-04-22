@@ -22,7 +22,7 @@ BDCT is not intended to replace Pact testing, but to provide an alternative in t
 
 :::
 
-<iframe  width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLwy9Bnco-IpfddOl7vk7xfmGSjMMCiSbi" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe  width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLwy9Bnco-IpfddOl7vk7xfmGSjMMCiSbi" title="YouTube video player" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 ## High Level Roadmap
 

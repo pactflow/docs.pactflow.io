@@ -149,7 +149,7 @@ module.exports = {
           items: [
             "docs/workshops/bi-directional-contract-testing",
             {
-              
+
               'Workshop': [
                 "docs/workshops/bi-directional/pre_requisites",
                 "docs/workshops/bi-directional/step1",
@@ -169,7 +169,7 @@ module.exports = {
           ],
 
 
-         
+
         },
         "docs/workshops/advanced",
         "docs/workshops/tutorials",
@@ -295,6 +295,7 @@ module.exports = {
           type: "category",
           label: "Releases",
           items: [
+            "docs/on-premises/releases/1.17.3",
             "docs/on-premises/releases/1.17.2",
             "docs/on-premises/releases/1.17.1",
             "docs/on-premises/releases/1.17.0",

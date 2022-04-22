@@ -47,7 +47,7 @@ If you need general Pact support, we have a number of channels you can reach us 
 - [slack.pact.io](http://slack.pact.io/)
 - [https://stackoverflow.com/questions/tagged/pact](https://stackoverflow.com/questions/tagged/pact)
 
-If you need Pactflow specific support, you can email us at <a href="mailto:support@pactflow.io">support@pactflow.io</a>.
+If you need Pactflow specific support, you can email us at support@pactflow.io
 
 ## Configuring your API token
 
@@ -172,8 +172,11 @@ end
 
 - [PactNet documentation](https://github.com/pact-foundation/pact-net#using-the-c-client) for all the pact publishing options.
 
-```csharp reference title="Provider verification options"
-https://github.com/pact-foundation/pact-net/blob/ffa6ab841cf602ee5d4644165387e77971393550/README.md?plain=1#L461-L462
+```csharp title="Pact Publisher options"
+var pactPublisher = new PactPublisher("http://<YOUR_BROKER>.pactflow.io",
+  new PactUriOptions("<TOKEN>"));
+pactPublisher.PublishToBroker("/pact/to/pacts/dir",
+  Environment.GetEnvironmentVariable("GIT_COMMIT"));
 ```
 
 </TabItem>
@@ -325,8 +328,19 @@ end
 
 [PactNet documentation](https://github.com/pact-foundation/pact-net#publishing-provider-verification-results-to-a-broker) for all the pact verification options.
 
-```csharp reference title="Provider verification options"
-https://github.com/pact-foundation/pact-net/blob/ffa6ab841cf602ee5d4644165387e77971393550/README.md?plain=1#L474-L487
+```csharp title="Provider verification options"
+var ProviderVersion = Environment.GetEnvironmentVariable("GIT_COMMIT");
+var PublishVerificationResults = "true".Equals(Environment.GetEnvironmentVariable("CI"));
+var config = new PactVerifierConfig
+{
+    ProviderVersion, //NOTE: Setting a provider version is required for publishing verification results
+    PublishVerificationResults
+};
+IPactVerifier pactVerifier = new PactVerifier(config);
+pactVerifier
+    .ServiceProvider("<Your provider name here>", "http://your-test-provider-url")
+   .PactBroker("https://<YOUR_BROKER>.pactflow.io", uriOptions: new PactUriOptions("<TOKEN>"))
+   .Verify();
 ```
 
 
