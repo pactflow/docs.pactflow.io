@@ -73,7 +73,7 @@ You can check our [roadmap](https://github.com/pactflow/roadmap/projects/1) for 
 ## Contract Incompatibility Messages
 When provider and consumer contracts are incompatible, incompatibility messages and mismatches are listed at [Contract Comparison Tab](#contract-comparison-tab). You can also find incompatibility messages under interaction items at [Consumer Contract Tab](#consumer-contract-tab)
 
-| Error Messsage | Description |
+| Error Message | Description |
 | ---------- | ----------- |
 | Request accept header is incompatible | Pact request's accept header content is incompatible with provider contract |
 | Request misses authorization header | Pact request's authorization header is missing |
@@ -85,4 +85,4 @@ When provider and consumer contracts are incompatible, incompatibility messages 
 | Response body is incompatible | Pact response's body content is incompatible with provider contract |
 | Response body contains unknown information | Pact response's body contains unknown content compared with provider contract|
 | Response request is incompatible | Pact response's request content is incompatible with provider contract|
-| Reponse header contains unknown information | Pact response's header contains unknown content compared with provider contract |
+| Response header contains unknown information | Pact response's header contains unknown content compared with provider contract |

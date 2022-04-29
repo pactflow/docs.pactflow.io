@@ -71,7 +71,7 @@ A simplified view of a CI/CD pipeline for Pact looks like this:
 
 ![Consumer Pipeline](/workshops/bi-directional/3-bi-directional-consumer-pipeline-deployed.png "Consumer Pipeline")
 
-The standard [principles](https://docs.pact.io/pact_nirvana) are still relevent. Our [CI/CD workshop](/docs/workshops/ci-cd) is a useful reference (NOTE: the CI/CD workshop uses the consumer-driven mode using Pact).
+The standard [principles](https://docs.pact.io/pact_nirvana) are still relevant. Our [CI/CD workshop](/docs/workshops/ci-cd) is a useful reference (NOTE: the CI/CD workshop uses the consumer-driven mode using Pact).
 
 ## Community Adapters
 
