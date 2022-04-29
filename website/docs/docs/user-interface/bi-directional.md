@@ -26,6 +26,17 @@ Bi-Directional Contract Testing results are listed one the overview tab.
 
 </div>
 
+
+:::info we are working hard to improve this view even further.
+Currently this page supports showing one verification per consumer version, whichever provider version was most recently published will be the verification displayed.
+
+Each verification is still generated behind the scenes though, and will work as expected when using 'can-i-deploy' in your build pipeline or via CLI.
+
+We are still working to improve aspects of the Bi-Directional contract UI, including the 'Matrix' view, which will offer a more complete display of each verification that is available.
+
+You can check our [roadmap](https://github.com/pactflow/roadmap/projects/1) for progress, or to vote for new items
+:::
+
 ## Bi-Directional Contract Testing Detail Page
 
 Bi-Directional Contract Testing detail page holds detailed schema comparison results between a provider contract versus a consumer contract (pact) along with metadata, participant information and provider self-verification results.
@@ -48,6 +59,15 @@ Note: When a classic pact test is performed along with Bi-Directional Contract T
 
 ### Provider Contract Tab
 Show provider contract detail and provider self verification result. Currently, only OpenAPI/Swagger is supported. 
+### Matrix View Tab
+
+Currently the matrix page will only show consumer generated contracts.
+
+Each verification is still generated behind the scenes though, and will work as expected when using 'can-i-deploy' in your build pipeline or via CLI.
+
+We are still working to improve aspects of the Bi-Directional contract UI, including this 'Matrix' view, which will offer a more complete display of each verification that is available.
+
+You can check our [roadmap](https://github.com/pactflow/roadmap/projects/1) for progress, or to vote for new items
 
 
 ## Contract Incompatibility Messages
@@ -66,13 +86,3 @@ When provider and consumer contracts are incompatible, incompatibility messages 
 | Response body contains unknown information | Pact response's body contains unknown content compared with provider contract|
 | Response request is incompatible | Pact response's request content is incompatible with provider contract|
 | Reponse header contains unknown information | Pact response's header contains unknown content compared with provider contract |
-
-:::info we are working hard to improve this view even further.
-Currently this page supports showing one verification per consumer version, whichever provider version was most recently published will be the verification displayed.
-
-Each verification is still generated behind the scenes though, and will work as expected when using 'can-i-deploy' in your build pipeline or via CLI.
-
-We are still working to improve aspects of the Bi-Directional contract UI, including the 'Matrix' view, which will offer a more complete display of each verification that is available.
-
-You can check our [roadmap](https://github.com/pactflow/roadmap/projects/1) for progress, or to vote for new items
-:::
