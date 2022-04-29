@@ -13,6 +13,8 @@ title: Frequently asked questions
 
 ## Roadmap
 
+<!-- Part of this information is taken from https://pactflow.io/pactflow-feature-roadmap -->
+
 This is a high level view of our product road-map. 
 
 Don’t like the order or want to see something else here? You can change that by voting or asking for a feature:
