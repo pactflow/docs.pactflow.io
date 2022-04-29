@@ -66,3 +66,13 @@ When provider and consumer contracts are incompatible, incompatibility messages 
 | Response body contains unknown information | Pact response's body contains unknown content compared with provider contract|
 | Response request is incompatible | Pact response's request content is incompatible with provider contract|
 | Reponse header contains unknown information | Pact response's header contains unknown content compared with provider contract |
+
+:::info we are working hard to improve this view even further.
+Currently this page supports showing one verification per consumer version, whichever provider version was most recently published will be the verification displayed.
+
+Each verification is still generated behind the scenes though, and will work as expected when using 'can-i-deploy' in your build pipeline or via CLI.
+
+We are still working to improve aspects of the Bi-Directional contract UI, including the 'Matrix' view, which will offer a more complete display of each verification that is available.
+
+You can check our [roadmap](https://github.com/pactflow/roadmap/projects/1) for progress, or to vote for new items
+:::
