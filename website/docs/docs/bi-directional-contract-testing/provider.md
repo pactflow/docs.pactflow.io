@@ -58,12 +58,15 @@ Here is our pipeline to date on the first run of a provider:
 
 ### Step 5: Deploy your application
 
-If `can-i-deploy` returns a successful response, you can deploy your application. Once your application is deployed, you can notify Pactflow of the release - follow the golden rule of [tagging](https://docs.pact.io/pact_broker/tags/) here.
+If `can-i-deploy` returns a successful response, you can deploy your application. Once your application is deployed, you can notify Pactflow of the release - we recommend that you set the branch property when you publish pacts and verification results, and use [record-deployment](https://docs.pact.io/pact_broker/recording_deployments_and_releases#recording-deployments) or [record-release](https://docs.pact.io/pact_broker/recording_deployments_and_releases#recording-releases) when you deploy/release.
 
-_Golden rule of tagging:_
+_Golden rule of deployments:_
 
-> Tag with the branch name when you publish pacts or verification results, and tag with the environment name when you deploy.
+> The Pact Broker needs to know which versions of each application are in each environment so it can return the correct pacts for verification and determine whether a particular application version is safe to deploy.
 
+> record-deployment automatically marks the previously deployed version as undeployed, and is used for APIs and consumer applications that are deployed to known instances.
+
+> record-release does NOT change the status of any previously released version, and is used for mobile applications and libraries that are made publicly available via an application store or repository.
 
 ## Integrating it into your CI/CD pipeline
 
