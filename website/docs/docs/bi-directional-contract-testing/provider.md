@@ -42,13 +42,26 @@ Running against a dedicated testing environment will likely result in flakey tes
 
 After your tests have completed (pass/fail), you should upload the specification and results to Pactflow.
 
-See [publishing your OpenAPI Provider Contract to Pactflow](./contracts/oas#publishing-the-provider-contract--results-to-pactflow) for more.
+:::note
+
+We will be supporting this via our CLI tools, but currently you must make both API calls directly. 
+
+:::
+
+1. `create_branch_version` ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/pacticipant-branch-version.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L26) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/create_branch_version.sh)
+   1. This will associate the `version` with a  `branch` label 
+2. `publish_contracts` ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/publish-contracts.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L32) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/publish.sh)
+   1. This will associate the `version` with a `provider contract`
+
+See [publishing your OpenAPI Provider Contract to Pactflow](./contracts/oas#publishing-the-provider-contract--results-to-pactflow) for full details and examples.
 
 ### Step 4: Run can-i-deploy
 
 [`can-i-deploy`](https://docs.pact.io/pact_broker/can_i_deploy/) gives you immediate feedback if you are safe to release a version of an application to a specified environment (such as `production`).
 
-We recommend using the `pact-broker can-i-deploy` command from [CLI Tools](https://docs.pact.io/implementation_guides/cli/#distributions) for this step. Our examples use the Docker version of this to simplify administration.
+We recommend using the `pact-broker can-i-deploy` command from [CLI Tools](https://docs.pact.io/implementation_guides/cli/#distributions) for this step. 
+
+Our [examples](https://github.com/pactflow/example-bi-directional-provider-postman/blob/984f635a2317faea9137d9aa52a17f77324e5568/Makefile#L74) use the Docker version of this to simplify administration.
 
 The output from the command will provide a link to the verification result in Pactflow. Interpreting these results is contract specific.
 
@@ -58,12 +71,19 @@ Here is our pipeline to date on the first run of a provider:
 
 ### Step 5: Deploy your application
 
-If `can-i-deploy` returns a successful response, you can deploy your application. Once your application is deployed, you can notify Pactflow of the release - follow the golden rule of [tagging](https://docs.pact.io/pact_broker/tags/) here.
+If `can-i-deploy` returns a successful response, you can deploy your application. 
 
-_Golden rule of tagging:_
+Once your application is deployed, you can notify Pactflow of the release - we recommend that you set the branch property when you publish provider contracts, and use [record-deployment](https://docs.pact.io/pact_broker/recording_deployments_and_releases#recording-deployments) or [record-release](https://docs.pact.io/pact_broker/recording_deployments_and_releases#recording-releases) when you deploy/release.
 
-> Tag with the branch name when you publish pacts or verification results, and tag with the environment name when you deploy.
+Our [examples](https://github.com/pactflow/example-bi-directional-provider-postman/blob/984f635a2317faea9137d9aa52a17f77324e5568/Makefile#L82) use the Docker version of this to simplify administration.
 
+_Golden rule of deployments:_
+
+> The Pact Broker needs to know which versions of each application are in each environment so it can return the correct contracts for verification and determine whether a particular application version is safe to deploy.
+
+> `record-deployment` automatically marks the previously deployed version as undeployed, and is used for APIs and consumer applications that are deployed to known instances.
+
+> `record-release` does NOT change the status of any previously released version, and is used for mobile applications and libraries that are made publicly available via an application store or repository.
 
 ## Integrating it into your CI/CD pipeline
 
