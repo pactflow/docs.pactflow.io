@@ -85,4 +85,4 @@ When provider and consumer contracts are incompatible, incompatibility messages 
 | Response body is incompatible | Pact response's body content is incompatible with provider contract |
 | Response body contains unknown information | Pact response's body contains unknown content compared with provider contract|
 | Response request is incompatible | Pact response's request content is incompatible with provider contract|
-| Reponse header contains unknown information | Pact response's header contains unknown content compared with provider contract |
+| Response header contains unknown information | Pact response's header contains unknown content compared with provider contract |

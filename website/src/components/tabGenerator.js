@@ -85,7 +85,7 @@ function generateLanguageTab({ data, withLabel, withLink }) {
           key,
           content: (
             <a href={data[key].iconLink}>
-              {data[key].iconTitle} Implemenation Guide
+              {data[key].iconTitle} Implementation Guide
             </a>
           ), // for demo, need to add our own content
           withLabel,
