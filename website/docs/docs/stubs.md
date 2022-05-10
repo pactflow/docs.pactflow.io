@@ -14,12 +14,24 @@ Hosted API stubs are useful for a number of use cases, such as:
 1. Local development with multiple back-ends
 1. Sharing with other teams so they can experiment safely with your API
 
+## Supported Pact Specification versions
+
+| Version | Supported? |
+| ------- | ---------- |
+| 1       | ✅         |
+| 1.1     | ✅         |
+| 2       | ✅         |
+| 3       | ❌         |
+| 4+      | ❌         |
+
+_NOTE: Whilst currently only versions 1 and 2 of the [pact specification](https://github.com/pact-foundation/pact-specification/) are currently fully supported, pacts using the v3 format or beyond may be used, however any matching rules will be ignored._
+
 ## Basic Use
 
 To use the stub:
 
 1. You must first have published a contract
-1. Find the path to the pact contract you'd like to stub.  (if you're not familiar with the Pactflow API, the simplest way to get this is to click "View Pact" from the dashboard and select the "API Browser" at the top of the screen to see the URL)
+1. Find the path to the pact contract you'd like to stub. (if you're not familiar with the Pactflow API, the simplest way to get this is to click "View Pact" from the dashboard and select the "API Browser" at the top of the screen to see the URL)
 1. Append `/stub/` to the path of the pact file to get the base path of an instant stub
 
 ## Stub URL format
