@@ -2,13 +2,14 @@ FROM node:14-stretch
 RUN apt-get update && apt-get install -y python3 \
         python3-pip \
         jq \
+        docker \
         autoconf \
         automake \
-        build-essential
-
-RUN pip3 install --upgrade pip
-RUN pip3 install --upgrade awscli
-RUN rm -rf /var/lib/apt/lists/*
+        build-essential \
+        && \
+    pip3 install --upgrade pip && \
+    pip3 install --upgrade awscli aws-sam-cli python-magic && \
+    rm -rf /var/lib/apt/lists/*
 
 VOLUME /root/.aws
 VOLUME /var/run/docker.sock
