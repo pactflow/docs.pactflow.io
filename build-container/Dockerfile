@@ -2,17 +2,16 @@ FROM node:14-stretch
 RUN apt-get update && apt-get install -y python3 \
         python3-pip \
         jq \
-        docker \
         autoconf \
         automake \
-        build-essential \
-        && \
-    pip3 install --upgrade pip && \
-    pip3 install --upgrade awscli aws-sam-cli python-magic && \
-    rm -rf /var/lib/apt/lists/*
+        build-essential
+
+RUN pip3 install --upgrade pip
+RUN pip3 install --upgrade awscli
+RUN wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip && unzip aws-sam-cli-linux-x86_64.zip -d sam-installation && ./sam-installation/install && sam --version
+RUN rm -rf /var/lib/apt/lists/*
 
 VOLUME /root/.aws
-VOLUME /var/run/docker.sock
 VOLUME /workdir
 WORKDIR /workdir
 
