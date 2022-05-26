@@ -32,7 +32,7 @@ const languages = {
     content: "",
   },
   dotnet: {
-    iconTitle: ".Net",
+    iconTitle: ".NET",
     iconLocation:
       "https://raw.githubusercontent.com/pact-foundation/pact.io/master/pages/assets/img/languages/csharp-original.svg",
     iconLink: "https://docs.pact.io/implementation_guides/net",

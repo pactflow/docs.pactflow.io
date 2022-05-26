@@ -2,7 +2,7 @@ import React from "react";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import { generateIconWithLabel, generateIcon } from "./iconGenerator";
-
+import { tableData } from "../data/examples.table";
 function generateTabItem({
   data,
   key,
@@ -88,6 +88,20 @@ function generateLanguageTab({ data, withLabel, withLink }) {
               <a href={data[key].iconLink}>
                 Pact Language implementation guide for {data[key].iconTitle}
               </a>
+              <p />
+              Demo applications:
+              <p />
+              {tableData
+                .filter((tr) => tr.language === data[key].iconTitle)
+                .map((tr) => {
+                  return (
+                    <>
+                      <li>
+                        <a href={tr.linkUrl}>{tr.linkTitle}</a>
+                      </li>
+                    </>
+                  );
+                })}
             </div>
           ), // for demo, need to add our own content
           withLabel,

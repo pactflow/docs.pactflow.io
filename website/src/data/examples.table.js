@@ -2,12 +2,13 @@ import React from "react";
 
 export const tableData = [
   {
-    linkTitle: "React JS Website tested using Pact to generate consumer pacts",
+    linkTitle:
+      "React JavaScript Website tested using Pact to generate consumer pacts",
     linkUrl: "/docs/examples/js/consumer",
     badges: [
       "https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider/consumer/pactflow-example-consumer/latest/badge.svg",
     ],
-    language: "JS/NodeJS",
+    language: "JavaScript",
     useCase: "Web",
     side: "Consumer",
     compatible_clients: [
@@ -19,12 +20,12 @@ export const tableData = [
   },
   {
     linkTitle:
-      "React JS Website tested using Cypress to generate consumer pacts",
+      "React JavaScript Website tested using Cypress to generate consumer pacts",
     linkUrl: "/docs/examples/cypress",
     badges: [
       "https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider/consumer/example-consumer-cypress/latest/badge.svg",
     ],
-    language: "JS/NodeJS",
+    language: "JavaScript",
     useCase: "Web",
     side: "Consumer",
     compatible_clients: [
@@ -41,7 +42,7 @@ export const tableData = [
       "https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider/consumer/pactflow-example-consumer/latest/badge.svg",
       "https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider/consumer/example-consumer-cypress/latest/badge.svg",
     ],
-    language: "JS/NodeJS",
+    language: "JavaScript",
     useCase: "API",
     side: "Provider",
     compatible_clients: [
@@ -104,7 +105,7 @@ export const tableData = [
     linkTitle: "ExpressJS API Provider tested with Postman against OAS",
     linkUrl: "/docs/examples/bi-directional/provider/postman",
     badges: [],
-    language: "JS",
+    language: "JavaScript",
     useCase: "OpenAPI",
     side: "Provider",
     compatible_clients: [
@@ -134,7 +135,7 @@ export const tableData = [
     linkTitle: "ExpressJS API Provider tested with Dredd against OAS",
     linkUrl: "/docs/examples/bi-directional/provider/dredd",
     badges: [],
-    language: "JS",
+    language: "JavaScript",
     useCase: "OpenAPI",
     side: "Provider",
     compatible_clients: [
@@ -252,7 +253,7 @@ export const tableData = [
     linkTitle: "ExpressJS AWS Lambda SNS Provider tested with Pact Verifier",
     linkUrl: "/docs/examples/aws/sns/provider",
     badges: [],
-    language: "JS/NodeJS",
+    language: "JavaScript",
     useCase: "Messages",
     side: "Provider",
     compatible_clients: [
@@ -267,7 +268,7 @@ export const tableData = [
       "Node API consumer using Mountebank stubs and Pact Bi-Directional BYO adapters to generate Pact contracts",
     linkUrl: "/docs/examples/bi-directional/consumer/mountebank",
     badges: [],
-    language: "JS/NodeJS",
+    language: "JavaScript",
     useCase: "OpenAPI",
     side: "Consumer",
     compatible_clients: [
@@ -318,10 +319,10 @@ export const tableData = [
   },
   {
     linkTitle:
-      "React JS Website using MSW mocks and pact-msw-adapter to generate Pact contracts",
+      "React JavaScript Website using MSW mocks and pact-msw-adapter to generate Pact contracts",
     linkUrl: "/docs/examples/bi-directional/consumer/msw",
     badges: [],
-    language: "JS/NodeJS",
+    language: "JavaScript",
     useCase: "OpenAPI",
     side: "Consumer",
     compatible_clients: [
@@ -345,37 +346,10 @@ export const tableData = [
   },
   {
     linkTitle:
-      "React JS Website using Cypress fixtures and pact-cypress-adapter to generate Pact contracts",
+      "React JavaScript Website using Cypress fixtures and pact-cypress-adapter to generate Pact contracts",
     linkUrl: "/docs/examples/bi-directional/consumer/cypress",
     badges: [],
-    language: "JS/NodeJS",
-    useCase: "OpenAPI",
-    side: "Consumer",
-    compatible_clients: [
-      {
-        name: "Example Bi-Directional Provider Dredd",
-        link: "/docs/examples/bi-directional/provider/dredd/",
-      },
-      {
-        name: "Example Bi-Directional Provider Postman",
-        link: "/docs/examples/bi-directional/provider/postman/",
-      },
-      {
-        name: "Example Bi-Directional Provider RestAssured",
-        link: "/docs/examples/bi-directional/provider/restassured/",
-      },
-      {
-        name: "Example Provider",
-        link: "/docs/examples/js/provider",
-      },
-    ],    
-  },
-  {
-    linkTitle:
-      "React JS Website using Nock Record & Replay feature and pact-nock-adapter to generate Pact contracts",
-    linkUrl: "/docs/examples/bi-directional/consumer/recordreplay",
-    badges: [],
-    language: "JS/NodeJS",
+    language: "JavaScript",
     useCase: "OpenAPI",
     side: "Consumer",
     compatible_clients: [
@@ -396,7 +370,33 @@ export const tableData = [
         link: "/docs/examples/js/provider",
       },
     ],
-    
+  },
+  {
+    linkTitle:
+      "React JavaScript Website using Nock Record & Replay feature and pact-nock-adapter to generate Pact contracts",
+    linkUrl: "/docs/examples/bi-directional/consumer/recordreplay",
+    badges: [],
+    language: "JavaScript",
+    useCase: "OpenAPI",
+    side: "Consumer",
+    compatible_clients: [
+      {
+        name: "Example Bi-Directional Provider Dredd",
+        link: "/docs/examples/bi-directional/provider/dredd/",
+      },
+      {
+        name: "Example Bi-Directional Provider Postman",
+        link: "/docs/examples/bi-directional/provider/postman/",
+      },
+      {
+        name: "Example Bi-Directional Provider RestAssured",
+        link: "/docs/examples/bi-directional/provider/restassured/",
+      },
+      {
+        name: "Example Provider",
+        link: "/docs/examples/js/provider",
+      },
+    ],
   },
 
   {
@@ -584,7 +584,11 @@ export const columns = [
     Cell: ({ row: { original } }) => {
       const compatible_clients = original.compatible_clients;
       if (!compatible_clients) return "";
-      return compatible_clients.map((w) => <li><a href={w.link}>{w.name}</a></li>);
+      return compatible_clients.map((w) => (
+        <li>
+          <a href={w.link}>{w.name}</a>
+        </li>
+      ));
     },
   },
 ];
