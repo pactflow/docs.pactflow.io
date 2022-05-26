@@ -84,9 +84,11 @@ function generateLanguageTab({ data, withLabel, withLink }) {
           data,
           key,
           content: (
-            <a href={data[key].iconLink}>
-              {data[key].iconTitle} Implementation Guide
-            </a>
+            <div>
+              <a href={data[key].iconLink}>
+                Pact Language implementation guide for {data[key].iconTitle}
+              </a>
+            </div>
           ), // for demo, need to add our own content
           withLabel,
           withLink,
@@ -97,22 +99,24 @@ function generateLanguageTab({ data, withLabel, withLink }) {
   return generatedTab;
 }
 
-function generateTestingToolsTab({ data, withLabel, withLink}) {
+function generateTestingToolsTab({ data, withLabel, withLink, side }) {
   const generatedTestingTab = (
     <Tabs groupId="testing_tools">
-      {Object.keys(data).map((key) => {
+      {Object.keys(data)
+        .filter((x) => (side && data[x].side === side) ?? true)
+        .map((key) => {
           return generateTabItem({
             data,
             key,
             content: (
               <a href={data[key].iconLink} key={key}>
-                {data[key].iconTitle} Integration Guide
+                Pactflow {data[key].side} side demo with {data[key].iconTitle}
               </a>
             ), // for demo, need to add our own content
             withLabel,
             withLink,
           });
-      })}
+        })}
     </Tabs>
   );
   return generatedTestingTab;

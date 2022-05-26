@@ -406,7 +406,7 @@ The guides cover the consumer-driven contract testing flow.
   {generateLanguageTab({
     data: meta.languages,
     withLabel: false,
-    withLink: true,
+    withLink: false,
   })}
 </div>
 
@@ -415,13 +415,31 @@ The guides cover the consumer-driven contract testing flow.
 
 Pactflow supports many different testing tools for [Bi-Directional Contract Testing](docs/bi-directional-contract-testing).
 
-Click on a testing tool icon to see the implementation guide and example
+Click on a testing tool icon to see a demo application you can quickly run to get you started
+
+
+#### Consumer Side
+
 
 <div >
   {generateTestingToolsTab({
     data: meta.testing_tools,
     withLabel: false,
-    withLink: true,
+    withLink: false,
+    side: 'consumer'
+  })}
+</div>
+
+
+#### Provider side
+
+
+<div >
+  {generateTestingToolsTab({
+    data: meta.testing_tools,
+    withLabel: false,
+    withLink: false,
+    side: 'provider'
   })}
 </div>
 

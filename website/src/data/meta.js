@@ -125,8 +125,7 @@ const testing_tools = {
   },
   dredd: {
     iconTitle: "Dredd",
-    iconLocation:
-      "https://dredd.org/en/latest/_images/dredd.png",
+    iconLocation: "https://dredd.org/en/latest/_images/dredd.png",
     iconLink: "/docs/examples/bi-directional/provider/dredd/",
     contentUrl: "",
     content: "",
@@ -201,27 +200,37 @@ const testing_tools = {
   },
 };
 
-const testing_tools_providers = ['dredd', 'restassured','postman','schemathesis'];
-const testing_tools_consumers = ['cypress', 'wiremock','nock','mountebank','pact','msw'];
+const testing_tools_providers = [
+  "dredd",
+  "restassured",
+  "postman",
+  "schemathesis",
+];
+const testing_tools_consumers = [
+  "cypress",
+  "wiremock",
+  "nock",
+  "mountebank",
+  "pact",
+  "msw",
+];
 
 const testing_tools_provider_side = Object.keys(testing_tools)
-    .filter(key => testing_tools_providers.includes(key))
-    .reduce((obj, key) => {
-        obj[key] = testing_tools[key];
-        return obj;
+  .filter((key) => testing_tools_providers.includes(key))
+  .reduce((obj, key) => {
+    obj[key] = testing_tools[key];
+    return obj;
   }, {});
 const testing_tools_consumer_side = Object.keys(testing_tools)
-    .filter(key => testing_tools_consumers.includes(key))
-    .reduce((obj, key) => {
-        obj[key] = testing_tools[key];
-        return obj;
+  .filter((key) => testing_tools_consumers.includes(key))
+  .reduce((obj, key) => {
+    obj[key] = testing_tools[key];
+    return obj;
   }, {});
-
-
 
 export const meta = {
   languages,
   testing_tools,
   testing_tools_provider_side,
-  testing_tools_consumer_side
+  testing_tools_consumer_side,
 };
