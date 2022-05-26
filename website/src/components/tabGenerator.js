@@ -76,7 +76,7 @@ function generateGettingStartedTab({ data, withLabel, withLink }) {
   return generatedTab;
 }
 
-function generateLanguageTab({ data, withLabel, withLink }) {
+function generateLanguageTab({ data, withLabel, withLink, useCaseFilter }) {
   const generatedTab = (
     <Tabs groupId="languages">
       {Object.keys(data).map((key) => {
@@ -92,7 +92,11 @@ function generateLanguageTab({ data, withLabel, withLink }) {
               Demo applications:
               <p />
               {tableData
-                .filter((tr) => tr.language === data[key].iconTitle)
+                .filter(
+                  (tr) =>
+                    tr.language === data[key].iconTitle &&
+                    tr.useCase !== useCaseFilter
+                )
                 .map((tr) => {
                   return (
                     <>
