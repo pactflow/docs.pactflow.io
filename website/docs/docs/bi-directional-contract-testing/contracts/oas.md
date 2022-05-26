@@ -19,27 +19,120 @@ Pact Consumer Contracts are the only compatible contracts at this time.
 
 ## Publishing the Provider Contract + Results to Pactflow
 
+![Uploading Provider Contract](https://user-images.githubusercontent.com/19932401/168287660-6b641b1d-2fc9-41b9-91ab-1cd60b637ab0.gif)
+
+### CLI
+
+1. Download the appropriate CLI version
+
+```sh
+docker pull pactfoundation/pact-cli:0.50.0.26
+```
+
+2. set env vars
+
+- `PACT_BROKER_BASE_URL`: The base URL of your Pactflow account e.g. https://myaccount.pactflow.io>
+- `PACT_BROKER_TOKEN`: The RW Token from your Pactflow account e.g. https://myaccount.pactflow.io/settings/api-tokens
+- `PACTFLOW_FEATURES=publish-provider-contract`: Enables the feature in the CLI tool
+
+```sh
+PACT_BROKER_BASE_URL=https://myaccount.pactflow.io
+PACT_BROKER_TOKEN=your_read_write_token_here
+PACTFLOW_FEATURES=publish-provider-contract
+```
+
+3. Run the following command
+
+```sh
+Usage:
+  pactflow publish-provider-contract OAS_FILE_PATH \
+      --provider $PACTICIPANT \
+      --provider-app-version $VERSION \
+      --branch $BRANCH \
+      --content-type application/yaml \
+      --verification-exit-code=$1 \
+      --verification-results /app/$REPORT_FILE_PATH \
+      --verification-results-content-type $REPORT_FILE_CONTENT_TYPE\
+      --verifier $VERIFIER_TOOL
+
+Options:
+  --provider=PACTICIPANT
+              # The name of the provider API application
+  --provider-app-version=PROVIDER_APP_VERSION
+              # The version of the provider API application
+  --branch=BRANCH
+              # The application branch for the provider
+  --content-type=application/yaml
+              # The content type of the provider contract - Must be application/yaml
+  --verification-exit-code=VERIFICATION_EXIT_CODE
+              # An exit code indicating if the verification passed or failed (one of 0 - success or 1 - failure)
+  --verification-results=REPORT_FILE_PATH
+              # The path to the verification results you wish to upload
+  --verification-results-content-type=REPORT_FILE_CONTENT_TYPE
+              # The content type of the results. Must be a valid mime type
+  --verifier=VERIFIER_TOOL
+              # The name of the verifier tool used. free-text
+  --broker-base-url=BROKER_BASE_URL
+              # The base URL of your Pactflow account e.g. https://myaccount.pactflow.io
+  --broker-token=BROKER_TOKEN
+              # The RW Token from your Pactflow account e.g. https://myaccount.pactflow.io/settings/api-tokens
+```
+
+#### Example (Docker)
+
+See the used in our demo repo [here](https://github.com/pactflow/example-bi-directional-provider-postman/blob/2396e5c91081925a59fd5cb1663e240aa467ff8c/Makefile#L33-L59)
+
+1. Set env vars
+
+```sh
+PACT_BROKER_BASE_URL=https://myaccount.pactflow.io
+PACT_BROKER_TOKEN=your_read_write_token_here
+PACTICIPANT=pactflow-example-bi-directional-provider-postman
+PACTFLOW_FEATURES=publish-provider-contract
+VERSION=$(git rev-parse --short HEAD)
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+OAS_FILE_PATH?=oas/products.yml
+REPORT_FILE_PATH?=output/report.md
+REPORT_FILE_CONTENT_TYPE?=text/plain
+VERIFIER_TOOL?=dredd
+```
+
+2. Run the Docker CLI tool
+
+```sh
+  docker run --rm \
+   -v "${APPDIR}":/app \
+   -w "/app" \
+   -e PACT_BROKER_BASE_URL \
+   -e PACT_BROKER_TOKEN \
+   -e PACTFLOW_FEATURES=publish-provider-contract \
+    pactfoundation/pact-cli:0.50.0.26 \
+      pactflow publish-provider-contract \
+      /app/$OAS_FILE_PATH \
+      --provider $PACTICIPANT \
+      --provider-app-version $VERSION \
+      --branch $BRANCH \
+      --content-type application/yaml \
+      --verification-exit-code=$1 \
+      --verification-results /app/$REPORT_FILE_PATH \
+      --verification-results-content-type $REPORT_FILE_CONTENT_TYPE\
+      --verifier $VERIFIER_TOOL
+```
+
+### Directly via API
+
 You need to create a a branch version, prior to uploading the provider spec file, the results and the status via two API call's to Pactflow.
 
 This will associate the version of our application with the particular branch label, which will be used when we publish our provider contract.
 
 You can read more about [branches](https://docs.pact.io/pact_broker/branches) in the Pact Broker docs.
 
-:::note
-
-We will be supporting this via our CLI tools, but currently you must make both API calls directly. 
-
-Our roadmap item can be seen [here](https://github.com/pactflow/roadmap/issues/68)
-
-:::
-
 1. `create_branch_version` ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/pacticipant-branch-version.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L26) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/create_branch_version.sh)
-   1. This will associate the `version` with a  `branch` label 
+   1. This will associate the `version` with a `branch` label
 2. `publish_contracts` ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/publish-contracts.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L32) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/publish.sh)
    1. This will associate the `version` with a `provider contract`
 
-
-### Example
+#### Example
 
 We will take you through an example below.
 
@@ -47,7 +140,7 @@ We will take you through an example below.
 
 Here is an example bash script that uses `cURL` to create the branch version for the specified application to Pactflow.
 
-1. `create_branch_version.sh`  ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/pacticipant-branch-version.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L26) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/create_branch_version.sh)
+1. `create_branch_version.sh` ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/pacticipant-branch-version.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L26) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/create_branch_version.sh)
 
 ```sh
 #!/bin/bash
@@ -61,9 +154,10 @@ curl \
   -d '{}
  }'
 ```
+
 Here is an example bash script that uses `cURL` to upload the the OAS and test results to Pactflow.
 
-2. `publish.sh`  ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/publish-contracts.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L32) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/publish.sh)
+2. `publish.sh` ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/publish-contracts.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L32) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/publish.sh)
 
 ```sh
 #!/bin/bash
@@ -96,7 +190,7 @@ curl \
 
 Usage: `./publish.sh true|false`
 
-### Request Details
+#### Request Details
 
 `publish_contracts` ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/publish-contracts.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L32) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/publish.sh)
 
