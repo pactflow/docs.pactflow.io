@@ -2,8 +2,6 @@
 title: Environment variables
 ---
 
-<br/>
-
 ## Logging
 
 <hr/>
