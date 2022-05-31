@@ -1,5 +1,5 @@
 ---
-slug: 2022-04-12-on-premises-1.18.0
+slug: 2022-05-31-on-premises-1.18.0
 title: On-premises release v1.18.0
 tags: [on-premises, release]
 ---

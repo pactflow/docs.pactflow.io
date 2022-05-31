@@ -2,6 +2,8 @@
 title: Environment variables
 ---
 
+<br/>
+
 ## Logging
 
 <hr/>
@@ -27,6 +29,21 @@ The Pactflow application log format
 ### PACTFLOW_HTTP_LOGGING_ENABLED
 
 When true, HTTP request details and response status and duration will be logged to stdout in json format
+
+**Required:** false<br/>
+**Default:** `false`<br/>
+**Allowed values:** `true`, `false`<br/>
+
+<br/>
+
+## Monitoring
+
+<hr/>
+
+
+### NEW_RELIC_AGENT_ENABLED
+
+Set this to true to enable New Relic application monitoring. The New Relic config file should be mounted at /home/pactflow/config/newrelic.yml
 
 **Required:** false<br/>
 **Default:** `false`<br/>
@@ -499,7 +516,10 @@ The previous secret - used when rotating the rack.session cookie secret.
 
 ### PACTFLOW_REQUIRE_HTTPS
 
-When enabled, the header `Strict-Transport-Security: max-age=31536000 ; includeSubDomains` is added to ensure connections are made over HTTPS
+When set to `true`, the header `Strict-Transport-Security: max-age=31536000 ; includeSubDomains` is added to ensure connections are made over HTTPS, and the `PACTFLOW_BASE_URL` is validated to ensure it starts with https.
+
+This value should never be set to false in a production environment. It should only ever be set to false for local testing or demonstration purposes where an SSL certificate is not available.
+
 
 **Required:** false<br/>
 **Default:** `true`<br/>
