@@ -19,21 +19,51 @@ Pact Consumer Contracts are the only compatible contracts at this time.
 
 ## Publishing the Provider Contract + Results to Pactflow
 
-You need to upload the contract, the results and the status in a single API call to Pactflow.
+You need to create a a branch version, prior to uploading the provider spec file, the results and the status via two API call's to Pactflow.
+
+This will associate the version of our application with the particular branch label, which will be used when we publish our provider contract.
+
+You can read more about [branches](https://docs.pact.io/pact_broker/branches) in the Pact Broker docs.
 
 :::note
 
-We will be supporting this via our CLI tools, but currently you must make the API call directly
+We will be supporting this via our CLI tools, but currently you must make both API calls directly. 
+
+Our roadmap item can be seen [here](https://github.com/pactflow/roadmap/issues/68)
 
 :::
 
+1. `create_branch_version` ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/pacticipant-branch-version.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L26) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/create_branch_version.sh)
+   1. This will associate the `version` with a  `branch` label 
+2. `publish_contracts` ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/publish-contracts.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L32) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/publish.sh)
+   1. This will associate the `version` with a `provider contract`
+
+
 ### Example
 
+We will take you through an example below.
+
+> The standard authorization environment variables are used here.
+
+Here is an example bash script that uses `cURL` to create the branch version for the specified application to Pactflow.
+
+1. `create_branch_version.sh`  ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/pacticipant-branch-version.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L26) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/create_branch_version.sh)
+
+```sh
+#!/bin/bash
+
+echo "==> Creating version branch for ${PACTICIPANT}"
+curl \
+  -X PUT \
+  -H "Authorization: Bearer ${PACT_BROKER_TOKEN}" \
+  -H "Content-Type: application/json" \
+  "${PACT_BROKER_BASE_URL}/pacticipants/${PACTICIPANT}/branches/${GIT_BRANCH}/versions/${GIT_COMMIT}" \
+  -d '{}
+ }'
+```
 Here is an example bash script that uses `cURL` to upload the the OAS and test results to Pactflow.
 
-The standard authorization environment variables are used here.
-
-_publish.sh_
+2. `publish.sh`  ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/publish-contracts.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L32) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/publish.sh)
 
 ```sh
 #!/bin/bash
@@ -50,7 +80,7 @@ curl \
   -X PUT \
   -H "Authorization: Bearer ${PACT_BROKER_TOKEN}" \
   -H "Content-Type: application/json" \
-  "${PACT_BROKER_BASE_URL}/contracts/provider/${PACTICIPANT}/version/${TRAVIS_COMMIT}" \
+  "${PACT_BROKER_BASE_URL}/contracts/provider/${PACTICIPANT}/version/${GIT_COMMIT}" \
   -d '{
    "content": "'$OAS'",
    "contractType": "oas",
@@ -67,6 +97,8 @@ curl \
 Usage: `./publish.sh true|false`
 
 ### Request Details
+
+`publish_contracts` ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/publish-contracts.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L32) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/publish.sh)
 
 **Path**
 
@@ -292,11 +324,17 @@ When using OpenAPI Specifications as a Provider Contract, you should be aware of
 
 ### Testing
 
-- You must ensure `additionalProperties` in your OAS is set to `false` on any response body, to ensure a consumer won't get false positives if they add a new field that isn't actually part of the spec (see
+- Note, Pactflow automatically sets `additionalProperties` in your OAS is set to `false` on any response body, to ensure a consumer won't get false positives if they add a new field that isn't actually part of the spec (see
   https://bitbucket.org/atlassian/swagger-mock-validator/issues/84/test-incorrectly-passes-when-mock-expects for an interesting read on why this is necessary. TL;DR - it's JSON Schemas fault)
 - It is recommended to allow `additionalProperties` on request items to align with [Postel's Law](https://en.wikipedia.org/wiki/Robustness_principle)
 - _Implementing_ a spec is not the same as being _compatible_ with a spec ([read more](https://pactflow.io/blog/contract-testing-using-json-schemas-and-open-api-part-1/)). Most tools only tell you that what you’re doing is _not incompatible_ with the spec. _NOTE: We plan to address this problem in the future via our OAS Testing Tool_
 - You are responsible for ensuring sufficient OAS coverage. To highlight this point, in our [Dredd example](https://github.com/pactflow/example-bi-directional-provider-dredd), we do _not_ test the 404 case on the provider, but the consumer has a pact for it and it's tests still pass! _NOTE: We plan to address this problem in the future via our OAS Testing Tool_
+
+### `allOf` support and other logical keywords
+
+Because Pactflow sets `additionalProperties` to `false` to prevent false positives during validation, it means that the use of `allOf` is not supported.
+
+See this [write up](https://bitbucket.org/atlassian/swagger-mock-validator/src/master/FAQ.md) on this specific issue.
 
 ## Base64 Encoding
 

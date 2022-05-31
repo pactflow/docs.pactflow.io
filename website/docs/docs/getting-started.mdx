@@ -2,6 +2,7 @@
 id: getting-started
 title: Getting Started with Pactflow
 slug: /
+toc_max_heading_level: 3
 ---
 
 import Tabs from "@theme/Tabs";
@@ -15,21 +16,29 @@ import {
 } from "../../src/components/tabGenerator";
 import { meta } from "../../src/data/meta";
 
-Pactflow is a fully-managed, highly-available, and hardened deployment of the open source "Pact Broker" with a re-imagined user experience. It allows you to integrate Pact into your CI/CD pipelines by providing a central point for managing your consumer driven contracts.
+:::tip did you know
+Pactflow makes testing and deploying microservices at scale, simple and worry free for thousands of developers and testers around the world. 
 
-## Tutorials
+Utilising the Pact framework, create consumer and provider mocks in-platform or use a range of BYO tools to do so through the Bi-Directional Contract Testing feature
+:::
+
+## Create an account
+
+If you don’t already have a Pactflow account (have not created one or have not been invited to someone else’s account) get started with our [free Starter Plan](https://pactflow.io/try-for-free?&utm_source=pactflow-docs&utm_content=getting-started)
+
+## Learn about contract testing
 
 ### Videos
 
-We've created an introductory level [video series on contract-testing](https://youtube.com/playlist?list=PLwy9Bnco-IpfZ72VQ7hce8GicVZs7nm0i) to help you learn and understand what it's all about.
+New to contract testing? Watch this  introductory level [video series on contract-testing](https://youtube.com/playlist?list=PLwy9Bnco-IpfZ72VQ7hce8GicVZs7nm0i) to understand what it's all about.
 
 ### Workshops
 
-To get you started, we have created a several short in-browser [tutorials](/docs/tutorials). If you're new to Pact, or want some help integrating to Pactflow, you should start here.
+See contract testing in action by completing short and easy in-browser [tutorials](/docs/tutorials).
 
-If you want something a little more in-depth, check out [Pactflow University](/docs/workshops).
+And when you’re ready to dive deeper, enroll in [Pactflow University](/docs/workshops) to dive deeper into the basics of contract testing through to advanced use cases including a CI/CD integration to help you scale
 
-## Essential reading
+### Essential reading
 
 Here are some key resources to help you on your way:
 
@@ -40,20 +49,22 @@ Here are some key resources to help you on your way:
 - [General Pact documentation](https://docs.pact.io)
 - You can find documentation on all the Pactflow screens under [Pactflow User Interface](/docs/user-interface/dashboard).
 
-We also have a Slack workspace where you can chat with other members and get general support with the product. Join us by registering [here](http://slack.pact.io/).
+## Getting help
 
-If you need general Pact support, we have a number of channels you can reach us on:
+We also have a Slack workspace where you can chat with other members and get general support with contract or the product. Join us by registering [here](http://slack.pact.io/).
+
+[Stack Overflow](https://stackoverflow.com/questions/tagged/pact) is another place you can search for support. 
 
 - [slack.pact.io](http://slack.pact.io/)
 - [https://stackoverflow.com/questions/tagged/pact](https://stackoverflow.com/questions/tagged/pact)
 
-If you need Pactflow specific support, you can email us at support@pactflow.io
+And, if you need Pactflow specific technical support, email support@pactflow.io or for help with a PoC or plan options get in touch with sales.
 
 ## Configuring your API token
 
 **NOTE: You cannot use your username and password to access the Pactflow API.**
 
-To publish or verify pacts you need to use one of the bearer tokens from the [API Tokens](docs/user-interface/settings/api-tokens) section of your Pactflow settings page.
+To publish or verify contracts you need to use one of the bearer tokens from the [API Tokens](docs/user-interface/settings/api-tokens) section of your Pactflow settings page.
 
 Open your Pactflow account in a browser and log in with your username and password. Click on the settings icon (the cog wheel icon at the top right of the screen).
 
@@ -61,11 +72,11 @@ You will see the API Tokens page with two tokens listed - a read only token, and
 
 ![API Token Screen](/ui/api-tokens.png)
 
-Pacts and verification results are generally only published from a CI machine, so use the read only token on a local development machine, and keep the read/write token for CI.
+Contracts and verification results are generally only published from a CI machine, so use the read only token on a local development machine, and keep the read/write token for CI.
 
 While each of the following examples shows the use of a hardcoded token, note that you would normally be accessing the token via an environment variable or build parameter that is stored and provided in a secure manner (eg. a Jenkins build secret or a Travis encrypted environment variable).
 
-To configure the token:
+To configure the token, click on a tab for your chosen language:
 
 ### Consumer
 
@@ -383,34 +394,53 @@ docker-compose -f docker-compose-verify.yml up \
 
 </Tabs>
 
+## Supported Tools & Languages
 
-## Supported Languages
-
-Pact, is available in many different implemenations, Click on a language icon to take you to the implementation guide or readme.
+Pact is available in many different implementations, Click on a language icon to take you to the implementation guide or readme.
 
 The guides cover the consumer-driven contract testing flow.
+
+### Consumer-Driven
 
 <div>
   {generateLanguageTab({
     data: meta.languages,
     withLabel: false,
-    withLink: true,
+    withLink: false,
+    useCaseFilter: 'OpenAPI'
   })}
 </div>
 
 
+### Bi-Directional
 
-## Supported Testing Tools
+Pactflow supports many different testing tools for [Bi-Directional Contract Testing](docs/bi-directional-contract-testing).
 
-Pactflow supports many different testing tools for Bi-Directional Contract Testing.
+Click on a testing tool icon to see a demo application you can quickly run to get you started
 
-Click on a testing tool icon to see the implementation guide and example
+
+#### Consumer Side
+
 
 <div >
   {generateTestingToolsTab({
     data: meta.testing_tools,
     withLabel: false,
-    withLink: true,
+    withLink: false,
+    side: 'consumer'
+  })}
+</div>
+
+
+#### Provider side
+
+
+<div >
+  {generateTestingToolsTab({
+    data: meta.testing_tools,
+    withLabel: false,
+    withLink: false,
+    side: 'provider'
   })}
 </div>
 
