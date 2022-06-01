@@ -80,7 +80,7 @@ Options:
               # Whether or not the self verification passed successfully.
       [--verification-exit-code=N]
               # The exit code of the verification process. Can be used instead
-                of --verificaiton-success|--no-verification-success for a
+                of --verification-success|--no-verification-success for a
                 simpler build script.
       [--verification-results=VERIFICATION_RESULTS]
               # The path to the file containing the output from the
@@ -304,7 +304,7 @@ Clicking on the verification results will take you to the resource in Pactflow a
 
 - `providerContractVerificationResults`
 
-  This containts the results of the provider verification, including the tool used to verify it, whether the test passed or failed and the base64 encoded OAS contract.
+  This contains the results of the provider verification, including the tool used to verify it, whether the test passed or failed and the base64 encoded OAS contract.
 
 ### Successful result
 
