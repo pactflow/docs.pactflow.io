@@ -36,6 +36,18 @@ The Pactflow application runs on port `9292` by default. This can be configured 
 
 A healthcheck endpoint for use by a Docker container managment service is available at `http://<HOST>/diagnostic/status/heartbeat`. No authentication is required. This endpoint does not make a connection to the database.
 
+If the healthcheck is running from inside the container, make sure to use the port defined in the environment variable `$PACTFLOW_HTTP_PORT`, which defaults to 9292. You can use `wget` to perform the healthcheck request.
+
+An example healthcheck configuration for Docker Compose:
+
+```yaml
+healthcheck:
+  test: ["CMD", "wget", "-nv", "-t1", "--spider", "http://localhost:9292/diagnostic/status/heartbeat"]
+  interval: 30s
+  timeout: 10s
+  retries: 3
+```
+
 To check the connection to the database, use the endpoint `/diagnostic/status/dependencies`. This endpoint should not be used by Docker container managment services, as unrelated database issues might cause the Docker container to churn.
 
 ### License file
