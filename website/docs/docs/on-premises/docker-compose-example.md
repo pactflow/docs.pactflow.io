@@ -72,13 +72,14 @@ services:
     depends_on:
       - postgres
     environment:
-      - PACTFLOW_HTTP_PORT=9293
+      - PACTFLOW_HTTP_PORT=9292
+      - PACTFLOW_BASE_URL=http://localhost
       - PACTFLOW_DATABASE_URL=postgres://postgres:password@postgres/postgres
       # insecure settings only for the purposes of this demo! Not to be used in production.
       - PACTFLOW_DATABASE_SSLMODE=disable
       - PACTFLOW_REQUIRE_HTTPS=false
       - PACTFLOW_SECURE_COOKIES=false
-      - PACTFLOW_LOG_FORMAT=short
+      - PACTFLOW_LOG_FORMAT=short # normally this would be set to json, use short for demo only
       - PACTFLOW_ADMIN_API_KEY=admin
       - PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY=thisissomerandombytes
       - PACTFLOW_SAML_AUTH_ENABLED=true
@@ -91,9 +92,9 @@ services:
       - PACT_BROKER_ADMIN_API_KEY=admin
       - PACTFLOW_WEBHOOK_HOST_WHITELIST=/.*/
     ports:
-      - "80:9293"
+      - "80:9292"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost/diagnostic/status/heartbeat"]
+      test: ["CMD", "wget", "-nv", "-t1", "--spider", "http://localhost:9292/diagnostic/status/heartbeat"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -123,7 +124,7 @@ You can verify all services by running `docker ps`:
 
 ```
 CONTAINER ID        IMAGE                         COMMAND                  CREATED             STATUS                             PORTS                                                    NAMES
-8318130fa98a        quay.io/pactflow/enterprise   "docker-entrypoint"      18 seconds ago      Up 17 seconds (health: starting)   9292/tcp, 0.0.0.0:80->9293/tcp                           tmp_pactflow_1
+8318130fa98a        quay.io/pactflow/enterprise   "docker-entrypoint"      18 seconds ago      Up 17 seconds (health: starting)   9292/tcp, 0.0.0.0:80->9292/tcp                           tmp_pactflow_1
 7ba5d1679d09        kristophjunge/test-saml-idp   "docker-php-entrypoi…"   7 minutes ago       Up 17 seconds                      0.0.0.0:8080->8080/tcp, 80/tcp, 0.0.0.0:8443->8443/tcp   tmp_simplesaml_1
 c0e3059fa37c        postgres                      "docker-entrypoint.s…"   7 minutes ago       Up 17 seconds (health: starting)   0.0.0.0:5432->5432/tcp                                   tmp_postgres_1
 ```
