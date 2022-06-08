@@ -48,9 +48,11 @@ Bi-Directional Contract Testing detail page holds detailed schema comparison res
 &nbsp;
 
 ### Contract Comparison Tab
+
 An overview of the Bi-Directional Contract Testing.
 
 ### Consumer Contract Tab
+
 Show verification result of the consumer contract by the provider contract.
 
 Clicking on interaction item toggles interaction detail in relation of the current Bi-Directional Contract Testing.
@@ -58,6 +60,7 @@ Clicking on interaction item toggles interaction detail in relation of the curre
 Note: When a classic pact test is performed along with Bi-Directional Contract Testing, the classic pact test result will be displayed under this tab.
 
 ### Provider Contract Tab
+
 Show provider contract detail and provider self verification result. Currently, only OpenAPI/Swagger is supported. 
 ### Matrix View Tab
 
@@ -69,8 +72,14 @@ We are still working to improve aspects of the Bi-Directional contract UI, inclu
 
 You can check our [roadmap](https://github.com/pactflow/roadmap/projects/1) for progress, or to vote for new items
 
+### Matrix View Tab
+
+When a pact is published, a comparison will be generated asychronously with the latest provider contract from each branch, and for the provider contract of each deployed/released provider version. When a provider contract is published, a comparsion will be generated asychronously with the latest pact for each branch, and for each deployed/released consumer version. These results will be used to populate the data for the matrix page.
+
+Should a [`can-i-deploy`](https://docs.pact.io/pact_broker/can_i_deploy) query be made for a combination of application versions for which a comparsion has not been generated, the comparsion will be performed synchronously, and the results returned in the response.
 
 ## Contract Incompatibility Messages
+
 When provider and consumer contracts are incompatible, incompatibility messages and mismatches are listed at [Contract Comparison Tab](#contract-comparison-tab). You can also find incompatibility messages under interaction items at [Consumer Contract Tab](#consumer-contract-tab)
 
 | Error Messsage | Description |
