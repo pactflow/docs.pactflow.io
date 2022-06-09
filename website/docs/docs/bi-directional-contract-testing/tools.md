@@ -21,5 +21,5 @@ Can't find your favourite tool? Create your own!
 Here's how:
 
 * [Convert](/docs/bi-directional-contract-testing/contracts/pact#converting-mocks-into-a-pact-compatible-format) your mock format to a supported Pact specification format
-* Create an example project (see our existing supported tools and demos)[/#bi-directional]
+* Create an example project [see our existing supported tools and demos](/#bi-directional)
 * [Submit a PR](https://github.com/pactflow/docs.pactflow.io/) to to get listed
