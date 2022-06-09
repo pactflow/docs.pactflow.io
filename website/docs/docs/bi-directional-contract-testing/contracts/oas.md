@@ -26,10 +26,9 @@ The links in the list will take you to the respective documentation in each repo
 Otherwise see the [Installation](#installation) section and [Usage](#usage) instructions on this page.
 
 1. [Docker](https://hub.docker.com/r/pactfoundation/pact-cli)
-2. [Pact Broker Client (Ruby)](https://github.com/pact-foundation/pact_broker-client#provider-contracts)
-3. [Pact Standalone CLI](https://github.com/pact-foundation/pact-ruby-standalone/releases) - Coming Soon
-4. [Github Actions](https://github.com/pactflow/github-actions-pact-publish-provider-contract) - Coming Soon
-<!-- 4. [API](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/publish-contracts.markdown) -->
+2. [Pact Standalone CLI](https://github.com/pact-foundation/pact-ruby-standalone/releases)
+3. [Pact Broker Client (Ruby)](https://github.com/pact-foundation/pact_broker-client#provider-contracts)
+4. [Github Actions](https://github.com/pactflow/actions/tree/main/publish-provider-contract)
 
 ### Installation
 
@@ -44,14 +43,48 @@ docker pull pactfoundation/pact-cli
 #### Pact Standalone CLI
 
 - Download the latest [pact-ruby-standalone](https://github.com/pact-foundation/pact-ruby-standalone/releases) package.
+  - Available from version `v1.89.00` and upwards
 - Installation instructions are provided in the above link, for `windows` / `macos` / `linux`
 - You do not need Ruby to run the CLI, as the Ruby runtime is packaged with the executable using Travelling Ruby.
+
+`windows (bash shell)`
+
+```sh
+ curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.89.00-rc1/pact-1.89.00-rc1-win32.zip && \
+                unzip pact-1.89.00-rc1-win32.zip && \
+                ./pact/bin/pactflow help
+```
+
+`MacOS`
+
+```sh
+curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.89.00-rc1/pact-1.89.00-rc1-osx.tar.gz && \
+                tar xzf pact-1.89.00-rc1-osx.tar.gz && \
+                ./pact/bin/pactflow help
+```
+
+`Linux`
+
+```sh
+curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.89.00-rc1/pact-1.89.00-rc1-linux-x86_64.tar.gz && \
+                tar xzf pact-1.89.00-rc1-linux-x86_64.tar.gz && \
+                ./pact/bin/pactflow help
+```
 
 #### Pact Broker Client (Ruby)
 
 - Either
   - Add `gem 'pact_broker-client'` to your Gemfile and run `bundle install`
   - Install the gem directly by running `gem install pact_broker-client`
+
+#### GitHub Actions
+
+Copy and paste the following snippet into your .yml file.
+
+```sh
+- name: publish-provider-contract action
+  uses: pactflow/actions/publish-provider-contract@v0.0.2
+```
 
 ### Publishing
 
@@ -108,43 +141,79 @@ Options:
 #### Docker
 
 - [Docs](https://hub.docker.com/r/pactfoundation/pact-cli)
-- [See the example in GitHub Actions](https://github.com/pactflow/example-bi-directional-provider-postman/runs/6661512850?check_suite_focus=true)
+- [See the example in GitHub Actions](https://github.com/pactflow/example-bi-directional-provider-postman/runs/6819148533?check_suite_focus=true)
 
 ```sh
-docker run --rm -v /home/runner/work/example-bi-directional-provider-postman/example-bi-directional-provider-postman:/app/ -w /app/ -e PACT_BROKER_BASE_URL -e PACT_BROKER_TOKEN pactfoundation/pact-cli:latest pactflow publish-provider-contract \
-      "/app/oas/swagger.yml" \
-      --provider pactflow-example-bi-directional-provider-postman-ubuntu-latest-docker \
-      --provider-app-version f2cddf09f711a6d72a33c33123bd9da591376a73 \
-      --branch master \
+docker run --rm -v /${PWD}:/${PWD} -w ${PWD} -e PACT_BROKER_BASE_URL -e PACT_BROKER_TOKEN pactfoundation/pact-cli:0.50.0.28 pactflow publish-provider-contract \
+      oas/swagger.yml \
+      --provider "pactflow-example-bi-directional-provider-postman" \
+      --provider-app-version 3a0994c \
+      --branch test-pactflow-command \
       --content-type application/yaml \
       --verification-exit-code=0 \
-      --verification-results "/app/newman/newman-run-report-2022-05-30-21-49-15-257-0.json" \
+      --verification-results newman/newman-run-report-2022-06-09-14-18-33-406-0.json \
       --verification-results-content-type text/plain\
       --verifier postman
 ```
 
 #### Pact Standalone CLI
 
-Coming soon
-
 - [Docs](https://github.com/pact-foundation/pact-ruby-standalone/releases)
+- [See the example in GitHub Actions](https://github.com/pactflow/example-bi-directional-provider-postman/runs/6819148761?check_suite_focus=true)
+
+```sh
+./pact/bin/pactflow publish-provider-contract \
+      oas/swagger.yml \
+      --provider "pactflow-example-bi-directional-provider-postman" \
+      --provider-app-version 3a0994c \
+      --branch test-pactflow-command \
+      --content-type application/yaml \
+      --verification-exit-code=0 \
+      --verification-results newman/newman-run-report-2022-06-09-14-03-30-715-0.json \
+      --verification-results-content-type text/plain\
+      --verifier postman
+```
 
 #### Pact Broker Client (Ruby)
 
 - [Docs](https://github.com/pact-foundation/pact_broker-client#provider-contracts)
-- [See the example in GitHub Actions](https://github.com/pactflow/example-bi-directional-provider-postman/runs/6661512903?check_suite_focus=true)
+- [See the example in GitHub Actions](https://github.com/pactflow/example-bi-directional-provider-postman/runs/6819148631?check_suite_focus=true)
 
 ```sh
-  "pactflow" publish-provider-contract \
-        "oas/swagger.yml" \
-        --provider pactflow-example-bi-directional-provider-postman-ubuntu-latest-ruby_cli \
-        --provider-app-version f2cddf09f711a6d72a33c33123bd9da591376a73 \
-        --branch master \
-        --content-type application/yaml \
-        --verification-exit-code=0 \
-        --verification-results "newman/newman-run-report-2022-05-30-21-49-14-129-0.json" \
-        --verification-results-content-type text/plain\
-        --verifier postman
+pactflow publish-provider-contract \
+      oas/swagger.yml \
+      --provider "pactflow-example-bi-directional-provider-postman" \
+      --provider-app-version 3a0994c \
+      --branch test-pactflow-command \
+      --content-type application/yaml \
+      --verification-exit-code=0 \
+      --verification-results newman/newman-run-report-2022-06-09-14-03-30-715-0.json \
+      --verification-results-content-type text/plain\
+      --verifier postman
+```
+
+#### GitHub Actions
+
+- [Docs](https://github.com/pactflow/actions/tree/main/publish-provider-contract#example)
+- [See the example in GitHub Actions](https://github.com/pactflow/example-bi-directional-provider-postman/actions/runs/2465589944)
+
+```sh
+# (This just saves defining these multiple times for different pact jobs)
+env:
+  version: "1.2.3"
+  application_name: "my-api-provider"
+  pact_broker: ${{ secrets.PACT_BROKER_BASE_URL }}
+  pact_broker_token: ${{ secrets.PACT_BROKER_TOKEN }}
+
+jobs:
+  pact-publish-oas-action:
+    steps:
+      # MANDATORY: Must use 'checkout' first
+      - uses: actions/checkout@v2
+      - uses: pactflow/actions/publish-provider-contract@v0.0.2
+        env:
+          oas_file: src/oas/user.yml
+          results_file: src/results/report.md
 ```
 
 <!-- ### Directly via API
