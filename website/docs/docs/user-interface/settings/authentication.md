@@ -27,6 +27,30 @@ Steps to configure
 
 ![GitHub Authentication Settings](/ui/github-auth.png)
 
+
+### Troubleshooting
+
+#### Seeing error "None of your GitHub organizations have been registered with Pactflow." when trying to log in
+
+There are multiple reasons why this error may be shown.
+
+##### You may not have clicked "Grant" or "Request" for that organization on the GitHub Pactflow Authorize screen
+
+To fix this, log out of Pactflow, go to https://github.com/settings/applications. Revoke access to Pactflow, then log in to Pactflow again. You will be given the opportunity to grant or request access to your organization again during the login flow.
+
+
+##### If you clicked "Request", you may need to ask an administrator to approve the authorization
+
+To fix this, please contact your organization's GitHub administrator, and ask that they follow these instructions to approve Pactflow https://help.github.com/en/articles/approving-oauth-apps-for-your-organization
+
+##### You may have previously authenticated to Pactflow with GitHub, but joined the organization since doing so
+
+To fix this, log out of Pactflow, go to https://github.com/settings/applications. Revoke access to Pactflow, then log in to Pactflow again. You will be given the opportunity to grant or request access to your organization again during the login flow.
+
+##### You are not a member of any organizations
+
+Please read https://help.github.com/en/articles/creating-a-new-organization-from-scratch for instructions on creating a GitHub Organization.
+
 ## Google Authentication
 
 _Eligible plans: all_
