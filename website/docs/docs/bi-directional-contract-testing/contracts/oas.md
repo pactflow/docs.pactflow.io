@@ -50,24 +50,24 @@ docker pull pactfoundation/pact-cli
 ##### windows (bash shell)
 
 ```sh
- curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.89.00-rc1/pact-1.89.00-rc1-win32.zip && \
-                unzip pact-1.89.00-rc1-win32.zip && \
+ curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.89.00/pact-1.89.00-win32.zip && \
+                unzip pact-1.89.00-win32.zip && \
                 ./pact/bin/pactflow help
 ```
 
 ##### MacOS
 
 ```sh
-curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.89.00-rc1/pact-1.89.00-rc1-osx.tar.gz && \
-                tar xzf pact-1.89.00-rc1-osx.tar.gz && \
+curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.89.00/pact-1.89.00-osx.tar.gz && \
+                tar xzf pact-1.89.00-osx.tar.gz && \
                 ./pact/bin/pactflow help
 ```
 
 ##### Linux
 
 ```sh
-curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.89.00-rc1/pact-1.89.00-rc1-linux-x86_64.tar.gz && \
-                tar xzf pact-1.89.00-rc1-linux-x86_64.tar.gz && \
+curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.89.00/pact-1.89.00-linux-x86_64.tar.gz && \
+                tar xzf pact-1.89.00-linux-x86_64.tar.gz && \
                 ./pact/bin/pactflow help
 ```
 
