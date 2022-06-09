@@ -75,10 +75,4 @@ The standard [principles](https://docs.pact.io/pact_nirvana) are still relevent.
 
 ## Community Adapters
 
-The following are adapters for common tools that provide a mocking capability that you can use to immediately generate pact files from:
-
-- Cypress: https://github.com/pactflow/cypress-pact
-- Mock Service Worker (MSW): https://github.com/YOU54F/msw-pact
-- Wiremock: https://bitbucket.org/atlassian/wiremock-pact-generator
-
-If you'd like to create or request one, please [contact us](mailto:hello@pactflow.io).
+All of the official and community adapters and guides can be found at [tooling integration](/docs/bi-directional-contract-testing/tools).

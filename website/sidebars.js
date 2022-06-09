@@ -66,9 +66,11 @@ module.exports = {
               type: "category",
               label: "Tool Integration",
               items: [
+                "docs/bi-directional-contract-testing/tools",
                 "docs/bi-directional-contract-testing/tools/cypress",
                 "docs/bi-directional-contract-testing/tools/msw",
                 "docs/bi-directional-contract-testing/tools/wiremock",
+                "docs/bi-directional-contract-testing/tools/wiremock-net",
               ],
             },
           ],

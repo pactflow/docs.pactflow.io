@@ -3,6 +3,11 @@ title: Tooling integration - MSW
 sidebar_label: MSW
 ---
 
+:::note
+Official Pactflow adapter
+:::
+
+
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
