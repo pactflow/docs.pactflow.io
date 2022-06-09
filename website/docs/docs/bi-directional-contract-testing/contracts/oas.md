@@ -95,7 +95,17 @@ Copy and paste the following snippet into your .yml file.
 
 ```sh
 Usage:
-  pactflow publish-provider-contract CONTRACT_FILE ... --provider=PROVIDER -a, --provider-app-version=PROVIDER_APP_VERSION -b, --broker-base-url=BROKER_BASE_URL
+  pactflow publish-provider-contract CONTRACT_FILE \
+  --broker-token=BROKER_TOKEN
+  --broker-base-url=BROKER_BASE_URL
+  --provider PROVIDER \
+  --provider-app-version PROVIDER_APP_VERSION \
+  --branch BRANCH \
+  --content-type CONTENT_TYPE \
+  --verification-exit-code=EXIT_CODE \
+  --verification-results REPORT_PATH \
+  --verification-results-content-type REPORT_CONTENT_TYPE \
+  --verifier VERIFIER
 
 Options:
       --provider=PROVIDER
@@ -147,7 +157,11 @@ Options:
 - [See the example in GitHub Actions](https://github.com/pactflow/example-bi-directional-provider-postman/runs/6819148533?check_suite_focus=true)
 
 ```sh
-docker run --rm -v /${PWD}:/${PWD} -w ${PWD} -e PACT_BROKER_BASE_URL -e PACT_BROKER_TOKEN pactfoundation/pact-cli:0.50.0.28 pactflow publish-provider-contract \
+docker run --rm -v /${PWD}:/${PWD} -w ${PWD} \
+      -e PACT_BROKER_BASE_URL \
+      -e PACT_BROKER_TOKEN \
+      pactfoundation/pact-cli:0.50.0.28 \
+      pactflow publish-provider-contract \
       oas/swagger.yml \
       --provider "pactflow-example-bi-directional-provider-postman" \
       --provider-app-version 3a0994c \
@@ -211,12 +225,11 @@ env:
 jobs:
   pact-publish-oas-action:
     steps:
-      # MANDATORY: Must use 'checkout' first
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3 # MANDATORY: Must use 'checkout' first
       - uses: pactflow/actions/publish-provider-contract@v0.0.2
         env:
-          oas_file: src/oas/user.yml
-          results_file: src/results/report.md
+          oas_file: oas/swagger.yml
+          results_file: ${{ env.results_file }}
 ```
 
 <!-- ### Directly via API
@@ -242,7 +255,7 @@ curl \
 -X PUT \
 -H "Authorization: Bearer ${PACT_BROKER_TOKEN}" \
 -H "Content-Type: application/json" \
-"${PACT_BROKER_BASE_URL}/pacticipants/${PACTICIPANT}/branches/${GIT_BRANCH}/versions/${GIT_COMMIT}" \
+"${PACT_BROKER_BASE_URL}/pacticipants/${PACTICIPANT}/branches/${GIT_BRANCH}/versions/${COMMIT}" \
 -d '{}
 }'
 ````
@@ -266,7 +279,7 @@ curl \
   -X PUT \
   -H "Authorization: Bearer ${PACT_BROKER_TOKEN}" \
   -H "Content-Type: application/json" \
-  "${PACT_BROKER_BASE_URL}/contracts/provider/${PACTICIPANT}/version/${GIT_COMMIT}" \
+  "${PACT_BROKER_BASE_URL}/contracts/provider/${PACTICIPANT}/version/${COMMIT}" \
   -d '{
    "content": "'$OAS'",
    "contractType": "oas",
