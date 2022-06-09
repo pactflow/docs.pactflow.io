@@ -47,7 +47,7 @@ docker pull pactfoundation/pact-cli
 - Installation instructions are provided in the above link, for `windows` / `macos` / `linux`
 - You do not need Ruby to run the CLI, as the Ruby runtime is packaged with the executable using Travelling Ruby.
 
-`windows (bash shell)`
+##### windows (bash shell)
 
 ```sh
  curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.89.00-rc1/pact-1.89.00-rc1-win32.zip && \
@@ -55,7 +55,7 @@ docker pull pactfoundation/pact-cli
                 ./pact/bin/pactflow help
 ```
 
-`MacOS`
+##### MacOS
 
 ```sh
 curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.89.00-rc1/pact-1.89.00-rc1-osx.tar.gz && \
@@ -63,7 +63,7 @@ curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/downlo
                 ./pact/bin/pactflow help
 ```
 
-`Linux`
+##### Linux
 
 ```sh
 curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.89.00-rc1/pact-1.89.00-rc1-linux-x86_64.tar.gz && \
@@ -75,7 +75,10 @@ curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/downlo
 
 - Either
   - Add `gem 'pact_broker-client'` to your Gemfile and run `bundle install`
-  - Install the gem directly by running `gem install pact_broker-client`
+  - Install the gem directly by running
+    ```sh
+      gem install pact_broker-client
+    ```
 
 #### GitHub Actions
 
