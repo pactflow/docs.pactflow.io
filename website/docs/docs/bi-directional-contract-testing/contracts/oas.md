@@ -52,7 +52,7 @@ docker pull pactfoundation/pact-cli
 ```sh
  curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.89.00/pact-1.89.00-win32.zip && \
                 unzip pact-1.89.00-win32.zip && \
-                ./pact/bin/pactflow help
+                ./pact/bin/pactflow.bat help
 ```
 
 ##### MacOS
