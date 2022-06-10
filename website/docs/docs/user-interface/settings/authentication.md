@@ -438,3 +438,9 @@ Your SAML provider has not been configured on the Pactflow side (please contact 
 ### 3. "Invalid samlResponse or relayState from identity provider"
 
 You have attempted to login via your IdP (IdP Initiated Login) which is not supported.
+
+### 4. I've added an identity provider and see duplicate users
+
+Users are identified uniquely by their identity provider. This means that a user that previously logged into Pactflow via username/password with the email "joe@pactflow.io" who then authenticates via Github, will be treated as a separate user with separate permissions. 
+
+You can discriminate between the users based on the "identity provider" column in our Users UI screen. To reduce the number of users in your account, you can disable any users that no longer login via a particular IDP.

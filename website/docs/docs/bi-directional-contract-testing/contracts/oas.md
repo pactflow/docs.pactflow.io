@@ -19,7 +19,7 @@ Pact Consumer Contracts are the only compatible contracts at this time.
 
 ## Publishing the Provider Contract + Results to Pactflow
 
-There are severals ways to currently publish contracts to Pactflow.
+There are several ways to currently publish contracts to Pactflow.
 
 The links in the list will take you to the respective documentation in each repo.
 
