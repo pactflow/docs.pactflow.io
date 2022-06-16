@@ -13,7 +13,7 @@ sidebar_label: Pact
 | 3       | ✅         |
 | 4+      | ❌         |
 
-*NOTE: On-Premises will support Pact Sspecification Version 3 from the next release: 1.19.0*
+*NOTE: On-Premises will support Pact Specification Version 3 from the next release: 1.19.0*
 
 ## Compatibility with Provider Contracts
 
