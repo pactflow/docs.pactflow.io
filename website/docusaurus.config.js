@@ -75,7 +75,9 @@ module.exports = {
     tableOfContents: {
       maxHeadingLevel: 4,
     },
-    hideableSidebar: true,
+    docs: {
+      sidebar: { hideable: true },
+    },
     cleanUrl: true,
     trailingSlash: true,
     algolia: {
