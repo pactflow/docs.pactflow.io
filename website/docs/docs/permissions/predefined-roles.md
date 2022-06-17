@@ -105,7 +105,7 @@ The Test Maintainer role has been replaced by the User role. The difference betw
 
 ## Resetting permissions for predefined roles
 
-Should you wish to reset the permissions assigned to each of the predefined roles back to their defaults as documented above (or upgrade from the globally scoped Test Maintainer role to the team scoped User role) you can follow these steps. Note that any custom roles will remain unaffected, and the user/role assignments are not changed.
+Should you wish to reset the permissions assigned to each of the predefined roles back to their defaults as documented above (or upgrade from the globally scoped User role to the team scoped User role) you can follow these steps. Note that any custom roles will remain unaffected, and the user/role assignments are not changed.
 
 - Click on the `API` button at the top right of the Pactflow dashboard.
 - In the `Links` section, scroll down to the line where `rel` column has a value of `pf:admin-roles`.
