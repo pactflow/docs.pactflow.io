@@ -10,8 +10,12 @@ sidebar_label: Pact
 | 1       | ✅         |
 | 1.1     | ✅         |
 | 2       | ✅         |
-| 3       | ❌         |
-| 4+      | ❌         |
+| 3       | ✅         |
+| 4+      | ✅ *       |
+
+\* When using [Pact specification V4](https://github.com/pact-foundation/pact-specification/tree/version-4) note that only interactions with type "Synchronous/HTTP" are validated. Bi-directional Contract validation will ignore other interaction types such as "Asynchronous/Messages".
+
+*NOTE: On-Premises will support Pact Specification Versions 3 & 4 from the next release: 1.19.0*
 
 ## Compatibility with Provider Contracts
 
