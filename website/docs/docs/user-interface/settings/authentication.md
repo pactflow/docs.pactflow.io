@@ -51,6 +51,19 @@ To fix this, log out of Pactflow, go to https://github.com/settings/applications
 
 Please read https://help.github.com/en/articles/creating-a-new-organization-from-scratch for instructions on creating a GitHub Organization.
 
+#### Name is not populated after signing in
+
+* Ensure that you have given the Pactflow application the permisson to read personal information. To check this:
+  * Open https://github.com/settings/applications in a browser.
+  * Click on the `Pactflow` application shown in the list.
+  * Under the `Permissions` section, you should see a tick next to `Read all user profile data`.
+* If you have already given this permission, and you still see no name populated in Pactflow, then check that you have set a name in your public profile.
+  * Go to `https://github.com/{your-github-username}` in a browser.
+  * Click the `Edit profile` button shown underneath your avatar on the left of the page.
+  * Enter a value in the `Name` field.
+  * Open new browser window that has no cookies shared from your previous Pactflow login (clear all your cookies or use an incognito window) and log in to Pactflow again. It should take you through the GitHub login screens - if not, then it's re-using your previous session details, and you need to clear your cookies and try again.
+  * Once you have successfully logged in to Pactflow again, you should see your name populated in Pactflow.
+
 ## Google Authentication
 
 _Eligible plans: all_
