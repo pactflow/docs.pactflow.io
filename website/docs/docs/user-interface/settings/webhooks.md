@@ -6,7 +6,7 @@ Here you will be able to create and edit your webhooks.
 
 | Field | Description |
 | ----- | ----------- |
-| Team |  When creating or editing a webhook, users with the `webhook:manage:team` permission (by default, assigned to the `Test Maintainer` role) must assign a webhook to a team. Users with the `webhook:manage:*` permission (by default, assigned to the `Administrator` role) may choose not to assign a webhook to any team. Team selection affects which secrets are available for use in the webhook. See the [Secrets](#secrets) section below. |
+| Team |  When creating or editing a webhook, users with the `webhook:manage:team` permission (by default, assigned to the `User` role) must assign a webhook to a team. Users with the `webhook:manage:*` permission (by default, assigned to the `Administrator` role) may choose not to assign a webhook to any team. Team selection affects which secrets are available for use in the webhook. See the [Secrets](#secrets) section below. |
 | Description | A description of your webhook |
 | Consumer | You can select a specific consumer for the webhook, or `ALL` for all consumers.  |
 | Provider | You can select a specific provider for the webhook, or `ALL` for all providers. |

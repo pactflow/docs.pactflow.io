@@ -54,7 +54,7 @@ _NOTE_: if the user being invited (as identified by their email address) already
 
 ## User roles
 
-By default, each user is assigned the `Test Maintainer` role. The account creator is also assigned the `Administrator` role. See [Roles and Permissons](/docs/permissions/predefined-roles) for more information.
+By default, each user is assigned the `User` role. The account creator is also assigned the `Administrator` role. See [Roles and Permissons](/docs/permissions/predefined-roles) for more information.
 
 There are a few options to change a user's roles. The `Make Administrator`/`Remove Administrator` menu items allow the administrator role to be added or removed. `Edit Roles` allows all the roles of a user to be edited. The `Add Role`/`Remove Role` bulk action menu items can add or remove a role from multiple users.
 

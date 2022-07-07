@@ -18,15 +18,18 @@ To notify Pactflow that an application version has been deployed or released, th
 
 Before you can record a deployment or a release, you must create the environment in Pactflow. To get you you started quickly, the `test` and `production` environments are pre-populated.
 
-To create a new environment, use the following [command](https://docs.pact.io/pact_broker/client_cli/readme#create-environment) from the Pact Broker CLI.
+To create a new environment, you can use the [Environments page](/docs/user-interface/settings/environments) or use the following [command](https://docs.pact.io/pact_broker/client_cli/readme#create-environment) from the Pact Broker CLI.
 
     $ pact-broker create-environment --name NAME --display-name DISPLAY_NAME \
       [--no-production|--production]
 
-#### Examples
+eg.
 
     $ pact-broker create-environment --name uat --display-name UAT --no-production
     $ pact-broker create-environment --name customer-1-production --display-name "Customer 1 Production" --production
+
+
+Once the enviroment is created, ensure the team and application are [configured correctly](/docs/user-interface/settings/environments#recording-deployments-and-releases).
 
 ### Handling conflicting views of what an "environment" is
 
