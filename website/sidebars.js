@@ -96,6 +96,7 @@ module.exports = {
       label: "Pactflow University",
       items: [
         "docs/workshops",
+        "docs/tutorials",
         {
           type: "category",
           label: "Introduction to Pact",

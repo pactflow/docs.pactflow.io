@@ -23,4 +23,4 @@ The full introductory workshop can be run within 2 - 2.5 hours, and we recommend
 | 3    | Run the Node JS workshop                                                     | [workshop](/docs/workshops/introduction)                                                                                                                               | 2-3 hours  |
 | 4    | Pactflow summary (slides 47+)                                                | <a href="/resources/pact-workshop-introduction_2020.pdf" target="_blank">pdf</a> \| <a href="/resources/pact-workshop-introduction_2020.pptx" target="_blank">pptx</a> | 5 minutes  |
 
-_NOTE: You may swap out the language for one of our other [workshops](/docs/workshops/tutorials) if a client would prefer it done in a separate language. It's worth stating however that the JS and Golang workshops are currently the best designed for this course_
+_NOTE: You may swap out the language for one of our other [workshops](/docs/tutorials) if a client would prefer it done in a separate language. It's worth stating however that the JS and Golang workshops are currently the best designed for this course_
