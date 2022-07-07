@@ -3,11 +3,11 @@ id: tutorials
 title: Tutorials
 ---
 
-We've created a few short, in-browser tutorials using the Katacoda platform to get you up and running quickly depending on your level.
+We've created a few short, in-browser tutorials using the Killercoda platform to get you up and running quickly depending on your level.
 
 The courses are written in Node and Java, however, extensive experience with the languages will not be required for the workshop.
 
-_NOTE: To complete the workshop, you will need to authenticate to Katacoda (the online learning platform) with GitHub, Google, Twitter or LinkedIn._
+_NOTE: To complete the workshop, you will need to authenticate to Killercoda (the online learning platform) with GitHub, Google, Twitter or LinkedIn._
 
 ![Node Tutorial](/workshops/katacoda-screenshot.png)
 
@@ -39,10 +39,10 @@ You will:
 
 ### Tutorial
 
-| Language | Link                                                              |
-| -------- | ----------------------------------------------------------------- |
-| Node JS  | https://katacoda.com/pact/scenarios/pactflow-getting-started-js   |
-| Java     | https://katacoda.com/pact/scenarios/pactflow-getting-started-java |
+| Language | Link                                                                   |
+| -------- | ---------------------------------------------------------------------- |
+| Node JS  | https://killercoda.com/pactflow/scenario/pactflow-getting-started-js   |
+| Java     | https://killercoda.com/pactflow/scenario/pactflow-getting-started-java |
 
 ## Gating deployments with Pactflow
 
@@ -63,7 +63,7 @@ You will:
 
 ### Tutorial
 
-You can complete the course at https://katacoda.com/pact/scenarios/pactflow-can-i-deploy-js.
+You can complete the course at https://killercoda.com/pactflow/scenario/pactflow-can-i-deploy-js.
 
 ## Bi-Directional Contract Testing
 
@@ -104,4 +104,4 @@ You will:
 
 ### Tutorial
 
-You can complete the course at https://katacoda.com/pact/scenarios/pactflow-bi-directional-contracts-intro.
+You can complete the course at https://killercoda.com/pactflow/scenario/pactflow-bi-directional-contracts-intro.

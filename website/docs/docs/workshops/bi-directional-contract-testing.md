@@ -29,7 +29,7 @@ You will learn how:
 ### Ways of completing the workshop
 
 1. See our online katacoda [tutorials](/docs/tutorials). The specific bi-directional course that covers the below agenda can be found [here](/docs/tutorials#bi-directional-contract-testing)
-   - _NOTE: To complete the workshop, you will need to authenticate to Katacoda (the online learning platform) with GitHub, Google, Twitter or LinkedIn._
+   - _NOTE: To complete the workshop, you will need to authenticate to Killercoda (the online learning platform) with GitHub, Google, Twitter or LinkedIn._
 2. You can pick and choose an bi-directional consumer/provider example from our exhaustive [list](/docs/examples), and you will start by forking the repositories into your own Github account, setting up Github Actions as CI builds, and configuring the projects to point to your own Pactflow account. Don't worry, we will take you step by step in the workshop.
 
 ### Agenda
@@ -48,7 +48,7 @@ You will:
 
 ### Tools used
 
--  Node / Java or .NET - for the applications being tested
+- Node / Java or .NET - for the applications being tested
 - [OpenAPI](https://swagger.io/specification/) - for API Documentation
 - [Mountebank](https://mbtest.org) - for API mocking
 - [Wiremock](https://wiremock.org/) - for API mocking
