@@ -7,13 +7,15 @@ sidebar_label: Pact
 
 | Version | Supported? |
 | ------- | ---------- |
-| 1       | ✅         |
-| 1.1     | ✅         |
-| 2       | ✅         |
-| 3       | ✅         |
-| 4+      | ❌         |
+| [1](https://github.com/pact-foundation/pact-specification/tree/version-1)       | ✅         |
+| [1.1](https://github.com/pact-foundation/pact-specification/tree/version-1.1)     | ✅         |
+| [2](https://github.com/pact-foundation/pact-specification/tree/version-2)       | ✅         |
+| [3](https://github.com/pact-foundation/pact-specification/tree/version-3)       | ✅         |
+| [4](https://github.com/pact-foundation/pact-specification/tree/version-4)      | ✅ *       |
 
-*NOTE: On-Premises will support Pact Specification Version 3 from the next release: 1.19.0*
+\* When using [Pact specification V4](https://github.com/pact-foundation/pact-specification/tree/version-4) note that only interactions with type "Synchronous/HTTP" are validated. Bi-directional Contract validation will ignore other interaction types such as "Asynchronous/Messages".
+
+*NOTE: On-Premises will support Pact Specification Versions 3 & 4 from the next release: 1.19.0*
 
 ## Compatibility with Provider Contracts
 
@@ -55,7 +57,7 @@ See our [Wiremock](/docs/examples/bi-directional/consumer/wiremock) example for 
 
 When converting your mocks into a pact file, take note of the following considerations:
 
-1. You **must** generate a [Pact V2 specification](https://github.com/pact-foundation/pact-specification/tree/version-2/) compatible file.
+1. You **must** generate a Pact file that is compatible with one of the supported versions of the Pact Specification (listed in the table above).
 1. You **should not** include any [matchers](https://github.com/pact-foundation/pact-specification/tree/version-2/#matchers), unless you are confident in their application.
    - Matchers are currently ignored by the cross-contract validation process, but may be supported at a later date
 1. You **should** validate the pact file is correct prior to uploading to Pactflow. You can use the JSON schema below, or attempt to load it into a [stub server](https://docs.pact.io/getting_started/stubs/).
