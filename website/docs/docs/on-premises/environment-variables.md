@@ -7,6 +7,7 @@ title: Environment variables
 <hr/>
 
 
+
 ### PACTFLOW_LOG_LEVEL
 
 The Pactflow application log level
@@ -39,6 +40,7 @@ When true, HTTP request details and response status and duration will be logged 
 <hr/>
 
 
+
 ### NEW_RELIC_AGENT_ENABLED
 
 Set this to true to enable New Relic application monitoring. The New Relic config file should be mounted at /home/pactflow/config/newrelic.yml
@@ -52,6 +54,7 @@ Set this to true to enable New Relic application monitoring. The New Relic confi
 ## Database
 
 <hr/>
+
 
 
 ### PACTFLOW_DATABASE_URL
@@ -130,10 +133,10 @@ The duration in seconds, as a float, after which to log an SQL statement
 
 ### PACTFLOW_SQL_LOG_LEVEL
 
-The log level that will be specified when the SQL query statements are logged. To disable noisy SQL query logging when the PACTFLOW_LOG_LEVEL is set to DEBUG for other reasons, use the value NONE.
+The log level that will be specified when the SQL query statements are logged.
 
 **Required:** false<br/>
-**Default:** `DEBUG`<br/>
+**Default:** `NONE`<br/>
 **Allowed values:** `NONE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`<br/>
 
 ### PACTFLOW_DATABASE_AUTO_MIGRATE
@@ -155,6 +158,7 @@ Required for running Postgres on RDS with IAM authentication. This must be set t
 ## Webhooks
 
 <hr/>
+
 
 
 ### PACTFLOW_WEBHOOK_HOST_WHITELIST
@@ -196,6 +200,7 @@ Whether or not to disable SSL verificaton when executing webhooks.
 ## SAML authentication
 
 <hr/>
+
 To configure more than one SAML identity provider, specify another set of the following environment variables with a `_2` after the `PACTFLOW_SAML` prefix (and `_3` for the third etc.). The `PACTFLOW_SAML_ISSUER` is shared between all the SAML providers so does not need to be duplicated.
 
 eg. For the second SAML identity provider set `PACTFLOW_SAML_2_AUTH_ENABLED`, `PACTFLOW_SAML_2_IDP_NAME` etc and for the third `PACTFLOW_SAML_3_AUTH_ENABLED`, `PACTFLOW_SAML_3_IDP_NAME` etc.
@@ -309,6 +314,7 @@ To allow for a small amount of clock drift between Pactflow and the Identity Pro
 <hr/>
 
 
+
 ### PACTFLOW_BASIC_AUTH_ENABLED
 
 Whether or not to enable basic authentication. For demo purposes only - not to be set to `true` for production use. Cannot be set to `true` at the same time as PACTFLOW_SAML_AUTH_ENABLED.
@@ -348,6 +354,7 @@ The password for HTTP basic authentication. Allows read access only. For demo pu
 <hr/>
 
 
+
 ### PACTFLOW_MASTER_ENCRYPTION_KEY
 
 A randomly generated string which will be the master key for encrypting secrets and API tokens. Renamed from `PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY`.
@@ -370,6 +377,7 @@ env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 
 <hr/>
 
 
+
 ### PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY
 
 Deprecated in favour of `PACTFLOW_MASTER_ENCRYPTION_KEY`. If you have a previous installation of Pactflow with `PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY` set, please rename it to `PACTFLOW_MASTER_ENCRYPTION_KEY`.
@@ -381,6 +389,7 @@ Deprecated in favour of `PACTFLOW_MASTER_ENCRYPTION_KEY`. If you have a previous
 ## User administration
 
 <hr/>
+
 
 
 ### PACTFLOW_ADMIN_API_KEY
@@ -403,6 +412,7 @@ env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 
 ## Domain
 
 <hr/>
+
 
 
 ### PACTFLOW_ALLOW_DANGEROUS_CONTRACT_MODIFICATION
@@ -448,6 +458,7 @@ This is to assist in the migration from using tags to track deployments to using
 <hr/>
 
 
+
 ### PACTFLOW_SHIELDS_IO_BASE_URL
 
 The URL of the free service that is used to generate the build badges. Note that the badge files are served via a redirect in the browser, so there is no request made from the Pactflow application to the shields server.
@@ -461,6 +472,7 @@ The URL of the free service that is used to generate the build badges. Note that
 ## Resources
 
 <hr/>
+
 
 
 ### PACTFLOW_BASE_URL
@@ -569,6 +581,7 @@ Whether or not to enable the embedded HAL Browser.
 <hr/>
 
 
+
 ### TZ
 
 The timezone in which to display dates for server side rendered pages.
@@ -581,6 +594,7 @@ The timezone in which to display dates for server side rendered pages.
 ## API Tokens
 
 <hr/>
+
 
 
 ### PACTFLOW_API_TOKEN_AUTH_ENABLED
