@@ -31,3 +31,9 @@ This can then be built with the following docker command:
 ```console
 $ docker build . --build-arg ONPREM_IMAGE=quay.io/pactflow/enterprise:1.10.0
 ```
+
+## Customising the location of the license file
+
+If mounting the license file in `/home` is not desirable, you can specify a custom directory using the `RG_LIC_PATH` environment variable.
+
+For example, to change the path to `/opt/pactflow/pactflow-onprem.lic` you would set the environment variable in the container to `RG_LIC_PATH=/opt/pactflow/`.
