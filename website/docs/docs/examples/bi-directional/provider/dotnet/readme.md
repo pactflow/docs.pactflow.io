@@ -117,7 +117,7 @@ To be able to run some of the commands locally, you will need to export the foll
 
   4. If the Schemathasis test is successful run the publish_success target, this will publish the Swagger document, Schemathesis report, and success status of the verification to your Pactflow account
 
-      `make publish_success`
+      `EXIT_CODE=0 make publish_provider_contract`
 
 ### Use case with Schemathesis
 
@@ -161,39 +161,7 @@ Some notes:
       docker run --net="host" schemathesis/schemathesis:stable run --stateful=links --checks all http://host.docker.internal:9000/swagger/v1/swagger.json > report.txt
       ```
 
-  3. Now that the Swagger doc is generated and verified the contract can be published to Pactflow. The easiest way to do this via windows is using postman to make an HTTP PUT request to the Pactflow provider contract API endpoint. First base64 encode the report and swagger docs. This can be done in powershell using the following commands:
-      ```
-      [convert]::ToBase64String((Get-Content -path "src/example-bi-directional-provider-dotnet/swagger.json" -Encoding byte))
-      ```
-
-      ```
-      [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((Get-Content -path "report.txt")))  
-      ```
-      Open postman and create a new PUT request to the provider contracts endpoint, the git_commit section will be used as the version for the provider contract.
-
-      `https://<your_pactflow_url/contracts/provider/<providerName>/version/<git_commit>`
-
-      In the Authorization section select Bearer Token and add the read/write token from your Pactflow account.
-      In the headers tab also set the "content-type" header to "application/json".
-      In the body tab select "raw" and "JSON" as the content type.
-
-      The format for the body is as follows, paster in your encoded report and swagger doc content as shown.
-
-      ```
-      {
-          "content":"<swagger doc encoded content here>",
-          "contractType": "oas",
-          "contentType": "application/yaml",
-          "verificationResults": {
-              "success": true,
-              "content": "<report.txt encoded content here>",
-              "contentType": "text/plain"	,
-              "verifier": "Schematheis"
-          }
-
-      }
-      ```
-      Send the request and when you have a 200 response the provider contract will be visible in your Pactflow account.
+  3. Now that the Swagger doc is generated and verified the contract can be published to Pactflow. The easiest way to do this via windows is using our standalone tools. See [here](https://docs.pactflow.io/docs/bi-directional-contract-testing/contracts/oas#publishing-the-provider-contract--results-to-pactflow) for cross platform instructions.
 
   4. Check can-i-deploy to see if your provider contract is compatible with current consumers. 
    
