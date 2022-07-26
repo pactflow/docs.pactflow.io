@@ -31,9 +31,9 @@ A table of verification status associated with your application version and depl
 
 | Status                            | Description                                                                                   |
 | --------------------------------- | --------------------------------------------------------------------------------------------- |
-| ![success](/ui/success.png)       | The pact has a successful verification published for it.                                      |
-| ![failed](/ui/failed.png)         | The verification for the pact had failed.                                              |
-| ![unverified](/ui/unverified.png) | No verification result has been published for the pact.                                       |
+| ![success](/ui/success.png)       | The application version has a successful verification published for it.                                      |
+| ![failed](/ui/failed.png)         | The verification for the application version had failed.                                              |
+| ![unverified](/ui/unverified.png) | No verification result has been published for the application version.                                       |
 
 </div>
 
