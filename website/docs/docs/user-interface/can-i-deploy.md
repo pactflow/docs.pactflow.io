@@ -3,13 +3,13 @@ title: Can I Deploy
 ---
 
 ## What is Can I Deploy 
-Can I Deploy page is the UI version of our popular CLI tool [can-i-deploy](https://docs.pact.io/pact_broker/can_i_deploy). This UI allows you to run can-i-deploy queries with UI selectors to ensure you can safely deploy your application. 
+Can I Deploy page is the UI version of our popular CLI tool [can-i-deploy](https://docs.pact.io/pact_broker/can_i_deploy). This UI allows you to run can-i-deploy queries with UI selectors to ensure you can safely deploy your application, providing additional context not readily available during CLI usage.
 
 You can find `Can I Deploy` button from the top navigation bar on overview page.
 
 ## Can I Deploy layout
 
-Can I Deploy page contains three main areas.
+The Can I Deploy page contains three main areas.
 
 &nbsp;
 
@@ -18,13 +18,13 @@ Can I Deploy page contains three main areas.
 &nbsp;
 
 **1 -**
-UI selectors for performing can-i-deploy query, where you can choose your application from the application list, the application version and the deployment target. For more information, check [Selectors](/#Selectors) section.
+UI selectors for performing `can-i-deploy` query, where you can choose your application from the application list, the application version and the deployment target. For more information, see the [Selectors](#Selectors) section.
 
 **2 -**
 A list of messages summarising if you are safe to deploy your chosen application version. 
 
 **3 -**
-A table of verification status associated with your application version and deployment target.
+A table of verification statuses associated with your application version and deployment target.
 
 
 <div class="status-table">
@@ -39,7 +39,7 @@ A table of verification status associated with your application version and depl
 
 ### Selectors
 
-The selectors have three selectors for customising your can-i-deploy query.
+There are three selectors for customising your `can-i-deploy` query.
 
 &nbsp;
 
@@ -65,13 +65,13 @@ Select your deployment target. Options include:
 - Deploy with other applications' latest main branch
 
 **d -**
-A button triggers can-i-deploy query. It's disabled when a selector is missing or mischosen.
+A button to submit the `can-i-deploy` query. It's disabled when a selector is missing or invalid.
 
-## Miscs
+## Miscellaneous
 
 ### Permission warning
 
-You might see a warning in the following screenshot about the environment permission issue, please contact your account administrator to setup environment read/management permission for you. Otherwise, you are unable to choose and run can-i-deploy query about environments
+You might see a warning in the following screenshot about the environment permission issue, please contact your account administrator to setup environment read/management permission for you. Otherwise, you are unable to choose and run can-i-deploy query about environments.
 
 &nbsp;
 
