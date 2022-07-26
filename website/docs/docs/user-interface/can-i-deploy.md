@@ -18,7 +18,7 @@ Can I Deploy page contains three main areas.
 &nbsp;
 
 **1 -**
-UI selectors for performing can-i-deploy command, where you can choose your application from the application list, the application version and the deployment target. For more information, check [Selectors](/#Selectors) section.
+UI selectors for performing can-i-deploy query, where you can choose your application from the application list, the application version and the deployment target. For more information, check [Selectors](/#Selectors) section.
 
 **2 -**
 A list of messages summarising if you are safe to deploy your chosen application version. 
