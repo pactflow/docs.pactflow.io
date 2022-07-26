@@ -39,7 +39,7 @@ A table of verification status associated with your application version and depl
 
 ### Selectors
 
-The selectors have three selectors for customising your can-i-deploy queries.
+The selectors have three selectors for customising your can-i-deploy query.
 
 &nbsp;
 
