@@ -7,6 +7,7 @@ module.exports = {
       items: [
         "docs/user-interface/dashboard",
         "docs/user-interface/bi-directional",
+        "docs/user-interface/can-i-deploy",
         {
           type: "category",
           label: "Settings",
