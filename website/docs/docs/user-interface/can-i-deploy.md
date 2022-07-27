@@ -7,6 +7,10 @@ Can I Deploy page is the web version of our popular CLI tool [can-i-deploy](http
 
 You can find `Can I Deploy` button from the top navigation bar on overview page.
 
+## Walkthrough
+<iframe width="560" height="315" src="https://www.youtube.com/embed/e-l21IjI_d8" title="Can I Deploy introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 ## Can I Deploy layout
 
 The Can I Deploy page contains three main areas.
