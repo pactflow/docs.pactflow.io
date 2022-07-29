@@ -139,6 +139,24 @@ The log level that will be specified when the SQL query statements are logged.
 **Default:** `NONE`<br/>
 **Allowed values:** `NONE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`<br/>
 
+### PACTFLOW_DATABASE_MAX_CONNECTIONS
+
+The maximum size of the connection pool (4 connections by default on most databases).
+
+**Required:** false<br/>
+**Default:** `4`<br/>
+**Allowed values:** A positive integer value.<br/>
+**More information:** https://sequel.jeremyevans.net/rdoc/files/doc/opening_databases_rdoc.html#label-General+connection+options<br/>
+
+### PACTFLOW_DATABASE_POOL_TIMEOUT
+
+The number of seconds to wait if a connection cannot be acquired before raising an error.
+
+**Required:** false<br/>
+**Default:** `5`<br/>
+**Allowed values:** A positive integer.<br/>
+**More information:** https://sequel.jeremyevans.net/rdoc/files/doc/opening_databases_rdoc.html#label-General+connection+options<br/>
+
 ### PACTFLOW_DATABASE_AUTO_MIGRATE
 
 Whether or not to automatically apply the schema and data migrations to the database on startup
