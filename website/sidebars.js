@@ -298,7 +298,7 @@ module.exports = {
           type: "category",
           label: "Releases",
           items: [
-            "docs/on-premises/releases/1.18.1",
+            "docs/on-premises/releases/1.19.0",
             "docs/on-premises/releases/1.18.0",
             "docs/on-premises/releases/1.17.3",
             "docs/on-premises/releases/1.17.2",
