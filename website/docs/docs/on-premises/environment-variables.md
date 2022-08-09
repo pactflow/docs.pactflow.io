@@ -331,11 +331,11 @@ To allow for a small amount of clock drift between Pactflow and the Identity Pro
 
 <hr/>
 
-
+Basic authentication provides a quick way to log in to ensure that a new instance of Pactflow is set up correctly. The basic authentication user does not have access to Pactflow features such as roles, teams and webhooks. It should not be used outside of testing purposes. Follow the [Authentication guide](https://docs.pactflow.io/docs/on-premises/authentication/saml) to set up production users using SAML.
 
 ### PACTFLOW_BASIC_AUTH_ENABLED
 
-Whether or not to enable basic authentication. For demo purposes only - not to be set to `true` for production use. Cannot be set to `true` at the same time as PACTFLOW_SAML_AUTH_ENABLED.
+Whether or not to enable basic authentication. For test purposes only - not to be set to `true` for production use. Cannot be set to `true` at the same time as PACTFLOW_SAML_AUTH_ENABLED.
 
 **Required:** false<br/>
 **Default:** `false`<br/>
