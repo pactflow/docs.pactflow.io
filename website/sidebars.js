@@ -249,6 +249,7 @@ module.exports = {
             "docs/on-premises/system-requirements",
             "docs/on-premises/docker-image-registry",
             "docs/on-premises/network-configuration",
+            "docs/on-premises/installation/migrating",
             "docs/on-premises/database",
             "docs/on-premises/logging",
             {
