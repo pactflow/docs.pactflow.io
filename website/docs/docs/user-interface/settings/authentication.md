@@ -68,8 +68,12 @@ Please read https://help.github.com/en/articles/creating-a-new-organization-from
 
 _Eligible plans: all_
 
-For Google authentication, you must configure the Google hosted domains of the users that will be allowed to
-log into your broker instance. On your next login, you will see an option to login with Google has been added.
+For Google authentication, you must configure one or more [hosted domains](https://support.google.com/domains/answer/6069226?hl=en-GB) of the users that will be allowed to
+log into your Pactflow account. On your next login, you will see an option to login with Google has been added. Any users who have a valid identity for the hosted domain will be able to login to your Pactflow instance.
+
+For example if you use Google Workspace as your choice of email provider and your email is `matt@pactflow.io`, the hosted domain might be `pactflow.io`. 
+
+You can also use any valid Google or GMail email address, such as `matt@gmail.com` or `matt@pactflow.io`. This constrains the authentication to a single user.
 
 ![Google Authentication Settings](/ui/google-auth.png)
 
