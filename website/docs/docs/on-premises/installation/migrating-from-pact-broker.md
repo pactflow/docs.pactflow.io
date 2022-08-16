@@ -5,17 +5,22 @@ title: Migrating from Pact Broker
 
 # Migrating from Pact Broker
 
-It is possible to migrate from using the open source Pact Broker to Pactflow, keeping all existing data and making it available in Pactflow. The migration process uses the existing Pact Broker database, database migrations are then performed to add additional tables and data used for Pactflow features.
+If you have previously used the open source Pact Broker with a PostgreSQL database it is possible to migrate that data to Pactflow, keeping everything and making it available in Pactflow. The migration process uses the existing Pact Broker database, database migrations are then performed to add additional tables and data used for Pactflow features.
 
 If there is no existing Pact Broker instance continue to the [Database](https://docs.pactflow.io/docs/on-premises/database) section.
 
 ## Single Pact Broker instance
 
-Follow existing [set up documentation](https://docs.pactflow.io/docs/on-premises) for setting up your new Pactflow, until the section titled ['Database'](https://docs.pactflow.io/docs/on-premises/database).
+Follow existing [set up documentation](https://docs.pactflow.io/docs/on-premises) for setting up your new Pactflow. When you reach the section regarding setting up a [Database](https://docs.pactflow.io/docs/on-premises/database) follow these steps to migrate instead of creating a new database:
 
-To migrate your existing Pact Broker follow these steps instead of creating a new database:
+1. Re-use your existing Pact Broker environment variables, updating the names to read `PACTFLOW_*` instead of `PACT_BROKER_*`. A full list of the Pactflow environment variables can be found [here](https://docs.pactflow.io/docs/on-premises/environment-variables).
 
-1. Re-use your existing Pact Broker environment variables, updating the names to read `PACTFLOW_` instead of `PACT_BROKER_`. It is crucial that the values for `DATABASE` related environment variables remain the same so that your Pact Broker database will be updated and used. A full list of the Pactflow environment variables can be found [here](https://docs.pactflow.io/docs/on-premises/environment-variables).
+:::note
+
+It is crucial that all `PACTBROKER_DATABASE_*` environment variables are renamed to `PACTFLOW_DATABASE_*` while their `values` remain the same. This is because your existing Pact Broker database will be used, and updated for use with Pactflow as part of the process.
+:::
+
+
 2. Remove the environment variables called `PACT_BROKER_AUTO_MIGRATE_DB` and `PACT_BROKER_AUTO_MIGRATE_DB_DATA`
 3. Add a new environment variable to replace these called `PACTFLOW_DATABASE_AUTO_MIGRATE`, set its value to `true`. This environment variable will allow your existing database to be updated with the required structures and data to support Pactflow, and maintain any existing data.
 4. When the Pactflow instance starts up the migrations will run automatically. The migrations can be run manually instead if needed. See details [here](https://docs.pactflow.io/docs/on-premises/upgrading/database-migrations)
