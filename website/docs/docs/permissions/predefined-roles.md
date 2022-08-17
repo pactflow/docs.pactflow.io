@@ -77,7 +77,7 @@ This role is automatically assigned to any user who is set as an administrator o
 
 ## Guest
 
-A user with the guest role can only view contract related data through the UI, and has no API access. For some [Pactflow SaaS plans](https://pactflow.io/pricing/), users with only the guest role are free.
+A user with the guest role can only view contract related data through the UI, and has no API access.
 
 The permissions associated with the guest role may not be modified.
 
