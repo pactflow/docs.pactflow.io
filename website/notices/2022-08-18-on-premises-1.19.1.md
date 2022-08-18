@@ -1,5 +1,5 @@
 ---
-slug: 2022-08-1-on-premises-1.19.1
+slug: 2022-08-18-on-premises-1.19.1
 title: On-premises release v1.19.1
 tags: [on-premises, release]
 ---
