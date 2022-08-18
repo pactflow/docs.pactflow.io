@@ -5,9 +5,13 @@ title: Migrating from Pact Broker
 
 # Migrating from Pact Broker
 
-If you have previously used the open source Pact Broker with a PostgreSQL database it is possible to migrate that data to Pactflow, keeping everything and making it available in Pactflow. The migration process uses the existing Pact Broker database, database migrations are then performed to add additional tables and data used for Pactflow features.
+If you have previously used the open source Pact Broker with a PostgreSQL database it is possible to migrate that data to Pactflow, keeping everything and making it available in Pactflow. The migration process uses the existing Pact Broker database. Database migrations are then performed to add additional tables and data used for Pactflow features.
 
 If there is no existing Pact Broker instance continue to the [Database](https://docs.pactflow.io/docs/on-premises/database) section.
+
+:::note
+Migration is only supported for a Pact Broker running a PostgreSQL database.
+:::
 
 ## Single Pact Broker instance
 
@@ -15,14 +19,14 @@ Follow existing [set up documentation](https://docs.pactflow.io/docs/on-premises
 
 1. Re-use your existing Pact Broker environment variables, updating the names to read `PACTFLOW_*` instead of `PACT_BROKER_*`. A full list of the Pactflow environment variables can be found [here](https://docs.pactflow.io/docs/on-premises/environment-variables).
 
-:::note
+:::tip
 
-It is crucial that all `PACTBROKER_DATABASE_*` environment variables are renamed to `PACTFLOW_DATABASE_*` while their `values` remain the same. This is because your existing Pact Broker database will be used, and updated for use with Pactflow as part of the process.
+It is crucial that all `PACT_BROKER_DATABASE_*` environment variables are renamed to `PACTFLOW_DATABASE_*` while their `values` remain the same. This is because your existing Pact Broker database will be used, and updated for use with Pactflow as part of the process.
 :::
 
+2. If you previously set the environment variables `PACT_BROKER_AUTO_MIGRATE_DB` and `PACT_BROKER_AUTO_MIGRATE_DB_DATA` remove these and replace them with a new environment variable named `PACTFLOW_DATABASE_AUTO_MIGRATE`. Set its value to `true`. This environment variable will allow your existing database to be updated with the required structures and data to support Pactflow, and maintain any existing data.  
+You do not need to add the new variable if you did not previously set `PACT_BROKER_AUTO_MIGRATE_DB` and `PACT_BROKER_AUTO_MIGRATE_DB_DATA`.
 
-2. Remove the environment variables called `PACT_BROKER_AUTO_MIGRATE_DB` and `PACT_BROKER_AUTO_MIGRATE_DB_DATA`
-3. Add a new environment variable to replace these called `PACTFLOW_DATABASE_AUTO_MIGRATE`, set its value to `true`. This environment variable will allow your existing database to be updated with the required structures and data to support Pactflow, and maintain any existing data.
 4. When the Pactflow instance starts up the migrations will run automatically. The migrations can be run manually instead if needed. See details [here](https://docs.pactflow.io/docs/on-premises/upgrading/database-migrations)
 
 ## Multiple Pact Broker instances
@@ -33,7 +37,7 @@ The recommended steps are as follows:
 
 1. Select one of the Pact Broker databases to update and use going forwards.
 2. Follow instructions above to set up Pactflow using this database.
-3. The Pact Broker instances that was used in the upgrade process and be decommissioned, as the database and it's contents are now available in Pactflow.
-4. Run the Pactflow instance and any other existing Pact Broker instances in parallel. You will need to update API calls such as publishing pacts and checking can-i-deploy to utilise both Pactflow and the old Pact Brokers. In this way all new data can gradually added to Pactflow while ensuring `can-i-deploy` still has access to production versions of all services.
-5. Continue to run Pactflow and Pact Brokers in parallel. Once the Pactflow instance contains all the `production` versions for all the services used in the contract tests the old Pact Broker instances can be safely decommissioned. This will allow Pactflow to be the soul source of data for 'can-i-deploy'
-6. Clean up any code and API calls that were used to run Pactflow and existing Pact Brokers in parallel.
+3. The Pact Broker instances that was used in the upgrade process and be decommissioned, as the database and its contents are now available in Pactflow.
+4. Run the Pactflow instance and any other existing Pact Broker instances in parallel. Duplicate the pact publication and pact verification tasks in your pipeline. The duplicated task should use the new Pactflow instance details. In this way all new data can gradually added to Pactflow while ensuring `can-i-deploy` still has access to production versions of all services.
+5. Continue to run Pactflow and Pact Brokers in parallel. Once the Pactflow instance contains all the `production` versions for all the services used in the contract tests the old Pact Broker instances can be safely decommissioned. This will allow Pactflow to be the sole source of data for 'can-i-deploy'
+6. Clean up any code and API calls that were used to run Pactflow and existing Pact Brokers in parallel. The pact publication and pact verification steps in your pipeline that used the old Pact Brokers can be removed.

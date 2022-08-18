@@ -4,6 +4,10 @@ title: Database
 
 A PostgreSQL database is required for storage of the application data.
 
+:::info
+ If you would like to migrate an existing PostgreSQL database, skip this section and instead follow the guide [**here**](https://docs.pactflow.io/docs/on-premises/installation/migrating).
+:::
+
 ## Supported versions
 
 PostgreSQL version 10.6 and later are supported.
