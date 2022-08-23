@@ -41,11 +41,13 @@ _NOTE: disabled users do not count toward your user limit._
 
 ## Delete User
 
-You may delete a user by a user by either choosing the action via the `"..."` menu to the right of the user's record or by selecting the user with the checkbox and using the bulk action menu. These actions apply to local users or federated identities (such as SAML2.0, Google or GitHub providers).
+You may delete a user by either choosing the action via the `"..."` menu to the right of the user's record or by selecting the user with the checkbox and using the bulk action menu. These actions apply to local users or federated identities (such as SAML2.0, Google or GitHub providers).
 
 Once deleted the user will no longer appear in the UI and cannot be edited.
 
 Deleting a federated identity user should only be undertaken when the user is being removed from the SSO organisation as a whole. This is because the SSO provider remains the source of truth meaning if the user logs into Pactflow again via SSO the account will be reinstated.
+To remove a user from Pactflow who will remain in the SSO organisation it is recommended to instead `disable` the user. Disabled users will not be counted towards your seat limit, though their details will still appear inside Pactflow. Disabled users can also be re-enabled via the UI if needed.
+
 
 ## Invite users
 
