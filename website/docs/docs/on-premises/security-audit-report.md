@@ -58,3 +58,20 @@ All.
 
 This vulnerability applies to the PostgreSQL server only. The Pactflow Docker image only uses the PostgreSQL client, and hence is not affected by this vulnerability.
 
+### CVE-2022-37434
+
+#### Component
+
+zlib package for Alpine
+
+#### CVE
+
+[https://nvd.nist.gov/vuln/detail/CVE-2022-37434](https://nvd.nist.gov/vuln/detail/CVE-2022-37434)
+
+#### Affected versions of Pactflow
+
+All.
+
+#### Notes
+
+As of 24 August 2022, there is no fix available. A patch release of Pactflow will be put out as soon as a fix is available.
