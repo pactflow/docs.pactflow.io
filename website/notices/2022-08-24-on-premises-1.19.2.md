@@ -1,5 +1,5 @@
 ---
-slug: 2022-08-25-on-premises-1.19.2
+slug: 2022-08-24-on-premises-1.19.2
 title: On-premises release v1.19.2
 tags: [on-premises, release]
 ---
