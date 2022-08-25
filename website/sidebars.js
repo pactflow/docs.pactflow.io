@@ -255,7 +255,10 @@ module.exports = {
             {
               type: "category",
               label: "Authentication",
-              items: ["docs/on-premises/authentication/saml"],
+              items: [
+                "docs/on-premises/authentication/demo",
+                "docs/on-premises/authentication/saml"
+              ],
             },
             {
               type: "category",
