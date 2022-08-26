@@ -6,9 +6,9 @@ title: SAML
 
 A SAML provider is configured by a set of environment variables prefixed with `PACTFLOW_SAML_`. See the [SAML](/docs/on-premises/environment-variables#saml-authentication) section of the environment variables page for the full list.
 
-## Callback URL
+## Assertion Consumer URL
 
-The callback URL is `https://<your Pactflow host>/auth/saml/callback`
+The callback URL is `https://<your Pactflow host>/auth/saml/callback`. This is the endpoint to which the IDP will post the SAML assertion after the user is authenticated.
 
 ## Metadata URL
 
