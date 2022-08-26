@@ -20,4 +20,4 @@ See the [Demo](/docs/on-premises/environment-variables#demo_auth_enabled) sectio
 
 ## Converting to a production IDP
 
-We recommend starting with a clean database when installing Pactflow for production use. This will ensure no demo users will remain in the system.
+Demo authentication cannot be enabled at the same time as a real authentication provider (eg. SAML). We recommend starting with a clean database when installing Pactflow for production use. This will ensure no demo users remain in the system.
