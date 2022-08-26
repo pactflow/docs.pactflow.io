@@ -8,7 +8,9 @@ A SAML provider is configured by a set of environment variables prefixed with `P
 
 ## Assertion Consumer URL
 
-The callback URL is `https://<your Pactflow host>/auth/saml/callback`. This is the endpoint to which the IDP will post the SAML assertion after the user is authenticated.
+This is the endpoint to which the IDP will post the SAML assertion after the user is authenticated. It is also called the "sign on URL", "reply URL", and "callback URL", depending on your IDP. You will need to configure this value in your IDP when you set up the Pactflow service provider.
+
+The URL is `https://<your Pactflow host>/auth/saml/callback`.
 
 ## Metadata URL
 
