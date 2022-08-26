@@ -24,21 +24,6 @@ BDCT is not intended to replace Pact testing, but to provide an alternative in t
 
 <iframe  width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLwy9Bnco-IpfddOl7vk7xfmGSjMMCiSbi" title="YouTube video player" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
-## High Level Roadmap
-
-Below summarises some of the key items on our feature rollout. See the full Pactflow [roadmap here](https://github.com/pactflow/roadmap/projects/1).
-
-| #   | Item                          | Description                                                                                                     |             Status             |
-| --- | :---------------------------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------: |
-| 1   | OpenAPI Specification support | Support via API only                                                                                            |               ✅               |
-| 2   | User interface support        | Visibility of bi-directional features in Pactflow UI                                                            |               ✅               |
-| 3   | Contract adapters             | Adapters to convert common mocks into pact files(e.g. Cypress, MSW, Wiremock)                                   | In Progress / Seeking feedback |
-| 4   | SOAP/XML support              | Support for comparing SOAP requests with SOAP XSD Schemas                                                       |            Planned             |
-| 5   | Protobuf support              | Support for protobuf schemas as the contract format                                                             |            Planned             |
-| 6   | GraphQL support               | Support for GraphQL schemas as a contract format                                                                |            Planned             |
-| 7   | Postman collections support   | Support for Postman Collections as a contract format                                                            |            Planned             |
-| 8   | OpenAPI Testing Tool          | Improve on the current state of OAS testing capabilities (and guarantees) with a Pactflow specific testing tool |            Planned             |
-
 ## Use Cases
 
 | Use Case                                                                           | Description                                                                                                                                                                                                                                                                                                  | How Bi-Directional Contract Testing Help                                                                                                                                                        |
@@ -159,11 +144,3 @@ Read the documentation on using [Pact as a consumer contract](/docs/bi-direction
 Provider contracts may be specified using an OpenAPI Specification.
 
 Read the documentation using [OpenAPI Specification as provider contract](/docs/bi-directional-contract-testing/contracts/oas) for more.
-
-### GraphQL
-
-Work for GraphQL support is planned to be started Q3 2022.
-
-### gRPC/Protobufs
-
-Work for GraphQL support is planned to be started Q3 2022.
