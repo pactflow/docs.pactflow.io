@@ -28,9 +28,11 @@ by the applications that belong to the team.
 **5 -**
 The tabs at the top provide different views of the currently selected integration. 
 
-The Network Diagram will display a graph view of all the integrations that are reachable from the selected one.
+- The Network Diagram will display a graph view of all the integrations that are reachable from the selected one.
 
-The [Matrix](#matrix) will display more details of all the pacts and verifications of the selected integration.
+- The [Matrix](#matrix) will display more details of all the pacts and verifications of the selected integration.
+
+- The Webhooks will display a list of triggered webhooks for the integration and logs
 
 **6 -**
 The settings (or cog) button will take you to all the setting screens. Here you'll be able to setup
