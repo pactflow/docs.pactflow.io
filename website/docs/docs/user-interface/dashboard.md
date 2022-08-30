@@ -32,7 +32,7 @@ The tabs at the top provide different views of the currently selected integratio
 
 - The [Matrix](#matrix) will display more details of all the pacts and verifications of the selected integration.
 
-- The Webhooks will display a list of triggered webhooks for the integration and logs
+- The Webhooks will display a list of triggered webhooks for the integration and logs.
 
 **6 -**
 The settings (or cog) button will take you to all the setting screens. Here you'll be able to setup
@@ -103,7 +103,7 @@ Clicking on a tag pill for a provider version tag will make the following menu a
 
 ## Matrix 
 
-"Matrix" displays pacts and verifications of the selected integration.
+The "Matrix" displays a table that shows the verification status of each combination of consumer and provider version from the selected integration.
 
 &nbsp;
 
@@ -112,7 +112,6 @@ Clicking on a tag pill for a provider version tag will make the following menu a
 &nbsp;
 
 ### Matrix Filters
-Filter your pacts and verifications of selected integration with consumer and provider's version, branch, environment and tag.
+Filter the consumer versions and provider versions of the selected integration by version number, branch, environment or tag.
 
-
-Note: You might not see environment filters, please requires environment read/managment permission and tanent environments. Otherwise, you are unable to choose and filter pacts and verifications including environments.
+Note: The environment filter option will only be shown to users with the environment read or manage permission.
