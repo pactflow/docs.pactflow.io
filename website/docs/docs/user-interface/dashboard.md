@@ -26,9 +26,11 @@ If you have been assigned to a [team](#settings-teams), you can select them here
 by the applications that belong to the team.
 
 **5 -**
-The tabs at the top provide different views of the currently selected integration. The Network
-Diagram will display a graph view of all the integrations that are reachable from the selected one.
-The Matrix will display more details of all the pacts and verifications of the selected integration.
+The tabs at the top provide different views of the currently selected integration. 
+
+The Network Diagram will display a graph view of all the integrations that are reachable from the selected one.
+
+The [Matrix](#matrix) will display more details of all the pacts and verifications of the selected integration.
 
 **6 -**
 The settings (or cog) button will take you to all the setting screens. Here you'll be able to setup
@@ -96,3 +98,19 @@ Clicking on a tag pill for a provider version tag will make the following menu a
 
 - Copy tag URL - selecting this menu item will copy the URL of the application version tag into the clipboard.
 - Copy tag name - selecting this menu item will copy the name of the tag into the clipboard.
+
+## Matrix 
+
+"Matrix" displays pacts and verifications of the selected integration.
+
+&nbsp;
+
+![Matrix Screen](/ui/matrix.png)
+
+&nbsp;
+
+### Matrix Filters
+Filter your pacts and verifications of selected integration with consumer and provider's version, branch, environment and tag.
+
+
+Note: You might not see environment filters, please requires environment read/managment permission and tanent environments. Otherwise, you are unable to choose and filter pacts and verifications including environments.
