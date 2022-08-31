@@ -6,8 +6,8 @@ sidebar_label: SwaggerHub
 :::note Pre-requisites
 To use this feature, you will need:
 
-* A [Pactflow](https://pactflow.io) account (start a [free trial](https://pactflow.io/pricing/)).
-* A [SwaggerHub](https://swaggerhub.com) account (start a [free trial](https://try.smartbear.com/)).
+* A [Pactflow](https://pactflow.io) account (create a [free account](https://pactflow.io/pricing/)).
+* A [SwaggerHub](https://swaggerhub.com) account (create a [free account](https://try.smartbear.com/)).
 :::
 
 In this guide, you'll learn how to use Pactflow and [SwaggerHub](https://swaggerhub.com/) together, to add contract testing to your design first API development workflow.
@@ -32,8 +32,8 @@ Together, they allow faster feedback cycles from design through to development, 
 
 ## Pre-requisites
 
-* A [Pactflow](https://pactflow.io) account (start a [free trial](https://pactflow.io/pricing/)).
-* A [SwaggerHub](https://swaggerhub.com) account (start a [free trial](https://try.smartbear.com/)).
+* A [Pactflow](https://pactflow.io) account (create a [free account](https://pactflow.io/pricing/)).
+* A [SwaggerHub](https://swaggerhub.com) account (create a [free account](https://try.smartbear.com/)).
 
 ## Integration Guide
 
