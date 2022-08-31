@@ -137,7 +137,7 @@ As of 24 August 2022, there is no fix available. A patch release of Pactflow wil
 
 #### Component
 
-CGI library included in Ruby before 2.7.5 and 3.x before 3.0.3, and the CGI gem before 0.3.1.
+The cgi library included in Ruby before 2.7.5 and 3.x before 3.0.3, and the [cgi gem](https://rubygems.org/gems/cgi) before 0.3.1.
 
 #### CVE
 
@@ -150,3 +150,7 @@ Versions prior to 1.18.0, which use Ruby 2.7.5.
 #### Fixed versions
 
 Pactflow 1.18.0 and later, which use Ruby 2.7.6.
+
+#### Notes
+
+The cgi library included with the Ruby platform will show as having a version of `0.1.0.1`. This is not the same as the cgi gem, which is not installed on the Pactflow Docker image.
