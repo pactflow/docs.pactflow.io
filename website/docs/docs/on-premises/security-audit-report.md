@@ -63,13 +63,15 @@ RubyGems Environment:
      - /bin
 ```
 
+The difficulty that tools have in identifying the correct version of Ruby can lead to false positives being reported. Please check the version of Ruby before submitting a vulnerability report.
+
+## Identifying the installed gem versions
+
 To list the gems installed on the Pactflow image run:
 
 ```
 docker run --rm -it --entrypoint gem quay.io/pactflow/enterprise:latest "list"
 ```
-
-The difficulty that tools have in identifying the correct version of Ruby can lead to false positives being reported. Please check the version of Ruby and the version of the affected gem before submitting a vulnerability report.
 
 ## Known vulnerabilities
 
