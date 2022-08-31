@@ -145,4 +145,8 @@ CGI library included in Ruby before 2.7.5 and 3.x before 3.0.3, and the CGI gem 
 
 #### Affected versions of Pactflow
 
-Versions prior to 1.18.0. Pactflow uses Ruby 2.7.6 from version 1.18.0.
+Versions prior to 1.18.0 which use Ruby 2.7.5.
+
+#### Fixed versions
+
+Pactflow 1.18.0 and later, which use Ruby 2.7.6.
