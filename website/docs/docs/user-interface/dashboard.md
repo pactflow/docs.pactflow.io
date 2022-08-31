@@ -26,9 +26,13 @@ If you have been assigned to a [team](#settings-teams), you can select them here
 by the applications that belong to the team.
 
 **5 -**
-The tabs at the top provide different views of the currently selected integration. The Network
-Diagram will display a graph view of all the integrations that are reachable from the selected one.
-The Matrix will display more details of all the pacts and verifications of the selected integration.
+The tabs at the top provide different views of the currently selected integration. 
+
+- The Network Diagram will display a graph view of all the integrations that are reachable from the selected one.
+
+- The [Matrix](#matrix) will display more details of all the pacts and verifications of the selected integration.
+
+- The Webhooks will display a list of triggered webhooks for the integration and logs.
 
 **6 -**
 The settings (or cog) button will take you to all the setting screens. Here you'll be able to setup
@@ -96,3 +100,18 @@ Clicking on a tag pill for a provider version tag will make the following menu a
 
 - Copy tag URL - selecting this menu item will copy the URL of the application version tag into the clipboard.
 - Copy tag name - selecting this menu item will copy the name of the tag into the clipboard.
+
+## Matrix 
+
+The "Matrix" displays a table that shows the verification status of each combination of consumer and provider version from the selected integration.
+
+&nbsp;
+
+![Matrix Screen](/ui/matrix.png)
+
+&nbsp;
+
+### Matrix Filters
+Filter the consumer versions and provider versions of the selected integration by version number, branch, environment or tag.
+
+Note: The environment filter option will only be shown to users with the environment read or manage permission.
