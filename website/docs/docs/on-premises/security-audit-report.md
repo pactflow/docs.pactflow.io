@@ -75,3 +75,13 @@ All.
 #### Notes
 
 As of 24 August 2022, there is no fix available. A patch release of Pactflow will be put out as soon as a fix is available.
+
+## Commonly reported false positives
+
+### CVE-2021-41816
+
+This only affects Ruby before 2.7.5 and 3.x before 3.0.3. Pactflow 1.19.0 and later uses Ruby 2.7.6. To identify the Ruby version, run the following command:
+
+```shell
+docker run --rm -it --entrypoint ruby quay.io/pactflow/enterprise "-v"
+```
