@@ -106,7 +106,6 @@ This can be observed by viewing the source of the login form.
 </form>
 ```
 
-
 ### CVE-2022-2625
 
 #### Component
@@ -120,6 +119,10 @@ postgresql14-dev package for Alpine
 #### Affected versions of Pactflow
 
 All.
+
+#### Status
+
+Non-exploitable.
 
 #### Notes
 
@@ -138,6 +141,10 @@ zlib package for Alpine
 #### Affected versions of Pactflow
 
 All.
+
+#### Status
+
+Unfixed.
 
 #### Notes
 
