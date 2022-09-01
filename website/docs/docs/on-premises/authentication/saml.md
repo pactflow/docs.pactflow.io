@@ -2,6 +2,10 @@
 title: SAML
 ---
 
+Pactflow supports single sign on using the SAML authentication protocol.
+
+Once SAML has been configured, if the database contains no users, the first user to log in will be assigned the [Administrator](/docs/permissions/predefined-roles#administrator) role, and every user thereafter will receive the default ([User](/docs/permissions/predefined-roles#user)) role.
+
 ## Configuration
 
 A SAML provider is configured by a set of environment variables prefixed with `PACTFLOW_SAML_`. See the [SAML](/docs/on-premises/environment-variables#saml-authentication) section of the environment variables page for the full list.
