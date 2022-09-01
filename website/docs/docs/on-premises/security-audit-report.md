@@ -85,17 +85,27 @@ omniauth gem
 
 [https://nvd.nist.gov/vuln/detail/CVE-2015-9284](https://nvd.nist.gov/vuln/detail/CVE-2015-9284)
 
-#### Notes
-
-This is a CSRF vulnerability during sign in. 
-
 #### Affected versions of Pactflow
 
 All.
 
-#### Mitigation
+#### Status
 
-This vulnerability is mitigated in code. Pactflow uses a POST request method with a CSRF token for the initial request to the IDP, as per the instructions [here](https://github.com/omniauth/omniauth/wiki/Resolving-CVE-2015-9284).
+Non-exploitable.
+
+#### Notes
+
+This CVE is a CSRF vulnerability during sign in.  This vulnerability is only exploitable if the initial request from the service provider to the identify provider is vulnerable to a CSRF attack because it uses a GET request without any CSRF protection. In Pactflow, this is not possible as Pactflow uses a POST request method with a CSRF token for the initial request to the IDP, as per the mitigation instructions [here](https://github.com/omniauth/omniauth/wiki/Resolving-CVE-2015-9284).
+
+This can be observed by viewing the source of the login form.
+
+```html
+<form action="https://example.com/auth/saml" method="post">
+  <input type="hidden" name="authenticity_token" value="i_nnrcJziCKKNMb-FRQtxot2ZE6nsNpIhC_AtsK5Boc=">
+  <button type="submit">SAML</button>
+</form>
+```
+
 
 ### CVE-2022-2625
 
@@ -153,4 +163,4 @@ Pactflow 1.18.0 and later, which use Ruby 2.7.6.
 
 #### Notes
 
-The cgi library included with the Ruby platform will show as having a version of `0.1.0.1`. This is not the same as the cgi gem, which is not installed on the Pactflow Docker image.
+The cgi library included with the Ruby platform will show as having a version of `0.1.0.1`. This is not the same as the cgi gem, which is not installed on the Pactflow Docker image. 
