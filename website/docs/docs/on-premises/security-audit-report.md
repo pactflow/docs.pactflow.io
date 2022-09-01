@@ -85,7 +85,7 @@ omniauth gem
 
 [https://nvd.nist.gov/vuln/detail/CVE-2015-9284](https://nvd.nist.gov/vuln/detail/CVE-2015-9284)
 
-#### Affected versions of Pactflow
+#### Detectable in versions of Pactflow
 
 All.
 
@@ -108,6 +108,10 @@ This can be observed by viewing the source of the login form.
 
 ### CVE-2022-2625
 
+#### Description
+
+Given certain prerequisites, this vulnerability allows arbitrary code to be run.
+
 #### Component
 
 postgresql14-dev package for Alpine
@@ -115,10 +119,6 @@ postgresql14-dev package for Alpine
 #### CVE
 
 [https://nvd.nist.gov/vuln/detail/CVE-2022-2625](https://nvd.nist.gov/vuln/detail/CVE-2022-2625)
-
-#### Affected versions of Pactflow
-
-All.
 
 #### Status
 
@@ -129,6 +129,10 @@ Non-exploitable.
 This vulnerability applies to the PostgreSQL server only. The Pactflow Docker image only uses the PostgreSQL client, and hence is not affected by this vulnerability.
 
 ### CVE-2022-37434
+
+#### Description
+
+A heap-based buffer over-read or buffer overflow in inflate in inflate.c via a large gzip header extra field.
 
 #### Component
 
@@ -160,14 +164,36 @@ The cgi library included in Ruby before 2.7.5 and 3.x before 3.0.3, and the [cgi
 
 [https://nvd.nist.gov/vuln/detail/CVE-2021-41816](https://nvd.nist.gov/vuln/detail/CVE-2021-41816)
 
-#### Affected versions of Pactflow
+#### Status
 
-Versions prior to 1.18.0, which use Ruby 2.7.5.
-
-#### Fixed versions
-
-Pactflow 1.18.0 and later, which use Ruby 2.7.6.
+False positive.
 
 #### Notes
 
-The cgi library included with the Ruby platform will show as having a version of `0.1.0.1`. This is not the same as the cgi gem, which is not installed on the Pactflow Docker image. 
+This vulnerability only affects platforms that use a 4 byte long data type, typically Windows. The Pactflow base image uses 64 bit Alpine Linux, which uses an [8 byte long](https://www.ibm.com/docs/en/ibm-mq/9.0?topic=platforms-standard-data-types-unix-linux-windows).
+
+### CVE-2020-36599
+
+#### Description
+
+lib/omniauth/failure_endpoint.rb in OmniAuth before 1.9.2 (and before 2.0) does not escape the message_key value.
+
+#### Component
+
+omniauth gem
+
+#### Status
+
+Non-exploitable.
+
+#### Detectable in versions of Pactflow
+
+Up to and including 1.19.2.
+
+#### Fixed versions
+
+1.19.3 and later.
+
+#### Notes
+
+Pactflow uses a custom failure endpoint so the vulnerable code is never executed.
