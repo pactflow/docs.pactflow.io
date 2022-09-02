@@ -14,9 +14,11 @@ This method of authentication is NOT secure and should not be used in production
 
 :::
 
+Demo auth replaces the basic auth capability that was previously used for this purpose.
+
 ## Configuration
 
-See the [Demo](/docs/on-premises/environment-variables#demo_auth_enabled) section of the environment variables page.
+See the [Demo](/docs/on-premises/environment-variables#demo_auth_enabled) section of the environment variables page. Demo auth cannot be enabled at the same time as any other method of authentication (ie. SAML).
 
 ## Converting to a production IDP
 
