@@ -327,43 +327,19 @@ To allow for a small amount of clock drift between Pactflow and the Identity Pro
 
 <br/>
 
-## Basic authentication
+## Demo authentication
 
 <hr/>
 
-Basic authentication provides a quick way to log in to ensure that a new instance of Pactflow is set up correctly. The basic authentication user does not have access to Pactflow features such as roles, teams and webhooks. It should not be used outside of testing purposes. Follow the [Authentication guide](https://docs.pactflow.io/docs/on-premises/authentication/saml) to set up production users using SAML.
 
-### PACTFLOW_BASIC_AUTH_ENABLED
 
-Whether or not to enable basic authentication. For test purposes only - not to be set to `true` for production use. Cannot be set to `true` at the same time as PACTFLOW_SAML_AUTH_ENABLED.
+### PACTFLOW_DEMO_AUTH_ENABLED
+
+Whether or not to enable authentication for demo users. For demonstration purposes only - not to be set to `true` for production use.
 
 **Required:** false<br/>
 **Default:** `false`<br/>
 **Allowed values:** `true`, `false`<br/>
-
-### PACTFLOW_BASIC_AUTH_USERNAME
-
-The username for HTTP basic authentication. For demo purposes only - not to be set for production use.
-
-**Required:** false<br/>
-
-### PACTFLOW_BASIC_AUTH_PASSWORD
-
-The password for HTTP basic authentication. For demo purposes only - not to be set for production use.
-
-**Required:** false<br/>
-
-### PACTFLOW_BASIC_AUTH_READ_ONLY_USERNAME
-
-The username for HTTP basic authentication. Allows read access only. For demo purposes only - not to be set for production use.
-
-**Required:** false<br/>
-
-### PACTFLOW_BASIC_AUTH_READ_ONLY_PASSWORD
-
-The password for HTTP basic authentication. Allows read access only. For demo purposes only - not to be set for production use.
-
-**Required:** false<br/>
 
 <br/>
 
@@ -642,4 +618,3 @@ head < /dev/random -c 16 | base64
 
 **Required:** if `PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED` is set to `true`<br/>
 **Example:** `JUVDdnRzLXZyWHA7UF93RAo=`<br/>
-
