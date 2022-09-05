@@ -12,4 +12,5 @@ jobs:
       PACTFLOW_ALGOLIA_API_KEY: ${{secrets.PACTFLOW_ALGOLIA_API_KEY}}
     name: Index Pactflow site
     steps:
+      - uses: actions/checkout@v2
       - run: make crawl
