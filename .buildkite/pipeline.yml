@@ -24,8 +24,9 @@ steps:
     agents:
       queue: pactflow-dev
     plugins:
+      # locking this to previous build image as build is failing on node 18
       - docker#v3.8.0:
-          image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-yarn:latest"
+          image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-yarn:4"
           propagate-environment: true
           user: root
           always-pull: true
