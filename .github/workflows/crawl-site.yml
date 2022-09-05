@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PACTFLOW_ALGOLIA_APP_ID: LY8MHW6MWQ
-      PACTFLOW_ALGOLIA_API_KEY: ${{secrets.PACTFLOW_ALGOLIA_API_KEY}}
+      PACTFLOW_ALGOLIA_KEY: ${{secrets.PACTFLOW_ALGOLIA_KEY}}
     name: Index Pactflow site
     steps:
       - uses: actions/checkout@v2
