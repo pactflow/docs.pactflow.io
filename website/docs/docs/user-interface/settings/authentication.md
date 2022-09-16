@@ -127,7 +127,7 @@ For example, a valid Attribute in the SAML assertion for a user's first name wou
 
 #### 3. Export IdP metadata
 
-Once you have configured Pactflow as a Service Provider, please export your metadata (as XML) or provide an externally accessible URL to us by contacting support at support@pactflow.io.
+Once you have configured Pactflow as a Service Provider, please send your Pactflow account details and an externally accessible URL to the metadata file to support@pactflow.io. If it is not possible to provide a URL, then the metadata may be exported as an XML file. It is preferable to use a URL, as this will allow you to make any updates without having to contact Pactflow support.
 
 ### Examples
 
