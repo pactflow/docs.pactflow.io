@@ -48,6 +48,7 @@ Once deleted the user will no longer appear in the UI and cannot be edited.
 Deleting a federated identity user should only be undertaken when the user is being removed from the SSO organisation as a whole. This is because the SSO provider remains the source of truth meaning if the user logs into Pactflow again via SSO the account will be reinstated.
 To remove a user from Pactflow who will remain in the SSO organisation it is recommended to instead `disable` the user. Disabled users will not be counted towards your seat limit, though their details will still appear inside Pactflow. Disabled users can also be re-enabled via the UI if needed.
 
+![Bulk Actions](/ui/delete-user-action.png)
 
 ## Invite users
 
