@@ -2,13 +2,19 @@
 title: SAML
 ---
 
+Pactflow supports single sign on using the SAML authentication protocol.
+
+Once SAML has been configured, if the database contains no users, the first user to log in will be assigned the [Administrator](/docs/permissions/predefined-roles#administrator) role, and every user thereafter will receive the default ([User](/docs/permissions/predefined-roles#user)) role.
+
 ## Configuration
 
 A SAML provider is configured by a set of environment variables prefixed with `PACTFLOW_SAML_`. See the [SAML](/docs/on-premises/environment-variables#saml-authentication) section of the environment variables page for the full list.
 
-## Callback URL
+## Assertion Consumer URL
 
-The callback URL is `https://<your Pactflow host>/auth/saml/callback`
+This is the endpoint to which the IDP will post the SAML assertion after the user is authenticated. It is also called the "sign on URL", "reply URL", and "callback URL", depending on your IDP. You will need to configure this value in your IDP when you set up the Pactflow service provider.
+
+The URL is `https://<your Pactflow host>/auth/saml/callback`.
 
 ## Metadata URL
 

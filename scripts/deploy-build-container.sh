@@ -31,6 +31,7 @@ aws ecr get-login-password \
       --username AWS \
       --password-stdin "${ECR_ACCOUNT}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
 
+docker pull $REPOSITORY/$IMAGE_NAME
 CurrentTag=$(docker images $REPOSITORY/$IMAGE_NAME --format '{{.Tag}}' | awk '/[0-9]/' | sort -g | tail -n 1)
 
 pushd $ScriptDir/../build-container

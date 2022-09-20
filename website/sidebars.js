@@ -68,6 +68,7 @@ module.exports = {
               label: "Tool Integration",
               items: [
                 "docs/bi-directional-contract-testing/tools",
+                "docs/bi-directional-contract-testing/tools/swaggerhub",
                 "docs/bi-directional-contract-testing/tools/cypress",
                 "docs/bi-directional-contract-testing/tools/msw",
                 "docs/bi-directional-contract-testing/tools/wiremock",
@@ -255,7 +256,10 @@ module.exports = {
             {
               type: "category",
               label: "Authentication",
-              items: ["docs/on-premises/authentication/saml"],
+              items: [
+                "docs/on-premises/authentication/demo",
+                "docs/on-premises/authentication/saml"
+              ],
             },
             {
               type: "category",
@@ -299,6 +303,8 @@ module.exports = {
           type: "category",
           label: "Releases",
           items: [
+            "docs/on-premises/releases/1.20.0",
+            "docs/on-premises/releases/1.19.2",
             "docs/on-premises/releases/1.19.1",
             "docs/on-premises/releases/1.19.0",
             "docs/on-premises/releases/1.18.0",
