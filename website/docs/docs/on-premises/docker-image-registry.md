@@ -49,5 +49,6 @@ Once we have created you a new user, you will receive an email from Quay.io invi
 With your personal credentials or Robot token (provided by your Pactflow Account Manager), you can login to your docker management system and pull the image:
 
 ```sh
+docker login -u="<username>" -p="<password>" quay.io # you can use either the robot token or your user credentials here
 docker pull quay.io/pactflow/enterprise
 ```
