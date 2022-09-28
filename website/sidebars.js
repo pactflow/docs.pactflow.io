@@ -61,6 +61,7 @@ module.exports = {
               items: [
                 "docs/bi-directional-contract-testing/contracts/pact",
                 "docs/bi-directional-contract-testing/contracts/oas",
+                "docs/bi-directional-contract-testing/contracts/keyword-support"
               ],
             },
             {
