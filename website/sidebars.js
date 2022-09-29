@@ -60,8 +60,14 @@ module.exports = {
               label: "Supported Contracts",
               items: [
                 "docs/bi-directional-contract-testing/contracts/pact",
-                "docs/bi-directional-contract-testing/contracts/oas",
-                "docs/bi-directional-contract-testing/contracts/keyword-support"
+                {
+                  type: "category",
+                  label: "OpenAPI Specification",
+                  items: [
+                    "docs/bi-directional-contract-testing/contracts/oas",
+                    "docs/bi-directional-contract-testing/contracts/oas/keyword-support"
+                  ],
+                },                
               ],
             },
             {

@@ -1,6 +1,6 @@
 ---
 title: OpenAPI Specification Contracts
-sidebar_label: OpenAPI Specification
+sidebar_label: Overview
 ---
 
 Providers may specify an OpenAPI Specification as a Provider Contract, enabling teams to get reuse out of existing tools and processes.
@@ -520,7 +520,7 @@ When using OpenAPI Specifications as a Provider Contract, you should be aware of
 ### Document limitations
 
 - The OAS must be a valid YAML or JSON file. Pactflow will pre-validate the document is parseable and error if they aren't valid.
-- OAS documents must not be split across multiple files. You should combine any documents together, using tools like [OpenAPI Merge](https://github.com/robertmassaioli/openapi-merge) or [speccy](https://www.npmjs.com/package/speccy).
+- OAS documents must not be split across multiple files. You should combine any documents together, using tools like [OpenAPI Merge](https://github.com/robertmassaioli/openapi-merge) or [speccy](https://www.npmjs.com/package/speccy). That is, Pactflow can not resolve remote references to files, and will not resolve URL references
 - YAML formatted OAS documents must not use [anchors](https://yaml.org/spec/1.2.2/#3222-anchors-and-aliases), due to the potential security issues (see [YAML bomb](https://en.wikipedia.org/wiki/Billion_laughs_attack) for more). If your auto-generated specs have anchors, you can pre-process them via tools like [spruce](https://github.com/geofffranks/spruce), that will expand them for you.
 - It is recommended to programmatically dereference and inline `$refs` in the OAS document uploaded to Pactflow, as they can cause issues when validating `nullable` fields and nested `$refs` can not be accurately compared with a pact file. This can be accomplished using packages such as [json-schema-merge-allof](https://www.npmjs.com/package/json-schema-merge-allof) and [json-schema-resolve-allof](https://www.npmjs.com/package/json-schema-resolve-allof)
 
@@ -532,88 +532,6 @@ When using OpenAPI Specifications as a Provider Contract, you should be aware of
 - _Implementing_ a spec is not the same as being _compatible_ with a spec ([read more](https://pactflow.io/blog/contract-testing-using-json-schemas-and-open-api-part-1/)). Most tools only tell you that what you’re doing is _not incompatible_ with the spec. _NOTE: We plan to address this problem in the future via our OAS Testing Tool_
 - You are responsible for ensuring sufficient OAS coverage. To highlight this point, in our [Dredd example](https://github.com/pactflow/example-bi-directional-provider-dredd), we do _not_ test the 404 case on the provider, but the consumer has a pact for it and it's tests still pass! _NOTE: We plan to address this problem in the future via our OAS Testing Tool_
 
-### `allOf` support and other logical keywords
+### Support for logical keywords `allOf`, `anyOf` and `oneOf`
 
-Because Pactflow sets `additionalProperties` to `false` on response bodies, `allOf` cannot be used to validate a response body against multiple schemas.
-See this [write up](https://bitbucket.org/atlassian/swagger-mock-validator/src/master/FAQ.md) on this specific issue.
-
-There is limited support for `anyOf` keyword. The body used in the pact request body needs to match both the `type` and any `required` fields to match one of the schemas listed in `anyOf`. Note additional properties are not validated at all, so the consumer could be requesting other fields not available from the provider. As such anything required by the consumer should be marked as required in the OAS. 
-
-```
- "schema": {
-    "anyOf": [
-        {
-            "type": "object",         // validated
-            "properties": {
-                "age": {
-                    "type": "integer"
-                },
-                "nickname": {         // not validated
-                    "type": "string"
-                }
-            },
-            "required": [
-                "age"                 // validated
-            ]
-        },
-        {
-            "type": "object",
-            "properties": {
-                "pet_type": {
-                    "type": "string",
-                    "enum": [
-                        "Cat",
-                        "Dog"
-                    ]
-                },
-                "hunts": {            // not validated
-                    "type": "boolean"
-                }
-            },
-            "required": [
-                "pet_type"          // validated
-            ]
-        }
-    ]
-}
-```
-
-
-There is limited support for the `oneOf` keywords in bi-directional contract testing. The `type` of the response body will need to be matched with `oneOf` the response schemas in the OAS document. However if the `type` of the body is an `object` the properties on the object will not be validated.
-Therefore an OAS such as this would not be supported. Both of the schemas used in oneOf are objects. Both will match with any pact file body that is also an object regardless of the properties, rather than satisfying the intended `oneOf` condition.
-
-
-```
-  "schema": {
-    "oneOf": [
-      {
-        "type": "object",           // validated
-        "properties": {             // not validated
-          "hunts": {
-            "type": "boolean"
-          },
-          "age": {
-            "type": "integer"
-          }
-        }
-      },
-      {
-        "type": "object",            // validated
-        "properties": {             // not validated
-          "bark": {
-            "type": "boolean"
-          },
-          "breed": {
-            "type": "string",
-            "enum": [
-              "Dingo",
-              "Husky",
-              "Retriever",
-              "Shepherd"
-            ]
-          }
-        }
-      }
-    ]
-  }
-```
+See [Keyword Support](/docs/bi-directional-contract-testing/contracts/oas/keyword-support) for more on this.
