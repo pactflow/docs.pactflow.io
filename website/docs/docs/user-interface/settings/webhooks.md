@@ -79,3 +79,13 @@ The following variables may be used in the path and query parameters of the URL,
 | `${pactbroker.providerLabels}` | The list of labels for the provider associated with the pact content, separated by ", ". |
 | `${pactbroker.providerVersionDescriptions}`| The descriptions of the provider version(s) for which the contract_requiring_verification_published webhook has been triggered. Only populated for the contract_requiring_verification_published event. |
 | `${pactbroker.eventName}` | The name of the event that triggered the webhook |
+
+#### Basic auth
+
+If your webhook requires basic auth, we recommend using a secret to store the value of the password, and referencing the secret in the password field.
+
+![Basic auth password referencing secret](/ui/basic-auth-with-secret-password.png)
+
+For security reasons, if you enter a password value directly into the password field (without using a secret), the password value will not be displayed the next time the webhook is viewed. The existing value of the password will be maintained when other fields are updated. To update the password, enter a new value and click the Update button.
+
+If you wish to test the execution of a webhook with a plain text (non secret) password, you will need to enter it into the password field again before pressing the test button.
