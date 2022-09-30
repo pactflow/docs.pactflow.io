@@ -21,6 +21,17 @@ Here you will be able to create and edit your webhooks.
 
 #### Webhook event types
 
+##### Contract published that requires verification
+
+This webhook is used to trigger one or more build that run the provider verification for a newly published pact. This event fires once for each of the following provider versions that are missing a verification result for the pact that was just published:
+
+* the latest version from the provider's [main branch](https://docs.pact.io/pact_broker/branches#pacticipant-main-branch-property)
+* any version currently [deployed to an environment](https://docs.pact.io/pact_broker/recording_deployments_and_releases)
+
+The provider versions are de-duplicated by version number, so that if the same provider version is the head, and/or deployed to multiple environments, the webhook will only trigger once for each provider version. The template parameter `${pactbroker.providerVersionDescriptions}` will contain a description of which branch/stages that particular provider version number pertains to. eg. "latest from main branch, deployed in test"
+
+See the [Pact Broker docs](https://docs.pact.io/pact_broker/webhooks#using-webhooks-with-the-contract_requiring_verification_published-event) for more information on the usage of this event.
+
 ##### Contract published with changed content or tags
 
 If your pact is published _without_ any tags applied to the consumer version, then this event will be fired if the pact content is different from the previous version.
