@@ -54,7 +54,7 @@ This event fires every time a provider verification is published.
 
 User defined secrets that have the same team assigned as the webhook may be used in the path of the URL, the headers, body, username and password, and will be replaced with their appropriate values at runtime. For webhooks that have no team assigned, only secrets that also have no team assigned may be used. The list of secrets that are available for use in a particular webhook are shown in the `Dynamic variables` section (click on the heading to display the values).
 
-To use a secret in a webhook, use the expression `${user.<SECRET_NAME>}` eg. ``${user.ciToken}``. 
+To use a secret in a webhook, use the expression `${user.<SECRET_NAME>}` eg. `${user.ciToken}`.
 
 ##### Pactflow
 
@@ -82,7 +82,7 @@ The following variables may be used in the path and query parameters of the URL,
 
 #### Basic auth
 
-If your webhook requires basic auth, we recommend using a secret to store the value of the password, and referencing the secret in the password field.
+If your webhook requires basic auth, we recommend using a secret to store the value of the password. Reference the secret value in the password field by entering `${user.<SECRET_NAME>}` where `<SECRET_NAME>` is the name of the secret. eg `${user.myBasicAuthPassword}`.
 
 ![Basic auth password referencing secret](/ui/basic-auth-with-secret-password.png)
 
