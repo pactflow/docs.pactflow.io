@@ -7,9 +7,10 @@ title: How to break everything
 
 Let's add a new field to the expectations we have for the product API. We're going to make the change on master, and it's going to break everything. This is an exercise in "what not to do, and why".
 
-1. Open up `src/api.pact.spec.js`, scroll down to the first test, and in the `expectedProduct` definition, add a new field e.g. `color: "red"`.
+1. In your consumer codebase, open up `src/api.pact.spec.js`, scroll down to the first test, and in the `expectedProduct` definition, add a new field e.g. `color: "red"`.
 
 1. Run `make test`. These tests should be green - the consumer code is consistent with its own expectations.
+   <!-- should we have a note here, as the consumer code doesnt depend on this field, this is consumer drift?  -->
 
 1. Commit and push the changes.
 
@@ -17,7 +18,7 @@ Let's add a new field to the expectations we have for the product API. We're goi
 
 1. Open up the the consumer build in Github Actions. It will generate and publish the pact successfully, then fail on the `can-i-deploy` step, as there is no successful verification from the provider.
 
-1. Open up the provider build in Github Actions. The changed pact will have triggered a pact verification build of the provider project. This will have failed, as the new field does not exist in the API. This particular failed build is expected, and not a problem, as the pact verification build is generally separate from the provider's normal pipeline. For a more detailed explanation of this see https://github.com/pactflow/example-provider#pact-verifications.
+1. Open up the provider build in Github Actions. The changed pact will have triggered a pact verification build of the provider project. This will have failed, as the new field does not exist in the API. This particular failed build is expected, and not a problem, as the pact verification build is generally separate from the provider's normal pipeline. For a more detailed explanation of this see <https://github.com/pactflow/example-provider#pact-verifications>.
 
 ## Run the provider build
 
