@@ -9,7 +9,7 @@ The consumer is still unable to make a release from its master however, as the `
 
 Let's make our changes on a branch this time.
 
-1. Revert the change to master and push to make the build go green again.
+1. In the consumer codebase, revert the change to master and push to make the build go green again.
 
     ```
     git revert HEAD
@@ -22,11 +22,14 @@ Let's make our changes on a branch this time.
       git checkout -b feat/new-field
     ```
 
-1. Add the new field to the `expectedProduct` again (e.g. `color: "red"`).
+1. open up `src/api.pact.spec.js`, scroll down to the first test, and in the `expectedProduct` definition, add a new field e.g. `color: "red"`.
 
 1. Make sure the tests pass locally by running `make test`.
 
-1. Push your changes by running `git push --set-upstream origin feat/new-field`.
+1. Commit & Push your changes by running
+   1. `git add src/api.pact.spec.js`
+   2. `git commit -m 'feat: add color'`
+   3. `git push --set-upstream origin feat/new-field`.
     * The consumer tests will pass, and then the CI build will fail as `can-i-deploy` correctly identifies that this branch is not yet compatible with the API.
     * The webhook-triggered pact verification build will still fail - that's ok, as it doesn't stop the provider from deploying.
 
@@ -35,11 +38,11 @@ Let's make our changes on a branch this time.
 ## Expected state by the end of this step
 
 * In Github Actions:
-    * A `master` consumer build that passes and deploys.
-    * A `feat/new-field` consumer build that fails at `can-i-deploy`.
+  * A `master` consumer build that passes and deploys.
+  * A `feat/new-field` consumer build that fails at `can-i-deploy`.
 * In Pactflow:
-    * A `master` pact with a successful verification result.
-    * A `feat/new-field` pact with no verification results.
+  * A `master` pact with a successful verification result.
+  * A `feat/new-field` pact with no verification results.
 
 ## Conclusion
 
