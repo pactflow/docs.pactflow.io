@@ -118,7 +118,7 @@ module.exports = {
         },
         {
           type: "category",
-          label: "CI/CD Workshop",
+          label: "Consumer-Driven Contract Testing",
           items: [
             "docs/workshops/ci-cd",
             {

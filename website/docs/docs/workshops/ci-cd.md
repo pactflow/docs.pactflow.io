@@ -1,6 +1,6 @@
 ---
 id: ci-cd
-title: Pactflow CI/CD Workshop
+title: Consumer-Driven Contract Testing Workshop
 sidebar_label: Introduction
 ---
 
