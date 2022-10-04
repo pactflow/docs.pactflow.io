@@ -7,25 +7,39 @@ Before we start, let's do a brief overview of a couple of key Pact/Pact Broker c
 
 ## Branches
 
-<!-- Tags are simple String values that that belong to "pacticipant" version (that is, application version) resources in the Pact Broker. They are used to provide metadata about a version - the most common use case being to indicate the git branch of a version (eg. `master`).
+Branches in the Pact Broker are designed to model repository (git, svn etc) branches. A branch in the Pact Broker belongs to a pacticipant (application). A branch may have many pacticipant versions, and a pacticipant version may belong to many branches (but typically, it will belong to just one). A pacticipant version in the Pact Broker should map 1:1 to a commit in your repository.
 
-Tags are used to make sure we are verifying the right pacts.
+Branches are used to make sure we are verifying the right pacts, and to facilitate this, the version number used to publish pacts and verification results should either [be or contain the commit](https://docs.pact.io/getting_started/versioning_in_the_pact_broker#guidelines), alongside setting the Branch property on upload.
 
-In the [Makefile](https://github.com/pactflow/example-consumer/blob/master/Makefile) file in the consumer project, we tag the consumer version with the name of the branch when we publish the pacts.
+In the [Makefile](https://github.com/pactflow/example-consumer/blob/master/Makefile) file in the consumer project, we associate the consumer app version with the name of the branch when we publish the pacts.
 
 ```bash
 publish_pacts:
-  @"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --tag ${GIT_BRANCH}
+  @"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --branch ${GIT_BRANCH}
+```
+
+You can also automatically detect the repository branch from known CI, environment variables or git CLI. Supports Buildkite, Circle
+                CI, Travis CI, GitHub Actions, Jenkins, Hudson, AppVeyor, GitLab, CodeShip, Bitbucket and Azure DevOps.
+
+You can see in this command, we replace `--branch` with `--auto-detect-version-properties`
+
+```bash
+publish_pacts:
+  @"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --auto-detect-version-properties
 ```
 
 In the [src/product/product.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the pacts that belong to the latest consumer versions with the `master` tag (`{ tag: 'master', latest: true }`), and the pacts that belong to the currently deployed versions (`{ deployed: true }` - we'll explain how the broker knows which versions are deployed in the next section).
+
+In the [src/product/product.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the latest pacts that belong to the configured `mainBranch` for each consumer  (`{ mainBranch: true }`), and the pacts that belong to the currently deployed versions (`{ deployed: true }` - we'll explain how the broker knows which versions are deployed in the next section).
+
+You can read more about how to configure the main branch property [here](https://docs.pact.io/pact_broker/branches#pacticipant-main-branch-property), but all you need to know for now, is this allows our provider to support 2 consumers, which each have a different named main branch (such as `master` or `main`).
 
 ```js
 
 const fetchPactsDynamicallyOpts = {
   ...,
   provider: "pactflow-example-provider",
-  consumerVersionSelectors: [{ tag: 'master', latest: true }, { deployed: true }],
+  consumerVersionSelectors: [{ mainBranch: true }, { deployed: true }],
   ...
 }
 ```
@@ -36,10 +50,10 @@ When we publish the verifications, we similarly tag the provider version with th
 const baseOpts = {
   ...,
   providerVersion: process.env.GIT_COMMIT,
-  providerVersionTags: [process.env.GIT_BRANCH],
+  providerVersionBranch: process.env.GIT_BRANCH,
   ...
 }
-``` -->
+```
 
 ## Tags
 
