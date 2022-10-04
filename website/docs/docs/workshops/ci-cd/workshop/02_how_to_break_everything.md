@@ -14,7 +14,13 @@ Let's add a new field to the expectations we have for the product API. We're goi
 
 1. Commit and push the changes.
 
-    👉 Note that in the `publish.pact.js` file, the consumer version is tagged with the name of the git branch.
+    👉 Note that in the `Makefile` file, the consumer version is associated with the name of the git branch.
+
+    ```bash
+    publish_pacts: .env
+     @echo "\n========== STAGE: publish pacts ==========\n"
+    @"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --branch ${GIT_BRANCH}
+    ```
 
 1. Open up the the consumer build in Github Actions. It will generate and publish the pact successfully, then fail on the `can-i-deploy` step, as there is no successful verification from the provider.
 
@@ -24,13 +30,13 @@ Let's add a new field to the expectations we have for the product API. We're goi
 
 The real problem is that the provider is now unable to deploy from their master branch 😧.
 
-This is because the provider is configured to verify the latest `master` pact, so publishing a pact with a new expectation and tagging its consumer version as `master` causes the verification step to fail, breaking the provider's build through no fault of its own.
+This is because the provider is configured to verify the latest pact of any registered consumers main branch, so publishing a pact with a new expectation and associating its consumer version as `master` (the consumers main branch) causes the verification step to fail, breaking the provider's build through no fault of its own.
 
 You can demonstrate this by running a provider build in Github (`Actions` -> Under `Workflows`, select `Build` -> `Run workflow` -> `Run workflow`).
 
 ## Check the pact's status in Pactflow
 
-1. Open up the pact in Pactflow. You'll see that there is a pact tagged `master` with a failed verification result.
+1. Open up the pact in Pactflow. You'll see that there is a pact associated with branch `master` with a failed verification result.
 
 1. Click on "VIEW PACT" and you'll see that each interaction has a status next to it.
 
@@ -40,8 +46,8 @@ You can demonstrate this by running a provider build in Github (`Actions` -> Und
 
 * A consumer build that is failing at the `can-i-deploy` step in Github Actions.
 * A provider build that is failing during verification in Github Actions.
-* A `master` pact in Pactflow that has a failed verification result.
+* A pact associated with the consumers main branch `master` in Pactflow that has a failed verification result.
 
 ## Conclusion
 
-Making changes to the pact on the master branch can break both consumer and provider builds, and may stop both projects from being able to deploy.
+Making changes to the pact on the consumers main branch can break both consumer and provider builds, and may stop both projects from being able to deploy.
