@@ -9,9 +9,11 @@ When using Pact with Pactflow, we have a similar concept of a "pending pact". A 
 
 Once a pact has a successful verification result published, it is now considered to be an accepted/supported contract, and any subsequent failure can only be as a result of the provider itself changing. Once a pact has left pending state, verification failures *will* cause the provider build to fail.
 
-Something important to note about the pending calculation is that *it is based on the tag for the provider version*. For example, once a pact has a successful verification from a provider version with tag `master`, it will cease to be pending for subsequent `master` versions, but would still be pending for a `feat/x` branch of the provider (until the first successful `feat/x` verification was published, etc.)
+Something important to note about the pending calculation is that *it is based on the branch for the provider version*. For example, once a pact has a successful verification from a provider version with branch `master`, it will cease to be pending for subsequent `master` versions, but would still be pending for a `feat/x` branch of the provider (until the first successful `feat/x` verification was published, etc.)
 
-For further reading: https://docs.pact.io/pending
+*Note: The tag calculation works in the same way, but pacts must be tagged on publish, and applied during provider verification builds. Using Branches is recommended.*
+
+For further reading: <https://docs.pact.io/pending>
 
 ## Enable 'pending pacts' for the provider
 
@@ -19,13 +21,13 @@ For further reading: https://docs.pact.io/pending
 
 1. Run `GIT_BRANCH=master make test` - note that this now passes ✅
 
-    👉 Whenever we run the verification step with the pending feature enabled, we have to make sure we've set the tag correctly (which we do in this codebase by providing the environment variable `GIT_BRANCH`), because the pending status for each pact depends on it.
+    👉 Whenever we run the verification step with the pending feature enabled, we have to make sure we've set the branch correctly (which we do in this codebase by providing the environment variable `GIT_BRANCH` to `providerVersionBranch` in our test `product/product.pact.test.js`), because the pending status for each pact depends on it.
 
 1. Commit and push, and open up the build in Github Actions.
 
     👉 The test output indicates that the `master` pact is in pending mode, so even though its verification fails, the overall build still passes.
 
-    👉 The provider is still compatible with the `prod` pact, so the deploy step is able to proceed without issue.
+    👉 The provider is still compatible with pact deployed to the `prod` environment , so the deploy step is able to proceed without issue.
 
 1. In Pactflow, refresh the pact page.
 
@@ -33,7 +35,7 @@ For further reading: https://docs.pact.io/pending
 
 ## Make a breaking change to the provider
 
-Let's see what happens if the provider makes a change that would break its contract with the production version of the consumer. The `prod` pact is not in pending mode, as it already has a successful verification result published. This means that a failure for the `prod` pact verification *will* fail the overall verification task.
+Let's see what happens if the provider makes a change that would break its contract with the production version of the consumer. The pact deployed to the `prod` environment is not in pending mode, as it already has a successful verification result published. This means that a failure for the `prod` pact verification *will* fail the overall verification task.
 
 1. Make a change to the provider that would cause the production pact to fail.
     * An easy way to do this is to open up `product/product.js` and change `this.id` to `this.uuid`.
