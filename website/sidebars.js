@@ -65,9 +65,9 @@ module.exports = {
                   label: "OpenAPI Specification",
                   items: [
                     "docs/bi-directional-contract-testing/contracts/oas",
-                    "docs/bi-directional-contract-testing/contracts/oas/keyword-support"
+                    "docs/bi-directional-contract-testing/contracts/oas/keyword-support",
                   ],
-                },                
+                },
               ],
             },
             {
@@ -125,7 +125,7 @@ module.exports = {
               "Set up CI": [
                 "docs/workshops/ci-cd/set-up-ci",
                 "docs/workshops/ci-cd/set-up-ci/prerequisites",
-                "docs/workshops/ci-cd/set-up-ci/fork-and-clone-the-repositories",
+                "docs/workshops/ci-cd/set-up-ci/fork-the-repositories",
                 "docs/workshops/ci-cd/set-up-ci/test-the-builds-in-github-actions",
                 "docs/workshops/ci-cd/set-up-ci/configure-consumer-and-provider-pipelines",
                 "docs/workshops/ci-cd/set-up-ci/configure-webhook",
@@ -160,8 +160,7 @@ module.exports = {
           items: [
             "docs/workshops/bi-directional-contract-testing",
             {
-
-              'Workshop': [
+              Workshop: [
                 "docs/workshops/bi-directional/pre_requisites",
                 "docs/workshops/bi-directional/step1",
                 "docs/workshops/bi-directional/step2",
@@ -178,9 +177,6 @@ module.exports = {
             },
             "docs/workshops/quick_starts/bdc",
           ],
-
-
-
         },
         "docs/workshops/advanced",
         "docs/workshops/tutorials",
@@ -265,7 +261,7 @@ module.exports = {
               label: "Authentication",
               items: [
                 "docs/on-premises/authentication/demo",
-                "docs/on-premises/authentication/saml"
+                "docs/on-premises/authentication/saml",
               ],
             },
             {
