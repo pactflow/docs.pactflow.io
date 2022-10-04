@@ -28,11 +28,9 @@ publish_pacts:
   @"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --auto-detect-version-properties
 ```
 
-In the [src/product/product.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the pacts that belong to the latest consumer versions with the `master` tag (`{ tag: 'master', latest: true }`), and the pacts that belong to the currently deployed versions (`{ deployed: true }` - we'll explain how the broker knows which versions are deployed in the next section).
-
 In the [src/product/product.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the latest pacts that belong to the configured `mainBranch` for each consumer  (`{ mainBranch: true }`), and the pacts that belong to the currently deployed versions (`{ deployed: true }` - we'll explain how the broker knows which versions are deployed in the next section).
 
-You can read more about how to configure the main branch property [here](https://docs.pact.io/pact_broker/branches#pacticipant-main-branch-property), but all you need to know for now, is this allows our provider to support 2 consumers, which each have a different named main branch (such as `master` or `main`).
+You can read more about how to configure the main branch property [here](https://docs.pact.io/pact_broker/branches#pacticipant-main-branch-property), but all you need to know for now, is this allows our provider to support 2 or more consumers, which each have a different named main branch (such as `master` or `main`).
 
 ```js
 
@@ -44,7 +42,7 @@ const fetchPactsDynamicallyOpts = {
 }
 ```
 
-When we publish the verifications, we similarly tag the provider version with the git branch.
+When we publish the verifications, we similarly associate the provider version with the git branch.
 
 ```js
 const baseOpts = {
@@ -125,6 +123,6 @@ It also allows us to use the `can-i-deploy` command (more on this later) to make
 
 :::info
 
-As of October 2022, recording deployments using the `record-deployment` command, and support for the corresponding [consumer version selector](https://docs.pact.io/pact_broker/advanced_topics/consumer_version_selectors#properties) `{ deployed: true }` has been added to the major Pact client libraries. A support matrix can be shown [here](https://docs.pact.io/pact_broker/branches#support). The previous method of recording releases was to use [tags](https://docs.pact.io/pact_broker/tags). If you are not using one of the libraries that currently supports the `{ deployed: true}` selector, you will need to use tags in the meantime as per the documentation in the Tags page.
+As of October 2022, recording deployments using the `record-deployment` command, and support for the corresponding [consumer version selector](https://docs.pact.io/pact_broker/advanced_topics/consumer_version_selectors#properties) `{ deployed: true }` has been added to the major Pact client libraries. A support matrix can be shown [here](https://docs.pact.io/pact_broker/branches#support). The previous method of recording releases was to use [tags](https://docs.pact.io/pact_broker/tags). If you are not using one of the libraries that currently supports the `{ deployed: true }` selector, you will need to use tags in the meantime as per [the documentation](https://docs.pact.io/pact_broker/tags#using-tags) in the Tags page.
 
 :::
