@@ -54,7 +54,7 @@ This event fires every time a provider verification is published.
 
 User defined secrets that have the same team assigned as the webhook may be used in the path of the URL, the headers, body, username and password, and will be replaced with their appropriate values at runtime. For webhooks that have no team assigned, only secrets that also have no team assigned may be used. The list of secrets that are available for use in a particular webhook are shown in the `Dynamic variables` section (click on the heading to display the values).
 
-To use a secret in a webhook, use the expression `${user.<SECRET_NAME>}` eg. ``${user.ciToken}``. 
+To use a secret in a webhook, use the expression `${user.<SECRET_NAME>}` eg. `${user.ciToken}`.
 
 ##### Pactflow
 
@@ -79,3 +79,13 @@ The following variables may be used in the path and query parameters of the URL,
 | `${pactbroker.providerLabels}` | The list of labels for the provider associated with the pact content, separated by ", ". |
 | `${pactbroker.providerVersionDescriptions}`| The descriptions of the provider version(s) for which the contract_requiring_verification_published webhook has been triggered. Only populated for the contract_requiring_verification_published event. |
 | `${pactbroker.eventName}` | The name of the event that triggered the webhook |
+
+#### Basic auth
+
+If your webhook requires basic auth, we recommend using a secret to store the value of the password. Reference the secret value in the password field by entering `${user.<SECRET_NAME>}` where `<SECRET_NAME>` is the name of the secret. eg `${user.myBasicAuthPassword}`.
+
+![Basic auth password referencing secret](/ui/basic-auth-with-secret-password.png)
+
+For security reasons, if you enter a password value directly into the password field (without using a secret), the password value will not be displayed the next time the webhook is viewed. The existing value of the password will be maintained when other fields are updated. To update the password, enter a new value and click the Update button.
+
+If you wish to test the execution of a webhook with a plain text (non secret) password, you will need to enter it into the password field again before pressing the test button.
