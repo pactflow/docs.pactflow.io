@@ -62,6 +62,8 @@ const baseOpts = {
 Tags that represent branches and environments, while still supported, have been superseded by first class support for branches and environments. If you are using a [language that supports branches](https://docs.pact.io/pact_broker/branches#support).
 
 If you are able to use [branches](https://docs.pact.io/pact_broker/branches) as per the above section, then the tags section is no longer relevant.
+
+If you are still using tags, read [this blog post](https://docs.pact.io/blog/2021/07/04/why-we-are-getting-rid-of-tags) to find out why Branches are favoured over tags
 :::
 
 <details>
