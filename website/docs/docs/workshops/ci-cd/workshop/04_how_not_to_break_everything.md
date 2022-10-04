@@ -30,8 +30,13 @@ Let's make our changes on a branch this time.
    1. `git add src/api.pact.spec.js`
    2. `git commit -m 'feat: add color'`
    3. `git push --set-upstream origin feat/new-field`.
-    * The consumer tests will pass, and then the CI build will fail as `can-i-deploy` correctly identifies that this branch is not yet compatible with the API.
-    * The webhook-triggered pact verification build will still fail - that's ok, as it doesn't stop the provider from deploying.
+    * The consumer tests will pass, and then the CI build will fail as `can-i-deploy` correctly identifies that this branch is not yet compatible with the API (there is no verifications against this changed pact content, and therefore the provider must verify it).
+      * Our pact associated with the feature branch `feat/new-field` will be unverified and the consumer cannot deploy this feature branch until the provider implements the feature.
+    * The webhook-triggered pact verification provider build will be triggered
+      * It will verify the changed pact against the latest providers main branch and any deployed (or released) in production
+      * It will fail, that's ok, as it wouldn't stop the provider from deploying as we have enabled the `pendingPacts` feature
+      * Our pact associated with the feature branch `feat/new-field` will be verified as incompatible and the consumer cannot deploy.
+      * If we re-run our can-i-deploy step of the failed consumer build, we will see it will now show a failed verification.
 
 👉 The `can-i-deploy` step acts as a "can I merge?" check when run from a branch. We'll know we're safe to merge this branch into master if/when `can-i-deploy` passes. 👈
 
@@ -42,7 +47,7 @@ Let's make our changes on a branch this time.
   * A `feat/new-field` consumer build that fails at `can-i-deploy`.
 * In Pactflow:
   * A `master` pact with a successful verification result.
-  * A `feat/new-field` pact with no verification results.
+  * A `feat/new-field` pact with a failed verification result
 
 ## Conclusion
 
