@@ -18,4 +18,4 @@ The course is currently best run by a Pactflow instructor, but we provide the ma
 
 | Step | Description | Material | Duration |
 | ---- | ----------- | -------- | -------- |
-| 1    | Advanced contract-testing with Pact | <a href="/resources/pact-workshop-advanced_2020.pdf" target="_blank">pdf</a> \| <a href="/resources/pact-workshop-advanced_2020.pptx" target="_blank">pptx</a> | 1 - 2 hours |
+| 1    | Advanced contract-testing with Pact | <a href="/resources/pact-workshop-advanced_2022.pdf" target="_blank">pdf</a> \| <a href="/resources/pact-workshop-advanced_2020.pptx" target="_blank">pptx</a> | 1 - 2 hours |
