@@ -7,7 +7,7 @@ title: Test the builds in Github Actions
 
 **In Github:**
 
-1. Open your forked `example-consumer-legacy` project (`https://github.com/<your-username>/example-consumer-legacy`)
+1. Open your forked `example-consumer` project (`https://github.com/<your-username>/example-consumer-legacy`)
 1. Click on the `Actions` tab.
 1. Click the button with the text "I understand my workflows, go ahead and enable them"
 1. Under the `Workflows` menu on the left, select `Build`.
