@@ -29,8 +29,6 @@ The recommended setup is [here](https://docs.pact.io/provider/recommended_config
 
 The tests should pass!
 
-Well done, for making it this far, you now has a CI/CD
-
 You now have your local development environment setup, for both the consumer and provider side, and can publish pacts, and verify them.
 
 You are now ready for the advanced workshop where you will get to understand how Pact provides approaches for implementing new features for an integration following a "consumer driven contracts" process, while ensuring continuous delivery is supported.

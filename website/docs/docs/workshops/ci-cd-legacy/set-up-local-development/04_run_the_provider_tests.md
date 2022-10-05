@@ -23,13 +23,11 @@ make test
 
 This runs the test suite for the provider codebase. The pacts for this provider are verified in `product/product.pact.test.js`.
 
-It is configured to fetch the latest pacts for this provider that have been published from consumer(s) main branches, and the pacts for the application versions that are currently deployed via [Consumer Version Selectors](https://docs.pact.io/pact_broker/advanced_topics/consumer_version_selectors).
+It is configured to fetch the latest pacts for this provider that have been tagged by the consumer as 'master', and the pacts for the application versions that are currently deployed via [Consumer Version Selectors](https://docs.pact.io/pact_broker/advanced_topics/consumer_version_selectors).
 
-The recommended setup is [here](https://docs.pact.io/provider/recommended_configuration#consumer-version-selectors) and used in this workshop.
+The recommended setup when using tags is [here](https://docs.pact.io/provider/recommended_configuration#consumer-version-selectors) and used in this legacy workshop, please note this is superseded by branches/environments in the [main ci/cd workshop](https://docs.pactflow.io/docs/workshops/ci-cd)
 
 The tests should pass!
-
-Well done, for making it this far, you now has a CI/CD
 
 You now have your local development environment setup, for both the consumer and provider side, and can publish pacts, and verify them.
 
