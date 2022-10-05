@@ -29,7 +29,7 @@ The Pactflow webhook will need a Github access token to be able to trigger the b
             1. Click on your profile picture in the top right of the window.
             2. Select `Settings` -> Select `Developer settings` from the bottom of the menu on the left -> Select `Personal access tokens` from the menu on the left.
         2. Click `Generate new token`
-        3. Set `Note` to `Token for triggering example-provider pact verification build`
+        3. Set `Note` to `Token for triggering example-provider-legacy pact verification build`
         4. Select `public_repo` scope.
         5. Select an `Expiration` period for your token
         6. Click `Generate token`
@@ -50,14 +50,14 @@ The Pactflow webhook will need a Github access token to be able to trigger the b
         2. Click "ADD WEBHOOK".
         3. Set:
             * Team: None
-            * Description: `Contract requiring verification published webhook for pactflow-example-provider`
+            * Description: `Contract requiring verification published webhook for pactflow-example-provider-legacy`
             * Consumer: leave as "ALL"
-            * Provider: select `pactflow-example-provider`
+            * Provider: select `pactflow-example-provider-legacy`
             * Events: select `Contract published that requires verification`
             * URL:
 
                 ```bash
-                https://api.github.com/repos/<YOUR GITHUB ACCOUNT HERE>/example-provider/dispatches
+                https://api.github.com/repos/<YOUR GITHUB ACCOUNT HERE>/example-provider-legacy/dispatches
                 ```
 
             * Headers:

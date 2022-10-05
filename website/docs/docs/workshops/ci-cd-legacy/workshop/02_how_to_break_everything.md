@@ -24,7 +24,7 @@ Let's add a new field to the expectations we have for the product API. We're goi
 
 1. Open up the the consumer build in Github Actions. It will generate and publish the pact successfully, then fail on the `can-i-deploy` step, as there is no successful verification from the provider.
 
-1. Open up the provider build in Github Actions. The changed pact will have triggered a pact verification build of the provider project. This will have failed, as the new field does not exist in the API. This particular failed build is expected, and not a problem, as the pact verification build is generally separate from the provider's normal pipeline. For a more detailed explanation of this see <https://github.com/pactflow/example-provider#pact-verifications>.
+1. Open up the provider build in Github Actions. The changed pact will have triggered a pact verification build of the provider project. This will have failed, as the new field does not exist in the API. This particular failed build is expected, and not a problem, as the pact verification build is generally separate from the provider's normal pipeline. For a more detailed explanation of this see <https://github.com/pactflow/example-provider-legacy#pact-verifications>.
 
 ## Run the provider build
 

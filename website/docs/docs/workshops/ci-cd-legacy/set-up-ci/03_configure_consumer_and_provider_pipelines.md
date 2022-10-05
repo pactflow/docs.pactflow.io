@@ -30,7 +30,7 @@ The source repositories are configured to use the the public broker at test.pact
       1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens.
       1. Click the Copy button for the read/write CI token (make sure it's the read _write_ one, not the read only one).
    1. In Github:
-      1. Open your forked `example-consumer` project (`https://github.com/<your-username>/example-consumer`)
+      1. Open your forked `example-consumer-legacy` project (`https://github.com/<your-username>/example-consumer-legacy`)
       1. Click on the `Settings` tab.
       1. Select `Secrets` from the side menu.
       1. Click `New repository secret` (the button is to the right of the "Actions secrets" heading)
@@ -38,7 +38,7 @@ The source repositories are configured to use the the public broker at test.pact
       1. Paste in the Pactflow API token value you copied in the previous step.
 1. Configure the Pact Broker base URL.
    1. On your local machine:
-      1. Open the `example-consumer` project in your IDE.
+      1. Open the `example-consumer-legacy` project in your IDE.
       1. Open `.github/workflows/build.yml`
       1. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account. You can easily get this by clicking the `COPY PACTFLOW BASE URL` button on the API Tokens page in Pactflow.
       1. While you're in there, you can delete the `.github/workflows/trigger_partner_docs_update.yml` workflow. It's not used in the execution of workshop, and deleting it will remove some noise from the Github Actions page.
@@ -62,7 +62,7 @@ After you have pushed your changes to the workflow files, the provider pipeline 
 
 ✅ To make both your builds go green, we are going to retry can-i-deploy, now that the consumer is deployed to production.
 
-1. Find the latest failing `example-consumer` workflow in the Github Actions page (`Actions` -> Under `Workflows`, select `Build` -> `failing build`).
+1. Find the latest failing `example-consumer-legacy` workflow in the Github Actions page (`Actions` -> Under `Workflows`, select `Build` -> `failing build`).
 2. In the top right on of the failing job page, select to Re-run the failed jobs (can-i-deploy) (`Actions` -> Under `Re-run jobs`, select `Re-run failed jobs`).
 3. The test run should be pre-passing
 4. The `can-i-deploy` step should now pass - our consumer is safe to deploy, now that our provider published a verification result, and is deployed to production

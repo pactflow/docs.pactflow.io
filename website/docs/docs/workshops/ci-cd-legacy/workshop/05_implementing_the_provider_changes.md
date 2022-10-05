@@ -11,7 +11,7 @@ The next step is to implement the changes that have been requested in the pact.
 
 1. Get the URL of the new pact:
     * Go to your Pactflow account, find the new pact on the consumer branch `feat/new-field` and click "VIEW PACT".
-    * In the top right, click the 3 dots and select `Copy pact URL for pactflow-example-consumer version xyz`.
+    * In the top right, click the 3 dots and select `Copy pact URL for pactflow-example-consumer-legacy version xyz`.
 
 2. Run `PACT_URL=<PACT URL HERE> make test` again. This test should correctly fail with the error `Could not find key "color"` in the output.
     * 👉 This little "verify a custom pact" trick works because of the code in in `src/product/product.pact.test.js` that switches between doing a "fetch pacts for these consumer version selectors" mode and a "verify the pact at the `$PACT_URL`" mode, based on whether or not the `$PACT_URL` is set. The `$PACT_URL` code path is normally used when the build is triggered by a "contract requiring verification published" webhook, and allows us to verify just the changed pact against the providers main branch and any deployed (or released) versions.

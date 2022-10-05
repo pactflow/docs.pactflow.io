@@ -11,7 +11,7 @@ Branches in the Pact Broker are designed to model repository (git, svn etc) bran
 
 Branches are used to make sure we are verifying the right pacts, and to facilitate this, the version number used to publish pacts and verification results should either [be or contain the commit](https://docs.pact.io/getting_started/versioning_in_the_pact_broker#guidelines), alongside setting the Branch property on upload.
 
-In the [Makefile](https://github.com/pactflow/example-consumer/blob/master/Makefile) file in the consumer project, we associate the consumer app version with the name of the branch when we publish the pacts.
+In the [Makefile](https://github.com/pactflow/example-consumer-legacy/blob/master/Makefile) file in the consumer project, we associate the consumer app version with the name of the branch when we publish the pacts.
 
 ```bash
 publish_pacts:
@@ -28,7 +28,7 @@ publish_pacts:
   @"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --auto-detect-version-properties
 ```
 
-In the [src/product/product.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the latest pacts that belong to the configured `mainBranch` for each consumer  (`{ mainBranch: true }`), and the pacts that belong to the currently deployed versions (`{ deployed: true }` - we'll explain how the broker knows which versions are deployed in the next section).
+In the [src/product/product.pact.test.js](https://github.com/pactflow/example-provider-legacy/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the latest pacts that belong to the configured `mainBranch` for each consumer  (`{ mainBranch: true }`), and the pacts that belong to the currently deployed versions (`{ deployed: true }` - we'll explain how the broker knows which versions are deployed in the next section).
 
 You can read more about how to configure the main branch property [here](https://docs.pact.io/pact_broker/branches#pacticipant-main-branch-property), but all you need to know for now, is this allows our provider to support 2 or more consumers, which each have a different named main branch (such as `master` or `main`).
 
@@ -36,7 +36,7 @@ You can read more about how to configure the main branch property [here](https:/
 
 const fetchPactsDynamicallyOpts = {
   ...,
-  provider: "pactflow-example-provider",
+  provider: "pactflow-example-provider-legacy",
   consumerVersionSelectors: [{ mainBranch: true }, { deployed: true }],
   ...
 }
