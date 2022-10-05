@@ -54,7 +54,7 @@ This build should now successfully publish the pact, but it will fail on the `ca
 
 🔁 Repeat the above instructions to configure the Pactflow account for your provider project.
 
-⚠️ There are _THREE_ workflow files to be updated in the provider project - `.github/workflows/build.yml`, `.github/workflows/contract_requiring_verification_published.yml` and `.github/workflows/verify_changed_pact.yml`.
+⚠️ There are _TWO_ workflow files to be updated in the provider project - `.github/workflows/build.yml`, `.github/workflows/contract_requiring_verification_published.yml`.
 
 After you have pushed your changes to the workflow files, the provider pipeline will run, fetching and verifying the configured pacts from your Pactflow account, and publishing the results back. The `can-i-deploy` command will pass, and allow the provider to be deployed. ✅
 

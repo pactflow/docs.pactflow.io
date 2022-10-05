@@ -25,9 +25,9 @@ All of the major Pact client libraries have support, and a full support matrix c
 
 If you are not using one of the libraries that currently supported, you can follow previous method of recording releases usings tags via our [ci/cd legacy workshop](https://docs.pactflow.io/docs/workshops/ci-cd-legacy).
 
-We would recommend running this workshop regardless, and it will showcase advanced features of Pact.
+We would recommend running this workshop regardless, as it will showcase advanced features of Pact.
 
-If you are still using `tags` and need more of a reason to switch, than this workshop
+If you are still using `tags` and need more of a reason to switch, have a read of these posts
 
 * <https://docs.pact.io/blog/2021/10/11/contract-requiring-verification-published-webhook-event>
 * <https://docs.pact.io/blog/2021/07/04/why-we-are-getting-rid-of-tags>

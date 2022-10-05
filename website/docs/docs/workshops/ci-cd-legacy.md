@@ -14,7 +14,7 @@ It uses the Pactflow [example-consumer-legacy][example-consumer-legacy] and [exa
 * To understand the workflows involved in making changes to both consumer and provider.
 * To understand how Pact + Pactflow stop breaking changes from being deployed to a given environment.
 
-[example-consumer-legacy]: https://github.com/pactflow/example-consumer-legacy 
+[example-consumer-legacy]: https://github.com/pactflow/example-consumer-legacy
 [example-provider-legacy]: https://github.com/pactflow/example-provider-legacy
 
 :::info
@@ -25,9 +25,9 @@ The [recommended workflow](https://docs.pactflow.io/docs/workshops/ci-cd) uses [
 
 All of the major Pact client libraries have support, and a full support matrix can be shown [here](https://docs.pact.io/pact_broker/branches#support).
 
-If you are not using one of the libraries that currently supported, we would recommend running through the [new workshop](https://docs.pactflow.io/docs/workshops/ci-cd) regardless, and it will showcase advanced features of Pact.
+If you are not using one of the libraries that currently supported, we would recommend running through the [new workshop](https://docs.pactflow.io/docs/workshops/ci-cd) regardless, as it will showcase advanced features of Pact.
 
-If you are still using `tags` and need more of a reason to switch
+If you are still using `tags` and need more of a reason to switch, have a read of these posts
 
 * <https://docs.pact.io/blog/2021/10/11/contract-requiring-verification-published-webhook-event>
 * <https://docs.pact.io/blog/2021/07/04/why-we-are-getting-rid-of-tags>
