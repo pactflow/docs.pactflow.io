@@ -11,8 +11,6 @@ Once a pact has a successful verification result published, it is now considered
 
 Something important to note about the pending calculation is that *it is based on the branch for the provider version*. For example, once a pact has a successful verification from a provider version with branch `master`, it will cease to be pending for subsequent `master` versions, but would still be pending for a `feat/x` branch of the provider (until the first successful `feat/x` verification was published, etc.)
 
-*Note: The tag calculation works in the same way, but pacts must be tagged on publish, and applied during provider verification builds. Using Branches is recommended.*
-
 For further reading: <https://docs.pact.io/pending>
 
 ## Enable 'pending pacts' for the provider

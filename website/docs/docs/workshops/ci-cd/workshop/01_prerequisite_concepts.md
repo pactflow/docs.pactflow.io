@@ -53,56 +53,6 @@ const baseOpts = {
 }
 ```
 
-## Tags
-
-:::info
-
-Tags that represent branches and environments, while still supported, have been superseded by first class support for branches and environments. If you are using a [language that supports branches](https://docs.pact.io/pact_broker/branches#support).
-
-If you are able to use [branches](https://docs.pact.io/pact_broker/branches) as per the above section, then the tags section is no longer relevant.
-
-If you are still using tags, read [this blog post](https://docs.pact.io/blog/2021/07/04/why-we-are-getting-rid-of-tags) to find out why Branches are favoured over tags
-:::
-
-<details>
-  <summary>Expand to see information about tags - not relevant if using branches</summary>
-
-Tags are simple String values that that belong to "pacticipant" version (that is, application version) resources in the Pact Broker. They are used to provide metadata about a version - the most common use case being to indicate the git branch of a version (eg. `master`).
-
-Tags are used to make sure we are verifying the right pacts.
-
-In the [Makefile](https://github.com/pactflow/example-consumer/blob/master/Makefile) file in the consumer project, we tag the consumer version with the name of the branch when we publish the pacts.
-
-```bash
-publish_pacts:
-  @"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --tag ${GIT_BRANCH}
-```
-
-In the [src/product/product.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the pacts that belong to the latest consumer versions with the `master` tag (`{ tag: 'master', latest: true }`), and the pacts that belong to the currently deployed versions (`{ deployed: true }` - we'll explain how the broker knows which versions are deployed in the next section).
-
-```js
-
-const fetchPactsDynamicallyOpts = {
-  ...,
-  provider: "pactflow-example-provider",
-  consumerVersionSelectors: [{ tag: 'master', latest: true }, { deployed: true }],
-  ...
-}
-```
-
-When we publish the verifications, we similarly tag the provider version with the git branch.
-
-```js
-const baseOpts = {
-  ...,
-  providerVersion: process.env.GIT_COMMIT,
-  providerVersionTags: [process.env.GIT_BRANCH],
-  ...
-}
-```
-
-</details>
-
 ## Recording deployments
 
 To allow Pact to ensure your APIs are always backwards compatible with the consumer versions that are in production, the Pact Broker needs to know which application versions are actually in production. To do this, we use the [`record-deployment`](https://docs.pact.io/pact_broker/recording_deployments_and_releases/) command that comes with the Pact Broker CLI. You will see this in the Makefile of each project.
@@ -120,9 +70,3 @@ For mobile applications and code libraries that are "released" to an app store/r
 Recording the deployment allows us to use the consumer version selector `{ deployed: true }` in `src/product/product.pact.test.js`, to make sure we are verifying the pacts for all the currently deployed versions.
 
 It also allows us to use the `can-i-deploy` command (more on this later) to make sure we're safe to deploy to an environment.
-
-:::info
-
-As of October 2022, recording deployments using the `record-deployment` command, and support for the corresponding [consumer version selector](https://docs.pact.io/pact_broker/advanced_topics/consumer_version_selectors#properties) `{ deployed: true }` has been added to the major Pact client libraries. A support matrix can be shown [here](https://docs.pact.io/pact_broker/branches#support). The previous method of recording releases was to use [tags](https://docs.pact.io/pact_broker/tags). If you are not using one of the libraries that currently supports the `{ deployed: true }` selector, you will need to use tags in the meantime as per [the documentation](https://docs.pact.io/pact_broker/tags#using-tags) in the Tags page.
-
-:::
