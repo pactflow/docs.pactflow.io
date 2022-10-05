@@ -1,6 +1,6 @@
 ---
-id: ci-cd
-title: Consumer-Driven Contract Testing CI/CD Legacy Workshop
+id: ci-cd-legacy
+title: Consumer-Driven Contract Testing CI/CD Workshop
 sidebar_label: Introduction
 ---
 
