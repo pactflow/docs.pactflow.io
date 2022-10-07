@@ -28,11 +28,11 @@ Locate the latest pact with the desired tag in the Overview page, click on the b
 
 ## Delete all pacts for a consumer/provider
 
-On the Overview page, click on the vertical `...` icon in the top right of the Overview pane. Select `Delete all pacts`. This will delete all versions of the pact. It will keep the consumer and provider, and all other data related to them (webhooks, application versions, and tags).
+On the Overview page, click on the vertical `...` icon in the top right of the Overview pane. Select `Delete all pacts`. This will delete all versions of the pact. It will keep the consumer and provider, and all other data related to them (webhooks, application versions, branches, and tags).
 
 ## Delete all pacts and associated objects for a consumer/provider
 
-On the Overview page, click on the vertical `...` icon in the top right of the Overview pane. Select `Delete integration`. This will delete all data associated with this integration (applications, pacts, verifications, application versions, tags and webhooks) that are not associated with other integrations.
+On the Overview page, click on the vertical `...` icon in the top right of the Overview pane. Select `Delete integration`. This will delete all data associated with this integration (applications, pacts, verifications, application versions, branches, tags and webhooks) that are not associated with other integrations.
 
 ## Delete verification results
 
