@@ -14,7 +14,7 @@ The Pactflow webhook will need a Github access token to be able to trigger the b
 
 1. Create a Github token.
     1. In Github:
-        1. Open the `Personal acesss tokens page`
+        1. Open the `Personal access tokens page`
             1. Click on your profile picture in the top right of the window.
             1. Select `Settings` -> Select `Developer settings` from the bottom of the menu on the left -> Select `Personal access tokens` from the menu on the left.
         1. Click `Generate new token`
