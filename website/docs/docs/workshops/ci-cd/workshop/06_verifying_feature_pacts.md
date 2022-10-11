@@ -27,7 +27,7 @@ When a new "feature" pact is created, there are a few ways you could bring that 
     ]
     ```
 
-3. Enable "work in progress" pacts.
+3. Enable "work in progress" pacts - which is the recommended and option we will be proceeding with
 
 ## Work In Progress Pacts
 
@@ -43,28 +43,37 @@ The verification task can be configured to automatically include work in progres
 
 The reason for this is that if support for a new feature pact is added on a `feat/x` branch of the provider, you still want to keep getting the failed verification results from `master` until the `feat/x` branch is merged.
 
-## Enable Work In Progress Pacts for the provider
+## Commit our changes for the provider
 
-1. In the provider project, open `src/product/product.pact.test.js` and in the options for the dynamically fetched pacts, set `includeWipPactsSince: "2020-01-01"`
+1. Run `make test` and you will see that the `feat/new-field` pact has been included in the verifications, running in pending mode.
+    * We use the `GIT_BRANCH` when running locally so that the WIP calculations know which pending pacts to include.
 
-1. Run `GIT_BRANCH=master make test` and you will see that the `feat/new-field` pact has been included in the verifications, running in pending mode.
-    * We need to set the `GIT_BRANCH` when running locally so that the WIP calculations know which pending pacts to include.
+1. Commit and push your changes from the previous step, where we implemented our consumers requested changes in the provider codebase
+   1. `git add . && git commit -m 'feat: implementing color' && git push`
 
-1. Commit and push
-   1. `git add src/product/product.pact.test.js && git commit -m 'feat: enabling WIP pacts' && git push`
-
-2. Open the provider build in Github Actions and wait for the successful verification result for `feat/new-field` to be be published.
+1. Open the provider build in Github Actions and wait for the successful verification result for `feat/new-field` pact to be be published.
 
     * 👉 Note that the provider has now successfully deployed this change to production, so the consumer is now free to release their code.
 
-3. On your local machine, run `GIT_BRANCH=master make test` - you will now see that the `feat/new-field` pact is not included, as it is no longer a work in progress pact.
+2. On your local machine, run `make test` - you will now see that the `feat/new-field` pact is not included, as it is no longer a work in progress pact.
 
 ## Expected state by the end of this step
 
-* A `feat/new-field` pact in Pactflow that has successful verification results from a version of the provider's main branch `master` and any deployed (or released versions) in our case `prod`.
+* A provider that implements the features required by the `feat/new-field` pact on its `master` branch.
+* A passing provider build in Github Actions.
+* The new version of the provider is "deployed" to production.
+* A `feat/new-field` pact in Pactflow that has successful verification results from a version of the provider's main branch `master` and any deployed (or released versions) in our case `prod` environment.
 
 ## Conclusion
 
 Enabling 'work in progress' pacts allows the consumer to get feedback on a changed pact without the provider having to make configuration changes on their end.
 
 If the verification for the changed pact passes without the provider having to make any changes to the code, then the consumer is free to release their feature, without making the provider a bottleneck.
+
+:::info
+
+Using Work In Progress Pacts, is the most efficient way for consumer and providers to release changes independently and ensure all new pacts brought into the system (published with a valid branch) are verified without additional need to add new consumer version selectors.
+
+Combined with enabling Pending pacts, the provider teams are not blocked, when new consumer expectations are created.
+
+:::
