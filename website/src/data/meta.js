@@ -105,24 +105,6 @@ const languages = {
 };
 
 const testing_tools = {
-  postman: {
-    iconTitle: 'Postman',
-    iconLocation: 'https://cdn.worldvectorlogo.com/logos/postman.svg',
-    iconLink: '/docs/examples/bi-directional/provider/postman/',
-    contentUrl: '',
-    content: '',
-    iconType: 'svg',
-    side: 'provider'
-  },
-  restassured: {
-    iconTitle: 'REST-assured',
-    iconLocation: 'https://rest-assured.io/img/logo-transparent.png',
-    iconLink: '/docs/examples/bi-directional/provider/restassured/',
-    contentUrl: '',
-    content: '',
-    iconType: 'png',
-    side: 'provider'
-  },
   readyapi: {
     iconTitle: 'ReadyAPI',
     iconLocation:
@@ -138,6 +120,24 @@ const testing_tools = {
     iconLocation:
       'https://www.soapui.org/smartbearbrand/media/images/home/soapui-icon.svg',
     iconLink: '/docs/examples/bi-directional/provider/soapui/',
+    contentUrl: '',
+    content: '',
+    iconType: 'png',
+    side: 'provider'
+  },
+  postman: {
+    iconTitle: 'Postman',
+    iconLocation: 'https://cdn.worldvectorlogo.com/logos/postman.svg',
+    iconLink: '/docs/examples/bi-directional/provider/postman/',
+    contentUrl: '',
+    content: '',
+    iconType: 'svg',
+    side: 'provider'
+  },
+  restassured: {
+    iconTitle: 'REST-assured',
+    iconLocation: 'https://rest-assured.io/img/logo-transparent.png',
+    iconLink: '/docs/examples/bi-directional/provider/restassured/',
     contentUrl: '',
     content: '',
     iconType: 'png',
