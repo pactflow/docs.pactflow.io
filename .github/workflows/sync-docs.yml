@@ -32,6 +32,8 @@ on:
       - pactflow-example-bi-directional-provider-dredd-updated
       - pactflow-example-bi-directional-provider-postman-updated
       - pactflow-example-bi-directional-provider-restassured-updated
+      - pactflow-example-bi-directional-provider-readyapi-updated
+      - pactflow-example-bi-directional-provider-soapui-updated
       - pactflow-example-bi-directional-provider-dotnet-updated
 
 jobs:
@@ -133,6 +135,14 @@ jobs:
         run: bundle exec scripts/sync/example_provider_bidirectional_restassured.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_restassured docs"' >> $GITHUB_ENV
         if: github.event.action == 'pactflow-example-bi-directional-provider-restassured-updated'
 
+      - name: Sync example_provider_bidirectional_readyapi docs
+        run: bundle exec scripts/sync/example_provider_bidirectional_readyapi.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_readyapi docs"' >> $GITHUB_ENV
+        if: github.event.action == 'pactflow-example-bi-directional-provider-readyapi-updated'
+
+      - name: Sync example_provider_bidirectional_soapui docs
+        run: bundle exec scripts/sync/example_provider_bidirectional_soapui.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_soapui docs"' >> $GITHUB_ENV
+        if: github.event.action == 'pactflow-example-bi-directional-provider-soapui-updated'
+
       - name: Sync example_consumer_bidirectional_wiremock docs
         run: bundle exec scripts/sync/example_consumer_bidirectional_wiremock.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_wiremock docs"' >> $GITHUB_ENV
         if: github.event.action == 'pactflow-example-bi-directional-consumer-wiremock-updated'
@@ -164,9 +174,9 @@ jobs:
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v4
         with:
-          add: "website"
+          add: 'website'
           author_name: Github Action
           author_email: docs@pact.io
-          message: "chore: ${{ env.COMMIT_MESSAGE }}"
+          message: 'chore: ${{ env.COMMIT_MESSAGE }}'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
