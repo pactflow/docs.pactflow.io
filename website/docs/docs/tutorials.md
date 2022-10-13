@@ -15,7 +15,7 @@ _NOTE: To complete the workshop, you will need to authenticate to Killercoda (th
 
 To complete these tutorials, you must have:
 
-- a Pactflow account (register for a free account at https://pactflow.io/try-for-free)
+- a Pactflow account (register for a free account at <https://pactflow.io/try-for-free>)
 - a [read/write API Token](https://docs.pactflow.io/docs/getting-started/#configuring-your-api-token) from your Pactflow account
 - a basic understanding of APIs, unit testing and how to operate a linux terminal
 
@@ -41,8 +41,8 @@ You will:
 
 | Language | Link                                                                   |
 | -------- | ---------------------------------------------------------------------- |
-| Node JS  | https://killercoda.com/pactflow/scenario/pactflow-getting-started-js   |
-| Java     | https://killercoda.com/pactflow/scenario/pactflow-getting-started-java |
+| Node JS  | <https://killercoda.com/pactflow/scenario/pactflow-getting-started-js>   |
+| Java     | <https://killercoda.com/pactflow/scenario/pactflow-getting-started-java> |
 
 ## Gating deployments with Pactflow
 
@@ -63,7 +63,7 @@ You will:
 
 ### Tutorial
 
-You can complete the course at https://killercoda.com/pactflow/scenario/pactflow-can-i-deploy-js.
+You can complete the course at <https://killercoda.com/pactflow/scenario/pactflow-can-i-deploy-js>.
 
 ## Bi-Directional Contract Testing
 
@@ -76,7 +76,7 @@ Learn how to implement a Bi-Directional Contract Testing workflow from end-to-en
 You will learn how:
 
 1. To use OpenAPI as part of a contract testing strategy
-1. API testing tools such as Dredd or Postman can be used with Pactflow
+1. API testing tools such as ReadyAPI/SoapUI/Dredd or Postman can be used with Pactflow
 1. To publish contracts (such as a pact file or an OpenAPI document) to Pactflow
 1. To prevent deploying breaking changes to an environment, such as production
 1. To use existing mocking tools (such as Mountebank or Wiremock) to create a consumer contract
@@ -104,4 +104,4 @@ You will:
 
 ### Tutorial
 
-You can complete the course at https://killercoda.com/pactflow/scenario/pactflow-bi-directional-contracts-intro.
+You can complete the course at <https://killercoda.com/pactflow/scenario/pactflow-bi-directional-contracts-intro>.

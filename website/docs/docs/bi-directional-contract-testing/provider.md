@@ -9,7 +9,7 @@ sidebar_label: Provider
 - Garbage in, Garbage out - Pactflow trusts any provider contract that is provided. This is true, whether or not it has actually been tested.
 - When using the BYO functional API testing strategy, you must take responsibility for ensuring your API is compatible with (and ideally, implements) any specification.
 - Code based approaches are generally preferred because they are less likely to drift from implementation. For example, using tools that generate OAS definitions from code/types are more likely to be reliable
-- When supported, test based approaches such as postman collections, may also be more reliable, as they have embedded testing information in them. Pactflow will be able to only compare responses that have been tested and therefore are reliable.
+- When supported, test based approaches such as ReadyAPI Functional test suites/postman collections, may also be more reliable, as they have embedded testing information in them. Pactflow will be able to only compare responses that have been tested and therefore are reliable.
 
 ## Writing Provider Contracts
 
@@ -28,7 +28,7 @@ For example, there are tools that can convert Postman collections or RAML docume
 
 ### Step 2: Choose an API testing tool
 
-There are many tools out. You may want to choose a black-box style functional API testing tool like Dredd or Postman, or white-box style tools such as RestAssured or Supertest.
+There are many tools out. You may want to choose a black-box style functional API testing tool like ReadyAPI/SoapUI/Dredd or Postman, or white-box style tools such as RestAssured or Supertest.
 
 The key consideration is that you also ensure your API is compatible with an OAS.
 
@@ -86,7 +86,7 @@ The standard [principles](https://docs.pact.io/pact_nirvana) are still relevent.
 
 ### Other examples of how to do this form of testing
 
-- https://hazelcast.com/blog/contract-first-development-using-restassured-and-openapi/
-- https://www.openapi4j.org/operation-validator-adapters/spring.html
-- https://springframework.guru/should-i-use-spring-rest-docs-or-openapi/
-- https://github.com/OpenAPITools/openapi-generator (generate rest assured tests from spec)
+- <https://hazelcast.com/blog/contract-first-development-using-restassured-and-openapi/>
+- <https://www.openapi4j.org/operation-validator-adapters/spring.html>
+- <https://springframework.guru/should-i-use-spring-rest-docs-or-openapi/>
+- <https://github.com/OpenAPITools/openapi-generator> (generate rest assured tests from spec)
