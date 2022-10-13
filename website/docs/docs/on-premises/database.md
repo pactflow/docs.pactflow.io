@@ -1,6 +1,6 @@
 ---
 title: Database
----cd web   
+---
 
 A PostgreSQL database is required for storage of the application data.
 
