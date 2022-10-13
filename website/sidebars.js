@@ -156,6 +156,11 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'Design First With SwaggerHub',
+          items: ['docs/workshops/quick_starts/design_first']
+        },
+        {
+          type: 'category',
           label: 'Bi-Directional Contract Testing',
           items: [
             'docs/workshops/bi-directional-contract-testing',
