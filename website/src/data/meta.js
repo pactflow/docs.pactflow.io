@@ -221,6 +221,8 @@ const testing_tools = {
 };
 
 const testing_tools_providers = [
+  'readyapi',
+  'soapui',
   'dredd',
   'restassured',
   'postman',
