@@ -1,5 +1,5 @@
 ---
-slug: 2022-10-20-on-premises-1.21.0
+slug: 2022-10-21-on-premises-1.21.0
 title: On-premises release v1.21.0
 tags: [on-premises, release]
 ---
