@@ -216,6 +216,7 @@ module.exports = {
           ]
         },
         {
+          type: 'category',
           label: 'Advanced Pact',
           items: ['docs/workshops/advanced', 'docs/workshops/org_scale']
         },

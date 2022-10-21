@@ -19,7 +19,7 @@ It uses the Pactflow [example-consumer-legacy][example-consumer-legacy] and [exa
 
 :::info
 
-This workshop uses the outdated method of recording releases usings [tags](https://docs.pact.io/pact_broker/tags#using-tags).
+This workshop uses the outdated method of publishing and verifying pacts with pseudo branches known as [tags](https://docs.pact.io/pact_broker/tags#using-tags).
 
 The [recommended workflow](https://docs.pactflow.io/docs/workshops/ci-cd) uses [`branches`](https://docs.pact.io/pact_broker/branches) & [`record-deployment`](https://docs.pact.io/pact_broker/recording_deployments_and_releases) first-class features of Pact/Pactflow and uses features not available with [tags](https://docs.pact.io/pact_broker/tags#using-tags) .
 
