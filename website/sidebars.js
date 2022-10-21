@@ -215,7 +215,10 @@ module.exports = {
             'docs/workshops/quick_starts/bdc'
           ]
         },
-        'docs/workshops/advanced',
+        {
+          label: 'Advanced Pact',
+          items: ['docs/workshops/advanced', 'docs/workshops/org_scale']
+        },
         'docs/workshops/tutorials'
       ]
     }
@@ -268,6 +271,8 @@ module.exports = {
             'docs/examples/bi-directional/consumer/mountebank/readme',
             'docs/examples/bi-directional/consumer/msw/readme',
             'docs/examples/bi-directional/consumer/dotnet/readme',
+            'docs/examples/bi-directional/provider/readyapi/readme',
+            'docs/examples/bi-directional/provider/soapui/readme',
             'docs/examples/bi-directional/provider/dredd/readme',
             'docs/examples/bi-directional/provider/postman/readme',
             'docs/examples/bi-directional/provider/restassured/readme',
