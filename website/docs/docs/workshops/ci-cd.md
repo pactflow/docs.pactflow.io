@@ -23,7 +23,7 @@ This workflow uses the [`branches`](https://docs.pact.io/pact_broker/branches) &
 
 All of the major Pact client libraries have support, and a full support matrix can be shown [here](https://docs.pact.io/pact_broker/branches#support).
 
-If you are not using one of the libraries that currently supported, you can follow previous method of publishing and verifying pacts usings tags via our [ci/cd legacy workshop](https://docs.pactflow.io/docs/workshops/ci-cd-legacy).
+If you are not using one of the libraries that currently supported, you can follow previous method of publishing and verifying pacts using tags via our [ci/cd legacy workshop](https://docs.pactflow.io/docs/workshops/ci-cd-legacy).
 
 We would recommend running this workshop regardless, as it will showcase advanced features of Pact.
 
