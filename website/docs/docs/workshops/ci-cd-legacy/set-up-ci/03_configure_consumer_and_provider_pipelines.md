@@ -30,7 +30,7 @@ The source repositories are configured to use the the public broker at test.pact
       1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens.
       1. Click the Copy button for the read/write CI token (make sure it's the read _write_ one, not the read only one).
    1. In Github:
-      1. Open your forked `example-consumer` project (`https://github.com/<your-username>/example-consumer`)
+      1. Open your forked `example-consumer-legacy` project (`https://github.com/<your-username>/example-consumer-legacy`)
       1. Click on the `Settings` tab.
       1. Select `Secrets` from the side menu.
       1. Click `New repository secret` (the button is to the right of the "Actions secrets" heading)
@@ -41,7 +41,7 @@ The source repositories are configured to use the the public broker at test.pact
        1. Go to Settings > API Tokens.
        2. Click the `COPY PACTFLOW BASE URL` button
    2. In Github:
-       1. Open your forked `example-consumer` project (`https://github.com/<your-username>/example-consumer`)
+       1. Open your forked `example-consumer-legacy` project (`https://github.com/<your-username>/example-consumer-legacy`)
           1. Open `.github/workflows/build.yml`
           2. In the upper right corner of the file view, click 🖊️ to open the file editor.
           3. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account. You can easily get this by clicking the COPY PACTFLOW BASE URL button on the API Tokens page in Pactflow.
@@ -60,7 +60,7 @@ This is because the provider has not published a successful verification result 
 
 🔁 Repeat the above instructions to configure the Pactflow account for your provider project.
 
-⚠️ There are _TWO_ workflow files to be updated in the provider project - `.github/workflows/build.yml`, `.github/workflows/contract_requiring_verification_published.yml`.
+⚠️ There are _TWO_ workflow files to be updated in the provider project - `.github/workflows/build.yml` and `.github/workflows/verify_changed_pact.yml`.
 
 After you have pushed your changes to the workflow files, the provider pipeline will run, fetching and verifying the configured pacts from your Pactflow account, and publishing the results back. The `can-i-deploy` command will pass, and allow the provider to be deployed. ✅
 
@@ -68,7 +68,7 @@ After you have pushed your changes to the workflow files, the provider pipeline 
 
 ✅ To make both your builds go green, we are going to retry can-i-deploy, now that the consumer is deployed to production.
 
-1. Find the latest failing `example-consumer` workflow in the Github Actions page (`Actions` -> Under `Workflows`, select `Build` -> `failing build`).
+1. Find the latest failing `example-consumer-legacy` workflow in the Github Actions page (`Actions` -> Under `Workflows`, select `Build` -> `failing build`).
 2. In the top right on of the failing job page, select to Re-run the failed jobs (can-i-deploy) (`Actions` -> Under `Re-run jobs`, select `Re-run failed jobs`).
 3. The test run should be pre-passing
 4. The `can-i-deploy` step should now pass - our consumer is safe to deploy, now that our provider published a verification result, and is deployed to production

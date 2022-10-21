@@ -7,7 +7,7 @@ We have demonstrated how the CI/CD pipelines of the consumer and provider work w
 
 Principles to remember:
 
-* Associate application versions with the name of the git branch as per the [Branches](https://docs.pact.io/pact_broker/branches) documentation
+* [Tag](https://docs.pact.io/pact_broker/tags) application versions with the name of the git branch and ideally associate application versions with the name of the git branch as per the [Branches](https://docs.pact.io/pact_broker/branches) documentation
 * [Record the deployment](https://docs.pact.io/pact_broker/recording_deployments_and_releases/) in Pactflow after a successful deployment.
 * [Configure the provider](https://docs.pact.io/provider/recommended_configuration#verification-triggered-by-provider-change) to verify the latest pact for the main branch of development, and the currently deployed (or released) versions.
 * Enable ["pending pacts"](https://docs.pact.io/pending) in the provider to ensure that changed pacts don't break provider builds unncessarily.

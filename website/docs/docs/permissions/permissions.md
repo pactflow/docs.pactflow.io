@@ -22,7 +22,7 @@ Bulk delete pacts (see above) where consumer was created by the logged in user.
 
 ## contract_data:manage:*
 
-Create, update, and delete any contract related data. This includes applications, application labels, application versions, tags, pacts, and verification results. It allows the user to delete a single pact, however it does not allow the user to perform bulk deletions (see [contract_data:bulk_delete:\*](#contract_data-bulk_delete)).
+Create, update, and delete any contract related data. This includes applications, application labels, application versions, branches, tags, pacts, and verification results. It allows the user to delete a single pact, however it does not allow the user to perform bulk deletions (see [contract_data:bulk_delete:\*](#contract_data-bulk_delete)).
 
 ## contract_data:manage:team
 
@@ -38,7 +38,7 @@ Create, update, and delete contract related data for applications that where cre
 
 ## contract_data:read:*
 
-View any contract related data. This includes applications, application labels, application versions, tags, pacts, and verification results.
+View any contract related data. This includes applications, application labels, application versions, branches, tags, pacts, and verification results.
 
 ## deployment_and_release:record:*
 

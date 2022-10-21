@@ -3,7 +3,7 @@ id: how-not-to-break-everything
 title: How not to break everything
 ---
 
-When we made first made the change to the pact on the master branch of the consumer, we ended up with broken consumer build, stopping them from being released, and without pending pacts, the provider would have been blocked. In the previous step, we learned how to configure the provider so that it could still continue to be released, even if it was not able to successfully verify the new pact.
+When we made first made the change to the pact on the master branch of the consumer, we ended up with broken consumer and provider builds, stopping them both from releasing. In the previous step, we learned how to configure the provider so that it could still continue to be released, even if it was not able to successfully verify the new pact.
 
 The consumer is still unable to make a release from its master however, as the `can-i-deploy` step correctly identifies that the verification for the `master` pact has failed. This is a correct report on the state of this integration - the API does not yet implement the features we require to deploy.
 
@@ -29,7 +29,7 @@ Let's make our changes on a branch this time.
 1. Commit & Push your changes by running
    1. `git add src/api.pact.spec.js`
    2. `git commit -m 'feat: add color'`
-   3. `git push --set-upstream origin feat/new-field`
+   3. `git push --set-upstream origin feat/new-field`.
     * The consumer tests will pass, and then the CI build will fail as `can-i-deploy` correctly identifies that this branch is not yet compatible with the API (there is no verifications against this changed pact content, and therefore the provider must verify it).
       * Our pact associated with the feature branch `feat/new-field` will be unverified and the consumer cannot deploy this feature branch until the provider implements the feature.
     * The webhook-triggered pact verification provider build will be triggered

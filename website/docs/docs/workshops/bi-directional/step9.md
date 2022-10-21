@@ -66,20 +66,23 @@ The source repositories are configured to use the the public broker at test.pact
       1. Click `New repository secret` (the button is to the right of the "Actions secrets" heading)
       1. Set the name of the secret to `PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP`
       1. Paste in the Pactflow API token value you copied in the previous step.
-1. Configure the Pact Broker base URL.
-   1. On your local machine:
-      1. Open the `example-bi-directional-consumer-<tool>` project in your IDE.
-      1. Open `.github/workflows/build.yml`
-      1. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account. You can easily get this by clicking the `COPY PACTFLOW BASE URL` button on the API Tokens page in Pactflow.
-      1. While you're in there, you can delete the `.github/workflows/trigger_partner_docs_update.yml` workflow. It's not used in the execution of workshop, and deleting it will remove some noise from the Github Actions page.
-      1. Commit and push your changes.
-1. View the build:
+2. Update your workflow files in GitHub to point at your Pactflow Broker
+   1. In Pactflow:
+       1. Go to Settings > API Tokens.
+       2. Click the `COPY PACTFLOW BASE URL` button
+   2. In Github:
+       1. Open your forked `example-bi-directional-consumer-<tool>` project (`https://github.com/<your-username>/example-bi-directional-consumer-<tool>`)
+          1. Open `.github/workflows/build.yml`
+          2. In the upper right corner of the file view, click 🖊️ to open the file editor.
+          3. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account. You can easily get this by clicking the COPY PACTFLOW BASE URL button on the API Tokens page in Pactflow.
+          4. Press the green `Commit changes` button
+3. View the build:
    1. In Github:
-      1. Go to the `Actions` tab, and select the `Build` workflow.
-      1. Select the most recent build.
+      1. Select the most recent build, this will have been triggered when you committed the changes in the last page
 
+:::info
 This build should now successfully publish the pact, and it will pass on the `can-i-deploy` step before it tries to deploy. This is because the provider and consumer has been checked to ensure they are cross-compatible.
-
+:::
 
 ### Expected state by the end of this step
 
