@@ -28,6 +28,7 @@ on:
       - pactflow-example-bi-directional-consumer-cypress-updated
       - pactflow-example-bi-directional-consumer-mountebank-updated
       - pactflow-example-bi-directional-consumer-msw-js-updated
+      - pactflow-example-bi-directional-consumer-playwright-js-updated
       - pactflow-example-bi-directional-consumer-dotnet-updated
       - pactflow-example-bi-directional-provider-dredd-updated
       - pactflow-example-bi-directional-provider-postman-updated
@@ -170,6 +171,10 @@ jobs:
       - name: Sync example_consumer_bidirectional_nock docs
         run: bundle exec scripts/sync/example_consumer_bidirectional_nock.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_nock docs"' >> $GITHUB_ENV
         if: github.event.action == 'pactflow-example-bi-directional-consumer-nock-updated'
+
+      - name: Sync example_consumer_bidirectional_playwright_js docs
+        run: bundle exec scripts/sync/example_consumer_bidirectional_playwright_js.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_playwright_js docs"' >> $GITHUB_ENV
+        if: github.event.action == 'pactflow-example-bi-directional-consumer-playwright-js-updated'
 
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v4

@@ -13,6 +13,7 @@ The following are adapters for common tools that provide a mocking capability th
 | Mock Service Worker (MSW) | Convert MSW HTTP mocks into consumer contracts | [link](./tools/msw) |
 | Wiremock (Java) | Convert Wiremock Java mocks into consumer contracts) | [link](./tools/wiremock) | 
 | Wiremock (.NET) | Convert Wiremock .NET mocks into consumer contracts  | [link](./tools/wiremock-net) | 
+| Playwright | Convert Playwright routes into consumer contracts - beta, example shown  | [link](/docs/examples/bi-directional/consumer/playwright_js/) | 
 
 ## Can't find what you're looking for?
 
