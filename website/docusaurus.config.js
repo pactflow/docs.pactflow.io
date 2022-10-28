@@ -47,8 +47,12 @@ module.exports = {
               href: "https://stackoverflow.com/questions/tagged/pact",
             },
             {
-              label: "Twitter",
-              href: "https://twitter.com/pactflow",
+              label: "Twitter - SmartBear",
+              href: "https://twitter.com/smartbear",
+            },
+            {
+              label: "Twitter - Pact",
+              href: "https://twitter.com/pact_up",
             },
           ],
         },
