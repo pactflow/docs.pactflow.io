@@ -108,26 +108,26 @@ const testing_tools = {
   readyapi: {
     iconTitle: 'ReadyAPI',
     iconLocation:
-      'https://static0.smartbear.co/smartbearbrand/media/images/logos/icons/ra_icon-clr.svg',
+      '/img/testing_tools/readyapi.svg',
     iconLink: '/docs/examples/bi-directional/provider/readyapi/',
     contentUrl: '',
     content: '',
-    iconType: 'png',
+    iconType: 'svg',
     side: 'provider'
   },
   soapui: {
     iconTitle: 'SoapUI',
     iconLocation:
-      'https://www.soapui.org/smartbearbrand/media/images/home/soapui-icon.svg',
+      '/img/testing_tools/soapui-icon.svg',
     iconLink: '/docs/examples/bi-directional/provider/soapui/',
     contentUrl: '',
     content: '',
-    iconType: 'png',
+    iconType: 'svg',
     side: 'provider'
   },
   postman: {
     iconTitle: 'Postman',
-    iconLocation: 'https://cdn.worldvectorlogo.com/logos/postman.svg',
+    iconLocation: '/img/testing_tools/postman.svg',
     iconLink: '/docs/examples/bi-directional/provider/postman/',
     contentUrl: '',
     content: '',
@@ -136,7 +136,7 @@ const testing_tools = {
   },
   restassured: {
     iconTitle: 'REST-assured',
-    iconLocation: 'https://rest-assured.io/img/logo-transparent.png',
+    iconLocation: '/img/testing_tools/rest_assured.png',
     iconLink: '/docs/examples/bi-directional/provider/restassured/',
     contentUrl: '',
     content: '',
@@ -145,7 +145,7 @@ const testing_tools = {
   },
   dredd: {
     iconTitle: 'Dredd',
-    iconLocation: 'https://dredd.org/en/latest/_images/dredd.png',
+    iconLocation: '/img/testing_tools/dredd-logo.png',
     iconLink: '/docs/examples/bi-directional/provider/dredd/',
     contentUrl: '',
     content: '',
@@ -155,7 +155,7 @@ const testing_tools = {
   schemathesis: {
     iconTitle: 'Schemathesis',
     iconLocation:
-      'https://res.cloudinary.com/apideck/image/upload/w_200,f_auto/v1626657729/icons/schemathesis.png',
+      '/img/testing_tools/schemathesis.png',
     iconLink: '/docs/examples/bi-directional/provider/dotnet/',
     contentUrl: '',
     content: '',
@@ -164,7 +164,7 @@ const testing_tools = {
   },
   cypress: {
     iconTitle: 'Cypress',
-    iconLocation: 'https://seekicon.com/free-icon-download/cypress_1.svg',
+    iconLocation: '/img/testing_tools/cypress.svg',
     iconLink: '/docs/examples/bi-directional/consumer/cypress/',
     contentUrl: '',
     content: '',
@@ -173,7 +173,7 @@ const testing_tools = {
   },
   wiremock: {
     iconTitle: 'Wiremock',
-    iconLocation: 'https://wiremock.org/images/wireMockLogo.png',
+    iconLocation: '/img/testing_tools/wireMockLogo.png',
     iconLink: '/docs/examples/bi-directional/consumer/wiremock/',
     contentUrl: '',
     content: '',
@@ -182,7 +182,7 @@ const testing_tools = {
   },
   nock: {
     iconTitle: 'Nock',
-    iconLocation: 'https://www.svgrepo.com/show/263799/replay.svg',
+    iconLocation: '/img/testing_tools/nock.svg',
     iconLink: '/docs/examples/bi-directional/consumer/recordreplay/',
     contentUrl: '',
     content: '',
@@ -191,7 +191,7 @@ const testing_tools = {
   },
   mountebank: {
     iconTitle: 'Mountebank',
-    iconLocation: 'https://www.mbtest.org/images/mountebank.png',
+    iconLocation: '/img/testing_tools/mountebank.png',
     iconLink: '/docs/examples/bi-directional/consumer/mountebank/',
     contentUrl: '',
     content: '',
@@ -201,7 +201,7 @@ const testing_tools = {
   pact: {
     iconTitle: 'Pact',
     iconLocation:
-      'https://raw.githubusercontent.com/pact-foundation/pact-logo/master/media/link.svg',
+      '/img/testing_tools/pact.svg',
     iconLink: '/docs/examples/bi-directional/consumer/dotnet/',
     contentUrl: '',
     content: '',
@@ -211,11 +211,21 @@ const testing_tools = {
   msw: {
     iconTitle: 'Mock Service Worker',
     iconLocation:
-      'https://raw.githubusercontent.com/mswjs/msw/main/media/msw-logo.svg',
+      '/img/testing_tools/msw.svg',
     iconLink: '/docs/examples/bi-directional/consumer/msw/',
     contentUrl: '',
     content: '',
     iconType: 'svg',
+    side: 'consumer'
+  },
+  playwright_js: {
+    iconTitle: 'Playwright - JS',
+    iconLocation:
+      '/img/testing_tools/playwright.png',
+    iconLink: '/docs/examples/bi-directional/consumer/playwright_js/',
+    contentUrl: '',
+    content: '',
+    iconType: 'png',
     side: 'consumer'
   }
 };
@@ -234,7 +244,8 @@ const testing_tools_consumers = [
   'nock',
   'mountebank',
   'pact',
-  'msw'
+  'msw',
+  'playwright_js'
 ];
 
 const testing_tools_provider_side = Object.keys(testing_tools)

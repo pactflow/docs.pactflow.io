@@ -271,6 +271,7 @@ module.exports = {
             'docs/examples/bi-directional/consumer/cypress/readme',
             'docs/examples/bi-directional/consumer/mountebank/readme',
             'docs/examples/bi-directional/consumer/msw/readme',
+            'docs/examples/bi-directional/consumer/playwright_js/readme',
             'docs/examples/bi-directional/consumer/dotnet/readme',
             'docs/examples/bi-directional/provider/readyapi/readme',
             'docs/examples/bi-directional/provider/soapui/readme',
