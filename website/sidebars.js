@@ -37,6 +37,14 @@ module.exports = {
             'docs/permissions/permissions',
             'docs/permissions/api-tokens'
           ]
+        },
+        {
+          type: 'category',
+          label: 'SCIM',
+          items: [
+            'docs/scim/main',
+            'docs/scim/okta'
+          ]
         }
       ]
     },
