@@ -21,7 +21,7 @@ Refresh the example pact page in Pactflow to see that the `feat/new-field` pact 
 
 ## Some ideas on how to communicate that the feature pact has been successfully verified to the consumer team
 
-The most elegant solution for this is to create a webhook for the 'provider verification succeeded' event. Some common approaches are to use chat notifications or Github/Bitbucket commit statuses that show up in the PR page for a branch. You can read more about that here: http://blog.pact.io/2018/07/16/publishing-pact-verification-statuses-to-github/
+The most elegant solution for this is to create a webhook for the 'provider verification succeeded' event. Some common approaches are to use chat notifications or Github/Bitbucket commit statuses that show up in the PR page for a branch. You can read more about that here: <http://blog.pact.io/2018/07/16/publishing-pact-verification-statuses-to-github/>
 
 ## Expected state by the end of this step
 

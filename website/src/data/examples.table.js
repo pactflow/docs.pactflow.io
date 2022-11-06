@@ -406,6 +406,33 @@ export const tableData = [
   },
   {
     linkTitle:
+      'React JavaScript Website using Playwright routes and custom pact adapter to generate Pact contracts',
+    linkUrl: '/docs/examples/bi-directional/consumer/playwright_js',
+    badges: [],
+    language: 'JavaScript',
+    useCase: 'OpenAPI',
+    side: 'Consumer',
+    compatible_clients: [
+      {
+        name: 'Example Bi-Directional Provider Dredd',
+        link: '/docs/examples/bi-directional/provider/dredd/'
+      },
+      {
+        name: 'Example Bi-Directional Provider Postman',
+        link: '/docs/examples/bi-directional/provider/postman/'
+      },
+      {
+        name: 'Example Bi-Directional Provider RestAssured',
+        link: '/docs/examples/bi-directional/provider/restassured/'
+      },
+      {
+        name: 'Example Provider',
+        link: '/docs/examples/js/provider'
+      }
+    ]
+  },
+  {
+    linkTitle:
       'React JavaScript Website using Cypress fixtures and pact-cypress-adapter to generate Pact contracts',
     linkUrl: '/docs/examples/bi-directional/consumer/cypress',
     badges: [],
@@ -645,7 +672,7 @@ export const columns = [
       const compatible_clients = original.compatible_clients;
       if (!compatible_clients) return '';
       return compatible_clients.map((w) => (
-        <li>
+        <li key={w.link + original.linkTitle + Math.random()}>
           <a href={w.link}>{w.name}</a>
         </li>
       ));

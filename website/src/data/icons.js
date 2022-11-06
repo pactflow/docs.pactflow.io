@@ -34,6 +34,7 @@ const label_with_link_mountebank = generateIconWithLabel(
 );
 const label_with_link_pact = generateIconWithLabel(meta.testing_tools['pact']);
 const label_with_link_msw = generateIconWithLabel(meta.testing_tools['msw']);
+const label_with_link_playwright_js = generateIconWithLabel(meta.testing_tools['playwright_js']);
 const label_postman = generateIconWithLabel({
   ...meta.testing_tools['postman'],
   iconLink: undefined
@@ -82,6 +83,10 @@ const label_msw = generateIconWithLabel({
   ...meta.testing_tools['msw'],
   iconLink: undefined
 });
+const label_playwright_js = generateIconWithLabel({
+  ...meta.testing_tools['playwright_js'],
+  iconLink: undefined
+});
 const icon_with_link_postman = generateIcon(meta.testing_tools['postman']);
 const icon_with_link_restassured = generateIcon(
   meta.testing_tools['restassured']
@@ -100,6 +105,7 @@ const icon_with_link_mountebank = generateIcon(
 );
 const icon_with_link_pact = generateIcon(meta.testing_tools['pact']);
 const icon_with_link_msw = generateIcon(meta.testing_tools['msw']);
+const icon_with_link_playwright_js = generateIcon(meta.testing_tools['playwright_js']);
 const icon_postman = generateIcon({
   ...meta.testing_tools['postman'],
   iconLink: undefined
@@ -146,6 +152,10 @@ const icon_pact = generateIcon({
 });
 const icon_msw = generateIcon({
   ...meta.testing_tools['msw'],
+  iconLink: undefined
+});
+const icon_playwright_js = generateIcon({
+  ...meta.testing_tools['playwright_js'],
   iconLink: undefined
 });
 
@@ -355,6 +365,7 @@ const testingToolIconsWithLabels = {
   label_with_link_mountebank,
   label_with_link_pact,
   label_with_link_msw,
+  label_with_link_playwright_js,
   label_postman,
   label_restassured,
   label_readyapi,
@@ -366,7 +377,8 @@ const testingToolIconsWithLabels = {
   label_nock,
   label_mountebank,
   label_pact,
-  label_msw
+  label_msw,
+  label_playwright_js
 };
 const testingToolIcons = {
   icon_with_link_postman,
@@ -381,6 +393,7 @@ const testingToolIcons = {
   icon_with_link_mountebank,
   icon_with_link_pact,
   icon_with_link_msw,
+  icon_with_link_playwright_js,
   icon_postman,
   icon_restassured,
   icon_readyapi,
@@ -392,5 +405,6 @@ const testingToolIcons = {
   icon_nock,
   icon_mountebank,
   icon_pact,
-  icon_msw
+  icon_msw,
+  icon_playwright_js
 };

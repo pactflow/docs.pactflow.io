@@ -99,11 +99,9 @@ function generateLanguageTab({ data, withLabel, withLink, useCaseFilter }) {
                 )
                 .map((tr) => {
                   return (
-                    <>
-                      <li>
-                        <a href={tr.linkUrl}>{tr.linkTitle}</a>
+                      <li key={tr.linkTitle + "language_link" + Math.random()}>
+                       <a href={tr.linkUrl}>{tr.linkTitle}</a>
                       </li>
-                    </>
                   );
                 })}
             </div>

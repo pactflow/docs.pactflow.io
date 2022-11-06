@@ -46,7 +46,6 @@ This allows Pactflow to communicate to any future consumers of the provider, tha
 
 - The provider build is passing and it is deployed to production ✅
   
-
 ## Deploy the provider to production via Github Actions
 
 ### Setup deployment environment
@@ -64,7 +63,7 @@ This step should only be required if you have a legacy Pactflow account. New use
   4. Check the "this is a production environment" checkbox
   5. Select the default team
   6. Click "Create"
-     
+
 </details>
 
 ### Configure provider pipeline
@@ -80,23 +79,26 @@ This step should only be required if you have a legacy Pactflow account. New use
       1. Click `New repository secret` (the button is to the right of the "Actions secrets" heading)
       1. Set the name of the secret to `PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP`
       1. Paste in the Pactflow API token value you copied in the previous step.
-1. Configure the Pact Broker base URL.
-   1. On your local machine:
-      1. Open the `example-bi-directional-provider` project in your IDE.
-      1. Open `.github/workflows/build.yml`
-      1. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account. You can easily get this by clicking the `COPY PACTFLOW BASE URL` button on the API Tokens page in Pactflow.
-      1. While you're in there, you can delete the `.github/workflows/trigger_partner_docs_update.yml` workflow. It's not used in the execution of workshop, and deleting it will remove some noise from the Github Actions page.
-      1. Commit and push your changes.
-1. View the build:
+2. Update your workflow files in GitHub to point at your Pactflow Broker
+   1. In Pactflow:
+       1. Go to Settings > API Tokens.
+       2. Click the `COPY PACTFLOW BASE URL` button
+   2. In Github:
+       1. Open your forked `example-bi-directional-provider` project (`https://github.com/<your-username>/example-bi-directional-provider`)
+          1. Open `.github/workflows/build.yml`
+          2. In the upper right corner of the file view, click 🖊️ to open the file editor.
+          3. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account. You can easily get this by clicking the COPY PACTFLOW BASE URL button on the API Tokens page in Pactflow.
+          4. Press the green `Commit changes` button
+3. View the build:
    1. In Github:
-      1. Go to the `Actions` tab, and select the `Build` workflow.
-      1. Select the most recent build.
+      1. Select the most recent build, this will have been triggered when you committed the changes in the last page
+
+:::info
 
 This build should now successfully publish the provider contract and evidence, and it will pass on the `can-i-deploy` step before it tries to deploy. This is because the provider has no consumers, so is safe to deploy.
 
 After you have pushed your changes to the workflow files, the provider pipeline will run, fetching and verifying the configured pacts from your Pactflow account, and publishing the results back. The `can-i-deploy` command will pass, and allow the provider to be deployed. ✅
-
-
+:::
 
 #### Expected state by the end of this step
 

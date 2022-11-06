@@ -19,8 +19,8 @@ sidebar_label: Provider
 
 You must have, or be able to produce, one of the following OpenAPI Specification (OAS) formats:
 
-- OAS v2
-- OAS v3
+- OAS v2.0
+- OAS v3.0.x (3.1 is not yet supported)
 
 If you don't have an OAS, it's possible you can convert from a format you already have or from your code (e.g. via types/annotations) before uploading to Pact.
 

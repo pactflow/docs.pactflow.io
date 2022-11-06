@@ -118,14 +118,14 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'CI/CD Workshop',
+          label: 'Consumer-Driven Contract Testing CI/CD',
           items: [
             'docs/workshops/ci-cd',
             {
               'Set up CI': [
                 'docs/workshops/ci-cd/set-up-ci',
                 'docs/workshops/ci-cd/set-up-ci/prerequisites',
-                'docs/workshops/ci-cd/set-up-ci/fork-and-clone-the-repositories',
+                'docs/workshops/ci-cd/set-up-ci/fork-the-repositories',
                 'docs/workshops/ci-cd/set-up-ci/test-the-builds-in-github-actions',
                 'docs/workshops/ci-cd/set-up-ci/configure-consumer-and-provider-pipelines',
                 'docs/workshops/ci-cd/set-up-ci/configure-webhook',
@@ -143,7 +143,6 @@ module.exports = {
                 'docs/workshops/ci-cd/workshop',
                 'docs/workshops/ci-cd/workshop/prerequisites',
                 'docs/workshops/ci-cd/workshop/prerequisite-concepts',
-                'docs/workshops/ci-cd/workshop/how-to-break-everything',
                 'docs/workshops/ci-cd/workshop/protecting-the-provider',
                 'docs/workshops/ci-cd/workshop/how-not-to-break-everything',
                 'docs/workshops/ci-cd/workshop/implementing-the-provider-changes',
@@ -155,10 +154,47 @@ module.exports = {
           ]
         },
         {
-          type: 'category',
-          label: 'Design First With SwaggerHub',
-          items: ['docs/workshops/quick_starts/design_first']
+          label: 'Consumer-Driven Contract Testing CI/CD (legacy)',
+          items: [
+            'docs/workshops/ci-cd-legacy',
+            {
+              'Set up CI': [
+                'docs/workshops/ci-cd-legacy/set-up-ci',
+                'docs/workshops/ci-cd-legacy/set-up-ci/prerequisites',
+                'docs/workshops/ci-cd-legacy/set-up-ci/fork-the-repositories',
+                'docs/workshops/ci-cd-legacy/set-up-ci/test-the-builds-in-github-actions',
+                'docs/workshops/ci-cd-legacy/set-up-ci/configure-consumer-and-provider-pipelines',
+                'docs/workshops/ci-cd-legacy/set-up-ci/configure-webhook',
+                'docs/workshops/ci-cd-legacy/set-up-ci/conclusion'
+              ],
+              'Setup Local Development': [
+                'docs/workshops/ci-cd-legacy/set-up-local-development',
+                'docs/workshops/ci-cd-legacy/set-up-local-development/prerequisites',
+                'docs/workshops/ci-cd-legacy/set-up-local-development/install-dependencies',
+                'docs/workshops/ci-cd-legacy/set-up-local-development/run-the-applications',
+                'docs/workshops/ci-cd-legacy/set-up-local-development/run-the-consumer-tests',
+                'docs/workshops/ci-cd-legacy/set-up-local-development/run-the-provider-tests'
+              ],
+              Workshop: [
+                'docs/workshops/ci-cd-legacy/workshop',
+                'docs/workshops/ci-cd-legacy/workshop/prerequisites',
+                'docs/workshops/ci-cd-legacy/workshop/prerequisite-concepts',
+                'docs/workshops/ci-cd-legacy/workshop/how-to-break-everything',
+                'docs/workshops/ci-cd-legacy/workshop/protecting-the-provider',
+                'docs/workshops/ci-cd-legacy/workshop/how-not-to-break-everything',
+                'docs/workshops/ci-cd-legacy/workshop/implementing-the-provider-changes',
+                'docs/workshops/ci-cd-legacy/workshop/verifying-feature-pacts',
+                'docs/workshops/ci-cd-legacy/workshop/releasing-the-consumer-code',
+                'docs/workshops/ci-cd-legacy/workshop/conclusion'
+              ]
+            }
+          ]
         },
+        {
+          type: "category",
+          label: "Design First With SwaggerHub",
+          items: ["docs/workshops/quick_starts/design_first"],
+        },        
         {
           type: 'category',
           label: 'Bi-Directional Contract Testing',
@@ -183,7 +219,11 @@ module.exports = {
             'docs/workshops/quick_starts/bdc'
           ]
         },
-        'docs/workshops/advanced',
+        {
+          type: 'category',
+          label: 'Advanced Pact',
+          items: ['docs/workshops/advanced', 'docs/workshops/org_scale']
+        },
         'docs/workshops/tutorials'
       ]
     }
@@ -235,6 +275,7 @@ module.exports = {
             'docs/examples/bi-directional/consumer/cypress/readme',
             'docs/examples/bi-directional/consumer/mountebank/readme',
             'docs/examples/bi-directional/consumer/msw/readme',
+            'docs/examples/bi-directional/consumer/playwright_js/readme',
             'docs/examples/bi-directional/consumer/dotnet/readme',
             'docs/examples/bi-directional/provider/readyapi/readme',
             'docs/examples/bi-directional/provider/soapui/readme',
@@ -313,6 +354,8 @@ module.exports = {
           type: 'category',
           label: 'Releases',
           items: [
+            'docs/on-premises/releases/1.21.1',
+            'docs/on-premises/releases/1.21.0',
             'docs/on-premises/releases/1.20.0',
             'docs/on-premises/releases/1.19.2',
             'docs/on-premises/releases/1.19.1',
