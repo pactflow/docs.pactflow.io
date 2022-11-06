@@ -154,7 +154,6 @@ module.exports = {
           ]
         },
         {
-          type: 'category',
           label: 'Consumer-Driven Contract Testing CI/CD (legacy)',
           items: [
             'docs/workshops/ci-cd-legacy',
@@ -191,6 +190,11 @@ module.exports = {
             }
           ]
         },
+        {
+          type: "category",
+          label: "Design First With SwaggerHub",
+          items: ["docs/workshops/quick_starts/design_first"],
+        },        
         {
           type: 'category',
           label: 'Bi-Directional Contract Testing',
