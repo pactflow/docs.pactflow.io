@@ -5,7 +5,7 @@ module.exports = {
   tagline: "Distributed systems testing made easy",
   url: "https://docs.pactflow.io",
   baseUrl: "/",
-  onBrokenLinks: "error", // Fail the build on broken links
+  onBrokenLinks: "throw", // Fail the build on broken links
   favicon: "img/favicon.ico",
   organizationName: "Pactflow", // Usually your GitHub org/user name.
   projectName: "doc-site", // Usually your repo name.
@@ -75,7 +75,11 @@ module.exports = {
     tableOfContents: {
       maxHeadingLevel: 4,
     },
-    hideableSidebar: true,
+    docs: {
+      sidebar: {
+        hideable: true
+      }
+    },
     cleanUrl: true,
     trailingSlash: true,
     algolia: {
