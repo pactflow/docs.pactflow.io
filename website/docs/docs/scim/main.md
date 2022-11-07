@@ -1,8 +1,10 @@
 ---
-title: Pactflow SCIM API
+title: API
 ---
 
 _Eligible plans: Business and Enterprise_
+
+**NOTE: SAML is a pre-requisite for this feature to work.**
 
 Pactflow users and teams can be managed via a SCIM 2.0 compatible API. For details on SCIM, refer to https://www.simplecloud.info/.
 
