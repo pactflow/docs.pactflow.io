@@ -36,7 +36,7 @@ Please ensure you provide your **subscription ID** which can be found on the bil
 Account administrators can perform the following functions once logged in:
 
 1. Modify the primary account information, such as name, email and address
-2. Upgrade or cancel your subscription
+2. Upgrade, downgrade or cancel your subscription
 3. Add or manage payment methods, such as credit cards
 4. Update billing address information
 5. View billing history and previous invoices
