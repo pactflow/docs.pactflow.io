@@ -85,6 +85,17 @@ The permissions associated with the guest role may not be modified.
 
 - [`contract_data:read:*`](/docs/permissions#contract_dataread)
 
+## SwaggerHub
+
+A user with the SwaggerHub role can be used to provide an api token for the SwaggerHub integration, allowing the SwaggerHub to verify published pacts against live Swagger docs.
+
+The permissions associated with the SwaggerHub role may not be modified.
+
+#### Permissions
+
+- [`environment:read:*`](/docs/permissions#environmentread)
+- [`contract_data:read:*`](/docs/permissions#contract_dataread)
+
 ## Test Maintainer (deprecated)
 
 The Test Maintainer role has been replaced by the User role. The difference between the User and Test Maintainer roles is that the User role has team scoped permissions for Webhook and Secret management.
