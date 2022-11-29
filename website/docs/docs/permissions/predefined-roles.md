@@ -87,7 +87,7 @@ The permissions associated with the guest role may not be modified.
 
 ## SwaggerHub
 
-A user with the SwaggerHub role can be used to provide an api token for the SwaggerHub integration, allowing the SwaggerHub to verify published pacts against live Swagger docs.
+A user with the SwaggerHub role can be used to provide an API Token for the SwaggerHub integration, allowing SwaggerHub to verify published pacts against live Swagger docs.
 
 The permissions associated with the SwaggerHub role may not be modified.
 
