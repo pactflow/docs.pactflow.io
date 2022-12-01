@@ -24,9 +24,4 @@ jobs:
         issuetype: Task
         summary: ${{ github.event.issue.title }}
         description: ${{ github.event.issue.body }}
-        # fields: '{"customfield_10171": "test"}'
-        echo "Issue title: ${{ github.event.issue.title }}"
-        echo "Issue body: ${{ github.event.issue.body }}"
-        
-    - name: Log created issue
-      run: echo "Issue ${{ steps.create.outputs.issue }} was created"
+        fields: '{"customfield_10006":"PACT-194", "customfield_17401":{"value":"maintenance"}}'
