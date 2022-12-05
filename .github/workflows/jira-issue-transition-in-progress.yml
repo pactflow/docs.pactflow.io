@@ -2,13 +2,11 @@ on:
   push:
     branches:
       - 'feature/**'
-     
-name: Jira Issue Transition to In Progress
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Jira Issue Create
+    name: Jira Issue Transition to In Progress
     steps:
     - name: login
       uses: atlassian/gajira-login@v3
@@ -22,9 +20,11 @@ jobs:
       with:
         from: branch
 
+    - run: echo "Found issue: ${{ steps.find.outputs.issue }}"
+
     - name: Transition issue
       needs: find
       uses: atlassian/gajira-transition@v3
       with:
-        issue: ${{ needs.find.outputs.issue }}
+        issue: ${{ steps.find.outputs.issue }}
         transition: "In Progress"
