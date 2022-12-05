@@ -1,5 +1,5 @@
 on:
-  push:
+  create
      
 name: Jira Issue Transition to In Progress
 
