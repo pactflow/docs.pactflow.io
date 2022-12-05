@@ -1,4 +1,4 @@
-name: Progress Jira ticket to "In Progess"
+name: Progress Jira ticket to In Progess
 
 on:
   create:

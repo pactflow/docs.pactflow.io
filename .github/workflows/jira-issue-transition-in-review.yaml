@@ -1,8 +1,9 @@
-name: Progress Jira ticket to "In Review"
+name: Progress Jira ticket to In Review
 
 on:
   pull_request:
-    types: [assigned]
+    types: 
+      - assigned
 
 jobs:
   build:
