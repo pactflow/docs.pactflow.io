@@ -1,5 +1,8 @@
 on:
-  create
+  workflow_dispatch:
+  push:
+    branches:
+      - 'feature/**'
      
 name: Jira Issue Transition to In Progress
 
