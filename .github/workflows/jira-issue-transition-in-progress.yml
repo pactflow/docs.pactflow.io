@@ -20,10 +20,9 @@ jobs:
       with:
         from: branch
 
-    - run: echo "Found issue: ${{ steps.find.outputs.issue }}"
+    - run: echo ${{ steps.find.outputs.issue }}
 
     - name: Transition issue
-      needs: find
       uses: atlassian/gajira-transition@v3
       with:
         issue: ${{ steps.find.outputs.issue }}
