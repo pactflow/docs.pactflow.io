@@ -10,20 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     name: Jira Issue Create
     steps:
-    - name: Login
+    - name: login
       uses: atlassian/gajira-login@v3
       env:
         JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
         JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
         JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
 
-    - name: Find
+    - name: find
       uses: atlassian/gajira-find-issue-key@v3
       with:
         from: branch
 
     - name: Transition issue
+      needs: find
       uses: atlassian/gajira-transition@v3
       with:
-        issue: ${{ issue }}
+        issue: ${{ needs.find.outputs.issue }}
         transition: "In Progress"
