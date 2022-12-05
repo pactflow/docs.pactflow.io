@@ -1,3 +1,5 @@
+name: Progress Jira ticket to "In Review"
+
 on:
   pull_request:
     types: [assigned]

@@ -1,3 +1,5 @@
+name: Create Jira Ticket
+
 on:
   issues:
     types:
