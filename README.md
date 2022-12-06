@@ -38,3 +38,8 @@ and it can be run by
 ```bash
 make crawl
 ```
+
+## Annotated UI images
+
+Images demonstrating the Pactflow UI have been annotated using Figma. Styles and examples can be found [here](https://www.figma.com/file/h2mJNirJdlS9NZmPpxXlA6/Pactflow-Doc-image-annotations?node-id=0%3A1).
+Access for editing granted on request.
