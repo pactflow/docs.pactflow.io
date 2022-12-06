@@ -82,7 +82,7 @@ services:
       - SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://172.30.0.1/auth/saml/callback
 
   pactflow:
-    image: quay.io/pactflow/enterprise-test
+    image: quay.io/pactflow/enterprise
     networks:
       frontend:
         ipv4_address: 172.30.0.3
@@ -137,7 +137,7 @@ services:
       POSTGRES_DB: postgres
 
   scim-api:
-    image: quay.io/pactflow/scim-api-test
+    image: quay.io/pactflow/scim-api
     networks:
       frontend:
         ipv4_address: 172.30.0.5
@@ -145,8 +145,8 @@ services:
       - pactflow
     environment:
       PACTFLOW_URL: "http://172.30.0.1"
-      SPRING_PROFILES_ACTIVE: local
       LOGGING_LEVEL_ROOT: DEBUG
+      LOGGING_LEVEL_ORG_APACHE_HC_CLIENT5_HTTP_WIRE: INFO
     ports:
       - "8100:8080"
 
@@ -159,7 +159,7 @@ volumes:
 Head to http://172.30.0.1 in your browser, and choose to login with "SIMPLE SAML", with the username `user1` and password `user1pass`.
 Then go to Settings -> API Tokens and COPY an API token.
 
-## 4. Use Curl and JQ to test access the Pactflow users
+## 4. Use Curl and JQ to test access to the SCIM API
 
 Replace `<PASTE TOKEN HERE>` below with the API token copied from the last step. 
 
@@ -255,3 +255,30 @@ Replace `<PASTE TOKEN HERE>` below with the API token copied from the last step.
   ]
 }
 ```
+
+## Configuration
+
+### Pactflow URL (Required) 
+
+**Variable:** `PACTFLOW_URL`<BR/>
+
+This sets the URL that the Pactflow instance is accessed from.
+
+### Log Level
+
+**Variable:** `LOGGING_LEVEL_ROOT` <BR/>
+**Default:** `INFO`<BR/>
+**Allowed values:** `DEBUG`, `INFO`, `WARN`, `ERROR`<BR/>
+
+This sets the base log level for the SCIM API container. 
+
+**WARNING: Setting the log level to `DEBUG` will cause all HTTP interactions between the SCIM API and Pactflow to be be logged, 
+which will include the API tokens in clear text.** To disable logging of the HTTP interactions, set
+`LOGGING_LEVEL_ORG_APACHE_HC_CLIENT5_HTTP_WIRE` to `INFO` or greater.
+
+### Context Path
+
+**Variable:** `SERVER_SERVLET_CONTEXT_PATH` <BR/>
+**Default:** `/scim`<BR/>
+
+This sets the context path that the SCIM API is mounted at.
