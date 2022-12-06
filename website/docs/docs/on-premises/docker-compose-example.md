@@ -131,7 +131,7 @@ c0e3059fa37c        postgres                      "docker-entrypoint.s…"   7 m
 
 ## 3. Login to Pactflow
 
-Head to http://localhost in your browser, and choose to login with "SIMPLE SAML", with the username `user1` and password `user1password`.
+Head to http://localhost in your browser, and choose to login with "SIMPLE SAML", with the username `user1` and password `user1pass`.
 
 That's it 🎉.
 
