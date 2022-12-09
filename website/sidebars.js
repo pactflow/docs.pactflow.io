@@ -348,6 +348,13 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'SCIM',
+          items: [
+            'docs/on-premises/scim'
+          ]
+        },
+        {
+          type: 'category',
           label: 'Security and support',
           items: [
             'docs/on-premises/security-audit-report',

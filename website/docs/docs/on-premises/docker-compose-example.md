@@ -78,7 +78,6 @@ services:
       # insecure settings only for the purposes of this demo! Not to be used in production.
       - PACTFLOW_DATABASE_SSLMODE=disable
       - PACTFLOW_REQUIRE_HTTPS=false
-      - PACTFLOW_SECURE_COOKIES=false
       - PACTFLOW_LOG_FORMAT=short # normally this would be set to json, use short for demo only
       - PACTFLOW_ADMIN_API_KEY=admin
       - PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY=thisissomerandombytes
@@ -131,7 +130,7 @@ c0e3059fa37c        postgres                      "docker-entrypoint.s…"   7 m
 
 ## 3. Login to Pactflow
 
-Head to http://localhost in your browser, and choose to login with "SIMPLE SAML", with the username `user1` and password `user1password`.
+Head to http://localhost in your browser, and choose to login with "SIMPLE SAML", with the username `user1` and password `user1pass`.
 
 That's it 🎉.
 
