@@ -48,7 +48,7 @@ module.exports = {
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/pactflow",
+              href: "https://twitter.com/pact_up",
             },
           ],
         },
