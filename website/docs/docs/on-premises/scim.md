@@ -139,7 +139,7 @@ volumes:
 
 ## 3. Login to Pactflow
 
-Head to http://172.30.0.1 in your browser, and choose to login with "SIMPLE SAML", with the username `user1` and password `user1pass`.
+Head to http://localhost in your browser, and choose to login with "SIMPLE SAML", with the username `user1` and password `user1pass`.
 Then go to Settings -> API Tokens and COPY an API token.
 
 ## 4. Use Curl and JQ to test access to the SCIM API
@@ -147,7 +147,7 @@ Then go to Settings -> API Tokens and COPY an API token.
 Replace `<PASTE TOKEN HERE>` below with the API token copied from the last step. 
 
 ```console
-❯ curl -H 'Authorization: Bearer <PASTE TOKEN HERE>'  http://172.30.0.1:8100/scim/Users | jq
+❯ curl -H 'Authorization: Bearer <PASTE TOKEN HERE>'  http://localhost:8100/scim/Users | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100  1530  100  1530    0     0   3026      0 --:--:-- --:--:-- --:--:--  3029
@@ -166,7 +166,7 @@ Replace `<PASTE TOKEN HERE>` below with the API token copied from the last step.
         "created": "2022-12-06T03:49:22Z",
         "lastModified": "2022-12-06T03:49:29Z",
         "resourceType": "User",
-        "location": "http://172.30.0.1:8100/scim/Users/61cfa5ff-1be6-4e7e-a620-7efac4a370df"
+        "location": "http://localhost:8100/scim/Users/61cfa5ff-1be6-4e7e-a620-7efac4a370df"
       },
       "name": {
         "formatted": "SCIM"
@@ -204,7 +204,7 @@ Replace `<PASTE TOKEN HERE>` below with the API token copied from the last step.
         "created": "2022-12-06T00:25:56Z",
         "lastModified": "2022-12-06T00:25:56Z",
         "resourceType": "User",
-        "location": "http://172.30.0.1:8100/scim/Users/aaa3e1a2-3648-4453-b3a6-2195b6822e2d"
+        "location": "http://localhost:8100/scim/Users/aaa3e1a2-3648-4453-b3a6-2195b6822e2d"
       },
       "userType": "User",
       "active": true,
