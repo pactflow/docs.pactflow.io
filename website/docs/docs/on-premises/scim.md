@@ -60,18 +60,9 @@ have setup the Pactflow license file correctly as per [2. Pactflow license file]
 ```yaml
 version: "3"
 
-networks:
-  frontend:
-    ipam:
-      config:
-        - subnet: 172.30.0.0/24
-
 services:
   simplesaml:
     image: kristophjunge/test-saml-idp
-    networks:
-      frontend:
-        ipv4_address: 172.30.0.2
     logging:
       driver: none # comment out the logging config to see the SAML server logs
     ports:
@@ -79,18 +70,15 @@ services:
       - "8443:8443"
     environment:
       - SIMPLESAMLPHP_SP_ENTITY_ID=https://pactflow.io
-      - SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://172.30.0.1/auth/saml/callback
+      - SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://localhost/auth/saml/callback
 
   pactflow:
     image: quay.io/pactflow/enterprise
-    networks:
-      frontend:
-        ipv4_address: 172.30.0.3
     depends_on:
       - postgres
     environment:
       - PACTFLOW_HTTP_PORT=9292
-      - PACTFLOW_BASE_URL=http://172.30.0.1
+      - PACTFLOW_BASE_URL=http://localhost http://pactflow:9292
       - PACTFLOW_DATABASE_URL=postgres://postgres:password@postgres/postgres
       # insecure settings only for the purposes of this demo! Not to be used in production.
       - PACTFLOW_DATABASE_SSLMODE=disable
@@ -101,7 +89,7 @@ services:
       - PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY=thisissomerandombytes
       - PACTFLOW_SAML_AUTH_ENABLED=true
       - PACTFLOW_SAML_IDP_NAME=Simple SAML
-      - PACTFLOW_SAML_IDP_SSO_TARGET_URL=http://172.30.0.1:8080/simplesaml/saml2/idp/SSOService.php
+      - PACTFLOW_SAML_IDP_SSO_TARGET_URL=http://localhost:8080/simplesaml/saml2/idp/SSOService.php
       - PACTFLOW_SAML_IDP_CERT_FINGERPRINT=11:9B:9E:02:79:59:CD:B7:C6:62:CF:D0:75:D9:E2:EF:38:4E:44:5F
       - PACTFLOW_SAML_IDP_ID_ATTRIBUTE=uid
       - PACTFLOW_SAML_EMAIL_ATTRIBUTE=email
@@ -111,7 +99,7 @@ services:
     ports:
       - "80:9292"
     healthcheck:
-      test: ["CMD", "wget", "-nv", "-t1", "--spider", "http://172.30.0.3:9292/diagnostic/status/heartbeat"]
+      test: ["CMD", "wget", "-nv", "-t1", "--spider", "http://localhost:9292/diagnostic/status/heartbeat"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -122,9 +110,6 @@ services:
 
   postgres:
     image: postgres
-    networks:
-      frontend:
-        ipv4_address: 172.30.0.4
     healthcheck:
       test: psql postgres --command "select 1" -U postgres
     ports:
@@ -138,13 +123,10 @@ services:
 
   scim-api:
     image: quay.io/pactflow/scim-api
-    networks:
-      frontend:
-        ipv4_address: 172.30.0.5
     depends_on:
       - pactflow
     environment:
-      PACTFLOW_URL: "http://172.30.0.1"
+      PACTFLOW_URL: "http://pactflow:9292"
       LOGGING_LEVEL_ROOT: DEBUG
       LOGGING_LEVEL_ORG_APACHE_HC_CLIENT5_HTTP_WIRE: INFO
     ports:
@@ -152,6 +134,7 @@ services:
 
 volumes:
   postgres-volume:
+
 ```
 
 ## 3. Login to Pactflow
