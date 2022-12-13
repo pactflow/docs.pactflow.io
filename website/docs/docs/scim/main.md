@@ -2,7 +2,7 @@
 title: API
 ---
 
-_Eligible plans: Business and Enterprise_
+_Eligible plans: Enterprise_
 
 **NOTE: SAML is a pre-requisite for this feature to work.**
 

@@ -79,7 +79,7 @@ You can also use any valid Google or GMail email address, such as `matt@gmail.co
 
 ## SAML Support
 
-_Eligible plans: Business and Enterprise_
+_Eligible plans: Enterprise_
 
 Pactflow has support for a [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0) integration with a compatible Identity Provider (IdP) such as Okta, Ping, Auth0, Azure AD, OneLogin etc.
 
