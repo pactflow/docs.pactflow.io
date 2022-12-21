@@ -517,12 +517,15 @@ In the case of a failure, the following elements of the `error` are most helpful
 
 When using OpenAPI Specifications as a Provider Contract, you should be aware of the following limitations.
 
+Some of these considerations are captured for future enhancements [here](https://github.com/pactflow/roadmap/labels/OAS)
 ### Document limitations
 
 - The OAS must be a valid YAML or JSON file. Pactflow will pre-validate the document is parseable and error if they aren't valid.
 - OAS documents must not be split across multiple files. You should combine any documents together, using tools like [OpenAPI Merge](https://github.com/robertmassaioli/openapi-merge) or [speccy](https://www.npmjs.com/package/speccy). That is, Pactflow can not resolve remote references to files, and will not resolve URL references
 - YAML formatted OAS documents must not use [anchors](https://yaml.org/spec/1.2.2/#3222-anchors-and-aliases), due to the potential security issues (see [YAML bomb](https://en.wikipedia.org/wiki/Billion_laughs_attack) for more). If your auto-generated specs have anchors, you can pre-process them via tools like [spruce](https://github.com/geofffranks/spruce), that will expand them for you.
 - It is recommended to programmatically dereference and inline `$refs` in the OAS document uploaded to Pactflow, as they can cause issues when validating `nullable` fields and nested `$refs` can not be accurately compared with a pact file. This can be accomplished using packages such as [json-schema-merge-allof](https://www.npmjs.com/package/json-schema-merge-allof) and [json-schema-resolve-allof](https://www.npmjs.com/package/json-schema-resolve-allof)
+- Comparison of Pact interactions to OAS endpoints does not consider any `basePath` in its comparison. In [OAS 3 (and also 2)](https://swagger.io/docs/specification/api-host-and-base-path/), all API endpoints are considered to be relative to the base URL. For example, assuming the base URL of `https://api.example.com/v1`, the `/users` endpoint refers to `https://api.example.com/v1/users`. Our comparison does not consider the impact of `basePath` as there may be multiple servers with different context paths and there is no clear way to resolve this ambiguity. In this example, a pact interaction with path `/v1/users/` will not match an OAS that only has `/users/` in its resource path. 
+ 
 
 ### Testing
 
