@@ -99,6 +99,11 @@ module.exports = {
       label: 'Account',
       items: ['docs/billing']
     },
+    {
+      type: 'category',
+      label: 'Integrations',
+      items: ['docs/integrations/swaggerhub']
+    },
     'docs/how_to',
     {
       type: 'category',
