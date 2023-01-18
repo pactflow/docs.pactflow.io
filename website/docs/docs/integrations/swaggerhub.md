@@ -1,6 +1,7 @@
 ---
 id: swaggerhub
 title: SwaggerHub Integration
+sidebar_label: SwaggerHub
 ---
 
 :::note Pre-requisites
@@ -178,3 +179,9 @@ You receive the following error when running the compatibility check:
 ```
 
 Your API token is read-only or is missing the relevant permissions (see #setting-up-the-integration)
+
+## Demo
+
+Watch a short video demonstrating how the integration works:
+
+<iframe src="https://fast.wistia.net/embed/iframe/w1syonr4xj" title="PactFlow and SwaggerHub Integration Demo Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="960" height="600"></iframe><script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
