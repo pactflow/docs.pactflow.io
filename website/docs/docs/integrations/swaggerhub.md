@@ -47,6 +47,10 @@ For the full setup instructions, visit the [SwaggerHub documentation](https://su
 
 The compatibility check can be invoked by pressing the "Pactflow" button, and choosing "Check Compatibility". 
 
+:::note
+To be able to see this button and run the checks, you need to be an Organization owner, the Designer that created the API or a Collaborator with editor access.
+:::
+
 ![Compatibility check screen](/img/integrations/swaggerhub-check.png)
 
 If the check has been run previously and the current API has not been modified, the result from the last check will be shown. 
