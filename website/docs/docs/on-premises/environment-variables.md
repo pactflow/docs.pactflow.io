@@ -141,7 +141,7 @@ The log level that will be specified when the SQL query statements are logged.
 
 ### PACTFLOW_DATABASE_MAX_CONNECTIONS
 
-The maximum size of the connection pool (4 connections by default on most databases).
+The maximum size of the connection pool per application instance. The total number of connections for the database must be calculated by multiplying this value by the number of instances (ie. running Docker containers).
 
 **Required:** false<br/>
 **Default:** `4`<br/>
@@ -295,13 +295,13 @@ The name of the SAML response attribute that contains the full name.
 
 The name of the SAML response attribute that contains the first name.
 
-**Required:** true<br/>
+**Required:** false<br/>
 
 ### PACTFLOW_SAML_LAST_NAME_ATTRIBUTE
 
 The name of the SAML response attribute that contains the last name.
 
-**Required:** true<br/>
+**Required:** false<br/>
 
 ### PACTFLOW_SAML_IDP_METADATA_URL
 
@@ -618,3 +618,4 @@ head < /dev/random -c 16 | base64
 
 **Required:** if `PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED` is set to `true`<br/>
 **Example:** `JUVDdnRzLXZyWHA7UF93RAo=`<br/>
+
