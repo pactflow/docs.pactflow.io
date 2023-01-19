@@ -72,8 +72,8 @@ You can demonstrate this by running a provider build in Github (`Actions` -> Und
 
 ## Disable 'pending pacts' for the provider
 
-::: info
-this step is optional and for demonstration purposes to show what happens without the `Pending pacts` feature
+:::info
+This step is optional and for demonstration purposes to show what happens without the `Pending pacts` feature
 :::
 
 1. In `product/product.pact.test.js`, set `enablePending: false` in the options for the dynamically fetched pacts.
@@ -86,7 +86,6 @@ this step is optional and for demonstration purposes to show what happens withou
 
 :::warn
 The real problem is that the provider is now unable to deploy from their master branch 😧.
-
 This is because the provider is configured to verify the latest pact of any registered consumers main branch, so publishing a pact with a new expectation and associating its consumer version as `master` (the consumers main branch) causes the verification step to fail, breaking the provider's build through no fault of its own.
 :::
 
