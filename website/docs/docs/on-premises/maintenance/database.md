@@ -8,19 +8,19 @@ Copied from https://github.com/pact-foundation/docs.pact.io/edit/master/website/
 
 ## Automatic data clean up
 
-Performance can degrade when too much data accumulates in the Pactflow database. Luckily, a lot of the data in a Pactflow instance is "unreachable" and can be removed without affecting the way it operates functionally, as generally speaking, the application (pacticipant) versions that are referenced in the verification and can-i-deploy tasks are either the latest for their branch, or a fairly recent version of the main line of development (eg. when deploying commit `193d71a4` of the `main` branch to `production`) or are marked as deployed/released.
+:::note
+Automatic data clean up is available in Pactflow On-Premises version 1.22.0 and later.
+:::
 
-As of version 1.22.0 of the Docker Pactflow images, an automatic "clean" feature has been included in the image.
+Performance can degrade when too much data accumulates in the Pactflow database. Luckily, a lot of the data in a Pactflow instance is "unreachable" and can be removed without affecting the way it operates functionally, as generally speaking, the application (pacticipant) versions that are referenced in the verification and can-i-deploy tasks are either the latest for their branch, or a fairly recent version of the main line of development (eg. when deploying commit `193d71a4` of the `main` branch to `production`) or are marked as deployed/released.
 
 ### Categories of removable data
 
-A configurable task will run on a cron schedule of your choosing to remove:
-
 * Overwritten data for application versions
-  * Overwritten contracts (these are created when a contract is published with the same consumer version but different content from a previous publication - it shouldn't happen if following best practice, and there is a configuration option to stop this occurring, but it is technically possible to do)
+  * Overwritten contracts (these are created when a contract is published with the same consumer version but different content from a previous publication - it shouldn't happen if following best practice, and there is a configuration option to stop this occurring, but such data may exist).
   * Duplicate verifications (this happens when verification results for the same pact version content are published by the same provider version multiple times - this can happen quite often under normal operation)
-* Historical webhook execution data (except for the very latest execution for each consumer/provider/event)
-* Application versions and their associated tags/pacts/verifications/webhooks that not in the configurable "keep" list (more on this below).
+* Historical webhook execution data.
+* Old or superseded (ie. versions that are not the latest for their branch/tag) application versions and their associated tags/pacts/verifications/webhooks.
 
 ### How the application version cleaning works
 
