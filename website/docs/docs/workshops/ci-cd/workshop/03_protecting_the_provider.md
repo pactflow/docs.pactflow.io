@@ -60,11 +60,11 @@ You can demonstrate this by running a provider build in Github (`Actions` -> Und
 
  👉 The provider is still compatible with pact deployed to the `prod` environment , so the deploy step is able to proceed without issue.
 
-1. Look at `product/product.pact.test.js`, `enablePending: true` is set in the options for the dynamically fetched pacts.
+1. Look at [src/product/product.providerChange.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.providerChange.pact.test.js), `enablePending: true` is set in the options for the dynamically fetched pacts.
 
 1. Locally you can run `make test` - note that this passes ✅
 
-    👉 Whenever we run the verification step with the pending feature enabled, we have to make sure we've set the branch correctly (which we do in this codebase by providing the environment variable `GIT_BRANCH` to `providerVersionBranch` in our test `product/product.pact.test.js`), because the pending status for each pact depends on it.
+    👉 Whenever we run the verification step with the pending feature enabled, we have to make sure we've set the branch correctly (which we do in this codebase by providing the environment variable `GIT_BRANCH` to `providerVersionBranch` in our test `product.providerChange.pact.test.js`), because the pending status for each pact depends on it.
 
 1. In Pactflow, refresh the pact page.
 
@@ -76,7 +76,7 @@ You can demonstrate this by running a provider build in Github (`Actions` -> Und
 this step is optional and for demonstration purposes to show what happens without the `Pending pacts` feature
 :::
 
-1. In `product/product.pact.test.js`, set `enablePending: false` in the options for the dynamically fetched pacts.
+1. In [src/product/product.providerChange.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.providerChange.pact.test.js), set `enablePending: false` in the options for the dynamically fetched pacts.
 
 2. Run `make test` - note that this now fails ❌
 
