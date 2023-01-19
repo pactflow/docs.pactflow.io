@@ -71,11 +71,6 @@ Notes:
 * When you deploy an application to production, the relevant pacticipant version needs to be recorded as deployed in Pactflow, so you need to ensure that you keep any version that you're likely to deploy (or rollback to). Specify a max_age value that is at minimum the number of days it takes between a commit being created and that commit being deployed (with a very comfortable margin of error) and any branch that you deploy from. A reasonable max_age value might be 90 days for the `main` branch. eg. `{"max_age": 90, "mainBranch": true }`
 * If an application is not under active development, a selector that keeps versions by age limit might not actually select any versions. To ensure that we don't lose those critical "latest" versions for our main line of development or our deployed environments, add a selector with `{"mainBranch": true, "latest": true }`, or keep the latest version from each branch by specifying `{"branch": true, "latest": true }`.
 
-
-### Initial clean strategy
-
-If you have a very large database, and you are just now enabling the clean, the initial clean up might take some time. To ensure that the clean does not have an impact on the performance of Pactflow, it is recommended to set the cron schedule to something quite regular for the first day (eg. every 2 minutes), and set the clean limit quite low (eg. 100). Once the task has stopped deleting any more records, set the schedule back to something like once/twice a day, and make sure the clean limit is higher than the number of new versions you expect in that time period.
-
 ### Execution
 
 The database clean tool comes built into the Pactflow On-Premises Docker image. The Docker container should be executed in a compute environment such as AWS Batch. It should run on a regular schedule (eg. daily) and be configured to delete at least as many application versions as are expected to be created between each clean execution.
@@ -126,6 +121,10 @@ services:
       - ./pactflow-onprem.lic:/home/pactflow-onprem.lic
 
 ```
+
+#### Initial clean strategy
+
+If you have a very large database, and you are just now enabling the clean, the initial clean up might take some time. To ensure that the clean does not have an impact on the performance of Pactflow, it is recommended to set the cron schedule to something quite regular for the first day (eg. every 2 minutes), and set the clean limit quite low (eg. 100). Once the task has stopped deleting any more records, set the schedule back to something like once/twice a day, and make sure the clean limit is higher than the number of new versions you expect in that time period.
 
 ### Configuration
 
