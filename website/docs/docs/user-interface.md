@@ -1,6 +1,6 @@
 ---
 id: user-interface
-title: Pactflow User Interface
+title: PactFlow User Interface
 ---
 
 ## Main Screen

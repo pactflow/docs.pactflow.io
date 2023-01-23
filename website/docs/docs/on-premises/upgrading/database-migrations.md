@@ -8,7 +8,7 @@ Schema migrations are run automatically on start up, unless the [PACTFLOW_DATABA
 
 ## Manual migration
 
-The migrations can be run manually against the database before upgrading the Pactflow Docker image if desired (however, this is generally not necessary).
+The migrations can be run manually against the database before upgrading the PactFlow Docker image if desired (however, this is generally not necessary).
 
 ```sh
 docker pull quay.io/pactflow/enterprise

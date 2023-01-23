@@ -126,7 +126,7 @@ function generateTestingToolsTab({ data, withLabel, withLink, side }) {
             key,
             content: (
               <a href={data[key].iconLink} key={key}>
-                Pactflow {data[key].side} side demo with {data[key].iconTitle}
+                PactFlow {data[key].side} side demo with {data[key].iconTitle}
               </a>
             ), // for demo, need to add our own content
             withLabel,

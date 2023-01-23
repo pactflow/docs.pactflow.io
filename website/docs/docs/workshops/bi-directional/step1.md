@@ -12,7 +12,7 @@ This is in contrast to _consumer driven contracts_ where the API consumers can d
 
 One challenge with this approach, is we need to ensure that our provider's implementation doesn't drift from the document. There are several ways to achieve this, which we will discuss in step 3.
 
-We also need to ensure that the provider doesn't introduce a change that will break its service consumers - for this, we will use a Pactflow feature called [Bi-Directional Contract Testing](https://pactflow.io/bi-directional-contract-testing/) to ensure neither the the API Consumer or Provider can accidentally break the integration.
+We also need to ensure that the provider doesn't introduce a change that will break its service consumers - for this, we will use a PactFlow feature called [Bi-Directional Contract Testing](https://pactflow.io/bi-directional-contract-testing/) to ensure neither the the API Consumer or Provider can accidentally break the integration.
 
 ### Definitions
 

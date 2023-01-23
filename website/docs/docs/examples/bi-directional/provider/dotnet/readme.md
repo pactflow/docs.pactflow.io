@@ -38,13 +38,13 @@ https://github.com/pactflow/example-bi-directional-provider-dotnet
 
 <!-- Provider Overview -->
 
-This is an example of a .NET "Product" API Provider that uses Schemathesis, Pact, [Pactflow](https://pactflow.io) and GitHub Actions to generate and publish Pact provider contracts.
+This is an example of a .NET "Product" API Provider that uses Schemathesis, Pact, [PactFlow](https://pactflow.io) and GitHub Actions to generate and publish Pact provider contracts.
 
-It performs pre-deployment cross-compatability checks to ensure that it is compatible with specified consumers using the Bi-Directional contract capability of Pactflow.
+It performs pre-deployment cross-compatability checks to ensure that it is compatible with specified consumers using the Bi-Directional contract capability of PactFlow.
 
 <!-- General -->
 
-See the full [Pactflow Bi-Directional Workshop](https://docs.pactflow.io/docs/workshops/bi-directional-contract-testing) for which this can be substituted in as the "provider".
+See the full [PactFlow Bi-Directional Workshop](https://docs.pactflow.io/docs/workshops/bi-directional-contract-testing) for which this can be substituted in as the "provider".
 
 ## Overview of Part of Bi-Directional Contract Testing Flow
 
@@ -52,7 +52,7 @@ See the full [Pactflow Bi-Directional Workshop](https://docs.pactflow.io/docs/wo
 
 In the following diagram, you can see how the provider testing process works.
 
-When we call "can-i-deploy" the cross-contract validation process kicks off on Pactflow, to ensure any consumer consumes a valid subset of the OAS for the provider.
+When we call "can-i-deploy" the cross-contract validation process kicks off on PactFlow, to ensure any consumer consumes a valid subset of the OAS for the provider.
 
 ![Provider Test](https://raw.githubusercontent.com/pactflow/example-bi-directional-provider-dotnet/main/docs/provider-scope.png)
 
@@ -98,16 +98,16 @@ This project is currently compatible with the following consumers(s):
 
 To be able to run some of the commands locally, you will need to export the following environment variables into your shell:
 
-- `PACT_BROKER_TOKEN`: a valid [API token](https://docs.pactflow.io/docs/getting-started/#configuring-your-api-token) for Pactflow
+- `PACT_BROKER_TOKEN`: a valid [API token](https://docs.pactflow.io/docs/getting-started/#configuring-your-api-token) for PactFlow
 - `PACT_BROKER_BASE_URL`: a fully qualified domain name with protocol to your pact broker e.g. https://testdemo.pactflow.io
   
 ## Usage
 
 ### Steps
 
-  1. Make sure you have completed the pre-requisite steps of setting up your Pactflow account, and setting the environment variables `PACT_BROKER_TOKEN` and `PACT_BROKER_BASE_URL` with the token and URL from your Pactflow account. These environment variables are what is used in the Makefile simulated build pipeline process to determine which Pactflow instance to publish to.
+  1. Make sure you have completed the pre-requisite steps of setting up your PactFlow account, and setting the environment variables `PACT_BROKER_TOKEN` and `PACT_BROKER_BASE_URL` with the token and URL from your PactFlow account. These environment variables are what is used in the Makefile simulated build pipeline process to determine which PactFlow instance to publish to.
 
-  2. Generate the dll for the project, this is the binary file that would be deployed to an environment. This step generates the Swagger doc for the project, which will be uploaded to Pactflow. Run the following command in the terminal on the root of the project:
+  2. Generate the dll for the project, this is the binary file that would be deployed to an environment. This step generates the Swagger doc for the project, which will be uploaded to PactFlow. Run the following command in the terminal on the root of the project:
 
       `make publish_dll`
 
@@ -115,7 +115,7 @@ To be able to run some of the commands locally, you will need to export the foll
 
       `make verify_swagger`
 
-  4. If the Schemathasis test is successful run the publish_success target, this will publish the Swagger document, Schemathesis report, and success status of the verification to your Pactflow account
+  4. If the Schemathasis test is successful run the publish_success target, this will publish the Swagger document, Schemathesis report, and success status of the verification to your PactFlow account
 
       `EXIT_CODE=0 make publish_provider_contract`
 
@@ -124,7 +124,7 @@ To be able to run some of the commands locally, you will need to export the foll
 _note_ - Make sure you have built the .dll first with `make publish_dll`
 
 * `make test` - run the tests locally
-* `make fake_ci` - run the CI process (the above steps) locally, this will publish the Swagger document and Schemathesis report to Pactflow.
+* `make fake_ci` - run the CI process (the above steps) locally, this will publish the Swagger document and Schemathesis report to PactFlow.
 
 ## OS/Platform specific considerations
 
@@ -161,7 +161,7 @@ Some notes:
       docker run --net="host" schemathesis/schemathesis:stable run --stateful=links --checks all http://host.docker.internal:9000/swagger/v1/swagger.json > report.txt
       ```
 
-  3. Now that the Swagger doc is generated and verified the contract can be published to Pactflow. The easiest way to do this via windows is using our standalone tools. See [here](https://docs.pactflow.io/docs/bi-directional-contract-testing/contracts/oas#publishing-the-provider-contract--results-to-pactflow) for cross platform instructions.
+  3. Now that the Swagger doc is generated and verified the contract can be published to PactFlow. The easiest way to do this via windows is using our standalone tools. See [here](https://docs.pactflow.io/docs/bi-directional-contract-testing/contracts/oas#publishing-the-provider-contract--results-to-pactflow) for cross platform instructions.
 
   4. Check can-i-deploy to see if your provider contract is compatible with current consumers. 
    

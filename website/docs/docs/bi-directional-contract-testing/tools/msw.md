@@ -4,7 +4,7 @@ sidebar_label: MSW
 ---
 
 :::note
-Official Pactflow adapter
+Official PactFlow adapter
 :::
 
 
@@ -22,7 +22,7 @@ One of the quickest ways to see this in action in a full CI/CD flow, is to pick 
 
 - GitHub [https://github.com/pactflow/pact-msw-adapter](https://github.com/pactflow/pact-msw-adapter)
 - NPM [@pactflow/pact-msw-adapter](https://www.npmjs.com/package/@pactflow/pact-msw-adapter)
-- Pactflow MSW Bi-Directional [demo](/docs/examples/bi-directional/consumer/msw/) Project
+- PactFlow MSW Bi-Directional [demo](/docs/examples/bi-directional/consumer/msw/) Project
 - Initial Proposal [GitHub Issue](https://github.com/mswjs/msw/issues/572)
 
 ## Install
@@ -175,5 +175,5 @@ Run your tests in the usual manner for your framework.
 
 :::success Well done!
 
-You should now see a Pact file generated in your specified folder, the default is `./msw-generated-pacts` - These are now ready for upload to the Pactflow Platform.
+You should now see a Pact file generated in your specified folder, the default is `./msw-generated-pacts` - These are now ready for upload to the PactFlow Platform.
 :::

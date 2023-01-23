@@ -19,14 +19,14 @@ https://github.com/pactflow/example-consumer-js-sns
 
 [![Pact Status](https://test.pactflow.io/matrix/provider/pactflow-example-provider-js-sns/latest/master/consumer/pactflow-example-consumer-js-sns/latest/master/badge.svg?label=consumer)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-js-sns/consumer/pactflow-example-consumer-js-sns/latest/prod) (prod/prod pact)
 
-This is an example of a NodeJS AWS SNS consumer that uses Pact, [Pactflow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
+This is an example of a NodeJS AWS SNS consumer that uses Pact, [PactFlow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
 
-It is using a public tenant on Pactflow, which you can access [here](https://test.pactflow.io) using the credentials `dXfltyFMgNOFZAxr8io9wJ37iUpY42M`/`O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1`. The latest version of the Example Consumer/Example Provider pact is published [here](https://test.pactflow.io/pacts/provider/pactflow-example-provider-js-sns/consumer/pactflow-example-consumer-js-sns/latest).
+It is using a public tenant on PactFlow, which you can access [here](https://test.pactflow.io) using the credentials `dXfltyFMgNOFZAxr8io9wJ37iUpY42M`/`O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1`. The latest version of the Example Consumer/Example Provider pact is published [here](https://test.pactflow.io/pacts/provider/pactflow-example-provider-js-sns/consumer/pactflow-example-consumer-js-sns/latest).
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 
 * See the canonical consumer example here: https://github.com/pactflow/example-consumer.
-* See also the full [Pactflow CI/CD Workshop](https://docs.pactflow.io/docs/workshops/ci-cd) for which this can be substituted in as the "consumer".
+* See also the full [PactFlow CI/CD Workshop](https://docs.pactflow.io/docs/workshops/ci-cd) for which this can be substituted in as the "consumer".
 
 ## Scenario
 
@@ -79,7 +79,7 @@ See also:
 
 ## Usage
 
-See also the [Pactflow CI/CD Workshop](https://github.com/pactflow/ci-cd-workshop) for more background.
+See also the [PactFlow CI/CD Workshop](https://github.com/pactflow/ci-cd-workshop) for more background.
 
 ### Testing
 

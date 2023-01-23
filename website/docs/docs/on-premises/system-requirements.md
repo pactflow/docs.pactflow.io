@@ -46,9 +46,9 @@ For reference, pactflow.io runs on AWS RDS in [active/passive mode across multip
 
 ## Load Balancing
 
-We recommend running Pactflow on load-balanced infrastructure in at least a 2 node setup to enable high availability and greater throughput. So for clarity, we would recommend running two servers both with 4GiB memory and 4 CPUs for a total capacity of 8GiB Memory and 8 CPUs.
+We recommend running PactFlow on load-balanced infrastructure in at least a 2 node setup to enable high availability and greater throughput. So for clarity, we would recommend running two servers both with 4GiB memory and 4 CPUs for a total capacity of 8GiB Memory and 8 CPUs.
 
-The Pactflow application is stateless, and therefore sticky sessions do not need to be configured. Use round-robin or least outstanding requests to route to the application servers.
+The PactFlow application is stateless, and therefore sticky sessions do not need to be configured. Use round-robin or least outstanding requests to route to the application servers.
 
 _NOTE_: Most Pact tooling has retries built-in to handle minor outages communicating to a broker.
 
@@ -58,7 +58,7 @@ Below are the key scaling considerations.
 
 First, make sure you've identified the baseline load and have performed a [load test](installation/load-testing). This will help you to set you boundaries for your scale out and scale in parameters.
 
-Pactflow is a database intensive application, with the I/O performance of the database being the most critical factor in determining overall system performance. You should setup monitoring for the following metrics:
+PactFlow is a database intensive application, with the I/O performance of the database being the most critical factor in determining overall system performance. You should setup monitoring for the following metrics:
 
 * CPU
 * Memory
@@ -79,7 +79,7 @@ The usage patterns of every customer is different. For example, we have several 
 Things that will affect how the system scales include:
 
 * Concurrent usage i.e. requests per second (usually by automation systems such as CI/CD)
-* CI implementation patterns (e.g. integrations to Pactflow, the use of polling vs webhooks)
+* CI implementation patterns (e.g. integrations to PactFlow, the use of polling vs webhooks)
 * Developer habits (continuous check-in vs bigger commits) causing more or less builds
 * Whether you run regular database cleanups (to reduce database storage requirements, and speed up queries)
 * The size, variation and stability of contracts
@@ -92,7 +92,7 @@ For forecasting purposes we've created a standard model you can use for projecti
 
 _NOTE_: We still recommend using the monitoring and scaling approach (defined above) to automatically scale up/down your system as required.
 
-_<sup>*</sup> Active users is defined as a developer that either logs into Pactflow daily or commits code that would trigger a CI build that integrates with Pactflow_
+_<sup>*</sup> Active users is defined as a developer that either logs into PactFlow daily or commits code that would trigger a CI build that integrates with Pactflow_
 ### Standard Units
 
 * 1 `compute unit`  = 1 CPU, 256 MiB memory

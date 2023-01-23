@@ -8,7 +8,7 @@ title: Secrets
 
 &nbsp;
 
-You can create your own variables to store sensitive values like usernames and passwords here. These will be encrypted and then stored in the Pactflow platform and available to use when creating your webhooks.
+You can create your own variables to store sensitive values like usernames and passwords here. These will be encrypted and then stored in the PactFlow platform and available to use when creating your webhooks.
 
 &nbsp;
 

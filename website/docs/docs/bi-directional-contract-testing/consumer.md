@@ -51,7 +51,7 @@ We recommend using the `pact-broker publish` command from [CLI Tools](https://do
 
 We recommend using the `pact-broker can-i-deploy` command from [CLI Tools](https://docs.pact.io/implementation_guides/cli/#distributions) for this step. Our examples use the Docker version of this to simplify administration.
 
-The output from the command will provide a link to the verification result in Pactflow. Interpreting these results is contract specific.
+The output from the command will provide a link to the verification result in PactFlow. Interpreting these results is contract specific.
 
 Here is our pipeline to date on the first run of a consumer:
 
@@ -59,7 +59,7 @@ Here is our pipeline to date on the first run of a consumer:
 
 ### Step 5: Deploy your application
 
-If `can-i-deploy` returns a successful response, you can deploy your application. Once your application is deployed, you can notify Pactflow of the release - see the [recording deployments & releases] (<https://docs.pact.io/pact_broker/recording_deployments_and_releases>) docs
+If `can-i-deploy` returns a successful response, you can deploy your application. Once your application is deployed, you can notify PactFlow of the release - see the [recording deployments & releases] (<https://docs.pact.io/pact_broker/recording_deployments_and_releases>) docs
 
 _Golden rule:_
 

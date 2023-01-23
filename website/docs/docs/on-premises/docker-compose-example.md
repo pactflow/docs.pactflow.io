@@ -5,7 +5,7 @@ title: Docker Compose example
 In this guide, we'll provide an example `docker-compose` setup so that you can see how all of the bits hang together. We will demonstrate:
 
 * Authenticating to Quay.io
-* Running the Pactflow enterprise container
+* Running the PactFlow enterprise container
 * Persistent storage with a postgres database
 * Integrating to a test SAML provider
 
@@ -14,7 +14,7 @@ In this guide, we'll provide an example `docker-compose` setup so that you can s
 * [Docker Compose](https://docs.docker.com/compose/install/)
 * A working *nix environment and access to a terminal
 * Valid credentials to authenticate to our [Docker image registry](docker-image-registry)
-* Pactflow license file
+* PactFlow license file
 
 ## 1. Authenticating to Quay.io
 
@@ -25,7 +25,7 @@ docker login -u="<username>" -p="<password>" quay.io
 docker pull quay.io/pactflow/enterprise
 ```
 
-After this, you should have the latest Pactflow enterprise image on your machine. You can verify by executing
+After this, you should have the latest PactFlow enterprise image on your machine. You can verify by executing
 
 ```sh
 docker images quay.io/pactflow/enterprise
@@ -41,14 +41,14 @@ quay.io/pactflow/enterprise   latest              32db429fda01        7 weeks ag
 quay.io/pactflow/enterprise   1.8.0               7f9b3c3aa50e        3 months ago        462MB
 ```
 
-## 2. Pactflow license file
+## 2. PactFlow license file
 
-The Pactflow on-premises version requires a license file to run. You should have received this from us during the
+The PactFlow on-premises version requires a license file to run. You should have received this from us during the
 on-boarding process. If not, please contact us at support@pactflow.io.
 
 Save the license file into a temporary directory (it needs to be the same directory as used in step 3).
 
-## 3. Startup Pactflow and supporting services
+## 3. Startup PactFlow and supporting services
 
 Save the below file as `docker-compose.yml` into a temporary directory and then run `docker-compose up`:
 
@@ -128,7 +128,7 @@ CONTAINER ID        IMAGE                         COMMAND                  CREAT
 c0e3059fa37c        postgres                      "docker-entrypoint.s…"   7 minutes ago       Up 17 seconds (health: starting)   0.0.0.0:5432->5432/tcp                                   tmp_postgres_1
 ```
 
-## 3. Login to Pactflow
+## 3. Login to PactFlow
 
 Head to http://localhost in your browser, and choose to login with "SIMPLE SAML", with the username `user1` and password `user1pass`.
 

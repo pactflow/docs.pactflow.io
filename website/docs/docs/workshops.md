@@ -1,5 +1,5 @@
 ---
-title: Pactflow University
+title: PactFlow University
 sidebar_label: Overview
 ---
 

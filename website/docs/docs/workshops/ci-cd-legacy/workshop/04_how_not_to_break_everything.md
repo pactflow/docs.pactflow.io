@@ -45,7 +45,7 @@ Let's make our changes on a branch this time.
 * In Github Actions:
   * A `master` consumer build that passes and deploys.
   * A `feat/new-field` consumer build that fails at `can-i-deploy`.
-* In Pactflow:
+* In PactFlow:
   * A `master` pact with a successful verification result.
   * A `feat/new-field` pact with a failed verification result
 

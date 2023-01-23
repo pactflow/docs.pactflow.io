@@ -6,7 +6,7 @@ If you are running in github actions, we will do the publish and deploy step all
 
 Now that we have tested our provider and published our provider contract, we can deploy the application to production.
 
-Whilst we don't currently have any consumers to worry about, we want to be prepared for when we do. Pactflow has a tool called [`can-i-deploy`](https://docs.pact.io/pact_broker/can_i_deploy) to help us.
+Whilst we don't currently have any consumers to worry about, we want to be prepared for when we do. PactFlow has a tool called [`can-i-deploy`](https://docs.pact.io/pact_broker/can_i_deploy) to help us.
 
 The `can-i-deploy` command is an important part of a CI/CD workflow, adding stage gates to prevent deploying incompatible applications to environments such as production.
 
@@ -36,11 +36,11 @@ There are no missing dependencies
 
 Later on, when consumers start to use our API, we will be prevented from releasing a change that results in a backwards incompatible change for our consumers. Consumers will also use this command to ensure they are compatible with the Provider API in the target environment (in this case, `production`).
 
-We can now deploy our provider to production. Once we have deployed, we let Pactflow know that the new version of the Provider has been promoted to that environment:
+We can now deploy our provider to production. Once we have deployed, we let PactFlow know that the new version of the Provider has been promoted to that environment:
 
 `npm run deploy`
 
-This allows Pactflow to communicate to any future consumers of the provider, that the OAS associated with this version of the provider is supported in production. If a consumer adds functionality that uses a subset of the OAS, they will be free to deploy safely!
+This allows PactFlow to communicate to any future consumers of the provider, that the OAS associated with this version of the provider is supported in production. If a consumer adds functionality that uses a subset of the OAS, they will be free to deploy safely!
 
 #### Expected state by the end of this step
 
@@ -51,13 +51,13 @@ This allows Pactflow to communicate to any future consumers of the provider, tha
 ### Setup deployment environment
 
 :::info
-This step should only be required if you have a legacy Pactflow account. New users should automatically have a production account created
+This step should only be required if you have a legacy PactFlow account. New users should automatically have a production account created
 :::
 
 <details>
   <summary>Create a new production environment to record deployments against</summary>
 
-  1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > Environments.
+  1. Log in to your PactFlow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > Environments.
   2. Click Add Environment
   3. Enter `production` for the name and display name
   4. Check the "this is a production environment" checkbox
@@ -68,9 +68,9 @@ This step should only be required if you have a legacy Pactflow account. New use
 
 ### Configure provider pipeline
 
-1. Create a Github Secret to store your Pactflow API token in.
-   1. In Pactflow:
-      1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens.
+1. Create a Github Secret to store your PactFlow API token in.
+   1. In PactFlow:
+      1. Log in to your PactFlow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens.
       1. Click the Copy button for the read/write CI token (make sure it's the read _write_ one, not the read only one).
    1. In Github:
       1. Open your forked `example-bi-directional-provider` project (`https://github.com/<your-username>/example-bi-directional-provider`)
@@ -78,16 +78,16 @@ This step should only be required if you have a legacy Pactflow account. New use
       1. Select `Secrets` from the side menu.
       1. Click `New repository secret` (the button is to the right of the "Actions secrets" heading)
       1. Set the name of the secret to `PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP`
-      1. Paste in the Pactflow API token value you copied in the previous step.
-2. Update your workflow files in GitHub to point at your Pactflow Broker
-   1. In Pactflow:
+      1. Paste in the PactFlow API token value you copied in the previous step.
+2. Update your workflow files in GitHub to point at your PactFlow Broker
+   1. In PactFlow:
        1. Go to Settings > API Tokens.
        2. Click the `COPY PACTFLOW BASE URL` button
    2. In Github:
        1. Open your forked `example-bi-directional-provider` project (`https://github.com/<your-username>/example-bi-directional-provider`)
           1. Open `.github/workflows/build.yml`
           2. In the upper right corner of the file view, click 🖊️ to open the file editor.
-          3. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account. You can easily get this by clicking the COPY PACTFLOW BASE URL button on the API Tokens page in Pactflow.
+          3. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own PactFlow account. You can easily get this by clicking the COPY PACTFLOW BASE URL button on the API Tokens page in PactFlow.
           4. Press the green `Commit changes` button
 3. View the build:
    1. In Github:
@@ -97,7 +97,7 @@ This step should only be required if you have a legacy Pactflow account. New use
 
 This build should now successfully publish the provider contract and evidence, and it will pass on the `can-i-deploy` step before it tries to deploy. This is because the provider has no consumers, so is safe to deploy.
 
-After you have pushed your changes to the workflow files, the provider pipeline will run, fetching and verifying the configured pacts from your Pactflow account, and publishing the results back. The `can-i-deploy` command will pass, and allow the provider to be deployed. ✅
+After you have pushed your changes to the workflow files, the provider pipeline will run, fetching and verifying the configured pacts from your PactFlow account, and publishing the results back. The `can-i-deploy` command will pass, and allow the provider to be deployed. ✅
 :::
 
 #### Expected state by the end of this step

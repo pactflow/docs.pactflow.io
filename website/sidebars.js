@@ -115,7 +115,7 @@ module.exports = {
   university: [
     {
       type: 'category',
-      label: 'Pactflow University',
+      label: 'PactFlow University',
       items: [
         'docs/workshops',
         'docs/tutorials',

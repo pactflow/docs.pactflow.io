@@ -2,45 +2,45 @@
 title: On-Premises SCIM API
 ---
 
-The Pactflow SCIM API can be added as a façade to your on-premises Pactflow instance. It runs in its own
-docker container and access the Pactflow APIs using a system account API token.
+The PactFlow SCIM API can be added as a façade to your on-premises PactFlow instance. It runs in its own
+docker container and access the PactFlow APIs using a system account API token.
 
-For details on the Pactflow SCIM API, refer to the [main SCIM documentation](/docs/scim/main).
+For details on the PactFlow SCIM API, refer to the [main SCIM documentation](/docs/scim/main).
 
 ## Installation
 
 ### First
 
-Before running the SCIM API, you must have a correctly running Pactflow instance. Follow the 
-[Pactflow On-Premises installation instructions](/docs/on-premises/installation/checklist).
+Before running the SCIM API, you must have a correctly running PactFlow instance. Follow the 
+[PactFlow On-Premises installation instructions](/docs/on-premises/installation/checklist).
 
 ### Then
 
 * Configure the SCIM Docker image to be pulled from Quay. Follow the [Docker image registry instructions](/docs/on-premises/docker-image-registry)
  to get access to the Quay registry and then run `docker pull quay.io/pactflow/scim-api` to pull down the latest SCIM API image.
 * You can then deploy the docker container to your docker orchestration service (AWS ECS, K8, etc.). You need to provide the external URL of
-your Pactflow instance as the `PACTFLOW_URL` environment variable to the running container.
+your PactFlow instance as the `PACTFLOW_URL` environment variable to the running container.
 
-**NOTE: The SCIM API has to access your Pactflow instance using the external address.** This is due to Pactflow using
+**NOTE: The SCIM API has to access your PactFlow instance using the external address.** This is due to PactFlow using
 the HAL media format which uses embedded links in the responses.
 
-For instance, if your Pactflow instance is running as `https://pactflow.mycompany.com` then you need to the set the
+For instance, if your PactFlow instance is running as `https://pactflow.mycompany.com` then you need to the set the
 `PACTFLOW_URL` environment variable to that address.
 
 ### Next
 
-You can now test the running SCIM API by using a tool like `curl`. First, login to your Pactflow instance and create [a
+You can now test the running SCIM API by using a tool like `curl`. First, login to your PactFlow instance and create [a
 system account](/docs/user-interface/settings/users#system-accounts) and then copy the system account API token.
 
-For instance, assuming your Pactflow instance is running as `https://pactflow.mycompany.com` and your SCIM API is
+For instance, assuming your PactFlow instance is running as `https://pactflow.mycompany.com` and your SCIM API is
 running as `https://pactflow-scim.mycompany.com` with its `PACTFLOW_URL` environment variable set to `https://pactflow.mycompany.com` and
 you have copied the system account API token, you can then run `curl -H 'Authorization: Bearer <PASTE THE SERVICE TOKEN HERE>' https://pactflow-scim.mycompany.com/Users`
 to fetch the users as a SCIM request.
 
 ## Docker Compose example
 
-Here is an example docker compose setup (modified from the [Pactflow Docker Compose example](/docs/on-premises/docker-compose-example))
-to show how the SCIM API can be setup alongside the Pactflow instance. Run through the [Pactflow Docker Compose example](/docs/on-premises/docker-compose-example)
+Here is an example docker compose setup (modified from the [PactFlow Docker Compose example](/docs/on-premises/docker-compose-example))
+to show how the SCIM API can be setup alongside the PactFlow instance. Run through the [PactFlow Docker Compose example](/docs/on-premises/docker-compose-example)
 first, and when that is working you can use this docker compose file to add SCIM as a façade.
 
 ### 1. Authenticating to Quay.io
@@ -52,10 +52,10 @@ docker login -u="<username>" -p="<password>" quay.io
 docker pull quay.io/pactflow/scim-api
 ```
 
-### 2. Startup Pactflow with SCIM API
+### 2. Startup PactFlow with SCIM API
 
 Save the below file as `docker-compose.yml` into a temporary directory and then run `docker-compose up`. Make sure you
-have setup the Pactflow license file correctly as per [2. Pactflow license file](/docs/on-premises/docker-compose-example#2-pactflow-license-file).
+have setup the PactFlow license file correctly as per [2. PactFlow license file](/docs/on-premises/docker-compose-example#2-pactflow-license-file).
 
 ```yaml
 version: "3"
@@ -137,7 +137,7 @@ volumes:
 
 ```
 
-## 3. Login to Pactflow
+## 3. Login to PactFlow
 
 Head to http://localhost in your browser, and choose to login with "SIMPLE SAML", with the username `user1` and password `user1pass`.
 Then go to Settings -> API Tokens and COPY an API token.
@@ -241,11 +241,11 @@ Replace `<PASTE TOKEN HERE>` below with the API token copied from the last step.
 
 ## Configuration
 
-### Pactflow URL (Required) 
+### PactFlow URL (Required) 
 
 **Variable:** `PACTFLOW_URL`<BR/>
 
-This sets the URL that the Pactflow instance is accessed from.
+This sets the URL that the PactFlow instance is accessed from.
 
 ### Log Level
 
@@ -255,7 +255,7 @@ This sets the URL that the Pactflow instance is accessed from.
 
 This sets the base log level for the SCIM API container. 
 
-**WARNING: Setting the log level to `DEBUG` will cause all HTTP interactions between the SCIM API and Pactflow to be be logged, 
+**WARNING: Setting the log level to `DEBUG` will cause all HTTP interactions between the SCIM API and PactFlow to be be logged, 
 which will include the API tokens in clear text.** To disable logging of the HTTP interactions, set
 `LOGGING_LEVEL_ORG_APACHE_HC_CLIENT5_HTTP_WIRE` to `INFO` or greater.
 

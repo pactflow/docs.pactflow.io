@@ -38,13 +38,13 @@ https://github.com/pactflow/example-bi-directional-consumer-wiremock
 
 <!-- Consumer Overview -->
 
-This is an example of a Java "Product" API consumer that uses Wiremock, Pact, [Pactflow](https://pactflow.io) and GitHub Actions to generate and publish Pact consumer contracts.
+This is an example of a Java "Product" API consumer that uses Wiremock, Pact, [PactFlow](https://pactflow.io) and GitHub Actions to generate and publish Pact consumer contracts.
 
-It performs pre-deployment cross-compatibility checks to ensure that it is compatible with specified providers using the Bi-Directional contract capability of Pactflow.
+It performs pre-deployment cross-compatibility checks to ensure that it is compatible with specified providers using the Bi-Directional contract capability of PactFlow.
 
 <!-- General -->
 
-See the full [Pactflow Bi-Directional Workshop](https://docs.pactflow.io/docs/workshops/bi-directional-contract-testing) for which this can be substituted in as the "consumer".
+See the full [PactFlow Bi-Directional Workshop](https://docs.pactflow.io/docs/workshops/bi-directional-contract-testing) for which this can be substituted in as the "consumer".
 
 
 ## Overview of Part of Bi-Directional Contract Testing Flow
@@ -53,7 +53,7 @@ See the full [Pactflow Bi-Directional Workshop](https://docs.pactflow.io/docs/wo
 
 In the following diagram, You can see how the consumer testing process works - it's the same as the current Pact process.
 
-When we call "can-i-deploy" the cross-contract validation process kicks off on Pactflow, to ensure any consumer consumes a valid subset of the OAS for the provider.
+When we call "can-i-deploy" the cross-contract validation process kicks off on PactFlow, to ensure any consumer consumes a valid subset of the OAS for the provider.
 
 ![Consumer Test](https://raw.githubusercontent.com/pactflow/example-bi-directional-consumer-wiremock/master/docs/consumer-scope.png)
 
@@ -94,7 +94,7 @@ See [Environment variables](#environment-variables) on how to set these up.
 
 To be able to run some of the commands locally, you will need to export the following environment variables into your shell:
 
-- `PACT_BROKER_TOKEN`: a valid [API token](https://docs.pactflow.io/docs/getting-started/#configuring-your-api-token) for Pactflow
+- `PACT_BROKER_TOKEN`: a valid [API token](https://docs.pactflow.io/docs/getting-started/#configuring-your-api-token) for PactFlow
 - `PACT_BROKER_BASE_URL`: a fully qualified domain name with protocol to your pact broker e.g. https://testdemo.pactflow.io
 
 <!-- CONSUMER env vars -->
@@ -143,7 +143,7 @@ You can still try this example locally on Windows using powershell and running c
       
       becomes
       
-      `/c/Users/Candy/Documents/Pactflow/example-bi-directional-consumer-dotnet`
+      `/c/Users/Candy/Documents/PactFlow/example-bi-directional-consumer-dotnet`
 
       $env:VARIABLE_NAME refers to the environment variables in windows.
 

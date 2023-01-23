@@ -2,11 +2,11 @@
 title: Predefined roles
 ---
 
-The Pactflow application comes with the following predefined roles. Each role is assigned a collection of [permissions](/docs/permissions).
+The PactFlow application comes with the following predefined roles. Each role is assigned a collection of [permissions](/docs/permissions).
 
 ## Administrator
 
-The user who signed up for the Pactflow tenant will be assigned the Administrator role. They are then able to assign the Administrator role to other users.
+The user who signed up for the PactFlow tenant will be assigned the Administrator role. They are then able to assign the Administrator role to other users.
 
 #### Default permissions
 
@@ -27,7 +27,7 @@ The user who signed up for the Pactflow tenant will be assigned the Administrato
 
 ## User
 
-All new users are assigned the `User` role (unless the default role has been updated in the [system preferences](/docs/user-interface/settings/preferences#system-preferences)). The `User` role is intended to work in conjunction with [team assignments](/docs/user-interface/settings/teams), and therefore has `manage:team` permissions (rather than `manage:*` permissions) for all resources that can be associated with a team. The `User` role should be assigned to all developers, testers and other users who create and verify contracts in the Pactflow platform.
+All new users are assigned the `User` role (unless the default role has been updated in the [system preferences](/docs/user-interface/settings/preferences#system-preferences)). The `User` role is intended to work in conjunction with [team assignments](/docs/user-interface/settings/teams), and therefore has `manage:team` permissions (rather than `manage:*` permissions) for all resources that can be associated with a team. The `User` role should be assigned to all developers, testers and other users who create and verify contracts in the PactFlow platform.
 
 #### Default permissions
 
@@ -118,7 +118,7 @@ The Test Maintainer role has been replaced by the User role. The difference betw
 
 Should you wish to reset the permissions assigned to each of the predefined roles back to their defaults as documented above (or upgrade from the globally scoped User role to the team scoped User role) you can follow these steps. Note that any custom roles will remain unaffected, and the user/role assignments are not changed.
 
-- Click on the `API` button at the top right of the Pactflow dashboard.
+- Click on the `API` button at the top right of the PactFlow dashboard.
 - In the `Links` section, scroll down to the line where `rel` column has a value of `pf:admin-roles`.
 - Click on the green arrow in the `GET` column that has the hover text "Follow link".
 - Scroll up to the top of the page.

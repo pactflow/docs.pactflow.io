@@ -1,5 +1,5 @@
 ---
-title: Pactflow - Introduction to Pact
+title: PactFlow - Introduction to Pact
 sidebar_label: Introduction
 ---
 
@@ -21,6 +21,6 @@ The full introductory workshop can be run within 2 - 2.5 hours, and we recommend
 | 1    | Introduction to contract-testing with Pact presentation (slides 1 - 46)      | <a href="/resources/pact-workshop-introduction_2020.pdf" target="_blank">pdf</a> \| <a href="/resources/pact-workshop-introduction_2020.pptx" target="_blank">pptx</a> | 30 minutes |
 | 2    | Pact in action (optional)                                                    | See [demos](/docs/examples)                                                                                                                                            | 15 minutes |
 | 3    | Run the Node JS workshop                                                     | [workshop](https://github.com/pact-foundation/pact-workshop-js)                                                                                                                               | 2-3 hours  |
-| 4    | Pactflow summary (slides 47+)                                                | <a href="/resources/pact-workshop-introduction_2020.pdf" target="_blank">pdf</a> \| <a href="/resources/pact-workshop-introduction_2020.pptx" target="_blank">pptx</a> | 5 minutes  |
+| 4    | PactFlow summary (slides 47+)                                                | <a href="/resources/pact-workshop-introduction_2020.pdf" target="_blank">pdf</a> \| <a href="/resources/pact-workshop-introduction_2020.pptx" target="_blank">pptx</a> | 5 minutes  |
 
 _NOTE: You may swap out the language for one of our other [workshops](/docs/tutorials) if a client would prefer it done in a separate language. It's worth stating however that the JS and Golang workshops are currently the best designed for this course_
