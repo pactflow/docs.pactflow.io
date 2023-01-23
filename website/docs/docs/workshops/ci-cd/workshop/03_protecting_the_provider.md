@@ -84,7 +84,7 @@ This step is optional and for demonstration purposes to show what happens withou
     * The `master` pact has a (correctly) failed verification result, which tells the consumer team that they cannot deploy the code associated with this pact yet.
     * The provider is verifying the code from its main branch to deploy, against the consumers `master` branch, and any `deployed` versions, and the verification job now fails, meaning the provider is blocked from deployed to production through no fault of their own. We will show how the consumer can safely deliver this change later in the workshop
 
-:::warn
+:::caution
 The real problem is that the provider is now unable to deploy from their master branch 😧.
 This is because the provider is configured to verify the latest pact of any registered consumers main branch, so publishing a pact with a new expectation and associating its consumer version as `master` (the consumers main branch) causes the verification step to fail, breaking the provider's build through no fault of its own.
 :::
