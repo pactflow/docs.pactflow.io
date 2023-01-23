@@ -2961,7 +2961,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/core@npm:2.2.0, @docusaurus/core@npm:latest":
+"@docusaurus/core@npm:2.2.0, @docusaurus/core@npm:^2.2.0":
   version: 2.2.0
   resolution: "@docusaurus/core@npm:2.2.0"
   dependencies:
@@ -3254,7 +3254,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/preset-classic@npm:latest":
+"@docusaurus/preset-classic@npm:^2.2.0":
   version: 2.2.0
   resolution: "@docusaurus/preset-classic@npm:2.2.0"
   dependencies:
@@ -7940,9 +7940,9 @@ __metadata:
   linkType: hard
 
 "immer@npm:^9.0.7":
-  version: 8.0.4
-  resolution: "immer@npm:8.0.4"
-  checksum: 9d3b28df1ac5bf6918c611e71c15bdb136588c21a3431100448f21325fef9b055cc9a44fe8b023f0c5ecbc66a2ba38f403c9a67d581f613b49d0e4ff15564f79
+  version: 9.0.18
+  resolution: "immer@npm:9.0.18"
+  checksum: 85b3153dd01fce73c40591d0d6d7cd95878dab49f8ec4744c044adac05e0dab847b30c26259c478a5f87f974897be6df2780ff5bf86c8a0a27578fdeb300eb10
   languageName: node
   linkType: hard
 
@@ -9805,8 +9805,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "partners@workspace:."
   dependencies:
-    "@docusaurus/core": latest
-    "@docusaurus/preset-classic": latest
+    "@docusaurus/core": ^2.2.0
+    "@docusaurus/preset-classic": ^2.2.0
     "@mdx-js/react": ^1.6.22
     "@you54f/theme-github-codeblock": ^0.1.1
     clsx: ^1.1.1
