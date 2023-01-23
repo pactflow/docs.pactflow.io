@@ -65,7 +65,7 @@ For the general Provider test and release workflow, see our [Provider Side Bi-Di
 
 Now that we have an agreed API definition and an implementation (in this case, a Mock of the provider), we can start to build out our test cases whilst the implementation is underway. We will be able to re-use these tests when the real provider is ready for testing.
 
-Start by [choosing](http://localhost:3000/docs/bi-directional-contract-testing/provider#step-2-choose-an-api-testing-tool) an API testing tool. See our [examples](/docs/examples) for an idea of how to do this.
+Start by [choosing](/docs/bi-directional-contract-testing/provider#step-2-choose-an-api-testing-tool) an API testing tool. See our [examples](/docs/examples) for an idea of how to do this.
 
 #### 3.2. Publish to Pactflow
 
@@ -97,7 +97,7 @@ We can optionally use the server mocks from step (2).
 
 We can now test our consumer. This is the stage where we will capture the *consumer contract*. You can choose to use Pact, or convert your preferred mocks into a contract file.
 
-See this [guide](http://localhost:3000/docs/bi-directional-contract-testing/consumer) and one of our BDCT [examples](/docs/examples) for an idea of how to do this.
+See this [guide](/docs/bi-directional-contract-testing/consumer) and one of our BDCT [examples](/docs/examples) for an idea of how to do this.
 
 #### 4.3. Publish to Pactflow
 
