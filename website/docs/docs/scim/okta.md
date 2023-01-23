@@ -42,7 +42,7 @@ You can now use the *Test Connector Configuration* button to see if you have the
 
 ## Mapping Okta groups to PactFlow teams
 
-Okta groups can be setup to sync to PactFlow as Teams. Than any user added to the Okta group should automatically be
+Okta groups can be setup to sync to PactFlow as Teams. Then any user added to the Okta group should automatically be
 added to the corresponding team in PactFlow (if the user has been correctly synced).
 
 1. Create the group in Okta.
