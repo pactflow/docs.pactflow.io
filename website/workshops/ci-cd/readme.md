@@ -4,7 +4,7 @@ custom_edit_url: https://github.com/pactflow/docs.pactflow.io/edit/master/README
 ---
 <!-- This file has been synced from the pactflow/docs.pactflow.io repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
 
-Pactflow technical documentation
+PactFlow technical documentation
 
 This doco site is generated with [https://docusaurus.io/docs/](Docusaurus)
 

@@ -4,4 +4,4 @@ title: On-premises release v1.19.2
 tags: [on-premises, release]
 ---
 
-A new Pactflow on-premises release (1.19.2) is now available ([see details](/docs/on-premises/releases/1.19.2)).
+A new PactFlow on-premises release (1.19.2) is now available ([see details](/docs/on-premises/releases/1.19.2)).

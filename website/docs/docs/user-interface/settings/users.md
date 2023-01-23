@@ -45,8 +45,8 @@ You may delete a user by either choosing the action via the `"..."` menu to the 
 
 Once deleted the user will no longer appear in the UI and cannot be edited.
 
-Deleting a federated identity user should only be undertaken when the user is being removed from the SSO organisation as a whole. This is because the SSO provider remains the source of truth meaning if the user logs into Pactflow again via SSO the account will be reinstated.
-To remove a user from Pactflow who will remain in the SSO organisation it is recommended to instead `disable` the user. Disabled users will not be counted towards your seat limit, though their details will still appear inside Pactflow. Disabled users can also be re-enabled via the UI if needed.
+Deleting a federated identity user should only be undertaken when the user is being removed from the SSO organisation as a whole. This is because the SSO provider remains the source of truth meaning if the user logs into PactFlow again via SSO the account will be reinstated.
+To remove a user from PactFlow who will remain in the SSO organisation it is recommended to instead `disable` the user. Disabled users will not be counted towards your seat limit, though their details will still appear inside PactFlow. Disabled users can also be re-enabled via the UI if needed.
 
 ![Bulk Actions](/ui/delete-user-action.png)
 
@@ -62,7 +62,7 @@ After a successful invitation, the user will receive an email with a temporary p
 
 This option will create a local user account in the system - it will not create accounts in federated Identity Providers.
 
-_NOTE_: if the user being invited (as identified by their email address) already exists in Pactflow, they **will not** receive another email and will now be able to login to your account with their existing credentials.
+_NOTE_: if the user being invited (as identified by their email address) already exists in PactFlow, they **will not** receive another email and will now be able to login to your account with their existing credentials.
 
 ## User roles
 
@@ -73,13 +73,13 @@ There are a few options to change a user's roles. The `Make Administrator`/`Remo
 ## System accounts
 
 You can have a number of system accounts, based on your plan. System accounts are a type of user account to be used with API
-access only. They are primarily for use with CI/CD systems to access Pactflow. From the system account screen (by selecting it from the user type dropdown), you can create new system accounts, disable existing ones and get or renegerate the access tokens for the account. These functions require administrator access. You can also see the last time a token for that account was
-used to access any Pactflow API.
+access only. They are primarily for use with CI/CD systems to access PactFlow. From the system account screen (by selecting it from the user type dropdown), you can create new system accounts, disable existing ones and get or renegerate the access tokens for the account. These functions require administrator access. You can also see the last time a token for that account was
+used to access any PactFlow API.
 
 ![System accounts](/ui/system-accounts.png)
 
 ## Federation with Google, GitHub or SAML2.0
 
-Federation allows team members to join your account without being invited - i.e. they will be provisioned into Pactflow on demand, up until your account limit. You can simply share the link to the account `https://<account>.pactflow.io` and they may choose to login with Google, GitHub or your SAML provider.
+Federation allows team members to join your account without being invited - i.e. they will be provisioned into PactFlow on demand, up until your account limit. You can simply share the link to the account `https://<account>.pactflow.io` and they may choose to login with Google, GitHub or your SAML provider.
 
 Other user management features such as team management, roles and the ability to disable users still applies to your federated user.

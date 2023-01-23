@@ -6,15 +6,15 @@ sidebar_label: SwaggerHub
 :::note Pre-requisites
 To use this feature, you will need:
 
-* A [Pactflow](https://pactflow.io) account (create a [free account](https://pactflow.io/pricing/)).
+* A [PactFlow](https://pactflow.io) account (create a [free account](https://pactflow.io/pricing/)).
 * A [SwaggerHub](https://swaggerhub.com) account (create a [free account](https://try.smartbear.com/)).
 :::
 
-In this guide, you'll learn how to use Pactflow and [SwaggerHub](https://swaggerhub.com/) together, to add contract testing to your design first API development workflow.
+In this guide, you'll learn how to use PactFlow and [SwaggerHub](https://swaggerhub.com/) together, to add contract testing to your design first API development workflow.
 
 ## Benefits
 
-Pactflow and SwaggerHub can be combined to increase the quality of your design-first API development workflow, and help navigate the complexity of microservice rollouts.
+PactFlow and SwaggerHub can be combined to increase the quality of your design-first API development workflow, and help navigate the complexity of microservice rollouts.
 
 SwaggerHub is foundation of a repeatable process for API Development, providing a secure collaborative environment for your API design process:
 
@@ -22,7 +22,7 @@ SwaggerHub is foundation of a repeatable process for API Development, providing 
 1. Allows teams to work **independently**
 2. **Unlocks automation** such as code-generation and mock services
 
-Pactflow brings increased visibility into how consumers use your API, enabling:
+PactFlow brings increased visibility into how consumers use your API, enabling:
 
 1. API consumer and API producer development teams to work in independently and **safely**
 2. **Prevent breaking changes** to your API and releasing an incompatible API consumer
@@ -32,7 +32,7 @@ Together, they allow faster feedback cycles from design through to development, 
 
 ## Pre-requisites
 
-* A [Pactflow](https://pactflow.io) account (create a [free account](https://pactflow.io/pricing/)).
+* A [PactFlow](https://pactflow.io) account (create a [free account](https://pactflow.io/pricing/)).
 * A [SwaggerHub](https://swaggerhub.com) account (create a [free account](https://try.smartbear.com/)).
 
 ## Integration Guide
@@ -67,9 +67,9 @@ Now that we have an agreed API definition and an implementation (in this case, a
 
 Start by [choosing](/docs/bi-directional-contract-testing/provider#step-2-choose-an-api-testing-tool) an API testing tool. See our [examples](/docs/examples) for an idea of how to do this.
 
-#### 3.2. Publish to Pactflow
+#### 3.2. Publish to PactFlow
 
-[Publish](/docs/bi-directional-contract-testing/contracts/oas#publishing-the-provider-contract--results-to-pactflow) your OAS and the test results from your chosen API testing tool to Pactflow. 
+[Publish](/docs/bi-directional-contract-testing/contracts/oas#publishing-the-provider-contract--results-to-pactflow) your OAS and the test results from your chosen API testing tool to PactFlow. 
 
 #### 3.3. Check `can-i-deploy` if it's safe to release
 
@@ -77,9 +77,9 @@ Check if it's safe to release to your chosen test or staging environment using t
 
 #### 3.4. Release
 
-You can now deploy your Auto Mock. In this case, because the Auto Mock is a hosted service from SwaggerHub you don't actually need to perform a real deployment. However, we need to tell Pactflow that it has been deployed and will be used as the provider in a nominated environment.
+You can now deploy your Auto Mock. In this case, because the Auto Mock is a hosted service from SwaggerHub you don't actually need to perform a real deployment. However, we need to tell PactFlow that it has been deployed and will be used as the provider in a nominated environment.
 
-Use the [record-deployment](/docs/bi-directional-contract-testing/deploying) command to record that you have done this with Pactflow.
+Use the [record-deployment](/docs/bi-directional-contract-testing/deploying) command to record that you have done this with PactFlow.
 
 ### 4. Consumer Workflow
 
@@ -99,9 +99,9 @@ We can now test our consumer. This is the stage where we will capture the *consu
 
 See this [guide](/docs/bi-directional-contract-testing/consumer) and one of our BDCT [examples](/docs/examples) for an idea of how to do this.
 
-#### 4.3. Publish to Pactflow
+#### 4.3. Publish to PactFlow
 
-[Publish](https://docs.pact.io/getting_started/sharing_pacts) your contsumer contract to Pactflow. We suggest to use the standard [Pact CLI tools](https://docs.pact.io/implementation_guides/cli#distributions) for this step.
+[Publish](https://docs.pact.io/getting_started/sharing_pacts) your contsumer contract to PactFlow. We suggest to use the standard [Pact CLI tools](https://docs.pact.io/implementation_guides/cli#distributions) for this step.
 
 #### 4.4. Check `can-i-deploy` if it's safe to release
 
@@ -111,7 +111,7 @@ Check if it's safe to release to your chosen test or staging environment using t
 
 You can now deploy your consumer to the same environment as your Auto Mock.
 
-Use the [record-deployment](/docs/bi-directional-contract-testing/deploying) command to record that you have done this with Pactflow.
+Use the [record-deployment](/docs/bi-directional-contract-testing/deploying) command to record that you have done this with PactFlow.
 
 We now have a consumer deployed to a test environment, that uses the Auto Mock. The consumer can't yet be deployed to production, because the provider has not yet been built and released.
 ### 5. (Real) Provider Workflow
@@ -130,9 +130,9 @@ We can start the build of our provider. We have the choice to build from our own
 
 Using the test framework created in 3.1, we can test our real implementation.
 
-#### 5.3. Publish to Pactflow
+#### 5.3. Publish to PactFlow
 
-[Publish](/docs/bi-directional-contract-testing/contracts/oas#publishing-the-provider-contract--results-to-pactflow) your OAS and the test results from your chosen API testing tool to Pactflow. 
+[Publish](/docs/bi-directional-contract-testing/contracts/oas#publishing-the-provider-contract--results-to-pactflow) your OAS and the test results from your chosen API testing tool to PactFlow. 
 
 #### 5.4. Check `can-i-deploy` if it's safe to release
 
@@ -142,7 +142,7 @@ Check if it's safe to release to your chosen test or staging environment using t
 
 You can now deploy your real provider to the nominated test environment. 
 
-Use the [record-deployment](/docs/bi-directional-contract-testing/deploying) command to record that you have done this with Pactflow.
+Use the [record-deployment](/docs/bi-directional-contract-testing/deploying) command to record that you have done this with PactFlow.
 
 ### Next steps
 

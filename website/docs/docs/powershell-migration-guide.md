@@ -3,7 +3,7 @@ id: powershell-guide
 title: PowerShell Migration guide
 ---
 
-As at June 10th, 2020, we will only support TLS1.2+ connections for Web and API access to the Pactflow platform.
+As at June 10th, 2020, we will only support TLS1.2+ connections for Web and API access to the PactFlow platform.
 
 ## Checking if your system is compatible
 

@@ -4,7 +4,7 @@ title: Security audit report
 
 ## Vulnerability scanning
 
-Pactflow uses the following tools to ensure the On-Premises image is kept as secure as possible.
+PactFlow uses the following tools to ensure the On-Premises image is kept as secure as possible.
 
 * Bundler Audit
 * NPM audit
@@ -67,7 +67,7 @@ The difficulty that tools have in identifying the correct version of Ruby can le
 
 ## Identifying the installed gem versions
 
-To list the gems installed on the Pactflow image run:
+To list the gems installed on the PactFlow image run:
 
 ```
 docker run --rm -it --entrypoint gem quay.io/pactflow/enterprise:latest "list"
@@ -85,7 +85,7 @@ omniauth gem
 
 [https://nvd.nist.gov/vuln/detail/CVE-2015-9284](https://nvd.nist.gov/vuln/detail/CVE-2015-9284)
 
-#### Detectable in versions of Pactflow
+#### Detectable in versions of PactFlow
 
 All.
 
@@ -95,7 +95,7 @@ Non-exploitable.
 
 #### Notes
 
-This CVE is a CSRF vulnerability during sign in.  This vulnerability is only exploitable if the initial request from the service provider to the identify provider is vulnerable to a CSRF attack because it uses a GET request without any CSRF protection. In Pactflow, this is not possible as Pactflow uses a POST request method with a CSRF token for the initial request to the IDP, as per the mitigation instructions [here](https://github.com/omniauth/omniauth/wiki/Resolving-CVE-2015-9284).
+This CVE is a CSRF vulnerability during sign in.  This vulnerability is only exploitable if the initial request from the service provider to the identify provider is vulnerable to a CSRF attack because it uses a GET request without any CSRF protection. In PactFlow, this is not possible as PactFlow uses a POST request method with a CSRF token for the initial request to the IDP, as per the mitigation instructions [here](https://github.com/omniauth/omniauth/wiki/Resolving-CVE-2015-9284).
 
 This can be observed by viewing the source of the login form.
 
@@ -126,7 +126,7 @@ Non-exploitable.
 
 #### Notes
 
-This vulnerability applies to the PostgreSQL server only. The Pactflow Docker image only uses the PostgreSQL client, and hence is not affected by this vulnerability.
+This vulnerability applies to the PostgreSQL server only. The PactFlow Docker image only uses the PostgreSQL client, and hence is not affected by this vulnerability.
 
 ### CVE-2022-37434
 
@@ -142,7 +142,7 @@ zlib package for Alpine
 
 [https://nvd.nist.gov/vuln/detail/CVE-2022-37434](https://nvd.nist.gov/vuln/detail/CVE-2022-37434)
 
-#### Affected versions of Pactflow
+#### Affected versions of PactFlow
 
 All.
 
@@ -152,7 +152,7 @@ Unfixed.
 
 #### Notes
 
-As of 24 August 2022, there is no fix available. A patch release of Pactflow will be put out as soon as a fix is available.
+As of 24 August 2022, there is no fix available. A patch release of PactFlow will be put out as soon as a fix is available.
 
 ### CVE-2021-41816
 
@@ -170,7 +170,7 @@ False positive.
 
 #### Notes
 
-This vulnerability only affects platforms that use a 4 byte long data type, typically Windows. The Pactflow base image uses 64 bit Alpine Linux, which uses an [8 byte long](https://www.ibm.com/docs/en/ibm-mq/9.0?topic=platforms-standard-data-types-unix-linux-windows).
+This vulnerability only affects platforms that use a 4 byte long data type, typically Windows. The PactFlow base image uses 64 bit Alpine Linux, which uses an [8 byte long](https://www.ibm.com/docs/en/ibm-mq/9.0?topic=platforms-standard-data-types-unix-linux-windows).
 
 ### CVE-2020-36599
 
@@ -186,7 +186,7 @@ omniauth gem
 
 Non-exploitable.
 
-#### Detectable in versions of Pactflow
+#### Detectable in versions of PactFlow
 
 Up to and including 1.19.2.
 
@@ -196,4 +196,4 @@ Up to and including 1.19.2.
 
 #### Notes
 
-Pactflow uses a custom failure endpoint so the vulnerable code is never executed.
+PactFlow uses a custom failure endpoint so the vulnerable code is never executed.

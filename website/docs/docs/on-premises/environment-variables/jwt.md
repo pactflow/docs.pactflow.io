@@ -66,15 +66,15 @@ The number of seconds of leeway to allow when verifying the expiration of the JW
 
 ### PACTFLOW_JWT_BEARER_TOKEN\_\_AUTH_CONFIG_HANDLER
 
-The name of a Ruby script which will parse the decoded JWT and extract the roles and teams associated with the user. The script must be mounted into the Pactflow Docker container in the directory `/home/pactflow/extensions`.
+The name of a Ruby script which will parse the decoded JWT and extract the roles and teams associated with the user. The script must be mounted into the PactFlow Docker container in the directory `/home/pactflow/extensions`.
 
 **Supported versions:** From v1.16.0<br/>
 **Required:** false<br/>
 
 ### PACTFLOW_JWT\_\_CLAIM_MAPPINGS\_\_{KEY}
 
-This setting maps the IDP's claims in the JWT to the required Pactflow user attributes. This setting is best configured in the YAML file as a map.
-At least one of the keys must be called `sub` or `idp_id`. This will be used by Pactflow to uniquely identify the user from the Identify Provider.
+This setting maps the IDP's claims in the JWT to the required PactFlow user attributes. This setting is best configured in the YAML file as a map.
+At least one of the keys must be called `sub` or `idp_id`. This will be used by PactFlow to uniquely identify the user from the Identify Provider.
 The other recommended keys are `name`, `email`, `first_name` and `last_name`.
 
 eg.

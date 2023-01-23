@@ -8,7 +8,7 @@ Now that we have our working Provider, we need to do two things to prevent intro
 Right now, we don't have any consumers, but we want to be prepared for when we do.
 
 For (1), we need to decide on our testing approach.
-For (2), we'll use Pactflow's contract comparison capability to prevent breaking changes, which we cover in Step 5.
+For (2), we'll use PactFlow's contract comparison capability to prevent breaking changes, which we cover in Step 5.
 
 ### Verifying the provider contract
 

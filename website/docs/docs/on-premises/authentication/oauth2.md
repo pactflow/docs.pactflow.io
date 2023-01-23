@@ -8,7 +8,7 @@ An OAuth2 identify provider is configured by a set of environment variables pref
 
 ## Callback URL
 
-The callback URL is `https://<your Pactflow host>/auth/oauth2/callback`. This must be configured in the settings for the Pactflow client in your Identify Provider.
+The callback URL is `https://<your PactFlow host>/auth/oauth2/callback`. This must be configured in the settings for the PactFlow client in your Identify Provider.
 
 ## Authorize params
 
@@ -41,8 +41,8 @@ The parameters configured in the [`custom_token_params`](/docs/on-premises/envir
 
 ## Custom Auth handler
 
-At the end of the OAuth2 login flow, a JWT is retrieved by Pactflow from the customer's Identify Provider. A custom Ruby auth handler configuration file will be supplied by Pactflow to map claims from the JWT to Pactflow roles and teams. The auth handler configuration file must be mounted as a volume on the Pactflow container, in the directory `/home/pactflow/extensions/` eg. `/home/pactflow/extensions/auth_ext_script.rb`.
+At the end of the OAuth2 login flow, a JWT is retrieved by PactFlow from the customer's Identify Provider. A custom Ruby auth handler configuration file will be supplied by PactFlow to map claims from the JWT to PactFlow roles and teams. The auth handler configuration file must be mounted as a volume on the PactFlow container, in the directory `/home/pactflow/extensions/` eg. `/home/pactflow/extensions/auth_ext_script.rb`.
 
 ## Debugging
 
-The URLs and headers of the HTTP interactions with the Identity Provider will be logged at `info` level in the Pactflow logs. To see the request and response bodies, set the `PACTFLOW_LOG_LEVEL` to `debug`. Note that this will log sensitive information, so do not leave the logging at this level permanently.
+The URLs and headers of the HTTP interactions with the Identity Provider will be logged at `info` level in the PactFlow logs. To see the request and response bodies, set the `PACTFLOW_LOG_LEVEL` to `debug`. Note that this will log sensitive information, so do not leave the logging at this level permanently.

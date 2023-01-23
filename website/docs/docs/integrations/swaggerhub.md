@@ -7,7 +7,7 @@ sidebar_label: SwaggerHub
 :::note Pre-requisites
 To use this feature, you will need:
 
-* A [Pactflow](https://pactflow.io) account (create a [free account](https://pactflow.io/pricing/)).
+* A [PactFlow](https://pactflow.io) account (create a [free account](https://pactflow.io/pricing/)).
 * A [SwaggerHub](https://swaggerhub.com) Team or Enterprise account (create a [free account](https://try.smartbear.com/) and try out the feature for 14 days).
 :::
 
@@ -15,28 +15,28 @@ For more information on the integration and setup instructions, visit the [Swagg
 
 ## Introduction
 
-SwaggerHub supports integration with Pactflow, enabling API designers to avoid releasing breaking changes by using PactFlow to get visibility into their APIs and how they are consumed, all from within the SwaggerHub Editor.
+SwaggerHub supports integration with PactFlow, enabling API designers to avoid releasing breaking changes by using PactFlow to get visibility into their APIs and how they are consumed, all from within the SwaggerHub Editor.
 
 ![Subscriptions Screen](/img/integrations/swaggerhub/launch-promo-798x426.gif)
 
 ## Setting up the integration
 
-The SwaggerHub integration is scoped to an individual API in SwaggerHub. You will need to configure the integration for each API that you would like to check with Pactflow.
+The SwaggerHub integration is scoped to an individual API in SwaggerHub. You will need to configure the integration for each API that you would like to check with PactFlow.
 
 To setup the integration and run compatibility checks you will need the following:
 
 * An read-write [API Token](/docs/user-interface/settings/api-tokens) associated with a User or System Account that has been assigned the [SwaggerHub role](/docs/permissions/predefined-roles#swaggerhub) or equivalent permissions.
-* A provider contract [published](/docs/bi-directional-contract-testing/contracts/oas#publishing-the-provider-contract--results-to-pactflow) to Pactflow 
+* A provider contract [published](/docs/bi-directional-contract-testing/contracts/oas#publishing-the-provider-contract--results-to-pactflow) to PactFlow 
 
-To prevent breaking changes to your consumers, you will of course need one or more consumer contracts [published](/docs/bi-directional-contract-testing/publishing) to Pactflow also, however this is not strictly required to setup the integration.
+To prevent breaking changes to your consumers, you will of course need one or more consumer contracts [published](/docs/bi-directional-contract-testing/publishing) to PactFlow also, however this is not strictly required to setup the integration.
 
-To setup the integration, navigate to your API in SwaggerHub and click the "Pactflow" button. This will take you to the setup screen if you haven't already configured your account.
+To setup the integration, navigate to your API in SwaggerHub and click the "PactFlow" button. This will take you to the setup screen if you haven't already configured your account.
 
 :::note
 If the button does not appear, it means you are not on an eligible plan.
 :::
 
-After entering your Pactflow Base URL and Token, you can select the pacticipant (provider application) that maps to the API in SwaggerHub.
+After entering your PactFlow Base URL and Token, you can select the pacticipant (provider application) that maps to the API in SwaggerHub.
 
 ![Configuration screen](/img/integrations/swaggerhub-setup1.png)
 
@@ -46,7 +46,7 @@ For the full setup instructions, visit the [SwaggerHub documentation](https://su
 
 ### Running the compatibility check
 
-The compatibility check can be invoked by pressing the "Pactflow" button, and choosing "Check Compatibility". 
+The compatibility check can be invoked by pressing the "PactFlow" button, and choosing "Check Compatibility". 
 
 :::note
 To be able to see this button and run the checks, you need to be an Organization owner, the Designer that created the API or a Collaborator with editor access.

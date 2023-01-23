@@ -17,12 +17,12 @@ If you can imagine a histogram of these builds with time as the x-axis, and numb
 
 A starting point of being able to handle 10 concurrent users (builds) is a good start, as each build will usually perform several API calls.
 
-It's worth pointing out that each real CI build will usually span multiple minutes, and only a fraction of the build time will be dedicated Pact and communicting with Pactflow directly.
+It's worth pointing out that each real CI build will usually span multiple minutes, and only a fraction of the build time will be dedicated Pact and communicting with PactFlow directly.
 
 ## Running a load test
 
 We have created a tool that you can use to run a load test on your platform.
 
-Using the metric from above, the load testing tool maps to a random scenario (which may perform multiple API calls to Pactflow), attempting to create a more realistic system load.
+Using the metric from above, the load testing tool maps to a random scenario (which may perform multiple API calls to PactFlow), attempting to create a more realistic system load.
 
 You can download and run the tool from: https://github.com/pactflow/pactflow-load-test

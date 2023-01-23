@@ -3,7 +3,7 @@ id: verifying-feature-pacts
 title: Strategies for verifying feature pacts
 ---
 
-When a new "feature" pact is created, there are a few ways you could bring that pact into the verification process so that the verification results get published back to Pactflow from your CI.
+When a new "feature" pact is created, there are a few ways you could bring that pact into the verification process so that the verification results get published back to PactFlow from your CI.
 
 1. Manually add the feature branch to the consumerVersionSelectors, commit it, and then remove it once the feature is released.
 
@@ -62,7 +62,7 @@ The reason for this is that if support for a new feature pact is added on a `fea
 * A provider that implements the features required by the `feat/new-field` pact on its `master` branch.
 * A passing provider build in Github Actions.
 * The new version of the provider is "deployed" to production.
-* A `feat/new-field` pact in Pactflow that has successful verification results from a version of the provider's main branch `master` and any deployed (or released versions) in our case `prod` environment.
+* A `feat/new-field` pact in PactFlow that has successful verification results from a version of the provider's main branch `master` and any deployed (or released versions) in our case `prod` environment.
 
 ## Conclusion
 

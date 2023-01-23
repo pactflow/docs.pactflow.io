@@ -10,7 +10,7 @@ The next step is to implement the changes that have been requested in the pact.
 1. Run `make test` to make sure everything is passing before you start.
 
 1. Get the URL of the new pact:
-    * Go to your Pactflow account, find the new pact on the consumer branch `feat/new-field` and click "VIEW PACT".
+    * Go to your PactFlow account, find the new pact on the consumer branch `feat/new-field` and click "VIEW PACT".
     * In the top right, click the 3 dots and select `Copy pact URL for pactflow-example-consumer-legacy version xyz`.
 
 2. Run `PACT_URL=<PACT URL HERE> make test` again. This test should correctly fail with the error `Could not find key "color"` in the output.
@@ -79,4 +79,4 @@ The `master` provider is now compatible with the `feat/new-field` pact. However,
 
 We verified the Pact would pass against our providers main branch `master` by passing in the Pact URL directly, however because it was only verified on a development machine, and we don't typically publish verification results from dev machines.
 
-The next step is getting a result back to Pactflow so that the consumer knows they are safe to merge.
+The next step is getting a result back to PactFlow so that the consumer knows they are safe to merge.

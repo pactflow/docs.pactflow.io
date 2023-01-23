@@ -1,4 +1,4 @@
-name: Crawl Pactflow docs
+name: Crawl PactFlow docs
 
 on:
   schedule:
@@ -12,7 +12,7 @@ jobs:
     env:
       PACTFLOW_ALGOLIA_APP_ID: LY8MHW6MWQ
       PACTFLOW_ALGOLIA_KEY: ${{secrets.PACTFLOW_ALGOLIA_KEY}}
-    name: Index Pactflow site
+    name: Index PactFlow site
     steps:
       - uses: actions/checkout@v2
       - run: make crawl

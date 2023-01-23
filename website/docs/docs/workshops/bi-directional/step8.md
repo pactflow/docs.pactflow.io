@@ -1,12 +1,12 @@
-# 8. Publish your consumer contract to Pactflow
+# 8. Publish your consumer contract to PactFlow
 
-Now that we have created our consumer contract, we need to share it to our provider. This is where Pactflow comes in to the picture. This step is referred to as "publishing" the consumer contract.
+Now that we have created our consumer contract, we need to share it to our provider. This is where PactFlow comes in to the picture. This step is referred to as "publishing" the consumer contract.
 
 ## Publish the consumer build locally
 
-As per step 4, we're going to need credentials to our Pactflow account here:
+As per step 4, we're going to need credentials to our PactFlow account here:
 
-1. Go to Pactflow and copy your [read/write API Token](https://docs.pactflow.io/docs/getting-started/#configuring-your-api-token)
+1. Go to PactFlow and copy your [read/write API Token](https://docs.pactflow.io/docs/getting-started/#configuring-your-api-token)
 1. Export these two environment variables into the terminal, being careful to replace the placeholders with your own values:
 
    ```
@@ -15,7 +15,7 @@ As per step 4, we're going to need credentials to our Pactflow account here:
    ```
 
 1. `npm run publish`
-1. Go to your Pactflow dashboard and check that a new contract has appeared
+1. Go to your PactFlow dashboard and check that a new contract has appeared
 
 Your dashboard should look something like this:
 
@@ -23,7 +23,7 @@ Your dashboard should look something like this:
 
 ### Expected state by the end of this step
 
-- There should be a contract published in your Pactflow account before moving on
+- There should be a contract published in your PactFlow account before moving on
 
 ## Publish the consumer build in Github Actions
 
@@ -36,7 +36,7 @@ Your dashboard should look something like this:
 1. You will see the text `This workflow has a workflow_dispatch event trigger`. To the right of that text is a button with the label `Run workflow`. Click the button.
 1. Leave the branch as `master` and click the green `Run workflow` button.
 
-❌ The build will fail with an authentication error when it tries to publish the pact - that's expected. We need to update the configuration to point it at your new Pactflow account.
+❌ The build will fail with an authentication error when it tries to publish the pact - that's expected. We need to update the configuration to point it at your new PactFlow account.
 
 ### Expected state by the end of this step
 

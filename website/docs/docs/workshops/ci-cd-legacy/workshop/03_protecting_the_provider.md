@@ -5,7 +5,7 @@ title: Protecting provider builds from changed pacts
 
 Those familiar with automated testing frameworks have probably come across the term "pending tests". These are tests that have a particular flag on them that causes them (depending on the framework) to either be skipped, or if executed, to not fail the test suite.
 
-When using Pact with Pactflow, we have a similar concept of a "pending pact". A pending pact is one which does not yet have a successful verification result published. Pending pacts can fail verification without causing the overall verification task (and hence, the overall provider build) to fail.
+When using Pact with PactFlow, we have a similar concept of a "pending pact". A pending pact is one which does not yet have a successful verification result published. Pending pacts can fail verification without causing the overall verification task (and hence, the overall provider build) to fail.
 
 Once a pact has a successful verification result published, it is now considered to be an accepted/supported contract, and any subsequent failure can only be as a result of the provider itself changing. Once a pact has left pending state, verification failures *will* cause the provider build to fail.
 
@@ -27,7 +27,7 @@ For further reading: <https://docs.pact.io/pending>
 
     👉 The provider is still compatible with pact deployed to the `prod` environment , so the deploy step is able to proceed without issue.
 
-1. In Pactflow, refresh the pact page.
+1. In PactFlow, refresh the pact page.
 
     👉 Even though the provider build is passing, the `master` pact has a (correctly) failed verification result, which tells the consumer team that they cannot deploy the code associated with this pact yet.
 

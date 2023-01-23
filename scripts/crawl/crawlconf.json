@@ -3,7 +3,7 @@
   "start_urls": [
     "https://docs.pactflow.io"
   ],
-  "index_name": "Pactflow",
+  "index_name": "PactFlow",
   "sitemap_urls": [
     "http://docs.pactflow.io/sitemap.xml"
   ],

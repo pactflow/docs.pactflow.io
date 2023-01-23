@@ -37,11 +37,11 @@ VERIFICATION RESULTS
 All required verification results are published and successful
 ```
 
-We can now deploy our consumer to production. Once we have deployed, we let Pactflow know that the new version of the consumer has been promoted to that environment:
+We can now deploy our consumer to production. Once we have deployed, we let PactFlow know that the new version of the consumer has been promoted to that environment:
 
 `npm run deploy`
 
-This allows Pactflow to prevent any providers from deploying an incompatible change to `production`.
+This allows PactFlow to prevent any providers from deploying an incompatible change to `production`.
 
 # Check
 
@@ -53,11 +53,11 @@ Your dashboard should look something like this, where both your consumer and con
 
 ### Configure consumer pipeline
 
-The source repositories are configured to use the the public broker at test.pactflow.io. You will need to update the credentials to point to your own Pactflow account. To do this, we need to update the `PACT_BROKER_BASE_URL` environment variable in the Github workflow file, and create a Github Secret to store the Pactflow API token in.
+The source repositories are configured to use the the public broker at test.pactflow.io. You will need to update the credentials to point to your own PactFlow account. To do this, we need to update the `PACT_BROKER_BASE_URL` environment variable in the Github workflow file, and create a Github Secret to store the PactFlow API token in.
 
-1. Create a Github Secret to store your Pactflow API token in.
-   1. In Pactflow:
-      1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens.
+1. Create a Github Secret to store your PactFlow API token in.
+   1. In PactFlow:
+      1. Log in to your PactFlow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens.
       1. Click the Copy button for the read/write CI token (make sure it's the read _write_ one, not the read only one).
    1. In Github:
       1. Open your forked `example-bi-directional-consumer-<tool>` project (`https://github.com/<your-username>/example-bi-directional-consumer-<tool>`)
@@ -65,16 +65,16 @@ The source repositories are configured to use the the public broker at test.pact
       1. Select `Secrets` from the side menu.
       1. Click `New repository secret` (the button is to the right of the "Actions secrets" heading)
       1. Set the name of the secret to `PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP`
-      1. Paste in the Pactflow API token value you copied in the previous step.
-2. Update your workflow files in GitHub to point at your Pactflow Broker
-   1. In Pactflow:
+      1. Paste in the PactFlow API token value you copied in the previous step.
+2. Update your workflow files in GitHub to point at your PactFlow Broker
+   1. In PactFlow:
        1. Go to Settings > API Tokens.
        2. Click the `COPY PACTFLOW BASE URL` button
    2. In Github:
        1. Open your forked `example-bi-directional-consumer-<tool>` project (`https://github.com/<your-username>/example-bi-directional-consumer-<tool>`)
           1. Open `.github/workflows/build.yml`
           2. In the upper right corner of the file view, click 🖊️ to open the file editor.
-          3. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account. You can easily get this by clicking the COPY PACTFLOW BASE URL button on the API Tokens page in Pactflow.
+          3. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own PactFlow account. You can easily get this by clicking the COPY PACTFLOW BASE URL button on the API Tokens page in PactFlow.
           4. Press the green `Commit changes` button
 3. View the build:
    1. In Github:

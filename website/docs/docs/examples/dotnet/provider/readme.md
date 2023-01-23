@@ -17,7 +17,7 @@ https://github.com/pactflow/example-provider-dotnet
 
 [![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-dotnet/consumer/pactflow-example-consumer-dotnet/latest/prod/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-dotnet/consumer/pactflow-example-consumer-dotnet/latest/prod/badge.svg) (prod)
 
-This is an example of a .NET Core (3.1) provider that uses Pact, [Pactflow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
+This is an example of a .NET Core (3.1) provider that uses Pact, [PactFlow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 
@@ -38,13 +38,13 @@ The project uses a Makefile to simulate a very simple build pipeline with two st
 ## Dependencies
  
 * Docker
-* A [Pactflow](https://pactflow.io) account
-* A [read/write API Token](https://docs.pactflow.io/#configuring-your-api-token) from your Pactflow account
+* A [PactFlow](https://pactflow.io) account
+* A [read/write API Token](https://docs.pactflow.io/#configuring-your-api-token) from your PactFlow account
 * .NET 3.1.201 installed. You can install it from here: https://docs.microsoft.com/en-us/dotnet/core/install/macos
 
 ## Usage
 
-See the [Pactflow CI/CD Workshop](https://github.com/pactflow/ci-cd-workshop).
+See the [PactFlow CI/CD Workshop](https://github.com/pactflow/ci-cd-workshop).
 
 The below commands are designed for a Linux/OSX environment, please translate for use on Windows/PowerShell as necessary:
 

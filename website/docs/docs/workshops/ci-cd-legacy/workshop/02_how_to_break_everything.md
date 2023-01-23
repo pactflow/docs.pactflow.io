@@ -34,9 +34,9 @@ This is because the provider is configured to verify the latest `master` pact, s
 
 You can demonstrate this by running a provider build in Github (`Actions` -> Under `Workflows`, select `Build` -> `Run workflow` -> `Run workflow`).
 
-## Check the pact's status in Pactflow
+## Check the pact's status in PactFlow
 
-1. Open up the pact in Pactflow. You'll see that there is a pact tagged `master` with a failed verification result.
+1. Open up the pact in PactFlow. You'll see that there is a pact tagged `master` with a failed verification result.
 
 1. Click on "VIEW PACT" and you'll see that each interaction has a status next to it.
 
@@ -46,7 +46,7 @@ You can demonstrate this by running a provider build in Github (`Actions` -> Und
 
 * A consumer build that is failing at the `can-i-deploy` step in Github Actions.
 * A provider build that is failing during verification in Github Actions.
-* A `master` pact in Pactflow that has a failed verification result.
+* A `master` pact in PactFlow that has a failed verification result.
 
 ## Conclusion
 

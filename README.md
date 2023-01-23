@@ -1,6 +1,6 @@
 # docs.pactflow.io
 
-Pactflow technical documentation
+PactFlow technical documentation
 
 This doco site is generated with [https://docusaurus.io/docs/](Docusaurus)
 
@@ -41,5 +41,5 @@ make crawl
 
 ## Annotated UI images
 
-Images demonstrating the Pactflow UI have been annotated using Figma. Styles and examples can be found [here](https://www.figma.com/file/h2mJNirJdlS9NZmPpxXlA6/Pactflow-Doc-image-annotations?node-id=0%3A1).
+Images demonstrating the PactFlow UI have been annotated using Figma. Styles and examples can be found [here](https://www.figma.com/file/h2mJNirJdlS9NZmPpxXlA6/PactFlow-Doc-image-annotations?node-id=0%3A1).
 Access for editing granted on request.
