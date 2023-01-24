@@ -46,7 +46,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "2.7"
-      - run: gem install bundler -v 2.0.2 && bundle install --without test development
+      - run: bundle install --without test development
 
       - name: Sync example_consumer_cypress docs
         run: bundle exec scripts/sync/example_consumer_cypress.rb && echo 'COMMIT_MESSAGE="synced pactflow_consumer_cypress docs"' >> $GITHUB_ENV
