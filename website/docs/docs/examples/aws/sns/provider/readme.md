@@ -75,7 +75,7 @@ See also the [PactFlow CI/CD Workshop](https://github.com/pactflow/ci-cd-worksho
 
 ### Testing
 * Run the Pact tests: `make test`
-
+ 
 ### Running  locally
 
 * Start the Provider API (with a local SNS setup with localstack): `make start`
