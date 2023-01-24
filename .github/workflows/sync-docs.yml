@@ -79,6 +79,9 @@ on:
       - pactflow-example-bi-directional-provider-soapui-updated
       - pactflow-example-bi-directional-provider-dotnet-updated
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
