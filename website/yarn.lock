@@ -7963,12 +7963,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"improved-yarn-audit@npm:^2.3.2":
-  version: 2.3.2
-  resolution: "improved-yarn-audit@npm:2.3.2"
+"improved-yarn-audit@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "improved-yarn-audit@npm:3.0.0"
   bin:
     improved-yarn-audit: bin/improved-yarn-audit
-  checksum: 9595705f2a74418d7e99229e6584f07dfaaeaad1a60536a49dac0a1c457905abf1b4b6b705dcef68ea5b685de1216d812eaca2d9cf97bbc0590b274c6057f7bd
+  checksum: 5ca18647f138f435203b88b0f57334e088cc64567d51f9eff069026fcb4aebd0486e96d59f44ed91ed9f2df9f8b6cce683adba5e9e734bc37f11b9c11b8b64f2
   languageName: node
   linkType: hard
 
@@ -9790,7 +9790,7 @@ __metadata:
     "@mdx-js/react": ^1.6.22
     "@you54f/theme-github-codeblock": ^0.1.1
     clsx: ^1.1.1
-    improved-yarn-audit: ^2.3.2
+    improved-yarn-audit: ^3.0.0
     react: ^16.14.0
     react-dom: ^16.14.0
     react-table: ^7.7.0

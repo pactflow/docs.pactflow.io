@@ -22,7 +22,7 @@
     "redocusaurus": "^1.4.0"
   },
   "devDependencies": {
-    "improved-yarn-audit": "^2.3.2"
+    "improved-yarn-audit": "^3.0.0"
   },
   "browserslist": {
     "production": [
