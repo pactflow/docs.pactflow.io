@@ -2961,7 +2961,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/core@npm:2.2.0, @docusaurus/core@npm:latest":
+"@docusaurus/core@npm:2.2.0, @docusaurus/core@npm:^2.2.0":
   version: 2.2.0
   resolution: "@docusaurus/core@npm:2.2.0"
   dependencies:
@@ -3254,7 +3254,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/preset-classic@npm:latest":
+"@docusaurus/preset-classic@npm:^2.2.0":
   version: 2.2.0
   resolution: "@docusaurus/preset-classic@npm:2.2.0"
   dependencies:
@@ -9805,8 +9805,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "partners@workspace:."
   dependencies:
-    "@docusaurus/core": latest
-    "@docusaurus/preset-classic": latest
+    "@docusaurus/core": ^2.2.0
+    "@docusaurus/preset-classic": ^2.2.0
     "@mdx-js/react": ^1.6.22
     "@you54f/theme-github-codeblock": ^0.1.1
     clsx: ^1.1.1
@@ -12537,9 +12537,9 @@ __metadata:
   linkType: hard
 
 "ua-parser-js@npm:^0.7.18":
-  version: 0.7.26
-  resolution: "ua-parser-js@npm:0.7.26"
-  checksum: 40febeca88a55ecb5548e0629b33e0ce3eba384d519036d78583ae8e6baba2232780671d0568912156bba4576b05ec2c20988d20f83e7f268251efe49c731d8d
+  version: 0.7.33
+  resolution: "ua-parser-js@npm:0.7.33"
+  checksum: 1510e9ec26fcaf0d8c6ae8f1078a8230e8816f083e1b5f453ea19d06b8ef2b8a596601c92148fd41899e8b3e5f83fa69c42332bd5729b931a721040339831696
   languageName: node
   linkType: hard
 
