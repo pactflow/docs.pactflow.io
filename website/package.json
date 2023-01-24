@@ -18,7 +18,7 @@
     "clsx": "^1.1.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-table": "^7.7.0",
+    "react-table": "^7.8.0",
     "redocusaurus": "^1.4.0"
   },
   "devDependencies": {
