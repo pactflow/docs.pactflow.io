@@ -42,10 +42,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "2.6"
+          ruby-version: "2.7"
       - run: gem install bundler -v 2.0.2 && bundle install --without test development
 
       - name: Sync example_consumer_cypress docs
@@ -177,7 +177,7 @@ jobs:
         if: github.event.action == 'pactflow-example-bi-directional-consumer-playwright-js-updated'
 
       - name: Commit and push changes
-        uses: EndBug/add-and-commit@v4
+        uses: EndBug/add-and-commit@v9
         with:
           add: 'website'
           author_name: Github Action
