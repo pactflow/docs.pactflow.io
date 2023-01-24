@@ -34,7 +34,7 @@ In the following diagram, we'll be testing the "Consumer", a Lambda function tha
 
 We need to be able to test that we are able to receive (consume) product events from the SNS topic as follows:
 
-![SNS Architecture](https://raw.githubusercontent.com/pactflow/example-consumer-js-sns/master/docs/js-sns.png)
+![SNS Architecture](https://raw.githubusercontent.com/pactflow/example-consumer-js-sns/master/docs/js-sns.png) 
 
 ## Theory
 
