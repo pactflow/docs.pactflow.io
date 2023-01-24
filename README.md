@@ -2,7 +2,7 @@
 
 PactFlow technical documentation
 
-This doco site is generated with [https://docusaurus.io/docs/](Docusaurus)
+This doco site is generated with [Docusaurus](https://docusaurus.io/docs/)
 
 There are two main directories. All the website assets (pages, css, images) is in `website` and the
 documentation pages are found in `docs`.
