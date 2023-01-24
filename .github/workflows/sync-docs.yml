@@ -97,135 +97,135 @@ jobs:
         run:  echo "update_event=${{ github.event.action }}${{ github.event.inputs.update_event }}" >> $GITHUB_OUTPUT
 
       - name: Sync example_consumer_cypress docs
-        run: bundle exec scripts/sync/example_consumer_cypress.rb && echo 'COMMIT_MESSAGE="synced pactflow_consumer_cypress docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_cypress.rb && echo 'COMMIT_MESSAGE=synced pactflow_consumer_cypress docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-consumer-cypress'
 
       - name: Sync example_consumer_dotnet docs
-        run: bundle exec scripts/sync/example_consumer_dotnet.rb && echo 'COMMIT_MESSAGE="synced example_consumer_dotnet docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_dotnet.rb && echo 'COMMIT_MESSAGE=synced example_consumer_dotnet docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-consumer-dotnet-updated'
 
       - name: Sync example_provider_dotnet docs
-        run: bundle exec scripts/sync/example_provider_dotnet.rb && echo 'COMMIT_MESSAGE="synced example_provider_dotnet docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_dotnet.rb && echo 'COMMIT_MESSAGE=synced example_provider_dotnet docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-provider-dotnet-updated'
 
       - name: Sync example_consumer_java_kafka docs
-        run: bundle exec scripts/sync/example_consumer_java_kafka.rb && echo 'COMMIT_MESSAGE="synced example_consumer_java_kafka docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_java_kafka.rb && echo 'COMMIT_MESSAGE=synced example_consumer_java_kafka docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-consumer-java-kafka-updated'
 
       - name: Sync example_consumer_js docs
-        run: bundle exec scripts/sync/example_consumer_js.rb && echo 'COMMIT_MESSAGE="synced example_consumer_js docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_js.rb && echo 'COMMIT_MESSAGE=synced example_consumer_js docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-consumer-js-updated'
 
       - name: Sync example_consumer_js_kafka docs
-        run: bundle exec scripts/sync/example_consumer_js_kafka.rb && echo 'COMMIT_MESSAGE="synced example_consumer_js_kafka docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_js_kafka.rb && echo 'COMMIT_MESSAGE=synced example_consumer_js_kafka docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-consumer-js-kafka-updated'
 
       - name: Sync example_provider_java_kafka docs
-        run: bundle exec scripts/sync/example_provider_java_kafka.rb && echo 'COMMIT_MESSAGE="synced example_provider_java_kafka docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_java_kafka.rb && echo 'COMMIT_MESSAGE=synced example_provider_java_kafka docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-provider-java-kafka-updated'
 
       - name: Sync example_consumer_java_soap docs
-        run: bundle exec scripts/sync/example_consumer_java_soap.rb && echo 'COMMIT_MESSAGE="synced example_consumer_java_kafka docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_java_soap.rb && echo 'COMMIT_MESSAGE=synced example_consumer_java_kafka docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-consumer-java-soap-updated'
 
       - name: Sync example_provider_java_soap docs
-        run: bundle exec scripts/sync/example_provider_java_soap.rb && echo 'COMMIT_MESSAGE="synced example_provider_js_kafka docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_java_soap.rb && echo 'COMMIT_MESSAGE=synced example_provider_js_kafka docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-provider-java-soap-updated'
 
       - name: Sync example_provider_java_spring_boot docs
-        run: bundle exec scripts/sync/example_provider_java_spring_boot.rb && echo 'COMMIT_MESSAGE="synced example_provider_java_spring_boot docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_java_spring_boot.rb && echo 'COMMIT_MESSAGE=synced example_provider_java_spring_boot docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-provider-java-spring-boot-updated'
 
       - name: Sync example_consumer_java_junit docs
-        run: bundle exec scripts/sync/example_consumer_java_junit.rb && echo 'COMMIT_MESSAGE="synced example_consumer_java_junit docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_java_junit.rb && echo 'COMMIT_MESSAGE=synced example_consumer_java_junit docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-consumer-java-junit-updated'
 
       - name: Sync example_provider_js docs
-        run: bundle exec scripts/sync/example_provider_js.rb && echo 'COMMIT_MESSAGE="synced example_provider_js docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_js.rb && echo 'COMMIT_MESSAGE=synced example_provider_js docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-provider-js-updated'
 
       - name: Sync example_consumer_python docs
-        run: bundle exec scripts/sync/example_consumer_python.rb && echo 'COMMIT_MESSAGE="synced example_consumer_python docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_python.rb && echo 'COMMIT_MESSAGE=synced example_consumer_python docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-consumer-python-updated'
 
       - name: Sync example_provider_python docs
-        run: bundle exec scripts/sync/example_provider_python.rb && echo 'COMMIT_MESSAGE="synced example_provider_python docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_python.rb && echo 'COMMIT_MESSAGE=synced example_provider_python docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-provider-python-updated'
 
       - name: Sync pact-js-workshop docs
-        run: bundle exec scripts/sync/introduction_workshop.rb && echo 'COMMIT_MESSAGE="synced introduction_workshop docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/introduction_workshop.rb && echo 'COMMIT_MESSAGE=synced introduction_workshop docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pact-workshop-js-updated'
 
       - name: Sync example_consumer_js_sns docs
-        run: bundle exec scripts/sync/example_consumer_js_sns.rb && echo 'COMMIT_MESSAGE="synced example_consumer_js_sns docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_js_sns.rb && echo 'COMMIT_MESSAGE=synced example_consumer_js_sns docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-consumer-js-sns-updated'
 
       - name: Sync example_provider_js_sns docs
-        run: bundle exec scripts/sync/example_provider_js_sns.rb && echo 'COMMIT_MESSAGE="synced example_provider_js_sns docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_js_sns.rb && echo 'COMMIT_MESSAGE=synced example_provider_js_sns docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-provider-js-sns-updated'
 
       - name: Sync example_consumer_golang docs
-        run: bundle exec scripts/sync/example_consumer_golang.rb && echo 'COMMIT_MESSAGE="synced example_consumer_golang docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_golang.rb && echo 'COMMIT_MESSAGE=synced example_consumer_golang docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-consumer-golang-updated'
 
       - name: Sync example_provider_golang docs
-        run: bundle exec scripts/sync/example_provider_golang.rb && echo 'COMMIT_MESSAGE="synced example_provider_golang docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_golang.rb && echo 'COMMIT_MESSAGE=synced example_provider_golang docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-provider-golang-updated'
 
       - name: Sync example_provider_bidirectional_dredd docs
-        run: bundle exec scripts/sync/example_provider_bidirectional_dredd.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_dredd docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_bidirectional_dredd.rb && echo 'COMMIT_MESSAGE=synced example_provider_bidirectional_dredd docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-bi-directional-provider-dredd-updated'
 
       - name: Sync example_provider_bidirectional_postman docs
-        run: bundle exec scripts/sync/example_provider_bidirectional_postman.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_postman docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_bidirectional_postman.rb && echo 'COMMIT_MESSAGE=synced example_provider_bidirectional_postman docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-bi-directional-provider-postman-updated'
 
       - name: Sync example_provider_bidirectional_restassured docs
-        run: bundle exec scripts/sync/example_provider_bidirectional_restassured.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_restassured docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_bidirectional_restassured.rb && echo 'COMMIT_MESSAGE=synced example_provider_bidirectional_restassured docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-bi-directional-provider-restassured-updated'
 
       - name: Sync example_provider_bidirectional_readyapi docs
-        run: bundle exec scripts/sync/example_provider_bidirectional_readyapi.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_readyapi docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_bidirectional_readyapi.rb && echo 'COMMIT_MESSAGE=synced example_provider_bidirectional_readyapi docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-bi-directional-provider-readyapi-updated'
 
       - name: Sync example_provider_bidirectional_soapui docs
-        run: bundle exec scripts/sync/example_provider_bidirectional_soapui.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_soapui docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_bidirectional_soapui.rb && echo 'COMMIT_MESSAGE=synced example_provider_bidirectional_soapui docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-bi-directional-provider-soapui-updated'
 
       - name: Sync example_consumer_bidirectional_wiremock docs
-        run: bundle exec scripts/sync/example_consumer_bidirectional_wiremock.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_wiremock docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_bidirectional_wiremock.rb && echo 'COMMIT_MESSAGE=synced example_consumer_bidirectional_wiremock docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-bi-directional-consumer-wiremock-updated'
 
       - name: Sync example_provider_bidirectional_dotnet docs
-        run: bundle exec scripts/sync/example_provider_bidirectional_dotnet_schemathesis.rb && echo 'COMMIT_MESSAGE="synced example_provider_bidirectional_dotnet docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_provider_bidirectional_dotnet_schemathesis.rb && echo 'COMMIT_MESSAGE=synced example_provider_bidirectional_dotnet docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-bi-directional-provider-dotnet-updated'
 
       - name: Sync example_consumer_bidirectional_dotnet docs
-        run: bundle exec scripts/sync/example_consumer_bidirectional_dotnet.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_dotnet docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_bidirectional_dotnet.rb && echo 'COMMIT_MESSAGE=synced example_consumer_bidirectional_dotnet docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-bi-directional-consumer-dotnet-updated'
 
       - name: Sync example_consumer_bidirectional_cypress docs
-        run: bundle exec scripts/sync/example_consumer_bidirectional_cypress.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_cypress docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_bidirectional_cypress.rb && echo 'COMMIT_MESSAGE=synced example_consumer_bidirectional_cypress docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-bi-directional-consumer-cypress-updated'
 
       - name: Sync example_consumer_bidirectional_mountebank docs
-        run: bundle exec scripts/sync/example_consumer_bidirectional_mountebank.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_mountebank docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_bidirectional_mountebank.rb && echo 'COMMIT_MESSAGE=synced example_consumer_bidirectional_mountebank docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-bi-directional-consumer-mountebank-updated'
 
       - name: Sync example_consumer_bidirectional_msw docs
-        run: bundle exec scripts/sync/example_consumer_bidirectional_msw.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_msw docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_bidirectional_msw.rb && echo 'COMMIT_MESSAGE=synced example_consumer_bidirectional_msw docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-bi-directional-consumer-msw-js-updated'
 
       - name: Sync example_consumer_bidirectional_nock docs
-        run: bundle exec scripts/sync/example_consumer_bidirectional_nock.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_nock docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_bidirectional_nock.rb && echo 'COMMIT_MESSAGE=synced example_consumer_bidirectional_nock docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-bi-directional-consumer-nock-updated'
 
       - name: Sync example_consumer_bidirectional_playwright_js docs
-        run: bundle exec scripts/sync/example_consumer_bidirectional_playwright_js.rb && echo 'COMMIT_MESSAGE="synced example_consumer_bidirectional_playwright_js docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/example_consumer_bidirectional_playwright_js.rb && echo 'COMMIT_MESSAGE=synced example_consumer_bidirectional_playwright_js docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-bi-directional-consumer-playwright-js-updated'
 
       - name: Sync all docs
-        run: bundle exec scripts/sync/all.sh && echo 'COMMIT_MESSAGE="synced all docs"' >> $GITHUB_ENV
+        run: bundle exec scripts/sync/all.sh && echo 'COMMIT_MESSAGE=synced all docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'all-docs-updated'
 
       - name: Commit and push changes
