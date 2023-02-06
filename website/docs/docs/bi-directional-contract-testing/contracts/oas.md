@@ -169,7 +169,7 @@ docker run --rm -v /${PWD}:/${PWD} -w ${PWD} \
       --content-type application/yaml \
       --verification-exit-code=0 \
       --verification-results newman/newman-run-report-2022-06-09-14-18-33-406-0.json \
-      --verification-results-content-type text/plain\
+      --verification-results-content-type text/plain \
       --verifier postman
 ```
 
@@ -187,7 +187,7 @@ docker run --rm -v /${PWD}:/${PWD} -w ${PWD} \
       --content-type application/yaml \
       --verification-exit-code=0 \
       --verification-results newman/newman-run-report-2022-06-09-14-03-30-715-0.json \
-      --verification-results-content-type text/plain\
+      --verification-results-content-type text/plain \
       --verifier postman
 ```
 
@@ -205,7 +205,7 @@ pactflow publish-provider-contract \
       --content-type application/yaml \
       --verification-exit-code=0 \
       --verification-results newman/newman-run-report-2022-06-09-14-03-30-715-0.json \
-      --verification-results-content-type text/plain\
+      --verification-results-content-type text/plain \
       --verifier postman
 ```
 
