@@ -1,7 +1,7 @@
 ---
 custom_edit_url: https://github.com/pactflow/example-consumer-java-graphql/edit/master/README.md
-title: Example Java Junit Consumer
-sidebar_label: Example Java Junit Consumer
+title: Example Java GraphQL Consumer
+sidebar_label: Example Java GraphQL Consumer
 ---
 
 <!-- This file has been synced from the pactflow/example-consumer-java-graphql repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
