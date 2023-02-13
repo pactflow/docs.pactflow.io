@@ -259,7 +259,8 @@ module.exports = {
             'docs/examples/golang/provider/readme'
           ],
           Java: [
-            'docs/examples/java/consumer/junit/readme',
+            'docs/examples/java/consumer/graphql/readme',
+            'docs/examples/java/provider/graphql/readme',
             'docs/examples/java/provider-springboot/readme'
           ],
           JS: [
