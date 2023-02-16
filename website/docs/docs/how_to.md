@@ -75,10 +75,10 @@ To see the most recent change to a pact (eg. to determine why a provider verific
 
 ## See what has changed between two arbitrary pacts
 
-1. Get the version number of the first Pact you want to compare:
+1. Get the SHA of the first Pact you want to compare:
    - View the most recently published version of the pact you want to compare
    - Click the `API` button in the top right of the screen to open the API browser (aka HAL Browser)
-   - Search for the `pb:pact-version` row. Copy the SHA from the name/index column. This is the is the version number for the published pact file
+   - Search for the `pb:pact-version` row. Copy the SHA from the name/index column. This is the SHA for the published pact file
 
 ![View Pact](../../static/ui/pactDiff1.png)
 
