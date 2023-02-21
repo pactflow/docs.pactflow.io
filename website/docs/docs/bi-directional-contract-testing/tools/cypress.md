@@ -4,7 +4,7 @@ sidebar_label: Cypress
 ---
 
 :::note
-Official Pactflow adapter
+Official PactFlow adapter
 :::
 
 

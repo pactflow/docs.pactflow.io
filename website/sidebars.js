@@ -99,6 +99,11 @@ module.exports = {
       label: 'Account',
       items: ['docs/billing']
     },
+    {
+      type: 'category',
+      label: 'Integrations',
+      items: ['docs/integrations/swaggerhub']
+    },
     'docs/how_to',
     {
       type: 'category',
@@ -110,7 +115,7 @@ module.exports = {
   university: [
     {
       type: 'category',
-      label: 'Pactflow University',
+      label: 'PactFlow University',
       items: [
         'docs/workshops',
         'docs/tutorials',
@@ -254,7 +259,8 @@ module.exports = {
             'docs/examples/golang/provider/readme'
           ],
           Java: [
-            'docs/examples/java/consumer/junit/readme',
+            'docs/examples/java/consumer/graphql/readme',
+            'docs/examples/java/provider/graphql/readme',
             'docs/examples/java/provider-springboot/readme'
           ],
           JS: [
@@ -375,6 +381,7 @@ module.exports = {
           type: 'category',
           label: 'Releases',
           items: [
+            'docs/on-premises/releases/1.22.0',
             'docs/on-premises/releases/1.21.1',
             'docs/on-premises/releases/1.21.0',
             'docs/on-premises/releases/1.20.0',

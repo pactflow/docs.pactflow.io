@@ -56,7 +56,7 @@ User defined secrets that have the same team assigned as the webhook may be used
 
 To use a secret in a webhook, use the expression `${user.<SECRET_NAME>}` eg. `${user.ciToken}`.
 
-##### Pactflow
+##### PactFlow
 
 The following variables may be used in the path and query parameters of the URL, the headers, body, username and password, and will be replaced with their appropriate values at runtime.
 

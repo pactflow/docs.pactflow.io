@@ -3,17 +3,17 @@ id: webhooks-help
 title: Webhooks / Public IPs
 ---
 
-## Pactflow Public IPs
+## PactFlow Public IPs
 
-If you are having issues executing webhooks into your environment or accessing Pactflow from your systems, you may need to whitelist our IP addresses listed below.
+If you are having issues executing webhooks into your environment or accessing PactFlow from your systems, you may need to whitelist our IP addresses listed below.
 
 ### Ingress
 
-The Pactflow application runs behind an AWS Load Balancer, with a dynamic IP range. We don't currently provide static IPs for ingress whitelisting.
+The PactFlow application runs behind an AWS Load Balancer, with a dynamic IP range. We don't currently provide static IPs for ingress whitelisting.
 
 ### Egress
 
-Pactflow may send outbound requests via the following IPs:
+PactFlow may send outbound requests via the following IPs:
 
 - 13.210.164.235
 - 13.210.66.183

@@ -5,7 +5,7 @@ title: Releasing the consumer code
 
 The provider has now successfully deployed to prod the changes requested by the consumer.
 
-Refresh the example pact page in Pactflow to see that the `feat/new-field` pact has a successful verification from the `master` provider.
+Refresh the example pact page in PactFlow to see that the `feat/new-field` pact has a successful verification from the `master` provider.
 
 1. Open the terminal for the consumer project.
 

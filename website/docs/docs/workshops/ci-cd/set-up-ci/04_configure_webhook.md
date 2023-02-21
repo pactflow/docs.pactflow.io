@@ -8,7 +8,7 @@ When using Pact in a CI/CD pipeline, there are two reasons for a pact verificati
 * When the provider changes (to make sure it does not break any existing consumer expectations)
 * When a pact changes (to see if the provider is compatible with the new expectations)
 
-To ensure that the verification step is run whenever a pact changes, we need to configure a Pactflow webhook to trigger a provider verification build in Github Actions.
+To ensure that the verification step is run whenever a pact changes, we need to configure a PactFlow webhook to trigger a provider verification build in Github Actions.
 
 You can see the configuration for this build in `.github/workflows/contract_requiring_verification_published.yml` in the provider project.
 
@@ -21,7 +21,7 @@ This is achieved by passing the URL of the changed pact to the build via a param
 
 See [here](https://docs.pact.io/pact_broker/webhooks#using-webhooks-with-the-contract_requiring_verification_published-event) for in-depth details about the "contract requiring verification published" event.
 
-The Pactflow webhook will need a Github access token to be able to trigger the build in Github. We don't want the Github token to be stored in clear text in the webhook, so we will create a secret in Pactflow to contain token.
+The PactFlow webhook will need a Github access token to be able to trigger the build in Github. We don't want the Github token to be stored in clear text in the webhook, so we will create a secret in PactFlow to contain token.
 
 1. Create a Github token.
     1. In Github:
@@ -35,8 +35,8 @@ The Pactflow webhook will need a Github access token to be able to trigger the b
         6. Click `Generate token`
         7. Copy the value of the token and put it in an open file (or better yet, store it in your password manager!)
 
-2. Create a Pactflow secret for the Github token.
-    1. In your Pactflow account:
+2. Create a PactFlow secret for the Github token.
+    1. In your PactFlow account:
         1. Go to the Secrets page
             1. Click on the Settings icon in the top left (it looks like a cog wheel) -> Select the `Secrets` tab from the menu on the left.
         2. Click "ADD SECRET"
@@ -45,7 +45,7 @@ The Pactflow webhook will need a Github access token to be able to trigger the b
         5. Click "CREATE"
 
 3. Create the "contract requiring verification published" webhook.
-    1. In your Pactflow account:
+    1. In your PactFlow account:
         1. Select the `Webhooks` tab from the settings page.
         2. Click "ADD WEBHOOK".
         3. Set:
@@ -95,7 +95,7 @@ The Pactflow webhook will need a Github access token to be able to trigger the b
         2. Select the latest execution
            1. This was triggered by pressing the `TEST` button in our webhook. In our CI/CD workflow, this will be triggered when a real `Contract published that requires verification` event takes place
 
-👉 Each of the above steps can be automated in Pactflow via the Pactflow API - you can see the targets for the commands in the provider's Makefile.
+👉 Each of the above steps can be automated in PactFlow via the PactFlow API - you can see the targets for the commands in the provider's Makefile.
 
 ## Expected state by the end of this step
 

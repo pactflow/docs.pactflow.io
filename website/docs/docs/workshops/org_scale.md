@@ -45,7 +45,7 @@ For a video of this guide, please see [YouTube](https://www.youtube.com/watch?v=
 
 - Engagement
   - No of pipelines with can-i-deploy tool enabled
-  - No of teams/projects with contracts in Pactflow
+  - No of teams/projects with contracts in PactFlow
   - No of endpoints covered by contracts (contract testing coverage)
 
 - Impact
@@ -68,10 +68,10 @@ For a video of this guide, please see [YouTube](https://www.youtube.com/watch?v=
   - 2 teams training in CT techniques, 4 CT champions
   - 8 KPI’s defined
   - GoP setup to engage teams and continue CT using Pact gaining adoption
-  - Implementation of RBAC in Pactflow
+  - Implementation of RBAC in PactFlow
 - Technical Aspects
   - 6 endpoints covered with CT
-  - 2 Jenkins pipelines integrated with Pactflow
+  - 2 Jenkins pipelines integrated with PactFlow
   - 2 bugs detected which were present in production environments
 - Times
   - 8 hours to develop first CT test

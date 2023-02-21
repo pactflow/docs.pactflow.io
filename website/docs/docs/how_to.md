@@ -52,3 +52,47 @@ This feature is not currently suppored directly though the UI, however, it can b
 - Paste the tag URL into the location bar in the `Explorer` section and click `Go`.
 - In the `Links` section, click on the yellow `!` icon under the `NON-GET` column.
 - Change the `Method` to `DELETE`, and click `Make Request`.
+
+
+## See what has changed in a pact
+
+To see the most recent change to a pact (eg. to determine why a provider verification has failed):
+
+1. From the PactFlow Overview locate the integration that has failed. Click the `VIEW PACT` button to the right of the failed verification to view the Pact.
+
+![View Pact](../../static/ui/pactDiff1.png)
+
+2. Click the `API` button in the top right of the screen to open the API browser (aka HAL Browser)
+
+![Open API viewer](../../static/ui/pactDiff2.png)
+3. On the API Browser page search for pb:diff-previous-distinct and click the Follow Link (green icon)
+
+![Click the Green Link](../../static/ui/pactDiff3.png)
+
+4. You will see a resource describing the last changes that were made to the pact.
+
+![Comparison Results](../../static/ui/pactDiff4.png)
+
+## See what has changed between two arbitrary pacts
+
+1. Get the SHA of the first Pact you want to compare:
+   - View the most recently published version of the pact you want to compare
+   - Click the `API` button in the top right of the screen to open the API browser (aka HAL Browser)
+   - Search for the `pb:pact-version` row. Copy the SHA from the name/index column. This is the SHA for the published pact file
+
+![View Pact](../../static/ui/pactDiff1.png)
+
+2. Repeat for the pact you want to use as a base for the comparison but this time search the `for pb:diff` row
+
+3. Click the Query URI Template (green question mark)
+
+![View Pact](../../static/ui/pactDiff5.png)
+
+4. In the pop up paste the first SHA you copied as the value for the "pactVersion" param. Click Follow URI to see the result.
+
+![View Pact](../../static/ui/pactDiff6.png)
+
+
+
+
+

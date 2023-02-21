@@ -4,7 +4,7 @@ title: Dashboard
 
 ## Dashboard layout
 
-The main Pactflow screen has four functional areas.
+The main PactFlow screen has four functional areas.
 
 &nbsp;
 
@@ -56,7 +56,7 @@ Displays the current logged in user and subscription status.
 
 ## Version tag menus
 
-The blue and grey "pill" icons shown next to the consumer and provider version numbers on the Overview, Matrix and Pact pages represent [tags](https://docs.pact.io/pact_broker/tags) that belong to the relevant application versions in Pactflow.
+The blue and grey "pill" icons shown next to the consumer and provider version numbers on the Overview, Matrix and Pact pages represent [tags](https://docs.pact.io/pact_broker/tags) that belong to the relevant application versions in PactFlow.
 
 A blue pill indicates that the application version is the latest version that has a tag with that name (eg. the latest consumer version with a "main" tag).
 

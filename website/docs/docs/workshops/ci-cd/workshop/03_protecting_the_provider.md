@@ -5,7 +5,7 @@ title: Protecting provider builds from changed pacts
 
 Those familiar with automated testing frameworks have probably come across the term "pending tests". These are tests that have a particular flag on them that causes them (depending on the framework) to either be skipped, or if executed, to not fail the test suite.
 
-When using Pact with Pactflow, we have a similar concept of a "pending pact". A pending pact is one which does not yet have a successful verification result published. Pending pacts can fail verification without causing the overall verification task (and hence, the overall provider build) to fail.
+When using Pact with PactFlow, we have a similar concept of a "pending pact". A pending pact is one which does not yet have a successful verification result published. Pending pacts can fail verification without causing the overall verification task (and hence, the overall provider build) to fail.
 
 Once a pact has a successful verification result published, it is now considered to be an accepted/supported contract, and any subsequent failure can only be as a result of the provider itself changing. Once a pact has left pending state, verification failures *will* cause the provider build to fail.
 
@@ -36,9 +36,9 @@ Let's add a new field to the expectations we have for the product API. We're goi
 
 1. Open up the provider build in Github Actions. The changed pact will have triggered a pact verification build of the provider project. This will have failed, as the new field does not exist in the API. This particular failed build is expected, and not a problem, as the pact verification build is generally separate from the provider's normal pipeline. For a more detailed explanation of this see <https://github.com/pactflow/example-provider#pact-verifications>.
 
-## Check the pact's status in Pactflow
+## Check the pact's status in PactFlow
 
-1. Open up the pact in Pactflow. You'll see that there is a pact associated with branch `master` with a failed verification result.
+1. Open up the pact in PactFlow. You'll see that there is a pact associated with branch `master` with a failed verification result.
 
 1. Click on "VIEW PACT" and you'll see that each interaction has a status next to it.
 
@@ -48,7 +48,7 @@ Let's add a new field to the expectations we have for the product API. We're goi
 
 * A consumer build that is failing at the `can-i-deploy` step in Github Actions.
 * A provider build that is failing during verification in Github Actions.
-* A pact associated with the consumers main branch `master` in Pactflow that has a failed verification result.
+* A pact associated with the consumers main branch `master` in PactFlow that has a failed verification result.
 
 ## Run the provider main branch build
 
@@ -60,23 +60,23 @@ You can demonstrate this by running a provider build in Github (`Actions` -> Und
 
  👉 The provider is still compatible with pact deployed to the `prod` environment , so the deploy step is able to proceed without issue.
 
-1. Look at `product/product.pact.test.js`, `enablePending: true` is set in the options for the dynamically fetched pacts.
+1. Look at [src/product/product.providerChange.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.providerChange.pact.test.js), `enablePending: true` is set in the options for the dynamically fetched pacts.
 
 1. Locally you can run `make test` - note that this passes ✅
 
-    👉 Whenever we run the verification step with the pending feature enabled, we have to make sure we've set the branch correctly (which we do in this codebase by providing the environment variable `GIT_BRANCH` to `providerVersionBranch` in our test `product/product.pact.test.js`), because the pending status for each pact depends on it.
+    👉 Whenever we run the verification step with the pending feature enabled, we have to make sure we've set the branch correctly (which we do in this codebase by providing the environment variable `GIT_BRANCH` to `providerVersionBranch` in our test `product.providerChange.pact.test.js`), because the pending status for each pact depends on it.
 
-1. In Pactflow, refresh the pact page.
+1. In PactFlow, refresh the pact page.
 
     👉 Even though the provider build is passing, the `master` pact has a (correctly) failed verification result, which tells the consumer team that they cannot deploy the code associated with this pact yet.
 
 ## Disable 'pending pacts' for the provider
 
-::: info
-this step is optional and for demonstration purposes to show what happens without the `Pending pacts` feature
+:::info
+This step is optional and for demonstration purposes to show what happens without the `Pending pacts` feature
 :::
 
-1. In `product/product.pact.test.js`, set `enablePending: false` in the options for the dynamically fetched pacts.
+1. In [src/product/product.providerChange.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.providerChange.pact.test.js), set `enablePending: false` in the options for the dynamically fetched pacts.
 
 2. Run `make test` - note that this now fails ❌
 
@@ -84,9 +84,8 @@ this step is optional and for demonstration purposes to show what happens withou
     * The `master` pact has a (correctly) failed verification result, which tells the consumer team that they cannot deploy the code associated with this pact yet.
     * The provider is verifying the code from its main branch to deploy, against the consumers `master` branch, and any `deployed` versions, and the verification job now fails, meaning the provider is blocked from deployed to production through no fault of their own. We will show how the consumer can safely deliver this change later in the workshop
 
-:::warn
+:::caution
 The real problem is that the provider is now unable to deploy from their master branch 😧.
-
 This is because the provider is configured to verify the latest pact of any registered consumers main branch, so publishing a pact with a new expectation and associating its consumer version as `master` (the consumers main branch) causes the verification step to fail, breaking the provider's build through no fault of its own.
 :::
 

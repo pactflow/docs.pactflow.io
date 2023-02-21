@@ -12,7 +12,7 @@ The next step is to implement the changes that have been requested in the pact.
     * 👉 This will run our unit tests and our Pact test which "fetch pacts for these consumer version selectors" mode. This is executed as part of the following GitHub workflow `.github/workflows/build.yml`
   
 2. Get the URL of the new pact:
-    * Go to your Pactflow account, find the new pact on the consumer branch `feat/new-field` and click "VIEW PACT".
+    * Go to your PactFlow account, find the new pact on the consumer branch `feat/new-field` and click "VIEW PACT".
     * In the top right, click the 3 dots and select `Copy pact URL for pactflow-example-consumer version xyz`.
 
 3. Run `PACT_URL=<PACT URL HERE> make test_webhook`. This test should correctly fail with the error `Could not find key "color"` in the output.
@@ -83,4 +83,4 @@ The `master` provider is now compatible with the `feat/new-field` pact, based on
 
 We verified the Pact would pass against our providers main branch `master` by passing in the Pact URL directly, however because it was only verified on a development machine, and we don't typically publish verification results from dev machines.
 
-The next step is getting a result back to Pactflow so that the consumer knows they are safe to merge.
+The next step is getting a result back to PactFlow so that the consumer knows they are safe to merge.

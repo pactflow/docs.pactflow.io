@@ -11,7 +11,7 @@ title: Prerequisites
     * In Github:
         * One tab for the example-consumer build
         * One tab for the example-provider build
-    * In Pactflow:
+    * In PactFlow:
         * A tab for the example pact dashboard
     * In your editor of choice:
         * One window for the example-consumer

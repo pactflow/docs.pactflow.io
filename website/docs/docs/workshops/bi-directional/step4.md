@@ -1,6 +1,6 @@
-# 4. Publish the provider contract to Pactflow
+# 4. Publish the provider contract to PactFlow
 
-Now that we have created and verified our provider contract, we need to share the contract to our consumers. This is where Pactflow comes in to the picture. This step is referred to as "publishing" the provider contract.
+Now that we have created and verified our provider contract, we need to share the contract to our consumers. This is where PactFlow comes in to the picture. This step is referred to as "publishing" the provider contract.
 
 The publishing step takes two key components:
 
@@ -11,7 +11,7 @@ This information will be helpful later on, when we need to check compatibility w
 
 ## Publish the provider contract locally
 
-1. Go to Pactflow and copy your [read/write API Token](https://docs.pactflow.io/docs/getting-started/#configuring-your-api-token)
+1. Go to PactFlow and copy your [read/write API Token](https://docs.pactflow.io/docs/getting-started/#configuring-your-api-token)
 1. Export these two environment variables into the terminal, being careful to replace the placeholders with your own values:
 
    ```
@@ -20,7 +20,7 @@ This information will be helpful later on, when we need to check compatibility w
    ```
 
 1. `npm run publish`
-1. Go to your Pactflow dashboard and check that a new contract has appeared
+1. Go to your PactFlow dashboard and check that a new contract has appeared
 
 Your dashboard should look something like this:
 
@@ -39,7 +39,7 @@ Your dashboard should look something like this:
 1. You will see the text `This workflow has a workflow_dispatch event trigger`. To the right of that text is a button with the label `Run workflow`. Click the button.
 1. Leave the branch as `master` and click the green `Run workflow` button.
 
-❌ The build will fail with an authentication error when it tries to publish the pact - that's expected. We need to update the configuration to point it at your new Pactflow account.
+❌ The build will fail with an authentication error when it tries to publish the pact - that's expected. We need to update the configuration to point it at your new PactFlow account.
 
 #### Expected state by the end of this step
 

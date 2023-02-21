@@ -2,7 +2,7 @@
 title: Preferences
 ---
 
-This screen specifies the Pactflow Preferences panels and what types of settings you can change.
+This screen specifies the PactFlow Preferences panels and what types of settings you can change.
 
 ## Personal preferences
 
@@ -10,7 +10,7 @@ These are the settings that affect individual users.
 
 #### Show welcome dialog
 
-This setting controls whether the "Welcome to Pactflow" dialog is shown to the user when they login.
+This setting controls whether the "Welcome to PactFlow" dialog is shown to the user when they login.
 
 #### Show an alert when my tokens are about to expire
 
@@ -47,4 +47,4 @@ The default team to which new team members will be added. If this preference is 
 
 #### Operational Notification Contacts
 
-Platform maintenance, operations and security related notifications will be sent to these email addresses. For accounts that existed when this field was added, this has been initialised to the email addresses of the users with the Administrator role. The default value for new accounts will be the email address of the user who created the account. Note that any email address can be set here, the owner of the email address does not need to have a Pactflow account to be be able to receive these notifications.
+Platform maintenance, operations and security related notifications will be sent to these email addresses. For accounts that existed when this field was added, this has been initialised to the email addresses of the users with the Administrator role. The default value for new accounts will be the email address of the user who created the account. Note that any email address can be set here, the owner of the email address does not need to have a PactFlow account to be be able to receive these notifications.

@@ -6,13 +6,13 @@ title: Configure consumer and provider pipelines
 ## Setup deployment environment
 
 :::info
-This step should only be required if you have a legacy Pactflow account. New users should automatically have a production account created and can move onto the [Configure consumer pipeline](#configure-consumer-pipeline) step
+This step should only be required if you have a legacy PactFlow account. New users should automatically have a production account created and can move onto the [Configure consumer pipeline](#configure-consumer-pipeline) step
 :::
 
 <details>
   <summary>Create a new production environment to record deployments against</summary>
 
-  1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > Environments.
+  1. Log in to your PactFlow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > Environments.
   2. Click Add Environment
   3. Enter `production` for the name and display name
   4. Check the "this is a production environment" checkbox
@@ -23,11 +23,11 @@ This step should only be required if you have a legacy Pactflow account. New use
 
 ## Configure consumer pipeline
 
-The source repositories are configured to use the the public broker at test.pactflow.io. You will need to update the credentials to point to your own Pactflow account. To do this, we need to update the `PACT_BROKER_BASE_URL` environment variable in the Github workflow file, and create a Github Secret to store the Pactflow API token in.
+The source repositories are configured to use the the public broker at test.pactflow.io. You will need to update the credentials to point to your own PactFlow account. To do this, we need to update the `PACT_BROKER_BASE_URL` environment variable in the Github workflow file, and create a Github Secret to store the PactFlow API token in.
 
-1. Create a Github Secret to store your Pactflow API token in.
-   1. In Pactflow:
-      1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens.
+1. Create a Github Secret to store your PactFlow API token in.
+   1. In PactFlow:
+      1. Log in to your PactFlow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens.
       1. Click the Copy button for the read/write CI token (make sure it's the read _write_ one, not the read only one).
    1. In Github:
       1. Open your forked `example-consumer` project (`https://github.com/<your-username>/example-consumer`)
@@ -35,16 +35,16 @@ The source repositories are configured to use the the public broker at test.pact
       1. Select `Secrets` from the side menu.
       1. Click `New repository secret` (the button is to the right of the "Actions secrets" heading)
       1. Set the name of the secret to `PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP`
-      1. Paste in the Pactflow API token value you copied in the previous step.
-2. Update your workflow files in GitHub to point at your Pactflow Broker
-   1. In Pactflow:
+      1. Paste in the PactFlow API token value you copied in the previous step.
+2. Update your workflow files in GitHub to point at your PactFlow Broker
+   1. In PactFlow:
        1. Go to Settings > API Tokens.
        2. Click the `COPY PACTFLOW BASE URL` button
    2. In Github:
        1. Open your forked `example-consumer` project (`https://github.com/<your-username>/example-consumer`)
           1. Open `.github/workflows/build.yml`
           2. In the upper right corner of the file view, click 🖊️ to open the file editor.
-          3. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account. You can easily get this by clicking the COPY PACTFLOW BASE URL button on the API Tokens page in Pactflow.
+          3. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own PactFlow account. You can easily get this by clicking the COPY PACTFLOW BASE URL button on the API Tokens page in PactFlow.
           4. Press the green `Commit changes` button
 3. View the build:
    1. In Github:
@@ -58,11 +58,11 @@ This is because the provider has not published a successful verification result 
 
 ## Configure provider pipeline
 
-🔁 Repeat the above instructions to configure the Pactflow account for your provider project.
+🔁 Repeat the above instructions to configure the PactFlow account for your provider project.
 
 ⚠️ There are _TWO_ workflow files to be updated in the provider project - `.github/workflows/build.yml`, `.github/workflows/contract_requiring_verification_published.yml`.
 
-After you have pushed your changes to the workflow files, the provider pipeline will run, fetching and verifying the configured pacts from your Pactflow account, and publishing the results back. The `can-i-deploy` command will pass, and allow the provider to be deployed. ✅
+After you have pushed your changes to the workflow files, the provider pipeline will run, fetching and verifying the configured pacts from your PactFlow account, and publishing the results back. The `can-i-deploy` command will pass, and allow the provider to be deployed. ✅
 
 ## Back to the consumer
 

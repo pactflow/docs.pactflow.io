@@ -28,7 +28,7 @@ publish_pacts:
   @"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --auto-detect-version-properties
 ```
 
-In the [src/product/product.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.pact.test.js) file in the provider project, we have configured the verification task to fetch the latest pacts that belong to the configured `mainBranch` for each consumer  (`{ mainBranch: true }`), and the pacts that belong to the currently deployed versions (`{ deployed: true }` - we'll explain how the broker knows which versions are deployed in the next section).
+In the [src/product/product.providerChange.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.providerChange.pact.test.js) file in the provider project, we have configured the verification task to fetch the latest pacts that belong to the configured `mainBranch` for each consumer  (`{ mainBranch: true }`), and the pacts that belong to the currently deployed versions (`{ deployed: true }` - we'll explain how the broker knows which versions are deployed in the next section).
 
 You can read more about how to configure the main branch property [here](https://docs.pact.io/pact_broker/branches#pacticipant-main-branch-property), but all you need to know for now, is this allows our provider to support 2 or more consumers, which each have a different named main branch (such as `master` or `main`).
 
@@ -63,7 +63,7 @@ record_deployment:
     @"${PACT_CLI}" broker record-deployment --pacticipant ${PACTICIPANT} --version ${GIT_COMMIT} --environment production
 ```
 
-Though our example is hardcoded to "production", this command should be run after a successful deployment to any environment for both consumers and providers. The "production" and "test" environments have been seeded for you in your Pactflow account, but if you want to add any more environments, you will need to add them yourself using the Pact Broker CLI or [UI](/docs/user-interface/settings/environments)
+Though our example is hardcoded to "production", this command should be run after a successful deployment to any environment for both consumers and providers. The "production" and "test" environments have been seeded for you in your PactFlow account, but if you want to add any more environments, you will need to add them yourself using the Pact Broker CLI or [UI](/docs/user-interface/settings/environments)
 
 For mobile applications and code libraries that are "released" to an app store/repository rather than being "deployed", the "record-release" command should be used. It's not relevant for this workshop, but you can read more about it [here](https://docs.pact.io/pact_broker/recording_deployments_and_releases/) if/when you need to.
 

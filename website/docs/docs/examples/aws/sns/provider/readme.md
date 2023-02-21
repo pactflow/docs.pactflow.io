@@ -19,9 +19,9 @@ https://github.com/pactflow/example-provider-js-sns
 
 [![Pact Status](https://test.pactflow.io/matrix/provider/pactflow-example-provider-js-sns/latest/master/consumer/pactflow-example-consumer-js-sns/latest/master/badge.svg?label=provider)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-js-sns/consumer/pactflow-example-consumer-js-sns/latest/master) (prod/prod pact)
 
-This is an example of a NodeJS provider that uses Pact, [Pactflow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
+This is an example of a NodeJS provider that uses Pact, [PactFlow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
 
-It is using a public tenant on Pactflow, which you can access [here](https://test.pactflow.io) using the credentials `dXfltyFMgNOFZAxr8io9wJ37iUpY42M`/`O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1`. The latest version of the Example Consumer/Example Provider pact is published [here](https://test.pactflow.io/pacts/provider/pactflow-example-provider-js-sns/consumer/pactflow-example-consumer-js-sns/latest).
+It is using a public tenant on PactFlow, which you can access [here](https://test.pactflow.io) using the credentials `dXfltyFMgNOFZAxr8io9wJ37iUpY42M`/`O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1`. The latest version of the Example Consumer/Example Provider pact is published [here](https://test.pactflow.io/pacts/provider/pactflow-example-provider-js-sns/consumer/pactflow-example-consumer-js-sns/latest).
 
 In the following diagram, we'll be testing the "Product Update API", a simple HTTP service that receives product updates via a REST API and publishes product events on the `product` topic.
 
@@ -71,11 +71,11 @@ See also:
 
 ## Usage
 
-See also the [Pactflow CI/CD Workshop](https://github.com/pactflow/ci-cd-workshop) for more background.
+See also the [PactFlow CI/CD Workshop](https://github.com/pactflow/ci-cd-workshop) for more background.
 
 ### Testing
 * Run the Pact tests: `make test`
-
+ 
 ### Running  locally
 
 * Start the Provider API (with a local SNS setup with localstack): `make start`

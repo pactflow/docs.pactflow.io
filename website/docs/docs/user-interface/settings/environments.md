@@ -5,7 +5,7 @@ title: Environments
 ![Environments Screen](/ui/environments.png)
 
 Here you will be able to manage the list of environments used by your organization. These represent your real world deployment or release environments.
-Maintaining this list, along with the `record-deployment` and `record-release` commands, allows Pactflow to ensure you are safe to deploy using the `can-i-deploy` tool. You can read more about the process [here.](https://docs.pact.io/pact_broker/recording_deployments_and_releases/)
+Maintaining this list, along with the `record-deployment` and `record-release` commands, allows PactFlow to ensure you are safe to deploy using the `can-i-deploy` tool. You can read more about the process [here.](https://docs.pact.io/pact_broker/recording_deployments_and_releases/)
 ![Environments Screen](/ui/environments-form.png)
 
 &nbsp;

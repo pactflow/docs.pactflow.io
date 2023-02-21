@@ -60,7 +60,7 @@ When converting your mocks into a pact file, take note of the following consider
 1. You **must** generate a Pact file that is compatible with one of the supported versions of the Pact Specification (listed in the table above).
 1. You **should not** include any [matchers](https://github.com/pact-foundation/pact-specification/tree/version-2/#matchers), unless you are confident in their application.
    - Matchers are currently ignored by the cross-contract validation process, but may be supported at a later date
-1. You **should** validate the pact file is correct prior to uploading to Pactflow. You can use the JSON schema below, or attempt to load it into a [stub server](https://docs.pact.io/getting_started/stubs/).
+1. You **should** validate the pact file is correct prior to uploading to PactFlow. You can use the JSON schema below, or attempt to load it into a [stub server](https://docs.pact.io/getting_started/stubs/).
 
 Below is an pact file based off the [Wiremock](/docs/examples) example project.
 

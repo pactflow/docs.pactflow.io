@@ -2,7 +2,7 @@
 title: License file
 ---
 
-The Pactflow on-premises version requires a license file to run. You should have received this from us during the
+The PactFlow on-premises version requires a license file to run. You should have received this from us during the
 on-boarding process. If not, please contact us at support@pactflow.io.
 
 The license file needs to be mounted into the docker container at the `/home/pactflow-onprem.lic` path. This can

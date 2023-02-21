@@ -4,7 +4,7 @@ title: Logging
 
 ## Output
 
-Pactflow application logs are sent to the standard output stream of the Docker container, with the expectation that the container orchestration service will collect and forward them to a log aggregation service.
+PactFlow application logs are sent to the standard output stream of the Docker container, with the expectation that the container orchestration service will collect and forward them to a log aggregation service.
 
 ## Format
 

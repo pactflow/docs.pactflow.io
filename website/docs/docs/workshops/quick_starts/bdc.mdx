@@ -28,18 +28,18 @@ and GitHub actions to run the CI pipelines
 
 1. Create and document an API using OpenAPI Specification
 1. Write tests for the API using an API testing tool such as ReadyAPI,SoapUI,RestAssured,Dredd,Postman and Schemathesis/Swashbuckle
-1. Publish the provider contract (an OpenAPI document) to Pactflow
+1. Publish the provider contract (an OpenAPI document) to PactFlow
 1. Deploy the provider to production
 1. Write the API consumer
 1. Write tests for an API client using tools such as Mountebank,Nock,Wiremock,Nock,Cypress and Mock-Service-Worker or traditional Pact .NET to mock the API, and convert those mocks into a consumer contract
-1. Publish the consumer contract to Pactflow
+1. Publish the consumer contract to PactFlow
 1. Deploy the consumer to production
-1. Learn about Pactflow's breaking change detection system
+1. Learn about PactFlow's breaking change detection system
 
 ## Table of Contents
 
 - [Get a GitHub account](#get-a-github-account)
-- [Get a Pactflow account](#get-a-pactflow-account)
+- [Get a PactFlow account](#get-a-pactflow-account)
 - [Setting the scene](#setting-the-scene)
   - [The Provider](#the-provider)
     - [Design & Implement the API](#design--implement-the-api)
@@ -48,14 +48,14 @@ and GitHub actions to run the CI pipelines
     - [Deploy your provider safely to production](#deploy-your-provider-safely-to-production)
 - [Pick a provider](#pick-a-provider)
 - [Fork the repo](#fork-the-repo)
-- [Create a Github Secret to store your Pactflow API token in.](#create-a-github-secret-to-store-your-pactflow-api-token-in)
-- [Update your Pactflow Broker Base Url](#update-your-pactflow-broker-base-url)
+- [Create a Github Secret to store your PactFlow API token in.](#create-a-github-secret-to-store-your-pactflow-api-token-in)
+- [Update your PactFlow Broker Base Url](#update-your-pactflow-broker-base-url)
 - [Run the build workflow](#run-the-build-workflow)
 - [Setting the scene for our Consumer](#setting-the-scene-for-our-consumer)
   - [The consumer](#the-consumer)
     - [Design & Implementing our API consumer](#design--implementing-our-api-consumer)
     - [Testing and verify the API consumer](#testing-and-verify-the-api-consumer)
-    - [Publish your consumer contract to Pactflow](#publish-your-consumer-contract-to-pactflow)
+    - [Publish your consumer contract to PactFlow](#publish-your-consumer-contract-to-pactflow)
     - [Deploy your consumer safely to production](#deploy-your-consumer-safely-to-production)
 - [Run steps again for your consumer](#run-steps-again-for-your-consumer)
 - [See a breaking change on either the consumer or the provider](#see-a-breaking-change-on-either-the-consumer-or-the-provider)
@@ -73,10 +73,10 @@ All our examples run on Github Actions CI pipelines. You'll need an account. Don
 You are logged in to your GitHub account
 :::
 
-## Get a Pactflow account
+## Get a PactFlow account
 
 :::info
-The Bi-Directional Feature is only supported by Pactflow, so you'll need an account, Don't worry, the developer tier is free.
+The Bi-Directional Feature is only supported by PactFlow, so you'll need an account, Don't worry, the developer tier is free.
 :::
 
 - [ ] Don't have one - sign up 👉 [here](https://pactflow.io/try-for-free)
@@ -84,16 +84,16 @@ The Bi-Directional Feature is only supported by Pactflow, so you'll need an acco
 - [x] I've already got one!
 
 <details>
-  <summary>Using a shared company Pactflow account?</summary>
+  <summary>Using a shared company PactFlow account?</summary>
 
 :::info
-You can use a shared company Pactflow account, but it will make things a bit fiddly, as you'll need to change the identifiers of the various resources that get created so that they don't clash with those from other workshop participants. We've found from past experience running workshops that it's much simpler if everyone has their own account.
+You can use a shared company PactFlow account, but it will make things a bit fiddly, as you'll need to change the identifiers of the various resources that get created so that they don't clash with those from other workshop participants. We've found from past experience running workshops that it's much simpler if everyone has their own account.
 :::
 
 </details>
 
 :::success
-You have got your Pactflow account, and are successfully logged in.
+You have got your PactFlow account, and are successfully logged in.
 :::
 
 :::warning Where is my email?
@@ -171,7 +171,7 @@ Now that we have our working Provider, we need to do two things to prevent intro
 Right now, we don't have any consumers, but we want to be prepared for when we do.
 
 For (1), we need to decide on our testing approach.
-For (2), we'll use Pactflow's contract comparison capability to prevent breaking changes, which we cover in Step 5.
+For (2), we'll use PactFlow's contract comparison capability to prevent breaking changes, which we cover in Step 5.
 
 ##### Verifying the provider contract
 
@@ -218,14 +218,14 @@ Dredd will start our provider (`npm start`), read in the OAS file (`./oas/produc
 
 
 <details>
-  <summary>Publish the provider contract to Pactflow</summary>
+  <summary>Publish the provider contract to PactFlow</summary>
 
 
 :::success Find out more
-See our Publishing contracts [docs](http://localhost:3000/docs/bi-directional-contract-testing/publishing) for more info
+See our Publishing contracts [docs](/docs/bi-directional-contract-testing/publishing) for more info
 :::
 
-Now that we have created and verified our provider contract, we need to share the contract to our consumers. This is where Pactflow comes in to the picture. This step is referred to as "publishing" the provider contract.
+Now that we have created and verified our provider contract, we need to share the contract to our consumers. This is where PactFlow comes in to the picture. This step is referred to as "publishing" the provider contract.
 
 The publishing step takes two key components:
 
@@ -247,7 +247,7 @@ After you run through the process your dashboard will look this this
 
 Now that we have tested our provider and published our provider contract, we can deploy the application to production.
 
-Whilst we don't currently have any consumers to worry about, we want to be prepared for when we do. Pactflow has a tool called [`can-i-deploy`](https://docs.pact.io/pact_broker/can_i_deploy) to help us.
+Whilst we don't currently have any consumers to worry about, we want to be prepared for when we do. PactFlow has a tool called [`can-i-deploy`](https://docs.pact.io/pact_broker/can_i_deploy) to help us.
 
 The `can-i-deploy` command is an important part of a CI/CD workflow, adding stage gates to prevent deploying incompatible applications to environments such as production.
 
@@ -277,11 +277,11 @@ There are no missing dependencies
 
 Later on, when consumers start to use our API, we will be prevented from releasing a change that results in a backwards incompatible change for our consumers. Consumers will also use this command to ensure they are compatible with the Provider API in the target environment (in this case, `production`).
 
-We can now deploy our provider to production. Once we have deployed, we let Pactflow know that the new version of the Provider has been promoted to that environment:
+We can now deploy our provider to production. Once we have deployed, we let PactFlow know that the new version of the Provider has been promoted to that environment:
 
 `npm run deploy`
 
-This allows Pactflow to communicate to any future consumers of the provider, that the OAS associated with this version of the provider is supported in production. If a consumer adds functionality that uses a subset of the OAS, they will be free to deploy safely!
+This allows PactFlow to communicate to any future consumers of the provider, that the OAS associated with this version of the provider is supported in production. If a consumer adds functionality that uses a subset of the OAS, they will be free to deploy safely!
 
 ##### Expected state by the end of this step
 
@@ -311,10 +311,10 @@ You can pick your provider now, compatibility is shown in the project readme's o
 In the GitHub address bar you can see `https://github.com/<your_github_id>/example-bi-directional-provider-<your_chosen_provider>` ✅
 :::
 
-## Create a Github Secret to store your Pactflow API token in.
+## Create a Github Secret to store your PactFlow API token in.
 
-1.  In Pactflow:
-    1. Log in to your Pactflow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens - See [here](/#configuring-your-api-token) for the docs.
+1.  In PactFlow:
+    1. Log in to your PactFlow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens - See [here](/#configuring-your-api-token) for the docs.
     1. Click the Copy button for the read/write CI token (make sure it's the read _write_ one, not the read only one).
 1.  In Github:
     1. Open your forked `example-bi-directional-provider` project (`https://github.com/<your-username>/example-bi-directional-provider`)
@@ -322,30 +322,30 @@ In the GitHub address bar you can see `https://github.com/<your_github_id>/examp
     1. Select `Secrets` from the side menu.
     1. Click `New repository secret` (the button is to the right of the "Actions secrets" heading)
     1. Set the name of the secret to `PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP`
-    1. Paste in the Pactflow API token value you copied in the previous step.
+    1. Paste in the PactFlow API token value you copied in the previous step.
 
 :::success
-You've successfully updated your PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP to your read/write CI token from Pactflow ✅
+You've successfully updated your PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP to your read/write CI token from PactFlow ✅
 :::
 
-## Update your Pactflow Broker Base Url
+## Update your PactFlow Broker Base Url
 
 :::info
 We are going to edit our GitHub actions built-in file editor. If you need more info on how to, check their docs [here](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files) 
 :::
 
-1.  In Pactflow:
+1.  In PactFlow:
     1. Go to Settings > API Tokens.
     1. Click the `COPY PACTFLOW BASE URL` button
 1.  In Github:
     1. Open your forked `example-bi-directional-provider` project (`https://github.com/<your-username>/example-bi-directional-provider`)
        1. Open `.github/workflows/build.yml`
        2. In the upper right corner of the file view, click 🖊️ to open the file editor.
-       3. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own Pactflow account. You can easily get this by clicking the COPY PACTFLOW BASE URL button on the API Tokens page in Pactflow.
+       3. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own PactFlow account. You can easily get this by clicking the COPY PACTFLOW BASE URL button on the API Tokens page in PactFlow.
        4. Press the green `Commit changes` button
 
 :::success
-You've successfully updated your PACT_BROKER_BASE_URL to be the same as shown in your web browser address bar, when you view your Pactflow account ✅
+You've successfully updated your PACT_BROKER_BASE_URL to be the same as shown in your web browser address bar, when you view your PactFlow account ✅
 :::
 
 ## Run the build workflow
@@ -371,7 +371,7 @@ Your dashboard should look something like this:
 :::success
 This build should now successfully publish the provider contract and evidence, and it will pass on the `can-i-deploy` step before it tries to deploy. This is because the provider has no consumers, so is safe to deploy.
 
-After you have pushed your changes to the workflow files, the provider pipeline will run, fetching and verifying the configured pacts from your Pactflow account, and publishing the results back. The `can-i-deploy` command will pass, and allow the provider to be deployed. ✅
+After you have pushed your changes to the workflow files, the provider pipeline will run, fetching and verifying the configured pacts from your PactFlow account, and publishing the results back. The `can-i-deploy` command will pass, and allow the provider to be deployed. ✅
 :::
 
 ## Setting the scene for our Consumer
@@ -429,7 +429,7 @@ Here, a _Collaborator_ is a component whose job is to communicate with another s
 
 ##### Choosing a contract testing strategy
 
-Pactflow currently supports pact files as a consumer contract format. In order to produce a consumer contract, you need to decide on a testing approach to capture the contract:
+PactFlow currently supports pact files as a consumer contract format. In order to produce a consumer contract, you need to decide on a testing approach to capture the contract:
 
 1. Use [Pact](https://docs.pact.io) - this will be the default choice for many, as it can both mock the API calls and produce a pact file
 2. Use an existing mocking tools such as Wiremock or Mountebank, or record/replay tools (such as VCR or Polly), and convert the mocks to a pact file after a successful run.
@@ -530,12 +530,12 @@ This process is essentially same for any mocking tool, such as Wiremock or Cypre
 
 </details>
 
-#### Publish your consumer contract to Pactflow
+#### Publish your consumer contract to PactFlow
 
 <details>
-  <summary>Publish your consumer contract to Pactflow</summary>
+  <summary>Publish your consumer contract to PactFlow</summary>
 
-Now that we have created our consumer contract, we need to share it to our provider. This is where Pactflow comes in to the picture. This step is referred to as "publishing" the consumer contract.
+Now that we have created our consumer contract, we need to share it to our provider. This is where PactFlow comes in to the picture. This step is referred to as "publishing" the consumer contract.
 
 Your dashboard should look something like this:
 
@@ -543,7 +543,7 @@ Your dashboard should look something like this:
 
 ##### Expected state by the end of this step
 
-- There should be a contract published in your Pactflow account before moving on
+- There should be a contract published in your PactFlow account before moving on
 
 </details>
 
@@ -583,11 +583,11 @@ VERIFICATION RESULTS
 All required verification results are published and successful
 ```
 
-We can now deploy our consumer to production. Once we have deployed, we let Pactflow know that the new version of the consumer has been promoted to that environment:
+We can now deploy our consumer to production. Once we have deployed, we let PactFlow know that the new version of the consumer has been promoted to that environment:
 
 `npm run deploy`
 
-This allows Pactflow to prevent any providers from deploying an incompatible change to `production`.
+This allows PactFlow to prevent any providers from deploying an incompatible change to `production`.
 
 Your dashboard should look something like this, where both your consumer and consumer are marked as having been deployed to `production`:
 
@@ -610,8 +610,8 @@ You can pick your consumer now
 </div>
 
 1. Fork the repo - [click here to see the instructions again](#fork-the-repo)
-2. Create a Github Secret to store your Pactflow API token in. - [click here to see the instructions again](#create-a-github-secret-to-store-your-pactflow-api-token-in)
-3. Update your Pactflow Broker Base Url - [click here to see the instructions again](#update-your-pactflow-broker-base-url)
+2. Create a Github Secret to store your PactFlow API token in. - [click here to see the instructions again](#create-a-github-secret-to-store-your-pactflow-api-token-in)
+3. Update your PactFlow Broker Base Url - [click here to see the instructions again](#update-your-pactflow-broker-base-url)
 4. Run the build workflow - [click here to see the instructions again](#run-the-build-workflow)
 
 This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
@@ -629,7 +629,7 @@ So far everything has been really easy. Let's go a bit deeper and introduce a br
 1. A consumer can add a new expectation (e.g. a new field/endpoint) on a provider that doesn't exist
 1. A provider might make a change (e.g. remove or rename a field, or change an endpoint) that breaks an existing consumer
 
-Pactflow will detect such situations using the `can-i-deploy` tool. When it runs, it performs a contract comparison that checks if the consumer contract is a valid subset of the provider contract in the target environment.
+PactFlow will detect such situations using the `can-i-deploy` tool. When it runs, it performs a contract comparison that checks if the consumer contract is a valid subset of the provider contract in the target environment.
 
 Let's see it in action.
 
@@ -642,9 +642,9 @@ Let's see it in action.
     6. Change the branch to `add_breaking_change` and click the green `Run workflow` button.
 
 :::warning
-This build will fail, Pactflow knows all of the consumers needs down to the field level.
+This build will fail, PactFlow knows all of the consumers needs down to the field level.
 
-If you head into the Pactflow UI and drill down into the "contract comparison" tab, you'll see the output from comparing the consumer and provider contracts:
+If you head into the PactFlow UI and drill down into the "contract comparison" tab, you'll see the output from comparing the consumer and provider contracts:
 
 ![pactflow dashboard - completed](../../../../static/workshops/bi-directional/cross-contract-failure.png)
 
@@ -664,16 +664,16 @@ Let's see a non breaking change in action.
     6. Change the branch to `add_non_breaking_change` and click the green `Run workflow` button.
 
 :::success
-This build should pass, Pactflow knows all of the consumers needs down to the field level. Because no consumer uses a particular field this is a safe operation.
+This build should pass, PactFlow knows all of the consumers needs down to the field level. Because no consumer uses a particular field this is a safe operation.
 :::
 
 :::info what have we learned?
 
 1. It is always safe to remove a field from a provider, if no consumers are currently using it
-1. It is not safe to remove a field/endpoint from a provider, if an existing consumer _is_ using it, and Pactflow will detect this situation.
-1. Pactflow will prevent a consumer from deploying a change that a Provider has yet to support
+1. It is not safe to remove a field/endpoint from a provider, if an existing consumer _is_ using it, and PactFlow will detect this situation.
+1. PactFlow will prevent a consumer from deploying a change that a Provider has yet to support
 
-🚀 If you've made it this far, you should now have a good understanding of how Pactflow's bi-directional contract testing feature works to make it safe to release software into production quickly and reliably.
+🚀 If you've made it this far, you should now have a good understanding of how PactFlow's bi-directional contract testing feature works to make it safe to release software into production quickly and reliably.
 
 You may be interested in one of
 

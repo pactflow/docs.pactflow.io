@@ -5,7 +5,7 @@ So far everything has been really easy. Let's go a bit deeper and introduce a br
 1. A consumer can add a new expectation (e.g. a new field/endpoint) on a provider that doesn't exist
 1. A provider might make a change (e.g. remove or rename a field) that breaks an existing consumer
 
-Pactflow will detect such situations using the `can-i-deploy` tool. When it runs, it performs a contract comparison that checks if the consumer contract is a valid subset of the provider contract in the target environment.
+PactFlow will detect such situations using the `can-i-deploy` tool. When it runs, it performs a contract comparison that checks if the consumer contract is a valid subset of the provider contract in the target environment.
 
 Let's see it in action.
 
@@ -20,7 +20,7 @@ Change directories into `cd /root/example-bi-directional-provider-dredd`
         npm run publish
         npm run can-i-deploy
 
-OK, that was a trick! Note how in the consumer's `Product` definition, it doesn't actually use the `price` field? Pactflow knows all of the consumers needs down to the field level. Because no consumer uses `price` this is a safe operation.
+OK, that was a trick! Note how in the consumer's `Product` definition, it doesn't actually use the `price` field? PactFlow knows all of the consumers needs down to the field level. Because no consumer uses `price` this is a safe operation.
 
 Revert the change `git checkout --`
 
@@ -46,7 +46,7 @@ VERIFICATION RESULTS
 The cross contract verification between the pact for the version of pactflow-example-consumer-mountebank currently deployed to production (5009e94+1645930887) and the oas for version aec911-master+aec911.SNAPSHOT.Matts-iMac of pactflow-example-bi-directional-provider-dredd failed
 ```
 
-If you head into the Pactflow UI and drill down into the "contract comparison" tab, you'll see the output from comparing the consumer and provider contracts:
+If you head into the PactFlow UI and drill down into the "contract comparison" tab, you'll see the output from comparing the consumer and provider contracts:
 
 ![pactflow dashboard - completed](../../../../static/workshops/bi-directional/cross-contract-failure.png)
 
@@ -91,8 +91,8 @@ The consumer won't be able to release this change until the Provider API support
 ## Check your understanding
 
 1. It is always safe to remove a field from a provider, if no consumers are currently using it
-1. It is not safe to remove a field/endpoint from a provider, if an existing consumer _is_ using it, and Pactflow will detect this situation.
-1. Pactflow will prevent a consumer from deploying a change that a Provider has yet to support
+1. It is not safe to remove a field/endpoint from a provider, if an existing consumer _is_ using it, and PactFlow will detect this situation.
+1. PactFlow will prevent a consumer from deploying a change that a Provider has yet to support
 
 ## Further material
 

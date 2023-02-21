@@ -5,7 +5,7 @@ title: Prerequisites
 
 ## Prerequisites
 
-* Github and Pactflow set up according to the instructions in the [Setup CI](/docs/workshops/ci-cd-legacy/set-up-ci/) page.
+* Github and PactFlow set up according to the instructions in the [Setup CI](/docs/workshops/ci-cd-legacy/set-up-ci/) page.
 * Node.
 * You have forked the following repositories
   * [example-consumer-legacy](https://github.com/pactflow/example-consumer-legacy) : <https://github.com/pactflow/example-consumer-legacy>

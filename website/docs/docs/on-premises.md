@@ -1,5 +1,5 @@
 ---
-title: Pactflow On-Premises Architecture
+title: PactFlow On-Premises Architecture
 sidebar_label: Architecture
 ---
 
@@ -10,7 +10,7 @@ sidebar_label: Architecture
 * An application server capable of running Docker
 * PostgreSQL database
 * SAML IDP for SSO
-* Pactflow license file
+* PactFlow license file
 
 ### Recommended architecture
 
@@ -22,15 +22,15 @@ sidebar_label: Architecture
 
 ## Internal architecture
 
-The Pactflow On-Premises application is distributed as a Docker image. It is based on the open source [Pact Broker](https://github.com/pact-foundation/pact_broker), which is a Ruby application.
+The PactFlow On-Premises application is distributed as a Docker image. It is based on the open source [Pact Broker](https://github.com/pact-foundation/pact_broker), which is a Ruby application.
 
 ### Application user requirements
 
-The Pactflow application does not need any elevated privileges to run. It runs under the user `app:app`.
+The PactFlow application does not need any elevated privileges to run. It runs under the user `app:app`.
 
 ### Application port
 
-The Pactflow application runs on port `9292` by default. This can be configured by setting the [PACTFLOW_HTTP_PORT](/docs/on-premises/environment-variables#pactflow_http_port) environment variable.
+The PactFlow application runs on port `9292` by default. This can be configured by setting the [PACTFLOW_HTTP_PORT](/docs/on-premises/environment-variables#pactflow_http_port) environment variable.
 
 ### Healthcheck endpoint
 
@@ -52,5 +52,5 @@ To check the connection to the database, use the endpoint `/diagnostic/status/de
 
 ### License file
 
-Pactflow on-premises version requires a license file to run. Contact us at support@pactflow.io if you have not
+PactFlow on-premises version requires a license file to run. Contact us at support@pactflow.io if you have not
 received one when your account was setup. See the [section on licenses for installation instructions](/docs/on-premises/license).

@@ -1,5 +1,5 @@
 ---
-title: Pactflow - Advanced Pact
+title: PactFlow - Advanced Pact
 sidebar_label: Overview
 ---
 
@@ -15,7 +15,7 @@ By the end of the course, you should be comfortable with the advanced Pact topic
 
 ## Course Guide
 
-The course is currently best run by a Pactflow instructor, but we provide the materials here for reference:
+The course is currently best run by a PactFlow instructor, but we provide the materials here for reference:
 
 | Step | Description | Material | Duration |
 | ---- | ----------- | -------- | -------- |
