@@ -9,16 +9,16 @@ Copied from https://github.com/pact-foundation/docs.pact.io/edit/master/website/
 ## Automatic data clean up
 
 :::note
-Automatic data clean up is available in Pactflow On-Premises version 1.22.0 and later.
+Automatic data clean up is available in PactFlow On-Premises version 1.22.0 and later.
 :::
 
-Performance can degrade when too much data accumulates in the Pactflow database. Luckily, a lot of the data in a Pactflow instance is "unreachable" and can be removed without affecting the way it operates functionally, as generally speaking, the application (pacticipant) versions that are referenced in the verification and can-i-deploy tasks are either the latest for their branch, or a fairly recent version of the main line of development (eg. when deploying commit `193d71a4` of the `main` branch to `production`) or are marked as deployed/released.
+Performance can degrade when too much data accumulates in the PactFlow database. Fortunately, a lot of the data in a PactFlow instance is "unreachable" and can be removed without affecting the way it operates functionally, as generally speaking, the application (pacticipant) versions that are referenced in the verification and can-i-deploy tasks are a very small subset of the total published dataset.
 
 ### Categories of removable data
 
 * Overwritten data for application versions
-  * Overwritten contracts (these are created when a contract is published with the same consumer version but different content from a previous publication - it shouldn't happen if following best practice, and there is a configuration option to stop this occurring, but such data may exist).
-  * Duplicate verifications (this happens when verification results for the same pact version content are published by the same provider version multiple times - this can happen quite often under normal operation)
+  * Overwritten consumer contracts: these are created when a consumer contract is published with the same consumer version but different content from a previous publication - it shouldn't happen if following best practice, and there is a configuration option to stop this occurring, but such data may exist in older PactFlow instances.
+  * Duplicate verifications: these are created when verification results for the same pact version content are published by the same provider version multiple times - this can happen quite often under normal operation.
 * Historical webhook execution data.
 * Old or superseded (ie. versions that are not the latest for their branch/tag) application versions and their associated tags/pacts/verifications/webhooks.
 
@@ -39,21 +39,21 @@ The keep selectors operate in a very similar way to the [consumer version select
 * `released`: if set to true, specifies all released pacticipant versions that are currently in support
 * `max_age`: the number of days since it was created, as an integer, for which to keep the application version.
 
-The `pacticipant` and `max_age` property may be used in combination with the other tags. `max_age` and `latest` cannot be used together.
+The `pacticipant` and `max_age` property may be used in combination with the other tags. The `max_age` and `latest` keys cannot be used together.
 
 #### Examples
 
-* keep all versions on the main branch of each pacticipant that are less than 30 days old: `{"max_age": 30, "mainBranch": true }`
-* keep the latest version from each pacticipant's branch: `{"branch": true, "latest": true }`
+* keep all versions on the main branch of each pacticipant that are less than 30 days old: `{ "max_age": 30, "mainBranch": true }`
+* keep the latest version from each pacticipant's branch: `{ "branch": true, "latest": true }`
 * keep the latest version for each pacticipant/tag: `{ "latest": true, "tag": true }`
-* keep all versions less than 30 days old: `{"max_age": 30}`
+* keep all versions less than 30 days old: `{ "max_age": 30 }`
 * keep all currently deployed versions: `{ "deployed": true }`
 * keep all released and currently supported versions: `{ "released": true }`
-* keep all versions for Foo app: `{"pacticipant": "Foo"}`
+* keep all versions for Foo app: `{ "pacticipant": "Foo" }`
 * keep the latest version for each pacticipant: `{ "latest": true }`
-* keep all versions tagged "develop" for Foo app: `{"pacticipant": "Foo", "tag": "develop"}`
+* keep all versions tagged "develop" for Foo app: `{ "pacticipant": "Foo", "tag": "develop" }`
 
-The selectors combine by "OR", meaning that a version is kept if it matches any of the selectors. So `[{"max_age": 30}, { "branch": true, "latest": true }, { "deployed": true }]` would be "keep every version younger than 30 days old, or is the latest version for its branch, or is currently deployed".
+The selectors combine by "OR", meaning that a version is kept if it matches any of the selectors. So `[{ "max_age": 30 }, { "branch": true, "latest": true }, { "deployed": true }]` would mean "keep every version younger than 30 days old, or is the latest version for its branch, or is currently deployed".
 
 #### Recommended starting configuration for keep selectors
 
@@ -68,14 +68,14 @@ The following are the default keep selectors specified in the clean tool, and th
 
 Notes:
 
-* When you deploy an application to production, the relevant pacticipant version needs to be recorded as deployed in Pactflow, so you need to ensure that you keep any version that you're likely to deploy (or rollback to). Specify a max_age value that is at minimum the number of days it takes between a commit being created and that commit being deployed (with a very comfortable margin of error) and any branch that you deploy from. A reasonable max_age value might be 90 days for the `main` branch. eg. `{"max_age": 90, "mainBranch": true }`
+* When you deploy an application to production, the relevant pacticipant version needs to be recorded as deployed in PactFlow, so you need to ensure that you keep any version that you're likely to deploy (or rollback to). Specify a `max_age` value that is at minimum the number of days it takes between a commit being created and that commit being deployed (with a very comfortable margin of error) and any branch that you deploy from. A reasonable max_age value might be 90 days for the `main` branch. eg. `{"max_age": 90, "mainBranch": true }`
 * If an application is not under active development, a selector that keeps versions by age limit might not actually select any versions. To ensure that we don't lose those critical "latest" versions for our main line of development or our deployed environments, add a selector with `{"mainBranch": true, "latest": true }`, or keep the latest version from each branch by specifying `{"branch": true, "latest": true }`.
 
 ### Execution
 
-The database clean tool comes built into the Pactflow On-Premises Docker image. The Docker container should be executed in a compute environment such as AWS Batch. It should run on a regular schedule (eg. daily) and be configured to delete at least as many application versions as are expected to be created between each clean execution.
+The database clean tool comes built into the PactFlow On-Premises Docker image. The Docker container should be executed using a tool like Kubernetes CronJob or AWS Batch. It should run on a regular schedule (eg. daily) and be configured to delete at least as many application versions as are expected to be created between each clean execution.
 
-To execute the clean task, run the Docker container with the appropriate environment variables (documented below), the Pactflow license mounted, and the entrypoint set to `db-clean`.
+To execute the clean task, run the Docker container with the appropriate environment variables (documented below), the PactFlow license mounted, and the entrypoint set to `db-clean`.
 
 eg.
 ```sh
@@ -86,7 +86,7 @@ docker run --rm \
            quay.io/pactflow/enterprise
 ```
 
-This example Docker Compose file shows an example configuration. It can be run by saving the contents as `docker-compose.yml` and then running `docker compose up` in the same directory. Note that a Pactflow license file is required to run the Pactflow container.
+This example Docker Compose file shows an example configuration. It can be run by saving the contents as `docker-compose.yml` and then running `docker compose up` in the same directory. Note that a PactFlow license file is required to run the PactFlow container.
 
 There will be no data in the database to delete, but the logs will show that the clean process has run.
 
@@ -107,7 +107,7 @@ services:
       - postgres
     environment:
       PACTFLOW_DATABASE_URL: "postgres://postgres:password@postgres/postgres"
-      PACTFLOW_DATABASE_SSLMODE: "disable"
+      PACTFLOW_DATABASE_SSLMODE: "disable" # overriding default value of "require" for demo only - "disable" should never be used in production
       PACTFLOW_DATABASE_CLEAN_DELETION_LIMIT: "500"
       PACTFLOW_SQL_LOG_WARN_DURATION: "60"
       # Keep the latest version for every pacticipant branch, and all versions less than 30 days old, and anything deployed or released
@@ -124,7 +124,7 @@ services:
 
 #### Initial clean strategy
 
-If you have a very large database, and you are just now enabling the clean, the initial clean up might take some time. To ensure that the clean does not have an impact on the performance of Pactflow, it is recommended to set the cron schedule to something quite regular for the first day (eg. every 2 minutes), and set the clean limit quite low (eg. 100). Once the task has stopped deleting any more records, set the schedule back to something like once/twice a day, and make sure the clean limit is higher than the number of new versions you expect in that time period.
+If you have a very large database, and you are just now enabling the clean, the initial clean up might take some time. To ensure that the clean does not have an impact on the performance of PactFlow, it is recommended to set the cron schedule to something quite regular for the first day (eg. every 2 minutes), and set the clean limit quite low (eg. 100). Once the task has stopped deleting any more records, set the schedule back to something like once/twice a day, and make sure the clean limit is higher than the number of new versions you expect in that time period.
 
 ### Configuration
 
@@ -137,7 +137,7 @@ If you have a very large database, and you are just now enabling the clean, the 
 
 #### PACTFLOW_LOG_LEVEL
 
-The Pactflow application log level
+The PactFlow application log level
 
 **Required:** false<br/>
 **Default:** `INFO`<br/>
@@ -145,7 +145,7 @@ The Pactflow application log level
 
 #### PACTFLOW_LOG_FORMAT
 
-The Pactflow application log format
+The PactFlow application log format
 
 **Required:** false<br/>
 **Default:** `json`<br/>
@@ -216,7 +216,7 @@ The Postgresql ssl mode. Note, if using Postgres on AWS RDS with IAM authenticat
 
 #### PACTFLOW_DATABASE_CLEAN_DELETION_LIMIT
 
-Only required when running the `db-clean` entrypoint in the Pactflow Docker container.
+Only required when running the `db-clean` entrypoint in the PactFlow Docker container.
 The maximum number of records to delete at a time from each of the (categories of removable data)[#categories-of-removable-data].
 Should be set to a number higher than the expected number of application versions that will be created between each clean,
 but not so high that it will impact on the performance of the application while it is running. You may need to run tests find the optimal number to use in your environment.
@@ -226,9 +226,9 @@ but not so high that it will impact on the performance of the application while 
 
 #### PACTFLOW_DATABASE_CLEAN_KEEP_VERSION_SELECTORS
 
-Only required when running the `db-clean` entrypoint in the Pactflow Docker container.
+Only required when running the `db-clean` entrypoint in the PactFlow Docker container.
 A JSON string containing a list of the "keep" selectors described in (Understanding the keep selectors)[#understanding-the-keep-selectors].
-To ensure the integity of the Pactflow data, the selectors `{ "deployed": true }` and `{ "released": true }` will be automatically added to the selector list if they are not specified.
+To ensure the integity of the PactFlow data, the selectors `{ "deployed": true }` and `{ "released": true }` will be automatically added to the selector list if they are not specified.
 Remember to escape the quotes if necessary in your configuration files.
 
 **Required:** false<br/>
@@ -236,7 +236,7 @@ Remember to escape the quotes if necessary in your configuration files.
 
 #### PACTFLOW_DATABASE_CLEAN_OVERWRITTEN_DATA_MAX_AGE
 
-Only required when running the `db-clean` entrypoint in the Pactflow Docker container.
+Only required when running the `db-clean` entrypoint in the PactFlow Docker container.
 The maximum number of days to keep "overwritten" data as described in (categories of removable data)[#categories-of-removable-data]
 
 **Required:** false<br/>
@@ -244,7 +244,7 @@ The maximum number of days to keep "overwritten" data as described in (categorie
 
 #### PACTFLOW_DATABASE_CLEAN_DRY_RUN
 
-Only required when running the `db-clean` entrypoint in the Pactflow Docker container.
+Only required when running the `db-clean` entrypoint in the PactFlow Docker container.
 When set to `true`, the `db-clean` process will not delete any data, but will instead log the data that would be deleted if dry run was not enabled.
 Use this to test that the container is configured correctly.
 
