@@ -354,6 +354,11 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'Maintenance',
+          items: ['docs/on-premises/maintenance/database']
+        },
+        {
+          type: 'category',
           label: 'SCIM',
           items: [
             'docs/on-premises/scim'
