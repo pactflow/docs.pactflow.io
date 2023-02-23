@@ -2,12 +2,11 @@
 title: Docker Compose example
 ---
 
-In this guide, we'll provide an example `docker-compose` setup so that you can see how all of the bits hang together. We will demonstrate:
+In this guide, we'll provide an example `docker compose` setup so that you can see how all of the bits hang together. We will demonstrate:
 
 * Authenticating to Quay.io
 * Running the PactFlow enterprise container
 * Persistent storage with a postgres database
-* Integrating to a test SAML provider
 
 **Pre-requsites**
 * [Docker](https://docs.docker.com/engine/install/)
@@ -46,50 +45,36 @@ quay.io/pactflow/enterprise   1.8.0               7f9b3c3aa50e        3 months a
 The PactFlow on-premises version requires a license file to run. You should have received this from us during the
 on-boarding process. If not, please contact us at support@pactflow.io.
 
-Save the license file into a temporary directory (it needs to be the same directory as used in step 3).
+Save the license file into a temporary directory with the name `pactflow-onprem.lic` (it needs to be the same directory as used in step 3).
 
 ## 3. Startup PactFlow and supporting services
 
-Save the below file as `docker-compose.yml` into a temporary directory and then run `docker-compose up`:
+Save the below file as `docker-compose.yml` in the same directory as the license file and then run `docker-compose up`:
 
 ```yaml
 version: "3"
 
 services:
-  simplesaml:
-    image: kristophjunge/test-saml-idp
-    logging:
-      driver: none # comment out the logging config to see the SAML server logs
-    ports:
-      - "8080:8080"
-      - "8443:8443"
-    environment:
-     - SIMPLESAMLPHP_SP_ENTITY_ID=https://pactflow.io
-     - SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://localhost/auth/saml/callback
-
   pactflow:
     image: quay.io/pactflow/enterprise
     depends_on:
       - postgres
     environment:
-      - PACTFLOW_HTTP_PORT=9292
       - PACTFLOW_BASE_URL=http://localhost
+      - PACTFLOW_HTTP_PORT=9292
       - PACTFLOW_DATABASE_URL=postgres://postgres:password@postgres/postgres
       # insecure settings only for the purposes of this demo! Not to be used in production.
       - PACTFLOW_DATABASE_SSLMODE=disable
       - PACTFLOW_REQUIRE_HTTPS=false
-      - PACTFLOW_LOG_FORMAT=short # normally this would be set to json, use short for demo only
+      - PACTFLOW_LOG_FORMAT=short
+      - PACTFLOW_LOG_LEVEL=info
       - PACTFLOW_ADMIN_API_KEY=admin
-      - PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY=thisissomerandombytes
-      - PACTFLOW_SAML_AUTH_ENABLED=true
-      - PACTFLOW_SAML_IDP_NAME=Simple SAML
-      - PACTFLOW_SAML_IDP_SSO_TARGET_URL=http://localhost:8080/simplesaml/saml2/idp/SSOService.php
-      - PACTFLOW_SAML_IDP_CERT_FINGERPRINT=11:9B:9E:02:79:59:CD:B7:C6:62:CF:D0:75:D9:E2:EF:38:4E:44:5F
-      - PACTFLOW_SAML_IDP_ID_ATTRIBUTE=uid
-      - PACTFLOW_SAML_EMAIL_ATTRIBUTE=email
+      - PACTFLOW_MASTER_ENCRYPTION_KEY=thisissomerandombytes
+      - PACTFLOW_DEMO_AUTH_ENABLED=true
       - PACTFLOW_COOKIE_SECRET=thisisasecret
       - PACT_BROKER_ADMIN_API_KEY=admin
       - PACTFLOW_WEBHOOK_HOST_WHITELIST=/.*/
+      - PACTFLOW_HTTP_LOGGING_ENABLED=true
     ports:
       - "80:9292"
     healthcheck:
@@ -106,8 +91,6 @@ services:
     image: postgres:13-alpine
     healthcheck:
       test: psql postgres --command "select 1" -U postgres
-    ports:
-      - "5432:5432"
     volumes:
       - postgres-volume:/var/lib/postgresql/data
     environment:
@@ -130,8 +113,8 @@ c0e3059fa37c        postgres                      "docker-entrypoint.s…"   7 m
 
 ## 3. Login to PactFlow
 
-Head to http://localhost in your browser, and choose to login with "SIMPLE SAML", with the username `user1` and password `user1pass`.
+Head to [http://localhost](http://localhost) in your browser, and choose to login with "PACTFLOW DEMO AUTH". Provide a name and email address to create your account and login. (The details don't need to be valid, and won't be used to send any emails.)
 
 That's it 🎉.
 
-You'll now want to do this using a proper container orchestration tool, such as Kubernetes, AWS ECS/Fargate, AKS, GKE, Mesos etc.
+For production use, you'll need to replicate this setup using a proper container orchestration tool, such as Kubernetes, AWS ECS/Fargate, AKS, GKE, Mesos etc, and your real Identity Provider.
