@@ -75,6 +75,12 @@ Notes:
 
 The database clean tool comes built into the PactFlow On-Premises Docker image. The Docker container should be executed using a tool like Kubernetes CronJob or AWS Batch. It should run on a regular schedule (eg. daily) and be configured to delete at least as many application versions as are expected to be created between each clean execution.
 
+:::note
+
+The clean task must use the same Docker image tag as the currently running PactFlow application.
+
+:::
+
 To execute the clean task, run the Docker container with the appropriate environment variables (documented below), the PactFlow license mounted, and the entrypoint set to `db-clean`.
 
 eg.
