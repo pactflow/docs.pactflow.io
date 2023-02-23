@@ -103,7 +103,7 @@ services:
       - ./pactflow-onprem.lic:/home/pactflow-onprem.lic
 
   postgres:
-    image: postgres
+    image: postgres:13-alpine
     healthcheck:
       test: psql postgres --command "select 1" -U postgres
     ports:
