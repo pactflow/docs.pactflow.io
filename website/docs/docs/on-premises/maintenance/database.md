@@ -9,7 +9,7 @@ Copied from https://github.com/pact-foundation/docs.pact.io/edit/master/website/
 ## Automatic data clean up
 
 :::note
-Automatic data clean up is available in PactFlow On-Premises version 1.22.1 and later.
+Automatic data clean up is available in PactFlow On-Premises version 1.23.0 and later.
 :::
 
 Performance can degrade when too much data accumulates in the PactFlow database. Fortunately, a lot of the data in a PactFlow instance is "unreachable" and can be removed without affecting the way it operates functionally, as generally speaking, the application (pacticipant) versions that are referenced in the verification and can-i-deploy tasks are a very small subset of the total published dataset.
