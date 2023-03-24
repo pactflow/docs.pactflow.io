@@ -10,7 +10,7 @@ PactFlow users and teams can be managed via a SCIM 2.0 compatible API. For detai
 
 ## Integration guides
 
-* [Okta](./okta)
+* [Okta](/docs/scim/okta)
 
 ## Supported endpoints
 
@@ -19,6 +19,13 @@ PactFlow users and teams can be managed via a SCIM 2.0 compatible API. For detai
 * `/scim/Schemas` - Introspect resources and attribute extensions
 * `/scim/User` - Manage PactFlow users
 * `/scim/Groups` - Manage PactFlow teams
+
+## Authentication
+
+The SCIM API endpoints require a Pactflow bearer token. It is recommended to use a 
+[PactFlow Service Account token](/docs/user-interface/settings/users#system-accounts) for this. This service account is
+going to require the `user:manage:*` and `team:manage:*` permissions to be able to create or update those resources. 
+Creating a new role with these [permissions](/docs/permissions) and assigning it to the service account is recommended. 
 
 ## Resources
 
@@ -31,7 +38,7 @@ The `/scim/Users` endpoint manages PactFlow users. The following SCIM attributes
 | SCIM Attribute                                  | PactFlow User Attribute | Notes                                                                                                                       |
 |-------------------------------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | id                                              | uuid                    | Read only                                                                                                                   |
-| userName                                        | externalIdpUsername     | This is the unique user ID that the IDP must send via SAML request                                                          |
+| **userName**                                    | **externalIdpUsername** | This is the unique user ID that the IDP must send via SAML request                                                          |
 | externalId                                      | externalIdpId           | External IDP user ID (optional)                                                                                             |
 | name.givenName                                  | firstName               |                                                                                                                             |
 | name.familyName                                 | lastName                |                                                                                                                             |
@@ -47,6 +54,9 @@ The `/scim/Users` endpoint manages PactFlow users. The following SCIM attributes
 | role*.type                                      | _embedded.roles*.name   | read only                                                                                                                   |
 | groups*.value                                   | _embedded.teams*.uuid   |                                                                                                                             |
 | groups*.display                                 | _embedded.teams*.name   | read only                                                                                                                   |
+
+**Note** that for SAML authentication to work, the `userName` **must be set to the IDP username** for the user, otherwise 
+Pactflow will not be able to match the authenticated user with the provisioned user record in Pactflow.
 
 ### Teams (as groups)
 
