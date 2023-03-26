@@ -23,9 +23,9 @@ PactFlow users and teams can be managed via a SCIM 2.0 compatible API. For detai
 ## Authentication
 
 The SCIM API endpoints require a Pactflow bearer token. It is recommended to use a 
-[PactFlow Service Account token](/docs/user-interface/settings/users#system-accounts) for this. This service account is
+[PactFlow System Account token](/docs/user-interface/settings/users#system-accounts) for this. This system account is
 going to require the `user:manage:*` and `team:manage:*` permissions to be able to create or update those resources. 
-Creating a new role with these [permissions](/docs/permissions) and assigning it to the service account is recommended. 
+Creating a new role with these [permissions](/docs/permissions) and assigning it to the system account is recommended. 
 
 ## Resources
 
