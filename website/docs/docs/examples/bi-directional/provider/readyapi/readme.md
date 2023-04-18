@@ -17,7 +17,7 @@ https://github.com/pactflow/example-bi-directional-provider-readyapi
 
 <!-- Can I Deploy Badge -->
 
-[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-bi-directional-provider-readyapi/branches/master/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/pactflow-example-bi-directional-provider-readyapi/branches/master/latest-version/can-i-deploy/to-environment/production/badge)
+[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-bi-directional-provider-readyapi/branches/main/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/pactflow-example-bi-directional-provider-readyapi/branches/master/latest-version/can-i-deploy/to-environment/production/badge)
 
 - [Example NodeJS Provider - ReadyAPI](#example-nodejs-provider---readyapi)
   - [Overview of Example](#overview-of-example)
