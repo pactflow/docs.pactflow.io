@@ -15,13 +15,13 @@ The next step is to implement the changes that have been requested in the pact.
     * Go to your PactFlow account, find the new pact on the consumer branch `feat/new-field` and click "VIEW PACT".
     * In the top right, click the 3 dots and select `Copy pact URL for pactflow-example-consumer version xyz`.
 
-3. Run `PACT_URL=<PACT URL HERE> make test_webhook`. This test should correctly fail with the error `Could not find key "color"` in the output.
-    * 👉 We run a new command here `make test_webhook`. This allows us to "verify a custom pact", it works because of the code in in `src/product/product.consumerChange.pact.test.js`
+3. Run `PACT_URL=<PACT URL HERE> make ci_webhook`. This test should correctly fail with the error `Could not find key "color"` in the output.
+    * 👉 We run a new command here `make ci_webhook`. This allows us to "verify a custom pact", it works because of the code in `src/product/product.consumerChange.pact.test.js`
     * Rather than our `product.providerChange.pact.test.js` test which "fetch pacts for these consumer version selectors" mode, by running `make test` who workflow in GitHub is in this file `.github/workflows/build.yml`
-    * When running `make test_webhook`, The `$PACT_URL` is passed in when the build is triggered by a "contract requiring verification published" webhook, and allows us to verify just the changed pact against the providers main branch and any deployed (or released) versions. The workflow in GitHub is in this file `.github/workflows/contract_requiring_verification_published.yml`
+    * When running `make ci_webhook`, The `$PACT_URL` is passed in when the build is triggered by a "contract requiring verification published" webhook, and allows us to verify just the changed pact against the providers main branch and any deployed (or released) versions. The workflow in GitHub is in this file `.github/workflows/contract_requiring_verification_published.yml`
     * We share the base Pact setup in `src/product/pact.setup.js` for both types of Pact verification, so both can re-use `Provider States` / `Request filters` and core setup common to both tasks.
 
-4. Make the test pass by adding a `color` field to `product/product.js`, and adding the new color argument to the Product initialization lines in `product/product.repository.js` and the provider states in `product/product.pact.test.js`.
+4. Make the test pass by adding a `color` field to `product/product.js`, and adding the new color argument to the Product initialization lines in `product/product.repository.js` and the provider states in `product/pact.setup.js`.
 
     ```js
     constructor(id, type, name, version, color) {
@@ -66,9 +66,8 @@ The next step is to implement the changes that have been requested in the pact.
     };
     ```
 
-5. Run `PACT_URL=<PACT URL HERE> make test_webhook` and you should have a passing test suite. ✅
+5. Run `PACT_URL=<PACT URL HERE> make ci_webhook` and you should have a passing test suite. ✅
 
-   1. `git add . && git commit -m 'feat: add color' && git push`
 6. We won't commit our changes until the next step.
 
 ## Expected state by the end of this step
