@@ -30,7 +30,7 @@ publish_pacts:
 
 In the [src/product/product.providerChange.pact.test.js](https://github.com/pactflow/example-provider/blob/master/src/product/product.providerChange.pact.test.js) file in the provider project, we have configured the verification task to fetch the latest pacts that belong to the configured `mainBranch` for each consumer  (`{ mainBranch: true }`), and the pacts that belong to the currently deployed versions (`{ deployed: true }` - we'll explain how the broker knows which versions are deployed in the next section).
 
-You can read more about how to configure the main branch property [here](https://docs.pact.io/pact_broker/branches#pacticipant-main-branch-property), but all you need to know for now, is this allows our provider to support 2 or more consumers, which each have a different named main branch (such as `master` or `main`).
+You can read more about how to configure the main branch property [here](https://docs.pact.io/pact_broker/branches#pacticipant-main-branch-property), but all you need to know for now, is this allows our provider to support 2 or more consumers, which each have a different named main branch (such as `master` or `main`). You can read more [here](https://docs.pact.io/pact_broker/advanced_topics/consumer_version_selectors) about the "consumer version selectors" that are used to configure which pacts to verify.
 
 ```js
 
