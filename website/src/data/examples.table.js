@@ -223,7 +223,7 @@ export const tableData = [
   },
   {
     linkTitle: 'Python API Provider tested with Pact Verifier',
-    linkUrl: '/docs/examples/provider/python',
+    linkUrl: '/docs/examples/python/provider',
     badges: [],
     language: 'Python',
     useCase: 'API',
@@ -237,7 +237,7 @@ export const tableData = [
   },
   {
     linkTitle: 'Golang Gin API Provider tested with Pact Verifier',
-    linkUrl: '/docs/examples/golang/python',
+    linkUrl: '/docs/examples/golang/provider',
     badges: [],
     language: 'Golang',
     useCase: 'API',
@@ -251,7 +251,7 @@ export const tableData = [
   },
   {
     linkTitle: '.NET API Provider tested with Pact Verifier',
-    linkUrl: '/docs/examples/dotnet/python',
+    linkUrl: '/docs/examples/dotnet/provider',
     badges: [],
     language: '.NET',
     useCase: 'API',
@@ -319,7 +319,7 @@ export const tableData = [
     compatible_clients: [
       {
         name: 'Example Node AWS SNS Consumer',
-        link: '/docs/examples/aws/sns/consumer//docs/examples/aws/sns/consumer/'
+        link: '/docs/examples/aws/sns/consumer'
       }
     ]
   },
