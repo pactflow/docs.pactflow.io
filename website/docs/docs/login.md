@@ -5,7 +5,7 @@ title: Login
 
 ## Unable to login into PactFlow user interface
 
-When you signup for PactFlow, you will be emailed the login details with a tempory password. This password is only valid for 7 days. If you need the password reset, email us at support@pactflow.io and we will be happy to reset it for you.
+When you signup for PactFlow, you will be emailed the login details with a tempory password. This password is only valid for 7 days. If you need the password reset, you can reset the clock on this expiry by simply re-inviting the user. Alternatively, [contact us](https://support.smartbear.com/pactflow/message/) and we will be happy to reset it for you.
 
 ## Github login error
 

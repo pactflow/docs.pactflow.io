@@ -127,7 +127,7 @@ For example, a valid Attribute in the SAML assertion for a user's first name wou
 
 #### 3. Export IdP metadata
 
-Once you have configured PactFlow as a Service Provider, please send your PactFlow account details and an externally accessible URL to the metadata file to support@pactflow.io. If it is not possible to provide a URL, then the metadata may be exported as an XML file. It is preferable to use a URL, as this will allow you to make any updates without having to contact PactFlow support.
+Once you have configured PactFlow as a Service Provider, please send your PactFlow account details and an externally accessible URL to the metadata file via our [support form](https://support.smartbear.com/pactflow/message/). If it is not possible to provide a URL, then the metadata may be exported as an XML file. It is preferable to use a URL, as this will allow you to make any updates without having to contact PactFlow support.
 
 ### Examples
 
@@ -309,7 +309,7 @@ See https://developer.okta.com/docs/guides/build-sso-integration/saml2/overview/
 
 #### 5. Contact PactFlow to enable your IdP
 
-Send your unique metadata URL to us by contacting support at support@pactflow.io.
+Send your unique metadata URL to us [here](https://support.smartbear.com/pactflow/message/).
 
 ### Azure Active Directory
 

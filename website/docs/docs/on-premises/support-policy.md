@@ -28,7 +28,7 @@ Subscribe to our [RSS](/notices/rss.xml), [Atom](/notices/atom.xml) or [JSON](/n
 
 ## Asking for help
 
-Current customers may open a support ticket via sending an email to [support](mailto:support@pactflow.io) with the following information:
+Current customers may open a [support ticket](https://support.smartbear.com/pactflow/message/) with the following information:
 
 * The current version of your PactFlow instance (the version of your application is displayed in the footer. If the application is not able to start, the version of the docker image you are running is sufficient)
 * A detailed description of what you're trying to achieve, what your expected outcome is, and what the actual behaviour is.
