@@ -129,3 +129,35 @@ pact-broker can-i-deploy --pacticipant Foo \
                          --version 617c76e8bf05e1a480aed86a0946357c042c533c \
                          --to-environment production
 ```
+
+## Can I Deploy Results
+
+When a new Pact or OAS contract is published some comparisons between the published Pact/OAS and the contracts of integrated applications will be automatically pre-generated. This is to speed up the response time of the `can-i-deploy` command for application versions that are most critical to the user (those that are likely to be deployed). Other comparisons are generated as needed when viewing the matrix page in the Pactflow UI or via using the `can-i-deploy` command with versions that do not yet have a comparison.
+
+Currently comparisons are pre-generated in the following cases:
+
+- Between the newly published pact or contract and the contracts belonging to the deployed versions of each the integrated applications.
+- The main branch of each of the integrated applications
+- Recently published feature branches for each of the integrated applications.
+
+> Note pre-generating the comparisons relies on the use of application branches and deployment environments to select which comparisons are likely to be needed.
+
+When a comparison is missing at the time the `can-i-deploy` command executes there will be an "unknown" result. This can happen when:
+
+- The comparison takes longer to execute than the time between the contract publication and the call to can-i-deploy.
+- Pre-generation of the comparison did not occur because tags where used for publishing the contract and recording deployment, rather than branches and environments. It is recommended to switch to using branches and environments to help streamline this process.
+
+### Polling
+
+When `can-i-deploy` returns "unknown" results it is recommended to enable polling for the command, so that your CI/CD pipeline will not be blocked. This causes the can-i-deploy check to wait a short time and then retry, allowing any long running Bi-Directional contract comparisons to be completed. The wait time and number of retries are customizable and can be set to appropriate durations based on the user's needs. The arguments to specify are --retry-while-unknown TIMES and --retry-interval SECONDS
+
+eg.
+
+
+```
+pact-broker can-i-deploy --pacticipant Foo \
+                         --version 617c76e8bf05e1a480aed86a0946357c042c533c \
+                         --to-environment productio
+                         --retry-while-unknown 5
+                         --retry-interval 3
+```
