@@ -149,7 +149,7 @@ When a comparison is missing at the time the `can-i-deploy` command executes the
 
 ### Polling
 
-When `can-i-deploy` returns "unknown" results it is recommended to enable polling for the command, so that your CI/CD pipeline will not be blocked. This causes the can-i-deploy check to wait a short time and then retry, allowing any long running Bi-Directional contract comparisons to be completed. The wait time and number of retries are customizable and can be set to appropriate durations based on the user's needs. The arguments to specify are --retry-while-unknown TIMES and --retry-interval SECONDS
+When `can-i-deploy` returns results with an "unknown" comparison status it is recommended to enable polling for the command, so that your CI/CD pipeline will not be blocked. This causes the can-i-deploy check to wait a short time and then retry, allowing any long running Bi-Directional contract comparisons to be completed. The wait time and number of retries are customizable and can be set to appropriate durations based on the user's needs. The arguments to specify are `--retry-while-unknown TIMES` and `--retry-interval SECONDS`
 
 eg.
 
@@ -157,7 +157,7 @@ eg.
 ```
 pact-broker can-i-deploy --pacticipant Foo \
                          --version 617c76e8bf05e1a480aed86a0946357c042c533c \
-                         --to-environment productio
+                         --to-environment production
                          --retry-while-unknown 5
                          --retry-interval 3
 ```
