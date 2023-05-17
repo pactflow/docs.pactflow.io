@@ -23,7 +23,7 @@ Clicking on the team name will take you to the allocate users screen.
 
 ## The "Default" team
 
-The `contract_data:manage:team` permission that comes with the `User` role allows users to manage contract related data (eg. publish pacts and verification results) for applications that are assigned to their teams. To help you get started with teams quickly, every new Pactflow account is set up with a special, system defined "Default" team. All new users and applications are automatically added to this team on creation.
+The `contract_data:manage:team` permission that comes with the `User` role allows users to manage contract related data (eg. publish pacts and verification results) for applications that are assigned to their teams. To help you get started with teams quickly, every new PactFlow account is set up with a special, system defined "Default" team. All new users and applications are automatically added to this team on creation.
 
 The Default team can be deleted once your own user defined teams have been created. From then on, users and applications will need to be assigned to teams explicitly though the UI. To ensure that your users can continue to manage their applications, you should create your own teams with the appropiate users and applications assigned before deleting the Default team.
 

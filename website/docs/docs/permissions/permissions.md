@@ -22,7 +22,7 @@ Bulk delete pacts (see above) where consumer was created by the logged in user.
 
 ## contract_data:manage:*
 
-Create, update, and delete any contract related data. This includes applications, application labels, application versions, tags, pacts, and verification results. It allows the user to delete a single pact, however it does not allow the user to perform bulk deletions (see [contract_data:bulk_delete:\*](#contract_data-bulk_delete)).
+Create, update, and delete any contract related data. This includes applications, application labels, application versions, branches, tags, pacts, and verification results. It allows the user to delete a single pact, however it does not allow the user to perform bulk deletions (see [contract_data:bulk_delete:\*](#contract_data-bulk_delete)).
 
 ## contract_data:manage:team
 
@@ -30,23 +30,23 @@ Create, update, and delete contract related data for applications that are assig
 
 ### Notes on use of this role
 
-Some Pactflow resources, such as secrets and webhooks, have a team assigned at the time of creation, so team scoped permissions can be applied at that stage to determine whether or not the user is allowed to create the resource. Pactflow "applications" (also known as "pacticipants") are generally created through open source libraries that are not aware of Pactflow teams, so the application resource must be created first, then added to a team in a separate step. Because the team associated with a pacticipant is not known at creation time, any user with only the `contract_data:manage:team` will not be allowed to create new pacticipants. If team users should be able to create pacticipants, then ensure the `contract_data:manage:own` permission is also added to the relevant role. If team users should not be able to create pacticipants, then a user with `contract_data:mangage:*` must be the one to create the pacticipant. Once the pacticipant is added to a team, users with the `team` scope may manage it thereafter.
+Some PactFlow resources, such as secrets and webhooks, have a team assigned at the time of creation, so team scoped permissions can be applied at that stage to determine whether or not the user is allowed to create the resource. PactFlow "applications" (also known as "pacticipants") are generally created through open source libraries that are not aware of PactFlow teams, so the application resource must be created first, then added to a team in a separate step. Because the team associated with a pacticipant is not known at creation time, any user with only the `contract_data:manage:team` will not be allowed to create new pacticipants. If team users should be able to create pacticipants, then ensure the `contract_data:manage:own` permission is also added to the relevant role. If team users should not be able to create pacticipants, then a user with `contract_data:mangage:*` must be the one to create the pacticipant. Once the pacticipant is added to a team, users with the `team` scope may manage it thereafter.
 
 ## contract_data:manage:own
 
-Create, update, and delete contract related data for applications that where created by the logged in user. This permission is required to allow an application to be created in Pactflow before it is assigned to a team.
+Create, update, and delete contract related data for applications that where created by the logged in user. This permission is required to allow an application to be created in PactFlow before it is assigned to a team.
 
 ## contract_data:read:*
 
-View any contract related data. This includes applications, application labels, application versions, tags, pacts, and verification results.
+View any contract related data. This includes applications, application labels, application versions, branches, tags, pacts, and verification results.
 
 ## deployment_and_release:record:*
 
-Notify Pactflow that a particular version of an application has been deployed or released. 
+Notify PactFlow that a particular version of an application has been deployed or released. 
 
 ## deployment_and_release:record:team
 
-Notify Pactflow that a particular version of an application associated with your team has been deployed or released. 
+Notify PactFlow that a particular version of an application associated with your team has been deployed or released. 
 
 ## environment:manage:*
 
@@ -122,7 +122,7 @@ Mange own read/write and read only API tokens.
 
 ## user:invite
 
-Invite a user to the Pactflow application.
+Invite a user to the PactFlow application.
 
 ## user:manage:*
 

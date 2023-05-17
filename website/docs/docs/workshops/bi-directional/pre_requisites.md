@@ -7,7 +7,7 @@
 * [Node](https://nodejs.org/) 12 or thereabouts.
 * [Docker](https://www.docker.com/products/docker-desktop).
 * A [Github](https://github.com/) account.
-* A [Pactflow](https://pactflow.io) account - ideally, your own personal one. You can sign up for a free developer account [here](https://pactflow.io/pricing/). You can use a shared company Pactflow account, but it will make things a bit fiddly, as you'll need to change the identifiers of the various resources that get created so that they don't clash with those from other workshop participants. We've found from past experience running workshops that it's much simpler if everyone has their own account.
+* A [PactFlow](https://pactflow.io) account - ideally, your own personal one. You can sign up for a free developer account [here](https://pactflow.io/pricing/). You can use a shared company PactFlow account, but it will make things a bit fiddly, as you'll need to change the identifiers of the various resources that get created so that they don't clash with those from other workshop participants. We've found from past experience running workshops that it's much simpler if everyone has their own account.
 
 :::caution Note on the shell scripts
 These instructions have been written for, and tested, in a *bash* (not zsh) shell on Mac. They should work correctly on Linux. If you are using Windows, then you will need to know how to run git/make/node CLI commands, or pair with someone who does.

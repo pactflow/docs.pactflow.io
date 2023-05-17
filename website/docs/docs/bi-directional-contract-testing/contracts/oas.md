@@ -1,6 +1,6 @@
 ---
 title: OpenAPI Specification Contracts
-sidebar_label: OpenAPI Specification
+sidebar_label: Overview
 ---
 
 Providers may specify an OpenAPI Specification as a Provider Contract, enabling teams to get reuse out of existing tools and processes.
@@ -17,9 +17,9 @@ Providers may specify an OpenAPI Specification as a Provider Contract, enabling 
 
 Pact Consumer Contracts are the only compatible contracts at this time.
 
-## Publishing the Provider Contract + Results to Pactflow
+## Publishing the Provider Contract + Results to PactFlow
 
-There are several ways to currently publish contracts to Pactflow.
+There are several ways to currently publish contracts to PactFlow.
 
 The links in the list will take you to the respective documentation in each repo.
 
@@ -144,9 +144,9 @@ Options:
               # json or text
               # Default: text
   -b, --broker-base-url=BROKER_BASE_URL
-              # The base URL of your Pactflow account e.g. https://myaccount.pactflow.io
+              # The base URL of your PactFlow account e.g. https://myaccount.pactflow.io
   -k, [--broker-token=BROKER_TOKEN]
-              # The RW Token from your Pactflow account - https://myaccount.pactflow.io/settings/api-tokens
+              # The RW Token from your PactFlow account - https://myaccount.pactflow.io/settings/api-tokens
   -v, [--verbose], [--no-verbose]
               # Verbose output. Default: false
 ```
@@ -169,7 +169,7 @@ docker run --rm -v /${PWD}:/${PWD} -w ${PWD} \
       --content-type application/yaml \
       --verification-exit-code=0 \
       --verification-results newman/newman-run-report-2022-06-09-14-18-33-406-0.json \
-      --verification-results-content-type text/plain\
+      --verification-results-content-type text/plain \
       --verifier postman
 ```
 
@@ -187,7 +187,7 @@ docker run --rm -v /${PWD}:/${PWD} -w ${PWD} \
       --content-type application/yaml \
       --verification-exit-code=0 \
       --verification-results newman/newman-run-report-2022-06-09-14-03-30-715-0.json \
-      --verification-results-content-type text/plain\
+      --verification-results-content-type text/plain \
       --verifier postman
 ```
 
@@ -205,7 +205,7 @@ pactflow publish-provider-contract \
       --content-type application/yaml \
       --verification-exit-code=0 \
       --verification-results newman/newman-run-report-2022-06-09-14-03-30-715-0.json \
-      --verification-results-content-type text/plain\
+      --verification-results-content-type text/plain \
       --verifier postman
 ```
 
@@ -243,7 +243,7 @@ We will take you through an example below.
 
 > The standard authorization environment variables are used here.
 
-Here is an example bash script that uses `cURL` to create the branch version for the specified application to Pactflow.
+Here is an example bash script that uses `cURL` to create the branch version for the specified application to PactFlow.
 
 1. `create_branch_version.sh` ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/pacticipant-branch-version.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L26) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/create_branch_version.sh)
 
@@ -260,7 +260,7 @@ curl \
 }'
 ````
 
-Here is an example bash script that uses `cURL` to upload the the OAS and test results to Pactflow.
+Here is an example bash script that uses `cURL` to upload the the OAS and test results to PactFlow.
 
 2. `publish.sh` ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/publish-contracts.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L32) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/publish.sh)
 
@@ -274,7 +274,7 @@ fi
 OAS=$(cat oas/swagger.yml | base64) # Pass the "-w 0" flag if on linux
 REPORT=$(cat /path/to/report.file | base64)
 
-echo "==> Uploading OAS to Pactflow"
+echo "==> Uploading OAS to PactFlow"
 curl \
   -X PUT \
   -H "Authorization: Bearer ${PACT_BROKER_TOKEN}" \
@@ -309,7 +309,7 @@ The request should be a `PUT` to the following path:
 
 - `baseURL`
 
-  The base URL of your Pactflow account e.g. https://myaccount.pactflow.io
+  The base URL of your PactFlow account e.g. https://myaccount.pactflow.io
 
 - `application`
 
@@ -375,7 +375,7 @@ VERIFICATION RESULTS
 1. https://testdemo.pactflow.io/hal-browser/browser.html#https://testdemo.pactflow.io/contracts/provider/pactflow-example-bi-directional-provider-restassured/version/7f3d83f%2B1622544125/consumer/pactflow-example-bi-directional-consumer-wiremock/pact-version/b421f8d1c0691e8304492c716e546427c4267c7f/verification-results (success)
 ```
 
-Clicking on the verification results will take you to the resource in Pactflow and show you the detailed analysis.
+Clicking on the verification results will take you to the resource in PactFlow and show you the detailed analysis.
 
 ### Response Object
 
@@ -517,22 +517,24 @@ In the case of a failure, the following elements of the `error` are most helpful
 
 When using OpenAPI Specifications as a Provider Contract, you should be aware of the following limitations.
 
+Some of these considerations are captured for future enhancements [here](https://github.com/pactflow/roadmap/labels/OAS)
 ### Document limitations
 
-- The OAS must be a valid YAML or JSON file. Pactflow will pre-validate the document is parseable and error if they aren't valid.
-- OAS documents must not be split across multiple files. You should combine any documents together, using tools like [OpenAPI Merge](https://github.com/robertmassaioli/openapi-merge) or [speccy](https://www.npmjs.com/package/speccy).
+- The OAS must be a valid YAML or JSON file. PactFlow will pre-validate the document is parseable and error if they aren't valid.
+- OAS documents must not be split across multiple files. You should combine any documents together, using tools like [OpenAPI Merge](https://github.com/robertmassaioli/openapi-merge) or [speccy](https://www.npmjs.com/package/speccy). That is, PactFlow can not resolve remote references to files, and will not resolve URL references
 - YAML formatted OAS documents must not use [anchors](https://yaml.org/spec/1.2.2/#3222-anchors-and-aliases), due to the potential security issues (see [YAML bomb](https://en.wikipedia.org/wiki/Billion_laughs_attack) for more). If your auto-generated specs have anchors, you can pre-process them via tools like [spruce](https://github.com/geofffranks/spruce), that will expand them for you.
+- It is recommended to programmatically dereference and inline `$refs` in the OAS document uploaded to PactFlow, as they can cause issues when validating `nullable` fields and nested `$refs` can not be accurately compared with a pact file. This can be accomplished using packages such as [json-schema-merge-allof](https://www.npmjs.com/package/json-schema-merge-allof) and [json-schema-resolve-allof](https://www.npmjs.com/package/json-schema-resolve-allof)
+- Comparison of Pact interactions to OAS endpoints does not consider any `basePath` in its comparison. In [OAS 3 (and also 2)](https://swagger.io/docs/specification/api-host-and-base-path/), all API endpoints are considered to be relative to the base URL. For example, assuming the base URL of `https://api.example.com/v1`, the `/users` endpoint refers to `https://api.example.com/v1/users`. Our comparison does not consider the impact of `basePath` as there may be multiple servers with different context paths and there is no clear way to resolve this ambiguity. In this example, a pact interaction with path `/v1/users/` will not match an OAS that only has `/users/` in its resource path. 
+ 
 
 ### Testing
 
-- Note, Pactflow automatically sets `additionalProperties` in your OAS is set to `false` on any response body, to ensure a consumer won't get false positives if they add a new field that isn't actually part of the spec (see
+- Note, PactFlow automatically sets `additionalProperties` in your OAS is set to `false` on any response body, to ensure a consumer won't get false positives if they add a new field that isn't actually part of the spec (see
   https://bitbucket.org/atlassian/swagger-mock-validator/issues/84/test-incorrectly-passes-when-mock-expects for an interesting read on why this is necessary. TL;DR - it's JSON Schemas fault)
 - It is recommended to allow `additionalProperties` on request items to align with [Postel's Law](https://en.wikipedia.org/wiki/Robustness_principle)
 - _Implementing_ a spec is not the same as being _compatible_ with a spec ([read more](https://pactflow.io/blog/contract-testing-using-json-schemas-and-open-api-part-1/)). Most tools only tell you that what you’re doing is _not incompatible_ with the spec. _NOTE: We plan to address this problem in the future via our OAS Testing Tool_
 - You are responsible for ensuring sufficient OAS coverage. To highlight this point, in our [Dredd example](https://github.com/pactflow/example-bi-directional-provider-dredd), we do _not_ test the 404 case on the provider, but the consumer has a pact for it and it's tests still pass! _NOTE: We plan to address this problem in the future via our OAS Testing Tool_
 
-### `allOf` support and other logical keywords
+### Support for logical keywords `allOf`, `anyOf` and `oneOf`
 
-Because Pactflow sets `additionalProperties` to `false` to prevent false positives during validation, it means that the use of `allOf` is not supported.
-
-See this [write up](https://bitbucket.org/atlassian/swagger-mock-validator/src/master/FAQ.md) on this specific issue.
+See [Keyword Support](/docs/bi-directional-contract-testing/contracts/oas/keyword-support) for more on this.

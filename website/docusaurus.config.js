@@ -1,26 +1,26 @@
 const path = require("path");
 
 module.exports = {
-  title: "Pactflow Documentation", // Title for your website.
+  title: "PactFlow Documentation", // Title for your website.
   tagline: "Distributed systems testing made easy",
   url: "https://docs.pactflow.io",
   baseUrl: "/",
-  onBrokenLinks: "error", // Fail the build on broken links
+  onBrokenLinks: "throw", // Fail the build on broken links
   favicon: "img/favicon.ico",
-  organizationName: "Pactflow", // Usually your GitHub org/user name.
+  organizationName: "PactFlow", // Usually your GitHub org/user name.
   projectName: "doc-site", // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: "Pactflow Documentation",
+      title: "PactFlow Documentation",
       logo: {
-        alt: "Pactflow Logo",
+        alt: "PactFlow Logo",
         src: "img/logo.png",
       },
       items: [
         { to: "/", label: "Docs", position: "left" },
         {
           to: "docs/workshops",
-          label: "Pactflow University",
+          label: "PactFlow University",
           position: "left",
         },
         { to: "docs/examples", label: "Examples", position: "left" },
@@ -48,7 +48,7 @@ module.exports = {
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/pactflow",
+              href: "https://twitter.com/pact_up",
             },
           ],
         },
@@ -56,26 +56,30 @@ module.exports = {
           title: "Other",
           items: [
             {
-              label: "Pactflow main site",
+              label: "PactFlow main site",
               to: "https://pactflow.io/",
             },
             {
-              label: "Pactflow notices",
+              label: "PactFlow notices",
               to: "https://pactflow.io/notices/",
             },
             {
-              label: "Pactflow roadmap",
+              label: "PactFlow roadmap",
               to: "https://go.pactflow.io/roadmap",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Pactflow`,
+      copyright: `Copyright © ${new Date().getFullYear()} PactFlow`,
     },
     tableOfContents: {
       maxHeadingLevel: 4,
     },
-    hideableSidebar: true,
+    docs: {
+      sidebar: {
+        hideable: true
+      }
+    },
     cleanUrl: true,
     trailingSlash: true,
     algolia: {
@@ -124,9 +128,9 @@ module.exports = {
           blogSidebarCount: 25,
           path: "notices",
           showReadingTime: true,
-          blogTitle: "Pactflow Updates",
+          blogTitle: "PactFlow Updates",
           blogDescription:
-            "Updates on the Pactflow platform, including security notices and new on-premises releases",
+            "Updates on the PactFlow platform, including security notices and new on-premises releases",
           // Please change this to your repo.
           editUrl:
             "https://github.com/pactflow/docs.pactflow.io/edit/master/website/blog/",

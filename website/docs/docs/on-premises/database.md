@@ -1,6 +1,6 @@
 ---
 title: Database
----cd web   
+---
 
 A PostgreSQL database is required for storage of the application data.
 
@@ -31,13 +31,13 @@ The application's PostgreSQL SSL mode is set to `require` by default, which mean
 
 ## Username/password authentication
 
-Database access between the Pactflow application and Postgres instance can be secured using a [username](/docs/on-premises/environment-variables#pactflow_database_username) and [password](/docs/on-premises/environment-variables#pactflow_database_password), configured via environment variables.
+Database access between the PactFlow application and Postgres instance can be secured using a [username](/docs/on-premises/environment-variables#pactflow_database_username) and [password](/docs/on-premises/environment-variables#pactflow_database_password), configured via environment variables.
 
 ## AWS IAM authentication
 
-When deploying Pactflow on AWS Cloud infrastructure, database access between the Pactflow application and the RDS Postgres instance can be secured using IAM. Please see the [AWS RDS IAM documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.html) for more information.
+When deploying PactFlow on AWS Cloud infrastructure, database access between the PactFlow application and the RDS Postgres instance can be secured using IAM. Please see the [AWS RDS IAM documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.html) for more information.
 
-The following environmet variables must be set for the Pactflow application:
+The following environmet variables must be set for the PactFlow application:
 
 * [`PACTFLOW_DATABASE_ADAPTER="postgresiam"`](/docs/on-premises/environment-variables#pactflow_database_adapter)
 * [`PACTFLOW_DATABASE_USERNAME`](/docs/on-premises/environment-variables#pactflow_database_username)
@@ -51,9 +51,9 @@ The following environmet variables must be set for the Pactflow application:
 
 The database schema migrations will be run automatically on start up. See the documentation on [Database migrations](upgrading/database-migrations) for more information.
 
-### Migrating from OSS Pact Broker to Pactflow
+### Migrating from OSS Pact Broker to PactFlow
 
-If you have been hosting your own instance of the open source Pact Broker, you can point the new Pactflow On-Premises application at the same database, and the missing migrations will be applied.
+If you have been hosting your own instance of the open source Pact Broker, you can point the new PactFlow On-Premises application at the same database, and the missing migrations will be applied.
 
 ## Schema
 

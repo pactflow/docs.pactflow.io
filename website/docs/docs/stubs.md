@@ -5,7 +5,7 @@ title: Stubs
 
 ## Stub APIs
 
-Every contract published to Pactflow is automatically assigned a hosted API stub URL that you can use for stubbing API backends in your testing.
+Every contract published to PactFlow is automatically assigned a hosted API stub URL that you can use for stubbing API backends in your testing.
 
 Hosted API stubs are useful for a number of use cases, such as:
 
@@ -31,7 +31,7 @@ _NOTE: Whilst currently only versions 1 and 2 of the [pact specification](https:
 To use the stub:
 
 1. You must first have published a contract
-1. Find the path to the pact contract you'd like to stub. (if you're not familiar with the Pactflow API, the simplest way to get this is to click "View Pact" from the dashboard and select the "API Browser" at the top of the screen to see the URL)
+1. Find the path to the pact contract you'd like to stub. (if you're not familiar with the PactFlow API, the simplest way to get this is to click "View Pact" from the dashboard and select the "API Browser" at the top of the screen to see the URL)
 1. Append `/stub/` to the path of the pact file to get the base path of an instant stub
 
 ## Stub URL format

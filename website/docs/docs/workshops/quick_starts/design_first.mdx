@@ -1,0 +1,527 @@
+# Quick Start Guide with Github Actions
+
+import ApiSchema from "@theme/ApiSchema";
+import { generateTestingToolsTab } from "../../../../src/components/tabGenerator";
+import { meta } from "../../../../src/data/meta";
+
+:::success Welcome to the Quick Start Guide
+If you want to get hands-on and learn about Design First API Design with Contract testing, and see it come to life, then you are in the right place. 
+
+This guide shows you how to integrate your development workflow.
+
+To setup an integration within the SwaggerHub UI see the [SwaggerHub integration guide](/docs/integrations/swaggerhub).
+:::
+
+:::info Guides
+
+These testing guides will help provide describe each step in more detail and should serve as a handy reference point
+
+[Provider Testing Guide](/docs/bi-directional-contract-testing/provider)
+
+[Consumer Testing Guide](/docs/bi-directional-contract-testing/consumer) 
+:::
+
+## Agenda
+
+In this workshop, you will get to see the full development workflow in action. Following the scenario below, we will simplify it for demonstration by using GitHub to fork the example repositories and use GitHub actions to run the CI pipelines
+
+1. Create and document an API using OpenAPI Specification
+1. Publish the provider contract (an OpenAPI document) to PactFlow
+1. Write the API consumer
+1. Write tests for an API client using tools such as Mountebank,Nock,Wiremock,Nock,Cypress and Mock-Service-Worker or traditional Pact .NET to mock the API, and convert those mocks into a consumer contract
+1. Publish the consumer contract to PactFlow
+1. Learn about PactFlow's breaking change detection system
+
+## Table of Contents
+
+- [Quick Start Guide with Github Actions](#quick-start-guide-with-github-actions)
+  - [Agenda](#agenda)
+  - [Table of Contents](#table-of-contents)
+  - [Pre-requisites](#pre-requisites)
+    - [Get a SwaggerHub account](#get-a-swaggerhub-account)
+    - [Get a GitHub account](#get-a-github-account)
+    - [Get a PactFlow account](#get-a-pactflow-account)
+  - [Provider side](#provider-side)
+    - [Design the API](#design-the-api)
+    - [Publish your provider design spec to PactFlow](#publish-your-provider-design-spec-to-pactflow)
+    - [Check if we could deploy our design candidate safely to production](#check-if-we-could-deploy-our-design-candidate-safely-to-production)
+    - [Check if it is safe to deploy the provider to production](#check-if-it-is-safe-to-deploy-the-provider-to-production)
+    - [Expected state by the end of this step](#expected-state-by-the-end-of-this-step)
+  - [Consumer side](#consumer-side)
+    - [Setup and trigger the example consumer project](#setup-and-trigger-the-example-consumer-project)
+    - [Build triggered](#build-triggered)
+    - [Pact Contract Tests passed](#pact-contract-tests-passed)
+    - [Pact Contract files uploaded](#pact-contract-files-uploaded)
+    - [Consumer can-i-deploy check](#consumer-can-i-deploy-check)
+    - [Consumer record deployment](#consumer-record-deployment)
+    - [Expected state by the end of this step](#expected-state-by-the-end-of-this-step-1)
+  - [See a breaking change in action](#see-a-breaking-change-in-action)
+    - [Remove a field the consumer requires](#remove-a-field-the-consumer-requires)
+    - [Breaking change prevention with PactFlow](#breaking-change-prevention-with-pactflow)
+    - [Graceful change](#graceful-change)
+    - [Design verified as compatible (expand & contract)](#design-verified-as-compatible-expand--contract)
+
+## Pre-requisites
+
+### Get a SwaggerHub account
+
+:::info
+You'll need an account, Don't worry, we will be using the [free tier](https://swagger.io/tools/swaggerhub/pricing/).
+:::
+
+- [ ] Don't have one - sign up 👉 [here](https://try.smartbear.com/)
+- [x] I've already got one!
+
+
+:::success
+You have got your SwaggerHub account, and are successfully logged in.
+:::
+
+:::warning Where is my email?
+Not got an email? Don't forget to check your spam folder
+:::
+
+
+
+### Get a GitHub account
+
+:::info
+All our examples run on Github Actions CI pipelines. You'll need an account. Don't worry its free
+:::
+
+- [ ] Don't have one - sign up 👉 [here](https://github.com/signup)
+- [x] I've already got one!
+
+:::success
+You are logged in to your GitHub account
+:::
+
+### Get a PactFlow account
+
+:::info
+The Bi-Directional Feature is only supported by PactFlow, so you'll need an account, Don't worry, the developer tier is free.
+:::
+
+- [ ] Don't have one - sign up 👉 [here](https://pactflow.io/try-for-free)
+- [ ] I've got a company account (see below)
+- [x] I've already got one!
+
+<details>
+  <summary>Using a shared company PactFlow account?</summary>
+
+You can use a shared company PactFlow account, but it will make things a bit fiddly, as you'll need to change the identifiers of the various resources that get created so that they don't clash with those from other workshop participants. We've found from past experience running workshops that it's much simpler if everyone has their own account.
+
+</details>
+
+:::success
+You have got your PactFlow account, and are successfully logged in.
+:::
+
+:::warning Where is my email?
+Not got an email? Don't forget to check your spam folder, otherwise reach out to the team at hello@pactflow.io
+:::
+
+
+## Provider side
+
+### Design the API
+
+
+*Create and document an API using OpenAPI*
+
+As we are following a specification or [design first approach](https://swagger.io/blog/api-design/design-first-or-code-first-api-development/) to API development, we start by creating an [OpenAPI](https://oai.github.io/Documentation/start-here.html) description document, that describes how our API should work.
+
+Authoring an OAS document is beyond the scope of this tutorial, but you can find plenty of resources on the internet (such as at [swagger.io](https://swagger.io)).
+
+Our products reference openAPI spec is [here](/oas/products)
+
+Inside it, we have 3 main endpoints:
+
+1. `POST /products` - create a new product
+1. `GET /products` - gets all products
+1. `GET /products/:id` - gets a single product
+
+The product schema is as follows
+
+<ApiSchema id="oas-product" pointer="#/components/schemas/Product" />
+
+
+1. Create OpenAPI Document in SwaggerHub
+   1. Select `Create New` -> `Create new API`
+   2. Select `Owner`
+   3. Select `Specification`: `OpenAPI 3.0.x`
+   4. Select `Template`: `--None--`
+   5. Select `Name`: `Enter the name of your API here`
+   6. Select `Version`: `1.0.0`
+   7. Select `Auto Mock API`: `off`
+   8. Select `Create API`
+   9. Paste the contents of [the reference OpenAPI specification](https://github.com/pactflow/docs.pactflow.io/blob/master/website/static/contractTypes/oas/products.yml)
+
+![1_SwaggerHub_create_new_openapi](https://user-images.githubusercontent.com/19932401/195682898-c93cde1e-4725-4291-a9cb-cdc8eab43cd1.png)
+![2_SwaggerHub_create_options](https://user-images.githubusercontent.com/19932401/195682906-aa29541e-7934-4886-9ba8-eb5a5e9fab6b.png)
+![3_SwaggerHub_api_created](https://user-images.githubusercontent.com/19932401/195682909-83b5081c-0517-4581-ac8b-5daaefe33b6a.png)
+![4_SwaggerHub_demo_api_pasted](https://user-images.githubusercontent.com/19932401/195682915-39521b05-4917-47ea-b7bd-8cb7b5eba907.png)
+
+:::success success
+Your should have created your first API definition in SwaggerHub. For fuller information on SwaggerHub Authoring - Follow this [guide](https://support.smartbear.com/swaggerhub/docs/tutorials/getting-started.html) to create your first API in SwaggerHub.
+:::
+
+### Publish your provider design spec to PactFlow
+
+:::info Find out more
+See our Publishing contracts [docs](/docs/bi-directional-contract-testing/publishing) for more info
+:::
+
+Now that we have created our provider specification, we need to share it to our consumers. This is where PactFlow comes in to the picture. This step is referred to as "publishing" the provider contract.
+
+The publishing step takes two key components:
+
+- The provider contract itself (in our case, the OAS document)
+- The test results (in our case, we will use our OAS document, as we are just testing the design, we will use a seperate flow to test our implementation when it is created)
+
+This information will be helpful later on, when we need to check compatibility with its consumers.
+
+1. Fork the [example-provider](https://github.com/pactflow/example-provider) projects in to your own Github account (click the 'Fork' button in the top right).
+    ![5_GitHub_fork_example_provider](https://user-images.githubusercontent.com/19932401/195682925-595f91ef-9126-4623-8d2a-e0a767655a5c.png)
+    1. Open your forked `example-provider` project (`https://github.com/<your-username>/example-provider`)
+    1. Open `.github/workflows/ProviderDesignFeedback.yml`
+    2. In the upper right corner of the file view, click 🖊️ to open the file editor.
+    3. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own PactFlow account. You can easily get this by clicking the COPY PACTFLOW BASE URL button on the API Tokens page in PactFlow.
+    ![6_GitHub_update_build_script](https://user-images.githubusercontent.com/19932401/195682933-36d6ffd4-948c-448e-a16a-84cbeb55ee62.png)
+    4. Remove the line `if: ${{ github.repository_owner == 'pactflow' }}`
+    5. Press the green `Commit changes` button
+2. Create a Github Secret to store your PactFlow API token in.
+   1. In PactFlow:
+       1. Log in to your PactFlow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens - See [here](/#configuring-your-api-token) for the docs.
+       2. Click the Copy button for the read/write CI token (make sure it's the read _write_ one, not the read only one).
+   2. In Github:
+       1. In your forked `example-provider` project (`https://github.com/<your-username>/example-provider`)
+       2. Click on the `Settings` tab.
+       3. Select `Secrets` from the side menu.
+       4. Click `New repository secret` (the button is to the right of the "Actions secrets" heading)
+       5. Set the name of the secret to `PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP`
+       6. Paste in the PactFlow API token value you copied in the previous step.
+       6. Click `Add Secret`
+       ![7_GitHub_add_pactflow_token](https://user-images.githubusercontent.com/19932401/195682938-25d60568-99ed-45d8-a416-2fdf1cc06056.png)
+  1. Click on the `Actions` tab.
+  1. Click the button with the text "I understand my workflows, go ahead and enable them"
+1. Sync OpenAPI -> SCM with Github Sync - <https://support.smartbear.com/swaggerhub/docs/integrations/github-sync.html>
+   1. Open the API page in SwaggerHub.
+   2. Click the API name, switch to the Integrations tab, and click Add New Integrations:
+   3. Select GitHub Sync.
+   4. In the subsequent dialog, specify the integration parameters:
+      1. Name – Required. A display name for the integration. `gh-design-to-pactflow`
+      2. GitHub Token – Required. The GitHub access token that SwaggerHub will use to access the target GitHub repository.
+      3. The easiest way to get the token is to click Connect to GitHub and allow SwaggerHub to retrieve information from your GitHub account:
+      4. Click Next in the GitHub Token edit box to continue. SwaggerHub will validate the token and then display other parameters.
+      5. Repository Owner – Select you GitHub user or organization that owns the repository you created in the previous step
+      6. Repository – Select the repository you setup earlier to push the code to
+   5. Sync Method – Select the synchronization type: `Basic Sync`
+   6. Branch – Required. The repository branch to push the code to. If this branch does not exist, it will be created based on the repository’s default branch. Choose `swaggerhub`
+   7. Generated API Code – Required. Select what you want to generate: `YAML(Resolved)`
+   8. Output Folder - Select `oas`
+   9. Output File - Select `swagger.yaml`
+   10. Click `Create And Execute` -> `Done`.
+   ![8_SwaggerHub_add_github_sync](https://user-images.githubusercontent.com/19932401/195682941-2278c5f8-42cb-4318-a0d6-f62d10e9e450.png)
+
+After you run through the process your dashboard should look like this
+
+![10_Pactflow_provider_contract_uploaded](https://user-images.githubusercontent.com/19932401/195682950-a2b1b903-006a-4574-9566-6c6026bc3e7f.png)
+![11_Pactflow_provider_contract_view](https://user-images.githubusercontent.com/19932401/195682952-3cde777c-5838-48fa-a6af-2f7a0d407f34.png)
+![12_Pactflow_provider_self_verification_results](https://user-images.githubusercontent.com/19932401/195682956-94c08de7-57b6-4bfa-95df-3ae37a5b9da8.png)
+
+:::success success
+Your should have uploaded your first API definition to PactFlow.
+:::
+
+### Check if we could deploy our design candidate safely to production
+
+Now that we have designed our provider specification and published our provider contract, we can check if we deploy the application to production.
+
+Whilst we don't currently have any consumers to worry about, we want to be prepared for when we do. PactFlow has a tool called [`can-i-deploy`](https://docs.pact.io/pact_broker/can_i_deploy) to help us.
+
+The `can-i-deploy` command is an important part of a CI/CD workflow, adding stage gates to prevent deploying incompatible applications to environments such as production.
+
+This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
+
+![first provider pipeline run](../../../../static/workshops/bi-directional/2-bi-directional-provider-pipeline-first-run.png)
+
+### Check if it is safe to deploy the provider to production
+
+We run the command:
+
+`can-i-deploy`
+
+This should pass, because as we discussed above, there are no consumers:
+
+![13_GitHub_provider_first_run](https://user-images.githubusercontent.com/19932401/195682961-cf378073-4f39-43d4-b450-5b8623f2cc80.png)
+
+```
+
+$ pact-broker can-i-deploy --pacticipant pactflow-example-consumer --version="1.0.0-21b1f7fdf6428bfb0f583e151d9893c230a1c555-design" --to-environment production
+
+Computer says yes \o/
+
+There are no missing dependencies
+```
+
+Later on, when consumers start to use our API, we will be prevented from releasing a change that results in a backwards incompatible change for our consumers. Consumers will also use this command to ensure they are compatible with the Provider API in the target environment (in this case, `production`).
+
+If this was our actual implementation, this is where we would deploy our provider to production. 
+Once we have deployed, we would PactFlow know that the new version of the Provider has been promoted to that environment, 
+allowing PactFlow to communicate to any future consumers of the provider, that the OAS associated with this version of the provider is supported in production. 
+If a consumer adds functionality that uses a subset of the OAS, they will be free to deploy safely!
+
+By using the can-i-deploy against our design, we will be able check that our future design candidate changes will be compatible with any of the future consumers that are deployed or released. 
+Giving us visibility and feedback, at the earliest opportunity.
+
+### Expected state by the end of this step
+
+- The provider build is passing and can-i-deploy states it is free to be deployed to production ✅
+
+## Consumer side
+
+### Setup and trigger the example consumer project
+
+1. Fork the [example-consumer][https://github.com/pactflow/example-consumer] project in to your own Github account (click the 'Fork' button in the top right).
+1. Open your forked `example-consumer` project (`https://github.com/<your-username>/example-consumer`)
+3. Create a Github Secret to store your PactFlow API token in.
+   1. In PactFlow:
+       1. Log in to your PactFlow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens - See [here](/#configuring-your-api-token) for the docs.
+       2. Click the Copy button for the read/write CI token (make sure it's the read _write_ one, not the read only one).
+   2. In Github:
+       1. In your forked `example-consumer` project (`https://github.com/<your-username>/example-consumer`)
+       2. Click on the `Settings` tab.
+       3. Select `Secrets` from the side menu.
+       4. Click `New repository secret` (the button is to the right of the "Actions secrets" heading)
+       5. Set the name of the secret to `PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP`
+       6. Paste in the PactFlow API token value you copied in the previous step.
+      1. Click on the `Actions` tab.
+      1. Click the button with the text "I understand my workflows, go ahead and enable them"
+      1. Open `.github/workflows/Build.yml`
+      2. In the upper right corner of the file view, click 🖊️ to open the file editor.
+      3. Update the value of `PACT_BROKER_BASE_URL` to the base URL of your own PactFlow account. You can easily get this by clicking the COPY PACTFLOW BASE URL button on the API Tokens page in PactFlow.
+      4. Press the green `Commit changes` button
+
+
+### Build triggered
+
+The consumer build will trigger
+
+![14_GitHub_consumer_first_run_triggered](https://user-images.githubusercontent.com/19932401/195682963-a1653ba9-8adf-42b3-8eae-1a5723cc5998.png)
+
+### Pact Contract Tests passed
+
+The consumers unit tests will pass
+
+![15_GitHub_consumer_first_run_test_complete](https://user-images.githubusercontent.com/19932401/195682967-2b6fab80-84b4-4b98-a3d7-0495313714c2.png)
+
+You can click into the build job to see the output
+
+![16_GitHub_consumer_first_run_test_output](https://user-images.githubusercontent.com/19932401/195682970-1a114513-5738-40c5-9dc5-4b2bbd4b6366.png)
+
+### Pact Contract files uploaded
+
+The pact files are uploaded to the PactFlow Broker
+
+![17_GitHub_consumer_first_pact_published](https://user-images.githubusercontent.com/19932401/195682976-00f43ab9-6b4d-46ad-a86f-4be6df131302.png)
+
+```
+Pact successfully published for pactflow-example-consumer version 253c165958d15624ce7245d5739689860439d24b and provider pactflow-example-provider.
+  View the published pact at https://saflow.pactflow.io/pacts/provider/pactflow-example-provider/consumer/pactflow-example-consumer/version/253c165958d15624ce7245d5739689860439d24b
+  Events detected: contract_published, contract_content_changed (first time untagged pact published)
+  No enabled webhooks found for the detected events
+  Next steps:
+    * Add Pact verification tests to the pactflow-example-provider build. See https://docs.pact.io/go/provider_verification
+```
+
+### Consumer can-i-deploy check
+
+
+It will then call the `can-i-deploy` command before it tries to deploy, it passes. This is because the consumers pact is a valid subset of the OpenAPI specificiation
+
+![18_GitHub_consumer_safe_to_deploy](https://user-images.githubusercontent.com/19932401/195682978-091f4976-ee27-4f77-9f06-e7b52082b862.png)
+
+
+```
+========== STAGE: can-i-deploy? ==========
+
+Computer says yes \o/ 
+
+CONSUMER                  | C.VERSION  | PROVIDER                  | P.VERSION               | SUCCESS? | RESULT#
+--------------------------|------------|---------------------------|-------------------------|----------|--------
+pactflow-example-consumer | 253c165... | pactflow-example-provider | 1.0.0-21b1f7f...-design | true     | 1      
+
+VERIFICATION RESULTS
+--------------------
+1. https://saflow.pactflow.io/contracts/bi-directional/provider/pactflow-example-provider/version/1.0.0-21b1f7fdf6428bfb0f583e151d9893c230a1c555-design/consumer/pactflow-example-consumer/version/253c165958d15624ce7245d5739689860439d24b/cross-contract-verification-results (success)
+
+All required verification results are published and successful
+```
+
+### Consumer record deployment
+
+`can-i-deploy` is successful, so we can deploy our consumer, once complete, we record the consumers application version as deployed to the production environment
+
+![20_GitHub_record_deployment](https://user-images.githubusercontent.com/19932401/195682988-dfcf3aba-ad55-4df5-a31f-874136a13e92.png)
+
+
+```
+========== STAGE: deploy ==========
+
+Deploying to production
+touch .env
+Recorded deployment of pactflow-example-consumer version 253c165958d15624ce7245d5739689860439d24b to production environment in PactFlow.
+```
+
+
+### Expected state by the end of this step
+
+- Both consumer and provider builds passing ✅
+
+![21_Pactflow_contract_verified](https://user-images.githubusercontent.com/19932401/195682992-c878ba4b-dc81-4fcb-8056-cfdb1da96521.png)
+![22_Pactflow_contract_verified_comparison](https://user-images.githubusercontent.com/19932401/195682996-fbcf4c0e-fad8-4001-82f6-b8cd0bd61ef5.png)
+![23_Pactflow_contract_verified_consumer_contract](https://user-images.githubusercontent.com/19932401/195683001-d670f34c-48f8-4763-90c1-1dd6301a83e1.png)
+![24_Pactflow_contract_verified_provider_contract](https://user-images.githubusercontent.com/19932401/195683003-d8bf37ad-e5f4-41a7-b346-7ea9b1700277.png)
+![25_Pactflow_contract_verified_provider_results](https://user-images.githubusercontent.com/19932401/195683005-1bd0c641-706c-4074-b2ce-7416b9e60386.png)
+
+## See a breaking change in action
+
+Let's go a bit deeper and introduce a breaking change into the system. Breaking changes come in two main ways:
+
+1. A consumer can add a new expectation (e.g. a new field/endpoint) on a provider that doesn't exist
+1. A provider might make a change (e.g. remove or rename a field, or change an endpoint) that breaks an existing consumer
+
+PactFlow will detect such situations using the `can-i-deploy` tool. When it runs, it performs a contract comparison that checks if the consumer contract is a valid subset of the provider contract in the target environment.
+
+### Remove a field the consumer requires
+
+As we are concentrating on our design specification, we will propose 2 changes in SwaggerHub. One will be an unsafe operation that renames a field the consumer requires
+
+Let's see it in action.
+
+1.  In SwaggerHub:
+    1. Open your API definition we created earlier
+    1. We are going to update the `name` field in the `Product` schema to `firstName`
+    ![26_SwaggerHub_remove_name](https://user-images.githubusercontent.com/19932401/195683011-b9a1452b-548f-46f2-90d4-1cd560f1abd4.png)
+    1. Click `Save`
+    1. Click `Sync`
+    1. Update the commit message `feat: removing name field`
+    1. Press `Push`
+    ![27_SwaggerHub_remove_name_push_change](https://user-images.githubusercontent.com/19932401/195683015-732b09c2-2a04-46ba-973f-14ff0cd8ad3c.png)
+
+
+![28_GitHub_provider_build_triggered](https://user-images.githubusercontent.com/19932401/195683020-27f4e37d-ed43-4400-9f1c-d02b3c0c28d9.png)
+
+```
+Run pactflow/actions/publish-provider-contract@v1.0.1
+Successfully published provider contract for pactflow-example-provider version 1.0.0-3a694151f8837a8f38ed80124e9d81530d614dde-design to PactFlow
+```
+
+### Breaking change prevention with PactFlow
+
+
+`can-i-deploy` fails
+
+![29_GitHub_provider_can_i_deploy_failed](https://user-images.githubusercontent.com/19932401/195683027-8ea897d2-1377-43a7-9801-110ea2583602.png)
+
+```
+pact-broker can-i-deploy --pacticipant pactflow-example-provider --version="1.0.0-3a694151f8837a8f38ed80124e9d81530d614dde-design" --to-environment production
+
+Computer says no ¯_(ツ)_/¯
+
+CONSUMER                  | C.VERSION  | PROVIDER                  | P.VERSION               | SUCCESS? | RESULT#
+--------------------------|------------|---------------------------|-------------------------|----------|--------
+pactflow-example-consumer | 253c165... | pactflow-example-provider | 1.0.0-3a69415...-design | false    | 1      
+
+VERIFICATION RESULTS
+--------------------
+1. https://saflow.pactflow.io/contracts/bi-directional/provider/pactflow-example-provider/version/1.0.0-3a694151f8837a8f38ed80124e9d81530d614dde-design/consumer/pactflow-example-consumer/version/253c165958d15624ce7245d5739689860439d24b/cross-contract-verification-results (failure)
+
+The cross contract verification between the pact for the version of pactflow-example-consumer currently deployed or released to production (253c165958d15624ce7245d5739689860439d24b) and the oas for version 1.0.0-3a694151f8837a8f38ed80124e9d81530d614dde-design of pactflow-example-provider failed
+```
+
+:::warning
+This build will fail, PactFlow knows all of the consumers needs down to the field level.
+
+If you head into the PactFlow UI and drill down into the "contract comparison" tab, you'll see the output from comparing the consumer and provider contracts:
+
+![30_Pactflow_provider_can_i_deploy_failed_overview](https://user-images.githubusercontent.com/19932401/195683032-f4e4a506-9060-4859-a597-279bc9f24edc.png)
+![31_Pactflow_provider_can_i_deploy_failed_consumer](https://user-images.githubusercontent.com/19932401/195683035-83536269-5c94-4412-bb22-50fefafb9c40.png)
+![32_Pactflow_provider_can_i_deploy_failed_provider](https://user-images.githubusercontent.com/19932401/195683039-9b71c289-6cc0-4bb3-9867-79e5367a7e64.png)
+
+As you can see in this example, it's alerting us to the fact that the consumer needs a field but the provider doesn't support it.
+
+Read more about how to [interpret failures](https://docs.pactflow.io/docs/bi-directional-contract-testing/compatibility-checks).
+:::
+
+### Graceful change
+
+Let's see a non breaking change in action, we want to rename the `name` field to `firstName`. We are going to use the expand and contract pattern, where we 
+support our consumers using the `name` field, until they have changed their code to use `firstName`. We will do this by adding both properties into the `Product` schema
+
+1.  In SwaggerHub:
+    1. Open your API definition we created earlier
+    1. We are going to add the `name` field back in the `Product` schema, so it should contain both `name` and `firstName`
+    ![33_SwaggerHub_add_firstname](https://user-images.githubusercontent.com/19932401/195683045-ba0b7cb5-ccea-41db-8c53-02f1caa9f3fb.png)
+    1. Click `Save`
+    1. Click `Sync`
+    1. Update the commit message `feat: adding firstName field`
+    1. Press `Push`
+    ![34_SwaggerHub_add_firstname_push_change](https://user-images.githubusercontent.com/19932401/195683050-57a8ad98-a127-4409-b80c-15438085f309.png)
+
+![35_GitHub_provider_build_triggered](https://user-images.githubusercontent.com/19932401/195683053-e3ccfd69-3761-417d-9617-8810a21f176e.png)
+
+![36_GitHub_provider_contract_published](https://user-images.githubusercontent.com/19932401/195683059-7c21ee84-cd91-4e35-a901-65be7ff35731.png)
+
+```
+Run pactflow/actions/publish-provider-contract@v1.0.1
+Successfully published provider contract for pactflow-example-provider version 1.0.0-4bff20fab7b711b66a508c999690547d9559d12b-design to PactFlow
+```
+
+### Design verified as compatible (expand & contract)
+
+![37_GitHub_can_i_deploy_passed](https://user-images.githubusercontent.com/19932401/195683063-eade4854-1765-4e32-b3f9-c1cf3f86e6aa.png)
+
+```
+pact-broker can-i-deploy --pacticipant pactflow-example-provider --version="1.0.0-4bff20fab7b711b66a508c999690547d9559d12b-design" --to-environment production
+Computer says yes \o/ 
+
+CONSUMER                  | C.VERSION  | PROVIDER                  | P.VERSION               | SUCCESS? | RESULT#
+--------------------------|------------|---------------------------|-------------------------|----------|--------
+pactflow-example-consumer | 253c165... | pactflow-example-provider | 1.0.0-4bff20f...-design | true     | 1      
+
+VERIFICATION RESULTS
+--------------------
+1. https://saflow.pactflow.io/contracts/bi-directional/provider/pactflow-example-provider/version/1.0.0-4bff20fab7b711b66a508c999690547d9559d12b-design/consumer/pactflow-example-consumer/version/253c165958d15624ce7245d5739689860439d24b/cross-contract-verification-results (success)
+
+All required verification results are published and successful
+```
+
+:::success
+This build should pass, PactFlow knows all of the consumers needs down to the field level. Because the consumers request is a subset of the product schema, this is a safe operation.
+
+We could now update our consumer code to use `firstName`, allowing the consumer to deprecate the `name` field.
+
+![38_GitHub_workflow_overview](https://user-images.githubusercontent.com/19932401/195683069-a32fa26f-6ab2-415f-80af-8f1251c179c1.png)
+
+:::
+
+:::info what have we learned?
+
+1. It is always safe to remove a field from a provider, if no consumers are currently using it
+1. It is not safe to remove a field/endpoint from a provider, if an existing consumer _is_ using it, and PactFlow will detect this situation.
+1. PactFlow will prevent a consumer from deploying a change that a Provider has yet to support
+
+🚀 If you've made it this far, you should now have a good understanding of how SwaggerHub & PactFlow's bi-directional contract testing feature works to make it safe to release software into production quickly and reliably.
+
+
+You may be interested in one of
+
+- [Provider Testing Guide](/docs/bi-directional-contract-testing/provider)
+- [Consumer Testing Guide](/docs/bi-directional-contract-testing/consumer) 
+- our quick [katacodas](/docs/tutorials)
+- our other [workshops](/docs/workshops), or
+- getting deeper into [BDCT](/docs/bi-directional-contract-testing)
+- a dive into our [CI/CD](/docs/workshops/ci-cd/) workshop with Pact and the consumer driven contract testing approach - this is use the codebase you've just exercised and will introduce the key concepts on Pact in more detail
+:::

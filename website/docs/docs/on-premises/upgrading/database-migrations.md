@@ -8,7 +8,7 @@ Schema migrations are run automatically on start up, unless the [PACTFLOW_DATABA
 
 ## Manual migration
 
-The migrations can be run manually against the database before upgrading the Pactflow Docker image if desired (however, this is generally not necessary).
+The migrations can be run manually against the database before upgrading the PactFlow Docker image if desired (however, this is generally not necessary).
 
 ```sh
 docker pull quay.io/pactflow/enterprise
@@ -28,14 +28,27 @@ docker run --rm \
 
 ## Rollback
 
-To perform a manual rollback:
+To perform a manual rollback, first identify the number of the migration target using the PactFlow image with the tag you wish to rollback to.
 
 ```sh
+TAG="<version of PactFlow you wish to rollback to>"
 docker run --rm \
+  --entrypoint /bin/sh \
+  --volume $PWD/pactflow-onprem.lic:/home/pactflow-onprem.lic \
+  quay.io/pactflow/enterprise:${TAG} \
+  -c "ls /home/pact_broker_fork/db/migrations | grep \d | sort | tail -n 1 | cut -d '_' -f1"
+```
+
+Then, perform the rollback using the PactFlow image that belongs to the database version currently deployed.
+
+```sh
+TAG="<current version of PactFlow>"
+docker run --rm \
+  --volume $PWD/pactflow-onprem.lic:/home/pactflow-onprem.lic \
   --env PACTFLOW_DATABASE_URL="postgres://username:password@host:port/database" \
   --env PACTFLOW_DATABASE_MIGRATION_TARGET="<migration number to roll back to>" \
   --entrypoint db-migrate \
-  quay.io/pactflow/enterprise
+  quay.io/pactflow/enterprise:${TAG}
 ```
 
 ## Minor and patch version upgrades

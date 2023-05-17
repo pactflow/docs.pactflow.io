@@ -3,20 +3,20 @@ title: Deploying and Releasing
 sidebar_label: Deploying and Releasing
 ---
 
-The Pactflow needs to know which versions of each application are in each environment so it can determine whether a particular application version is [safe to deploy](https://docs.pact.io/pact_broker/can_i_deploy).
+The PactFlow needs to know which versions of each application are in each environment so it can determine whether a particular application version is [safe to deploy](https://docs.pact.io/pact_broker/can_i_deploy).
 
-To notify Pactflow that an application version has been deployed or released, the `pact-broker record-deployment` and `pact-broker record-release` commands are provided by the [Pact Broker CLI](https://docs.pact.io/pact_broker/client_cli).
+To notify PactFlow that an application version has been deployed or released, the `pact-broker record-deployment` and `pact-broker record-release` commands are provided by the [Pact Broker CLI](https://docs.pact.io/pact_broker/client_cli).
 
-"Deployed versions" and "released versions" are very similar, but are modelled slightly differently in Pactflow. The difference between `record-deployment` and `record-release` is that:
+"Deployed versions" and "released versions" are very similar, but are modelled slightly differently in PactFlow. The difference between `record-deployment` and `record-release` is that:
 
 * `record-deployment` automatically marks the previously deployed version as undeployed, and is used for APIs and consumer applications that are deployed to known instances.
 * `record-release` does NOT change the status of any previously released version, and is used for mobile applications and libraries that are made publicly available via an application store or repository.
 
-"Deployed versions" and "released versions" are different resource types in Pactflow, and an application version may be both deployed and released. For example, a mobile phone application version may be recorded as deployed to a mobile device for automated testing in a test environment, and then recorded as released to an app store in a production environment.
+"Deployed versions" and "released versions" are different resource types in PactFlow, and an application version may be both deployed and released. For example, a mobile phone application version may be recorded as deployed to a mobile device for automated testing in a test environment, and then recorded as released to an app store in a production environment.
 
 ## Environments
 
-Before you can record a deployment or a release, you must create the environment in Pactflow. To get you you started quickly, the `test` and `production` environments are pre-populated.
+Before you can record a deployment or a release, you must create the environment in PactFlow. To get you you started quickly, the `test` and `production` environments are pre-populated.
 
 To create a new environment, you can use the [Environments page](/docs/user-interface/settings/environments) or use the following [command](https://docs.pact.io/pact_broker/client_cli/readme#create-environment) from the Pact Broker CLI.
 
@@ -33,9 +33,9 @@ Once the enviroment is created, ensure the team and application are [configured 
 
 ### Handling conflicting views of what an "environment" is
 
-For can-i-deploy to work correctly, every team and Pactflow must have the same shared understanding of what an "environment" is. Defining the bounds of an environment can be a tricky thing. A consumer team may have multiple deployed consumer applications that all share the same instance of the provider. From the consumer team's point of view, there are multiple environments, but from the provider team's point of view, there is one. For Pactflow to operate correctly, in this situation, you have two options:
+For can-i-deploy to work correctly, every team and PactFlow must have the same shared understanding of what an "environment" is. Defining the bounds of an environment can be a tricky thing. A consumer team may have multiple deployed consumer applications that all share the same instance of the provider. From the consumer team's point of view, there are multiple environments, but from the provider team's point of view, there is one. For PactFlow to operate correctly, in this situation, you have two options:
 
-1. Create one environment resource in Pactflow, and use the `--application-instance` feature described [below](#application-instances), and give each consumer application instance its own identifier. This would work well if there was only one application in each of the sub environments. 
+1. Create one environment resource in PactFlow, and use the `--application-instance` feature described [below](#application-instances), and give each consumer application instance its own identifier. This would work well if there was only one application in each of the sub environments. 
 2. If there are just too many applications in each of the sub environments to want to use the application instance approach, then you can create an environment resource for each sub environment, and when the shared application is deployed, call `record-deployment` once for each sub environment. Before deploying the shared application, the `can-i-deploy` command would need to be called for each sub environment, and it should only deploy if all the results were positive.
 
 
@@ -61,7 +61,7 @@ record-deployment --pacticipant foo --version 6897aa95e --environment test \
 
 Setting the "application instance" attribute is only necessary when there are multiple instances of an application *permanently* deployed to the same environment at the same time (ie. not just temporarily during a rolling migration). An example of this might be when you are maintaining on-premises consumer applications for multiple customers that all share the same backend API instance, or when you have more than one mobile device running the same application in a test environment, all pointing to the same test API instance.
 
-The "application instance" field is used to distinguish between deployed versions of an application within the same environment, and most importantly, to identify which previously deployed version has been replaced by the current deployment. Pactflow only allows one unique combination of pacticipant/environment/application instance to be considered the "currently deployed" one, and any call to record a deployment will cause the previously deployed version with the same pacticipant/environment/application instance to be automatically marked as undeployed (mimicking the real world process of "deploying over" a previous version). Note that a "null" (anonymous) application instance is considered to be a distinct value, so if you record a deployment with no application instance set, then record a deployment with an application instance set, you will have two different deployed versions in that environment.
+The "application instance" field is used to distinguish between deployed versions of an application within the same environment, and most importantly, to identify which previously deployed version has been replaced by the current deployment. PactFlow only allows one unique combination of pacticipant/environment/application instance to be considered the "currently deployed" one, and any call to record a deployment will cause the previously deployed version with the same pacticipant/environment/application instance to be automatically marked as undeployed (mimicking the real world process of "deploying over" a previous version). Note that a "null" (anonymous) application instance is considered to be a distinct value, so if you record a deployment with no application instance set, then record a deployment with an application instance set, you will have two different deployed versions in that environment.
 
 The application instance should *not* be used to model blue/green or other forms of no-downtime deployments where there are two different application versions deployed temporarily at once during the deployment phase. See the next section for more information.
 
@@ -128,4 +128,36 @@ eg.
 pact-broker can-i-deploy --pacticipant Foo \
                          --version 617c76e8bf05e1a480aed86a0946357c042c533c \
                          --to-environment production
+```
+
+## Can I Deploy Results
+
+When a new Pact or OAS contract is published some comparisons between the published Pact/OAS and the contracts of integrated applications will be automatically pre-generated. This is to speed up the response time of the `can-i-deploy` command for application versions that are most critical to the user (those that are likely to be deployed). Other comparisons are generated as needed when viewing the matrix page in the Pactflow UI or via using the `can-i-deploy` command with versions that do not yet have a comparison.
+
+Currently comparisons are pre-generated in the following cases:
+
+- Between the newly published pact or contract and the contracts belonging to the deployed versions of each the integrated applications.
+- The main branch of each of the integrated applications
+- Recently published feature branches for each of the integrated applications.
+
+> Note pre-generating the comparisons relies on the use of application branches and deployment environments to select which comparisons are likely to be needed.
+
+When a comparison is missing at the time the `can-i-deploy` command executes there will be an "unknown" result. This can happen when:
+
+- The comparison takes longer to execute than the time between the contract publication and the call to can-i-deploy.
+- Pre-generation of the comparison did not occur because tags where used for publishing the contract and recording deployment, rather than branches and environments. It is recommended to switch to using branches and environments to help streamline this process.
+
+### Polling
+
+When `can-i-deploy` returns results with an "unknown" comparison status it is recommended to enable polling for the command, so that your CI/CD pipeline will not be blocked. This causes the can-i-deploy check to wait a short time and then retry, allowing any long running Bi-Directional contract comparisons to be completed. The wait time and number of retries are customizable and can be set to appropriate durations based on the user's needs. The arguments to specify are `--retry-while-unknown TIMES` and `--retry-interval SECONDS`
+
+eg.
+
+
+```
+pact-broker can-i-deploy --pacticipant Foo \
+                         --version 617c76e8bf05e1a480aed86a0946357c042c533c \
+                         --to-environment production
+                         --retry-while-unknown 5
+                         --retry-interval 3
 ```

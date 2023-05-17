@@ -5,11 +5,11 @@ sidebar_label: Provider
 
 ## Principles
 
-- Testing the provider API is your responsibility, Pactflow simply ensures the specification is compatible with any consumers
-- Garbage in, Garbage out - Pactflow trusts any provider contract that is provided. This is true, whether or not it has actually been tested.
+- Testing the provider API is your responsibility, PactFlow simply ensures the specification is compatible with any consumers
+- Garbage in, Garbage out - PactFlow trusts any provider contract that is provided. This is true, whether or not it has actually been tested.
 - When using the BYO functional API testing strategy, you must take responsibility for ensuring your API is compatible with (and ideally, implements) any specification.
 - Code based approaches are generally preferred because they are less likely to drift from implementation. For example, using tools that generate OAS definitions from code/types are more likely to be reliable
-- When supported, test based approaches such as postman collections, may also be more reliable, as they have embedded testing information in them. Pactflow will be able to only compare responses that have been tested and therefore are reliable.
+- When supported, test based approaches such as ReadyAPI Functional test suites/postman collections, may also be more reliable, as they have embedded testing information in them. PactFlow will be able to only compare responses that have been tested and therefore are reliable.
 
 ## Writing Provider Contracts
 
@@ -19,8 +19,8 @@ sidebar_label: Provider
 
 You must have, or be able to produce, one of the following OpenAPI Specification (OAS) formats:
 
-- OAS v2
-- OAS v3
+- OAS v2.0
+- OAS v3.0.x (3.1 is not yet supported)
 
 If you don't have an OAS, it's possible you can convert from a format you already have or from your code (e.g. via types/annotations) before uploading to Pact.
 
@@ -28,7 +28,7 @@ For example, there are tools that can convert Postman collections or RAML docume
 
 ### Step 2: Choose an API testing tool
 
-There are many tools out. You may want to choose a black-box style functional API testing tool like Dredd or Postman, or white-box style tools such as RestAssured or Supertest.
+There are many tools out. You may want to choose a black-box style functional API testing tool like ReadyAPI/SoapUI/Dredd or Postman, or white-box style tools such as RestAssured or Supertest.
 
 The key consideration is that you also ensure your API is compatible with an OAS.
 
@@ -40,9 +40,9 @@ Running against a dedicated testing environment will likely result in flakey tes
 
 ### Step 4: Publish your Provider Contract and verification results
 
-After your tests have completed (pass/fail), you should upload the specification and results to Pactflow.
+After your tests have completed (pass/fail), you should upload the specification and results to PactFlow.
 
-See [publishing your OpenAPI Provider Contract to Pactflow](./contracts/oas#publishing-the-provider-contract--results-to-pactflow) for full details and examples.
+See [publishing your OpenAPI Provider Contract to PactFlow](https://docs.pactflow.io/docs/bi-directional-contract-testing/contracts/oas#publishing-the-provider-contract--results-to-pactflow) for full details and examples.
 
 ### Step 4: Run can-i-deploy
 
@@ -52,7 +52,7 @@ We recommend using the `pact-broker can-i-deploy` command from [CLI Tools](https
 
 Our [examples](https://github.com/pactflow/example-bi-directional-provider-postman/blob/984f635a2317faea9137d9aa52a17f77324e5568/Makefile#L74) use the Docker version of this to simplify administration.
 
-The output from the command will provide a link to the verification result in Pactflow. Interpreting these results is contract specific.
+The output from the command will provide a link to the verification result in PactFlow. Interpreting these results is contract specific.
 
 Here is our pipeline to date on the first run of a provider:
 
@@ -62,7 +62,7 @@ Here is our pipeline to date on the first run of a provider:
 
 If `can-i-deploy` returns a successful response, you can deploy your application.
 
-Once your application is deployed, you can notify Pactflow of the release - we recommend that you set the branch property when you publish provider contracts, and use [record-deployment](https://docs.pact.io/pact_broker/recording_deployments_and_releases#recording-deployments) or [record-release](https://docs.pact.io/pact_broker/recording_deployments_and_releases#recording-releases) when you deploy/release.
+Once your application is deployed, you can notify PactFlow of the release - we recommend that you set the branch property when you publish provider contracts, and use [record-deployment](https://docs.pact.io/pact_broker/recording_deployments_and_releases#recording-deployments) or [record-release](https://docs.pact.io/pact_broker/recording_deployments_and_releases#recording-releases) when you deploy/release.
 
 Our [examples](https://github.com/pactflow/example-bi-directional-provider-postman/blob/984f635a2317faea9137d9aa52a17f77324e5568/Makefile#L82) use the Docker version of this to simplify administration.
 
@@ -86,7 +86,7 @@ The standard [principles](https://docs.pact.io/pact_nirvana) are still relevent.
 
 ### Other examples of how to do this form of testing
 
-- https://hazelcast.com/blog/contract-first-development-using-restassured-and-openapi/
-- https://www.openapi4j.org/operation-validator-adapters/spring.html
-- https://springframework.guru/should-i-use-spring-rest-docs-or-openapi/
-- https://github.com/OpenAPITools/openapi-generator (generate rest assured tests from spec)
+- <https://hazelcast.com/blog/contract-first-development-using-restassured-and-openapi/>
+- <https://www.openapi4j.org/operation-validator-adapters/spring.html>
+- <https://springframework.guru/should-i-use-spring-rest-docs-or-openapi/>
+- <https://github.com/OpenAPITools/openapi-generator> (generate rest assured tests from spec)

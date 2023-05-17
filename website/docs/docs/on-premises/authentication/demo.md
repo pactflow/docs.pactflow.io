@@ -1,8 +1,8 @@
 ---
-title: Demo
+title: Demo Auth
 ---
 
-To allow experimentation with Pactflow without the need to configure an external identity provider, the "demo" authentication provider can be enabled. With demo auth enabled, any user can log in to Pactflow by providing a name and email address. No password is used to authenticate the user.
+To allow experimentation with PactFlow without the need to configure an external identity provider, the "demo" authentication provider can be enabled. With demo auth enabled, any user can log in to PactFlow by providing a name and email address. No password is used to authenticate the user.
 
 The first user to log in will be assigned the [Administrator](/docs/permissions/predefined-roles#administrator) role, and every user thereafter will receive the default ([User](/docs/permissions/predefined-roles#user)) role.
 
@@ -22,4 +22,8 @@ See the [Demo](/docs/on-premises/environment-variables#demo_auth_enabled) sectio
 
 ## Converting to a production IDP
 
-Demo authentication cannot be enabled at the same time as a real authentication provider (eg. SAML). We recommend starting with a clean database when installing Pactflow for production use. This will ensure no demo users remain in the system.
+Demo authentication cannot be enabled at the same time as a real authentication provider (eg. SAML). We recommend starting with a clean database when installing PactFlow for production use. This will ensure no demo users remain in the system.
+
+## Docker Compose example
+
+This [Docker Compose example](/docs/on-premises/docker-compose-example) is configured using Demo Auth.

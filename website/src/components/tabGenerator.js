@@ -99,11 +99,9 @@ function generateLanguageTab({ data, withLabel, withLink, useCaseFilter }) {
                 )
                 .map((tr) => {
                   return (
-                    <>
-                      <li>
-                        <a href={tr.linkUrl}>{tr.linkTitle}</a>
+                      <li key={tr.linkTitle + "language_link" + Math.random()}>
+                       <a href={tr.linkUrl}>{tr.linkTitle}</a>
                       </li>
-                    </>
                   );
                 })}
             </div>
@@ -128,7 +126,7 @@ function generateTestingToolsTab({ data, withLabel, withLink, side }) {
             key,
             content: (
               <a href={data[key].iconLink} key={key}>
-                Pactflow {data[key].side} side demo with {data[key].iconTitle}
+                PactFlow {data[key].side} side demo with {data[key].iconTitle}
               </a>
             ), // for demo, need to add our own content
             withLabel,

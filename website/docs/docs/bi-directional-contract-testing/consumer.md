@@ -23,7 +23,7 @@ Once you have chosen your tool, you must implement your consumer side tests. It 
 
 One notably deviation from Pact advice is that you need not concern yourself with finding the minimul set of tests for a contract, and are free to use mocks for any fuctional testing. In fact, this is encouraged.
 
-(Reference to standard contract testing advice: https://docs.pact.io/consumer/contract_tests_not_functional_tests/)
+(Reference to standard contract testing advice: <https://docs.pact.io/consumer/contract_tests_not_functional_tests/>)
 
 ### Step 2: Convert your mocks (writing the pact adapter)
 
@@ -51,7 +51,7 @@ We recommend using the `pact-broker publish` command from [CLI Tools](https://do
 
 We recommend using the `pact-broker can-i-deploy` command from [CLI Tools](https://docs.pact.io/implementation_guides/cli/#distributions) for this step. Our examples use the Docker version of this to simplify administration.
 
-The output from the command will provide a link to the verification result in Pactflow. Interpreting these results is contract specific.
+The output from the command will provide a link to the verification result in PactFlow. Interpreting these results is contract specific.
 
 Here is our pipeline to date on the first run of a consumer:
 
@@ -59,11 +59,11 @@ Here is our pipeline to date on the first run of a consumer:
 
 ### Step 5: Deploy your application
 
-If `can-i-deploy` returns a successful response, you can deploy your application. Once your application is deployed, you can notify Pactflow of the release - follow the golden rule of [tagging](https://docs.pact.io/pact_broker/tags/) here.
+If `can-i-deploy` returns a successful response, you can deploy your application. Once your application is deployed, you can notify PactFlow of the release - see the [recording deployments & releases] (<https://docs.pact.io/pact_broker/recording_deployments_and_releases>) docs
 
-_Golden rule of tagging:_
+_Golden rule:_
 
-> Tag with the branch name when you publish pacts or verification results, and tag with the environment name when you deploy.
+> Associate with the branch name when you publish pacts or verification results, and record the deployment or release into any environment.
 
 ## Integrating it into your CI/CD pipeline
 

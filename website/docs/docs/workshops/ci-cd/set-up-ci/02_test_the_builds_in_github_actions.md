@@ -14,11 +14,11 @@ title: Test the builds in Github Actions
 1. You will see the text `This workflow has a workflow_dispatch event trigger`. To the right of that text is a button with the label `Run workflow`. Click the button.
 1. Leave the branch as `master` and click the green `Run workflow` button.
 
-❌ The build will fail with an authentication error when it tries to publish the pact - that's expected. We need to update the configuration to point it at your new Pactflow account.
+❌ The build will fail with an authentication error when it tries to publish the pact - that's expected. We need to update the configuration to point it at your new PactFlow account.
 
 ## Provider build
 
-🔁 Repeat the above instructions to configure the Pactflow account for your provider project.
+🔁 Repeat the above instructions to configure the PactFlow account for your provider project.
 
 ## Expected state by the end of this step
 

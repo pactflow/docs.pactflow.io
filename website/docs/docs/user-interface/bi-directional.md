@@ -4,7 +4,7 @@ title: Bi-Directional Contract Testing
 
 A Bi-Directional Contract Testing is a test that compares your provider contract (eg. an OpenAPI/Swagger document) and your consumer contract (pact).
 
-This section contains information about the Bi-Directional Contract Testing UI on Pactflow.
+This section contains information about the Bi-Directional Contract Testing UI on PactFlow.
 
 ## Overview tab
 
