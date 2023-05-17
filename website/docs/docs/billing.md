@@ -45,7 +45,7 @@ Account administrators can perform the following functions once logged in:
 
 ![Billing Options](/ui/billing-options.png)
 
-To change your account administrator, please contact [support](mailto:support@pactflow.io?subject=Change%20Billing%20Administrator%20for%20account%20MYACCOUNT).
+To change your account administrator, please contact [support](https://support.smartbear.com/pactflow/message/).
 
 ### Adding credit card on file
 

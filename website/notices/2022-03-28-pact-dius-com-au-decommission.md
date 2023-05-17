@@ -18,4 +18,4 @@ Customers who created accounts on or after July 30 2020 will automatically be us
 
 If your PactFlow hostname is currently `acme.pact.dius.com.au`, you will simply need to change it to to `acme.pactflow.io`. You can do this immediately without impact to your service - there is no need to wait until the cutoff date.
 
-If you have any concerns over this change, please contact [support](mailto:support@pactflow.io).
+If you have any concerns over this change, please [contact us](https://support.smartbear.com/pactflow/message/).

@@ -14,7 +14,7 @@ PactFlow uses the following tools to ensure the On-Premises image is kept as sec
 
 ## Reporting vulnerabilities
 
-To report a vulnerability, please email us at [support@pactflow.io](mailto:support@pactflow.io) and ensure you include the relevant CVE, and the name and/or path to the vulnerable component.
+To report a vulnerability, please [contact security](https://smartbear.com/security/) and ensure you include the relevant CVE, and the name and/or path to the vulnerable component.
 
 ## Identifying the correct Ruby version
 

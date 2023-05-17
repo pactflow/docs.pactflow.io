@@ -5,7 +5,7 @@ title: Installation checklist
 ## 1. PactFlow license file
 
 The PactFlow on-premises version requires a license file to run. You should have received this from us during the
-on-boarding process. If not, please contact us at support@pactflow.io.
+on-boarding process. If not, please contact your Account Manager.
 
 ## 2. Run Docker Compose example
 
