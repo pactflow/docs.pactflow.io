@@ -2,6 +2,8 @@
 title: Predefined roles
 ---
 
+_Eligible plans: Enterprise_
+
 The PactFlow application comes with the following predefined roles. Each role is assigned a collection of [permissions](/docs/permissions).
 
 ## Administrator
