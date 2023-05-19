@@ -2,6 +2,8 @@
 title: Permissions
 ---
 
+_Eligible plans: Enterprise_
+
 Note that "manage" permissions cover both read and write operations.
 
 ## authentication_settings:manage
