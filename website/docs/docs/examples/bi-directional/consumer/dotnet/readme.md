@@ -31,7 +31,6 @@ https://github.com/pactflow/example-bi-directional-consumer-dotnet
     - [Windows](#windows)
   - [Caveats](#caveats)
   - [Related topics / posts / discussions](#related-topics--posts--discussions)
-  - [Other examples of how to do this form of testing](#other-examples-of-how-to-do-this-form-of-testing)
   - [Found an issue?](#found-an-issue)
 
 ## Overview of Example
@@ -90,7 +89,7 @@ See [Environment variables](#environment-variables) on how to set these up.
 
 - Tools listed at: https://docs.pactflow.io/docs/workshops/ci-cd/set-up-ci/prerequisites/
 - A pactflow.io account with an valid [API token](https://docs.pactflow.io/docs/getting-started/#configuring-your-api-token)
-* [.NET core 3.1 SDK installed](https://dotnet.microsoft.com/en-us/download/dotnet/3.1), this is the version of .NET core used for this example.
+* [.NET core 6.0 SDK installed](https://dotnet.microsoft.com/en-us/download/dotnet/6.0), this is the version of .NET core used for this example.
 * Docker running on your local machine
   
 ### Environment variables
