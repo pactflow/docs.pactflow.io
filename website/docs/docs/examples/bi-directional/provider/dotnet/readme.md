@@ -111,6 +111,8 @@ To be able to run some of the commands locally, you will need to export the foll
 
       `make publish_dll`
 
+      > The project currently requires 6.0.403, you can update to your version ./global.json
+
   3. Use Schemathesis to verify that the API endpoints match the generated Swagger doc by running the verify_swagger target. This will generate a a Schemathesis report documenting the compatibility of the endpoints with the Swagger doc
 
       `make verify_swagger`
