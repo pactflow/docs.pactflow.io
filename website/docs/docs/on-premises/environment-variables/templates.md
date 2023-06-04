@@ -9,12 +9,12 @@ title: Configuration file templates
   value: "postgres://username:password@host:port/database"
 - name: "PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY"
   value: ""
-- name: "PACTFLOW_ADMIN_API_KEY"
-  value: ""
 - name: "PACTFLOW_COOKIE_SECRET"
   value: ""
 - name: "TZ"
   value: ""
+- name: "PACTFLOW_BASE_URL"
+  value: ""  
 
 # SAML
 - name: "PACTFLOW_SAML_IDP_NAME"
@@ -43,8 +43,6 @@ title: Configuration file templates
 
 ```yml
 - name: "PACTFLOW_WEBHOOK_HOST_WHITELIST"
-  value: ""
-- name: "PACTFLOW_BASE_URL"
   value: ""
 ```
 
