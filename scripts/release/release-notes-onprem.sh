@@ -29,26 +29,25 @@ done
 
 
 # 2. checkout application
-
-echo "PREPARING RELEASE"
-echo "================="
-echo "Please wait this may take some time..."
+echo "Prepairing, please wait this may take some time..."
+echo "Fetching application..."
+DOCS_ROOT_DIT=$(pwd)
 PACTFLOW_APPLICATION_DIR=$(pwd)/scripts/release/.pactflow-application
-if [ -d $PACTFLOW_APPLICATION_DIR ]; then
-    rm -rf $PACTFLOW_APPLICATION_DIR
-fi
-git clone git@github.com:pactflow/pactflow-application.git $PACTFLOW_APPLICATION_DIR >/dev/null 2>&1
+# if [ -d $PACTFLOW_APPLICATION_DIR ]; then
+#     rm -rf $PACTFLOW_APPLICATION_DIR
+# fi
+# git clone git@github.com:pactflow/pactflow-application.git $PACTFLOW_APPLICATION_DIR >/dev/null 2>&1
 cd $PACTFLOW_APPLICATION_DIR
-echo "- Done checking out application."
+echo "Done."
 
 # 3. get all the issues
 ONPREM_PROD_IMAGE=quay.io/pactflow/enterprise:latest
 
-
-docker pull $ONPREM_PROD_IMAGE >/dev/null 2>&1
+echo "Pulling latest image..."
+# docker pull $ONPREM_PROD_IMAGE >/dev/null 2>&1
 PROD_TAG=$(docker inspect $ONPREM_PROD_IMAGE | jq -r '.[0].ContainerConfig.Env[] | select(startswith("PACTFLOW_GIT_SHA="))' | cut -d "=" -f2)
 DEV_TAG="HEAD"
-echo "- Done pulling image."
+echo "Done."
 
 # Jira configuration in order to create version and assign tickets that will be released to it.
 JIRA_PROJECT_ID=17612
@@ -79,47 +78,41 @@ if [ -n "$IS_RELEASE" ]; then
   echo "${JIRA_VERSION_NAME} has been created (or was created previously)."
 fi
 
-echo
-echo
-echo "RELEASE NOTES"
-echo "============="
+### need to separate into 2 (features, fixes) and add migration notes
+fixes=""
+features=""
+migrations=""
+review=""
 
+echo "Retreiving related tickets..."
 for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-)([0-9]+)' | sort | uniq); do
    response=$(curl -s --request GET \
        --url "$JIRA_URL/rest/api/3/issue/$i?fields=customfield_11009,customfield_18528,customfield_17522,status" \
        --user "$JIRA_AUTH" \
        --header 'Accept: application/json' \
        --header 'Content-Type: application/json')
-
-   note="${i} " 
-   fixes=""
-   features=""
-   migration=""
-
-### need to separate into 2 (features, fixes) and add migration notes
-
-   platform=$(echo $response | jq '.fields.customfield_17522.value' | tr -d '"')
-   if [ "$platform" = "saas" ]; then
-      continue
-   fi
-
-   has_release_type=$(echo $response | jq '.fields.customfield_18528' | tr -d '"')
-   if [ "$has_release_type" != "null" ]; then
-     note+=$(echo $response | jq '.fields.customfield_18528.value' | tr -d '"')
-   fi
-
-   has_note=$(echo $response | jq '.fields.customfield_11009' | tr -d '"')
-   if [ "$has_note" != "null" ]; then
-     note+=": " 
-     note+=$(echo $response | jq '.fields.customfield_11009.content[].content[].text' | tr -d '"')
-   fi
    
    # Valid Scenario: We may have merged code for a ticket that has not been marked as done in Jira since there is 
    # more work required to complete it but we still want to attach a version to the ticket which tells Jira that 
    # part of the code has been released to production.
    status=$(echo $response | jq '.fields.status.name' | tr -d '"')
    if [ "$status" = "Done" ]; then
-     echo $note
+
+       platform=$(echo $response | jq '.fields.customfield_17522.value' | tr -d '"')
+       if [ "$platform" = "saas" ]; then
+          continue
+       fi
+
+       release_type=$(echo $response | jq '.fields.customfield_18528.value' | tr -d '"')
+       has_note=$(echo $response | jq '.fields.customfield_11009' | tr -d '"')
+
+       if [ "$release_type" = "Feature" ] && [ "$has_note" != "null" ]; then
+         features+="\n- "$(echo $response | jq '.fields.customfield_11009.content[].content[].text' | tr -d '"')
+       elif [ "$release_type" = "Fix" ] && [ "$has_note" != "null" ]; then
+         fixes+="\n- "$(echo $response | jq '.fields.customfield_11009.content[].content[].text' | tr -d '"')
+       else
+         review+='\n- '$i
+       fi
    fi
 
    if [ -n "$IS_RELEASE" ]; then
@@ -130,14 +123,45 @@ for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-)([0-9]+)' | sort | un
          --header 'Content-Type: application/json' \
          --data "${payload_issue}"
     fi
+    
 done
+echo "Done."
 
-# 4. create $(pwd)/website/docs/docs/on-premises/releases/<version>.md
+# 4. create website/docs/docs/on-premises/releases/<version>.md
+release_note_file=${DOCS_ROOT_DIT}/website/docs/docs/on-premises/releases/${RELEASE_VERSION}.md
+
+echo
+echo -e "
+---
+title: ${RELEASE_VERSION}
+---
+
+## Release date
+
+$(date +"%Y-%m-%d")
+
+## Features
+${features}
+
+## Fixes
+${fixes}
+
+## Migration notes
+${migrations}
+
+## Tickets to Review
+${review}
+
+" > $release_note_file
+
+cat $release_note_file
+
 
 
 
 # 5. update $(pwd)website/sidebars.js 
         # sed "s/\/\/on-prem-release-placeholder/\/\/on-prem-release-placeholder\n            'docs\/on-premises\/releases\/1.23.1',/" website/sidebars.js
 # 6. create $(pwd)/website/notices/<date>-on-premises-<version>.md
+cd $(pwd)
 git status
 # 7. Output next steps (github PR approval)
