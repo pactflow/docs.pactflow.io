@@ -156,12 +156,20 @@ ${review}
 
 cat $release_note_file
 
+sed "s/\/\/on-prem-release-placeholder/\/\/on-prem-release-placeholder\n            'docs\/on-premises\/releases\/$RELEASE_VERSION',/" ${DOCS_ROOT_DIT}/website/sidebars.js > ${DOCS_ROOT_DIT}/website/sidebars_temp
+mv ${DOCS_ROOT_DIT}/website/sidebars_temp ${DOCS_ROOT_DIT}/website/sidebars.js
 
+echo -e "
+---
+slug: $(date +"%Y-%m-%d")-on-premises-{$RELEASE_VERSION}
+title: On-premises release v{$RELEASE_VERSION}
+tags: [on-premises, release]
+---
 
+A new PactFlow on-premises release ({$RELEASE_VERSION}) is now available ([see details](/docs/on-premises/releases/{$RELEASE_VERSION})).
+" >> ${DOCS_ROOT_DIT}/website/notices/$(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION.md
 
-# 5. update $(pwd)website/sidebars.js 
-        # sed "s/\/\/on-prem-release-placeholder/\/\/on-prem-release-placeholder\n            'docs\/on-premises\/releases\/1.23.1',/" website/sidebars.js
-# 6. create $(pwd)/website/notices/<date>-on-premises-<version>.md
-cd $(pwd)
+cd ${DOCS_ROOT_DIT}
 git status
+
 # 7. Output next steps (github PR approval)
