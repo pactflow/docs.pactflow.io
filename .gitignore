@@ -63,3 +63,6 @@ typings/
 website/build/
 .DS_Store
 .idea/
+
+# release requirement
+scripts/release/.pactflow-application
