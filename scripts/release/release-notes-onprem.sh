@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Usage: release-diff-saas.sh [DEV_TAG]
-# If no dev tag is supplied, it will assume the version that is currently in the dev environment is being deployed
+# Usage: release-notes-onprem.sh -v [version] -t [tag/sha] -r 1
 
 # 0. Validate params - 
 #       version
@@ -22,6 +21,7 @@ while [[ "$#" -gt 0 ]]
       -t|--tag) DEV_TAG="$2"; shift;;
       # If jira is enabled, then it will create release version, and attach tickets to it
       -r|--release) IS_RELEASE="$2"; shift;;
+      # This is required
       -v|--version) RELEASE_VERSION="$2"; shift;;
     esac
     shift
@@ -33,10 +33,10 @@ echo "Prepairing, please wait this may take some time..."
 echo "Fetching application..."
 DOCS_ROOT_DIT=$(pwd)
 PACTFLOW_APPLICATION_DIR=$(pwd)/scripts/release/.pactflow-application
-# if [ -d $PACTFLOW_APPLICATION_DIR ]; then
-#     rm -rf $PACTFLOW_APPLICATION_DIR
-# fi
-# git clone git@github.com:pactflow/pactflow-application.git $PACTFLOW_APPLICATION_DIR >/dev/null 2>&1
+if [ -d $PACTFLOW_APPLICATION_DIR ]; then
+    rm -rf $PACTFLOW_APPLICATION_DIR
+fi
+git clone git@github.com:pactflow/pactflow-application.git $PACTFLOW_APPLICATION_DIR >/dev/null 2>&1
 cd $PACTFLOW_APPLICATION_DIR
 echo "Done."
 
@@ -44,7 +44,7 @@ echo "Done."
 ONPREM_PROD_IMAGE=quay.io/pactflow/enterprise:latest
 
 echo "Pulling latest image..."
-# docker pull $ONPREM_PROD_IMAGE >/dev/null 2>&1
+docker pull $ONPREM_PROD_IMAGE >/dev/null 2>&1
 PROD_TAG=$(docker inspect $ONPREM_PROD_IMAGE | jq -r '.[0].ContainerConfig.Env[] | select(startswith("PACTFLOW_GIT_SHA="))' | cut -d "=" -f2)
 DEV_TAG="HEAD"
 echo "Done."
@@ -63,7 +63,7 @@ if [ -n "$IS_RELEASE" ]; then
   
   echo
   echo
-  echo "CREATING RELEASE VERSION"
+  echo "Creating ${RELEASE_VERSION} in Jira..."
   echo "========================"
 
   payload_version="{\"archived\":false,\"name\":\"${RELEASE_VERSION}\",\"projectId\":${JIRA_PROJECT_ID},\"released\":false,\"description\":\"OnPrem Release for ${RELEASE_VERSION} by $JIRA_USER\"}"
@@ -75,7 +75,7 @@ if [ -n "$IS_RELEASE" ]; then
      --header 'Accept: application/json' \
      --header 'Content-Type: application/json' \
      --data "${payload_version}"
-  echo "${JIRA_VERSION_NAME} has been created (or was created previously)."
+  echo "Done."
 fi
 
 ### need to separate into 2 (features, fixes) and add migration notes
@@ -168,8 +168,5 @@ tags: [on-premises, release]
 
 A new PactFlow on-premises release ({$RELEASE_VERSION}) is now available ([see details](/docs/on-premises/releases/{$RELEASE_VERSION})).
 " >> ${DOCS_ROOT_DIT}/website/notices/$(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION.md
-
-cd ${DOCS_ROOT_DIT}
-git status
 
 # 7. Output next steps (github PR approval)
