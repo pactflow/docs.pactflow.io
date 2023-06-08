@@ -221,6 +221,8 @@ cp $PACTFLOW_APPLICATION_DIR/app_onprem/ENVIRONMENT_VARIABLES.md $DOCS_ROOT_DIT/
 ####################
 # GitHub integration
 ####################
+cd ${DOCS_ROOT_DIT}
+
 if [ -z ${GITHUB_TOKEN} ]; then 
   echo "No Github Token provided, you will need to manually create push and create a Pull Request."
   git status
@@ -231,7 +233,6 @@ fi
 # Create branch that will merged and create version in Jira
 ####################
 if [ -n "$IS_RELEASE" ]; then
-
   git add ${DOCS_ROOT_DIT}/website/notices/$(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION.md \
     $release_note_file
   
