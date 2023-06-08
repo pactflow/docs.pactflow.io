@@ -228,18 +228,23 @@ if [ -z ${GITHUB_TOKEN} ]; then
   exit 0
 fi
 
-git commit -m "chore: add release notes for "$RELEASE_VERSION \ 
-  ${DOCS_ROOT_DIT}/website/sidebars.js \
-  ${DOCS_ROOT_DIT}/website/notices/$(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION.md \
-  $release_note_file \
-  website/docs/docs/on-premises/environment-variables.md
+####################
+# Create branch that will merged and create version in Jira
+####################
+if [ -n "$IS_RELEASE" ]; then  
+  git commit -m "chore: add release notes for "$RELEASE_VERSION \ 
+    ${DOCS_ROOT_DIT}/website/sidebars.js \
+    ${DOCS_ROOT_DIT}/website/notices/$(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION.md \
+    $release_note_file \
+    website/docs/docs/on-premises/environment-variables.md
 
-git push origin $BRANCH_NAME
+  git push origin $BRANCH_NAME
 
-curl -L \
-  -X POST \
-  -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer {$GITHUB_TOKEN}"\
-  -H "X-GitHub-Api-Version: 2022-11-28" \
-  https://api.github.com/repos/pactflow/docs.pactflow.io/pulls \
-  -d '{"title":"Release '"$RELEASE_VERSION"'","body":"Release notes for '"$RELEASE_VERSION"'","head":"'"{$BRANCH_NAME}"'","base":"master"}'
+  curl -L \
+    -X POST \
+    -H "Accept: application/vnd.github+json" \
+    -H "Authorization: Bearer {$GITHUB_TOKEN}"\
+    -H "X-GitHub-Api-Version: 2022-11-28" \
+    https://api.github.com/repos/pactflow/docs.pactflow.io/pulls \
+    -d '{"title":"Release '"$RELEASE_VERSION"'","body":"Release notes for '"$RELEASE_VERSION"'","head":"'"{$BRANCH_NAME}"'","base":"master"}'
+fi
