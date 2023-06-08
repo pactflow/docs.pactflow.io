@@ -231,7 +231,7 @@ fi
 # Create branch that will merged and create version in Jira
 ####################
 if [ -n "$IS_RELEASE" ]; then  
-  git commit -m "chore: add release notes for "$RELEASE_VERSION \ 
+  git commit -m "chore: add release notes for $RELEASE_VERSION" \ 
     ${DOCS_ROOT_DIT}/website/sidebars.js \
     ${DOCS_ROOT_DIT}/website/notices/$(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION.md \
     $release_note_file \
