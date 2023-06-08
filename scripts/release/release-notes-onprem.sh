@@ -7,7 +7,7 @@
 # 1. Find relevant tickets based on commit messages
 # 2. Format the release notes 
 # 3. Create PR with release notes
-#
+
 
 while [[ "$#" -gt 0 ]]
   do
@@ -31,6 +31,7 @@ ONPREM_PROD_IMAGE=quay.io/pactflow/enterprise:latest
 JIRA_PROJECT_ID=17612
 JIRA_URL=https://smartbear.atlassian.net
 JIRA_USER=${JIRA_AUTH%%@*}
+BRANCH_NAME=release/$RELEASE_VERSION
 
 ####################
 # Validation
@@ -49,12 +50,12 @@ fi
 ####################
 # Checkout Application
 ####################
-echo "Prepairing, please wait, this may take some time..."
+echo "Preparing, please wait, this may take some time..."
 echo "Fetching application..."
 if [ -d $PACTFLOW_APPLICATION_DIR ]; then
     rm -rf $PACTFLOW_APPLICATION_DIR
 fi
-git clone git@github.com:pactflow/pactflow-application.git $PACTFLOW_APPLICATION_DIR >/dev/null 2>&1
+git clone --shallow-since=$(date -v -2m "+%Y-%m-%d") git@github.com:pactflow/pactflow-application.git $PACTFLOW_APPLICATION_DIR >/dev/null 2>&1
 cd $PACTFLOW_APPLICATION_DIR
 echo "Done."
 
@@ -79,7 +80,7 @@ if [ -n "$IS_RELEASE" ]; then
   
   echo "Creating a branch for this release..."
   cd $DOCS_ROOT_DIT
-  git checkout -b ${RELEASE_VERSION}-release
+  git checkout -b $BRANCH_NAME
   cd $PACTFLOW_APPLICATION_DIR
   echo "Done."
 
@@ -105,9 +106,9 @@ migrations=""
 review=""
 
 echo "Retreiving related tickets..."
-for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-)([0-9]+)' | sort | uniq); do
+for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-|CC-)([0-9]+)' | sort | uniq); do
    response=$(curl -s --request GET \
-       --url "$JIRA_URL/rest/api/3/issue/$i?fields=customfield_11009,customfield_18528,customfield_17522,status" \
+       --url "$JIRA_URL/rest/api/3/issue/$i?fields=customfield_11009,customfield_18528,customfield_17522,customfield_17521,status" \
        --user "$JIRA_AUTH" \
        --header 'Accept: application/json' \
        --header 'Content-Type: application/json')
@@ -127,11 +128,16 @@ for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-)([0-9]+)' | sort | un
        has_note=$(echo $response | jq '.fields.customfield_11009' | tr -d '"')
 
        if [ "$release_type" = "Feature" ] && [ "$has_note" != "null" ]; then
-         features+="\n- "$(echo $response | jq '.fields.customfield_11009.content[].content[].text' | tr -d '"')
+         features+="\n* "$(echo $response | jq '.fields.customfield_11009.content[].content[].text' | tr -d '"')
        elif [ "$release_type" = "Fix" ] && [ "$has_note" != "null" ]; then
-         fixes+="\n- "$(echo $response | jq '.fields.customfield_11009.content[].content[].text' | tr -d '"')
+         fixes+="\n* "$(echo $response | jq '.fields.customfield_11009.content[].content[].text' | tr -d '"')
        else
          review+='\n- https://smartbear.atlassian.net/browse/'$i
+       fi
+
+       migration_note=$(echo $response | jq '.fields.customfield_17521.value' | tr -d '"')
+       if [ "$migration_note" != "null" ]; then
+          migrations+=$migration_note
        fi
    fi
 
@@ -143,8 +149,21 @@ for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-)([0-9]+)' | sort | un
          --header 'Content-Type: application/json' \
          --data "${payload_issue}"
     fi
-    
 done
+
+if [[ -z $fixes ]]; then
+  echo "test"
+    fixes="\nN/A"
+fi
+
+if [[ -z $features ]]; then
+    features="\nN/A"
+fi
+
+if [[ -z $migrations ]]; then
+    migrations="\nN/A"
+fi
+
 echo "Done."
 
 ####################
@@ -160,7 +179,7 @@ title: ${RELEASE_VERSION}
 
 ## Release date
 
-$(date +"%Y-%m-%d")
+$(date +"%d %B %Y")
 
 ## Features
 ${features}
@@ -197,11 +216,30 @@ A new PactFlow on-premises release ({$RELEASE_VERSION}) is now available ([see d
 ####################
 # Copy the content into the environment_variables.md file in docs.pactflow.io.
 ####################
+cp $PACTFLOW_APPLICATION_DIR/app_onprem/ENVIRONMENT_VARIABLES.md $DOCS_ROOT_DIT/website/docs/docs/on-premises/environment-variables.md
+
 
 ####################
 # GitHub integration
 ####################
+if [ -z ${GITHUB_TOKEN} ]; then 
+  echo "No Github Token provided, you will need to manually create push and create a Pull Request."
+  git status
+  exit 0
+fi
 
-####################
-# Close release ??
-####################
+git commit -m "chore: add release notes for "$RELEASE_VERSION \ 
+  ${DOCS_ROOT_DIT}/website/sidebars.js \
+  ${DOCS_ROOT_DIT}/website/notices/$(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION.md \
+  $release_note_file \
+  website/docs/docs/on-premises/environment-variables.md
+
+git push origin $BRANCH_NAME
+
+curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer {$GITHUB_TOKEN}"\
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/pactflow/docs.pactflow.io/pulls \
+  -d '{"title":"Release '"$RELEASE_VERSION"'","body":"Release notes for '"$RELEASE_VERSION"'","head":"'"{$BRANCH_NAME}"'","base":"master"}'
