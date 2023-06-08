@@ -152,7 +152,6 @@ for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-|CC-)([0-9]+)' | sort 
 done
 
 if [[ -z $fixes ]]; then
-  echo "test"
     fixes="\nN/A"
 fi
 
