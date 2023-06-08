@@ -32,6 +32,7 @@ JIRA_PROJECT_ID=17612
 JIRA_URL=https://smartbear.atlassian.net
 JIRA_USER=${JIRA_AUTH%%@*}
 BRANCH_NAME=release/$RELEASE_VERSION
+GITHUB_TOKEN=$(aws ssm get-parameter --name /prod/github/docs.pactflow.io/auth | jq -r .Parameter.Value)
 
 ####################
 # Validation
