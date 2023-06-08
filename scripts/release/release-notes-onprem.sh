@@ -25,7 +25,7 @@ done
 ####################
 # Configurtation
 ####################
-DOCS_ROOT_DIT=$(pwd)
+DOCS_ROOT_DIR=$(pwd)
 PACTFLOW_APPLICATION_DIR=$(pwd)/scripts/release/.pactflow-application
 ONPREM_PROD_IMAGE=quay.io/pactflow/enterprise:latest
 JIRA_PROJECT_ID=17612
@@ -79,7 +79,7 @@ echo "Done."
 if [ -n "$IS_RELEASE" ]; then  
   
   echo "Creating a branch for this release..."
-  cd $DOCS_ROOT_DIT
+  cd $DOCS_ROOT_DIR
   git checkout -b $BRANCH_NAME
   cd $PACTFLOW_APPLICATION_DIR
   echo "Done."
@@ -168,7 +168,7 @@ echo "Done."
 ####################
 # Write the release notes, output to screen
 ####################
-release_note_file=${DOCS_ROOT_DIT}/website/docs/docs/on-premises/releases/${RELEASE_VERSION}.md
+release_note_file=${DOCS_ROOT_DIR}/website/docs/docs/on-premises/releases/${RELEASE_VERSION}.md
 
 echo
 echo -e "
@@ -199,8 +199,8 @@ cat $release_note_file
 ####################
 # Update things for the site
 ####################
-sed "s/\/\/on-prem-release-placeholder/\/\/on-prem-release-placeholder\n            'docs\/on-premises\/releases\/$RELEASE_VERSION',/" ${DOCS_ROOT_DIT}/website/sidebars.js > ${DOCS_ROOT_DIT}/website/sidebars_temp
-mv ${DOCS_ROOT_DIT}/website/sidebars_temp ${DOCS_ROOT_DIT}/website/sidebars.js
+sed "s/\/\/on-prem-release-placeholder/\/\/on-prem-release-placeholder\n            'docs\/on-premises\/releases\/$RELEASE_VERSION',/" ${DOCS_ROOT_DIR}/website/sidebars.js > ${DOCS_ROOT_DIR}/website/sidebars_temp
+mv ${DOCS_ROOT_DIR}/website/sidebars_temp ${DOCS_ROOT_DIR}/website/sidebars.js
 
 echo -e "
 ---
@@ -210,18 +210,18 @@ tags: [on-premises, release]
 ---
 
 A new PactFlow on-premises release ({$RELEASE_VERSION}) is now available ([see details](/docs/on-premises/releases/{$RELEASE_VERSION})).
-" >> ${DOCS_ROOT_DIT}/website/notices/$(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION.md
+" >> ${DOCS_ROOT_DIR}/website/notices/$(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION.md
 
 ####################
 # Copy the content into the environment_variables.md file in docs.pactflow.io.
 ####################
-cp $PACTFLOW_APPLICATION_DIR/app_onprem/ENVIRONMENT_VARIABLES.md $DOCS_ROOT_DIT/website/docs/docs/on-premises/environment-variables.md
+cp $PACTFLOW_APPLICATION_DIR/app_onprem/ENVIRONMENT_VARIABLES.md $DOCS_ROOT_DIR/website/docs/docs/on-premises/environment-variables.md
 
 
 ####################
 # GitHub integration
 ####################
-cd ${DOCS_ROOT_DIT}
+cd ${DOCS_ROOT_DIR}
 
 if [ -z ${GITHUB_TOKEN} ]; then 
   echo "No Github Token provided, you will need to manually create push and create a Pull Request."
@@ -233,17 +233,12 @@ fi
 # Create branch that will merged and create version in Jira
 ####################
 if [ -n "$IS_RELEASE" ]; then
-  git add ${DOCS_ROOT_DIT}/website/notices/$(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION.md \
-    $release_note_file
-  
-  git commit -m "chore: add release notes for $RELEASE_VERSION" \ 
-    ${DOCS_ROOT_DIT}/website/sidebars.js \
-    ${DOCS_ROOT_DIT}/website/notices/$(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION.md \
+  git add ${DOCS_ROOT_DIR}/website/sidebars.js \
+    ${DOCS_ROOT_DIR}/website/notices/$(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION.md \
     $release_note_file \
     website/docs/docs/on-premises/environment-variables.md
-
+  git commit -m "chore: add release notes for $RELEASE_VERSION"
   git push origin $BRANCH_NAME
-
   curl -L \
     -X POST \
     -H "Accept: application/vnd.github+json" \
