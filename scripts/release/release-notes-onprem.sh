@@ -32,7 +32,7 @@ JIRA_PROJECT_ID=17612
 JIRA_URL=https://smartbear.atlassian.net
 JIRA_USER=${JIRA_AUTH%%@*}
 BRANCH_NAME=release/$RELEASE_VERSION
-GITHUB_TOKEN=$(aws ssm get-parameter --name /prod/github/docs.pactflow.io/auth | jq -r .Parameter.Value)
+
 
 ####################
 # Validation
@@ -46,7 +46,6 @@ if [ -z ${JIRA_AUTH} ]; then
   echo "JIRA_AUTH not set, please set it with by exporting JIRA_AUTH=email:token, you can create a token here: https://id.atlassian.com/manage-profile/security/api-tokens"
   exit 128
 fi
-
 
 ####################
 # Checkout Application
@@ -223,6 +222,10 @@ cp $PACTFLOW_APPLICATION_DIR/app_onprem/ENVIRONMENT_VARIABLES.md $DOCS_ROOT_DIR/
 # GitHub integration
 ####################
 cd ${DOCS_ROOT_DIR}
+
+if [ -z ${GITHUB_TOKEN} ]; then 
+  GITHUB_TOKEN=$(aws ssm get-parameter --name /prod/github/docs.pactflow.io/auth | jq -r .Parameter.Value)
+fi
 
 if [ -z ${GITHUB_TOKEN} ]; then 
   echo "No Github Token provided, you will need to manually create push and create a Pull Request."
