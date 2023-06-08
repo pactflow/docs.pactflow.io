@@ -33,7 +33,6 @@ JIRA_URL=https://smartbear.atlassian.net
 JIRA_USER=${JIRA_AUTH%%@*}
 BRANCH_NAME=release/$RELEASE_VERSION
 
-
 ####################
 # Validation
 ####################
@@ -233,6 +232,8 @@ if [ -z ${GITHUB_TOKEN} ]; then
   exit 0
 fi
 
+
+
 ####################
 # Create branch that will merged and create version in Jira
 ####################
@@ -246,7 +247,7 @@ if [ -n "$IS_RELEASE" ]; then
   curl -L \
     -X POST \
     -H "Accept: application/vnd.github+json" \
-    -H "Authorization: Bearer {$GITHUB_TOKEN}"\
+    -H "Authorization: Bearer $GITHUB_TOKEN"\
     -H "X-GitHub-Api-Version: 2022-11-28" \
     https://api.github.com/repos/pactflow/docs.pactflow.io/pulls \
     -d '{"title":"Release '"$RELEASE_VERSION"'","body":"Release notes for '"$RELEASE_VERSION"'","head":"'"{$BRANCH_NAME}"'","base":"master"}'
