@@ -250,5 +250,5 @@ if [ -n "$IS_RELEASE" ]; then
     -H "Authorization: Bearer $GITHUB_TOKEN"\
     -H "X-GitHub-Api-Version: 2022-11-28" \
     https://api.github.com/repos/pactflow/docs.pactflow.io/pulls \
-    -d '{"title":"Release '"$RELEASE_VERSION"'","body":"Release notes for '"$RELEASE_VERSION"'","head":"'"{$BRANCH_NAME}"'","base":"master"}'
+    -d '{"title":"Release '"$RELEASE_VERSION"'","body":"Release notes for '"$RELEASE_VERSION"'","head":"'"$BRANCH_NAME"'","base":"master"}'
 fi
