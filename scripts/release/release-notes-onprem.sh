@@ -190,6 +190,10 @@ ${migrations}
 
 " > $release_note_file
 
+if [[ -z $review ]]; then
+    review="\nN/A"
+fi
+
 echo -e "Please review the following tickets that have no release notes attached: 
 ${review}"
 
@@ -233,7 +237,6 @@ if [ -z ${GITHUB_TOKEN} ]; then
 fi
 
 
-
 ####################
 # Create branch that will merged and create version in Jira
 ####################
@@ -244,11 +247,11 @@ if [ -n "$IS_RELEASE" ]; then
     website/docs/docs/on-premises/environment-variables.md
   git commit -m "chore: add release notes for $RELEASE_VERSION"
   git push origin $BRANCH_NAME
-  curl -L \
-    -X POST \
-    -H "Accept: application/vnd.github+json" \
-    -H "Authorization: Bearer $GITHUB_TOKEN"\
-    -H "X-GitHub-Api-Version: 2022-11-28" \
-    https://api.github.com/repos/pactflow/docs.pactflow.io/pulls \
-    -d '{"title":"Release '"$RELEASE_VERSION"'","body":"Release notes for '"$RELEASE_VERSION"'","head":"'"$BRANCH_NAME"'","base":"master"}'
+  curl -s \
+    --request POST \
+    --header "Accept: application/vnd.github+json" \
+    --header "Authorization: Bearer $GITHUB_TOKEN"\
+    --header "X-GitHub-Api-Version: 2022-11-28" \
+    --url "https://api.github.com/repos/pactflow/docs.pactflow.io/pulls" \
+    --data '{"title":"Release '"$RELEASE_VERSION"'","body":"Release notes for '"$RELEASE_VERSION"'","head":"'"$BRANCH_NAME"'","base":"master"}'
 fi
