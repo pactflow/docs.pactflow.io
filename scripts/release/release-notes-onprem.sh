@@ -241,17 +241,20 @@ fi
 # Create branch that will merged and create version in Jira
 ####################
 if [ -n "$IS_RELEASE" ]; then
+  echo "Creating Pull Request..."
   git add ${DOCS_ROOT_DIR}/website/sidebars.js \
     ${DOCS_ROOT_DIR}/website/notices/$(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION.md \
     $release_note_file \
     website/docs/docs/on-premises/environment-variables.md
-  git commit -m "chore: add release notes for $RELEASE_VERSION"
+  git commit -m "chore: release notes for $RELEASE_VERSION"
   git push origin $BRANCH_NAME
   curl -s \
+    --output /dev/null \
     --request POST \
     --header "Accept: application/vnd.github+json" \
     --header "Authorization: Bearer $GITHUB_TOKEN"\
     --header "X-GitHub-Api-Version: 2022-11-28" \
     --url "https://api.github.com/repos/pactflow/docs.pactflow.io/pulls" \
     --data '{"title":"Release '"$RELEASE_VERSION"'","body":"Release notes for '"$RELEASE_VERSION"'","head":"'"$BRANCH_NAME"'","base":"master"}'
+    echo "Done."
 fi
