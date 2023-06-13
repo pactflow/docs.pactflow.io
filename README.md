@@ -43,3 +43,18 @@ make crawl
 
 Images demonstrating the PactFlow UI have been annotated using Figma. Styles and examples can be found [here](https://www.figma.com/file/h2mJNirJdlS9NZmPpxXlA6/PactFlow-Doc-image-annotations?node-id=0%3A1).
 Access for editing granted on request.
+
+## Troubleshooting
+
+### Error: error:0308010C:digital envelope routines::unsupported at String.replace (<anonymous>)
+
+This is due to a compatibility issue with the version of Webpack and Node 18+. 
+
+To address this, you can use an older version of Node, or simply allow the legacy OpenSSL provider:
+
+```
+export NODE_OPTIONS=--openssl-legacy-provider
+npm start
+```
+
+The real fix, of course, is to upgrade webpack.
