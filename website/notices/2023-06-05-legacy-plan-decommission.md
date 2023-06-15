@@ -65,6 +65,6 @@ For UI access, you should invite any users onto your account. Account administra
 
 All legacy plans will be migrated to a Team plan, with a limit of 5 Users. 
 
-### Question: What do I get with my new Team plan?
+### Question: What do I get with my new free Team plan?
 
-You will be upgraded to a Team 5 plan. This is a modified version of the [Team plans](https://pactflow.io/pricing/) available for purchase on our website, with the only difference being the number of User licenses is restricted to 5. If you'd like to upgrade to a larger plan as part of this process, please [contact us](https://support.smartbear.com/pactflow/message) about your migration and we can work with you to do so.
+You will be upgraded to a Team 5 plan *at no cost to you*. This is a modified version of the [Team plans](https://pactflow.io/pricing/) usually available for purchase on our website, with the only difference being the number of User licenses is restricted to 5. If you'd like to upgrade to a larger plan (to accommodate a larger number of users, or to gain access to the enterprise level features) as part of this process *at your own expense*, please [contact us](https://support.smartbear.com/pactflow/message) about your migration and we can work with you to do so.
