@@ -15,7 +15,7 @@ _NOTE: Editing of teams is restricted to users with the `team:manage:*` permissi
 
 **New Team** will allow you to create a new team and assign applications and environments to that team.
 
-**Delete** allows you to unlink all users, applications and environments from a team and remove it. Deleting the team will also disassociate any secrets and webhooks that were associated with the team. The secrets and webhooks that were disassociated will then be editable only by users with the `secret:manage:all` and `webhook:manage:all` permissions respectively (eg Administrators).
+**Delete** allows you to unlink all users, applications and environments from a team and remove it. Deleting the team will also disassociate any secrets and webhooks that were associated with the team. The secrets and webhooks that were disassociated will then be editable only by users with the `secret:manage:*` and `webhook:manage:*` permissions respectively (eg Administrators).
 
 **Edit** allows you to change the name and applications of an existing team, assign Team Administrators and assign environments.
 
