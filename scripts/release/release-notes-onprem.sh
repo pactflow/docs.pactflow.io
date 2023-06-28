@@ -225,7 +225,7 @@ A new PactFlow on-premises release ($RELEASE_VERSION) is now available ([see det
 
 echo -e "---
 title: Environment variables
-----
+---
 " > $DOCS_ROOT_DIR/website/docs/docs/on-premises/environment-variables.md
 
 # Remove any H1 headings
