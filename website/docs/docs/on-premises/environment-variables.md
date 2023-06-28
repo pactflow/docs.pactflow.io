@@ -2,6 +2,13 @@
 title: Environment variables
 ---
 
+<!-- 
+     This is a generated file. Do not edit it directly. 
+     Please update app_onprem/environment_variables.yml instead and then run
+     app_onprem/script/generate-configuration-docs.rb
+-->
+
+
 ## Logging
 
 <hr/>
@@ -618,4 +625,3 @@ head < /dev/random -c 16 | base64
 
 **Required:** if `PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED` is set to `true`<br/>
 **Example:** `JUVDdnRzLXZyWHA7UF93RAo=`<br/>
-
