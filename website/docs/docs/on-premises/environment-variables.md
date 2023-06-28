@@ -1,6 +1,16 @@
----
+----
 title: Environment variables
----
+----
+
+<!-- 
+     This is a generated file. Do not edit it directly. 
+     Please update app_onprem/environment_variables.yml instead and then run
+     app_onprem/script/generate-configuration-docs.rb
+-->
+
+
+
+<br/>
 
 ## Logging
 
@@ -10,7 +20,7 @@ title: Environment variables
 
 ### PACTFLOW_LOG_LEVEL
 
-The PactFlow application log level
+The Pactflow application log level
 
 **Required:** false<br/>
 **Default:** `INFO`<br/>
@@ -18,7 +28,7 @@ The PactFlow application log level
 
 ### PACTFLOW_LOG_FORMAT
 
-The PactFlow application log format
+The Pactflow application log format
 
 **Required:** false<br/>
 **Default:** `json`<br/>
@@ -261,7 +271,7 @@ The URL to which the authentication request should be sent. This endpoint is on 
 
 ### PACTFLOW_SAML_IDP_ENTITY_ID
 
-The ID by which this IDP is known to PactFlow
+The ID by which this IDP is known to Pactflow
 
 **Required:** if PACTFLOW_SAML_IDP_METADATA_URL is not set<br/>
 **More information:** https://github.com/omniauth/omniauth-saml#options<br/>
@@ -320,7 +330,7 @@ Used during SP-initiated SSO. Describes the format of the username required by t
 
 ### PACTFLOW_SAML_ALLOWED_CLOCK_DRIFT
 
-To allow for a small amount of clock drift between PactFlow and the Identity Provider, the allowed clock drift may be specified. Its value must be given in a number (and/or fraction) of seconds. The value is added to the current time at which the response is validated, before it is tested against the NotBefore assertion.
+To allow for a small amount of clock drift between Pactflow and the Identity Provider, the allowed clock drift may be specified. Its value must be given in a number (and/or fraction) of seconds. The value is added to the current time at which the response is validated, before it is tested against the NotBefore assertion.
 
 **Required:** false<br/>
 **Default:** `0`<br/>
@@ -374,7 +384,7 @@ env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 
 
 ### PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY
 
-Deprecated in favour of `PACTFLOW_MASTER_ENCRYPTION_KEY`. If you have a previous installation of PactFlow with `PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY` set, please rename it to `PACTFLOW_MASTER_ENCRYPTION_KEY`.
+Deprecated in favour of `PACTFLOW_MASTER_ENCRYPTION_KEY`. If you have a previous installation of Pactflow with `PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY` set, please rename it to `PACTFLOW_MASTER_ENCRYPTION_KEY`.
 
 **Required:** false<br/>
 
@@ -455,7 +465,7 @@ This is to assist in the migration from using tags to track deployments to using
 
 ### PACTFLOW_SHIELDS_IO_BASE_URL
 
-The URL of the free service that is used to generate the build badges. Note that the badge files are served via a redirect in the browser, so there is no request made from the PactFlow application to the shields server.
+The URL of the free service that is used to generate the build badges. Note that the badge files are served via a redirect in the browser, so there is no request made from the Pactflow application to the shields server.
 
 **Required:** false<br/>
 **Default:** `https://img.shields.io`<br/>
@@ -471,7 +481,7 @@ The URL of the free service that is used to generate the build badges. Note that
 
 ### PACTFLOW_BASE_URL
 
-The base url, including HTTP scheme and any application context path, at which the PactFlow application will be publicly
+The base url, including HTTP scheme and any application context path, at which the Pactflow application will be publicly
 accessible. It should not include a trailing slash. If there are multiple interfaces on which the application will be addressed,
 list all the base URLs separated by spaces.
 
@@ -481,7 +491,7 @@ list all the base URLs separated by spaces.
 
 ### PACTFLOW_HTTP_PORT
 
-The HTTP port on which the PactFlow application will be exposed on the Docker container. Must be greater than 1024.
+The HTTP port on which the Pactflow application will be exposed on the Docker container. Must be greater than 1024.
 
 **Required:** false<br/>
 **Default:** `9292`<br/>
@@ -593,7 +603,7 @@ The timezone in which to display dates for server side rendered pages.
 
 ### PACTFLOW_API_TOKEN_AUTH_ENABLED
 
-Whether or not to enable the inbuilt PactFlow API tokens used for bearer authentication. Used to disable API tokens if an external Identify Provider is configured for API authentication.
+Whether or not to enable the inbuilt Pactflow API tokens used for bearer authentication. Used to disable API tokens if an external Identify Provider is configured for API authentication.
 
 **Required:** false<br/>
 **Default:** `true`<br/>
@@ -618,4 +628,3 @@ head < /dev/random -c 16 | base64
 
 **Required:** if `PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED` is set to `true`<br/>
 **Example:** `JUVDdnRzLXZyWHA7UF93RAo=`<br/>
-
