@@ -7,6 +7,12 @@
 # 1. Find relevant tickets based on commit messages
 # 2. Format the release notes 
 # 3. Create PR with release notes
+#
+# To do an actual release
+# JIRA_TOKEN=... GITHUB_TOKEN=... release-notes-onprem.sh -v ... -r true
+#
+# TODO document what happens if you run the script twice.
+#
 
 
 while [[ "$#" -gt 0 ]]
@@ -170,8 +176,7 @@ echo "Done."
 release_note_file=${DOCS_ROOT_DIR}/website/docs/docs/on-premises/releases/${RELEASE_VERSION}.md
 
 echo
-echo -e "
----
+echo -e "---
 title: ${RELEASE_VERSION}
 ---
 
@@ -205,8 +210,7 @@ cat $release_note_file
 sed "s/\/\/on-prem-release-placeholder/\/\/on-prem-release-placeholder\n            'docs\/on-premises\/releases\/$RELEASE_VERSION',/" ${DOCS_ROOT_DIR}/website/sidebars.js > ${DOCS_ROOT_DIR}/website/sidebars_temp
 mv ${DOCS_ROOT_DIR}/website/sidebars_temp ${DOCS_ROOT_DIR}/website/sidebars.js
 
-echo -e "
----
+echo -e "---
 slug: $(date +"%Y-%m-%d")-on-premises-{$RELEASE_VERSION}
 title: On-premises release v{$RELEASE_VERSION}
 tags: [on-premises, release]
@@ -218,7 +222,14 @@ A new PactFlow on-premises release ({$RELEASE_VERSION}) is now available ([see d
 ####################
 # Copy the content into the environment_variables.md file in docs.pactflow.io.
 ####################
-cp $PACTFLOW_APPLICATION_DIR/app_onprem/ENVIRONMENT_VARIABLES.md $DOCS_ROOT_DIR/website/docs/docs/on-premises/environment-variables.md
+
+echo -e "----
+title: Environment variables
+----
+" > $DOCS_ROOT_DIR/website/docs/docs/on-premises/environment-variables.md
+
+# Remove any H1 headings
+echo "$(cat $PACTFLOW_APPLICATION_DIR/app_onprem/ENVIRONMENT_VARIABLES.md | grep -v "^# [^\s]")" >> $DOCS_ROOT_DIR/website/docs/docs/on-premises/environment-variables.md
 
 
 ####################
