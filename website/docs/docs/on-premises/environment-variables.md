@@ -1,6 +1,6 @@
-----
+---
 title: Environment variables
-----
+---
 
 <!-- 
      This is a generated file. Do not edit it directly. 
