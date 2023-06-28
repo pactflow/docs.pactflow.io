@@ -8,15 +8,17 @@ sidebar_label: Pact
 | Version | Supported? |
 | ------- | ---------- |
 | [1](https://github.com/pact-foundation/pact-specification/tree/version-1)       | ✅         |
-| [1.1](https://github.com/pact-foundation/pact-specification/tree/version-1.1)     | ✅         |
+| [1.1](https://github.com/pact-foundation/pact-specification/tree/version-1.1)   | ✅         |
 | [2](https://github.com/pact-foundation/pact-specification/tree/version-2)       | ✅         |
 | [3](https://github.com/pact-foundation/pact-specification/tree/version-3)       | ✅         |
-| [4](https://github.com/pact-foundation/pact-specification/tree/version-4)      | ✅ *       |
+| [4](https://github.com/pact-foundation/pact-specification/tree/version-4)       | ✅ *       |
 
 \* When using [Pact specification V4](https://github.com/pact-foundation/pact-specification/tree/version-4) note that only interactions with type "Synchronous/HTTP" are validated. Bi-directional Contract validation will ignore other interaction types such as "Asynchronous/Messages".
 
-*NOTE: On-Premises will support Pact Specification Versions 3 & 4 from the next release: 1.19.0*
-
+:::note On-Premises support
+* Pact Specification Version 3 from release 1.19.0
+* Pact Specification Version 4 from release 1.25.0
+:::
 ## Compatibility with Provider Contracts
 
 Pact contracts may be used in the following situations:
