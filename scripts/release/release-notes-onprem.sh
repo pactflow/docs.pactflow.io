@@ -223,7 +223,7 @@ A new PactFlow on-premises release ($RELEASE_VERSION) is now available ([see det
 # Copy the content into the environment_variables.md file in docs.pactflow.io.
 ####################
 
-echo -e "----
+echo -e "---
 title: Environment variables
 ----
 " > $DOCS_ROOT_DIR/website/docs/docs/on-premises/environment-variables.md
