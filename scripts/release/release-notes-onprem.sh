@@ -211,12 +211,12 @@ sed "s/\/\/on-prem-release-placeholder/\/\/on-prem-release-placeholder\n        
 mv ${DOCS_ROOT_DIR}/website/sidebars_temp ${DOCS_ROOT_DIR}/website/sidebars.js
 
 echo -e "---
-slug: $(date +"%Y-%m-%d")-on-premises-{$RELEASE_VERSION}
-title: On-premises release v{$RELEASE_VERSION}
+slug: $(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION
+title: On-premises release v$RELEASE_VERSION
 tags: [on-premises, release]
 ---
 
-A new PactFlow on-premises release ({$RELEASE_VERSION}) is now available ([see details](/docs/on-premises/releases/{$RELEASE_VERSION})).
+A new PactFlow on-premises release ($RELEASE_VERSION) is now available ([see details](/docs/on-premises/releases/$RELEASE_VERSION)).
 " >> ${DOCS_ROOT_DIR}/website/notices/$(date +"%Y-%m-%d")-on-premises-$RELEASE_VERSION.md
 
 ####################
