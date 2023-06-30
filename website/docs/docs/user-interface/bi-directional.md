@@ -97,3 +97,9 @@ When provider and consumer contracts are incompatible, incompatibility messages 
 | Response header contains unknown information | Pact response's header contains unknown content compared with provider contract |
 | Response body is incompatible with the response body schema in the spec file: must NOT have unevaluated properties | Pact response body contains properties that don't match one of the schemas defined in an `allOf` declaration |
 | Request body is incompatible with the request body schema in the spec file: must NOT have unevaluated properties | Pact request body contains properties that don't match one of the schemas defined in an `allOf` declaration |
+
+TODO:
+
+1. Error: discriminator: oneOf subschemas (or referenced schemas) must have "properties/pet_type"
+
+Need to set the discriminator `const`

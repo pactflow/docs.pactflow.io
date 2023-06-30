@@ -3,11 +3,13 @@ title: Keyword Support
 sidebar_label: Keyword Support
 ---
 
-## Support for OpenAPI Keywords
+OpenAPI contracts may contain the logical keywords `anyOf`, `allOf`, and `oneOf` in schema definitions, which are used to support rich domain models, validate a value against multiple criteria and generally encourage reuse. This section explains in detail how we approach handling these keywords in PactFlow and what you can do.
 
-OpenAPI contracts may contain the logical keywords `anyOf`, `allOf`, and `oneOf` in schema definitions, which are used to support rich domain models, or validate a value against multiple criteria. This section explains in a little more detail how we approach handling these keywords in PactFlow.
+## Supported OpenAPI Keywords
 
-From JSON Schema [website](https://json-schema.org/understanding-json-schema/reference/combining.html), these can be summarised as:
+PactFlow supports all three of the allowed OpenAPI Schema keywords.
+
+From the JSON Schema [website](https://json-schema.org/understanding-json-schema/reference/combining.html), the validation these keywords provide can be summarised as:
 
 * `allOf`: (AND) Must be valid against all of the subschemas
 * `anyOf`: (OR) Must be valid against any of the subschemas
@@ -17,11 +19,98 @@ From JSON Schema [website](https://json-schema.org/understanding-json-schema/ref
 
 This [project](https://github.com/pactflow/example-bdct-logical-keywords) contains worked examples for keyword support, as well as various other OpenAPI use cases.
 
-## The `allOf` keyword
+## General Advice
+
+When using `oneOf`, you must consider use of the [`discriminator`](https://spec.openapis.org/oas/v3.1.0#discriminator-object).
+
+One of the challenges with the use of `oneOf` when testing a given JSON data structure against the OpenAPI, is that it should _only_ match a single schema. However, a consumer may (and in many cases, is expected to) specify only a subset of the data from a provider in their tests - the data _they_ need for their use cases. This increases the chances it will match multiple schemas and cause a failure.
+
+## The `discriminator` keyword
+
+We can address ambiguity in `oneOf` schemas by using the `discriminator` keyword. The `discriminator` keyword clarifies the potential matching types, by using the value of a single property to discover the correct schema to match.
+
+In the example below, we support a [polymorphic](https://spec.openapis.org/oas/v3.1.0#composition-and-inheritance-polymorphism) response for a resource via two subschemas - a `Dog` or a `Cat`.
+
+```yml
+responses:
+  "200":
+    description: successful operation
+    content:
+      "application/json":
+        schema:
+          oneOf:
+            - $ref: '#/components/schemas/Cat'
+            - $ref: '#/components/schemas/Dog'
+          discriminator:
+            propertyName: petType # <- property used to discriminate between response types
+          required:
+            - petType # <- it must be required
+```
+
+In the definition of the subschemas, you can then specify the discriminator value either as an `enum` or a `const`, as in the example below:
+
+```yml
+components:
+  schemas:
+    Dog:
+      type: object
+      properties:
+        petType:
+          const: Dog # <- discriminator value
+        name:
+          type: string
+        owner:
+          type: string
+        bark:
+          type: string
+    Cat:
+      type: object
+      properties:
+        petType:
+          const: Cat # <- discriminator value 
+        name:
+          type: string
+        meow:
+          type: string
+```
+
+This strategy can be used with `allOf` in the case of inheritence also. This would allow the following JSON payload to match one of the schemas (the `Cat` schema):
+
+```json
+{
+  "petType": "Cat",
+  "name": "furry"
+}
+```
+
+Without the use of `discriminator`, this would match both schemas and fail the validation.
+
+### How to use `discriminator`
+
+There are following requirements and limitations of using `discriminator` keyword:
+
+* `mapping` in discriminator object is not supported.
+* "implicit" discriminator values are not supported.
+* `oneOf` keyword must be present in the same schema.
+* `discriminator` property should be `required` either on the top level, or in all `oneOf` subschemas.
+* each `oneOf` subschema must have the `properties` keyword with `discriminator` property. The subschemas should be either inlined or * included as direct references (only `$ref` keyword without any extra keywords is allowed).
+* schema for `discriminator` property in each `oneOf` subschema must be `const` or `enum`, with unique values across all subschemas.
+
+Not meeting any of these requirements would fail schema compilation.
+
+## Keyword support
+
+The following section goes into additional detail on how we support the keywords, the inherent complexity in them and the tradeoffs we have taken.
+
+### `allOf`
 
 The primary use case for `allOf` is the ability to reuse types via [composition, inheritence and polymorphism](https://spec.openapis.org/OpenAPI/v3.1.0#schemaComposition).
 
 The following [example](https://spec.openapis.org/OpenAPI/v3.1.0#models-with-polymorphism-support) is taken from the OpenAPI specification, in order to demonstrate the common use case for composition, inheritance and polymorphism. It specifies `Cat` and `Dog` types, which extends a general `Pet` base type. This schema could be used in a response payload, communicating the possible types an endpoint may return.
+
+:::note
+Please take note: this schema won't pass the stringent rules defined for `discriminator` above
+:::
 
 ```yaml
 components:
@@ -84,7 +173,7 @@ The following JSON body would pass this validation:
 
 These are able to work because the defined schemas are "open" by default. What does "open" mean?
 
-### Open Schemas and `additionalProperties`
+#### Open Schemas and `additionalProperties`
 
 From https://json-schema.org/understanding-json-schema/reference/object.html#additional-properties:
 
@@ -96,7 +185,7 @@ This last statement is what we should pay attention to - by default, additional 
 
 Let's explore this a little more with a simpler example to better illustrate the point.
 
-#### Example
+##### Example
 
 Given this schema:
 
@@ -176,7 +265,7 @@ the new minimum JSON is narrowed to
 
 But you can still add other arbitrary properties - and this is problematic for testing tools like PactFlow.
 
-### PactFlow does not allow "open" schemas
+#### PactFlow does not allow "open" schemas
 
 In most cases on the Internet you won’t see “closed” schemas because OpenAPIs primary use case is documentation and SDK generation where this doesn't really matter. Closing the schema also prevents these important scenarios.
 
@@ -201,9 +290,9 @@ As noted, this has the unfortunate side effect of breaking the original example 
 To work around this issue, we use a relatively new JSON schema feature called [`unevaluatedProperties`](https://json-schema.org/understanding-json-schema/reference/object.html#unevaluated-properties) on all `allOf` schemas. This has the effect of extending the closed schemas, allowing us to treat the `allOf` as if it were a single schema and :tada:.
 
 
-## `oneOf` and `anyOf`
+### `oneOf` and `anyOf`
 
-These keywords enjoy support out of the box, without additional caveats as per above.
+These keywords enjoy support out of the box, with the minor consideration for the use of `discriminators` described above.
 
 ## Transformations PactFlow applies to OpenAPI documents
 
@@ -214,7 +303,7 @@ The transformations it applies, are as follows:
 1. Sets `additionalProperties` in your OpenAPI to `false` on any response body, to ensure a consumer won't get false positives if they add a new field that isn't actually part of the spec.
 1. Removes `required` properties from provider responses, as otherwise all consumers would be required to consume the entire provider response!
 1. Sets [`unevaluatedProperties: true`](https://json-schema.org/understanding-json-schema/reference/object.html#unevaluated-properties) on `allOf` schemas. This has the effect of extending the (guaranteed to be) closed schemas after (1), allowing us to match against a single composite schema
-1. Ensures any polymorphic types both have a `discriminator` and have an `enum` set on it to restrict the possible sub-types
+1. Ensures any polymorphic types both have an appropriate `discriminator` setup (as described above)
 
 The consequences of the above transformations are:
 
