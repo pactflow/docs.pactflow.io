@@ -80,7 +80,7 @@ In some cases, results may not yet have been generated and entries in the above 
       "warnings": []
     },
     "verificationDate": "2021-06-01T10:42:30.980+00:00",
-    "verifier": "atlassian-swagger-mock-validator",
+    "verifier": "pactflow-swagger-mock-validator",
     "verifierVersion": "10.0.0"
   },
   "providerContractVerificationResults": {
@@ -161,7 +161,7 @@ In some cases, results may not yet have been generated and entries in the above 
       "warnings": []
     },
     "verificationDate": "2021-06-02T01:27:54.815+00:00",
-    "verifier": "atlassian-swagger-mock-validator",
+    "verifier": "pactflow-swagger-mock-validator",
     "verifierVersion": "10.0.0"
   },
   "providerContractVerificationResults": {

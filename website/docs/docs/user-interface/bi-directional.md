@@ -95,3 +95,5 @@ When provider and consumer contracts are incompatible, incompatibility messages 
 | Response body contains unknown information | Pact response's body contains unknown content compared with provider contract|
 | Response request is incompatible | Pact response's request content is incompatible with provider contract|
 | Response header contains unknown information | Pact response's header contains unknown content compared with provider contract |
+| Response body is incompatible with the response body schema in the spec file: must NOT have unevaluated properties | Pact response body contains properties that don't match one of the schemas defined in an `allOf` declaration |
+| Request body is incompatible with the request body schema in the spec file: must NOT have unevaluated properties | Pact request body contains properties that don't match one of the schemas defined in an `allOf` declaration |
