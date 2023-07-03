@@ -2,13 +2,11 @@
 title: Bi-Directional Contract Testing
 ---
 
-A Bi-Directional Contract Testing is a test that compares your provider contract (eg. an OpenAPI/Swagger document) and your consumer contract (pact).
-
-This section contains information about the Bi-Directional Contract Testing UI on PactFlow.
+This section describes the bi-directional contract testing screens in PactFlow.
 
 ## Overview tab
 
-Bi-Directional Contract Testing results are listed one the overview tab.
+When you open the overview page, if the selected integration uses the bi-directional contract testing feature, a "view contracts" button will appear that takes you to the detailed view.
 
 &nbsp;
 
@@ -18,28 +16,23 @@ Bi-Directional Contract Testing results are listed one the overview tab.
 
 <div class="status-table">
 
-| Status | Description |
-|-------------|-------------|
-| ![success](/ui/success.png) | The consumer contract is compatible with provider's contract.|
-| ![failed](/ui/failed.png) | The consumer contract is incompatible with provider's contract, or provider self verification is unsuccessful, or a classic pact test is failed along with a bi-directional contract test|
-| ![unverified](/ui/unverified.png) | No schema comparison has been found for the consumer contract. |
+| Status | Description | Action Required |
+|-------------|-------------|-|
+| ![success](/ui/success.png) | The consumer contract is compatible with provider's contract.| N/A |
+| ![failed](/ui/failed.png) | The consumer contract is incompatible with provider's contract, the provider self-verification is unsuccessful, or a classic pact test has failed. | Review the [detail page](#detail-page) to understand the cause of the failure. |
+| ![unverified](/ui/unverified.png) | No schema comparison has been found for the consumer contract. | Either a consumer contract has yet to be published, or PactFlow has not verified yet. Wait a few minutes and try again (PactFlow generates results in the background), or run a [`Can I Deploy`](/docs/user-interface/can-i-deploy) query for the application in question to force PactFlow to generate a result. |
 
 </div>
 
-
-:::info we are working hard to improve this view even further.
+:::info scope of this screen
 Currently this page supports showing one verification per consumer version, whichever provider version was most recently published will be the verification displayed.
 
-Each verification is still generated behind the scenes though, and will work as expected when using 'can-i-deploy' in your build pipeline or via CLI.
-
-We are still working to improve aspects of the Bi-Directional contract UI, including the 'Matrix' view, which will offer a more complete display of each verification that is available.
-
-You can check our [roadmap](https://github.com/pactflow/roadmap/projects/1) for progress, or to vote for new items
+Each verification is still generated behind the scenes though, and will work as expected when using `can-i-deploy` in your build pipeline or via CLI.
 :::
 
-## Bi-Directional Contract Testing Detail Page
+## Detail Page
 
-Bi-Directional Contract Testing detail page holds detailed schema comparison results between a provider contract versus a consumer contract (pact) along with metadata, participant information and provider self-verification results.
+The detail page displays a comprehensive breakdown of the comparison results between a provider contract and its consumer contract (pact), along with metadata, pacticipant information and the provider self-verification results.
 
 &nbsp;
 
@@ -49,57 +42,42 @@ Bi-Directional Contract Testing detail page holds detailed schema comparison res
 
 ### Contract Comparison Tab
 
-An overview of the Bi-Directional Contract Testing.
+This tab shows any errors and warnings, grouped by the affected resource in the OpenAPI document. The grouping is in the form `{verb} {path}` e.g. `get /products/{id}`. This is a helpful view if you are more familiar with the OpenAPI Document.
+
+There may be more than one interaction in the consumer contract that is incompatible with a given route.
+
+When provider and consumer contracts are incompatible, the warnings, error messages and any mismatches (for Pact verifications) are listed here. You can also find incompatibility messages under interaction items at [Consumer Contract Tab](#consumer-contract-tab), grouped by the interactions defined in the consumer contract, which is a more helpful view for the consumer teams diagnosing problems.
+
+![Bi-directional Contract Test Error](/ui/bdct-cross-comparison-error.png)
+
+For interpreting the errors and warnings displayed on these screens, refer to the [compatibility checks](/docs/bi-directional-contract-testing/compatibility-checks) guide.
 
 ### Consumer Contract Tab
 
-Show verification result of the consumer contract by the provider contract.
+Displays the verification result of comparing the consumer contract against the provider contract, from the perspective of the consumer contract.
 
 Clicking on interaction item toggles interaction detail in relation of the current Bi-Directional Contract Testing.
 
-Note: When a classic pact test is performed along with Bi-Directional Contract Testing, the classic pact test result will be displayed under this tab.
+:::note
+When a classic pact test is performed along with Bi-Directional Contract Testing, the classic pact test result will also be displayed under this tab.
+:::
+
+![Bi-directional Contract Test Error](/ui/bdct-cross-comparison-error-consumer-tab.png)
+
+For interpreting the Bi-Directional Contract Testing related errors and warnings displayed on these screens, refer to the [compatibility checks](/docs/bi-directional-contract-testing/compatibility-checks) guide.
 
 ### Provider Contract Tab
 
-Show provider contract detail and provider self verification result. Currently, only OpenAPI/Swagger is supported. 
-### Matrix View Tab
+Displays the verification result of comparing the consumer contract against the provider contract, from the perspective of the provider contract.
 
-Currently the matrix page will only show consumer generated contracts.
+![Bi-directional Contract Test Error](/ui/bdct-cross-comparison-error-provider-tab.png)
 
-Each verification is still generated behind the scenes though, and will work as expected when using 'can-i-deploy' in your build pipeline or via CLI.
 
-We are still working to improve aspects of the Bi-Directional contract UI, including this 'Matrix' view, which will offer a more complete display of each verification that is available.
 
-You can check our [roadmap](https://github.com/pactflow/roadmap/projects/1) for progress, or to vote for new items
 
-### Matrix View Tab
+## Matrix View Tab
 
-When a pact is published, a comparison will be generated asychronously with the latest provider contract from each branch, and for the provider contract of each deployed/released provider version. When a provider contract is published, a comparsion will be generated asychronously with the latest pact for each branch, and for each deployed/released consumer version. These results will be used to populate the data for the matrix page.
+When a pact is published, a comparison will be generated asychronously with the latest provider contract from each branch, and for the provider contract of each deployed/released provider version. These results will be used to populate the data for the matrix page.
 
 Should a [`can-i-deploy`](https://docs.pact.io/pact_broker/can_i_deploy) query be made for a combination of application versions for which a comparsion has not been generated, the comparsion will be performed synchronously, and the results returned in the response.
 
-## Contract Incompatibility Messages
-
-When provider and consumer contracts are incompatible, incompatibility messages and mismatches are listed at [Contract Comparison Tab](#contract-comparison-tab). You can also find incompatibility messages under interaction items at [Consumer Contract Tab](#consumer-contract-tab)
-
-| Error Messsage | Description |
-| ---------- | ----------- |
-| Request accept header is incompatible | Pact request's accept header content is incompatible with provider contract |
-| Request misses authorization header | Pact request's authorization header is missing |
-| Request body is incompatible | Pact request's body content is incompatible with provider contract |
-| Request content type header is incompatible | Pact request's content type header is incompatible with provider contract |
-| Request header is incompatible | Pact request's header content is incompatible with provider contract|
-| Request contains unknown path or method | Pact contains unknown request's path or method compared with provider contract |
-| Request query is incompatible | Pact request query content is incompatible with provider contract |
-| Response body is incompatible | Pact response's body content is incompatible with provider contract |
-| Response body contains unknown information | Pact response's body contains unknown content compared with provider contract|
-| Response request is incompatible | Pact response's request content is incompatible with provider contract|
-| Response header contains unknown information | Pact response's header contains unknown content compared with provider contract |
-| Response body is incompatible with the response body schema in the spec file: must NOT have unevaluated properties | Pact response body contains properties that don't match one of the schemas defined in an `allOf` declaration |
-| Request body is incompatible with the request body schema in the spec file: must NOT have unevaluated properties | Pact request body contains properties that don't match one of the schemas defined in an `allOf` declaration |
-
-TODO:
-
-1. Error: discriminator: oneOf subschemas (or referenced schemas) must have "properties/pet_type"
-
-Need to set the discriminator `const`

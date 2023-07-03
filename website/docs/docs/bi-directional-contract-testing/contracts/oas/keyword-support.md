@@ -109,7 +109,7 @@ The primary use case for `allOf` is the ability to reuse types via [composition,
 The following [example](https://spec.openapis.org/OpenAPI/v3.1.0#models-with-polymorphism-support) is taken from the OpenAPI specification, in order to demonstrate the common use case for composition, inheritance and polymorphism. It specifies `Cat` and `Dog` types, which extends a general `Pet` base type. This schema could be used in a response payload, communicating the possible types an endpoint may return.
 
 :::note
-Please take note: this schema won't pass the stringent rules defined for `discriminator` above
+Please take note: this schema won't pass the stringent rules defined for `discriminator` above, as it relies on an _implicit_ discriminator, which PactFlow does not support.
 :::
 
 ```yaml

@@ -3,7 +3,7 @@ title: Compatibility Checks (breaking change detection)
 sidebar_label: Compatibility Checks
 ---
 
-When BDC contracts are published to PactFlow, the consumer contract (a pact file) will be verified against the Open API Specification (OAS). PactFlow will ensure that the consumer contract is a subset of what is in the OAS i.e. it will check that all  interactions in the Pact file are valid for that OAS.
+When contracts are published to PactFlow, the consumer contract (a pact file) will be verified against the Open API Specification (OAS). PactFlow ensures the consumer contract is a subset of what is in the OAS In other words, check that all  interactions in the Pact file are valid for that OAS.
 
 :::note
 
@@ -13,21 +13,30 @@ calls may have breaking changes.
 
 :::
 
-The [detail screen](/docs/user-interface/bi-directional) for the BDC interaction has different tabs that display the contracts involved and the status of the verification. The interaction could be in an invalid (or failed) state due to the following three conditions:
+A tabbed [detail screen](/docs/user-interface/bi-directional) displays the contracts involved and the verification status for the interaction.
 
-1. The provider self-verification test results indicate that they have failed. This means that the provider build ran some tests against the OAS and the result was a failure.
-2. The consumer Pact verification results have failed. This means the consumer Pact tests failed, and the consumer is not compatible with the published Pact file.
+There are three conditions that could result in an invalid (or failed) integration:
+
+1. The provider self-verification test results indicate failure. This means that the provider build ran some tests against the OAS and the result was a failure.
+2. The consumer Pact verification results failed. This means the Pact consumer tests failed, and the consumer is not compatible with the published Pact file.
 3. The consumer Pact file is not compatible with the OAS.
 
 ## Compatibility checks
 
-For the specific validations and checks performed, see the section on OAS [Features and Testing](/docs/bi-directional-contract-testing/contracts/oas/features).
+For the specific validations and checks performed, refer to OAS [features and testing](/docs/bi-directional-contract-testing/contracts/oas/features).
 
 ## Interpreting verification result failures
 
 Verification results are pre-generated automatically when a consumer contract is published against a number of common provider versions (such as deployed versions). They are also generated dynamically when `can-i-deploy` is invoked for a given set of application versions and target environments.
 
-When these checks are complete, they are visible from the [detail screen](/docs/user-interface/bi-directional) in the PactFlow UI, the API and in the output of `can-i-deploy`.
+Compatibility are visible from the user interface, in the API and in the output of `can-i-deploy`.
+### User Interface 
+
+Compatibility results are listed on the [detail view page](/docs/user-interface/bi-directional#detail-page), grouped by the relevant API resource in the OpenAPI document, and also on the [consumer contract tab](/docs/user-interface/bi-directional#consumer-contract-tab), grouped by the interactions defined in the consumer contract.
+
+![Bi-directional Contract Test Error](/ui/bdct-cross-comparison-error.png)
+
+### Can I Deploy
 
 When `can-i-deploy` is called, you will get a table of results that shows which applications are compatible and the verification URL which explains the results.
 
@@ -52,7 +61,8 @@ In some cases, results may not yet have been generated and entries in the above 
 
 :::
 
-### Response Object
+### API Resources
+#### Response Object
 
 - `summary`
 
@@ -66,7 +76,7 @@ In some cases, results may not yet have been generated and entries in the above 
 
   This contains the results of the provider verification, including the tool used to verify it, whether the test passed or failed and the base64 encoded OAS contract.
 
-### Successful result
+#### Successful result
 
 ```
 {
@@ -98,7 +108,7 @@ In some cases, results may not yet have been generated and entries in the above 
 }
 ```
 
-### Failure result
+#### Failure result
 
 ```
 {
@@ -188,3 +198,108 @@ In the case of a failure, the following elements of the `error` are most helpful
 
   Contains details of the Provider Contract (spec) that are problematic, including the path to the component of the resource in the OpenAPI specification the mock is incompatible with.
 
+
+### Contract Compatibility Errors
+
+All errors and warnings are written from the perspective of the consumer, referencing a "spec file" (the OpenAPI Document). 
+
+For example, if the consumer is attempting to call an unknown endpoint `/products/10`, the error `code` will be:
+```
+request.path-or-method.unknown`
+```
+
+and the corresponding `message`:
+
+```
+Path or method not defined in spec file: GET /products/10
+```
+
+All errors contain 3 major components to aid with debugging:
+
+| Component | Description |
+| ----------|-------------|
+| [Code](#error-codes) | The category of error or warning discovered (see [table](#error-codes)). Warnings do not fail the compatibility check, but indicate a potential misunderstanding. Warnings are displayed alongside errors in the user interface and in the API resources.  |
+| [Message](#error-messages) | A description of the violation, usually in the form of a JSON Schema validation error (see [table](#error-messages))  |
+| [Interaction Path](#error-path) | A JSON-path like syntax that can help you reference the specific property in the interaction, within the consumer contract that is incompatible with the provider contract, including the errant value to review |
+
+#### Error Codes
+
+A `code` describes the category of the problem, such as an incorrect header or an unexpected property. 
+
+The error codes, descriptions and general advice to resolve them are described in detail, in this table. Note that `spec` is the terminology used to refer to the provider contract/OpenAPI Document, and `interaction` is used to refer to the problematic interaction in the pact file.
+
+| Error Code               | Type | Description | Fix |
+| ---------------------------- | ----------- | --- |--|
+| `request.accept.incompatible`       | Error   | The `Accept` header in the interaction does not match any of the mime-types in the OpenAPI document | Check your consumer test to ensure the expected mime type matches an acceptable mime type in the provider contract |
+| `request.accept.unknown`            | Warning | There is an `Accept` header in your interaction, but the OpenAPI Document does not return any content. | This is a redundant header which should be removed. If there is an expected body, this is likely to be an error. |
+| `request.authorization.missing`     | Error   | The interaction is missing an Authorization query or header, but is required by the spec file. | Update the pact test to ensure it has appropriate authorization scheme. |
+| `request.body.incompatible`         | Error   | The request body in the interaction is incompatible with the request body schema in the spec. | Review the JSON schema validation message. |
+| `request.body.unknown`              | Warning | No matching schema could be found for the request body | Your API Provider does not expect a request body, or the request body does not match one of the allowed schemas (e.g. in a `oneOf` clause. Check if a request body is required) |
+| `request.content-type.incompatible` | Error   | Request Content-Type header is incompatible with the mime-types the spec accepts to consume | Confirm that your pact test is sending the correct content type |
+| `request.content-type.missing`      | Warning | Request content type header is not defined but spec specifies mime-types to consume | It's possible your provider will send a mime type your consumer doesn't expect if it produces more than one mime type. You should explicitly set the `Accept` header in your pact test. |
+| `request.content-type.unknown`      | Warning | Request content-type header is defined but the spec does not specify any mime-types to consume | The request body is redundant. Check if the spec should be accepting one, or remove it from your Pact test |
+| `request.header.incompatible`       | Error   | The request header in the interaction is incompatible with the spec | Review the JSON Schema validation message |
+| `request.header.unknown`            | Warning | Request header is not defined in the spec file | Remove the redundant header or ensure it is defined in the spec |
+| `request.path-or-method.unknown`    | Error   | The Path or method used in the interaction is not defined in spec file | Check the correct resource is being used |
+| `request.query.incompatible`        | Error   | The request query in the interaction is incompatible with the spec | Review the JSON Schema validation message |
+| `request.query.unknown`             | Warning | The query parameter in the interaction is not defined in the spec file | Review if the query parameter is valid. |
+| `response.body.incompatible`        | Error   | The response body in the interaction is incompatible with the spec | Review the JSON Schema validation message |
+| `response.body.unknown`             | Warning | No matching schema was found for response body | Your API Provider does not return a response body, or the response body does not match one of the allowed schemas (e.g. in a `oneOf` clause. Check if a response body is required) |
+| `response.content-type.incompatible` | Error  | Response `Content-Type` header is incompatible with the mime-types the spec defines to produce | Confirm that your pact test is consuming the correct content type |
+| `response.content-type.unknown`      | Warning | Response content-type header is defined but the spec does not specify any mime-types to produce | The response body is redundant. Check if the spec should be returning one, or remove it from your Pact test |
+| `response.header.incompatible`    | Error     | The response header in the interaction is incompatible with the spec | Review the JSON Schema validation message |
+| `response.header.unknown`         | Warning   | Response header is not defined in the spec file | Remove the redundant header or ensure it is defined in the spec |
+| `response.status.default`         | Warning   | The interaction is using a response status code that is a default response in spec file | Avoid the use of default responses as they increase the ambiguity of possible valid response types |
+| `response.status.unknown`         | Error     | The expected response status code is not defined in the spec | Check the spec to see what valid status codes are returned. |
+
+#### Error Messages
+
+There are broadly three categories of errors:
+
+* Unknown - values that aren't defined in the spec, but referenced in the interaction.
+* Missing - values that are required in the spec, but are missing in the interaction.
+* Incompatible - values that are both defined in the spec and referenced in the interaction, but are incompatible. 
+
+For the ones deemed "incompatible", they will usually be accompanied by a detailed error message explaining the mismatch, which will be JSON Schema errors.
+
+#### Error Path
+
+Error paths use a JSONPath-like syntax with an associated value, to help you navigate from the error to the specific problematic component within the Pact interaction. The syntax is straightforward, here are a few examples:
+
+* `[root].interactions[0].response.body = {"id":"09","type":"CREDIT_CARD","name":"Gem Visa","price":99.99}` - the response body (with value `{"id":"09","type":"CREDIT_CARD","name":"Gem Visa","price":99.99}`) expected in the first pact interaction is incompatible
+ - the `Access-Control-Allow-Origin` header (with a value of `"*"`) in the first pact interaction
+* `[root].interactions[0].response.headers.access-control-allow-origin = "*"` - the `Access-Control-Allow-Origin` header (with a value of `"*"`) in the first pact interaction
+* `[root].interactions[1].request.query.id = "2"` - the `id` query parameter (with a value of `2`) in the 2nd pact interaction
+* `[root].interactions[3].request.path` - the request path in the third pact interaction
+
+### Common Error types
+
+##### `additionalProperties`
+
+When a pact test has an expectation for a response body, it may ask for a subset of what the provider can provide - this is perfectly acceptable. However it cannot ask for a property not present in the spec - this will cause a failure - and is the most common error of this kind.
+
+For example, if there is an expected property `foo` in your pact file that does not match a schema in the OpenAPI Document, the following error will be displayed:
+
+```
+Response body is incompatible with the response body schema in the spec file: must NOT have additional properties - foo
+```
+
+In JSON Schema terminology, `foo` is an "additional property" that is not defined in the schema. For a detailed tour of this topic, refer to [this guide](/docs/bi-directional-contract-testing/contracts/oas/keyword-support)
+
+The error you will receive will be: `Request body is incompatible with the request body schema in the spec file: must NOT have additional properties - &lt;property&gt;`. The problematic property should be identified by name.
+
+To correct this, the problematic property should be removed from the pact interaction, or supplied by the spec.
+
+#### `unevaluatedProperties` (`allOf`)
+
+When a pact test has an expectation to send a request body or to receive a response body, the body must match any defined schemas.
+
+If the `allOf` keyword is used, we must treat all of the schemas as a single composite schema. As per the `additionalProperties` checks, if a property is expected that is not part of this composite schema, a similar error will be returned:
+
+```
+Response body is incompatible with the response body schema in the spec file: must NOT have unevaluated properties
+```
+
+To correct this, the problematic property should be removed from the pact interaction, or supplied by the spec.
+
+Refer the [`unevaluatedProperties`](https://json-schema.org/understanding-json-schema/reference/object.html#unevaluated-properties) documentation of JSON Schema for more.
