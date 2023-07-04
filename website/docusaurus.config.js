@@ -121,6 +121,9 @@ module.exports = {
           // Please change this to your repo.
           editUrl:
             "https://github.com/pactflow/docs.pactflow.io/edit/master/website/",
+            showLastUpdateAuthor: true,
+            // Equivalent to `enableUpdateTime`.
+            showLastUpdateTime: true,
         },
         blog: {
           routeBasePath: "notices",
