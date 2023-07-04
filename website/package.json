@@ -19,7 +19,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-table": "^7.8.0",
-    "redocusaurus": "^1.4.0"
+    "redocusaurus": "^1.6.3"
   },
   "devDependencies": {
     "improved-yarn-audit": "^3.0.0"
