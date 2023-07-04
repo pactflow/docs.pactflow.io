@@ -73,7 +73,9 @@ module.exports = {
                   label: 'OpenAPI Specification',
                   items: [
                     'docs/bi-directional-contract-testing/contracts/oas',
-                    'docs/bi-directional-contract-testing/contracts/oas/keyword-support'
+                    'docs/bi-directional-contract-testing/contracts/oas/features',
+                    'docs/bi-directional-contract-testing/contracts/oas/keyword-support',
+                    'docs/bi-directional-contract-testing/contracts/oas/changelog'
                   ]
                 }
               ]
@@ -108,7 +110,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Troubleshooting',
-      items: ['docs/login-help', 'docs/webhooks-help', 'docs/powershell-guide']
+      items: ['docs/login-help', `docs/authorization-help`, 'docs/webhooks-help', 'docs/powershell-guide']
     },
     'docs/api'
   ],
