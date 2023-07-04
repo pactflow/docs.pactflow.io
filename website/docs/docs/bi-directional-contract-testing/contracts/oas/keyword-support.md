@@ -302,11 +302,11 @@ The transformations it applies, are as follows:
 
 1. Sets `additionalProperties` in your OpenAPI to `false` on any response body, to ensure a consumer won't get false positives if they add a new field that isn't actually part of the spec.
 1. Removes `required` properties from provider responses, as otherwise all consumers would be required to consume the entire provider response!
-1. Sets [`unevaluatedProperties: true`](https://json-schema.org/understanding-json-schema/reference/object.html#unevaluated-properties) on `allOf` schemas. This has the effect of extending the (guaranteed to be) closed schemas after (1), allowing us to match against a single composite schema
-1. Ensures any polymorphic types both have an appropriate `discriminator` setup (as described above)
+1. Sets [`unevaluatedProperties: true`](https://json-schema.org/understanding-json-schema/reference/object.html#unevaluated-properties) on `allOf` schemas. This has the effect of extending the (guaranteed to be closed) schemas, allowing us to match against a single composite schema.
+1. Ensures any polymorphic types have an appropriately configured `discriminator` setup (as described above).
 
 The consequences of the above transformations are:
 
-1. The transformed OpenAPI will be slighly different to what you provided to PactFlow
-2. Additional validations will be performed that may pass other tools (such as the [Swagger Editor](https://editor.swagger.io/))
+1. The transformed OpenAPI will be slighly different to what you provided to PactFlow.
+2. Additional validations will be performed that may pass other tools (such as the [Swagger Editor](https://editor.swagger.io/)).
 3. The `allOf` semantics are slightly modified as described above.
