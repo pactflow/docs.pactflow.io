@@ -2,7 +2,7 @@
 title: Bi-Directional Contract Testing
 ---
 
-This section describes the bi-directional contract testing screens in PactFlow.
+This section describes the Bi-directional Contract Testing screens in PactFlow. Bi-Directional Contract Testing is a type of **static contract testing** where two contracts - one representing the consumer expectations, and another representing the provider capability - are compared to ensure they are compatible. Refer to the [docs](/docs/bi-directional-contract-testing) for more on this feature.
 
 ## Overview tab
 
