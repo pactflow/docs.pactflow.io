@@ -10,6 +10,13 @@ module.exports = {
   organizationName: "PactFlow", // Usually your GitHub org/user name.
   projectName: "doc-site", // Usually your repo name.
   themeConfig: {
+    announcementBar: {
+      id: 'announcement-bar',
+      content: '<div id="announcement-bar">🎂 Happy Official 10th Birthday, Pact! Join us for our <a target="_blank" href="https://pact.io/pactober.html?utm_source=docs.pactflow.io&utm_medium=web&utm_campaign=pactober2023&utm_content=banner">Pactober celebration</a>.</div>',
+      backgroundColor: '#454CF0',
+      textColor: '#fff',
+      isCloseable: false,
+    },
     navbar: {
       title: "PactFlow Documentation",
       logo: {
