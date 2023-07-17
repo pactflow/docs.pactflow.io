@@ -7,9 +7,9 @@ OpenAPI contracts may contain the logical keywords `anyOf`, `allOf`, and `oneOf`
 
 ## Supported OpenAPI Keywords
 
-PactFlow supports all three of the allowed OpenAPI Schema keywords.
+PactFlow supports all three allowed OpenAPI Schema keywords.
 
-From the JSON Schema [website](https://json-schema.org/understanding-json-schema/reference/combining.html), the validation these keywords provide can be summarised as:
+From the JSON Schema [website](https://json-schema.org/understanding-json-schema/reference/combining.html), the validation these keywords provide can be summarized as follows:
 
 * `allOf`: (AND) Must be valid against all of the subschemas
 * `anyOf`: (OR) Must be valid against any of the subschemas
@@ -17,13 +17,13 @@ From the JSON Schema [website](https://json-schema.org/understanding-json-schema
 
 ## Examples
 
-This [project](https://github.com/pactflow/example-bdct-logical-keywords) contains worked examples for keyword support, as well as various other OpenAPI use cases.
+This [project](https://github.com/pactflow/example-bdct-logical-keywords) contains working examples of keyword support, as well as various other OpenAPI use cases.
 
 ## General Advice
 
-When using `oneOf`, you must consider use of the [`discriminator`](https://spec.openapis.org/oas/v3.1.0#discriminator-object).
+When using `oneOf`, you must consider the [`discriminator`](https://spec.openapis.org/oas/v3.1.0#discriminator-object).
 
-One of the challenges with the use of `oneOf` when testing a given JSON data structure against the OpenAPI, is that it should _only_ match a single schema. However, a consumer may (and in many cases, is expected to) specify only a subset of the data from a provider in their tests - the data _they_ need for their use cases. This increases the chances it will match multiple schemas and cause a failure.
+One of the challenges with the use of `oneOf` when testing a given JSON data structure against the OpenAPI, is that it should _only_ match a single schema. However, a consumer may (and in many cases, is expected to) specify only a subset of the data from a provider in their tests - the data _they_ need for their use cases. This increases the chances it will match multiple schemas and fail.
 
 ## The `discriminator` keyword
 
@@ -87,7 +87,7 @@ Without the use of `discriminator`, this would match both schemas and fail the v
 
 ### How to use `discriminator`
 
-There are following requirements and limitations of using `discriminator` keyword:
+These are the following requirements and limitations of using the `discriminator` keyword:
 
 * `mapping` in discriminator object is not supported.
 * "implicit" discriminator values are not supported.
@@ -100,13 +100,13 @@ Not meeting any of these requirements would fail schema compilation.
 
 ## Keyword support
 
-The following section goes into additional detail on how we support the keywords, the inherent complexity in them and the tradeoffs we have taken.
+The following section delves into additional detail on how we support the keywords, the inherent complexity and the tradeoffs we have taken.
 
 ### `allOf`
 
-The primary use case for `allOf` is the ability to reuse types via [composition, inheritence and polymorphism](https://spec.openapis.org/OpenAPI/v3.1.0#schemaComposition).
+The primary use case for `allOf` is the ability to reuse types via [composition, inheritance and polymorphism](https://spec.openapis.org/OpenAPI/v3.1.0#schemaComposition).
 
-The following [example](https://spec.openapis.org/OpenAPI/v3.1.0#models-with-polymorphism-support) is taken from the OpenAPI specification, in order to demonstrate the common use case for composition, inheritance and polymorphism. It specifies `Cat` and `Dog` types, which extends a general `Pet` base type. This schema could be used in a response payload, communicating the possible types an endpoint may return.
+The following [example](https://spec.openapis.org/OpenAPI/v3.1.0#models-with-polymorphism-support) is taken from the OpenAPI specification, to demonstrate the common use cases for composition, inheritance and polymorphism. It specifies `Cat` and `Dog` types, which extend a general `Pet` base type. This schema could be used in a response payload, communicating the possible types an endpoint may return.
 
 :::note
 Please take note: this schema won't pass the stringent rules defined for `discriminator` above, as it relies on an _implicit_ discriminator, which PactFlow does not support.
@@ -159,9 +159,9 @@ components:
         - packSize
 ```
 
-To validate JSON against an `allOf` definition, the data must be valid against _all_ of the given subschemas.
+To validate JSON against an `allOf` definition, the data must be valid against _all_ subschemas.
 
-The following JSON body would pass this validation:
+The following JSON body passes this validation:
 
 ```json
 {
@@ -177,13 +177,13 @@ These are able to work because the defined schemas are "open" by default. What d
 
 From https://json-schema.org/understanding-json-schema/reference/object.html#additional-properties:
 
-> The [`additionalProperties`](https://json-schema.org/understanding-json-schema/reference/object.html#additional-properties) keyword is used to control the handling of extra stuff, that is, properties whose names are not listed in the `properties` keyword or match any of the regular expressions in the `patternProperties` keyword. By default any additional properties are allowed.
+> The [`additionalProperties`](https://json-schema.org/understanding-json-schema/reference/object.html#additional-properties) keyword controls the handling of extra stuff, that is, properties whose names are not listed in the `properties` keyword or match any of the regular expressions in the `patternProperties` keyword. Additional properties are allowed by default.
 
 This last statement is what we should pay attention to - by default, additional properties are _allowed_. This is what allows the use case above to work. 
 
-`packSize` is not a property defined in the `Pet` schema, and `name` and `petType` are not defined in the `Dog` schema but as `additionalProperties` are allow by default, the JSON payload matches both branches of the `allOf` schema _independently_.
+`packSize` is not a property defined in the `Pet` schema, and `name` and `petType` are not defined in the `Dog` schema. However, as `additionalProperties` are allowed by default, the JSON payload matches both branches of the `allOf` schema _independently_.
 
-Let's explore this a little more with a simpler example to better illustrate the point.
+Let's explore this a bit more with a simple example to better illustrate the point.
 
 ##### Example
 
@@ -203,7 +203,7 @@ allOf:
         type: string
 ```
 
-With an open schema (as above), the following JSON will pass the validation
+With an open schema (as above), the following JSON will pass validation
 
 ```json
 {
@@ -211,20 +211,20 @@ With an open schema (as above), the following JSON will pass the validation
   "date": "2022-01-22"
 }
 ```
-and so will
+And so will
 ```json
 {
   "date": "2022-01-22"
 }
 ```
-and
+And
 ```json
 {
   "temperature": 25,  // <- wait, where did temperature come from?
   "unit": "C"         // ...and this!
 }
 ```
-and, funnily enough,
+And, funnily enough,
 ```json
 {}
 ```
@@ -267,9 +267,9 @@ But you can still add other arbitrary properties - and this is problematic for t
 
 #### PactFlow does not allow "open" schemas
 
-In most cases on the Internet you won’t see “closed” schemas because OpenAPIs primary use case is documentation and SDK generation where this doesn't really matter. Closing the schema also prevents these important scenarios.
+In most cases on the Internet you won’t see “closed” schemas because OpenAPI's primary use case is documentation and SDK generation where this doesn't really matter. Closing the schema also prevents these important scenarios.
 
-If you consider what PactFlow's job is, however, it is to prevent a consumer expecting something that provider cannot support! If the consumer needs the property that is not present in the schema, we need to be able to detect this situation and prevent it.
+If you consider what PactFlow's job is, it is to prevent a consumer expecting something that provider cannot support! If the consumer needs a property not present in the schema, we need to be able to detect this situation and prevent it.
 
 Therefore, PactFlow must set `additionalProperties` to `false` on response bodies, otherwise we would provide false positives and a useless feature.
 
@@ -277,7 +277,7 @@ Therefore, PactFlow must set `additionalProperties` to `false` on response bodie
 PactFlow automatically closes all schemas
 :::
 
-As noted, this has the unfortunate side effect of breaking the original example and use case above. By disallowing additional properties on each schema, we end up with this unfortunate situation:
+As noted, this breaks the original example and use case above. By disallowing additional properties on each schema, we end up with this unfortunate situation:
 
 ```json
 {
@@ -298,7 +298,7 @@ These keywords enjoy support out of the box, with the minor consideration for th
 
 Following the discussion in `allOf`, in order for PactFlow to perform its compatibility checks, support these keywords and other OpenAPI [features](/docs/bi-directional-contract-testing/contracts/oas/features), it needs to perform a number of transformations on the document prior to validation.
 
-The transformations it applies, are as follows:
+The transformations it applies to are as follows:
 
 1. Sets `additionalProperties` in your OpenAPI to `false` on any response body, to ensure a consumer won't get false positives if they add a new field that isn't actually part of the spec.
 1. Removes `required` properties from provider responses, as otherwise all consumers would be required to consume the entire provider response!

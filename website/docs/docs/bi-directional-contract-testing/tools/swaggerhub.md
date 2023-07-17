@@ -14,9 +14,9 @@ In this guide, you'll learn how to use PactFlow and [SwaggerHub](https://swagger
 
 ## Benefits
 
-PactFlow and SwaggerHub can be combined to increase the quality of your design-first API development workflow, and help navigate the complexity of microservice rollouts.
+PactFlow and SwaggerHub can be combined to increase the quality of your design-first API development workflow and help navigate microservice rollouts complexity.
 
-SwaggerHub is foundation of a repeatable process for API Development, providing a secure collaborative environment for your API design process:
+SwaggerHub is the foundation of a repeatable API Development process, providing a secure collaborative environment for your API design process:
 
 1. It unifies teams around a single source of truth - **the OAS** - and enables standardisation across your services
 1. Allows teams to work **independently**
@@ -26,7 +26,7 @@ PactFlow brings increased visibility into how consumers use your API, enabling:
 
 1. API consumer and API producer development teams to work in independently and **safely**
 2. **Prevent breaking changes** to your API and releasing an incompatible API consumer
-3. A reduction in the need for **API versioning**, avoiding the need to create and maintain multiple versions of an API, and communicating the change to consumers.
+3. A reduction in **API versioning**, avoiding the need to create and maintain multiple versions of an API, and communicating the change to consumers.
 
 Together, they allow faster feedback cycles from design through to development, test and release.
 
@@ -41,10 +41,10 @@ Together, they allow faster feedback cycles from design through to development, 
 
 Follow this [guide](https://support.smartbear.com/swaggerhub/docs/tutorials/getting-started.html) to create your first API in SwaggerHub.
 
-Next steps: now that we have agreed on our design, we can get started on our implementation.
+Next steps: now that we have agreed on our design, we can start our implementation.
 
 :::note
-We can actually begin to work on all of next major sections (3, 4 and 5) in parallel. In this guide, we will work through the steps sequentially however to simplify the explanation.
+We can start to work on all the next major sections (3, 4 and 5) in parallel. In this guide, we will work through the steps in a sequential manner to simplify the explanation.
 :::
 
 ### 2. Setup your API Mock Environment (Optional)
@@ -52,24 +52,24 @@ We can actually begin to work on all of next major sections (3, 4 and 5) in para
 [SwaggerHub feature reference](https://support.smartbear.com/swaggerhub/docs/integrations/api-auto-mocking.html).
 
 > The API Auto Mocking integration creates and maintains a semi-static mock of your API based on the responses and examples defined in your OpenAPI 3.0 or 2.0 definition. The mock is updated every time you save your API.
-> The mock helps you test your API when designing it, that is, before it is implemented by developers. Also, the mock allows developers to start building client applications even before the API back end is ready.
+> The mock helps you test your API when designing it, before developers implement it. Also, the mock allows developers to start building client applications before the API back end is ready.
 
 ![Design First - Provider Auto Mock workflow](/img/integrations/swaggerhub/design-first-provider-automock.png)
 
-1. Create a new [Auto Mock](https://support.smartbear.com/swaggerhub/docs/integrations/api-auto-mocking.html) virtualisation server (also referred to as "VirtServer").
+1. Create a new [Auto Mock](https://support.smartbear.com/swaggerhub/docs/integrations/api-auto-mocking.html) virtualisation server (also called "VirtServer").
 
 ### 3. Test your Provider (Auto Mock)
 
 For the general Provider test and release workflow, see our [Provider Side Bi-Directional Contract Testing Guide](https://docs.pactflow.io/docs/bi-directional-contract-testing/provider).
 #### 3.1 Select a Testing Tool
 
-Now that we have an agreed API definition and an implementation (in this case, a Mock of the provider), we can start to build out our test cases whilst the implementation is underway. We will be able to re-use these tests when the real provider is ready for testing.
+Now that we have an agreed API definition and an implementation (in this case, a Mock of the provider), we can start to build out our test cases whilst the implementation is underway. We can re-use these tests when the real provider is ready for testing.
 
 Start by [choosing](/docs/bi-directional-contract-testing/provider#step-2-choose-an-api-testing-tool) an API testing tool. See our [examples](/docs/examples) for an idea of how to do this.
 
 #### 3.2. Publish to PactFlow
 
-[Publish](/docs/bi-directional-contract-testing/contracts/oas#publishing-the-provider-contract--results-to-pactflow) your OAS and the test results from your chosen API testing tool to PactFlow. 
+[Publish](/docs/bi-directional-contract-testing/contracts/oas#publishing-the-provider-contract--results-to-pactflow) your OAS and the API testing tool results to PactFlow. 
 
 #### 3.3. Check `can-i-deploy` if it's safe to release
 
@@ -77,9 +77,9 @@ Check if it's safe to release to your chosen test or staging environment using t
 
 #### 3.4. Release
 
-You can now deploy your Auto Mock. In this case, because the Auto Mock is a hosted service from SwaggerHub you don't actually need to perform a real deployment. However, we need to tell PactFlow that it has been deployed and will be used as the provider in a nominated environment.
+You can now deploy your Auto Mock. In this case, because the Auto Mock is a hosted service from SwaggerHub you don't need to perform a real deployment. However, we need to tell PactFlow that it has been deployed and will be used as the provider in a nominated environment.
 
-Use the [record-deployment](/docs/bi-directional-contract-testing/deploying) command to record that you have done this with PactFlow.
+Use the [record-deployment](/docs/bi-directional-contract-testing/deploying) command to record that you have implemented this with PactFlow.
 
 ### 4. Consumer Workflow
 
@@ -89,19 +89,19 @@ Use the [record-deployment](/docs/bi-directional-contract-testing/deploying) com
 
 #### 4.1 Create our Consumer
 
-We can start the build of our consumer. We have the choice to build from our own framework, or generate an [OAS compliant client SDK](https://support.smartbear.com/swaggerhub/docs/apis/generating-code/client-sdk.html).
+We can start the build of our consumer. We have the choice to build from our own framework or generate an [OAS compliant client SDK](https://support.smartbear.com/swaggerhub/docs/apis/generating-code/client-sdk.html).
 
 We can optionally use the server mocks from step (2).
 
 #### 4.2 Test our Consumer
 
-We can now test our consumer. This is the stage where we will capture the *consumer contract*. You can choose to use Pact, or convert your preferred mocks into a contract file.
+We can now test our consumer. This is the stage where we capture the *consumer contract*. You can use Pact or convert your preferred mocks into a contract file.
 
 See this [guide](/docs/bi-directional-contract-testing/consumer) and one of our BDCT [examples](/docs/examples) for an idea of how to do this.
 
 #### 4.3. Publish to PactFlow
 
-[Publish](https://docs.pact.io/getting_started/sharing_pacts) your contsumer contract to PactFlow. We suggest to use the standard [Pact CLI tools](https://docs.pact.io/implementation_guides/cli#distributions) for this step.
+[Publish](https://docs.pact.io/getting_started/sharing_pacts) your contsumer contract to PactFlow. We suggest using the standard [Pact CLI tools](https://docs.pact.io/implementation_guides/cli#distributions) for this step.
 
 #### 4.4. Check `can-i-deploy` if it's safe to release
 
@@ -111,9 +111,9 @@ Check if it's safe to release to your chosen test or staging environment using t
 
 You can now deploy your consumer to the same environment as your Auto Mock.
 
-Use the [record-deployment](/docs/bi-directional-contract-testing/deploying) command to record that you have done this with PactFlow.
+Use the [record-deployment](/docs/bi-directional-contract-testing/deploying) command to record that you have implemented this with PactFlow.
 
-We now have a consumer deployed to a test environment, that uses the Auto Mock. The consumer can't yet be deployed to production, because the provider has not yet been built and released.
+We now have a consumer deployed to a test environment, that uses Auto Mock. The consumer can't yet be deployed to production, because the provider has not yet been built and released.
 ### 5. (Real) Provider Workflow
 
 ![Design First - Provider workflow](/img/integrations/swaggerhub/design-first-provider.png)
@@ -124,7 +124,7 @@ For the general Provider test and release workflow, see our [Provider Side Bi-Di
 
 #### 5.1 Build the provider
 
-We can start the build of our provider. We have the choice to build from our own framework, or generate [OAS compliant server stubs](https://support.smartbear.com/swaggerhub/docs/apis/generating-code/server-stub.html).
+We can start the build of our provider. We have the choice to build from our own framework or generate [OAS compliant server stubs](https://support.smartbear.com/swaggerhub/docs/apis/generating-code/server-stub.html).
 
 #### 5.2 Run the tests
 
@@ -132,7 +132,7 @@ Using the test framework created in 3.1, we can test our real implementation.
 
 #### 5.3. Publish to PactFlow
 
-[Publish](/docs/bi-directional-contract-testing/contracts/oas#publishing-the-provider-contract--results-to-pactflow) your OAS and the test results from your chosen API testing tool to PactFlow. 
+[Publish](/docs/bi-directional-contract-testing/contracts/oas#publishing-the-provider-contract--results-to-pactflow) your OAS and the API testing tool results to PactFlow. 
 
 #### 5.4. Check `can-i-deploy` if it's safe to release
 

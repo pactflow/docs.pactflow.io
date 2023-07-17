@@ -3,11 +3,11 @@ id: powershell-guide
 title: PowerShell Migration guide
 ---
 
-As at June 10th, 2020, we will only support TLS1.2+ connections for Web and API access to the PactFlow platform.
+PactFlow will only support TLS1.2+ connections for Web and API access starting June 10th, 2020.
 
 ## Checking if your system is compatible
 
-You can check if your API client will work by testing against a TLS1.2 test host such as https://tls-v1-2.badssl.com:1012. For Example:
+You can check if your API client works by testing against a TLS1.2 test host such as https://tls-v1-2.badssl.com:1012. For example:
 
 
 ```powershell
@@ -24,7 +24,7 @@ A _successful_ connection will look as follows:
 
 ## Updating your security settings
 
-You can enable TLS1.2 as per below:
+You can enable TLS1.2 as below:
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12

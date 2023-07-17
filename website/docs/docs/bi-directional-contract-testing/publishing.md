@@ -5,11 +5,11 @@ sidebar_label: Publishing Contracts
 
 ## Publishing the Consumer Contract to PactFlow
 
-Publishing a consumer contract is the same as regular Pact. For details on publishing pact files to PactFlow, see [Sharing Pacts with the Pact Broker](https://docs.pact.io/getting_started/sharing_pacts).
+Publishing a consumer contract is the same as publishing a regular Pact. For details on publishing pact files to PactFlow, refer to [Sharing Pacts with the Pact Broker (https://docs.pact.io/getting_started/sharing_pacts).
 
 ## Publishing the Provider Contract + Results to PactFlow
 
-There are several ways to currently publish contracts to PactFlow.
+There are several ways PactFlow can be used to publish contracts.
 
 The links in the list will take you to the respective documentation in each repo.
 

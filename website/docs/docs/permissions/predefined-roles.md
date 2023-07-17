@@ -8,7 +8,7 @@ The PactFlow application comes with the following predefined roles. Each role is
 
 ## Administrator
 
-The user who signed up for the PactFlow tenant will be assigned the Administrator role. They are then able to assign the Administrator role to other users.
+The PactFlow tenant user will be assigned the Administrator role. They can then assign the Administrator role to other users.
 
 #### Default permissions
 
@@ -29,7 +29,7 @@ The user who signed up for the PactFlow tenant will be assigned the Administrato
 
 ## User
 
-All new users are assigned the `User` role (unless the default role has been updated in the [system preferences](/docs/user-interface/settings/preferences#system-preferences)). The `User` role is intended to work in conjunction with [team assignments](/docs/user-interface/settings/teams), and therefore has `manage:team` permissions (rather than `manage:*` permissions) for all resources that can be associated with a team. The `User` role should be assigned to all developers, testers and other users who create and verify contracts in the PactFlow platform.
+All new users are assigned the `User` role (unless the default role has been updated in the [system preferences](/docs/user-interface/settings/preferences#system-preferences)). The `User` role is intended to work in conjunction with [team assignments](/docs/user-interface/settings/teams), and therefore has `manage:team` permissions (rather than `manage:*` permissions) for all resources that can be associated with a team. The `User` role should be assigned to all developers, testers and other users who create and verify contracts on the PactFlow platform.
 
 #### Default permissions
 
@@ -62,7 +62,7 @@ This is the default role associated with a system account.
 
 ## Team Administrator
 
-This role is automatically assigned to any user who is set as an administrator of a specific team. This role may not be edited or deleted, and cannot be assigned directly via the user roles APIs or UIs.
+This role is automatically assigned to any user who is an administrator of a specific team. This role may not be edited or deleted and cannot be assigned directly via the user roles APIs or UIs.
 
 #### Default permissions
 
@@ -79,9 +79,9 @@ This role is automatically assigned to any user who is set as an administrator o
 
 ## Guest
 
-A user with the guest role can only view contract related data through the UI, and has no API access.
+A user with the guest role can only view contract related data through the UI and has no API access.
 
-The permissions associated with the guest role may not be modified.
+The guest role permissions may not be modified.
 
 #### Permissions
 
@@ -89,9 +89,9 @@ The permissions associated with the guest role may not be modified.
 
 ## SwaggerHub
 
-A user with the SwaggerHub role can be used to provide an API Token for the SwaggerHub integration, allowing SwaggerHub to verify published pacts against live Swagger docs.
+A user with the SwaggerHub role can provide an API Token for the SwaggerHub integration. This allows SwaggerHub to verify published pacts against live Swagger docs.
 
-The permissions associated with the SwaggerHub role may not be modified.
+The SwaggerHub role permissions may not be modified.
 
 #### Permissions
 
@@ -118,12 +118,12 @@ The Test Maintainer role has been replaced by the User role. The difference betw
 
 ## Resetting permissions for predefined roles
 
-Should you wish to reset the permissions assigned to each of the predefined roles back to their defaults as documented above (or upgrade from the globally scoped User role to the team scoped User role) you can follow these steps. Note that any custom roles will remain unaffected, and the user/role assignments are not changed.
+Should you wish to reset the permissions assigned to each of the predefined roles back to their defaults as documented above (or upgrade from the globally scoped User role to the team scoped User role) you can follow these steps. Note that any custom roles will remain unaffected, and user/role assignments are unchanged.
 
 - Click on the `API` button at the top right of the PactFlow dashboard.
-- In the `Links` section, scroll down to the line where `rel` column has a value of `pf:admin-roles`.
-- Click on the green arrow in the `GET` column that has the hover text "Follow link".
+- In the `Links` section, scroll down to the line where the `rel` column has a value of `pf:admin-roles`.
+- Click on the green arrow in the `GET` column with the hover text "Follow link".
 - Scroll up to the top of the page.
-- In the Links section, if you can see the line with a `rel` of `pf:reset`, then you have the permissions required to reset the roles. If you cannot see this relation, then you do not have the required permissions.
-- Click on the yellow `!` button in the `NON-GET` column.
-- Click on the blue `Make Request` button. You will see a 200 OK response with the updated list of roles.
+- In the Links section, if you can see the line with a `rel` of `pf:reset`, you have the permissions required to reset the roles. If you cannot see this relation, you do not have the required permissions.
+- Click the yellow `!` button in the `NON-GET` column.
+- Click the blue `Make Request` button. You will see a 200 OK response with the updated roles list.
