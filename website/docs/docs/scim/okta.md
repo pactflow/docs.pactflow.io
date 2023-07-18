@@ -7,7 +7,7 @@ Okta supports using SCIM to manage users and groups in a configured application.
 
 ## Setting up a PactFlow app in Okta
 
-Check out our article on [connecting SCIM API to Okta](https://developer.okta.com/docs/guides/scim-provisioning-integration-connect/main/)!
+Check out the official Okta guide on [connecting the SCIM API](https://developer.okta.com/docs/guides/scim-provisioning-integration-connect/main/)!
 
 ### Configure SCIM provisioning
 
