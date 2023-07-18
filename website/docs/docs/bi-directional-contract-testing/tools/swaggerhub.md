@@ -14,7 +14,7 @@ In this guide, you'll learn how to use PactFlow and [SwaggerHub](https://swagger
 
 ## Benefits
 
-PactFlow and SwaggerHub can be combined to increase the quality of your design-first API development workflow and help navigate microservice rollouts complexity.
+PactFlow and SwaggerHub can be combined to increase the quality of your design-first API development workflow and help navigate microservice rollout complexity.
 
 SwaggerHub is the foundation of a repeatable API Development process, providing a secure collaborative environment for your API design process:
 
