@@ -177,7 +177,7 @@ These are able to work because the defined schemas are "open" by default. What d
 
 From https://json-schema.org/understanding-json-schema/reference/object.html#additional-properties:
 
-> The [`additionalProperties`](https://json-schema.org/understanding-json-schema/reference/object.html#additional-properties) keyword controls the handling of extra stuff, that is, properties whose names are not listed in the `properties` keyword or match any of the regular expressions in the `patternProperties` keyword. Additional properties are allowed by default.
+> The [`additionalProperties`](https://json-schema.org/understanding-json-schema/reference/object.html#additional-properties) keyword is used to control the handling of extra stuff, that is, properties whose names are not listed in the `properties` keyword or match any of the regular expressions in the `patternProperties` keyword. By default any additional properties are allowed.
 
 This last statement is what we should pay attention to - by default, additional properties are _allowed_. This is what allows the use case above to work. 
 
