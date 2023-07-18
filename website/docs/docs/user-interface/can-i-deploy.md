@@ -28,7 +28,7 @@ It helps you choose your application from the application list, the application 
 It summarizes if you are safe to deploy your chosen application version. 
 
 **Verification statuses table**
-It demonstrates your application version and deployment target..
+It demonstrates your application version and deployment target.
 
 
 <div class="status-table">
