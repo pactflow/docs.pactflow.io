@@ -57,7 +57,7 @@ See our [Wiremock](/docs/examples/bi-directional/consumer/wiremock) example for 
 
 ## Converting mocks into a Pact compatible format
 
-When converting your mocks into a pact file, consider the following considerations:
+When converting your mocks into a pact file, note the following considerations:
 
 1. You **must** generate a Pact file that is compatible with one of the supported versions of the Pact Specification (listed in the table above).
 1. You **should not** include any [matchers](https://github.com/pact-foundation/pact-specification/tree/version-2/#matchers), unless you are confident in their application.
