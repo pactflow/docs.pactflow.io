@@ -7,7 +7,7 @@ sidebar_label: Overview
 
 Bi-Directional Contract Testing is a type of **static contract testing** where two contracts - one representing consumer expectations, and another representing the provider's capability - are compared to ensure they are compatible.
 
-Teams generate a consumer contract from a mocking tool (such as Pact or Wiremock) and API providers verify a provider contract (such as an OAS) using a functional API testing tool (such as ReadyAPI). PactFlow then statically compares the contracts down to the field level to ensure compatiblity.
+Teams generate a consumer contract from a mocking tool (such as Pact or Wiremock) and API providers verify a provider contract (such as an OAS) using a functional API testing tool (such as ReadyAPI). PactFlow then statically compares the contracts down to the field level to ensure compatibility.
 
 Bi-Directional Contract Testing (BDCT) allows you to "upgrade" your existing tools into a powerful contract-testing solution. It simplifies adoption and reduces contract testing implementation time across your architecture.
 
