@@ -275,7 +275,7 @@ Error paths use a JSONPath-like syntax with an associated value, to help you nav
 
 ##### `additionalProperties`
 
-When a pact test expectats a response body, it may ask for a subset of what the provider can provide - this is perfectly acceptable. However it cannot ask for a property not present in the spec - this will cause failure - and is the most common error of this kind.
+When a pact test expects a response body, it may ask for a subset of what the provider can provide - this is perfectly acceptable. However it cannot ask for a property not present in the spec - this will cause failure - and is the most common error of this kind.
 
 For example, if there is an expected property `foo` in your pact file that does not match a schema in the OpenAPI Document, the following error will be displayed:
 
