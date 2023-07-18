@@ -237,7 +237,7 @@ This table describes error codes, descriptions and general advice to resolve the
 | `request.content-type.incompatible` | Error   | Request Content-Type header is incompatible with the mime-types the spec accepts to consume | Confirm that your pact test is sending the correct content type |
 | `request.content-type.missing`      | Warning | Request content type header is not defined but spec specifies mime-types to consume | It's possible your provider will send a mime type your consumer doesn't expect if it produces more than one mime type. You should explicitly set the `Accept` header in your pact test. |
 | `request.content-type.unknown`      | Warning | Request content-type header is defined but the spec does not specify any mime-types to consume | The request body is redundant. Check if the spec should be accepting one, or remove it from your Pact test |
-| `request.header.incompatible`       | Error   | The interaction response header is incompatible with the spec | Review the JSON Schema validation message |
+| `request.header.incompatible`       | Error   | The interaction request header is incompatible with the spec | Review the JSON Schema validation message |
 | `request.header.unknown`            | Warning | Request header is not defined in the spec file | Remove the redundant header or ensure it is defined in the spec |
 | `request.path-or-method.unknown`    | Error   | The Path or method used in the interaction is not defined in spec file | Check the correct resource is being used |
 | `request.query.incompatible`        | Error   | The request query in the interaction is incompatible with the spec | Review the JSON Schema validation message |
