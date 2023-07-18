@@ -291,7 +291,7 @@ To correct this, the problematic property should be removed from the pact intera
 
 #### `unevaluatedProperties` (`allOf`)
 
-When a pact test expectats to send a request body or to receive a response body, the body must match any defined schemas.
+When a pact test expects to send a request body or to receive a response body, the body must match any defined schemas.
 
 If the `allOf` keyword is used, we must treat all the schemas as a single composite schema. As per the `additionalProperties` checks, if a property is expected that is not part of this composite schema, a similar error will be returned:
 
