@@ -24,7 +24,7 @@ These are global system settings and can only be changed by an administrator.
 
 By default, user and system account tokens don't expire, but can be re-generated at any time to invalidate the old tokens and create new ones. This setting enables tokens to automatically expire after a fixed period of time, which can be specified in units of hours, days, weeks or months.
 
-After a token expires, the users can generate a new one from the [API Tokens setting page](./api-tokens), while the system account holders can do so from the [user
+After a token expires, the users can generate a new one from the [API Tokens setting page](./api-tokens), while users with the appropriate `system_account:manage` permission can regenerate system account tokens from the [user
 management screen](./users#system-accounts).
 
 #### Display an announcement banner on login
