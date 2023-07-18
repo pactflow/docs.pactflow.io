@@ -133,7 +133,7 @@ _Consumer_
 
 - A **consumer contract** is a collection of interactions that describe how the Consumer expects the Provider to behave. Each Consumer will have its own unique consumer contract for each Provider.
 
-- A **provider contract** specifies the Provider's capability. In this workshop, it will take the form of an OpenAPI document. However, it may in be other formats such as a GraphQL schema, a SOAP XSD, a protobuf definition etc.
+- A **provider contract** specifies the Provider's capability. It will take the form of an OpenAPI document. 
 
 - **Cross-contract validation** or **contract comparison**: the process by which PactFlow confirms that the consumer contract is a valid subset of a provider contract. For example, it will ensure that all request/responses defined in a pact file and valid resources and match the schemas in a provider OAS file.
 
