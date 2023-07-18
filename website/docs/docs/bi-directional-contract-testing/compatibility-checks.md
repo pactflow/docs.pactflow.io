@@ -8,7 +8,7 @@ When contracts are published to PactFlow, the consumer contract (a pact file) wi
 :::note
 
 PactFlow can only decide based on the information it receives. If the consumer contract does not contain all the 
-interactions the consumer uses, then the resulting checks may say it is safe to deploy when it could not be. This is because the missing API calls may have broken changes.
+interactions the consumer uses, then the resulting checks may say it is safe to deploy when it could not be. This is because the missing API calls may have breaking changes.
 
 :::
 
