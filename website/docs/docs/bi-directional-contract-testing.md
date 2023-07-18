@@ -54,7 +54,7 @@ This is not intended as an overall guide to a comprehensive testing strategy and
 
 A contract test would ensure that the consumer and provider had a shared and accurate understanding of the request and response required to create an order.
 
-A functional test for the provider would ensure that when a given request was made, an Order with the correct attributes was actually persisted to the underlying datastore. A contract test do not check for side effects.
+A functional test for the provider would ensure that when a given request was made, an Order with the correct attributes was actually persisted to the underlying datastore. A contract test does not check for side effects.
 :::
 
 [Read more](https://docs.pact.io/consumer/contract_tests_not_functional_tests) on the aim and scope of contract tests.
