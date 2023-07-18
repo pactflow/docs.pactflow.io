@@ -9,7 +9,7 @@ sidebar_label: Provider
 - Garbage in, Garbage out - PactFlow trusts any provider contract provided. This is true, whether it has been tested or not.
 - When using the BYO functional API testing strategy, you must ensure your API is compatible with (and ideally, implements) any specification.
 - Code-based approaches are generally preferred because they are less likely to drift from implementation. For example, using tools that generate OAS definitions from code/types is more reliable
-- When supported, test-based approaches such as ReadyAPI Functional test suites/postman collections, may also be more reliable, as they have embedded testing information in them. PactFlow only compare responses that have been tested and therefore are reliable.
+- When supported, test-based approaches such as ReadyAPI Functional test suites/postman collections, may also be more reliable, as they have embedded testing information in them. Uploading only the tested parts of the provider contract to PactFlow improves the guarantees we can provide.
 
 ## Writing Provider Contracts
 
