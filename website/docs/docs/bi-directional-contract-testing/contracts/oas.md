@@ -18,7 +18,7 @@ Providers may specify an OpenAPI Specification as a Provider Contract, enabling 
 
 ### PactFlow transforms your OAS
 
-PactFlow needs to perform a number of minor modifications to the document prior to validation to perform its compatibility checks and support many OAS [features](/docs/bi-directional-contract-testing/contracts/oas/features)In most cases, they will be transparent to you. These should be transparent to you in most cases. You can find more information [here](/docs/bi-directional-contract-testing/contracts/oas/keyword-support).
+PactFlow needs to perform a number of minor modifications to the document prior to validation to perform its compatibility checks and support many OAS [features](/docs/bi-directional-contract-testing/contracts/oas/features). In most cases, they will be transparent to you. You can find more information [here](/docs/bi-directional-contract-testing/contracts/oas/keyword-support).
 
 ### Document Limitations
 
