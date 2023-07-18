@@ -41,6 +41,12 @@ The keep selectors operate in a very similar way to the [consumer version select
 
 The `pacticipant` and `max_age` property may be used in combination with the other tags. The `max_age` and `latest` keys cannot be used together.
 
+:::note
+
+The selectors `{ "deployed": true }` and `{ "released": true }` will automatically be added to the keep selectors, meaning that all versions that have ever been deployed or released will be kept.
+
+:::
+
 #### Examples
 
 * keep all versions on the main branch of each pacticipant that are less than 30 days old: `{ "max_age": 30, "mainBranch": true }`

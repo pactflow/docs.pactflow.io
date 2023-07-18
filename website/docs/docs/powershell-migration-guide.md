@@ -16,11 +16,11 @@ Invoke-RestMethod -uri https://tls-v1-2.badssl.com:1012/
 
 An _unsuccessful_ connection will look as follows:
 
-<img src="/docs/static/powershell/powershell-failure.png" alt="Unsuccessful PowerShell connection"/>
+<img src="/powershell/powershell-failure.png" alt="Unsuccessful PowerShell connection"/>
 
 A _successful_ connection will look as follows:
 
-<img src="/docs/static/powershell/powershell-success.png" alt="Successful PowerShell connection" />
+<img src="/powershell/powershell-success.png" alt="Successful PowerShell connection" />
 
 ## Updating your security settings
 
