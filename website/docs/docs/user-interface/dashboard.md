@@ -13,7 +13,7 @@ The main PactFlow screen has four functional areas.
 &nbsp;
 
 **1 -**
-The list of all integrations are displayed on the left panel. An integration here is the pair of a consumer and provider that have a pact. Select an integration to have its details displayed in the center panel. The status icon (see table below) will be displayed for the verification result of latest pact.
+The list of all integrations is displayed on the left panel. Integration here is the pair of a consumer and provider that have a pact. Select an integration to have its details displayed in the center panel. The status icon (see table below) will be displayed for the verification result of latest pact.
 
 **2 -**
 The details of the selected integration will be displayed here.
@@ -58,11 +58,11 @@ Displays the current logged in user and subscription status.
 
 The blue and grey "pill" icons shown next to the consumer and provider version numbers on the Overview, Matrix and Pact pages represent [tags](https://docs.pact.io/pact_broker/tags) that belong to the relevant application versions in PactFlow.
 
-A blue pill indicates that the application version is the latest version that has a tag with that name (eg. the latest consumer version with a "main" tag).
+A blue pill indicates that this is the latest version that has a tag with that name. For example, the latest consumer version with a "main" tag.
 
 <img alt="Latest version tag menu" src="/ui/tag-main-latest.png" style={{width: 70}}/>
 
-A grey pill indicates that there is a later application version that has the same tag.
+A grey pill indicates that there's a later application version that has the same tag.
 
 <img alt="Not latest version tag menu" src="/ui/tag-main-not-latest.png" style={{width: 70}}/>
 
@@ -70,7 +70,7 @@ Clicking on the tag pill icon will allow you to perform actions in the context o
 
 ### Consumer version tags
 
-Clicking on a tag pill for a consumer version tag will make the following menu available.
+The consumer version tag has the following menu items.
 
 ![Consumer version tag menu](/ui/consumer-version-tag-menu.png)
 
@@ -78,15 +78,15 @@ Clicking on a tag pill for a consumer version tag will make the following menu a
 
 ##### Resources
 
-- Copy pact URL - selecting this menu item will copy the URL of the latest pact with the given tag into the clipboard.
-- Copy stub URL - selecting this menu item will copy the URL of the [stub](/docs/stubs) that is created from the latest pact for the given tag.
-- Copy badge URL - selecting this menu item will copy the URL of the [verification status badge](https://docs.pact.io/pact_broker/advanced_topics/provider_verification_badges/) for the latest pact for the given tag into the clipboard.
-- Copy tag URL - selecting this menu item will copy the URL of the application version tag into the clipboard.
-- Copy tag name - selecting this menu item will copy the name of the tag into the clipboard.
+- Copy pact URL - Copies the URL of the latest pact with the given tag into the clipboard.
+- Copy stub URL - Copies the URL of the [stub](/docs/stubs) created from the latest pact for the given tag.
+- Copy badge URL - Copies the URL of the [verification status badge](https://docs.pact.io/pact_broker/advanced_topics/provider_verification_badges/) for the latest pact for the given tag into the clipboard.
+- Copy tag URL - Copies the URL of the application version tag into the clipboard.
+- Copy tag name - Copies the name of the tag into the clipboard.
 
 ##### Delete
 
-- Delete all pacts with the given tag - selecting this menu item allows you to delete all pacts that belong to application versions with the given tag. This item will only be visible if the current user has the [contract_data:bulk_delete](/docs/permissions#contract_databulk_delete) permission.
+- Delete all pacts with the given tag - Allows you to delete all pacts that belong to application versions with the given tag. This is only visible if the current user has the [contract_data:bulk_delete](/docs/permissions#contract_databulk_delete) permission.
 
 ### Provider version tags
 

@@ -5,7 +5,7 @@ sidebar_label: Overview
 
 ## Consumer Adapters
 
-The following are adapters for common tools that provide a mocking capability that you can use to immediately generate pact files from:
+The following are adapters for common tools that provide mocking capability that you can use to immediately generate pact files from:
 
 | Adapter | Use Case | Link |
 |---------|----------|------|

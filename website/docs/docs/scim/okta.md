@@ -2,26 +2,21 @@
 title: Integration guide - Okta
 ---
 
-Okta supports using SCIM to manage users and groups in a configured application. Users can be created, updated or 
-disabled via the SCIM API (Okta does not support deleting users). For more details, refer to
-[connecting SCIM API to Okta](https://developer.okta.com/docs/guides/scim-provisioning-integration-connect/main/) and the
-[Okta SCIM documentation](https://developer.okta.com/docs/concepts/scim/).  
+Okta supports using SCIM to manage users and groups in a configured application. Users can be created, updated, or disabled via the SCIM API (Okta does not support deleting users). For more details, refer to
+[connecting SCIM API to Okta](https://developer.okta.com/docs/guides/scim-provisioning-integration-connect/main/) and the [Okta SCIM documentation](https://developer.okta.com/docs/concepts/scim/).  
 
 ## Setting up a PactFlow app in Okta
 
-Be sure to read [connecting SCIM API to Okta](https://developer.okta.com/docs/guides/scim-provisioning-integration-connect/main/)!
+Check out the official Okta guide on [connecting the SCIM API](https://developer.okta.com/docs/guides/scim-provisioning-integration-connect/main/)!
 
 ### Configure SCIM provisioning
 
 Follow the PactFlow documentation to setup [an Okta SAML app](/docs/user-interface/settings/authentication#okta).
-You need to set the *Provisioning* to *SCIM* under the *App Settings*. 
+You need to set *Provisioning* to *SCIM* under *App Settings*. 
 
 ![Provisioning](/scim/okta-0.png)
 
-Then, in the application administration setting, 
-select the *Provisioning* tab. This screen has 3 different setting: *"To App"* to 
-configure the resources that Okta will send to PactFlow, *"To Okta"* for importing PactFlow resources into Okta and 
-*"Integration"* for configuring the integration settings.
+Then, in the application administration settings, select the *Provisioning* tab. This screen has 3 different settings: *"To App"* to configure the resources that Okta will send to PactFlow, *"To Okta"* for importing PactFlow resources into Okta and *"Integration"* for configuring the integration settings.
 
 ![Provisioning](/scim/okta-1.png)
 
@@ -32,11 +27,11 @@ Select the *"Integration"* item on the left, and then setup the SCIM connection.
 ![SCIM Connection](/scim/okta-scim-connection.png)
 
 1. SCIM version must be set to 2.0.
-2. Base URL is your PactFlow instance domain with `/scim/` appended. **Replace &lt;instance&gt; with your actual instance name.**
+2. The base URL is your PactFlow instance domain with `/scim/` appended. **Replace &lt;instance&gt; with your actual instance name.**
 3. Set the unique identifier to the Okta `userName` attribute. **It is important that this value is the same value that is passed in via the SAML authentication call.** 
-4. Depending on the direction you want the resources to flow, select the appropriate checkboxes. You want to at least push new users, new groups and profile updates to PactFlow.
+4. Depending on the direction you want resources to flow, select the appropriate checkboxes. You want to push new users, new groups, and profile updates to PactFlow.
 5. Authentication mode must be set to HTTP Header
-6. Set the Authorization to Bearer and set it to your PactFlow API token. You should use a [PactFlow System Account token](/docs/user-interface/settings/users#system-accounts) for this.
+6. Set the Authorization to Bearer to your PactFlow API token. You should use a [PactFlow System Account token](/docs/user-interface/settings/users#system-accounts) for this.
    This system account is going to require the `user:manage:*` and `team:manage:*` permissions to be able to create or update those resources.
    Creating a new role with these [permissions](/docs/permissions) and assigning it to the system account is recommended.
 
@@ -44,22 +39,20 @@ You can now use the *Test Connector Configuration* button to see if you have the
 
 ## Mapping Okta groups to PactFlow teams
 
-Okta groups can be setup to sync to PactFlow as Teams. Then any user added to the Okta group should automatically be
+Okta groups can be setup to sync with PactFlow as Teams. Then any user added to the Okta group should automatically be
 added to the corresponding team in PactFlow (if the user has been correctly synced).
 
 1. Create the group in Okta.
-2. Assign the new group to the PactFlow application. This can be done in either the group's *Applications* tab, or in the PactFlow application *Push Groups* tab.
-3. You can test the sync in the PactFlow application *Push Groups* tab.
+2. Assign the new group to the PactFlow application. This can be done in either the group's *Applications* tab, or in the PactFlow application's *Push Groups* tab.
+3. You can test the sync in the PactFlow application's *Push Groups* tab.
 
 ![Provisioning](/scim/okta-groups.png)
 
 ## Mapping Okta users to PactFlow users
 
-Okta users can be synced to PactFlow by assigning them to the PactFlow app (either directly or via a group that is 
-assigned to the PactFlow app). You will have to configure the attributes that get mapped to the PactFlow ones (see 
-[PactFlow User attributes](/docs/scim/main#users)) in the *To App* settings of the PactFlow application.
+Okta users can be synced to PactFlow by assigning them to the PactFlow app (either directly or via a group assigned to the PactFlow app). You will have to configure the attributes that get mapped to the PactFlow ones (see [PactFlow User attributes](/docs/scim/main#users)) in the *To App* settings of the PactFlow application.
 
-These are required attributes to be set:
+The required attributes to be set are as follows:
 
 ![User Attributes](/scim/okta-user-attr.png)
 
@@ -72,7 +65,7 @@ role setting](/docs/user-interface/settings/preferences#default-role) in PactFlo
 created, or you will have to follow the Okta knowledge base articles: [How to Pass Multivalued Attributes in SCIM User Object](https://support.okta.com/help/s/article/How-to-Pass-Multivalued-Attributes-in-SCIM-User-Object)
 and [How to add multi-value roles in SCIM Cloud integration](https://support.okta.com/help/s/article/How-to-add-multivalue-roles-in-SCIM-Cloud-integration).
 
-In essence, for each role you want to have assigned, you will need to:
+In essence, for each role you want assigned, you will need to:
 1. Create an attribute for the role in the PactFlow App Profile using the steps outlined in the knowledge base articles above. 
    Pay special attention to the expressions that the attribute requires.
 2. Create an attribute (for either a Group or User profile) in the Okta profile attributes for the role. Assign the role 
@@ -83,14 +76,14 @@ In essence, for each role you want to have assigned, you will need to:
 
 #### Role Example
 
-For example, let us setup an Admin attribute that will grant any user it is assigned to the *Administrator* role in PactFlow.
+For example, let us setup an Admin attribute that grants any user it is assigned to the *Administrator* role in PactFlow.
 
 1. Create an attribute in the PactFlow app that targets the *Administrator* role. This is in *Directory -> 
-   Profile Editor -> PactFlow App Profile* (or whatever name you gave the app).
+   Profile Editor -> PactFlow App Profile* (or whatever name you give the app).
 2. Set the *External name* to `roles.^[type=='Administrator'].value`.
 3. Set the *External namespace* to `urn:ietf:params:scim:schemas:core:2.0:User`.
 4. Set the attribute type depending on if you want to assign it directly to a user or via a group they belong to.
-5. Make sure to set the *Mutability* to `READ_WRITE`.
+5. Make sure to set *Mutability* to `READ_WRITE`.
 
 Once created it should look something like:
 
@@ -112,8 +105,7 @@ Next, we need to map the two attributes via the PactFlow app settings in the *To
 
 ![Attribute mapping](/scim/okta-role-3.png)
 
-Now we just need to assign the PactFlow Administrator role UUID value to a user via their profile, and when they sync, 
-they will get the administrator role. Using the PactFlow API browser, I find the Administrator role UUID is 
+Now we just need to assign the PactFlow Administrator role UUID value to a user via their profile. When they sync, they will get the administrator role. Using the PactFlow API browser, I found the Administrator role UUID is 
 `cf75d7c2-416b-11ea-af5e-53c3b1a4efd8`. Find the user you want to assign (*Directory -> People*) and edit the attribute
 in their *Profile*.
 

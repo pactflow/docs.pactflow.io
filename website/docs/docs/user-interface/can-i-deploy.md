@@ -3,9 +3,9 @@ title: Can I Deploy
 ---
 
 ## What is Can I Deploy 
-Can I Deploy page is the web version of our popular CLI tool [can-i-deploy](https://docs.pact.io/pact_broker/can_i_deploy), that queries the "Matrix". This UI provides a rich query interface for the Matrix to ensure you can safely deploy your application, providing additional context not readily available during CLI usage.
+Can I Deploy page is the web version of our popular CLI tool [can-i-deploy](https://docs.pact.io/pact_broker/can_i_deploy), which queries the "Matrix". This UI provides a rich query interface for the Matrix to ensure you can safely deploy your application. It provides additional context not readily available during CLI usage.
 
-You can find `Can I Deploy` button from the top navigation bar on overview page.
+You can find `Can I Deploy` button in the top navigation bar on the overview page.
 
 ## Walkthrough
 <iframe width="560" height="315" src="https://www.youtube.com/embed/e-l21IjI_d8" title="Can I Deploy introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -13,7 +13,7 @@ You can find `Can I Deploy` button from the top navigation bar on overview page.
 
 ## Can I Deploy layout
 
-The Can I Deploy page contains three main areas.
+The Can I Deploy page contains three main areas:
 
 &nbsp;
 
@@ -21,14 +21,14 @@ The Can I Deploy page contains three main areas.
 
 &nbsp;
 
-**1 -**
-UI selectors for performing a Matrix query, where you can choose your application from the application list, the application version and the deployment target. For more information, see the [Selectors](#Selectors) section.
+**UI selectors**
+It helps you choose your application from the application list, the application version and the deployment target. For more information, see the [Selectors](#Selectors) section.
 
-**2 -**
-A list of messages summarising if you are safe to deploy your chosen application version. 
+**Messaging list**
+It summarizes if you are safe to deploy your chosen application version. 
 
-**3 -**
-A table of verification statuses associated with your application version and deployment target.
+**Verification statuses table**
+It demonstrates your application version and deployment target.
 
 
 <div class="status-table">
@@ -43,7 +43,7 @@ A table of verification statuses associated with your application version and de
 
 ### Selectors
 
-There are three selectors for customising your Matrix query.
+There are three selectors for customizing your Matrix query.
 
 &nbsp;
 
@@ -52,30 +52,30 @@ There are three selectors for customising your Matrix query.
 &nbsp;
 
 **a -**
-Choose your application name from application lists.
+You can choose your application name from the list of applications.
 
 **b -**
-Select your application version from version lists. You can choose the application version from:
-- Latest version from a branch (default: your main branch)
+You can choose your application version from the list of versions mentioned below:
+- The latest version from a branch (default: your main branch)
 - Specific version number
 - Version in an environment (Note: you need to have `environment read permission` to interact with this selection)
-- Latest version
-- Latest version with a specific tag
+- The latest version
+- The latest version with a specific tag
 
 **c -**
-Select your deployment target. Options include:
+Below are a few options for choosing your deployment target::
 - Deploy to an environment (Note: you need to have `environment read permission` to interact with this selection)
 - Deploy with the other applications' latest version with a specific tag
 - Deploy with other applications' latest main branch
 
 **d -**
-A button to submit the Matrix query. It's disabled when a selector is missing or invalid.
+There is a button to submit the matrix query. When a selector is missing or invalid, it is disabled.
 
 ## Miscellaneous
 
 ### Permission warning
 
-You might see a warning in the following screenshot about the environment permission issue, please contact your account administrator to setup environment read/management permission for you. Otherwise, you are unable to choose and run the query including environments.
+You might see a warning in the following screenshot about the environment permission issue. To set up read/management permissions for your environment, please contact your account administrator. Otherwise, you will not be able to select and run the query that includes environments.
 
 &nbsp;
 

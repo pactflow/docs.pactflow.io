@@ -7,7 +7,7 @@ title: Stubs
 
 Every contract published to PactFlow is automatically assigned a hosted API stub URL that you can use for stubbing API backends in your testing.
 
-Hosted API stubs are useful for a number of use cases, such as:
+Hosted API stubs are useful for several use cases, such as:
 
 1. Replacing end-to-end test environments when running UI testing tools like Cypress or mobile UI tests
 1. Using as a dynamic test environment for new feature testing
@@ -24,15 +24,15 @@ Hosted API stubs are useful for a number of use cases, such as:
 | 3       | ❌         |
 | 4+      | ❌         |
 
-_NOTE: Whilst currently only versions 1 and 2 of the [pact specification](https://github.com/pact-foundation/pact-specification/) are currently fully supported, pacts using the v3 format or beyond may be used, however any matching rules will be ignored._
+_NOTE: Whilst currently only versions 1 and 2 of the [pact specification](https://github.com/pact-foundation/pact-specification/) are currently fully supported. Pacts using the v3 format or beyond may be used, however any matching rules will be ignored._
 
 ## Basic Use
 
 To use the stub:
 
-1. You must first have published a contract
-1. Find the path to the pact contract you'd like to stub. (if you're not familiar with the PactFlow API, the simplest way to get this is to click "View Pact" from the dashboard and select the "API Browser" at the top of the screen to see the URL)
-1. Append `/stub/` to the path of the pact file to get the base path of an instant stub
+1. You must first publish a contract.
+1. Find the path to the pact contract you'd like to stub. (If you're not familiar with the PactFlow API, the simplest way to get this is to click "View Pact" from the dashboard and select "API Browser" at the top of the screen to see the URL).
+1. Append `/stub/` to the pact file path to get the base path of an instant stub
 
 ## Stub URL format
 
@@ -56,22 +56,22 @@ https://<yourdomain>.pactflow.io/pacts/provider/:provider/consumer/:consumer/lat
 
 Pact contracts may define multiple overlapping requests - for example when there are provider states.
 
-Where multiple matching interactions are found, the interactions will be sorted by response status, and the first one will be returned. This may lead to some non-deterministic behaviour.
+Where multiple matching interactions are found, the interactions will be sorted by response status, and the first one will be returned. This may lead to non-deterministic behaviour.
 
-_NOTE: currently only versions 1 and 2 of the [pact specification](https://github.com/pact-foundation/pact-specification/) are currently fully supported. Pacts using the v3 format may be used, however, any matching features added in v3 will currently be ignored._
+_NOTE: Only versions 1 and 2 of the [pact specification](https://github.com/pact-foundation/pact-specification/) are currently fully supported. Pacts using the v3 format may be used, however, any matching features added in v3 will currently be ignored._
 
 ## Example
 
 _The following example uses the example projects in our [CI/CD workshop](https://docs.pactflow.io/docs/workshops/ci-cd/)_
 
-Let's say you have a [Product API](https://github.com/pactflow/example-provider) `example-provider` that you would like to stub when working with a [React consumer](https://github.com/pactflow/example-consnumer) `example-consumer`.
+Let's say you have a [Product API](https://github.com/pactflow/example-provider) `example-provider` that you want to stub when working with a [React consumer](https://github.com/pactflow/example-consnumer) `example-consumer`.
 
-There are two main endpoitns:
+There are two main endpoints:
 
 * `GET /products`: Retrieve all products:
 * `GET /products/:id`: Retrieve a single product
 
-The (simplified) pact file for this integration looks something like this:
+The (simplified) pact file for this integration looks like this:
 
 ```json
 {
@@ -137,14 +137,14 @@ The (simplified) pact file for this integration looks something like this:
 }
 ```
 
-You want to use the latest pact file for the purposes of the stub, which is hosted on `test.pactflow.io`. In the example app, you can set the base URL of all API calls with the environment variable `REACT_APP_API_BASE_URL`.
+You want to use the latest pact file for the stub, which is hosted on `test.pactflow.io`. In the example app, you can set the base URL of all API calls with the environment variable `REACT_APP_API_BASE_URL`.
 
 ```sh
 export REACT_APP_API_BASE_URL=https://test.pactflow.io/pacts/provider/pactflow-example-provider/consumer/pactflow-example-consumer/latest/stub
 npm start
 ```
 
-That's it - if you open up the application in your browser you can navigate around, using the live stub service.
+That's it - if you open the application in your browser, you can navigate around, using the live stub service.
 
 ![Integration Dashboard](/ui/stubs/dev-console.png)
 
@@ -168,11 +168,11 @@ You can copy the stub URL template from the pact dashboard or pact drill-down vi
 
 ![Integration Dashboard](/ui/stubs/stub-copy-url.png)
 
-This is the simplest method, and is easily customised as per the URL format described above.
+This is the simplest method and is easily customized as per the URL format described above.
 
 ### Via the API
 
-Sometimes you have the need to find the exact version. To do this, you can navigate the API user the HAL browser (and also directly via the API on the command line).
+Sometimes you need to find the exact version. To do this, you can navigate to the API user the HAL browser (and also directly via the API on the command line).
 
 ### 1. Find the integration
 
@@ -188,10 +188,10 @@ Open the API Browser by selecting "API" in the header toolbar.
 
 ### 3. Find the pact
 
-From here, you will be at the latest version for the integration. You can navigate from here to the specific version of an integration to get the URL you need:
+From here, you will be at the latest integration version. You can navigate from here to the specific version of an integration to get the URL you need:
 
-1. Select the `->` to navigate to the latest version
-1. Select the `->` to navigate to the latest tagged version of the pact
-1. Copy the URL in this address to get the path to the pact file. By default, it will link to the version of the pact you were on in step 2
+1. Select `->` to navigate to the latest version
+1. Select `->` to navigate to the latest tagged version of the pact
+1. Copy the URL at this address to get the path to the pact file. By default, it will link to the version of the pact you were on in step 2
 
 ![API Browser](/ui/stubs/stubs-api-browser-url.png)

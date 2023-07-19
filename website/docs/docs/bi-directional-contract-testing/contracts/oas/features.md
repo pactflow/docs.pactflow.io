@@ -3,7 +3,7 @@ title: Features
 sidebar_label: Features & Testing
 ---
 
-This article outlines the features supported and compatibility checks PactFlow applies when comparing consumer contracts (pact files) against an OpenAPI document.
+Here you can find the supported features and compatibility checks PactFlow applies when comparing consumer contracts (pact files) against an OpenAPI document.
 
 ## Testing
 

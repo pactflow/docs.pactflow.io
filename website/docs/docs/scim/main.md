@@ -6,7 +6,7 @@ _Eligible plans: Enterprise_
 
 **NOTE: SAML is a pre-requisite for this feature to work.**
 
-PactFlow users and teams can be managed via a SCIM 2.0 compatible API. For details on SCIM, refer to https://www.simplecloud.info/.
+The SCIM 2.0 compatible API manages PactFlow users and teams. For more details on SCIM, refer to https://www.simplecloud.info/.
 
 ## Integration guides
 
@@ -29,7 +29,7 @@ Creating a new role with these [permissions](/docs/permissions) and assigning it
 
 ## Resources
 
-The following resources can be managed via SCIM:
+SCIM can manage the following resources.:
 
 ### Users
 

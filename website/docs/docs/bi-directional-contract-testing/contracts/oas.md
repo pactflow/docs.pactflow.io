@@ -3,7 +3,7 @@ title: OpenAPI Specification Contracts
 sidebar_label: Overview
 ---
 
-Providers may specify an OpenAPI Specification as a Provider Contract, enabling teams to get reuse out of existing tools and processes.
+Providers may specify an OpenAPI Specification as a Provider Contract, enabling teams to reuse existing tools and processes.
 
 ## Supported versions
 
@@ -18,14 +18,14 @@ Providers may specify an OpenAPI Specification as a Provider Contract, enabling 
 
 ### PactFlow transforms your OAS
 
-In order for PactFlow to perform its compatibility checks and support many of the OAS [features](/docs/bi-directional-contract-testing/contracts/oas/features), it needs to perform a number of minor modifications to the document prior to validation. These should be transparent to you in most cases. You can learn about the process [here](/docs/bi-directional-contract-testing/contracts/oas/keyword-support).
+PactFlow needs to perform a number of minor modifications to the document prior to validation to perform its compatibility checks and support many OAS [features](/docs/bi-directional-contract-testing/contracts/oas/features). In most cases, they will be transparent to you. You can find more information [here](/docs/bi-directional-contract-testing/contracts/oas/keyword-support).
 
 ### Document Limitations
 
-When using OpenAPI Specifications as a Provider Contract, you should be aware of the following limitations.
+When using the OpenAPI Specifications as a Provider Contract, you should know the following limitations.
 
-- The OAS must be a valid YAML or JSON file. PactFlow will error if an invalid document is provided.
-- OAS documents must not be split across multiple files. You should combine any documents together, using tools like [OpenAPI Merge](https://github.com/robertmassaioli/openapi-merge) or [speccy](https://www.npmjs.com/package/speccy). That is, PactFlow can not resolve remote references to files, and will not resolve URL references.
+- The OAS must be a valid YAML or JSON file. PactFlow will give an error if an invalid document is provided.
+- OAS documents must not be split across multiple files. You should combine the documents together, using tools like [OpenAPI Merge](https://github.com/robertmassaioli/openapi-merge) or [speccy](https://www.npmjs.com/package/speccy). That is, PactFlow can not resolve remote references to files, and will not resolve URL references.
 - YAML formatted OAS documents must not use [anchors](https://yaml.org/spec/1.2.2/#3222-anchors-and-aliases), due to the potential security issues (see [YAML bomb](https://en.wikipedia.org/wiki/Billion_laughs_attack) for more). If your auto-generated specs have anchors, you can pre-process them via tools like [spruce](https://github.com/geofffranks/spruce), that will expand them for you.
 
 ### Other Considerations

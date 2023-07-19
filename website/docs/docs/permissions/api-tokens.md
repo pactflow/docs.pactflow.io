@@ -2,11 +2,11 @@
 title: API token permissions
 ---
 
-API tokens inherit their permissions from their associated user.
+API tokens inherit their permissions from their associated users.
 
 ## Read/write
 
-A read/write token allows a user to perform any action through the API that its user's permissions allow.
+A read/write token allows a user to perform any action through the API that its permissions allow.
 
 ## Read only
 
