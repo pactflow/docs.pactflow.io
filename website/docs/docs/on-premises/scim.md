@@ -11,7 +11,7 @@ For details on the PactFlow SCIM API, refer to the [main SCIM documentation](/do
 
 ### First
 
-Before running the SCIM API, you must have a correctly running PactFlow instance. Follow the 
+Before running the SCIM API, you must have a correctly running PactFlow instance that is version 1.26.0 or later. Follow the
 [PactFlow On-Premises installation instructions](/docs/on-premises/installation/checklist).
 
 ### Then
@@ -21,20 +21,19 @@ Before running the SCIM API, you must have a correctly running PactFlow instance
 * You can then deploy the docker container to your docker orchestration service (AWS ECS, K8, etc.). You need to provide the external URL of
 your PactFlow instance as the `PACTFLOW_URL` environment variable to the running container.
 
-**NOTE: The SCIM API has to access your PactFlow instance using the external address.** This is due to PactFlow using
-the HAL media format which uses embedded links in the responses.
+**NOTE: The SCIM API has to access your PactFlow instance using the URL/one of the URLs listed in the [PACTFLOW_BASE_URL](/docs/on-premises/environment-variables#pactflow_base_url) environment variable used for the PactFlow application.** This is due to PactFlow using the HAL media format which uses embedded links in the responses.
 
 For instance, if your PactFlow instance is running as `https://pactflow.mycompany.com` then you need to the set the
-`PACTFLOW_URL` environment variable to that address.
+`PACTFLOW_URL` environment variable for the SCIM API to that address.
 
 ### Next
 
 You can now test the running SCIM API by using a tool like `curl`. First, login to your PactFlow instance and create [a
-system account](/docs/user-interface/settings/users#system-accounts) and then copy the system account API token.
+system account](/docs/user-interface/settings/users#system-accounts) with the [SCIM role](/docs/permissions/predefined-roles#scim) and then copy the system account API token.
 
 For instance, assuming your PactFlow instance is running as `https://pactflow.mycompany.com` and your SCIM API is
 running as `https://pactflow-scim.mycompany.com` with its `PACTFLOW_URL` environment variable set to `https://pactflow.mycompany.com` and
-you have copied the system account API token, you can then run `curl -H 'Authorization: Bearer <PASTE THE SERVICE TOKEN HERE>' https://pactflow-scim.mycompany.com/Users`
+you have copied the SCIM system account API token, you can then run `curl -H 'Authorization: Bearer <PASTE THE SERVICE TOKEN HERE>' https://pactflow-scim.mycompany.com/Users`
 to fetch the users as a SCIM request.
 
 ## Docker Compose example

@@ -31,9 +31,8 @@ Select the *"Integration"* item on the left, and then setup the SCIM connection.
 3. Set the unique identifier to the Okta `userName` attribute. **It is important that this value is the same value that is passed in via the SAML authentication call.** 
 4. Depending on the direction you want resources to flow, select the appropriate checkboxes. You want to push new users, new groups, and profile updates to PactFlow.
 5. Authentication mode must be set to HTTP Header
-6. Set the Authorization to Bearer to your PactFlow API token. You should use a [PactFlow System Account token](/docs/user-interface/settings/users#system-accounts) for this.
-   This system account is going to require the `user:manage:*` and `team:manage:*` permissions to be able to create or update those resources.
-   Creating a new role with these [permissions](/docs/permissions) and assigning it to the system account is recommended.
+6. Set the Authorization to Bearer with your PactFlow API token. You should use a [PactFlow System Account token](/docs/user-interface/settings/users#system-accounts) for this.
+   The system account must be assigned the [SCIM role](/docs/permissions/predefined-roles#scim) to be able to access the required PactFlow SCIM resources.
 
 You can now use the *Test Connector Configuration* button to see if you have the values correctly setup.
 
