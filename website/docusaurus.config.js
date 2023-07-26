@@ -111,12 +111,25 @@ module.exports = {
         "java",
         "docker",
         "groovy",
-        "scala"
+        "scala",
       ],
     },
   },
   themes: ["@you54f/theme-github-codeblock"], // switch to @saucelabs/theme-github-codeblock when merged https://github.com/saucelabs/docusaurus-theme-github-codeblock/pull/19
-  plugins: [path.resolve(__dirname, "src/plugins/plugin-segment")],
+  plugins: [
+    path.resolve(__dirname, "src/plugins/plugin-segment"),
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            from: "/docs/user-interface/settings/authentication",
+            to: "/docs/authentication/main",
+          },
+        ],
+      },
+    ],
+  ],
   presets: [
     [
       "@docusaurus/preset-classic",

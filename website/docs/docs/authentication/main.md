@@ -88,6 +88,7 @@ Supported capabilities:
 - Authorization from an external IdP
 - Automated user provisioning into your account
 - SP initiated login
+- [SCIM](/docs/scim/main)
 
 We do not currently support the following:
 
