@@ -23,7 +23,7 @@ else
   ECR_ACCOUNT="$DEV_ACCOUNT"
 fi
 
-REPOSITORY="$DEV_ACCOUNT.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com"
+REPOSITORY="$ECR_ACCOUNT.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com"
 
 aws ecr get-login-password \
     --region "$AWS_DEFAULT_REGION" \
@@ -37,6 +37,8 @@ CurrentTag=$(docker images $REPOSITORY/$IMAGE_NAME --format '{{.Tag}}' | awk '/[
 pushd $ScriptDir/../build-container
 
 docker build . -t $IMAGE_NAME
+# On a Mac? Need to do this. Also, the debian image is different and complains about new Python PEP 668 stuff.
+# docker build . --platform=linux/amd64 -t $IMAGE_NAME
 docker tag $IMAGE_NAME:latest $REPOSITORY/$IMAGE_NAME:$((CurrentTag+1))
 docker tag $IMAGE_NAME:latest $REPOSITORY/$IMAGE_NAME:latest
 docker push $REPOSITORY/$IMAGE_NAME:$((CurrentTag+1))
