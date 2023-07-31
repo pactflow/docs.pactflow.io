@@ -130,6 +130,10 @@ Invite a user to the PactFlow application.
 
 Create, update, and disable any regular user (not system accounts), and modify their roles.
 
+## user:manage_scim_attributes:*
+
+Set and update the user attributes used by the PactFlow SCIM API to identify the user in the external Identity Provider (`externalIdpUsername` and `externalIdpId`). Must be used in conjuction with `user:invite` and `user:manage` permissions. This permission can only be associated with the SCIM role.
+
 ## user:read:*
 
 View all regular users (not system accounts) and their associated roles.

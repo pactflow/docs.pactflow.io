@@ -98,6 +98,19 @@ The SwaggerHub role permissions may not be modified.
 - [`environment:read:*`](/docs/permissions#environmentread)
 - [`contract_data:read:*`](/docs/permissions#contract_dataread)
 
+## SCIM
+
+For the System Account used by the PactFlow SCIM API.
+
+The SCIM role permissions may not be modified.
+
+#### Permissions
+
+- [`team:manage:*`](/docs/permissions#teammanage)
+- [`user:invite:*`](/docs/permissions#userinvite)
+- [`user:manage:*`](/docs/permissions#usermanage)
+- [`user:manage_scim_attributes:*`](/docs/permissions#usermanage_scim_attributes)
+
 ## Test Maintainer (deprecated)
 
 The Test Maintainer role has been replaced by the User role. The difference between the User and Test Maintainer roles is that the User role has team scoped permissions for Webhook and Secret management.

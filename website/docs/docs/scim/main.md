@@ -32,10 +32,9 @@ Users already created via SAML will not be automatically linked to users created
 
 ## Authentication
 
-The SCIM API endpoints require a Pactflow bearer token. It is recommended to use a 
-[PactFlow System Account token](/docs/user-interface/settings/users#system-accounts) for this. This system account is
-going to require the `user:invite:*`, `user:manage:*` and `team:manage:*` permissions to be able to create or update those resources. 
-Creating a new role with these [permissions](/docs/permissions) and assigning it to the system account is recommended. 
+The SCIM API endpoints require a PactFlow bearer token. It is recommended to use a
+[PactFlow System Account token](/docs/user-interface/settings/users#system-accounts) for this. The system account must
+be assigned the [SCIM role](/docs/permissions/predefined-roles#scim) to be able to create or update those resources.
 
 ## Resources
 
