@@ -18,7 +18,6 @@ module.exports = {
             'docs/user-interface/settings/secrets',
             'docs/user-interface/settings/users',
             'docs/user-interface/settings/teams',
-            'docs/user-interface/settings/authentication',
             'docs/user-interface/settings/environments'
           ]
         }
@@ -38,6 +37,7 @@ module.exports = {
             'docs/permissions/api-tokens'
           ]
         },
+        'docs/authentication/main',
         {
           type: 'category',
           label: 'SCIM',
