@@ -6,7 +6,7 @@ _Eligible plans: Enterprise_
 
 **NOTE: SAML is a pre-requisite for this feature to work.**
 
-The SCIM 2.0 compatible API manages PactFlow users and teams. For more details on SCIM, refer to https://www.simplecloud.info/.
+The SCIM 2.0 compatible API manages PactFlow users and teams. For more details on SCIM, refer to [https://scim.cloud/](https://scim.cloud/).
 
 ## Integration guides
 
