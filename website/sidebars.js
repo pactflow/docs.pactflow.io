@@ -384,6 +384,7 @@ module.exports = {
           label: 'Releases',
           items: [
 //on-prem-release-placeholder
+            'docs/on-premises/releases/1.26.0',
             'docs/on-premises/releases/1.25.0',
             'docs/on-premises/releases/1.24.0',
             'docs/on-premises/releases/1.23.1',
