@@ -132,12 +132,15 @@ for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-|CC-)([0-9]+)' | sort 
        release_type=$(echo $response | jq '.fields.customfield_18528.value' | tr -d '"')
        has_note=$(echo $response | jq '.fields.customfield_11009' | tr -d '"')
 
-       if [ "$release_type" = "Feature" ] && [ "$has_note" != "null" ]; then
-         features+="\n* "$(echo $response | jq '.fields.customfield_11009.content[].content[].text' | tr -d '"')
-       elif [ "$release_type" = "Fix" ] && [ "$has_note" != "null" ]; then
-         fixes+="\n* "$(echo $response | jq '.fields.customfield_11009.content[].content[].text' | tr -d '"')
-       else
-         review+='\n- https://smartbear.atlassian.net/browse/'$i
+       note="null"
+       if [ "$has_note" != "null" ]; then
+          note=$(echo $response | jq '.fields.customfield_11009.content[].content[].text' | tr -d '"')
+       fi
+
+       if [ "$release_type" = "Feature" ] && [ "$has_note" != "null" ] && [ "$note" != "null" ]; then
+         features+="\n* "$note
+       elif [ "$release_type" = "Fix" ] && [ "$has_note" != "null" ] && [ "$note" != "null" ]; then
+         fixes+="\n* "$note
        fi
 
        migration_note=$(echo $response | jq '.fields.customfield_17521.value' | tr -d '"')
