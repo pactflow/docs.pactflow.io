@@ -111,7 +111,7 @@ for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-|CC-)([0-9]+)' | sort 
        --user "$JIRA_AUTH" \
        --header 'Accept: application/json' \
        --header 'Content-Type: application/json')
-   
+
    # Valid Scenario: We may have merged code for a ticket that has not been marked as done in Jira since there is 
    # more work required to complete it but we still want to attach a version to the ticket which tells Jira that 
    # part of the code has been released to production.
@@ -126,10 +126,15 @@ for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-|CC-)([0-9]+)' | sort 
        release_type=$(echo $response | jq '.fields.customfield_18528.value' | tr -d '"')
        has_note=$(echo $response | jq '.fields.customfield_11009' | tr -d '"')
 
-       if [ "$release_type" = "Feature" ] && [ "$has_note" != "null" ]; then
-         features+="\n* "$(echo $response | jq '.fields.customfield_11009.content[].content[].text' | tr -d '"')
-       elif [ "$release_type" = "Fix" ] && [ "$has_note" != "null" ]; then
-         fixes+="\n* "$(echo $response | jq '.fields.customfield_11009.content[].content[].text' | tr -d '"')
+       note="null"
+       if [ "$has_note" != "null" ]; then
+          note=$(echo $response | jq '.fields.customfield_11009.content[].content[].text' | tr -d '"')
+       fi
+
+       if [ "$release_type" = "Feature" ] && [ "$has_note" != "null" ] && [ "$note" != "null" ]; then
+         features+="\n* "$note
+       elif [ "$release_type" = "Fix" ] && [ "$has_note" != "null" ] && [ "$note" != "null" ]; then
+         fixes+="\n* "$note
        else
          review+='\n- https://smartbear.atlassian.net/browse/'$i
        fi
