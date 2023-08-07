@@ -9,6 +9,7 @@ title: Environment variables
 -->
 
 
+
 ## Logging
 
 <hr/>
@@ -40,8 +41,6 @@ When true, HTTP request details and response status and duration will be logged 
 **Default:** `false`<br/>
 **Allowed values:** `true`, `false`<br/>
 
-<br/>
-
 ## Monitoring
 
 <hr/>
@@ -55,8 +54,6 @@ Set this to true to enable New Relic application monitoring. The New Relic confi
 **Required:** false<br/>
 **Default:** `false`<br/>
 **Allowed values:** `true`, `false`<br/>
-
-<br/>
 
 ## Database
 
@@ -178,8 +175,6 @@ Required for running Postgres on RDS with IAM authentication. This must be set t
 
 **Required:** false<br/>
 
-<br/>
-
 ## Webhooks
 
 <hr/>
@@ -219,8 +214,6 @@ Whether or not to disable SSL verificaton when executing webhooks.
 **Required:** false<br/>
 **Default:** `false`<br/>
 **Allowed values:** `true`, `false`<br/>
-
-<br/>
 
 ## SAML authentication
 
@@ -332,8 +325,6 @@ To allow for a small amount of clock drift between PactFlow and the Identity Pro
 **Required:** false<br/>
 **Default:** `0`<br/>
 
-<br/>
-
 ## Demo authentication
 
 <hr/>
@@ -347,8 +338,6 @@ Whether or not to enable authentication for demo users. For demonstration purpos
 **Required:** false<br/>
 **Default:** `false`<br/>
 **Allowed values:** `true`, `false`<br/>
-
-<br/>
 
 ## Encryption
 
@@ -371,8 +360,6 @@ env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 
 **Required:** true<br/>
 **Example:** `eLM5xPxPu9ftDhA34ZUw2ry2okpMnOPCrA-twxLBUUk`<br/>
 
-<br/>
-
 ## Secrets
 
 <hr/>
@@ -384,8 +371,6 @@ env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 
 Deprecated in favour of `PACTFLOW_MASTER_ENCRYPTION_KEY`. If you have a previous installation of PactFlow with `PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY` set, please rename it to `PACTFLOW_MASTER_ENCRYPTION_KEY`.
 
 **Required:** false<br/>
-
-<br/>
 
 ## User administration
 
@@ -407,8 +392,6 @@ env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 
 **Allowed values:** `A-Za-z0-9!#$%&*+-^_``|~.`<br/>
 **Example:** `4wmplZfucVG-LdIHD9L`<br/>
 **More information:** https://tools.ietf.org/html/rfc7230#section-3.2.6<br/>
-
-<br/>
 
 ## Domain
 
@@ -452,8 +435,6 @@ This is to assist in the migration from using tags to track deployments to using
 **Allowed values:** `true`, `false`<br/>
 **More information:** https://docs.pact.io/pact_broker/recording_deployments_and_releases/<br/>
 
-<br/>
-
 ## Badges
 
 <hr/>
@@ -467,8 +448,6 @@ The URL of the free service that is used to generate the build badges. Note that
 **Required:** false<br/>
 **Default:** `https://img.shields.io`<br/>
 **More information:** https://shields.io<br/>
-
-<br/>
 
 ## Resources
 
@@ -575,8 +554,6 @@ Whether or not to enable the embedded HAL Browser.
 **Allowed values:** `true`, `false`<br/>
 **More information:** https://github.com/mikekelly/hal-browser<br/>
 
-<br/>
-
 ## Miscellaneous
 
 <hr/>
@@ -589,8 +566,6 @@ The timezone in which to display dates for server side rendered pages.
 
 **Required:** true<br/>
 **More information:** [Valid timezones](/docs/on-premises/environment-variables/timezones)<br/>
-
-<br/>
 
 ## API Tokens
 
