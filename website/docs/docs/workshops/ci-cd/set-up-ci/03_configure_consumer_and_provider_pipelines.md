@@ -32,8 +32,9 @@ The source repositories are configured to use the the public broker at test.pact
    1. In Github:
       1. Open your forked `example-consumer` project (`https://github.com/<your-username>/example-consumer`)
       1. Click on the `Settings` tab.
-      1. Select `Secrets` from the side menu.
-      1. Click `New repository secret` (the button is to the right of the "Actions secrets" heading)
+      1. Open the `Secrets and variables` dropdown in the side menu.
+      1. Select Actions from the dropdown
+      1. Click the `New repository secret` button
       1. Set the name of the secret to `PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP`
       1. Paste in the PactFlow API token value you copied in the previous step.
 2. Update your workflow files in GitHub to point at your PactFlow Broker
