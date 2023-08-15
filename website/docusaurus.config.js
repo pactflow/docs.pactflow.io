@@ -125,7 +125,13 @@ module.exports = {
           {
             from: "/docs/user-interface/settings/authentication",
             to: "/docs/authentication/main",
-          },
+          },{
+            from: "/go/publish-provider-self-verification-results",
+            to: "/docs/bi-directional-contract-testing/provider"
+          },{
+            from: "/go/publish-consumer-contract-bdct",
+            to: "/docs/bi-directional-contract-testing/consumer"
+          }
         ],
       },
     ],
