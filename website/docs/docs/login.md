@@ -23,3 +23,5 @@ The most common reasons for API authentication failures are:
       * To resolve this, please see the section on [configuring your API token](/#configuring-your-api-token)
   3. Using a read-only token instead of a read/write token.
       * To resolve this, please see the section on [configuring your API token](/#configuring-your-api-token) and ensure you have copied the read/write token.
+
+Additionally, on September 11 of 2023, the basic authentication feature for legacy plans was [decommissioned](https://docs.pactflow.io/notices/2023-06-05-legacy-plan-decommission/). See the [guide](https://docs.pactflow.io/notices/2023-06-05-legacy-plan-decommission/) on upgrading to a supported authentication mode.
