@@ -85,17 +85,8 @@ Copy and paste the following snippet into your .yml file.
 
 ```sh
 Usage:
-  pactflow publish-provider-contract CONTRACT_FILE \
-  --broker-token=BROKER_TOKEN
-  --broker-base-url=BROKER_BASE_URL
-  --provider PROVIDER \
-  --provider-app-version PROVIDER_APP_VERSION \
-  --branch BRANCH \
-  --content-type CONTENT_TYPE \
-  --verification-exit-code=EXIT_CODE \
-  --verification-results REPORT_PATH \
-  --verification-results-content-type REPORT_CONTENT_TYPE \
-  --verifier VERIFIER
+  pactflow publish-provider-contract CONTRACT_FILE ... --provider=PROVIDER -a,
+    --provider-app-version=PROVIDER_APP_VERSION -b, --broker-base-url=BROKER_BASE_URL
 
 Options:
       --provider=PROVIDER
@@ -130,13 +121,19 @@ Options:
               # The tool used to verify the provider contract
       [--verifier-version=VERIFIER_VERSION]
               # The version of the tool used to verify the provider contract
+      [--build-url=BUILD_URL]
+              # The build URL that created the provider contract
   -o, [--output=OUTPUT]
               # json or text
               # Default: text
   -b, --broker-base-url=BROKER_BASE_URL
-              # The base URL of your PactFlow account e.g. https://myaccount.pactflow.io
+              # The base URL of the Pact Broker
+  -u, [--broker-username=BROKER_USERNAME]
+              # Pact Broker basic auth username
+  -p, [--broker-password=BROKER_PASSWORD]
+              # Pact Broker basic auth password
   -k, [--broker-token=BROKER_TOKEN]
-              # The RW Token from your PactFlow account - https://myaccount.pactflow.io/settings/api-tokens
+              # Pact Broker bearer token
   -v, [--verbose], [--no-verbose]
               # Verbose output. Default: false
 ```
