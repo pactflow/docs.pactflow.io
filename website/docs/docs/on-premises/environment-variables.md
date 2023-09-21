@@ -215,6 +215,39 @@ Whether or not to disable SSL verificaton when executing webhooks.
 **Default:** `false`<br/>
 **Allowed values:** `true`, `false`<br/>
 
+### PACTFLOW_WEBHOOK_CERTIFICATES
+
+A list of SSL certificate configuration objects with the properties `description`, and either `content` or `path`. These
+certificates are used when a webhook needs to connect to a server that uses a self signed certificate.
+
+Each certificate configuration item accepts a chain of certificates in PEM format - there may be multiple 'BEGIN CERTIFICATE' and 'END CERTIFICATE' in the content of each item.
+
+The certificate configuration is not validated on startup. If any of the configured certificates cannot be loaded during the execution of a webhook, an error
+will be logged, and they will be ignored. You can check if the configuration is working by testing the execution of
+a webhook that connects to the server with the self signed certificate by following these instructions https://docs.pact.io/pact_broker/webhooks/debugging_webhooks#testing-webhook-execution
+
+When setting the path, the full path to the certificate file in PEM format must be specified. When using Docker, you must ensure the
+certificate file is [mounted into the container](https://docs.docker.com/storage/volumes/).
+
+Each property of the certificate is described by an indexed environment variable in the format `PACTFLOW_WEBHOOK_CERTIFICATES__<INDEX>__<PROPERTY>`.
+Environment variables with the same index are grouped together to form the complete object. Note the use of the double underscores before the index and property.
+
+Example:
+
+```shell
+PACTFLOW_WEBHOOK_CERTIFICATES__0__LABEL="An example self signed certificate with content"
+PACTFLOW_WEBHOOK_CERTIFICATES__0__CONTENT="-----BEGIN CERTIFICATE-----
+      MIIDZDCCAkygAwIBAgIBATANBgkqhkiG9w0BAQsFADBCMRMwEQYKCZImiZPyLGQB
+      <REST OF CERTIFICATE>
+      jHT1Ty2CglM=
+      -----END CERTIFICATE-----"
+PACTFLOW_WEBHOOK_CERTIFICATES__1__LABEL="An example self signed certificate with a path"
+PACTFLOW_WEBHOOK_CERTIFICATES__1__PATH="/full/path/to/the/cert.pem"
+```
+
+**Supported versions:** From v1.14.0<br/>
+**Required:** false<br/>
+
 ## SAML authentication
 
 <hr/>
