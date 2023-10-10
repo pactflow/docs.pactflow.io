@@ -22,7 +22,7 @@ https://github.com/pactflow/example-bi-directional-provider-dotnet
 - [Example .NET Provider - Schemathesis](#example-net-provider---schemathesis)
   - [Overview of Example](#overview-of-example)
   - [Overview of Part of Bi-Directional Contract Testing Flow](#overview-of-part-of-bi-directional-contract-testing-flow)
-  - [Compatibile with Consumers](#compatibile-with-consumers)
+  - [Compatible with Consumers](#compatible-with-consumers)
   - [Pre-requisites](#pre-requisites)
     - [Environment variables](#environment-variables)
   - [Usage](#usage)
@@ -72,7 +72,7 @@ When you run the CI pipeline (see below for doing this), the pipeline should per
 ![Provider Pipeline](https://raw.githubusercontent.com/pactflow/example-bi-directional-provider-dotnet/main/docs/provider-pipeline.png)
 
 
-## Compatibile with Consumers
+## Compatible with Consumers
 
 <!-- Consumer Compatability -->
 

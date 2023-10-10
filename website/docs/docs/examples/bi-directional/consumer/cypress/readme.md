@@ -15,20 +15,20 @@ https://github.com/pactflow/example-bi-directional-consumer-cypress
 
 [![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-bi-directional-consumer-cypress/branches/main/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/pactflow-example-bi-directional-consumer-cypress/branches/main/latest-version/can-i-deploy/to-environment/production/badge)
 
-- [Example NodeJS/React Consumer - Cypress (BYO Adapter)](#example-nodejsreact-consumer---cypress-byo-adapter)
-  - [Overview of Example](#overview-of-example)
-    - [Key points with Cypress](#key-points-with-cypress)
-  - [Overview of Part of Bi-Directional Contract Testing Flow](#overview-of-part-of-bi-directional-contract-testing-flow)
-  - [Compatibile with Providers](#compatibile-with-providers)
-  - [Pre-requisites](#pre-requisites)
-    - [Environment variables](#environment-variables)
-  - [Usage](#usage)
-    - [Steps](#steps)
-  - [OS/Platform specific considerations](#osplatform-specific-considerations)
-  - [Caveats](#caveats)
-  - [Related topics / posts / discussions](#related-topics--posts--discussions)
-  - [Other examples of how to do this form of testing](#other-examples-of-how-to-do-this-form-of-testing)
-  - [Found an issue?](#found-an-issue)
+- [Source Code](#source-code)
+- [Overview of Example](#overview-of-example)
+  - [Key points with Cypress](#key-points-with-cypress)
+- [Overview of Part of Bi-Directional Contract Testing Flow](#overview-of-part-of-bi-directional-contract-testing-flow)
+- [Compatible with Providers](#compatible-with-providers)
+- [Pre-requisites](#pre-requisites)
+  - [Environment variables](#environment-variables)
+- [Usage](#usage)
+  - [Steps](#steps)
+- [OS/Platform specific considerations](#osplatform-specific-considerations)
+- [Caveats](#caveats)
+- [Related topics / posts / discussions](#related-topics--posts--discussions)
+- [Other examples of how to do this form of testing](#other-examples-of-how-to-do-this-form-of-testing)
+- [Found an issue?](#found-an-issue)
 
 ## Overview of Example
 
@@ -74,7 +74,7 @@ When you run the CI pipeline (see below for doing this), the pipeline should per
 
 ![Consumer Pipeline](https://raw.githubusercontent.com/pactflow/example-bi-directional-consumer-cypress/main/docs./../docs/consumer-pipeline.png)
 
-## Compatibile with Providers
+## Compatible with Providers
 
 <!-- Provider Compatability -->
 

@@ -19,7 +19,7 @@ https://github.com/pactflow/example-bi-directional-consumer-playwright-js
   - [Overview of Example](#overview-of-example)
     - [Key points with playwright](#key-points-with-playwright)
   - [Overview of Part of Bi-Directional Contract Testing Flow](#overview-of-part-of-bi-directional-contract-testing-flow)
-  - [Compatibile with Providers](#compatibile-with-providers)
+  - [Compatible with Providers](#compatible-with-providers)
   - [Pre-requisites](#pre-requisites)
     - [Environment variables](#environment-variables)
   - [Usage](#usage)
@@ -74,7 +74,7 @@ When you run the CI pipeline (see below for doing this), the pipeline should per
 
 ![Consumer Pipeline](https://raw.githubusercontent.com/pactflow/example-bi-directional-consumer-playwright-js/main/docs./../docs/consumer-pipeline.png)
 
-## Compatibile with Providers
+## Compatible with Providers
 
 <!-- Provider Compatability -->
 
