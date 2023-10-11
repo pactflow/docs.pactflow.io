@@ -460,3 +460,9 @@ You have attempted to login via your IdP (IdP Initiated Login) which is not supp
 Users are identified uniquely by their identity providers. This means that a user that previously logged into PactFlow via username/password with the email "joe@pactflow.io" who then authenticates via Github, will be treated as a separate user with separate permissions. 
 
 You can discriminate between users based on the "identity provider" column in our Users UI screen. To reduce the number of users in your account, you can disable any users that no longer login via a particular IDP.
+
+### 5. I've enabled SSO, can I disable login via username/password?
+
+You can't make the username/password login dialog disappear, however only users that have been manually invited by email can login with this option. Inviting users is controlled by the [`user:invite` permission](https://docs.pactflow.io/docs/permissions/#userinvite), which by default is only available to Administrators. You can use this permission to create custom roles as needed to control the desired behaviour.
+
+Note it is wise to retain at least one administrative user that can login with username and password in order to address break-glass scenarios (e.g. if your SSO provider is down or misconfigured).
