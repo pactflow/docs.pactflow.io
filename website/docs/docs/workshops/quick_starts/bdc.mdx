@@ -27,11 +27,11 @@ You will get to see a full development workflow in actions, it will follow the s
 and GitHub actions to run the CI pipelines
 
 1. Create and document an API using OpenAPI Specification
-1. Write tests for the API using an API testing tool such as ReadyAPI,SoapUI,RestAssured,Dredd,Postman and Schemathesis/Swashbuckle
+1. Write tests for the API using an API testing tool such as ReadyAPI, SoapUI, RestAssured, Dredd, Postman, or Schemathesis/Swashbuckle
 1. Publish the provider contract (an OpenAPI document) to PactFlow
 1. Deploy the provider to production
 1. Write the API consumer
-1. Write tests for an API client using tools such as Mountebank,Nock,Wiremock,Nock,Cypress and Mock-Service-Worker or traditional Pact .NET to mock the API, and convert those mocks into a consumer contract
+1. Write tests for an API client using tools such as Mountebank, Nock, Wiremock, Nock, Cypress, Mock-Service-Worker or traditional Pact .NET to mock the API, and convert those mocks into a consumer contract
 1. Publish the consumer contract to PactFlow
 1. Deploy the consumer to production
 1. Learn about PactFlow's breaking change detection system
@@ -63,7 +63,7 @@ and GitHub actions to run the CI pipelines
 ## Get a GitHub account
 
 :::info
-All our examples run on Github Actions CI pipelines. You'll need an account. Don't worry its free
+All our examples run on Github Actions CI pipelines. You'll need an account. Don't worry, it's free!
 :::
 
 - [ ] Don't have one - sign up 👉 [here](https://github.com/signup)
@@ -76,7 +76,7 @@ You are logged in to your GitHub account
 ## Get a PactFlow account
 
 :::info
-The Bi-Directional Feature is only supported by PactFlow, so you'll need an account, Don't worry, the developer tier is free.
+The Bi-Directional Feature is only supported by PactFlow, so you'll need an account. Don't worry, the developer tier is free.
 :::
 
 - [ ] Don't have one - sign up 👉 [here](https://pactflow.io/try-for-free)
@@ -117,7 +117,7 @@ As we are following a specification or [design first approach](https://swagger.i
 
 Authoring an OAS document is beyond the scope of this tutorial, but you can find plenty of resources on the internet (such as at [swagger.io](https://swagger.io)).
 
-Our products reference openAPI spec is [here](/oas/products)
+Our products reference openAPI spec is [here](/oas/products).
 
 Inside it, we have 3 main endpoints:
 
@@ -165,7 +165,7 @@ https://github.com/pactflow/example-bi-directional-provider-dredd/blob/master/se
   <summary>Writing tests for your provider</summary>
 Now that we have our working Provider, we need to do two things to prevent introducing breaking changes to our consumers.
 
-1. Ensure the API doesn't drift from it's OpenAPI description document (OAS)
+1. Ensure the API doesn't drift from its OpenAPI description document (OAS)
 2. Ensure the OAS doesn't change such that it could break any of its consumers
 
 Right now, we don't have any consumers, but we want to be prepared for when we do.
@@ -181,7 +181,7 @@ There are severals ways we can test the Provider, to ensure it doesn't drift fro
 1. White-box style tests that run as part of your unit tests. Tools such as RestAssured (Java) or Supertest (NodeJS) are examples.
 1. Black-box style functional API testing, using tools like ReadyAPI/SoapUI/Dredd or Postman.
 
-In our case, (1) is not acceptable as we've chosen to following design first approach. We decided to use (3), using a tool called Dredd. Dredd will read in our OAS, and issue HTTP calls to our locally running provider to ensure it's compatible with the spec.
+In our case, (1) is not acceptable as we've chosen to follow a design first approach. We decided to use (3), using a tool called Dredd. Dredd will read in our OAS, and issue HTTP calls to our locally running provider to ensure it's compatible with the spec.
 
 ##### Run the Provider tests
 
@@ -225,7 +225,7 @@ Dredd will start our provider (`npm start`), read in the OAS file (`./oas/produc
 See our Publishing contracts [docs](/docs/bi-directional-contract-testing/publishing) for more info
 :::
 
-Now that we have created and verified our provider contract, we need to share the contract to our consumers. This is where PactFlow comes in to the picture. This step is referred to as "publishing" the provider contract.
+Now that we have created and verified our provider contract, we need to share the contract to our consumers. This is where PactFlow comes into the picture. This step is referred to as "publishing" the provider contract.
 
 The publishing step takes two key components:
 
@@ -292,7 +292,7 @@ This allows PactFlow to communicate to any future consumers of the provider, tha
 ## Pick a provider
 
 :::info
-You can pick your provider now, compatibility is shown in the project readme's or in our [examples page](/docs/examples#demos)
+You can pick your provider now, compatibility is shown in the project readmes or in our [examples page](/docs/examples#demos)
 :::
 
 <div>
@@ -305,18 +305,18 @@ You can pick your provider now, compatibility is shown in the project readme's o
 
 ## Fork the repo
 
-1. Fork the selected project in to your own Github account (click the 'Fork' button in the top right).
+1. Fork the selected project in to your own GitHub account (click the 'Fork' button in the top right).
 
 :::success
 In the GitHub address bar you can see `https://github.com/<your_github_id>/example-bi-directional-provider-<your_chosen_provider>` ✅
 :::
 
-## Create a Github Secret to store your PactFlow API token in.
+## Create a GitHub secret to store your PactFlow API token in
 
 1.  In PactFlow:
     1. Log in to your PactFlow account (`https://<your-subdomain>.pactflow.io`), and go to Settings > API Tokens - See [here](/#configuring-your-api-token) for the docs.
     1. Click the Copy button for the read/write CI token (make sure it's the read _write_ one, not the read only one).
-1.  In Github:
+1.  In GitHub:
     1. Open your forked `example-bi-directional-provider` project (`https://github.com/<your-username>/example-bi-directional-provider`)
     1. Click on the `Settings` tab.
     1. Select `Secrets` from the side menu.
@@ -325,19 +325,19 @@ In the GitHub address bar you can see `https://github.com/<your_github_id>/examp
     1. Paste in the PactFlow API token value you copied in the previous step.
 
 :::success
-You've successfully updated your PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP to your read/write CI token from PactFlow ✅
+You've successfully updated your `PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP` to your read/write CI token from PactFlow ✅
 :::
 
 ## Update your PactFlow Broker Base Url
 
 :::info
-We are going to edit our GitHub actions built-in file editor. If you need more info on how to, check their docs [here](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files) 
+We are going to edit our GitHub actions using the built-in file editor. If you need more info on how to, check their docs [here](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files).
 :::
 
 1.  In PactFlow:
     1. Go to Settings > API Tokens.
     1. Click the `COPY PACTFLOW BASE URL` button
-1.  In Github:
+1.  In GitHub:
     1. Open your forked `example-bi-directional-provider` project (`https://github.com/<your-username>/example-bi-directional-provider`)
        1. Open `.github/workflows/build.yml`
        2. In the upper right corner of the file view, click 🖊️ to open the file editor.
@@ -345,20 +345,19 @@ We are going to edit our GitHub actions built-in file editor. If you need more i
        4. Press the green `Commit changes` button
 
 :::success
-You've successfully updated your PACT_BROKER_BASE_URL to be the same as shown in your web browser address bar, when you view your PactFlow account ✅
+You've successfully updated your `PACT_BROKER_BASE_URL` to be the same as shown in your web browser address bar, when you view your PactFlow account ✅
 :::
 
 ## Run the build workflow
 
 **In Github:**
 
-1.  In Github:
-    1. Open your forked `example-bi-directional-provider-<tool>` project (`https://github.com/<your-username>/example-bi-directional-provider-<tool>`)
-    2. Click on the `Actions` tab.
-    3. Click the button with the text "I understand my workflows, go ahead and enable them"
-    4. Under the `Workflows` menu on the left, select `Build`.
-    5. You will see the text `This workflow has a workflow_dispatch event trigger`. To the right of that text is a button with the label `Run workflow`. Click the button.
-    6. Leave the branch as `master` and click the green `Run workflow` button.
+1. Open your forked `example-bi-directional-provider-<tool>` project (`https://github.com/<your-username>/example-bi-directional-provider-<tool>`)
+2. Click on the `Actions` tab.
+3. Click the button with the text "I understand my workflows, go ahead and enable them"
+4. Under the `Workflows` menu on the left, select `Build`.
+5. You will see the text `This workflow has a workflow_dispatch event trigger`. To the right of that text is a button with the label `Run workflow`. Click the button.
+6. Leave the branch as `master` and click the green `Run workflow` button.
 
 This diagram shows an illustrative CI/CD pipeline as it relates to our progress to date:
 
@@ -378,7 +377,7 @@ After you have pushed your changes to the workflow files, the provider pipeline 
 
 ### The Consumer
 
-#### Design & Implementing our API consumer
+#### Design & implement the API consumer
 
 <details>
   <summary>Writing the API consumer</summary>
@@ -408,7 +407,7 @@ This class, and specifically the `getProduct()` and `getAllProducts` methods, wi
 
 </details>
 
-#### Testing and verify the API consumer
+#### Test and verify the API consumer
 
 <details>
   <summary>Write consumer tests</summary>
@@ -421,7 +420,7 @@ Ideally, contract tests should be closer to a _unit test_ for your API client cl
 
 _NOTE: In Bi-Directional Contract Testing however, you don't need to worry as much if these tests overlap into functional or other forms of tests like you would with Pact. This means they may be higher level - including initiated via a UI test (see this [Cypress example](https://github.com/pactflow/example-bi-directional-consumer-cypress))._
 
-Usually, your application will be broken down into a number of sub-components, depending on what type of application your consumer is \(e.g. a Web application or another API\). This is how you might visualise the focus of a consumer contract test:
+Usually, your application will be broken down into a number of sub-components, depending on what type of application your consumer is \(e.g., a Web application or another API\). This is how you might visualise the focus of a consumer contract test:
 
 ![Scope of a consumer contract test](../../../../static/workshops/bi-directional/consumer-test-coverage.png)
 
@@ -432,7 +431,7 @@ Here, a _Collaborator_ is a component whose job is to communicate with another s
 PactFlow currently supports pact files as a consumer contract format. In order to produce a consumer contract, you need to decide on a testing approach to capture the contract:
 
 1. Use [Pact](https://docs.pact.io) - this will be the default choice for many, as it can both mock the API calls and produce a pact file
-2. Use an existing mocking tools such as Wiremock or Mountebank, or record/replay tools (such as VCR or Polly), and convert the mocks to a pact file after a successful run.
+2. Use an existing mocking tool such as Wiremock or Mountebank, or record/replay tools (such as VCR or Polly), and convert the mocks to a pact file after a successful run.
 
 [Read more](https://docs.pactflow.io/docs/bi-directional-contract-testing/contracts/pact#strategies-to-capture-consumer-contracts) on these strategies.
 
@@ -511,7 +510,7 @@ After each `test` block finishes successfully, the `afterEach` block will append
 
 ##### Producing a (reliable, valid) pact file
 
-To generate our pact file, we have created a few helper functions to inspect Mountebank and write the mocks to file
+To generate our pact file, we have created a few helper functions to inspect Mountebank and write the mocks to file:
 
 - `example-bi-directional-consumer-mountebank/test/mountebank.js`
 - `example-bi-directional-consumer-mountebank/test/mountebankSerialiser.js`
@@ -520,13 +519,13 @@ To extract the mock information, we have a few choices (see http://www.mbtest.or
 
 > Include a `matches` array with each stub in the body of a GET imposter response for debugging why a particular stub did or did not match a request. Every time a response from the stub is used, a match will be added containing the request, the response configuration, the actual generated response (even if it is proxied), and the overall processing time.
 
-This means we can inspect this information to only serialise what our API client actually called (i.e. excluding any unused mocks) ensuring the contract we produce is valid and reliable.
+This means we can inspect this information to only serialise what our API client actually called (i.e., excluding any unused mocks) ensuring the contract we produce is valid and reliable.
 
 This information is retrieved via an API call to Mountebank to retrieve the current Imposter information. Alternatively, Mountebank has a [save](http://www.mbtest.org/docs/commandLine#save) option which we could also use to transform a file.
 
-This process is essentially same for any mocking tool, such as Wiremock or Cypress.
+This process is essentially the same for any mocking tool, such as Wiremock or Cypress.
 
-[Read more](https://docs.pactflow.io/docs/bi-directional-contract-testing/contracts/pact#converting-mocks-into-a-pact-compatible-format) for detail on how to serialise a pact file.
+[Read more](https://docs.pactflow.io/docs/bi-directional-contract-testing/contracts/pact#converting-mocks-into-a-pact-compatible-format) for details on how to serialise a pact file.
 
 </details>
 
@@ -535,7 +534,7 @@ This process is essentially same for any mocking tool, such as Wiremock or Cypre
 <details>
   <summary>Publish your consumer contract to PactFlow</summary>
 
-Now that we have created our consumer contract, we need to share it to our provider. This is where PactFlow comes in to the picture. This step is referred to as "publishing" the consumer contract.
+Now that we have created our consumer contract, we need to share it to our provider. This is where PactFlow comes into the picture. This step is referred to as "publishing" the consumer contract.
 
 Your dashboard should look something like this:
 
@@ -566,7 +565,7 @@ Let's run the command:
 
 `npm run can-i-deploy`
 
-This should pass, because the provider has already pulbished its contract and deployed to production, and we believe the consumer is compatible with the provider OAS:
+This should pass, because the provider has already published its contract and deployed to production, and we believe the consumer is compatible with the provider OAS:
 
 ```
 $ npx pact-broker can-i-deploy --pacticipant pactflow-example-consumer-mountebank --version $GIT_COMMIT --to-environment production
@@ -589,7 +588,7 @@ We can now deploy our consumer to production. Once we have deployed, we let Pact
 
 This allows PactFlow to prevent any providers from deploying an incompatible change to `production`.
 
-Your dashboard should look something like this, where both your consumer and consumer are marked as having been deployed to `production`:
+Your dashboard should look something like this, where both your provider and consumer are marked as having been deployed to `production`:
 
 ![pactflow dashboard - completed](../../../../static/workshops/bi-directional/pactflow-dashboard-complete.png)
 
@@ -618,7 +617,7 @@ This diagram shows an illustrative CI/CD pipeline as it relates to our progress 
 
 ![consumer pipeline run](../../../../static/workshops/bi-directional/3-bi-directional-consumer-pipeline-deployed.png)
 
-Your dashboard should look something like this, where both your consumer and consumer are marked as having been deployed to `production`:
+Your dashboard should look something like this, where both your provider and consumer are marked as having been deployed to `production`:
 
 ![pactflow dashboard - completed](../../../../static/workshops/bi-directional/pactflow-dashboard-complete.png)
 
@@ -626,14 +625,14 @@ Your dashboard should look something like this, where both your consumer and con
 
 So far everything has been really easy. Let's go a bit deeper and introduce a breaking change into the system. Breaking changes come in two main ways:
 
-1. A consumer can add a new expectation (e.g. a new field/endpoint) on a provider that doesn't exist
-1. A provider might make a change (e.g. remove or rename a field, or change an endpoint) that breaks an existing consumer
+1. A consumer can add a new expectation (e.g., a new field/endpoint) on a provider that doesn't exist
+1. A provider might make a change (e.g., remove or rename a field, or change an endpoint) that breaks an existing consumer
 
 PactFlow will detect such situations using the `can-i-deploy` tool. When it runs, it performs a contract comparison that checks if the consumer contract is a valid subset of the provider contract in the target environment.
 
 Let's see it in action.
 
-1.  In Github:
+1.  In GitHub:
     1. Open your forked `example-bi-directional-<consumer|provider>-<tool>` project (`https://github.com/<your-username>/example-bi-directional-provider-<tool>`)
     2. Click on the `Actions` tab.
     3. Click the button with the text "I understand my workflows, go ahead and enable them"
@@ -655,7 +654,7 @@ Read more about how to [interpret failures](https://docs.pactflow.io/docs/bi-dir
 
 Let's see a non breaking change in action.
 
-1.  In Github:
+1.  In GitHub:
     1. Open your forked `example-bi-directional-<consumer|provider>-<tool>` project (`https://github.com/<your-username>/example-bi-directional-provider-<tool>`)
     2. Click on the `Actions` tab.
     3. Click the button with the text "I understand my workflows, go ahead and enable them"
