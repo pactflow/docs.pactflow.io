@@ -112,7 +112,11 @@ module.exports = {
       label: 'Troubleshooting',
       items: ['docs/login-help', `docs/authorization-help`, 'docs/webhooks-help', 'docs/powershell-guide']
     },
-    'docs/api'
+    {
+      type: 'link',
+      label: 'API',
+      href: 'https://smartbear.portal.swaggerhub.com/pactflow/default/getting-started'
+    }
   ],
   university: [
     {
