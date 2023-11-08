@@ -68,11 +68,11 @@ module.exports = {
             },
             {
               label: "PactFlow notices",
-              to: "https://pactflow.io/notices/",
+              to: "https://docs.pactflow.io/notices/",
             },
             {
               label: "PactFlow roadmap",
-              to: "https://go.pactflow.io/roadmap",
+              to: "https://pactflow.io/pactflow-feature-roadmap/",
             },
           ],
         },
@@ -131,6 +131,9 @@ module.exports = {
           },{
             from: "/go/publish-consumer-contract-bdct",
             to: "/docs/bi-directional-contract-testing/consumer"
+          },{
+            from: "/docs/getting-started/",
+            to: "/"
           }
         ],
       },
