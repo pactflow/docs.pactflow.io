@@ -15,6 +15,10 @@ PactFlow uses [Chargebee](https://www.chargebee.com/) for subscription and billi
 
 You can access our billing dashboard via the "Subscription" menu in the Settings page or directly at https://pactflow.chargebeeportal.com/.
 
+:::note
+If you have multiple subscriptions, please ensure you upgrade the subscription that matches the "Subscription ID" on your billing page.
+:::
+
 ![Subscriptions Screen](/ui/billing-dashboard2.png)
 
 ### Authentication
