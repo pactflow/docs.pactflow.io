@@ -47,3 +47,13 @@ This field specifies the email addresses that will receive notifications about p
 For existing accounts, the email addresses of users with the Administrator role have been initialized as the default. For new accounts, the default will be the email address of the account creator. 
 
 Note: Any email address can be added to this field. The owner of the email address does not need to have a PactFlow account.
+
+#### Consolidate User Logins by Email
+
+Allow users to be linked to different identity providers via their email address. When enabled, logins from different identity providers will be considered the same user if they have the same email address.
+
+This setting does not affect existing users that have previously logged in and have a stored identity. To fix this, see the troubleshooting article on [duplicate users](/docs/authentication/main#4-ive-added-an-identity-provider-and-see-duplicate-users).
+
+:::warning
+Do not enable this setting unless you can guarantee the identity providers you use validate the user's email address.
+:::

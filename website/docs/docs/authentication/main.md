@@ -10,6 +10,10 @@ SSO users are automatically provisioned when they first authenticate.
 
 **NOTE:** &nbsp; Changing these settings may require users to do a hard refresh in their browser (CTRL-F5 on Windows and Linux, CMD-R on Mac OSX) before the next time they try to login, or clear their browser cookies and cache.
 
+## Prerequisites
+
+If you are migrating to Single Sign On from username/password based authentication, you should consider enabling merging of identities based on email address, via the ["Consolidate User Logins by Email" system preference](/docs/user-interface/settings/preferences#consolidate-user-logins-by-email), otherwise you will end up with duplicate users.
+
 ## GitHub Authentication
 
 _Eligible plans: all_
@@ -459,7 +463,13 @@ You have attempted to login via your IdP (IdP Initiated Login) which is not supp
 
 Users are identified uniquely by their identity providers. This means that a user that previously logged into PactFlow via username/password with the email "joe@pactflow.io" who then authenticates via Github, will be treated as a separate user with separate permissions. 
 
-You can discriminate between users based on the "identity provider" column in our Users UI screen. To reduce the number of users in your account, you can disable any users that no longer login via a particular IDP.
+To enable merging of identities based on email address:
+
+1. Set the "Consolidate User Logins by Email" [system preference](/docs/user-interface/settings/preferences#consolidate-user-logins-by-email)
+2. Delete the duplicated user
+3. Attempt the federated login again. This will link the federated user to the original user, retaining the team assignments, roles, audit trail history etc.
+
+You can discriminate between users based on the "identity provider" column in our Users UI screen. To reduce the number of users in your account, you can disable (or delete) any users that no longer login via a particular IDP.
 
 ### 5. I've enabled SSO, can I disable login via username/password?
 
