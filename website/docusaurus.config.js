@@ -117,7 +117,6 @@ module.exports = {
   },
   themes: ["@you54f/theme-github-codeblock"], // switch to @saucelabs/theme-github-codeblock when merged https://github.com/saucelabs/docusaurus-theme-github-codeblock/pull/19
   plugins: [
-    path.resolve(__dirname, "src/plugins/plugin-segment"),
     [
       "@docusaurus/plugin-client-redirects",
       {
