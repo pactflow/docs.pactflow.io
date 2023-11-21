@@ -30,9 +30,11 @@ Create, update, and delete any contract related data. This includes applications
 
 Create, update, and delete contract related data for applications assigned to the user's teams. Pacts are managed by the consumer's team(s) and verification results are managed by the provider's team(s). 
 
-### Notes on use of this role
+:::info Notes on use of this role
 
 Some PactFlow resources, such as secrets and webhooks, have a team assigned at the time of creation, so team scoped permissions can be applied at that stage to determine whether the user can create the resource or not. PactFlow "applications" (also known as "pacticipants") are generally created through open-source libraries that are not aware of PactFlow teams, so the application resource must be created first, then added to a team in a separate step. Because the team associated with a pacticipant is not known at creation time, any user with only the `contract_data:manage:team` will not be allowed to create new pacticipants. If team users should be able to create pacticipants, ensure that the `contract_data:manage:own` permission is also added to the relevant role. If team users should not be able to create pacticipants, a user with `contract_data:mangage:*` must be the one to create the pacticipant. Once the pacticipant is added to a team, users with `team` scope may manage it thereafter.
+
+:::
 
 ## contract_data:manage:own
 
