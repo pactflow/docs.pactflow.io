@@ -10,13 +10,13 @@ module.exports = {
   organizationName: "PactFlow", // Usually your GitHub org/user name.
   projectName: "doc-site", // Usually your repo name.
   themeConfig: {
-    announcementBar: {
-      id: 'announcement-bar',
-      content: '<div id="announcement-bar">🎂 Happy Official 10th Birthday, Pact! Join us for our <a target="_blank" href="https://pact.io/pactober.html?utm_source=docs.pactflow.io&utm_medium=web&utm_campaign=pactober2023&utm_content=banner">Pactober celebration</a>.</div>',
-      backgroundColor: '#454CF0',
-      textColor: '#fff',
-      isCloseable: false,
-    },
+    // announcementBar: {
+    //   id: 'announcement-bar',
+    //   content: '<div id="announcement-bar">🎂 Happy Official 10th Birthday, Pact! Join us for our <a target="_blank" href="https://pact.io/pactober.html?utm_source=docs.pactflow.io&utm_medium=web&utm_campaign=pactober2023&utm_content=banner">Pactober celebration</a>.</div>',
+    //   backgroundColor: '#454CF0',
+    //   textColor: '#fff',
+    //   isCloseable: false,
+    // },
     navbar: {
       title: "PactFlow Documentation",
       logo: {
@@ -68,11 +68,11 @@ module.exports = {
             },
             {
               label: "PactFlow notices",
-              to: "https://pactflow.io/notices/",
+              to: "https://docs.pactflow.io/notices/",
             },
             {
               label: "PactFlow roadmap",
-              to: "https://go.pactflow.io/roadmap",
+              to: "https://pactflow.io/pactflow-feature-roadmap/",
             },
           ],
         },
@@ -117,7 +117,6 @@ module.exports = {
   },
   themes: ["@you54f/theme-github-codeblock"], // switch to @saucelabs/theme-github-codeblock when merged https://github.com/saucelabs/docusaurus-theme-github-codeblock/pull/19
   plugins: [
-    path.resolve(__dirname, "src/plugins/plugin-segment"),
     [
       "@docusaurus/plugin-client-redirects",
       {
@@ -131,6 +130,9 @@ module.exports = {
           },{
             from: "/go/publish-consumer-contract-bdct",
             to: "/docs/bi-directional-contract-testing/consumer"
+          },{
+            from: "/docs/getting-started/",
+            to: "/"
           }
         ],
       },

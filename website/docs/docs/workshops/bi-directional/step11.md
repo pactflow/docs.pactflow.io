@@ -32,4 +32,4 @@ You shouldn't be able to deploy!
 
 ## Further material
 
-You may be interested in one of our other [workshops](https://docs.pact.io/implementation_guides/workshops), or getting deeper into [BDCT](docs/bi-directional-contract-testing).
+You may be interested in one of our other [workshops](https://docs.pact.io/implementation_guides/workshops), or getting deeper into [BDCT](/docs/bi-directional-contract-testing).
