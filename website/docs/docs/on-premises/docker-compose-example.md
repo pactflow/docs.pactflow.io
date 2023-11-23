@@ -60,20 +60,25 @@ services:
     depends_on:
       - postgres
     environment:
+      # This is set to localhost for this example but in a real deployment, this needs to be set to the actual URL of the application
       - PACTFLOW_BASE_URL=http://localhost
+      # Insecure setting only for the purposes of this demo! Not to be used in production.
+      - PACTFLOW_DATABASE_SSLMODE=disable
+      # Insecure setting only for the purposes of this demo! Not to be used in production.
+      - PACTFLOW_REQUIRE_HTTPS=false
+      # Demo auth should only be used for demo purposes. Not to be used in production.
+      - PACTFLOW_DEMO_AUTH_ENABLED=true
+      # 'Allow all' for the webhook host whitelist should only be used for demo purposes. See docs for configuring this in production.
+      - PACTFLOW_WEBHOOK_HOST_WHITELIST=/.*/
       - PACTFLOW_HTTP_PORT=9292
       - PACTFLOW_DATABASE_URL=postgres://postgres:password@postgres/postgres
-      # insecure settings only for the purposes of this demo! Not to be used in production.
-      - PACTFLOW_DATABASE_SSLMODE=disable
-      - PACTFLOW_REQUIRE_HTTPS=false
+      - Short log format only for demo purposes. Use json in production.
       - PACTFLOW_LOG_FORMAT=short
       - PACTFLOW_LOG_LEVEL=info
       - PACTFLOW_ADMIN_API_KEY=admin
       - PACTFLOW_MASTER_ENCRYPTION_KEY=thisissomerandombytes
-      - PACTFLOW_DEMO_AUTH_ENABLED=true
       - PACTFLOW_COOKIE_SECRET=thisisasecret
-      - PACT_BROKER_ADMIN_API_KEY=admin
-      - PACTFLOW_WEBHOOK_HOST_WHITELIST=/.*/
+      - PACT_BROKER_ADMIN_API_KEY=admin 
       - PACTFLOW_HTTP_LOGGING_ENABLED=true
     ports:
       - "80:9292"
