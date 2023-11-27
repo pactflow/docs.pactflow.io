@@ -292,13 +292,6 @@ The URL to which the authentication request should be sent. This endpoint is on 
 **Required:** if PACTFLOW_SAML_IDP_METADATA_URL is not set<br/>
 **More information:** https://github.com/omniauth/omniauth-saml#options<br/>
 
-### PACTFLOW_SAML_IDP_ENTITY_ID
-
-The ID by which this IDP is known to PactFlow
-
-**Required:** if PACTFLOW_SAML_IDP_METADATA_URL is not set<br/>
-**More information:** https://github.com/omniauth/omniauth-saml#options<br/>
-
 ### PACTFLOW_SAML_IDP_CERT_FINGERPRINT
 
 The SHA1 fingerprint of the certificate, e.g. "90:CC:16:F0:8D:...". This is provided from the identity provider when setting up the relationship.
