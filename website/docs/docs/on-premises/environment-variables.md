@@ -292,13 +292,6 @@ The URL to which the authentication request should be sent. This endpoint is on 
 **Required:** if PACTFLOW_SAML_IDP_METADATA_URL is not set<br/>
 **More information:** https://github.com/omniauth/omniauth-saml#options<br/>
 
-### PACTFLOW_SAML_IDP_ENTITY_ID
-
-The ID by which this IDP is known to PactFlow
-
-**Required:** if PACTFLOW_SAML_IDP_METADATA_URL is not set<br/>
-**More information:** https://github.com/omniauth/omniauth-saml#options<br/>
-
 ### PACTFLOW_SAML_IDP_CERT_FINGERPRINT
 
 The SHA1 fingerprint of the certificate, e.g. "90:CC:16:F0:8D:...". This is provided from the identity provider when setting up the relationship.
@@ -402,6 +395,18 @@ env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 
 ### PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY
 
 Deprecated in favour of `PACTFLOW_MASTER_ENCRYPTION_KEY`. If you have a previous installation of PactFlow with `PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY` set, please rename it to `PACTFLOW_MASTER_ENCRYPTION_KEY`.
+
+**Required:** false<br/>
+
+## Content Security
+
+<hr/>
+
+
+
+### PACTFLOW_CSP_ALLOWED_SOURCES
+
+Space separated list of allowed content sources. This may be useful if you need additional assets on your instance of PactFlow. For example, if you need to support multiple redirects for SAML authentication, you need to add them here for PactFlow to generate the appropriate Content-Security-Policy to allow that to happen.
 
 **Required:** false<br/>
 
