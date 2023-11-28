@@ -398,6 +398,18 @@ Deprecated in favour of `PACTFLOW_MASTER_ENCRYPTION_KEY`. If you have a previous
 
 **Required:** false<br/>
 
+## Content Security
+
+<hr/>
+
+
+
+### PACTFLOW_CSP_ALLOWED_SOURCES
+
+Space separated list of allowed content sources. This may be useful if you need additional assets on your instance of PactFlow. For example, if you need to support multiple redirects for SAML authentication, you need to add them here for PactFlow to generate the appropriate Content-Security-Policy to allow that to happen.
+
+**Required:** false<br/>
+
 ## User administration
 
 <hr/>
