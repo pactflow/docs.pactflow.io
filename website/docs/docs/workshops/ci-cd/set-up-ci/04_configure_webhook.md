@@ -64,7 +64,7 @@ The PactFlow webhook will need a Github access token to be able to trigger the b
 
                 ```bash
                 Content-Type: application/json
-                Accept: Accept: application/vnd.github.everest-preview+json
+                Accept: application/vnd.github.everest-preview+json
                 Authorization: Bearer ${user.githubToken}
                 ```
 
