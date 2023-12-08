@@ -37,7 +37,14 @@ module.exports = {
             'docs/permissions/api-tokens'
           ]
         },
-        'docs/authentication/main',
+        {
+          type: 'category',
+          label: 'Authentication',
+          items: [
+            'docs/authentication/main',
+            'docs/authentication/legacy'
+          ]
+        },
         {
           type: 'category',
           label: 'SCIM',
