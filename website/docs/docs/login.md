@@ -11,13 +11,13 @@ There are two reasons this error may occur:
 
 ### 1. Your email has not been confirmed
 
-Please check your inbox for an email with the subject "Verify your email" from `no-reply@id.smartbear.com`, and choose "confirm my account".
+Please check your inbox for an email with the subject "Verify your email" from `no-reply@id.smartbear.com` and choose "confirm my account".
 
 After this, you should be able to login.
 
 ### 2. You have not been invited to the account
 
-Only users that created the account (initial user) or have been invited to an account are able to login.
+Only users that created the account (initial user) or have been invited to an account can login.
 
 ## Github login error
 
