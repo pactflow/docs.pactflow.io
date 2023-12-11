@@ -17,7 +17,7 @@ After this, you should be able to login.
 
 ### 2. You have not been invited to the account
 
-Only users that created the account (initial user) or have been invited to an account can login.
+Users who created the account (initial users) or received an invitation to an account are able to login.
 
 ## Github login error
 

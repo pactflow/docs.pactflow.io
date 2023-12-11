@@ -24,7 +24,7 @@ Regardless of how a user authenticates, all users must first be _invited_ by a P
 
 _Eligible plans: all_
 
-SmartBear ID supports social login access via Github, Google and Microsoft. During account registration, the user can choose their preferred login option. 
+SmartBear ID supports social login access via Github, Google, and Microsoft. During account registration, the user can choose their preferred login option. 
 
 ## SSO with SAML 2.0
 
@@ -51,8 +51,8 @@ Once SSO has been enabled, any users on the registered SAML domain _must_ login 
 
 Users not attached to the SAML domain that have been invited may login using any form. Inviting users is controlled by the [`user:invite` permission](https://docs.pactflow.io/docs/permissions/#userinvite), which by default is only available to Administrators. 
 
-We recommend at least one administrative user that can login with username and password in order to address break-glass scenarios (e.g. if your SSO provider is down or misconfigured).
+We recommend at least one administrative user who can login with a username and password to address break-glass scenarios (e.g., if your SSO provider is down or misconfigured).
 
 ### 2. I'm an enterprise customer and need SCIM enabled
 
-Please contact your Account Manager so that we can enabled our legacy authentication on your account.
+Please contact your Account Manager so that we can enable our legacy authentication on your account.

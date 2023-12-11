@@ -4,7 +4,7 @@ sidebar_label: Authentication (Cognito)
 ---
 
 :::info
-This article applies to accounts that use Cognito for authentication. This includes all accounts before Dec 11th 2023. For customers on SmartBear ID see [this guide](./main).
+This article applies to accounts that use Cognito for authentication. It includes all accounts before Dec 11th, 2023. For customers on SmartBear ID see [this guide](./main).
 :::
 
 To determine which authentication mode is enabled on your account, consult the following table:
@@ -14,7 +14,7 @@ To determine which authentication mode is enabled on your account, consult the f
 | <img border="1" width="250" src="/ui/login-sbid-only.png" description="Login Screen - SBID" /> | <img border="1" width="250" src="/ui/login-cognito-only.png" description="Login Screen - Cognito" /> | <img border="1" width="250" src="/ui/login-cognito-and-sbid.png" description="Login Screen - Both" />
 | If you only see this page when you visit your PactFlow Account, you are fully transitioned to SmartBear ID. See [this guide](./main).  | If you see a login page like this, you are on our Cognito authentication. | If there is a "SMARTBEAR ID" button on your login screen like this, you have _both_ enabled and are in the process of migrating to SmartBear ID. |
 
-To make it simpler to access PactFlow, we've rolled out Single Sign On (SSO) authentication with Github, Google and SAML2.0.
+To make it simpler to access PactFlow, we've rolled out Single Sign-On (SSO) authentication with Github, Google, and SAML2.0.
 
 ## How it works
 
@@ -24,7 +24,7 @@ SSO users are automatically provisioned when they first authenticate.
 
 ## Prerequisites
 
-If you are migrating to Single Sign On from username/password based authentication, you should consider enabling merging of identities based on email address, via the ["Consolidate User Logins by Email" system preference](/docs/user-interface/settings/preferences#consolidate-user-logins-by-email), otherwise you will end up with duplicate users.
+If you are migrating to Single Sign-On from username/password based authentication, you should consider enabling the merging of identities based on an email address, via the ["Consolidate User Logins by Email" system preference](/docs/user-interface/settings/preferences#consolidate-user-logins-by-email), otherwise, you will end up with duplicate users.
 
 ## GitHub Authentication
 
@@ -45,30 +45,30 @@ Steps to configure
 
 ### Troubleshooting
 
-#### Seeing error "None of your GitHub organizations have been registered with PactFlow." when trying to log in
+#### Seeing the error "None of your GitHub organizations have been registered with PactFlow." when trying to log in
 
 There are multiple reasons why this error may be shown.
 
 ##### You may not have clicked "Grant" or "Request" for that organization on the GitHub PactFlow Authorize screen
 
-To fix this, log out of PactFlow, go to https://github.com/settings/applications. Revoke PactFlow access, then log in again. You will be given the opportunity to grant or request access to your organization again during the login flow.
+To fix this, log out of PactFlow, and go to https://github.com/settings/applications. Revoke PactFlow access, then log in again. You will get an opportunity to grant or request access to your organization again during the login flow.
 
 
 ##### If you clicked "Request", you may need to ask an administrator to approve the authorization
 
 To fix this, please contact your organization's GitHub administrator, and ask that they follow these instructions to approve PactFlow https://help.github.com/en/articles/approving-oauth-apps-for-your-organization
 
-##### You may have previously authenticated to PactFlow with GitHub, but joined the organization since doing so
+##### You may have previously authenticated to PactFlow with GitHub but joined the organization since doing so
 
-To fix this, log out of PactFlow, go to https://github.com/settings/applications. Revoke PactFlow access, then log in again. You will be given the opportunity to grant or request access to your organization again during the login flow.
+To fix this, log out of PactFlow and go to https://github.com/settings/applications. Revoke PactFlow access, then log in again. You will get an opportunity to grant or request access to your organization again during the login flow.
 
 ##### You are not a member of any organizations
 
 Please read https://help.github.com/en/articles/creating-a-new-organization-from-scratch for instructions on creating a GitHub organization.
 
-#### Name is not populated after signing in
+#### The name is not populated after signing in
 
-* Ensure that you have given the PactFlow application permisson to read personal information. To check this:
+* Ensure that you have given the PactFlow application permission to read personal information. To check this:
   * Open https://github.com/settings/applications in a browser.
   * Click on the `PactFlow` application shown in the list.
   * Under the `Permissions` section, you should see a tick next to `Read all user profile data`.
@@ -95,7 +95,7 @@ You can also use any valid Google or Gmail email address, such as `matt@gmail.co
 
 _Eligible plans: Enterprise_
 
-PactFlow supports [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0) integration with a compatible Identity Provider (IdP) such as Okta, Ping, Auth0, Azure AD, OneLogin etc.
+PactFlow supports [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0) integration with a compatible Identity Provider (IdP) such as Okta, Ping, Auth0, Azure AD, OneLogin, etc.
 
 SAML2.0 allows you to externalise the authentication and access to your PactFlow account. Authorization and fine-grained permissions are managed within your account by an account Administrator.
 
@@ -119,7 +119,7 @@ We do not currently support the following:
 In your IdP, create a new Service Provider with the following properties:
 
 - Audience URI (SP Entity ID): `urn:amazon:cognito:sp:ap-southeast-2_x0L1olP0D`
-- Single sign on URL (Reply URL): `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
+- Single sign-on URL (Reply URL): `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
 - Name ID format must be set to "Persistent": `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
 
 #### 2. Map the required SAML2.0 attributes
@@ -142,7 +142,7 @@ For example, a valid Attribute in the SAML assertion for a user's first name wou
 
 #### 3. Export IdP metadata
 
-Once you have configured PactFlow as a Service Provider, please send your PactFlow account details and an externally accessible URL to the metadata file via our [support form](https://support.smartbear.com/pactflow/message/). If it is not possible to provide a URL, the metadata may be exported as an XML file. It is preferable to use a URL, as this will allow you to make any updates without contacting PactFlow support.
+Once you have configured PactFlow as a Service Provider, please send your PactFlow account details and an externally accessible URL to the metadata file via our [support form](https://support.smartbear.com/pactflow/message/). If it is impossible to provide a URL, you may export the metadata as an XML file. It is preferable to use a URL, as this will allow you to make any updates without contacting PactFlow support.
 
 ### Examples
 
@@ -280,8 +280,8 @@ See https://developer.okta.com/docs/guides/build-sso-integration/saml2/overview/
 1. Open the Okta Developer Console.
 1. Choose Applications, and then choose Add Application.
 1. On the Add Application page, choose Create New App.
-1. In the Create a New Application Integration dialog, confirm that Platform is set to Web.
-1. For the Sign on method, choose SAML 2.0.
+1. In the Create a New Application Integration dialog, confirm that the Platform is set to Web.
+1. For the Sign-on method, choose SAML 2.0.
 1. Choose Create.
 
 ![Okta create app](/saml/okta-saml-create-app.png)
@@ -291,7 +291,7 @@ See https://developer.okta.com/docs/guides/build-sso-integration/saml2/overview/
 1. On the Create SAML Integration page, under General Settings, enter a name for your app.
 1. (Optional) Upload a logo and choose visibility settings for your app.
 1. Choose Next.
-1. Under GENERAL, for Single sign on URL, enter `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`.
+1. Under GENERAL, for Single sign-on URL, enter `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`.
 1. For Audience URI (SP Entity ID), enter urn: `urn:amazon:cognito:sp:ap-southeast-2_x0L1olP0D`
 1. Under ATTRIBUTE STATEMENTS (OPTIONAL), add 3 statements with the following information:
    1. For Name, enter the SAML attribute name `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
@@ -319,7 +319,7 @@ See https://developer.okta.com/docs/guides/build-sso-integration/saml2/overview/
 
 #### 4. Get the IdP metadata for your Okta application
 
-1. On the Sign On tab for your Okta app, find the Identity Provider metadata hyperlink. Right-click the hyperlink and copy the URL.
+1. On the Sign-On tab for your Okta app, find the Identity Provider metadata hyperlink. Right-click the hyperlink and copy the URL.
 1. For more information, see Configure SAML in your app in the Set up a SAML application in Okta guide on the Okta Developer website.
 
 #### 5. Contact PactFlow to enable your IdP
@@ -356,7 +356,7 @@ See https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configur
 4. Set the Identifier (Entity ID) to `urn:amazon:cognito:sp:ap-southeast-2_x0L1olP0D`
 5. Set the Reply URL to `https://pact-saas-prod-1.auth.ap-southeast-2.amazoncognito.com/saml2/idpresponse`
 6. Relay State and Logout URL fields are blank.
-7. Set the [Sign On URL](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso#update-single-sign-on-values) to point to your unique PactFlow URL (e.g. https://companyaccount.pactflow.io) (this is required as we don't support IDP initiated sign-on)
+7. Set the [Sign-On URL](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso#update-single-sign-on-values) to point to your unique PactFlow URL (e.g. https://companyaccount.pactflow.io) (this is required as we don't support IDP initiated sign-on)
 8. To add user attributes, click "View and edit all other user attributes" to edit the attributes to be sent to the application in the SAML token when users sign in. Add the following 3 attributes:
 
    1. First Name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
@@ -374,7 +374,7 @@ See https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configur
 4.  (Optional) Do any of the following:
     For Display Name, enter a name and description. For example, PactFlow.
     For the Rectangular Icon and Square Icon, you can add PactFlow icons.
-    For Description, enter a short summary description.
+    For Description, enter a summary.
 5.  Choose Save.
 6.  On the homepage of the new application, choose "More Actions > SAML Metadata" from the main menu
 
@@ -390,7 +390,7 @@ See https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configur
 4.  (Optional) Do any of the following:
     For Display Name, enter a name and description. For example, PactFlow.
     For the Rectangular Icon and Square Icon, you can add PactFlow icons.
-    For Description, enter a short summary description.
+    For Description, enter a summary.
 5.  Choose Save.
 
 #### 2. Edit your OneLogin application configuration
@@ -418,7 +418,7 @@ See https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configur
 You then need to repeat the steps for the first name and last name.
 
 8.  Choose Add parameter to create a new, custom parameter.
-9.  In the New Field dialog, for Field name, enter First name
+9.  In the New Field dialog, for Field name, enter First Name
 10. For Flags, select the Include in SAML assertion check box.
 11. Choose Save.
 12. For Value, choose First Name from the list.
@@ -444,7 +444,7 @@ You should define the following attributes:
 
 #### Debug SAML Assertions
 
-The SAML login assertion request/response happens via the browser, and for security reasons, PactFlow cannot see.
+The SAML login assertion request/response happens via the browser, and for security reasons, PactFlow cannot see it.
 
 You can, however, extract the SAML assertion from your web browser during a login flow. For example, using most modern browsers such as Chrome perform the following steps:
 
@@ -461,7 +461,7 @@ You can, however, extract the SAML assertion from your web browser during a logi
 
 ### 1. Name not appearing in user management screens
 
-You are missing the mappings for "First name" and "Last Name", see `Map the required SAML2.0 attributes` in Setup.
+You are missing the mappings for "First Name" and "Last Name", see `Map the required SAML2.0 attributes` in Setup.
 
 ### 2. "Invalid State/RelayState provided"
 
@@ -473,13 +473,13 @@ You have attempted to login via your IdP (IdP Initiated Login) which is not supp
 
 ### 4. I've added an identity provider and see duplicate users
 
-Users are identified uniquely by their identity providers. This means that a user that previously logged into PactFlow via username/password with the email "joe@pactflow.io" who then authenticates via Github, will be treated as a separate user with separate permissions. 
+This means that a user who previously logged into PactFlow via username/password with the email "joe@pactflow.io" who then authenticates via Github, will be treated as a separate user with separate permissions.
 
-To enable merging of identities based on email address:
+To enable the merging of identities based on email address:
 
 1. Set the "Consolidate User Logins by Email" [system preference](/docs/user-interface/settings/preferences#consolidate-user-logins-by-email)
 2. Delete the duplicated user
-3. Attempt the federated login again. This will link the federated user to the original user, retaining the team assignments, roles, audit trail history etc.
+3. Attempt the federated login again. This will link the federated user to the original user, retaining the team assignments, roles, audit trail history, etc.
 
 You can discriminate between users based on the "identity provider" column in our Users UI screen. To reduce the number of users in your account, you can disable (or delete) any users that no longer login via a particular IDP.
 
@@ -487,4 +487,4 @@ You can discriminate between users based on the "identity provider" column in ou
 
 You can't make the username/password login dialog disappear, however only users that have been manually invited by email can login with this option. Inviting users is controlled by the [`user:invite` permission](https://docs.pactflow.io/docs/permissions/#userinvite), which by default is only available to Administrators. You can use this permission to create custom roles as needed to control the desired behaviour.
 
-Note it is wise to retain at least one administrative user that can login with username and password in order to address break-glass scenarios (e.g. if your SSO provider is down or misconfigured).
+Note it is wise to retain at least one administrative user who can login with a username and password to address break-glass scenarios (e.g., if your SSO provider is down or misconfigured).
