@@ -102,12 +102,12 @@ SAML2.0 allows you to externalise the authentication and access to your PactFlow
 Supported capabilities:
 
 - Authorization from an external IdP
-- Automated user provisioning into your account
 - SP initiated login
 - [SCIM](/docs/scim/main)
 
 We do not currently support the following:
 
+- Automated user provisioning into your account (Users must first be invited)
 - Automated user deprovisioning (users will appear "active" and count toward user limits, although will not be able to login if disabled in the IdP)
 - IdP initiated login
 - Service Provider (SP) initiated logout flow
