@@ -5,9 +5,19 @@ title: Login
 
 This section describes certain issues you might face while logging into PactFlow and explains how to resolve them.
 
-## Unable to login into PactFlow user interface
+## *"You are not authorized to access this Pactflow account"*
 
-When you sign up for PactFlow, you will be emailed the login details with a temporary password. This password is valid for 7 days. If you need to reset the password, you can reset the clock on this expiry by simply re-inviting the user. Alternatively, [contact us (https://support.smartbear.com/pactflow/message/) and we will reset it for you.
+There are two reasons this error may occur:
+
+### 1. Your email has not been confirmed
+
+Please check your inbox for an email with the subject "Verify your email" from `no-reply@id.smartbear.com`, and choose "confirm my account".
+
+After this, you should be able to login.
+
+### 2. You have not been invited to the account
+
+Only users that created the account (initial user) or have been invited to an account are able to login.
 
 ## Github login error
 
