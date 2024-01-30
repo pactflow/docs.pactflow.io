@@ -215,6 +215,39 @@ Whether or not to disable SSL verificaton when executing webhooks.
 **Default:** `false`<br/>
 **Allowed values:** `true`, `false`<br/>
 
+### PACTFLOW_WEBHOOK_CERTIFICATES
+
+A list of SSL certificate configuration objects with the properties `description`, and either `content` or `path`. These
+certificates are used when a webhook needs to connect to a server that uses a self signed certificate.
+
+Each certificate configuration item accepts a chain of certificates in PEM format - there may be multiple 'BEGIN CERTIFICATE' and 'END CERTIFICATE' in the content of each item.
+
+The certificate configuration is not validated on startup. If any of the configured certificates cannot be loaded during the execution of a webhook, an error
+will be logged, and they will be ignored. You can check if the configuration is working by testing the execution of
+a webhook that connects to the server with the self signed certificate by following these instructions https://docs.pact.io/pact_broker/webhooks/debugging_webhooks#testing-webhook-execution
+
+When setting the path, the full path to the certificate file in PEM format must be specified. When using Docker, you must ensure the
+certificate file is [mounted into the container](https://docs.docker.com/storage/volumes/).
+
+Each property of the certificate is described by an indexed environment variable in the format `PACTFLOW_WEBHOOK_CERTIFICATES__<INDEX>__<PROPERTY>`.
+Environment variables with the same index are grouped together to form the complete object. Note the use of the double underscores before the index and property.
+
+Example:
+
+```shell
+PACTFLOW_WEBHOOK_CERTIFICATES__0__LABEL="An example self signed certificate with content"
+PACTFLOW_WEBHOOK_CERTIFICATES__0__CONTENT="-----BEGIN CERTIFICATE-----
+      MIIDZDCCAkygAwIBAgIBATANBgkqhkiG9w0BAQsFADBCMRMwEQYKCZImiZPyLGQB
+      <REST OF CERTIFICATE>
+      jHT1Ty2CglM=
+      -----END CERTIFICATE-----"
+PACTFLOW_WEBHOOK_CERTIFICATES__1__LABEL="An example self signed certificate with a path"
+PACTFLOW_WEBHOOK_CERTIFICATES__1__PATH="/full/path/to/the/cert.pem"
+```
+
+**Supported versions:** From v1.14.0<br/>
+**Required:** false<br/>
+
 ## SAML authentication
 
 <hr/>
@@ -255,13 +288,6 @@ URL of a logo for IDP, to be displayed next to the login button.
 ### PACTFLOW_SAML_IDP_SSO_TARGET_URL
 
 The URL to which the authentication request should be sent. This endpoint is on the identity provider.
-
-**Required:** if PACTFLOW_SAML_IDP_METADATA_URL is not set<br/>
-**More information:** https://github.com/omniauth/omniauth-saml#options<br/>
-
-### PACTFLOW_SAML_IDP_ENTITY_ID
-
-The ID by which this IDP is known to PactFlow
 
 **Required:** if PACTFLOW_SAML_IDP_METADATA_URL is not set<br/>
 **More information:** https://github.com/omniauth/omniauth-saml#options<br/>
@@ -371,6 +397,19 @@ env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 
 Deprecated in favour of `PACTFLOW_MASTER_ENCRYPTION_KEY`. If you have a previous installation of PactFlow with `PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY` set, please rename it to `PACTFLOW_MASTER_ENCRYPTION_KEY`.
 
 **Required:** false<br/>
+
+## Content Security
+
+<hr/>
+
+
+
+### PACTFLOW_CSP_ALLOWED_SOURCES
+
+Space separated list of allowed content sources that should be allowed in addition to the hosts configured in the identity provider settings (eg. `PACTFLOW_SAML_IDP_SSO_TARGET_URL`). This may be useful if you need additional assets on your instance of PactFlow. For example, if you need to support multiple redirects for SAML authentication, you need to add them here for PactFlow to generate the appropriate Content-Security-Policy to allow that to happen.
+
+**Required:** false<br/>
+**Example:** `https://my-intermediate-idp-host.com`<br/>
 
 ## User administration
 
