@@ -406,9 +406,10 @@ Deprecated in favour of `PACTFLOW_MASTER_ENCRYPTION_KEY`. If you have a previous
 
 ### PACTFLOW_CSP_ALLOWED_SOURCES
 
-Space separated list of allowed content sources. This may be useful if you need additional assets on your instance of PactFlow. For example, if you need to support multiple redirects for SAML authentication, you need to add them here for PactFlow to generate the appropriate Content-Security-Policy to allow that to happen.
+Space separated list of allowed content sources that should be allowed in addition to the hosts configured in the identity provider settings (eg. `PACTFLOW_SAML_IDP_SSO_TARGET_URL`). This may be useful if you need additional assets on your instance of PactFlow. For example, if you need to support multiple redirects for SAML authentication, you need to add them here for PactFlow to generate the appropriate Content-Security-Policy to allow that to happen.
 
 **Required:** false<br/>
+**Example:** `https://my-intermediate-idp-host.com`<br/>
 
 ## User administration
 
