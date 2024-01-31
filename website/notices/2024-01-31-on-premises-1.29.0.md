@@ -1,5 +1,5 @@
 ---
-slug: 2024-01-30-on-premises-1.29.0
+slug: 2024-01-31-on-premises-1.29.0
 title: On-premises release v1.29.0
 tags: [on-premises, release]
 ---
