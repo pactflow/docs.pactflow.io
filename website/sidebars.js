@@ -117,7 +117,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Troubleshooting',
-      items: ['docs/login-help', `docs/authorization-help`, 'docs/webhooks-help', 'docs/powershell-guide']
+      items: ['docs/login-help', `docs/authorization-help`, 'docs/webhooks-help', 'docs/powershell-guide', 'docs/troubleshooting/disabling-dangerous-contract-modification']
     },
     {
       type: 'link',
