@@ -117,7 +117,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Troubleshooting',
-      items: ['docs/login-help', `docs/authorization-help`, 'docs/webhooks-help', 'docs/powershell-guide', 'docs/troubleshooting/disabling-dangerous-contract-modification']
+      items: ['docs/login-help', `docs/authorization-help`, 'docs/webhooks-help', 'docs/powershell-guide', 'docs/troubleshooting/disabling-dangerous-contract-modification', 'docs/troubleshooting/slow-response-when-fetching-pacts-for-verification']
     },
     {
       type: 'link',
