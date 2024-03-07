@@ -2,7 +2,12 @@
 title: Organisational Scale
 ---
 
-For a video of this guide, please see [YouTube](https://www.youtube.com/watch?v=LyVSmRtwFkc) for Reducing the cost of testing in application modernization: a banking case study by [Sngular](https://www.sngular.com/)
+:::tip 💡
+For a video of this guide, please see [YouTube](https://www.youtube.com/watch?v=LyVSmRtwFkc) for Reducing the cost of testing in application modernization: a banking case study by [Sngular](https://www.sngular.com/).
+
+For a summary of the PactFlow features that support migrating and scaling Pact to PactFlow, see [this video](https://www.youtube.com/watch?v=cvoqEP_CnqE).
+:::
+
 
 ## 3 key steps to ensure and scale enterprise wide adoption
 
