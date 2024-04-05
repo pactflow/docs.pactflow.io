@@ -122,7 +122,7 @@ for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-|CC-)([0-9]+)' | sort 
    # more work required to complete it but we still want to attach a version to the ticket which tells Jira that 
    # part of the code has been released to production.
    status=$(echo $response | jq '.fields.status.name' | tr -d '"')
-   if [ "$status" = "Done" ]; then
+   if [ "$status" = "Done" ] || [ "$status" = "Released" ]; then
 
        platform=$(echo $response | jq '.fields.customfield_17522.value' | tr -d '"')
        if [ "$platform" = "saas" ]; then
