@@ -9,6 +9,13 @@ module.exports = {
   favicon: "img/favicon.ico",
   organizationName: "PactFlow", // Usually your GitHub org/user name.
   projectName: "doc-site", // Usually your repo name.
+  scripts: [
+    {
+      src: '/js/fix-location.js',
+      async: false,
+      defer: false,
+    },
+  ],
   themeConfig: {
     // announcementBar: {
     //   id: 'announcement-bar',
@@ -89,7 +96,7 @@ module.exports = {
       }
     },
     cleanUrl: true,
-    trailingSlash: true,
+    trailingSlash: false,
     algolia: {
       contextualSearch: false,
       appId: "LY8MHW6MWQ",
@@ -100,8 +107,6 @@ module.exports = {
     metadata: [
       { name: "docsearch:docusaurus_tag", content: "docs-default-current" },
     ],
-
-
     prism: {
       // default list https://github.com/FormidableLabs/prism-react-renderer/blob/master/src/vendor/prism/includeLangs.js
       // additional supported langs https://prismjs.com/#supported-languages
