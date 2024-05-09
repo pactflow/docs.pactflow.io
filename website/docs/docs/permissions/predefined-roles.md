@@ -129,6 +129,21 @@ The Test Maintainer role has been replaced by the User role. The difference betw
 - [`user:read:*`](/docs/permissions#userread)
 - [`webhook:manage:*`](/docs/permissions#webhookmanage)
 
+## Organization Administrator
+
+A system-assigned role for users to administrator authentication and user access within PactFlow. It has no API or contract data access, and does not consume a paid seat.
+
+The Organization Administrator permissions may not be modified and cannot be assigned to users from within PactFlow.
+
+#### Default permissions
+
+- [`authentication_settings:manage:*`](/docs/permissions/#authentication_settingsmanage)
+- [`role:manage:*`](/docs/permissions#rolemanage)
+- [`system_account:manage:*`](/docs/permissions#system_accountmanage)
+- [`team:manage:*`](/docs/permissions#teammanage)
+- [`user:invite`](/docs/permissions#userinvite)
+- [`user:manage:*`](/docs/permissions#usermanage)
+- 
 ## Resetting permissions for predefined roles
 
 Should you wish to reset the permissions assigned to each of the predefined roles back to their defaults as documented above (or upgrade from the globally scoped User role to the team scoped User role) you can follow these steps. Note that any custom roles will remain unaffected, and user/role assignments are unchanged.
