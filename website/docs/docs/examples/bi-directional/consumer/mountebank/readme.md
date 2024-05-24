@@ -22,7 +22,7 @@ https://github.com/pactflow/example-bi-directional-consumer-mountebank
 - [Example NodeJS Consumer - Mountebank (BYO Adapter)](#example-nodejs-consumer---mountebank-byo-adapter)
   - [Overview of Example](#overview-of-example)
   - [Overview of Part of Bi-Directional Contract Testing Flow](#overview-of-part-of-bi-directional-contract-testing-flow)
-  - [Compatible with Providers](#compatible-with-providers)
+  - [Compatibile with Providers](#compatibile-with-providers)
   - [Pre-requisites](#pre-requisites)
     - [Environment variables](#environment-variables)
   - [Usage](#usage)
@@ -73,7 +73,7 @@ When you run the CI pipeline (see below for doing this), the pipeline should per
 
 ![Consumer Pipeline](https://raw.githubusercontent.com/pactflow/example-bi-directional-consumer-mountebank/master/docs./../docs/consumer-pipeline.png)
 
-## Compatible with Providers
+## Compatibile with Providers
 
 <!-- Provider Compatability -->
 

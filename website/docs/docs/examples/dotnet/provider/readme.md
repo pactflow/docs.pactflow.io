@@ -17,7 +17,7 @@ https://github.com/pactflow/example-provider-dotnet
 
 [![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-dotnet/consumer/pactflow-example-consumer-dotnet/latest/prod/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-dotnet/consumer/pactflow-example-consumer-dotnet/latest/prod/badge.svg) (prod)
 
-This is an example of a .NET Core (3.1) provider that uses Pact, [PactFlow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
+This is an example of a .NET 8 provider that uses Pact, [PactFlow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 
@@ -36,11 +36,11 @@ The project uses a Makefile to simulate a very simple build pipeline with two st
   * Tag the deployed consumer version as 'prod'
 
 ## Dependencies
- 
+
 * Docker
 * A [PactFlow](https://pactflow.io) account
 * A [read/write API Token](https://docs.pactflow.io/#configuring-your-api-token) from your PactFlow account
-* .NET 6.x installed. You can install it from here: https://docs.microsoft.com/en-us/dotnet/core/install/macos
+* .NET 8.x installed. Installation instructions can be found here: <https://learn.microsoft.com/en-us/dotnet/core/install/>
 
 ## Usage
 
@@ -50,7 +50,7 @@ The below commands are designed for a Linux/OSX environment, please translate fo
 
 Please ensure the following environment variables have been exported in the process that you run the tests (generally a terminal):
 
-```
+```bash
 export PACT_BROKER_TOKEN=<your pactflow read/write token here>
 export PACT_BROKER_BASE_URL=https://<your pactflow subdomain>.pactflow.io
 ```
@@ -61,6 +61,6 @@ Usually, you would integrate this into a real CI system (such as Buildkite/Jenki
 
 You can simulate a CI process with the following command:
 
-```
+```bash
 make fake_ci
 ```
