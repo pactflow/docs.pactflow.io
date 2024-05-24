@@ -24,7 +24,7 @@ https://github.com/pactflow/example-bi-directional-consumer-msw
   - [Overview of Example](#overview-of-example)
     - [Key points with Mock Service Worker](#key-points-with-mock-service-worker)
   - [Overview of Part of Bi-Directional Contract Testing Flow](#overview-of-part-of-bi-directional-contract-testing-flow)
-  - [Compatible with Providers](#compatible-with-providers)
+  - [Compatibile with Providers](#compatibile-with-providers)
   - [Pre-requisites](#pre-requisites)
     - [Environment variables](#environment-variables)
   - [Usage](#usage)
@@ -82,7 +82,7 @@ When you run the CI pipeline (see below for doing this), the pipeline should per
 
 ![Consumer Pipeline](https://raw.githubusercontent.com/pactflow/example-bi-directional-consumer-msw/master/docs./../docs/consumer-pipeline.png)
 
-## Compatible with Providers
+## Compatibile with Providers
 
 <!-- Provider Compatability -->
 
