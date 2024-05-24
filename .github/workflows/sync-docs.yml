@@ -235,5 +235,6 @@ jobs:
           author_name: Github Action
           author_email: docs@pact.io
           message: 'chore: ${{ env.COMMIT_MESSAGE }}'
+          new_branch: steps.identify_event.outputs.update_event
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
