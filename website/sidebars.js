@@ -10,28 +10,50 @@ module.exports = {
           label: 'New UI ✨',
           items: [
             'docs/user-interface/migration/new',
-            'docs/user-interface/migration/guide'
+            'docs/user-interface/dashboard',
+            'docs/user-interface/application',
+            'docs/user-interface/contract',
+            'docs/user-interface/bi-directional',
+            {
+              type: 'category',
+              label: 'Settings',
+              items: [
+                'docs/user-interface/settings/api-tokens',
+                'docs/user-interface/settings/preferences',
+                'docs/user-interface/settings/webhooks',
+                'docs/user-interface/settings/secrets',
+                'docs/user-interface/settings/users',
+                'docs/user-interface/settings/system-accounts',
+                'docs/user-interface/settings/teams',
+                'docs/user-interface/settings/roles',
+                'docs/user-interface/settings/environments'
+              ]
+            },
+            'docs/user-interface/migration/guide',
           ]
         },     
-        'docs/user-interface/dashboard',
-        'docs/user-interface/application',
-        'docs/user-interface/contract',
-        'docs/user-interface/bi-directional',
         {
           type: 'category',
-          label: 'Settings',
+          label: 'Legacy UI',
           items: [
-            'docs/user-interface/settings/api-tokens',
-            'docs/user-interface/settings/preferences',
-            'docs/user-interface/settings/webhooks',
-            'docs/user-interface/settings/secrets',
-            'docs/user-interface/settings/users',
-            'docs/user-interface/settings/system-accounts',
-            'docs/user-interface/settings/teams',
-            'docs/user-interface/settings/roles',
-            'docs/user-interface/settings/environments'
+            'docs/ui-old/dashboard',
+            'docs/ui-old/bi-directional',
+            'docs/ui-old/can-i-deploy',
+            {
+              type: 'category',
+              label: 'Settings',
+              items: [
+                'docs/ui-old/settings/api-tokens',
+                'docs/ui-old/settings/preferences',
+                'docs/ui-old/settings/webhooks',
+                'docs/ui-old/settings/secrets',
+                'docs/ui-old/settings/users',
+                'docs/ui-old/settings/teams',
+                'docs/ui-old/settings/environments'
+              ]
+            }
           ]
-        }
+        },     
       ]
     },
     {

@@ -2,11 +2,11 @@
 title: Migration Guide
 ---
 
-If you are using PactFlow's Classic user interface (UI), this document provides an overview of the key changes introduced when moving to the new UI.
+If you are using PactFlow's Classic user interface (UI), this document provides an overview of the key changes introduced in the new UI.
 
 ## Viewing Integrations
 
-There is no longer a list of "integrations". Instead, the user interface is based around "applications". To discover the integrations for a specific application, you first must navigate to the application of choice.
+There is no longer a list of "integrations". Instead, the user interface is based around "applications". To discover the integrations for a specific application, you must first navigate to the application of your choice.
 
 | Before                                                                  | After                                                                  |
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------- |
