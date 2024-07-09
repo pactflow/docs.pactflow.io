@@ -2,19 +2,17 @@
 title: Secrets
 ---
 
-&nbsp;
-
-![Secrets Screen](/ui/secrets.png)
-
-&nbsp;
-
 You can create your own variables to store sensitive values like usernames and passwords here. These will be encrypted and stored in the PactFlow platform and available to use when creating your webhooks.
 
-&nbsp;
+![Secrets Screen](/ui/clarity/settings-secrets.png)
 
-![Secrets Screen](/ui/secrets-form.png)
+Click on a tile to edit a secret, or the ellipsis to copy the secret's UUID.
 
-&nbsp;
+## Create a Secret
+
+![Secrets Screen](/ui/clarity/settings-secrets-create.png)
+
+### Secret Fields
 
 | Field | Description |
 | ---------- | ----------- |

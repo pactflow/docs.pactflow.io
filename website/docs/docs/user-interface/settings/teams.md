@@ -4,14 +4,14 @@ title: Teams
 
 Our Team Management feature allows you to manage the following capabilities:
 
-* Allocate users to teams
+* Allocate users and system accounts to teams
 * Allocate applications to teams
 * Assign team administrators
 * Allocate environments to teams
 
 _NOTE: Editing of teams is restricted to users with the `team:manage:*` permission (Administrators) or who have been assigned as Team Administrators by an existing user with the team manage permission._
 
-![Teams Management Screen](/ui/teams.png)
+![Teams Management Screen](/ui/clarity/settings-teams.png)
 
 **A new Team** will allow you to create a new team and assign applications and environments to that team.
 
@@ -19,7 +19,7 @@ _NOTE: Editing of teams is restricted to users with the `team:manage:*` permissi
 
 **Editing a team** allows you to change the name and applications of an existing team, assign Team Administrators and assign environments.
 
-Clicking the team's name will take you to the allocated user's screen.
+Clicking the team's name will take you to the selected team's screen.
 
 ## The "Default" team
 
@@ -29,20 +29,22 @@ The default team can be deleted once your own user defined teams have been creat
 
 ## Editing or Creating a team
 
-![Edit Team](/ui/edit_team.png)
+![Edit Team](/ui/clarity/settings-teams-create.png)
 
 With the team applications, you can search for applications and add them to the team. This allows the team users to be able to filter the main dashboard by those applications.
 
-Team Administrators can also be assigned to this screen. Team Administrators can assign users and applications to a team, and update its name.
+Lastly, environments can be allocated to the team here.
 
-Lastly, environments can be allocated to the team here. Once selected the environments can be re-ordered and saved in that order. 
+## Managing users in a team
 
-## Allocating users to a team
+![Edit Team Users](/ui/clarity/settings-teams-members.png)
 
-![Edit Team Users](/ui/edit_team_users.png)
+You can search for users by name to add to the team. Users may also be removed from the team
 
-You can search for users by name to add to the team. Clicking the trashcan icon next to a user will remove them from the team.
+Team Administrators can also be assigned or unassigned on this screen using the "Add" or "Remove" role option. Team Administrators can assign users and applications to a team, and update its name.
 
-**Edit** takes you to the edit team dialog, and **Delete** allows you to delete the team.
+## Allocating System Accounts to a team
 
-You can also switch to other teams from this screen by using the team select box at the top.
+You can add and remove System Account users from a team from this screen.
+
+![Edit Team System Accounts](/ui/clarity/settings-teams-system.png)

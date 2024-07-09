@@ -19,7 +19,7 @@ You can access our billing dashboard via the "Subscription" menu in the Settings
 If you have multiple subscriptions, please ensure you upgrade the subscription that matches the "Subscription ID" on your billing page.
 :::
 
-![Subscriptions Screen](/ui/billing-dashboard2.png)
+![Subscriptions Screen](/ui/clarity/settings-subscription.png)
 
 ### Authentication
 

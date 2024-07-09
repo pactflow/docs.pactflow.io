@@ -2,116 +2,41 @@
 title: Dashboard
 ---
 
-## Dashboard layout
+This screen provides a way to quickly discover and access your applications.
 
-The main PactFlow screen has four functional areas.
+![Dashboard](/ui/clarity/dashboard.png)
 
-&nbsp;
+## Favourites / Quick Access
 
-![Main Screen](/ui/dashboard.png)
+The top panel shows a subset of applications in a condensed view to allow quick access to applications.
 
-&nbsp;
+Select the "My Favourites" item from the drop-down to see your saved applications. Favourite an application by clicking the star icon in list of applications below. Remove an icon from your favourites by clicking the cross icon.
 
-**1 -**
-The list of all integrations is displayed on the left panel. Integration here is the pair of a consumer and provider that have a pact. Select an integration to have its details displayed in the center panel. The status icon (see table below) will be displayed for the verification result of latest pact.
+![Favourites](/ui/clarity/dashboard-favourites.png)
 
-**2 -**
-The details of the selected integration will be displayed here.
+Select a team from the drop-down to see all applications in a specific team.
 
-**3 -**
-You can filter the list of integrations here by either the Consumer or Provider name.
+## All Applications
 
-**4 -**
-If you have been assigned to a [team](#settings-teams), you can select them here. This will filter the list of integrations
-by the applications that belong to the team.
+The bottom panel shows all applications in the account. Use the search box to filter the list of applications based on their name or display name. If you have many applications, pagination controls will appear to aid with navigation.
 
-**5 -**
-The tabs at the top provide different views of the currently selected integration. 
+![Search](/ui/clarity/dashboard-search.png)
 
-- The Network Diagram will display a graph view of all the integrations that are reachable from the selected one.
+## Navigation 
 
-- The [Matrix](#matrix) will display more details of all the pacts and verifications of the selected integration.
+#### Feedback / Switch UI
 
-- The Webhooks will display a list of triggered webhooks for the integration and logs.
+The feedback button will allow you to switch back to the old UI or provide feedback on the new UI.
 
-**6 -**
+#### Settings
+
 The settings (or cog) button will take you to all the setting screens. Here you'll be able to setup
 [API tokens](#settings-api-tokens), [webhooks](#settings-webhooks), [users](#settings-users) and more.
 
-**7 -**
-Displays the current logged in user and subscription status.
+#### Help
 
-&nbsp;
+The help link directs you to our documentation.
 
-<div class="status-table">
+#### Profile
 
-| Status                            | Description                                                                                   |
-| --------------------------------- | --------------------------------------------------------------------------------------------- |
-| ![success](/ui/success.png)       | The pact has a successful verification published for it.                                      |
-| ![failed](/ui/failed.png)         | The latest verification for the pact had failed.                                              |
-| ![unverified](/ui/unverified.png) | No verification result has been published for the pact.                                       |
-| ![waiting](/ui/waiting.png)       | A new version of the pact has been published since the last verification result was received. |
-
-</div>
-
-## Version tag menus
-
-The blue and grey "pill" icons shown next to the consumer and provider version numbers on the Overview, Matrix and Pact pages represent [tags](https://docs.pact.io/pact_broker/tags) that belong to the relevant application versions in PactFlow.
-
-A blue pill indicates that this is the latest version that has a tag with that name. For example, the latest consumer version with a "main" tag.
-
-<img alt="Latest version tag menu" src="/ui/tag-main-latest.png" style={{width: 70}}/>
-
-A grey pill indicates that there's a later application version that has the same tag.
-
-<img alt="Not latest version tag menu" src="/ui/tag-main-not-latest.png" style={{width: 70}}/>
-
-Clicking on the tag pill icon will allow you to perform actions in the context of that application version tag.
-
-### Consumer version tags
-
-The consumer version tag has the following menu items.
-
-![Consumer version tag menu](/ui/consumer-version-tag-menu.png)
-
-#### Menu items
-
-##### Resources
-
-- Copy pact URL - Copies the URL of the latest pact with the given tag into the clipboard.
-- Copy stub URL - Copies the URL of the [stub](/docs/stubs) created from the latest pact for the given tag.
-- Copy badge URL - Copies the URL of the [verification status badge](https://docs.pact.io/pact_broker/advanced_topics/provider_verification_badges/) for the latest pact for the given tag into the clipboard.
-- Copy tag URL - Copies the URL of the application version tag into the clipboard.
-- Copy tag name - Copies the name of the tag into the clipboard.
-
-##### Delete
-
-- Delete all pacts with the given tag - Allows you to delete all pacts that belong to application versions with the given tag. This is only visible if the current user has the [contract_data:bulk_delete](/docs/permissions#contract_databulk_delete) permission.
-
-### Provider version tags
-
-Clicking on a tag pill for a provider version tag will make the following menu available.
-
-![Provider version tag menu](/ui/provider-version-tag-menu.png)
-
-#### Menu Items
-
-##### Resources
-
-- Copy tag URL - selecting this menu item will copy the URL of the application version tag into the clipboard.
-- Copy tag name - selecting this menu item will copy the name of the tag into the clipboard.
-
-## Matrix 
-
-The "Matrix" displays a table that shows the verification status of each combination of consumer and provider version from the selected integration.
-
-&nbsp;
-
-![Matrix Screen](/ui/matrix.png)
-
-&nbsp;
-
-### Matrix Filters
-Filter the consumer versions and provider versions of the selected integration by version number, branch, environment or tag.
-
-Note: The environment filter option will only be shown to users with the environment read or manage permission.
+The profile link shows the current logged-in user, the current version of PactFlow and a link to logout.

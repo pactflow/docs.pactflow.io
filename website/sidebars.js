@@ -5,9 +5,18 @@ module.exports = {
       type: 'category',
       label: 'User Interface',
       items: [
+        {
+          type: 'category',
+          label: 'New UI ✨',
+          items: [
+            'docs/user-interface/migration/new',
+            'docs/user-interface/migration/guide'
+          ]
+        },     
         'docs/user-interface/dashboard',
+        'docs/user-interface/application',
+        'docs/user-interface/contract',
         'docs/user-interface/bi-directional',
-        'docs/user-interface/can-i-deploy',
         {
           type: 'category',
           label: 'Settings',
@@ -17,7 +26,9 @@ module.exports = {
             'docs/user-interface/settings/webhooks',
             'docs/user-interface/settings/secrets',
             'docs/user-interface/settings/users',
+            'docs/user-interface/settings/system-accounts',
             'docs/user-interface/settings/teams',
+            'docs/user-interface/settings/roles',
             'docs/user-interface/settings/environments'
           ]
         }
@@ -113,11 +124,10 @@ module.exports = {
       label: 'Integrations',
       items: ['docs/integrations/swaggerhub']
     },
-    'docs/how_to',
-    {
+      {
       type: 'category',
-      label: 'Troubleshooting',
-      items: ['docs/login-help', `docs/authorization-help`, 'docs/webhooks-help', 'docs/powershell-guide', 'docs/troubleshooting/disabling-dangerous-contract-modification', 'docs/troubleshooting/slow-response-when-fetching-pacts-for-verification']
+      label: 'Troubleshooting',        
+      items: ['docs/troubleshooting/glossary', 'docs/login-help', `docs/authorization-help`, 'docs/webhooks-help', 'docs/powershell-guide', 'docs/troubleshooting/disabling-dangerous-contract-modification', 'docs/troubleshooting/slow-response-when-fetching-pacts-for-verification']
     },
     {
       type: 'link',

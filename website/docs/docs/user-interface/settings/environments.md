@@ -2,19 +2,20 @@
 title: Environments
 ---
 
-![Environments Screen](/ui/environments.png)
+![Environments Screen](/ui/clarity/settings-environments.png)
 
 Here you can manage the list of environments used by your organization. These represent your real-world deployment or release environments. Maintaining this list, along with the `record-deployment` and `record-release` commands, allows PactFlow to ensure you are safe to deploy using the `can-i-deploy` tool. You can read more [here.](https://docs.pact.io/pact_broker/recording_deployments_and_releases/)
-![Environments Screen](/ui/environments-form.png)
+
+![Environments Screen](/ui/clarity/settings-environments-create.png)
 
 &nbsp;
 
 | Field | Description |
 | ----- | ----------- |
 | Name | A unique name, no spaces allowed. This name is used in the can-i-deploy and record-deployment CLI commands. For example, "payments-sit-1". This field cannot be edited |
-| DisplayName | Verbose environment name. "Payments Team SIT 1". |
+| Display Name | Verbose environment name. "Payments Team SIT 1". |
 | Production | Whether or not this environment is a production environment. |
-| Teams | Associating the environment with teams, used to determine which teams can view and edit the environment after it is created. See the permissions section below for details. |
+| Team Names | Associating the environment with teams, used to determine which teams can view and edit the environment after it is created. See the permissions section below for details. |
 
 &nbsp;
 

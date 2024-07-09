@@ -2,7 +2,21 @@
 title: Webhooks
 ---
 
-Here you can create and edit your webhooks.
+Webhooks allow you to trigger an HTTP request when an event happens in PactFlow. For example, when pact is changed, a pact is published, or a verification is published. The most common use case for webhooks is to trigger a provider build every time a pact changes, and to update PR status checks when a verification is published.
+
+In this screen, you can create and manage these webhooks.
+
+See more about [webhooks](https://docs.pact.io/pact_broker/webhooks).
+
+## Listing all Webhooks
+
+Here you can create, edit and view your webhooks. You can use the filter controls on the table to find a specific webhook.
+
+![Webhooks Screen](/ui/clarity/settings-webhooks.png)
+
+## Creating a Webhook
+
+![Create Webhook Screen](/ui/clarity/settings-webhooks-create.png)
 
 | Field | Description |
 | ----- | ----------- |
@@ -91,3 +105,25 @@ If your webhook requires basic auth, we recommend using a secret to store the pa
 * For security reasons, if you enter a password value directly into the password field (without using a secret), the password value will not be displayed the next time the webhook is viewed. The existing password value will be maintained when other fields are updated. To update the password, enter a new value and click the Update button.
 
 * If you wish to test the execution of a webhook with a plain text (non-secret) password, you will need to enter it into the password field again before pressing the test button.
+
+## Viewing a Webhook
+
+### Editing a Webhook 
+
+Under the "General Settings" tab, you can modify an existing webhook. See "Creating a Webhook" above for more on the options in this form.
+
+### Viewing Webhook Executions
+
+When a webhook is triggered by an event, the execution is logged. You can view these executions under the "Triggered Webhooks" tab:
+
+![Triggered Webhook](/ui/clarity/settings-triggered-webhooks.png)
+
+:::note
+Webhooks automatically re-try up to 7 times, using an exponential backoff algorithm. The UI shows only the last retry. You can see how many attempts it took by hovering over the row.
+:::
+
+#### Viewing the Logs
+
+Clicking on any row in the table will expand the log entries. You can expand multiple rows at the same time to compare executions:
+
+![Triggered Webhook with Logs](/ui/clarity/settings-triggered-webhooks-logs.png)

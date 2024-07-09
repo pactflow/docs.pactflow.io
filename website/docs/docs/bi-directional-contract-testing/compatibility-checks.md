@@ -33,7 +33,7 @@ Compatibility are visible from the user interface, in the API and in the output 
 
 Compatibility results are listed on the [detail view page](/docs/user-interface/bi-directional#detail-page), grouped by the relevant API resource in the OpenAPI document. They are also on the [consumer contract tab](/docs/user-interface/bi-directional#consumer-contract-tab), grouped by the interactions defined in the consumer contract.
 
-![Bi-directional Contract Test Error](/ui/bdct-cross-comparison-error.png)
+![Bi-directional Contract Test Detail Screen](/ui/clarity/bdct-cross-contract-verification-red.png)
 
 ### Can I Deploy
 

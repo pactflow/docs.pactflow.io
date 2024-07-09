@@ -164,11 +164,7 @@ By default, [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) reque
 
 ### Via the User Interface
 
-You can copy the stub URL template from the pact dashboard or pact drill-down view via the `⫶` drop-down:
-
-![Integration Dashboard](/ui/stubs/stub-copy-url.png)
-
-This is the simplest method and is easily customized as per the URL format described above.
+You can copy the stub URL template from the [contract details page](/docs/user-interface/contract#menu-items) view via the `...` drop-down. This is the simplest method and is easily customized as per the URL format described above.
 
 ### Via the API
 
@@ -176,13 +172,11 @@ Sometimes you need to find the exact version. To do this, you can navigate to th
 
 ### 1. Find the integration
 
-Navigate to the dashboard and find the integration you're interested in.
-
-![Integration Dashboard](/ui/stubs/stubs-pact-dashboard.png)
+Navigate to the [contract details page](/docs/user-interface/contract#menu-items) for a application version of interest. Copy the pact URL using the `...` menu.
 
 ### 2. Open the API Browser
 
-Open the API Browser by selecting "API" in the header toolbar.
+Open the API  (available at https://TENANT.pactflow.io/explorer) by selecting "API" in the header toolbar, and paste the URL into the navigation text box.
 
 ![API Browser](/ui/stubs/stubs-api-browser.png)
 
@@ -192,6 +186,6 @@ From here, you will be at the latest integration version. You can navigate from 
 
 1. Select `->` to navigate to the latest version
 1. Select `->` to navigate to the latest tagged version of the pact
-1. Copy the URL at this address to get the path to the pact file. By default, it will link to the version of the pact you were on in step 2
+2. Copy the URL at this address to get the path to the pact file.
 
 ![API Browser](/ui/stubs/stubs-api-browser-url.png)

@@ -6,17 +6,17 @@ In this screen, you can see which settings you can modify in PactFlow Preference
 
 ## Personal preferences
 
+![Preferences Screen](/ui/clarity/settings-preferences.png)
+
 These are the settings that affect individual users.
-
-#### Show welcome dialog
-
-When a user logs in to PactFlow, this setting controls whether the "Welcome to PactFlow" dialog appears.
 
 #### Show an alert when my tokens are about to expire
 
 This setting determines if the user sees the token expiry alert on the main dashboard for any API tokens that are either expired or expiring within seven days. An administrator must enable token expiration in the System preferences for this to happen.
 
 ## System preferences
+
+![System Preferences Screen](/ui/clarity/settings-preferences-system.png)
 
 These are global system settings and can only be changed by an administrator.
 
