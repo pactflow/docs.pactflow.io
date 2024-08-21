@@ -39,6 +39,17 @@ JIRA_URL=https://smartbear.atlassian.net
 JIRA_USER=${JIRA_AUTH%%@*}
 BRANCH_NAME=release/$RELEASE_VERSION
 
+
+####################
+# Previous relase number
+####################
+
+provious_release_number=$(git ls-tree -r --name-only HEAD website/docs/docs/on-premises/releases | while read filename; do
+  echo "$(git log --date=unix -1 --format="%ad" -- $filename) $filename"
+done | sort | tail -n1 | awk -F'/' '{print $NF}' | cut -d '.' -f 1-3)
+
+echo "Previous release number is $previous_release_number"
+
 ####################
 # Validation
 ####################
@@ -60,7 +71,7 @@ echo "Fetching application..."
 if [ -d $PACTFLOW_APPLICATION_DIR ]; then
     rm -rf $PACTFLOW_APPLICATION_DIR
 fi
-git clone --shallow-since=$(date -v -3m "+%Y-%m-%d") git@github.com:pactflow/pactflow-application.git $PACTFLOW_APPLICATION_DIR >/dev/null 2>&1
+git clone --shallow-since=$(date -v -6m "+%Y-%m-%d") git@github.com:pactflow/pactflow-application.git $PACTFLOW_APPLICATION_DIR >/dev/null 2>&1
 cd $PACTFLOW_APPLICATION_DIR
 echo "Done."
 
@@ -68,9 +79,22 @@ echo "Done."
 ####################
 # Find SHA to diff against
 ####################
-echo "Pulling latest image..."
+
+previous_tag=$(git tag -l --sort=-v:refname | grep -E "^$previous_release_number" | head -n 1)
+
+previous_tag_sha=$(git rev-list -n 1 $previous_tag)
+
+if [ -z ${DEV_TAG} ]; then 
+  DEV_TAG=previous_tag_sha
+  echo "No tag provided, using previous tag $previous_tag_sha from $previous_tag"
+fi
+####################
+# Find SHA to diff against
+####################
+echo "Pulling latest image... $ONPREM_PROD_IMAGE"
 docker pull $ONPREM_PROD_IMAGE >/dev/null 2>&1
-PROD_TAG=$(docker inspect $ONPREM_PROD_IMAGE | jq -r '.[0].ContainerConfig.Env[] | select(startswith("PACTFLOW_GIT_SHA="))' | cut -d "=" -f2)
+
+PROD_TAG=$(docker inspect $ONPREM_PROD_IMAGE | jq -r '.[0].Config.Env[] | select(startswith("PACTFLOW_GIT_SHA="))' | cut -d "=" -f2)
 
 if [ -z ${DEV_TAG} ]; then 
   DEV_TAG="HEAD"
@@ -89,16 +113,22 @@ if [ -n "$IS_RELEASE" ]; then
   cd $PACTFLOW_APPLICATION_DIR
   echo "Done."
 
-  echo "Creating ${RELEASE_VERSION} in Jira..."
+  echo "Creating ${RELEASE_VERSION} in Jira ${JIRA_PROJECT_ID}"
   payload_version="{\"archived\":false,\"name\":\"${RELEASE_VERSION}\",\"projectId\":${JIRA_PROJECT_ID},\"released\":false,\"description\":\"OnPrem Release for ${RELEASE_VERSION} by $JIRA_USER\"}"
   payload_issue="{\"update\": {\"fixVersions\": [{\"add\": {\"name\": \"${RELEASE_VERSION}\"}}]}}"
-  curl -s -o /dev/null --request POST \
+  response=$(curl -s --request POST \
      --url "$JIRA_URL/rest/api/3/version" \
      --user "$JIRA_AUTH" \
      --header 'Accept: application/json' \
      --header 'Content-Type: application/json' \
-     --data "${payload_version}"
-  echo "Done."
+     --data "${payload_version}")
+  error_message=$(echo $response | jq '.errorMessages')
+  if [ "$error_message" != "null" ]; then
+    echo "Error creating version: $error_message"
+    exit 128
+  else
+    echo "created version $RELEASE_VERSION"
+  fi
 fi
 
 
@@ -111,13 +141,16 @@ migrations=""
 review=""
 
 echo "Retreiving related tickets..."
+
+echo "checking the diff between tags $PROD_TAG and $DEV_TAG"
+
 for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-|CC-)([0-9]+)' | sort | uniq); do
    response=$(curl -s --request GET \
        --url "$JIRA_URL/rest/api/3/issue/$i?fields=customfield_11009,customfield_18528,customfield_17522,customfield_17521,status" \
        --user "$JIRA_AUTH" \
        --header 'Accept: application/json' \
        --header 'Content-Type: application/json')
-   
+   echo "response for $i is $response"
    # Valid Scenario: We may have merged code for a ticket that has not been marked as done in Jira since there is 
    # more work required to complete it but we still want to attach a version to the ticket which tells Jira that 
    # part of the code has been released to production.
