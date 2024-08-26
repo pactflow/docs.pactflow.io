@@ -44,7 +44,7 @@ BRANCH_NAME=release/$RELEASE_VERSION
 # Previous relase number
 ####################
 
-provious_release_number=$(git ls-tree -r --name-only HEAD website/docs/docs/on-premises/releases | while read filename; do
+previous_release_number=$(git ls-tree -r --name-only HEAD website/docs/docs/on-premises/releases | while read filename; do
   echo "$(git log --date=unix -1 --format="%ad" -- $filename) $filename"
 done | sort | tail -n1 | awk -F'/' '{print $NF}' | cut -d '.' -f 1-3)
 
@@ -80,12 +80,12 @@ echo "Done."
 # Find SHA to diff against
 ####################
 
-previous_tag=$(git tag -l --sort=-v:refname | grep -E "^$previous_release_number" | head -n 1)
+previous_tag=$(git tag -l --sort=-v:refname | grep -E $previous_release_number | head -n 1)
 
 previous_tag_sha=$(git rev-list -n 1 $previous_tag)
 
 if [ -z ${DEV_TAG} ]; then 
-  DEV_TAG=previous_tag_sha
+  DEV_TAG="$previous_tag_sha"
   echo "No tag provided, using previous tag $previous_tag_sha from $previous_tag"
 fi
 ####################
@@ -116,15 +116,32 @@ if [ -n "$IS_RELEASE" ]; then
   echo "Creating ${RELEASE_VERSION} in Jira ${JIRA_PROJECT_ID}"
   payload_version="{\"archived\":false,\"name\":\"${RELEASE_VERSION}\",\"projectId\":${JIRA_PROJECT_ID},\"released\":false,\"description\":\"OnPrem Release for ${RELEASE_VERSION} by $JIRA_USER\"}"
   payload_issue="{\"update\": {\"fixVersions\": [{\"add\": {\"name\": \"${RELEASE_VERSION}\"}}]}}"
+  echo "payload_issue is $payload_issue"
+  echo "payload_version is $payload_version"
+  echo "JIRA_AUTH is $JIRA_AUTH"
+
   response=$(curl -s --request POST \
      --url "$JIRA_URL/rest/api/3/version" \
      --user "$JIRA_AUTH" \
      --header 'Accept: application/json' \
      --header 'Content-Type: application/json' \
      --data "${payload_version}")
+  echo "create version response is $response"
   error_message=$(echo $response | jq '.errorMessages')
   if [ "$error_message" != "null" ]; then
-    echo "Error creating version: $error_message"
+    #
+    # if you need to delete a version, which was created accidentally
+    # curl --request DELETE \
+    #  --url 'https://smartbear.atlassian.net/rest/api/3/version/41330' \ 
+    #  --user "$JIRA_AUTH" \
+    #  --header 'Accept: application/json'
+    #
+    #  replace 41330 with version ID you want to delete
+    #  you can see the version ID in jira UI
+
+    echo "Error creating version: $error_message $response"
+    echo "Note: if you need to delete a version, which was created accidentally, you can use the following command: "
+    echo "curl --request DELETE --url 'https://smartbear.atlassian.net/rest/api/3/version/{id}' --user \"$JIRA_AUTH\" --header 'Accept: application/json'"
     exit 128
   else
     echo "created version $RELEASE_VERSION"
@@ -144,7 +161,15 @@ echo "Retreiving related tickets..."
 
 echo "checking the diff between tags $PROD_TAG and $DEV_TAG"
 
-for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-|CC-)([0-9]+)' | sort | uniq); do
+
+if [ -f "jira-ids.txt" ]; then
+    ids=$(cat jira-ids.txt)
+else
+    ids=$(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-|CC-)([0-9]+)' | sort | uniq)
+fi
+
+for i in $ids; do
+#for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-|CC-)([0-9]+)' | sort | uniq); do
    response=$(curl -s --request GET \
        --url "$JIRA_URL/rest/api/3/issue/$i?fields=customfield_11009,customfield_18528,customfield_17522,customfield_17521,status" \
        --user "$JIRA_AUTH" \
