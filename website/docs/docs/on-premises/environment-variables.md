@@ -63,7 +63,7 @@ Set this to true to enable New Relic application monitoring. The New Relic confi
 
 ### PACTFLOW_DATABASE_URL
 
-The fully qualifed database connection string. If using Postgres on RDS with IAM authentication, the scheme must be `postgresiam` and the port must also be set.
+The fully qualified database connection string. If using Postgres on RDS with IAM authentication, the scheme must be `postgresiam` and the port must also be set.
 
 **Required:** if separate host, name, username, password environment variables are not set<br/>
 **Example:** `postgresql://username:password@host:port/database`<br/>
