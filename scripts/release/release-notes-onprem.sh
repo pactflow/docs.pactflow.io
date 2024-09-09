@@ -96,6 +96,7 @@ docker pull $ONPREM_PROD_IMAGE >/dev/null 2>&1
 
 PROD_TAG=$(docker inspect $ONPREM_PROD_IMAGE | jq -r '.[0].Config.Env[] | select(startswith("PACTFLOW_GIT_SHA="))' | cut -d "=" -f2)
 
+echo "PROD_TAG is $PROD_TAG"
 if [ -z ${DEV_TAG} ]; then 
   DEV_TAG="HEAD"
 fi
@@ -125,7 +126,8 @@ if [ -n "$IS_RELEASE" ]; then
      --user "$JIRA_AUTH" \
      --header 'Accept: application/json' \
      --header 'Content-Type: application/json' \
-     --data "${payload_version}")
+     --data "${payload_version}"
+   )
   echo "create version response is $response"
   error_message=$(echo $response | jq '.errorMessages')
   if [ "$error_message" != "null" ]; then
