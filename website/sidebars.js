@@ -60,6 +60,7 @@ module.exports = {
       type: 'category',
       label: 'Features',
       items: [
+        'docs/ai/index',
         'docs/stubs',
         {
           type: 'category',
