@@ -88,15 +88,15 @@ Credits are allocated to the organisation, not individual users.
 
 1. **Starter Plan**
 
-If you have a free plan (20 active users), you are only entitled to 10 tests per month.
+    If you have a free plan, you are entitled to 10 tests per month no matter how many active users there are.
 
-**2. Team Plan**
+2. **Team Plan**
 
-If you are on a Team 10 Plan with 5 active users, you are eligible for 10 credits x 10 users = 100 credits total.
+    If you are on a Team 10 Plan (5 active users), you receive for 10 credits x 10 users for a total of 100 credits.
 
-**2. Enterprise Plan**
+3. **Enterprise Plan**
 
-If you are on an Enterprise Plan with 50 users (42 active), you are eligible for 10 credits x 50 users = 500 credits total.
+    If you are on an Enterprise Plan with 50 users (42 active users), you receive for 10 credits x 50 users for a total of 500 credits.
 
 ### Consumption
 
