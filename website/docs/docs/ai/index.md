@@ -57,9 +57,9 @@ Alternatively, download the latest version for your OS and architecture from the
 <AiDownloadTable />
 
 :::note
-Linux gnu users will require glibc version 2.23 or later.
+Linux GNU users will require glibc version 2.23 or later.
 
-For users in distros which a glibc version <2.23 (check by running `ldd --version`), you can download and use the linux musl variant instead.
+Environments which do not use glibc, or use a version of glibc prior to 2.23, should instead use the musl variant.
 :::
 
 ## Usage
