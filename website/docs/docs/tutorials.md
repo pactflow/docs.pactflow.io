@@ -44,6 +44,34 @@ You will:
 | Node JS  | <https://killercoda.com/pactflow/scenario/pactflow-getting-started-js>   |
 | Java     | <https://killercoda.com/pactflow/scenario/pactflow-getting-started-java> |
 
+## Getting Started with PactFlow AI
+
+_Level: Beginner_
+
+In this tutorial, we guide you through creating a consumer Pact test with the help of PactFlow AI
+
+You will download and setup the PactFlow AI CLI tool, and generate consumer Pact tests for
+a JavaScript codebase.
+
+To read more about our [PactFlow AI feature](https://pactflow.io/ai/), check out our documentation [here](https://docs.pactflow.io/docs/ai)
+
+### Goals
+
+Ultimately, our goal is to get you up and integrated with PactFlow AI as quickly as possible!
+
+You will:
+
+1. Learn how to install the PactFlow AI CLI tool (`pactflow-ai`).
+2. How to authenticate with PactFlow AI and your PactFlow account
+3. Get hands-on experience with all current modes of consumer Pact test generation with PactFlow AI
+4. See how PactFlow AI fits into the picture so that you can get up and running quickly.
+
+### Tutorial
+
+| Language | Link                                                                   |
+| -------- | ---------------------------------------------------------------------- |
+| Node JS  | <https://killercoda.com/pactflow/scenario/pactflow-ai>   |
+
 ## Gating deployments with PactFlow
 
 _Level: Intermediate_

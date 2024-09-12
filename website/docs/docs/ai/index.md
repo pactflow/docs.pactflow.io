@@ -25,11 +25,28 @@ This setting is only available in the new user interface.
 
 ## Installation
 
-For *nix users (including Windows users running WSL), use the following command to download and install:
+For *nix users (including Windows users running WSL/msys2/mingw), use the following command to download and install:
 
+```sh
+curl https://download.pactflow.io/ai/get.sh | sh
 ```
-curl https://download.pactflow.io/ai/get.sh  | sh
+
+### Installation Options
+
+There are some options which you can set during installation.
+
+For a full list, see the `--help`/`-h` command
+
+```sh
+curl https://download.pactflow.io/ai/get.sh | sh -s -- -h
 ```
+
+- `--verbose` / `-v` / `PACTFLOW_AI_VERBOSE`: Enable verbose output
+- `--quiet` / `-q` / `PACTFLOW_AI_QUIET`: Disable progress output
+- `--yes` / `-y` / `PACTFLOW_AI_YES`: Disable confirmation prompt and assume 'yes'
+- `--destination` / `-d` / `PACTFLOW_AI_DESTINATION`: Specify the directory to install the binary
+- `--default-host` / `PACTFLOW_AI_DEFAULT_HOST`: Choose a default host triple rather than autodetecting
+- `--no-modify-path` / `PACTFLOW_AI_NO_MODIFY_PATH`: Don't configure the PATH environment variable
 
 Verify the installation by running `pactflow-ai` to ensure it executes successfully.
 
@@ -38,6 +55,12 @@ Verify the installation by running `pactflow-ai` to ensure it executes successfu
 Alternatively, download the latest version for your OS and architecture from the table below. Be sure to add it to your environment's `PATH`:
 
 <AiDownloadTable />
+
+:::note
+Linux GNU users will require glibc version 2.23 or later.
+
+Environments which do not use glibc, or use a version of glibc prior to 2.23, should instead use the musl variant.
+:::
 
 ## Usage
 
@@ -113,3 +136,7 @@ The limits and your usage against these limits are not currently visible on the 
 ## Getting help and providing feedback
 
 For feedback, feature requests, or assistance with the tool, join our [slack channel](https://pact-foundation.slack.com/archives/C07K2FT0XKK) or speak directly with your Account Manager. For general support, please follow the [usual methods](https://support.smartbear.com/pactflow/message/).
+
+## Tutorials
+
+We've created an [in-browser tutorial](https://docs.pactflow.io/docs/tutorials#getting-started-with-pactflow-ai) to help you get started with PactFlow AI, and see it in action against a JavaScript codebase.
