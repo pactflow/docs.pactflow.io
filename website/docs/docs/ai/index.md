@@ -1,15 +1,15 @@
 ---
-title: PactFlow AI
+title: Test Generation featuring HaloAI
 sidebar_label: AI ⚡️
 ---
 
 import { AiDownloadTable } from "../../../src/components/index";
 
 :::note
-The PactFlow AI features are currently available through an open beta program. During this stage, all customers can explore the capabilities within fixed usage limits ([more info](#limits)).
+PactFlow's Test Generation features are currently available through an open beta program. During this stage, all customers can explore the capabilities within fixed usage limits ([more info](#limits)).
 :::
 
-PactFlow's Test Generation feature is an AI-powered tool designed to help users quickly generate Pact tests. By providing access to source code, OpenAPI documents, or traffic capture data, it reduces the time and effort needed to create and maintain contract tests.
+PactFlow's Test Generation feature, is an AI-powered capability designed to help users quickly generate Pact tests. By providing access to source code, OpenAPI descriptions, or traffic capture data, it reduces the time and effort needed to create and maintain contract tests.
 
 ## Enabling the feature
 
@@ -139,4 +139,4 @@ For feedback, feature requests, or assistance with the tool, join our [slack cha
 
 ## Tutorials
 
-We've created an [in-browser tutorial](https://docs.pactflow.io/docs/tutorials#getting-started-with-pactflow-ai) to help you get started with PactFlow AI, and see it in action against a JavaScript codebase.
+We've created an [in-browser tutorial](https://docs.pactflow.io/docs/tutorials#getting-started-with-pactflow-ai) to help you get started with PactFlow's test generation feature.

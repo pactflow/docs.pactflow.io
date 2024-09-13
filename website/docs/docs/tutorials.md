@@ -44,27 +44,29 @@ You will:
 | Node JS  | <https://killercoda.com/pactflow/scenario/pactflow-getting-started-js>   |
 | Java     | <https://killercoda.com/pactflow/scenario/pactflow-getting-started-java> |
 
-## Getting Started with PactFlow AI
+## Generating Tests with PactFlow's AI-Augmented Contract Testing Capabilities
 
 _Level: Beginner_
 
-In this tutorial, we guide you through creating a consumer Pact test with the help of PactFlow AI
+In this tutorial, we guide you through creating a consumer Pact test with the help of PactFlow's Test Generation capability, featuring HaloAI.
 
-You will download and setup the PactFlow AI CLI tool, and generate consumer Pact tests for
-a JavaScript codebase.
+You will download and setup the CLI tool, and generate consumer Pact tests for a JavaScript codebase.
 
-To read more about our [PactFlow AI feature](https://pactflow.io/ai/), check out our documentation [here](https://docs.pactflow.io/docs/ai)
+Read more about our [test generation feature](https://pactflow.io/ai/), or check out our documentation [here](https://docs.pactflow.io/docs/ai).
 
 ### Goals
 
-Ultimately, our goal is to get you up and integrated with PactFlow AI as quickly as possible!
+Learn how to quickly scaffold new pact tests from existing sources.
 
 You will:
 
 1. Learn how to install the PactFlow AI CLI tool (`pactflow-ai`).
-2. How to authenticate with PactFlow AI and your PactFlow account
-3. Get hands-on experience with all current modes of consumer Pact test generation with PactFlow AI
-4. See how PactFlow AI fits into the picture so that you can get up and running quickly.
+2. Learn how to authenticate the CLI with your PactFlow account.
+3. Get hands-on experience with all current modes of consumer Pact test generation, including:
+   1. Traffic capture,
+   2. OpenAPI descriptions, and
+   3. Your existing code
+4. See how test generation fits into the picture so that you can get up and running quickly.
 
 ### Tutorial
 
