@@ -297,6 +297,7 @@ module.exports = {
         {
           AWS: [
             'docs/examples/aws/sns/consumer/readme',
+            'docs/examples/aws/sns/consumer/python/readme',
             'docs/examples/aws/sns/provider/readme'
           ],
           Cypress: ['docs/examples/cypress/readme'],
