@@ -27,6 +27,7 @@ on:
           - pactflow-example-provider-python-updated
           - pactflow-example-consumer-js-sns-updated
           - pactflow-example-provider-js-sns-updated
+          - pactflow-example-consumer-python-sns-updated
           - pact-workshop-js-updated
           - pactflow-example-bi-directional-consumer-nock-updated
           - pactflow-example-bi-directional-consumer-wiremock-updated
@@ -64,6 +65,7 @@ on:
       - pactflow-example-provider-python-updated
       - pactflow-example-consumer-js-sns-updated
       - pactflow-example-provider-js-sns-updated
+      - pactflow-example-consumer-python-sns-updated
       - pact-workshop-js-updated
       - pactflow-example-bi-directional-consumer-nock-updated
       - pactflow-example-bi-directional-consumer-wiremock-updated
@@ -163,6 +165,10 @@ jobs:
       - name: Sync example_provider_js_sns docs
         run: bundle exec scripts/sync/example_provider_js_sns.rb && echo 'COMMIT_MESSAGE=synced example_provider_js_sns docs' >> $GITHUB_ENV
         if: steps.identify_event.outputs.update_event == 'pactflow-example-provider-js-sns-updated'
+        
+      - name: Sync example_consumer_python_sns docs
+        run: bundle exec scripts/sync/example_consumer_python_sns.rb && echo 'COMMIT_MESSAGE=synced example_consumer_python_sns docs' >> $GITHUB_ENV
+        if: steps.identify_event.outputs.update_event == 'pactflow-example-consumer-python-sns-updated'
 
       - name: Sync example_consumer_golang docs
         run: bundle exec scripts/sync/example_consumer_golang.rb && echo 'COMMIT_MESSAGE=synced example_consumer_golang docs' >> $GITHUB_ENV
