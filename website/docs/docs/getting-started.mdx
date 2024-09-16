@@ -113,15 +113,17 @@ To configure the token, click the tab for your chosen language:
 
 ### Consumer
 
+Although code samples are provided here for some languages to publish Pacts, users are recommended to use the [Pact CLI tools](https://docs.pact.io/implementation_guides/cli#distributions), either via Docker, or Standalone.
+
 <Tabs groupId="languages">
 <TabItem value="js" label={languageIconsWithLabels.label_javascript} >
 
 #### Pact JS (Node JS)
 
-- [Pact-JS documentation](https://github.com/pact-foundation/pact-node/#pact-broker-publishing) for all the pact publication options.
+- [Pact-JS documentation](https://github.com/pact-foundation/pact-js-cli/#pact-broker-publishing) for all the pact publication options.
 
 ```js
-const { Publisher } = require("@pact-foundation/pact")
+const { Publisher } = require("@pact-foundation/pact-cli")
 const opts = {
 pactBroker: 'https://<YOUR_BROKER>.pactflow.io',
 pactBrokerToken: '<TOKEN>',
@@ -180,15 +182,7 @@ pact {
 
 #### Golang
 
-```go
-p := dsl.Publisher{}
-err := p.Publish(types.PublishRequest{
-  PactURLs:        []string{"/path/to/pact/file"},
-  PactBroker:      "https://<YOUR_BROKER>.pactflow.io",
-  ConsumerVersion: "<GIT_COMMIT>",
-  BrokerToken:     "<TOKEN>",
-})
-```
+Use [CLI tools](https://docs.pact.io/implementation_guides/cli#distributions).
 
 </TabItem>
 
@@ -214,14 +208,7 @@ end
 
 #### .NET
 
-- [PactNet documentation](https://github.com/pact-foundation/pact-net#using-the-c-client) for all the pact publishing options.
-
-```csharp title="Pact Publisher options"
-var pactPublisher = new PactPublisher("http://<YOUR_BROKER>.pactflow.io",
-  new PactUriOptions("<TOKEN>"));
-pactPublisher.PublishToBroker("/pact/to/pacts/dir",
-  Environment.GetEnvironmentVariable("GIT_COMMIT"));
-```
+Use [CLI tools](https://docs.pact.io/implementation_guides/cli#distributions).
 
 </TabItem>
 
@@ -370,21 +357,36 @@ end
 
 #### .NET
 
-[PactNet documentation](https://github.com/pact-foundation/pact-net#publishing-provider-verification-results-to-a-broker) for all the pact verification options.
+[PactNet documentation](https://github.com/pact-foundation/pact-net/blob/master/docs/upgrading-to-4.md#provider-tests) for all the pact verification options.
 
 ```csharp title="Provider verification options"
-var ProviderVersion = Environment.GetEnvironmentVariable("GIT_COMMIT");
-var PublishVerificationResults = "true".Equals(Environment.GetEnvironmentVariable("CI"));
+string version = Environment.GetEnvironmentVariable("GIT_COMMIT");
+string branch = Environment.GetEnvironmentVariable("GIT_BRANCH");
 var config = new PactVerifierConfig
-{
-    ProviderVersion, //NOTE: Setting a provider version is required for publishing verification results
-    PublishVerificationResults
-};
+  {
+      ...
+  };
+
 IPactVerifier pactVerifier = new PactVerifier(config);
-pactVerifier
-    .ServiceProvider("<Your provider name here>", "http://your-test-provider-url")
-   .PactBroker("https://<YOUR_BROKER>.pactflow.io", uriOptions: new PactUriOptions("<TOKEN>"))
-   .Verify();
+pactVerifier.ServiceProvider(providerName, new Uri(_providerUri))
+    .WithPactBrokerSource(new Uri(System.Environment.GetEnvironmentVariable("PACT_BROKER_BASE_URL")), options =>
+    {
+        options.ConsumerVersionSelectors(
+                    new ConsumerVersionSelector { DeployedOrReleased = true },
+                    new ConsumerVersionSelector { MainBranch = true },
+                    new ConsumerVersionSelector { MatchingBranch = true }
+                )
+                .ProviderBranch(branch)
+                .PublishResults(!String.IsNullOrEmpty(System.Environment.GetEnvironmentVariable("PACT_BROKER_PUBLISH_VERIFICATION_RESULTS")), version, results =>
+                {
+                    results.ProviderBranch(branch)
+                    .BuildUri(new Uri(buildUri));
+                })
+                .EnablePending()
+                .IncludeWipPactsSince(new DateTime(2022, 1, 1));
+        options.TokenAuthentication(System.Environment.GetEnvironmentVariable("PACT_BROKER_TOKEN"));
+    })
+    .Verify();
 ```
 
 
