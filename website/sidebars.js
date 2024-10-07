@@ -307,6 +307,7 @@ module.exports = {
           ],
           Java: [
             'docs/examples/java/consumer/graphql/readme',
+            'docs/examples/java/consumer/junit/readme',
             'docs/examples/java/provider/graphql/readme',
             'docs/examples/java/provider-springboot/readme'
           ],
