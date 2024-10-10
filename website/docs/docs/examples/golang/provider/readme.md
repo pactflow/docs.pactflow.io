@@ -15,9 +15,6 @@ https://github.com/pactflow/example-provider-golang
 
 [![Can I deploy Status](https://test.pactflow.io/pacticipants/pactflow-example-provider-golang/branches/master/latest-version/can-i-deploy/to-environment/production/badge.svg)](https://test.pactflow.io/overview/provider/pactflow-example-consumer-golang/consumer/pactflow-example-consumer-golang)
 
-[![Pact Status](https://test.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest/badge.svg)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest) (latest pact)
-
-[![Pact Status](https://test.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest/master/badge.svg)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest/master) (master/master pact) 
 This is an example of a (Gin-based) Golang provider that uses Pact, [PactFlow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
@@ -26,10 +23,16 @@ It is using a public tenant on PactFlow, which you can access [here](https://tes
 
 ## Pre-Requisites
 
-Ruby standalone binaries must be installed, the following script will download them and add them to your system PATH
+In order to use pact-go v2, you must install pact ffi system libraries to your machine.
 
 ```
-make install_ruby_standalone
+make install
+```
+
+In order to use the pact cli tools, which interact with a pact broker, the Ruby standalone binaries must be installed, the following script will download them and add them to your system PATH
+
+```
+make install_cli
 ```
 
 ## Usage

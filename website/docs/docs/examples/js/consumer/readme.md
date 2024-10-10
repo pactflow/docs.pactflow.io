@@ -11,7 +11,7 @@ sidebar_label: Example Consumer
 https://github.com/pactflow/example-consumer
 
 
-![Build](https://github.com/pactflow/example-consumer/workflows/Build/badge.svg)
+[![Build](https://github.com/pactflow/example-consumer/actions/workflows/build.yml/badge.svg)](https://github.com/pactflow/example-consumer/actions/workflows/build.yml)
 
 [![Pact Status](https://test.pactflow.io/pacts/provider/pactflow-example-provider/consumer/pactflow-example-consumer/latest/badge.svg?label=provider)](https://test.pactflow.io/pacts/provider/pactflow-example-provider/consumer/pactflow-example-consumer/latest) (latest pact)
 

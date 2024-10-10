@@ -13,9 +13,7 @@ https://github.com/pactflow/example-consumer-golang
 
 ![Build](https://github.com/pactflow/example-consumer-golang/workflows/Build/badge.svg)
 
-[![Pact Status](https://test.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest/badge.svg?label=provider)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest) (latest pact)
-
-[![Pact Status](https://test.pactflow.io/matrix/provider/pactflow-example-provider-golang/latest/prod/consumer/pactflow-example-consumer-golang/latest/prod/badge.svg?label=provider)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-golang/consumer/pactflow-example-consumer-golang/latest/prod) (prod/prod pact)
+![Can I Deploy](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-golang/branches/master/latest-version/can-i-deploy/to-environment/production/badge)
 
 This is an example of a Golang consumer using Pact to create a consumer driven contract, and sharing it via [PactFlow](https://pactflow.io).
 

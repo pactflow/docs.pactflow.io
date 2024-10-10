@@ -13,9 +13,9 @@ https://github.com/pactflow/example-consumer-java-graphql
 
 ![Build](https://github.com/pactflow/example-consumer-java-graphql/workflows/Build/badge.svg)
 
-[![Can I deploy Status](https://test.pactflow.io/pacticipants/pactflow-example-consumer-java-graphql/branches/master/latest-version/can-i-deploy/to-environment/production/badge.svg)](https://test.pactflow.io/overview/provider/pactflow-example-provider-java-graphql/consumer/pactflow-example-consumer-java-graphql)
+[![Can I deploy Status](https://test.pactflow.io/pacticipants/pactflow-example-consumer-java-graphql/branches/master/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-java-graphql)
 
-[![Pact Status](https://test.pactflow.io/pacts/provider/pactflow-example-provider-java-graphql/consumer/pactflow-example-consumer-java-graphql/latest/badge.svg)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-java-graphql/consumer/pactflow-example-consumer-java-graphql/latest) (latest pact)
+![Pact Status](https://test.pactflow.io/pacts/provider/pactflow-example-provider-java-graphql/consumer/pactflow-example-consumer-java-graphql/latest/badge.svg) (latest pact)
 
 
 This is an example of a Java GraphQL consumer that uses Pact with Junit, [Pactflow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.

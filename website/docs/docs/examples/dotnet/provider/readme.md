@@ -1,7 +1,7 @@
 ---
 custom_edit_url: https://github.com/pactflow/example-provider-dotnet/edit/master/README.md
-title: Example Provider
-sidebar_label: Example Provider
+title: Example Provider Dotnet
+sidebar_label: Example Provider Dotnet
 ---
 
 <!-- This file has been synced from the pactflow/example-provider-dotnet repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
@@ -11,13 +11,15 @@ sidebar_label: Example Provider
 https://github.com/pactflow/example-provider-dotnet
 
 
-[![Build](https://github.com/pactflow/example-provider-dotnet/actions/workflows/build.yml/badge.svg)](https://github.com/pactflow/example-provider-dotnet/actions/workflows/build.yml)
+[![Build](https://github.com/pactflow/example-provider-dotnet/actions/workflows/build.yml/badge)](https://github.com/pactflow/example-provider-dotnet/actions/workflows/build.yml)
 
-[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-dotnet/consumer/pactflow-example-consumer-dotnet/latest/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-dotnet/consumer/pactflow-example-consumer-dotnet/latest/badge.svg) (latest)
+![Can I Deploy](https://testdemo.pactflow.io/pacticipants/pactflow-example-provider-dotnet/branches/master/latest-version/can-i-deploy/to-environment/production/badge)
 
-[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-dotnet/consumer/pactflow-example-consumer-dotnet/latest/prod/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-dotnet/consumer/pactflow-example-consumer-dotnet/latest/prod/badge.svg) (prod)
+![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-dotnet/consumer/pactflow-example-consumer-dotnet/latest/badge) (latest)
 
-This is an example of a .NET 8 provider that uses Pact, [PactFlow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
+![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-dotnet/consumer/pactflow-example-consumer-dotnet/latest/prod/badge) (prod)
+
+This is an example of a .NET 8 provider that uses Pact, [PactFlow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 

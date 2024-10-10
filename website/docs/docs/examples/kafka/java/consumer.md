@@ -14,11 +14,11 @@ https://github.com/pactflow/example-consumer-java-kafka
 
 ![Build](https://github.com/pactflow/example-consumer-java-kafka/workflows/Build/badge.svg)
 
-[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-java-kafka/branches/master/latest-version/can-i-deploy/to-environment/production/badge.svg)](https://testdemo.pactflow.io/overview/provider/pactflow-example-consumer-java-kafka/consumer/pactflow-example-consumer-js-kafka)
+[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-java-kafka/branches/master/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-java-kafka)
 
-[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-kafka/consumer/pactflow-example-consumer-java-kafka/latest/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-kafka/consumer/pactflow-example-consumer-java-kafka/latest) (latest pact)
+![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-kafka/consumer/pactflow-example-consumer-java-kafka/latest/badge) (latest pact)
 
-[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-kafka/consumer/pactflow-example-consumer-java-kafka/latest/master/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-kafka/consumer/pactflow-example-consumer-java-kafka/latest/master) (master/master pact)
+![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-java-kafka/consumer/pactflow-example-consumer-java-kafka/latest/master/badge) (master/master pact)
 
 This is an example of a Java kafka consumer that uses Pact, [PactFlow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
 
