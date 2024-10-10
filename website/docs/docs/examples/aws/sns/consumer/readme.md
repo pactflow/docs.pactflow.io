@@ -1,7 +1,7 @@
 ---
 custom_edit_url: https://github.com/pactflow/example-consumer-js-sns/edit/master/README.md
-title: Example Node AWS SNS Consumer
-sidebar_label: Example Node AWS SNS Consumer
+title: Example NodeJS AWS SNS Consumer
+sidebar_label: Example NodeJS AWS SNS Consumer
 ---
 
 <!-- This file has been synced from the pactflow/example-consumer-js-sns repository. Please do not edit it directly. The URL of the source file can be found in the custom_edit_url value above -->
