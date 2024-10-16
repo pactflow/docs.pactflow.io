@@ -173,7 +173,7 @@ module.exports = {
             "https://github.com/pactflow/docs.pactflow.io/edit/master/website/blog/",
           feedOptions: {
             type: "all",
-            copyright: `Copyright © ${new Date().getFullYear()} DiUS Computing Pty. Ltd.`,
+            copyright: `Copyright © ${new Date().getFullYear()} SmartBear`,
           },
         },
         theme: {
