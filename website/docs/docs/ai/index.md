@@ -6,7 +6,9 @@ sidebar_label: AI ⚡️
 import { AiDownloadTable } from "../../../src/components/index";
 
 :::note
-PactFlow's Test Generation features are currently available through an open beta program. During this stage, all customers can explore the capabilities within fixed usage limits ([more info](#limits)).
+PactFlow's Test Generation features are currently available through an open beta program. During this stage, all customers can explore the capabilities within fixed usage limits ([more info](#usage-limits)).
+
+If you don’t already have a PactFlow account, get started with our [free Starter plan](https://pactflow.io/try-for-free?&utm_source=pactflow-docs&utm_content=ai).
 :::
 
 PactFlow's Test Generation feature, is an AI-powered capability designed to help users quickly generate Pact tests. By providing access to source code, OpenAPI descriptions, or traffic capture data, it reduces the time and effort needed to create and maintain contract tests.
