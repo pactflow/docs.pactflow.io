@@ -36,7 +36,7 @@ curl https://download.pactflow.io/ai/get.sh | sh
 For Windows PowerShell users, use the following command to download and install:
 
 ```pwsh
-Invoke-WebRequest -Uri "https://download.pactflow.io/ai/get.ps1" | Invoke-Expression
+Invoke-WebRequest -Uri https://download.pactflow.io/ai/get.ps1 | Invoke-Expression
 ```
 
 ### Installation Options
