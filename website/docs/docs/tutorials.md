@@ -16,7 +16,7 @@ _NOTE: To complete the workshop, you will need to authenticate to Killercoda (th
 To complete these tutorials, you must have:
 
 - a PactFlow account (register for a free account at <https://pactflow.io/try-for-free>)
-- a [read/write API Token](/docs/getting-started/#configuring-your-api-token) from your PactFlow account
+- a [read/write API Token](/#configuring-your-api-token) from your PactFlow account
 - a basic understanding of APIs, unit testing and how to operate a linux terminal
 
 ## Getting Started with PactFlow
