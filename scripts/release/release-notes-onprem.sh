@@ -150,7 +150,19 @@ if [ -n "$IS_RELEASE" ]; then
   fi
 fi
 
+jira_parse_content() {
+  local content=$1
+  local type=$(echo $content | jq -r '.fields.customfield_11009.content[].type')
 
+  case $type in
+    "paragraph")
+      echo $content | jq -r '.fields.customfield_11009.content[].content[].text'
+    ;;
+    "bulletList")
+      echo $content | jq -r '[.fields.customfield_11009.content[].content[].content[].content[] | .text] | join(", ")'
+    ;;
+  esac
+}
 ####################
 # Find all related tickets
 ####################
@@ -182,16 +194,16 @@ for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-|CC-)([0-9]+)' | sort 
        fi
 
        release_type=$(echo $response | jq '.fields.customfield_18528.value' | tr -d '"')
-       has_note=$(echo $response | jq '.fields.customfield_11009' | tr -d '"')
+       ticket_note=$(echo $response | jq '.fields.customfield_11009' | tr -d '"')
 
        note="null"
-       if [ "$has_note" != "null" ]; then
-          note=$(echo $response | jq '.fields.customfield_11009.content[].content[].text' | tr -d '"')
+       if [ "$ticket_note" != "null" ]; then
+          note=$(jira_parse_content $response)
        fi
 
-       if [ "$release_type" = "Feature" ] && [ "$has_note" != "null" ] && [ "$note" != "null" ]; then
+       if [ "$release_type" = "Feature" ] && [ "$ticket_note" != "null" ] && [ "$note" != "null" ]; then
          features+="\n* "$note
-       elif [ "$release_type" = "Fix" ] && [ "$has_note" != "null" ] && [ "$note" != "null" ]; then
+       elif [ "$release_type" = "Fix" ] && [ "$ticket_note" != "null" ] && [ "$note" != "null" ]; then
          fixes+="\n* "$note
        fi
 
