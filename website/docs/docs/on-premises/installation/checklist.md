@@ -30,4 +30,12 @@ Configure the PactFlow On-Premises application in your identity provider. See th
 * Ensure the [network](/docs/on-premises/network-configuration) is configured appropriately.
 * Ensure the [logs](/docs/on-premises/logging) are forwarded to a log aggregation service.
 * Make sure the [license file](/docs/on-premises/license) is mounted into the running containers.
-* Ensure you have [load tested](load-testing) the system and have confidence the system can handle your baseline load, and can scale with increased demand
+* Ensure you have [load tested](load-testing) the system and have confidence the system can handle your baseline load, and can scale with increased demand.
+
+## 6. Setup database cleaning
+
+Setup [database cleaning](/docs/on-premises/maintenance/database) to ensure optimal PactFlow performance and reliability.
+
+:::warning this step is not optional
+Failure to enable database cleaning is likely to result in a gradual decline in system performance and, eventually, query timeouts and system failure.
+:::

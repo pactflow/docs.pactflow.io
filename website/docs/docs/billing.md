@@ -3,13 +3,22 @@ id: billing
 title: Billing and Subscription Management
 ---
 
+:::info
+PactFlow is in the process of migrating customers to the SmartBear Admin system. To determine if you are on the previous system and to find the applicable documentation, consult the following table.
+:::
+
+| SmartBear Admin | PactFlow Legacy |
+|:---:|:--------------:|
+| <img border="1" width="250" src="/ui/plan-widget.png" description="SmartBear Admin Plan Widget" />  | - |
+| If you see this item in your top navigation bar, [SmartBear Admin](https://support.smartbear.com/administration/docs/en/administration.html) is enabled on your account. To Administer your account, consult the SmartBear Admin [docs](https://support.smartbear.com/administration/docs/en/administration.html). | You are on PactFlow's legacy subscription management, and this guide applies. |
+
+### Subscription Management
+
 :::note enterprise customers
 In case of an enterprise trial upgrade, plan change or other billing related enquiries, contact your Account Manager.
 
 To make changes to your account, provide your **subscription ID** which can be found on the billing page of your account, and the URL you use to access your PactFlow account (for example, **foo.pactflow.io**).
 :::
-
-### Subscription Management
 
 PactFlow uses [Chargebee](https://www.chargebee.com/) for subscription and billing management. 
 
