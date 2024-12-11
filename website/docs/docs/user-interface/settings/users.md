@@ -34,7 +34,11 @@ To remove a user from PactFlow who will remain in the SSO organization it is rec
 
 ## Invite users
 
-_NOTE: You do not need to invite users if your account is setup to authenticate via Google, GitHub or SAML2.0_
+:::info Note
+Customers using the SmartBear Admin platform must invite users through the SmartBear Admin console by clicking the 'Manage Users' button (shown here). For more details, refer to the SmartBear Admin [documentation](https://support.smartbear.com/administration/docs/en/administration.html). For customers not using SmartBear Admin, please follow the guide below.
+
+<img src="/ui/clarity/manage-users.png" description="Manage Users" />
+:::
 
 Administrators can invite one or more users from the following dialog:
 
@@ -42,9 +46,11 @@ Administrators can invite one or more users from the following dialog:
 
 After a successful invitation, the user will receive an email with a temporary password. They will need to login to your account to set a new password before they can login.
 
-This option will create a local user account in the system - it will not create accounts in federated Identity Providers.
-
-_NOTE_: If the user being invited (as identified by their email address) already exists in PactFlow, they **will not** receive another email and can login to your account with their existing credentials.
+:::note Considerations: 
+1. This option will only create a local user account in the system - it will not create accounts in federated Identity Providers.
+2. You do not need to invite users if your account is setup to authenticate via Google, GitHub or SAML2.0_
+3. If the user being invited (as identified by their email address) already exists in PactFlow, they **will not** receive another email and can login to your account with their existing credentials.
+:::
 
 ## User roles
 
