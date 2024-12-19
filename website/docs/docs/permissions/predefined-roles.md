@@ -33,6 +33,7 @@ All new users are assigned the `User` role (unless the default role has been upd
 
 #### Default permissions
 
+- [`ai:*`](/docs/permissions#ai)
 - [`contract_data:bulk_delete:own`](/docs/permissions#contract_databulk_deleteown)
 - [`contract_data:bulk_delete:team`](/docs/permissions#contract_databulk_deleteteam)
 - [`contract_data:manage:own`](/docs/permissions#contract_datamanageown)
