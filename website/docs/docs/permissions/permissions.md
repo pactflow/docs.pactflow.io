@@ -6,6 +6,21 @@ _Eligible plans: Enterprise_
 
 Note that "manage" permissions cover both read and write operations.
 
+## ai:*
+Provides access to all AI-related features, including all future permissions created under the `ai:` scope.
+
+## ai:generation:*
+Can generate Pact tests from all current and future supported inputs.
+
+## ai:generation:openapi
+Can generate Pact tests based on user-provided OpenAPI descriptions.
+
+## ai:generation:code
+Can generate Pact tests based on user-provided client code.
+
+## ai:generation:request-response
+Can generate Pact tests based on recorded request-response pairs.
+
 ## authentication_settings:manage
 
 Manage authentication settings, such as configuring SSO via Github or Google.

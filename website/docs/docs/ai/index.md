@@ -141,10 +141,65 @@ ERROR: Client error: 403 Forbidden AI credits are exhausted.
 The limits and your usage against these limits are not currently visible on the subscription page. This will be added in due course.
 :::
 
-## Getting help and providing feedback
+## Role Based Access Control (RBAC)
 
-For feedback, feature requests, or assistance with the tool, join our [slack channel](https://pact-foundation.slack.com/archives/C07K2FT0XKK) or speak directly with your Account Manager. For general support, please follow the [usual methods](https://support.smartbear.com/pactflow/message/).
+In addition to the [system preference](#enabling-the-feature) that enables AI within your workspace, PactFlow's RBAC model allows you to manage access to specific AI capabilities for your users. For detailed information, refer to the [permissions documentation](/docs/permissions#ai).
+
+By default, users assigned the [User](/docs/permissions/predefined-roles#user) role have access to all AI permissions ([`ai:*`](/docs/permissions#ai)), unless:
+
+- Your account was created prior to the release of the AI feature (September 2024), or
+- You have customized your role configuration.
+
+**Granting Access:**
+
+To enable AI access for users, ensure that the assigned role includes either the [`ai:*`](/docs/permissions#ai) permission (granting access to all AI features) or the specific permissions required for the desired functionality. 
 
 ## Tutorials
 
 We've created an [in-browser tutorial](https://docs.pactflow.io/docs/tutorials#getting-started-with-pactflow-ai) to help you get started with PactFlow's test generation feature.
+
+## Troubleshooting
+
+### "You do not have the necessary permissions to access this resource"
+
+If you encounter the following error:
+
+```
+ERROR: Client error: 403 Forbidden You do not have the necessary permissions to access this resource, Required permissions: ai:generation:request-response
+```
+
+This indicates that the user does not have the required permissions to access the feature.
+
+**Resolution:**
+
+Ensure the necessary AI [permission](/docs/permissions#ai) is assigned to the user's role. In this example, the `ai:generation:request-response permission` is required. For more details, refer to the [permissions](/docs/permissions#ai) documentation.
+
+### "AI Disabled in System Preferences"
+
+If the error message states that "AI is disabled in system preferences", this means the AI feature has not been enabled for your account.
+
+**Resolution:**
+Enable the AI feature by following the steps outlined [above](#enabling-the-feature).
+
+### "AI credits are exhausted"
+
+If you encounter the following error:
+```
+ERROR: Client error: 403 Forbidden AI credits are exhausted.
+```
+
+This indicates that you have exceeded the AI credits on the account and can no longer use any AI features. 
+
+**Resolution:**
+Upgrade your plan to increase your credit allocation, or wait until the credits reset after 30 days. For more details on usage limits, see the [documentation](#usage-limits).
+
+## Getting help and providing feedback
+
+For feedback, feature requests, or assistance with the tool, join our [slack channel](https://pact-foundation.slack.com/archives/C07K2FT0XKK) or speak directly with your Account Manager. For general support, please follow the [usual methods](https://support.smartbear.com/pactflow/message/).
+
+### "AI is not enabled for your plan"
+
+If the error message states that "AI features are not enabled on your plan", your plan does not include AI features as part of its entitlements.
+
+**Resolution:**
+Upgrade to a plan that has AI enabled.
