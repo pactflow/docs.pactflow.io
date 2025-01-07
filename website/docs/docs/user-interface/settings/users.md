@@ -35,7 +35,7 @@ To remove a user from PactFlow who will remain in the SSO organization it is rec
 ## Invite users
 
 :::info Note
-Customers on the SmartBear Admin platform must invite users from the SmartBear Admin console (via the "Manage users" button shown here). Consult the [SmartBear Admin docs](https://support.smartbear.com/administration/docs/en/administration.html) for more. For customers not on SmartBear Admin, the following guide applies.
+Customers using the SmartBear Admin platform must invite users through the SmartBear Admin console by clicking the 'Manage Users' button (shown here). For more details, refer to the SmartBear Admin [documentation](https://support.smartbear.com/administration/docs/en/administration.html). For customers not using SmartBear Admin, please follow the guide below.
 
 <img src="/ui/clarity/manage-users.png" description="Manage Users" />
 :::

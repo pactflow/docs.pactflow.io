@@ -10,7 +10,7 @@ PactFlow is in the process of migrating customers to the SmartBear Admin system.
 | SmartBear Admin | PactFlow Legacy |
 |:---:|:--------------:|
 | <img border="1" width="250" src="/ui/plan-widget.png" description="SmartBear Admin Plan Widget" />  | - |
-| If you see this item in your top navigation bar, [SmartBear Admin](https://support.smartbear.com/administration/docs/en/administration.html) is enabled on your account. To Administer your account, consult the SmartBear Admin [docs](https://support.smartbear.com/administration/docs/en/administration.html). | You are on PactFlow's legacy subscription management, and this guide applies. |
+| If you see this item in your top navigation bar, [SmartBear Admin](https://support.smartbear.com/administration/docs/en/administration.html) is enabled on your account. To manage your account, refer to the SmartBear Admin [docs](https://support.smartbear.com/administration/docs/en/administration.html). | You are on PactFlow's legacy subscription management, and this guide applies. |
 
 ### Subscription Management
 
