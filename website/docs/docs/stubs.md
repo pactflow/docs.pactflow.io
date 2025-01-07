@@ -21,10 +21,8 @@ Hosted API stubs are useful for several use cases, such as:
 | 1       | ✅         |
 | 1.1     | ✅         |
 | 2       | ✅         |
-| 3       | ❌         |
-| 4+      | ❌         |
-
-_NOTE: Whilst currently only versions 1 and 2 of the [pact specification](https://github.com/pact-foundation/pact-specification/) are currently fully supported. Pacts using the v3 format or beyond may be used, however any matching rules will be ignored._
+| 3       | ✅         |
+| 4+      | ✅         |
 
 ## Basic Use
 
@@ -33,6 +31,7 @@ To use the stub:
 1. You must first publish a contract.
 1. Find the path to the pact contract you'd like to stub. (If you're not familiar with the PactFlow API, the simplest way to get this is to click "View Pact" from the dashboard and select "API Browser" at the top of the screen to see the URL).
 1. Append `/stub/` to the pact file path to get the base path of an instant stub
+1. Pass in your PactFlow Bearer token in the `Authentication` header
 
 ## Stub URL format
 
@@ -57,8 +56,6 @@ https://<yourdomain>.pactflow.io/pacts/provider/:provider/consumer/:consumer/lat
 Pact contracts may define multiple overlapping requests - for example when there are provider states.
 
 Where multiple matching interactions are found, the interactions will be sorted by response status, and the first one will be returned. This may lead to non-deterministic behaviour.
-
-_NOTE: Only versions 1 and 2 of the [pact specification](https://github.com/pact-foundation/pact-specification/) are currently fully supported. Pacts using the v3 format may be used, however, any matching features added in v3 will currently be ignored._
 
 ## Example
 
@@ -159,6 +156,10 @@ By default, [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) reque
 | `Access-Control-Allow-Methods` | `*` | All methods are allowed |
 | `Access-Control-Allow-Credentials` | `true` | Credentials may be sent in CORS requests |
 
+
+## Authentication
+
+TBC
 
 ## Finding the URL to a pact resource
 
