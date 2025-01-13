@@ -42,6 +42,8 @@ Stub URLs will have one of the following formats:
 | Description | URL |
 | ----------- | --- |
 | Latest for integration | `/pacts/provider/:provider/consumer/:consumer/latest/stub` |
+| Latest for a given environment | `/pacts/provider/:provider/consumer/:consumer/latest/environment/:environment/stub` |
+| Latest for a given branch | `/pacts/provider/:provider/consumer/:consumer/latest/branch/:branch/stub` |
 | Latest for a given tag | `/pacts/provider/:provider/consumer/:consumer/latest/:tag/stub` |
 | Latest for a consumer version | `/pacts/provider/:provider/consumer/:consumer/:version/stub` |
 
@@ -51,11 +53,32 @@ For example, assuming you wanted to use the latest version of a particular contr
 https://<yourdomain>.pactflow.io/pacts/provider/:provider/consumer/:consumer/latest/stub
 ```
 
+## Configuration
+
+You can configure the behaviour of the stub service at runtime, using HTTP headers sent with the stub requests.
+
+| Header | Type | Description | Default |
+|--------|------|-------------|---------|
+| `pactflow-stub-cors` | boolean  | Automatically respond to OPTIONS requests and return default CORS headers | `true` |
+| `pactflow-stub-cors-referer` | boolean | Set the CORS Access-Control-Allow-Origin header to the Referer | true |
+| `pactflow-stub-provider-state` | string | Provider state regular expression to filter the responses by | |
+| `pactflow-stub-provider-state-header-name` | string | Name of the header parameter containing the provider state to be used in case multiple matching interactions are found | |
+| `pactflow-stub-empty-provider-state` | boolean | Include empty provider states when filtering with pactflow-stub-provider-state | `false` |
+| `pactflow-stub-authorization-header` | string | Used in place of the `Authorization` header, which is consumed by the PactFlow API. If not present, Authorization headers are ignored when matching interactions. | |
+
 ## Stub behaviour
 
 Pact contracts may define multiple overlapping requests - for example when there are provider states.
 
-Where multiple matching interactions are found, the interactions will be sorted by response status, and the first one will be returned. This may lead to non-deterministic behaviour.
+If the request matches any interactions, it will return the first response based on the order in the pact file.
+
+If the request does not match, it will return the errors from the interaction with the least number of mismatches, followed by the order in the Pact file.
+
+**Example**
+
+Given a pact with two interactions with query `a=1` and `a=1&b=2&c=4`. If the stub server receives a request with query `a=1&b=2`, you get the error that query parameter b was not expected, instead of query parameter c is missing.
+
+The same principle applies with headers.
 
 ## Example
 
