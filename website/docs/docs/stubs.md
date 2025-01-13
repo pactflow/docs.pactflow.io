@@ -64,7 +64,7 @@ You can configure the behaviour of the stub service at runtime, using HTTP heade
 | `pactflow-stub-provider-state` | string | Provider state regular expression to filter the responses by | |
 | `pactflow-stub-provider-state-header-name` | string | Name of the header parameter containing the provider state to be used in case multiple matching interactions are found | |
 | `pactflow-stub-empty-provider-state` | boolean | Include empty provider states when filtering with pactflow-stub-provider-state | `false` |
-| `pactflow-stub-authorization-header` | string | Used in place of the `Authorization` header, which is consumed by the PactFlow API. If not present, Authorization headers are ignored when matching interactions. | |
+| `pactflow-stub-authorization` | string | Used in place of the `Authorization` header, which is consumed by the PactFlow API. If not present, Authorization headers are ignored when matching interactions. | |
 
 ## Stub behaviour
 
@@ -181,6 +181,16 @@ By default, [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) reque
 
 
 ## Authentication
+
+The `Authorization` header cannot be used natively in PactFlow stubs, as this header is reserved for use by PactFlow to authenticate all calls into the platform.
+
+If your interactions use this header, you can pass the value into the `pactflow-stub-authorization` header instead. When matching interactions, the stub server will treat it as if it were the `Authorization` header.
+
+Refer to the (Configuration)[#configuration] section for more.
+
+## Limitations
+
+### 1. Support for headers with underscores
 
 TBC
 
