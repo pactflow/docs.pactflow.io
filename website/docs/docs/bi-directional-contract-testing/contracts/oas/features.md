@@ -84,7 +84,7 @@ See [Keyword Support](/docs/bi-directional-contract-testing/contracts/oas/keywor
 |--- |--- |--- |--- |
 |JSON|Y|Full support|[Example](https://github.com/pactflow/bdct-oas-examples/)|
 |XML|P|We don’t currently supported parsing and checking XML bodies, against defined schemas. Checks the content-type matches.|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/xml)|
-|`x-www-form-urlencoded` Request Bodies|N|We don’t currently supported parsing and checking URL encoded form bodies, against defined schemas. Checks the content-type matches.|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/forms)|
+|`x-www-form-urlencoded` Request Bodies|Y|Checks if the body matches the schema.|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/forms)|
 |`multipart/form-data`|N|We don’t currently supported parsing and checking multipart request bodies, against defined schemas. Checks the content-type matches.|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/forms)|
 
 #### [Security Schemes](https://spec.openapis.org/oas/v3.1.0#security-scheme-object)
