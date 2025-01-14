@@ -60,10 +60,9 @@ You can configure the behaviour of the stub service at runtime, using HTTP heade
 | Header | Type | Description | Default |
 |--------|------|-------------|---------|
 | `pactflow-stub-cors` | boolean  | Automatically respond to OPTIONS requests and return default CORS headers | `true` |
-| `pactflow-stub-cors-referer` | boolean | Set the CORS Access-Control-Allow-Origin header to the Referer | true |
+| `pactflow-stub-cors-referer` | boolean | Sets the CORS origin value to the hostname of the referer URL if set to true. If set to to `false`, or if there is no referer header, sets it to '*" | `false` |
 | `pactflow-stub-provider-state` | string | Provider state regular expression to filter the responses by | |
-| `pactflow-stub-provider-state-header-name` | string | Name of the header parameter containing the provider state to be used in case multiple matching interactions are found | |
-| `pactflow-stub-empty-provider-state` | boolean | Include empty provider states when filtering with pactflow-stub-provider-state | `false` |
+| `pactflow-stub-include-empty-provider-states` | boolean | Include empty provider states when filtering with `pactflow-stub-provider-state` | `false` |
 | `pactflow-stub-authorization` | string | Used in place of the `Authorization` header, which is consumed by the PactFlow API. If not present, Authorization headers are ignored when matching interactions. | |
 
 ## Stub behaviour
@@ -190,7 +189,11 @@ Refer to the (Configuration)[#configuration] section for more.
 
 ## Limitations
 
-### 1. Support for headers with underscores
+### 1. Plugins
+
+Interactions that use plugins are not supported
+
+### 2. Support for headers with underscores
 
 TBC
 
