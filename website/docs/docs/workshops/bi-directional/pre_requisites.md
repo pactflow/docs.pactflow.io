@@ -16,3 +16,8 @@ These instructions have been written for, and tested, in a *bash* (not zsh) shel
 :::info
 If you have access to a second screen, we recommend that you use it for this workshop, as there is a lot of window switching involved.
 :::
+
+:::info
+We `recommend following alone the instructions in the workshop,
+but if you get stuck, you can checkout the code [here](https://github.com/pactflow/example-bi-directional-provider-dredd)
+:::
