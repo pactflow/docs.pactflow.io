@@ -48,6 +48,10 @@ This allows PactFlow to communicate to any future consumers of the provider, tha
   
 ## Deploy the provider to production via Github Actions
 
+In the real world, you typically do not deploy manually from local machine.
+Instead, you would have a CI/CD pipeline that would run the `can-i-deploy` command 
+and then deploy the provider to production, for example on a cloud provider of choice.
+
 ### Setup deployment environment
 
 :::info
