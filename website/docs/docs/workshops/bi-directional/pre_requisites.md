@@ -18,6 +18,6 @@ If you have access to a second screen, we recommend that you use it for this wor
 :::
 
 :::info
-We recommend following alone the instructions in the workshop,
+We encourage you to follow the instructions in the workshop and try it yourself,
 but if you get stuck, you can checkout the code [here](https://github.com/pactflow/example-bi-directional-provider-dredd)
 :::
