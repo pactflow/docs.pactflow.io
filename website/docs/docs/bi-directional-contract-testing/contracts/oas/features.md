@@ -59,7 +59,7 @@ Full JSON Schema 2020-12 support, including resolving [references ($ref)](https:
 |[Callbacks](https://spec.openapis.org/oas/v3.1.0#callback-object)|N|Not supported||
 |[Parameter styles](https://spec.openapis.org/oas/v3.1.0#parameterStyle)|P|See also https://swagger.io/docs/specification/serialization/. <br/><br/>Missing parameters will cause a validation *warning* but not fail the checks<br/><br/>We can’t currently compare non-primitive query string values to the OAS, because Pact does not encode the style of encoding. This means we can’t reliably differentiate the cases where an object or array is encoded. We can check primitive values match the schema. <br/><br/>Where a pact interaction does not satisfy a parameter constraint, you will see a message such as: `Path or method not defined in spec file: GET /path/style/simple/single/value/0` (the 0 here does not match the schema, which specifies the value must be `> 0`)|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/parameters)|
 |Path parameters|P|Understands primitive parameters, and is able to apply schema validation to primitive data types e.g. restricting values between 1-10 for integers. Does not support array or objects.|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/parameters)|
-|Query parameters|P|Query parameters are partially supported. If a query parameter used in a consumer test is not defined in the OAS, it will generate a warning. This allows consumers to deploy ahead of providers for certain use cases.|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/parameters)|
+|Query parameters|P|XYZ - Update thisQuery parameters are partially supported. If a query parameter used in a consumer test is not defined in the OAS, it will generate a warning. This allows consumers to deploy ahead of providers for certain use cases.|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/parameters)|
 |Headers|Y|||
 |Bodies|P|Full schema support on JSON bodies only||
 |Status codes|Y|||
@@ -91,15 +91,15 @@ See [Keyword Support](/docs/bi-directional-contract-testing/contracts/oas/keywor
 |Feature|Supported|Description|Example|
 |--- |--- |--- |--- |
 |[Security Requirement](https://spec.openapis.org/oas/v3.1.0#security-requirement-object)|Y|`apiKey`, `http`, `mutualTLS`, `oauth2`, `openIdConnect`|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/security)|
-|Basic|Y|Only checks the presence of an `Authorization` header.||
+|Basic|Y|Only checks the presence and format of an `Authorization` header according to [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617) .||
 |API Key (cookie)|Y|||
 |API Key (header)|Y|||
-|Bearer|Y|Only checks the presence of an `Authorization` header||
+|Bearer|Y|Checks the presence and format of an `Authorization` header according to [RFC 6750](https://datatracker.ietf.org/doc/html/rfc6750)||
 |OpenID|P|The security scheme is allowed, but no additional checks are performed (e.g. checks for calls to a valid OIDC provider are not in scope, nor the checking of exchanged tokens)||
 |OAuth|P|As per OpenID||
 |[Flows](https://spec.openapis.org/oas/v3.1.0#oauth-flow-object)|P|Behaviour as above||
 |MASSL|P|The security scheme is allowed, but no additional checks are performed (e.g. no certificate checking on the requests can be performed for validity)||
-|Multiple authentication types|N|Currently only one security scheme can be applied and tested. Support for “OR” and “AND”.||
+|Multiple authentication types|N|XYZ - review this! Currently only one security scheme can be applied and tested. Support for “OR” and “AND”.||
 |Scopes|P|Allowed and ignored for the purposes of our checks||
 
 ### Pact Support
