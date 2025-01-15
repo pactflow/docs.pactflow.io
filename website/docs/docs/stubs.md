@@ -52,6 +52,21 @@ For example, assuming you wanted to use the latest version of a particular contr
 ```sh
 https://<yourdomain>.pactflow.io/pacts/provider/:provider/consumer/:consumer/latest/stub
 ```
+## Stub behaviour
+
+Pact contracts may define multiple overlapping requests - for example when there are provider states.
+
+If the request matches any interactions, it will return the first response based on the order in the pact file.
+
+If the request does not match, it will return the errors from the interaction with the least number of mismatches, followed by the order in the Pact file.
+
+This matching behaviour may be [configured](#configuration) using additional headers sent with a request.
+
+**Example**
+
+Given a pact with two interactions with query `a=1` and `a=1&b=2&c=4`. If the stub server receives a request with query `a=1&b=2`, you get the error that query parameter b was not expected, instead of query parameter c is missing.
+
+The same principle applies with headers.
 
 ## Configuration
 
@@ -61,23 +76,9 @@ You can configure the behaviour of the stub service at runtime, using HTTP heade
 |--------|------|-------------|---------|
 | `pactflow-stub-cors` | boolean  | Automatically respond to OPTIONS requests and return default CORS headers | `true` |
 | `pactflow-stub-cors-referer` | boolean | Sets the CORS origin value to the hostname of the referer URL if set to true. If set to to `false`, or if there is no referer header, sets it to '*" | `false` |
-| `pactflow-stub-provider-state` | string | Provider state regular expression to filter the responses by | |
-| `pactflow-stub-include-empty-provider-states` | boolean | Include empty provider states when filtering with `pactflow-stub-provider-state` | `false` |
+| `pactflow-stub-provider-state` | string | Provider state regular expression to filter the responses by | n/a |
+| `pactflow-stub-include-empty-provider-states` | boolean | Include empty provider states when filtering with `pactflow-stub-provider-state`. If set to `true`, it matches the first interaction that has either no provider states or an empty provider state (i.e. `""`). It will then fallback to `pactflow-stub-provider-state` or the first matching interaction | `false` |
 | `pactflow-stub-authorization` | string | Used in place of the `Authorization` header, which is consumed by the PactFlow API. If not present, Authorization headers are ignored when matching interactions. | |
-
-## Stub behaviour
-
-Pact contracts may define multiple overlapping requests - for example when there are provider states.
-
-If the request matches any interactions, it will return the first response based on the order in the pact file.
-
-If the request does not match, it will return the errors from the interaction with the least number of mismatches, followed by the order in the Pact file.
-
-**Example**
-
-Given a pact with two interactions with query `a=1` and `a=1&b=2&c=4`. If the stub server receives a request with query `a=1&b=2`, you get the error that query parameter b was not expected, instead of query parameter c is missing.
-
-The same principle applies with headers.
 
 ## Example
 
