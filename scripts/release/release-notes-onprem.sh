@@ -315,7 +315,6 @@ for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-|CC-)([0-9]+)' | sort 
 
     note="null"
     if [ "$ticket_note" != "null" ]; then
-      #echo $response | jq '.fields.customfield_11009'
       note=$(jira_parse_release_notes_from_file "$i")
       if [ $? -eq 0 ]; then
         if [ "$DEBUG" = true ]; then
@@ -325,14 +324,13 @@ for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-|CC-)([0-9]+)' | sort 
       else
         echo "Failed to parse release notes for JIRA ID $i"
       fi
-      #echo "Parsed note is $note for $i"
       if [ "$release_type" = "Feature" ] && [ "$ticket_note" != "null" ] && [ "$note" != "null" ]; then
-        features+="\n* "$note" - [PACT-$i](https://smartbear.atlassian.net/browse/PACT-$i)"
+        features+="\n* "$note" - [$i](https://smartbear.atlassian.net/browse/$i)"
       elif [ "$release_type" = "Fix" ] && [ "$ticket_note" != "null" ] && [ "$note" != "null" ]; then
-        fixes+="\n* "$note" - [PACT-$i](https://smartbear.atlassian.net/browse/PACT-$i)"
+        fixes+="\n* "$note" - [$i](https://smartbear.atlassian.net/browse/$i)"
       fi
     else
-      review+="\n* $i - release note not found - [PACT-$i](https://smartbear.atlassian.net/browse/$i)"
+      review+="\n* $i - release note not found - [$i](https://smartbear.atlassian.net/browse/$i)"
       echo "   --> No release note found for $i"
     fi
 
