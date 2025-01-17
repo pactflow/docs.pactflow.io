@@ -332,7 +332,7 @@ for i in $(git log $PROD_TAG...$DEV_TAG | grep -Eo '(PACT-|CC-)([0-9]+)' | sort 
         fixes+="\n* "$note" - [PACT-$i](https://smartbear.atlassian.net/browse/PACT-$i)"
       fi
     else
-      review+="\n* $i - release note not found - [PACT-$i](https://smartbear.atlassian.net/browse/PACT-$i)"
+      review+="\n* $i - release note not found - [PACT-$i](https://smartbear.atlassian.net/browse/$i)"
       echo "   --> No release note found for $i"
     fi
 
