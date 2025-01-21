@@ -5,7 +5,7 @@ title: Stubs
 
 ## Stub APIs
 
-Every contract published to PactFlow is automatically assigned a hosted API stub URL that you can use for stubbing API backends in your testing.
+Every consumer contract published to PactFlow is automatically assigned a hosted API stub URL that you can use for stubbing API backends in your testing.
 
 Hosted API stubs are useful for several use cases, such as:
 
@@ -30,8 +30,8 @@ To use the stub:
 
 1. You must first publish a contract.
 1. Find the path to the pact contract you'd like to stub. (If you're not familiar with the PactFlow API, the simplest way to get this is to click "View Pact" from the dashboard and select "API Browser" at the top of the screen to see the URL).
-1. Append `/stub/` to the pact file path to get the base path of an instant stub
-1. Pass in your PactFlow Bearer token in the `Authentication` header
+1. Append `/stub/` to the pact file path to get the base path of an instant stub.
+1. Pass in your PactFlow read-only API bearer token in the `Authentication` header.
 
 ## Stub URL format
 
@@ -66,7 +66,7 @@ This matching behaviour may be [configured](#configuration) using additional hea
 
 Given a pact with two interactions with query `a=1` and `a=1&b=2&c=4`. If the stub server receives a request with query `a=1&b=2`, you get the error that query parameter b was not expected, instead of query parameter c is missing.
 
-The same principle applies with headers.
+The same principle applies to headers.
 
 ## Configuration
 
@@ -74,10 +74,10 @@ You can configure the behaviour of the stub service at runtime, using HTTP heade
 
 | Header | Type | Description | Default |
 |--------|------|-------------|---------|
-| `pactflow-stub-cors` | boolean  | Automatically respond to OPTIONS requests and return default CORS headers | `true` |
-| `pactflow-stub-cors-referer` | boolean | Sets the CORS origin value to the hostname of the referer URL if set to true. If set to to `false`, or if there is no referer header, sets it to '*" | `false` |
-| `pactflow-stub-provider-state` | string | Provider state regular expression to filter the responses by | n/a |
-| `pactflow-stub-include-empty-provider-states` | boolean | Include empty provider states when filtering with `pactflow-stub-provider-state`. If set to `true`, it matches the first interaction that has either no provider states or an empty provider state (i.e. `""`). It will then fallback to `pactflow-stub-provider-state` or the first matching interaction | `false` |
+| `pactflow-stub-cors` | boolean  | Automatically responds to OPTIONS requests and return default CORS headers. For more on CORs, refer to the [section](#cors) below. | `true` |
+| `pactflow-stub-cors-referer` | boolean | When set to `true`, sets the CORS origin value to the hostname of the referer URL. If set to `false`, or if there is no referer header, sets it to '*". | `false` |
+| `pactflow-stub-provider-state` | string | Provider state regular expression used to filter the responses. | n/a |
+| `pactflow-stub-include-empty-provider-states` | boolean | Includes empty provider states when filtering with `pactflow-stub-provider-state`. If set to `true`, it matches the first interaction that has either no provider states or an empty provider state (`""`). It will then fallback to `pactflow-stub-provider-state` or the first matching interaction. | `false` |
 | `pactflow-stub-authorization` | string | Used in place of the `Authorization` header, which is consumed by the PactFlow API. If not present, Authorization headers are ignored when matching interactions. | |
 
 ## Example
@@ -174,11 +174,10 @@ By default, [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) reque
 
 | CORS header | Configuration | Description |
 | ----------- | ------------- | ----------- |
-| `Access-Control-Allow-Origin` | Reflects the `Origin` send in the HTTP pre-flight request | All origins are allowed |
+| `Access-Control-Allow-Origin` | Reflects the `Origin` sent in the HTTP pre-flight request (default) or `'*'` if `pactflow-stub-cors-referer` is set to `true`. | All origins are allowed |
 | `Access-Control-Allow-Headers` | `*` | All headers are allowed |
 | `Access-Control-Allow-Methods` | `*` | All methods are allowed |
 | `Access-Control-Allow-Credentials` | `true` | Credentials may be sent in CORS requests |
-
 
 ## Authentication
 
@@ -186,17 +185,21 @@ The `Authorization` header cannot be used natively in PactFlow stubs, as this he
 
 If your interactions use this header, you can pass the value into the `pactflow-stub-authorization` header instead. When matching interactions, the stub server will treat it as if it were the `Authorization` header.
 
-Refer to the (Configuration)[#configuration] section for more.
+Refer to the [Configuration](#configuration) section for more.
 
 ## Limitations
 
 ### 1. Plugins
 
-Interactions that use plugins are not supported
+Interactions that use plugins are not supported.
 
-### 2. Support for headers with underscores
+### 2. Headers containing underscores
 
-TBC
+When calling the stub API, any request headers that include underscores will be automatically converted to hyphens. For example, if you send `some_header: foo` it will be received by the stub server as `some-header: foo`.
+
+### 3. Provider contracts (OpenAPI descriptions)
+
+The stub server does not support provider contracts, including OpenAPI descriptions.
 
 ## Finding the URL to a pact resource
 
