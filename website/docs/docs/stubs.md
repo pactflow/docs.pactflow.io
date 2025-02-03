@@ -64,9 +64,27 @@ This matching behaviour may be [configured](#configuration) using additional hea
 
 **Example**
 
-Given a pact with two interactions with query `a=1` and `a=1&b=2&c=4`. If the stub server receives a request with query `a=1&b=2`, you get the error that query parameter b was not expected, instead of query parameter c is missing.
+Given a pact with two interactions with query `a=1` and `a=1&b=2&c=4`. If the stub server receives a request with query `a=1&b=2`, you get the error that query parameter `b` was not expected, instead of query parameter `c` is missing.
 
 The same principle applies to headers.
+
+### Mismatches
+
+When a request does match an interaction in the pact file, an HTTP `500` is returned with an array of mismatches:
+
+```
+< HTTP/2 500
+< content-type: application/json
+< content-length: 66
+< date: Mon, 03 Feb 2025 02:48:14 GMT
+...
+<
+{
+  "mismatches": [
+    "Expected query parameter 'from' but was missing"
+  ]
+}
+```
 
 ## Configuration
 
