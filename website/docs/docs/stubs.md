@@ -92,10 +92,10 @@ You can configure the behaviour of the stub service at runtime, using HTTP heade
 
 | Header | Type | Description | Default |
 |--------|------|-------------|---------|
-| `pactflow-stub-cors` | boolean  | Automatically responds to OPTIONS requests and return default CORS headers. For more on CORs, refer to the [section](#cors) below. | `true` |
+| `pactflow-stub-cors` | boolean  | Automatically responds to OPTIONS requests and return default CORS headers. For more on CORS, refer to the [section](#cors) below. | `true` |
 | `pactflow-stub-cors-referer` | boolean | When set to `true`, sets the CORS origin value to the hostname of the referer URL. If set to `false`, or if there is no referer header, sets it to '*". | `false` |
 | `pactflow-stub-provider-state` | string | Provider state regular expression used to filter the responses. | n/a |
-| `pactflow-stub-include-empty-provider-states` | boolean | Includes empty provider states when filtering with `pactflow-stub-provider-state`. If set to `true`, it matches the first interaction that has either no provider states or an empty provider state (`""`). It will then fallback to `pactflow-stub-provider-state` or the first matching interaction. | `false` |
+| `pactflow-stub-include-empty-provider-states` | boolean | Includes empty provider states when filtering with `pactflow-stub-provider-state`. If set to `true`, it matches the first interaction that has either no provider states or an empty provider state (`""`). It will then fall back to `pactflow-stub-provider-state` or the first matching interaction. | `false` |
 | `pactflow-stub-authorization` | string | Used in place of the `Authorization` header, which is consumed by the PactFlow API. If not present, Authorization headers are ignored when matching interactions. | |
 
 ## Example
