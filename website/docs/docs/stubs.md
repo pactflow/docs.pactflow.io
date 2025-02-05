@@ -42,8 +42,7 @@ Stub URLs will have one of the following formats:
 | Description | URL |
 | ----------- | --- |
 | Latest for integration | `/pacts/provider/:provider/consumer/:consumer/latest/stub` |
-| Latest for a given environment | `/pacts/provider/:provider/consumer/:consumer/latest/environment/:environment/stub` |
-| Latest for a given branch | `/pacts/provider/:provider/consumer/:consumer/latest/branch/:branch/stub` |
+| Latest for a given branch | `/pacts/provider/:provider/consumer/:consumer/branch/:branch/latest/stub` |
 | Latest for a given tag | `/pacts/provider/:provider/consumer/:consumer/latest/:tag/stub` |
 | Latest for a consumer version | `/pacts/provider/:provider/consumer/:consumer/:version/stub` |
 
