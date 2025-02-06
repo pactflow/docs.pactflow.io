@@ -5,7 +5,7 @@ title: Stubs
 
 ## Stub APIs
 
-Every contract published to PactFlow is automatically assigned a hosted API stub URL that you can use for stubbing API backends in your testing.
+Every consumer contract published to PactFlow is automatically assigned a hosted API stub URL that you can use for stubbing API backends in your testing.
 
 Hosted API stubs are useful for several use cases, such as:
 
@@ -21,10 +21,8 @@ Hosted API stubs are useful for several use cases, such as:
 | 1       | ✅         |
 | 1.1     | ✅         |
 | 2       | ✅         |
-| 3       | ❌         |
-| 4+      | ❌         |
-
-_NOTE: Whilst currently only versions 1 and 2 of the [pact specification](https://github.com/pact-foundation/pact-specification/) are currently fully supported. Pacts using the v3 format or beyond may be used, however any matching rules will be ignored._
+| 3       | ✅         |
+| 4+      | ✅         |
 
 ## Basic Use
 
@@ -32,7 +30,8 @@ To use the stub:
 
 1. You must first publish a contract.
 1. Find the path to the pact contract you'd like to stub. (If you're not familiar with the PactFlow API, the simplest way to get this is to click "View Pact" from the dashboard and select "API Browser" at the top of the screen to see the URL).
-1. Append `/stub/` to the pact file path to get the base path of an instant stub
+1. Append `/stub/` to the pact file path to get the base path of an instant stub.
+1. Pass in your PactFlow read-only API bearer token in the `Authentication` header.
 
 ## Stub URL format
 
@@ -43,6 +42,7 @@ Stub URLs will have one of the following formats:
 | Description | URL |
 | ----------- | --- |
 | Latest for integration | `/pacts/provider/:provider/consumer/:consumer/latest/stub` |
+| Latest for a given branch | `/pacts/provider/:provider/consumer/:consumer/branch/:branch/latest/stub` |
 | Latest for a given tag | `/pacts/provider/:provider/consumer/:consumer/latest/:tag/stub` |
 | Latest for a consumer version | `/pacts/provider/:provider/consumer/:consumer/:version/stub` |
 
@@ -51,14 +51,51 @@ For example, assuming you wanted to use the latest version of a particular contr
 ```sh
 https://<yourdomain>.pactflow.io/pacts/provider/:provider/consumer/:consumer/latest/stub
 ```
-
 ## Stub behaviour
 
 Pact contracts may define multiple overlapping requests - for example when there are provider states.
 
-Where multiple matching interactions are found, the interactions will be sorted by response status, and the first one will be returned. This may lead to non-deterministic behaviour.
+If the request matches any interactions, it will return the first response based on the order in the pact file.
 
-_NOTE: Only versions 1 and 2 of the [pact specification](https://github.com/pact-foundation/pact-specification/) are currently fully supported. Pacts using the v3 format may be used, however, any matching features added in v3 will currently be ignored._
+If the request does not match, it will return the errors from the interaction with the least number of mismatches, followed by the order in the Pact file.
+
+This matching behaviour may be [configured](#configuration) using additional headers sent with a request.
+
+**Example**
+
+Given a pact with two interactions with query `a=1` and `a=1&b=2&c=4`. If the stub server receives a request with query `a=1&b=2`, you get the error that query parameter `b` was not expected, instead of query parameter `c` is missing.
+
+The same principle applies to headers.
+
+### Mismatches
+
+When a request does match an interaction in the pact file, an HTTP `500` is returned with an array of mismatches:
+
+```
+< HTTP/2 500
+< content-type: application/json
+< content-length: 66
+< date: Mon, 03 Feb 2025 02:48:14 GMT
+...
+<
+{
+  "mismatches": [
+    "Expected query parameter 'from' but was missing"
+  ]
+}
+```
+
+## Configuration
+
+You can configure the behaviour of the stub service at runtime, using HTTP headers sent with the stub requests.
+
+| Header | Type | Description | Default |
+|--------|------|-------------|---------|
+| `pactflow-stub-cors` | boolean  | Automatically responds to OPTIONS requests and return default CORS headers. For more on CORS, refer to the [section](#cors) below. | `true` |
+| `pactflow-stub-cors-referer` | boolean | When set to `true`, sets the CORS origin value to the hostname of the referer URL. If set to `false`, or if there is no referer header, sets it to '*". | `false` |
+| `pactflow-stub-provider-state` | string | Provider state regular expression used to filter the responses. | n/a |
+| `pactflow-stub-include-empty-provider-states` | boolean | Includes empty provider states when filtering with `pactflow-stub-provider-state`. If set to `true`, it matches the first interaction that has either no provider states or an empty provider state (`""`). It will then fall back to `pactflow-stub-provider-state` or the first matching interaction. | `false` |
+| `pactflow-stub-authorization` | string | Used in place of the `Authorization` header, which is consumed by the PactFlow API. If not present, Authorization headers are ignored when matching interactions. | |
 
 ## Example
 
@@ -154,11 +191,32 @@ By default, [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) reque
 
 | CORS header | Configuration | Description |
 | ----------- | ------------- | ----------- |
-| `Access-Control-Allow-Origin` | Reflects the `Origin` send in the HTTP pre-flight request | All origins are allowed |
+| `Access-Control-Allow-Origin` | Reflects the `Origin` sent in the HTTP pre-flight request (default) or `'*'` if `pactflow-stub-cors-referer` is set to `true`. | All origins are allowed |
 | `Access-Control-Allow-Headers` | `*` | All headers are allowed |
 | `Access-Control-Allow-Methods` | `*` | All methods are allowed |
 | `Access-Control-Allow-Credentials` | `true` | Credentials may be sent in CORS requests |
 
+## Authentication
+
+The `Authorization` header cannot be used natively in PactFlow stubs, as this header is reserved for use by PactFlow to authenticate all calls into the platform.
+
+If your interactions use this header, you can pass the value into the `pactflow-stub-authorization` header instead. When matching interactions, the stub server will treat it as if it were the `Authorization` header.
+
+Refer to the [Configuration](#configuration) section for more.
+
+## Limitations
+
+### 1. Plugins
+
+Interactions that use plugins are not supported.
+
+### 2. Headers containing underscores
+
+When calling the stub API, any request headers that include underscores will be automatically converted to hyphens. For example, if you send `some_header: foo` it will be received by the stub server as `some-header: foo`.
+
+### 3. Provider contracts (OpenAPI descriptions)
+
+The stub server does not support provider contracts, including OpenAPI descriptions.
 
 ## Finding the URL to a pact resource
 
