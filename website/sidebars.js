@@ -60,7 +60,18 @@ module.exports = {
       type: 'category',
       label: 'Features',
       items: [
-        'docs/ai/index',
+        {
+          type: 'category',
+          label: 'AI ⚡️',
+          items: [
+            'docs/ai/index',
+            'docs/ai/quick-start',
+            'docs/ai/using',
+            'docs/ai/managing',
+            'docs/ai/troubleshooting',
+            'docs/ai/learning',
+          ]
+        },
         'docs/stubs',
         {
           type: 'category',
