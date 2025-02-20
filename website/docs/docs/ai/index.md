@@ -80,6 +80,10 @@ Authentication requires valid PactFlow API Tokens, which can be obtained from th
 
 You can authenticate with the CLI in several ways:
 
+### Example
+
+TBC - show basic example of invoking the CLI to generate a test
+
 #### Environment Variables
 
 Set the following environment variables, and the CLI will use them to communicate with PactFlow:
@@ -105,6 +109,14 @@ This creates a `.pact.toml` file, which should be added to your `.gitignore`.
 Alternatively, store the user configuration file in `~/.config/pact/config.toml` (Unix and macOS), and `%APPDATA%\pact\config.toml` (Windows).
 
 Pass the `--user` flag when running `pactflow-ai config set` to write to this file automatically.
+
+### Generating Tests
+
+TBC - explain the key features of this and mention the `help` command for detail.
+
+### Using Test Templates
+
+TBC - explain the new feature. 
 
 ## Usage Limits
 
