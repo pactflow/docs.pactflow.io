@@ -48,13 +48,13 @@ Full JSON Schema 2020-12 support, including resolving [references ($ref)](https:
 
 |Feature|Supported|Description|Example|
 |--- |--- |--- |--- |
-|[Server Object](https://spec.openapis.org/oas/v3.1.0#server-object)|N|The `servers` are not used in request matching for 3.x.x OpenAPI descriptions, they are supported in OpenAPI 2.x. See [Issue #28](https://github.com/pactflow/swagger-mock-validator/issues/28) for background. Comparison of Pact interactions to OAS endpoints does not consider any `basePath` in its comparison. In [OAS 3 (and also 2)](https://swagger.io/docs/specification/api-host-and-base-path/), all API endpoints are considered to be relative to the base URL. For example, assuming the base URL of `https://api.example.com/v1`, the `/users` endpoint refers to `https://api.example.com/v1/users`. Our comparison does not consider the impact of `basePath` as there may be multiple servers with different context paths and there is no clear way to resolve this ambiguity. In this example, a pact interaction with path `/v1/users/` will not match an OAS that only has `/users/` in its resource path.  |[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/servers)|
+|[Server Object](https://spec.openapis.org/oas/v3.1.0#server-object)|N|The `servers` are not used in request matching for 3.x.x OpenAPI descriptions, they are supported in OpenAPI 2.x. Comparison of Pact interactions to OAS endpoints does not consider any `basePath` in its comparison, however you can [specify](./configuration) a custom base URL via the `x-opc-config-base-path` setting. |[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/servers)|
 |[Security Filtering](https://spec.openapis.org/oas/v3.1.0#security-filtering)|N|Ignored||
 |[Info](https://spec.openapis.org/oas/v3.1.0#security-filtering)|N|Ignored||
 |[Contact](https://spec.openapis.org/oas/v3.1.0#contact-object)|N|Ignored||
 |[License](https://spec.openapis.org/oas/v3.1.0#license-object)|N|Ignored||
 |[External Documentation](https://spec.openapis.org/oas/v3.1.0#external-documentation-object)|N|Ignored||
-|[Security Scheme](https://spec.openapis.org/oas/v3.1.0#security-scheme-object)|P|See below for detail. Supports all valid values,  only validates only: `apiKey`||
+|[Security Scheme](https://spec.openapis.org/oas/v3.1.0#security-scheme-object)|P|See below for detail.||
 |[Relative References](https://spec.openapis.org/oas/v3.1.0#relative-references-in-uris)|Y|||
 |[Callbacks](https://spec.openapis.org/oas/v3.1.0#callback-object)|N|Not supported||
 |[Parameter styles](https://spec.openapis.org/oas/v3.1.0#parameterStyle)|P|See also https://swagger.io/docs/specification/serialization/. <br/><br/>Missing parameters will cause a validation *warning* but not fail the checks<br/><br/>We can’t currently compare non-primitive query string values to the OAS, because Pact does not encode the style of encoding. This means we can’t reliably differentiate the cases where an object or array is encoded. We can check primitive values match the schema. <br/><br/>Where a pact interaction does not satisfy a parameter constraint, you will see a message such as: `Path or method not defined in spec file: GET /path/style/simple/single/value/0` (the 0 here does not match the schema, which specifies the value must be `> 0`)|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/parameters)|
@@ -85,9 +85,12 @@ See [Keyword Support](/docs/bi-directional-contract-testing/contracts/oas/keywor
 |JSON|Y|Full support|[Example](https://github.com/pactflow/bdct-oas-examples/)|
 |XML|P|We don’t currently supported parsing and checking XML bodies, against defined schemas. Checks the content-type matches.|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/xml)|
 |`x-www-form-urlencoded` Request Bodies|Y|Checks if the body matches the schema.|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/forms)|
-|`multipart/form-data`|N|We don’t currently supported parsing and checking multipart request bodies, against defined schemas. Checks the content-type matches.|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/forms)|
+|`multipart/form-data`|Y| By default, multipart bodies are not checked. [Customisable](./configuration) via the `x-opc-config-disable-multipart-formdata` setting..|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/forms)|
 
 #### [Security Schemes](https://spec.openapis.org/oas/v3.1.0#security-scheme-object)
+
+By default, the schema for security schemes are not checked. This is [customisable](./configuration) via the `x-opc-config-no-authorization-schema` setting.
+
 |Feature|Supported|Description|Example|
 |--- |--- |--- |--- |
 |[Security Requirement](https://spec.openapis.org/oas/v3.1.0#security-requirement-object)|Y|`apiKey`, `http`, `mutualTLS`, `oauth2`, `openIdConnect`|[Example](https://github.com/pactflow/bdct-oas-examples/tree/main/examples/security)|
