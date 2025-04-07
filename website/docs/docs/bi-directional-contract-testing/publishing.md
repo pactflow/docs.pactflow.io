@@ -199,7 +199,6 @@ pactflow publish-provider-contract \
 #### GitHub Actions
 
 - [Docs](https://github.com/pactflow/actions/tree/main/publish-provider-contract#example)
-- [See the example in GitHub Actions](https://github.com/pactflow/example-bi-directional-provider-postman/actions/runs/2465589944)
 
 ```sh
 # (This just saves defining these multiple times for different pact jobs)
@@ -211,18 +210,39 @@ env:
 
 jobs:
   pact-publish-oas-action:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3 # MANDATORY: Must use 'checkout' first
-      - uses: pactflow/actions/publish-provider-contract@v0.0.2
-        env:
-          oas_file: oas/swagger.yml
-          results_file: ${{ env.results_file }}
-```
+      # MANDATORY: Must use 'checkout' first
+      - uses: actions/checkout@v4
+      - name: Publish provider contract on passing test run
+        if: success()
+        uses: pactflow/actions/publish-provider-contract@v2
+        with:
+          version: "1.2.3"
+          application_name: "my-api-provider"
+          broker_url: ${{ secrets.PACT_BROKER_BASE_URL }}
+            token: ${{ secrets.PACT_BROKER_TOKEN }}
+          contract: src/oas/user.yml
+          contract_content_type: application/yaml # optional, defaults to application/yml
+          verification_results: src/results/report.md
+      - name: Publish provider contract on failing test run
+        # ensure we publish results even if the tests fail
+        if: failure()
+        uses: pactflow/actions/publish-provider-contract@v2
+        with:
+          version: "1.2.3"
+          application_name: "my-api-provider"
+          broker_url: ${{ secrets.PACT_BROKER_BASE_URL }}
+          token: ${{ secrets.PACT_BROKER_TOKEN }}
+          contract: src/oas/user.yml
+          verification_results: src/results/report.md
+          # ensure we set the verification_exit_code to ensure we upload a failing self-verification result
+          verification_exit_code: 1 # defaults to 0 (success)
 
 <!-- ### Directly via API
 
 1. `publish_contracts` ([API Reference](https://github.com/pact-foundation/pact_broker/blob/master/lib/pact_broker/doc/views/index/publish-contracts.markdown)) / [Example via Makefile](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/d562158cd0920eb57e5ba7007e65db4a9f08cbe9/Makefile#L32) / [Example Script](https://github.com/pactflow/example-bi-directional-provider-restassured/blob/master/scripts/publish.sh)
- 1. This will associate the `version` with a `provider contract`
+ 2. This will associate the `version` with a `provider contract`
 
 #### Example
 

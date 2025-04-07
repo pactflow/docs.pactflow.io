@@ -27,6 +27,7 @@ When using the OpenAPI Specifications as a Provider Contract, you should know th
 - The OAS must be a valid YAML or JSON file. PactFlow will give an error if an invalid document is provided.
 - OAS documents must not be split across multiple files. You should combine the documents together, using tools like [OpenAPI Merge](https://github.com/robertmassaioli/openapi-merge) or [speccy](https://www.npmjs.com/package/speccy). That is, PactFlow can not resolve remote references to files, and will not resolve URL references.
 - YAML formatted OAS documents must not use [anchors](https://yaml.org/spec/1.2.2/#3222-anchors-and-aliases), due to the potential security issues (see [YAML bomb](https://en.wikipedia.org/wiki/Billion_laughs_attack) for more). If your auto-generated specs have anchors, you can pre-process them via tools like [spruce](https://github.com/geofffranks/spruce), that will expand them for you.
+- Circular references in schemas are not supported (See [Validating self-referencing data structures](https://github.com/ajv-validator/ajv/issues/461) for additional information).
 
 ### Other Considerations
 
