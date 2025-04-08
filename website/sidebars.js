@@ -116,6 +116,7 @@ module.exports = {
                     'docs/bi-directional-contract-testing/contracts/oas',
                     'docs/bi-directional-contract-testing/contracts/oas/features',
                     'docs/bi-directional-contract-testing/contracts/oas/keyword-support',
+                    'docs/bi-directional-contract-testing/contracts/oas/configuration',
                     'docs/bi-directional-contract-testing/contracts/oas/changelog'
                   ]
                 }
