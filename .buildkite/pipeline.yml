@@ -9,7 +9,7 @@ steps:
     agents:
       queue: pactflow-dev
     plugins:
-      - docker#v3.8.0:
+      - docker#v5.12.0:
           image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
           propagate-environment: true
           propagate-uid-gid: true
@@ -24,7 +24,7 @@ steps:
     agents:
       queue: pactflow-dev
     plugins:
-      - docker#v3.8.0:
+      - docker#v5.12.0:
           image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-yarn:latest"
           propagate-environment: true
           user: root
@@ -41,7 +41,7 @@ steps:
     agents:
       queue: pactflow-prod
     plugins:
-      - docker#v3.8.0:
+      - docker#v5.12.0:
           image: "{PRODECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
           propagate-environment: true
           propagate-uid-gid: true
@@ -56,7 +56,7 @@ steps:
     agents:
       queue: pactflow-prod
     plugins:
-      - docker#v3.8.0:
+      - docker#v5.12.0:
           image: "{PRODECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
           propagate-environment: true
           always-pull: true
