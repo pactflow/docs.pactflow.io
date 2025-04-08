@@ -89,7 +89,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "2.7"
@@ -235,7 +235,7 @@ jobs:
         if: steps.identify_event.outputs.update_event == 'all-docs-updated'
 
       - name: Commit and push changes
-        uses: EndBug/add-and-commit@v9
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9
         with:
           add: 'website'
           author_name: Github Action
