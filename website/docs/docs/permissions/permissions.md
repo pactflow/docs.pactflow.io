@@ -21,6 +21,9 @@ Can generate Pact tests based on user-provided client code.
 ## ai:generation:request-response
 Can generate Pact tests based on recorded request-response pairs.
 
+# ai:generation:test-template
+Can customize generated Pact test output using a predefined example as a template.
+
 ## authentication_settings:manage
 
 Manage authentication settings, such as configuring SSO via Github or Google.
