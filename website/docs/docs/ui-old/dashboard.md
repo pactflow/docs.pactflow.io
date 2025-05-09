@@ -1,6 +1,9 @@
 ---
 title: Dashboard
 ---
+:::warning
+The Legacy UI will be decommissioned on Friday 27th June.
+:::
 
 ## Dashboard layout
 
