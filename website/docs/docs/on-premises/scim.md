@@ -92,7 +92,7 @@ services:
       - PACTFLOW_SAML_IDP_CERT_FINGERPRINT=11:9B:9E:02:79:59:CD:B7:C6:62:CF:D0:75:D9:E2:EF:38:4E:44:5F
       - PACTFLOW_SAML_IDP_ID_ATTRIBUTE=uid
       - PACTFLOW_SAML_EMAIL_ATTRIBUTE=email
-      - PACTFLOW_COOKIE_SECRET=thisisasecret
+      - PACTFLOW_COOKIE_SECRET=at-least-64-char-secret---------at-least-64-char-secret---------
       - PACT_BROKER_ADMIN_API_KEY=admin
       - PACTFLOW_WEBHOOK_HOST_WHITELIST=/.*/
     ports:
