@@ -77,7 +77,7 @@ services:
       - PACTFLOW_LOG_LEVEL=info
       - PACTFLOW_ADMIN_API_KEY=admin
       - PACTFLOW_MASTER_ENCRYPTION_KEY=thisissomerandombytes
-      - PACTFLOW_COOKIE_SECRET=thisisasecret
+      - PACTFLOW_COOKIE_SECRET=at-least-64-char-secret---------at-least-64-char-secret---------
       - PACT_BROKER_ADMIN_API_KEY=admin 
       - PACTFLOW_HTTP_LOGGING_ENABLED=true
     ports:
