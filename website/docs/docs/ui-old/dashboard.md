@@ -1,6 +1,9 @@
 ---
 title: Dashboard
 ---
+:::warning
+The Legacy UI will be shut down on Friday, June 27th.
+:::
 
 ## Dashboard layout
 

@@ -12,6 +12,7 @@ module.exports = {
             'docs/user-interface/migration/new',
             'docs/user-interface/dashboard',
             'docs/user-interface/application',
+            'docs/user-interface/integration',
             'docs/user-interface/contract',
             'docs/user-interface/bi-directional',
             {
