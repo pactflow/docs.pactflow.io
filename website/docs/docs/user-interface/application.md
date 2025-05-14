@@ -2,60 +2,89 @@
 title: Application
 ---
 
-Applications (or "Pacticipants") are at the center of the PactFlow experience. From this page, you can:
+## Application
 
-1. See all versions of your application.
-2. Discover all integrated applications and their contracts.
-3. See the health of the application at a glance.
-4. Check if your application is deployable.
-5. Configure your application settings.
+Applications—also called **Pacticipants**—are central to the PactFlow experience.
 
-### Version Details
+From this page, you can:
 
-In the left-hand panel, you can see all versions of the currently selected application. Select a version to view its details.
+1. View all versions of your application.  
+2. Discover all integrated applications and their contracts.  
+3. See the application's overall health.  
+4. Check if the application is deployable.  
+5. Configure application settings.
 
-![Application Page](/ui/clarity/application.png)
+### Application Versions
+
+The **Application Versions** tab shows the latest version of the selected application, based on the designated main branch. Recent versions appear in adjacent tabs.
+
+- Click a tab to view details for that version.  
+- To view older versions, select **View All**.  
+- To filter by branch or tag, click the corresponding label and update the filter. You can only filter by one at a time.
+
+Your filter preferences are preserved when you return to this page.
+
+Accessing this page updates the **Recent** list under **Applications** in the navigation panel.
+
+![Application – Version Page](/ui/clarity/application-version.png)
 
 ### Compatibility
 
-This tab displays each of the integrated applications as tiles, showing a summary of the verification status for each. Each tile has a historical bar chart showing the compatibility of previous versions. Hover over the bar chart to see details, or click to pin them.
+The **Compatibility** tab shows integrated applications as tiles, each summarizing verification status.
 
-Select a branch in each tile to see versions related to that branch, or use the toggle at the top to quickly change all tiles to the latest updated or main branch.
+- Each tile includes tabs for previous verification results, ordered left to right with the most recent result first.
+- Integrated applications may act as either a **consumer** or a **provider**.
 
-Click "View contract" to see a contract for a specific version.
+To update the data:
 
-![Application Page](/ui/clarity/application-compatibility-tile.png)
+- Filter by **branch**, **tag**, or **environment** (only one at a time).  
+- Select a branch within a tile to filter its versions.  
+- Use the **toggle** at the top to apply the latest updated or main branch across all tiles.
+
+Click:
+
+- **View contract** to see contract details for a specific version.  
+- **Triggered Webhooks** to view webhook events related to the integration.
+
+![Application – Compatibility Tab](/ui/clarity/application-version-compatibility.png)
 
 ### Can I Deploy
 
-This tab shows the current deployability to a given environment (see the [`can-i-deploy`](https://docs.pact.io/pact_broker/can_i_deploy) documentation for more information). You must select a team from the drop-down menu to fetch environments related to the selected team before the results can be displayed.
+The **Can I Deploy** tab shows the current deployability status for the application in a selected environment.
+
+- Select a **team** from the drop-down to load the associated environments.  
+- View the results to determine whether deployment is possible.
+
+For details, see the [`can-i-deploy`](https://docs.pact.io/pact_broker/can_i_deploy) documentation.
+
+Click a link in the table to navigate to the corresponding verification result.
 
 ![Can I Deploy](/ui/clarity/application-cid.png)
 
-Click on the link in the row to navigate to the specific verification result for a given entry.
-
 ### Network
 
-This tab shows all applications directly integrated with the currently selected application. Click on a node to navigate to the collaborating application.
+The **Network** tab displays all applications directly integrated with the current application.
 
-![Network Graph](/ui/clarity/application-network.png)
+- Click a node to navigate to the collaborating application.
 
-### Settings
+![Application – Network Tab](/ui/clarity/application-network.png)
 
-#### General
+## Settings
 
-This tab allows you to see and modify the display name of the application.
+### General
 
-![Settings - General](/ui/clarity/application-settings.png)
+Update the **display name** of the application in the **General** tab.
 
-#### Version Control
+![Application – General Settings Page](/ui/clarity/application-settings-general.png)
 
-This tab allows you to specify the main branch and repository URL (e.g., a GitHub URL) for the application.
+### Version Control
 
-![Settings - Version Control](/ui/clarity/application-version-control.png)
+Specify the **main branch** and **repository URL** (for example, a GitHub URL) in the **Version Control** tab.
 
-#### Badge
+![Application – Version Control Settings Page](/ui/clarity/application-settings-version.png)
 
-This tab allows you to generate `can-i-deploy` build badges for the current application.
+### Badge
 
-![Settings - Badge](/ui/clarity/application-badge.png)
+Generate `can-i-deploy` build badges in the **Badge** tab.
+
+![Application – Badge Settings Page](/ui/clarity/application-settings-badges.png)
