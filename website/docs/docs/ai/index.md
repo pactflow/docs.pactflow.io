@@ -16,8 +16,10 @@ PactFlow AI includes a suite of features to improve the efficiency and quality o
 
 PactFlow AI is available as a CLI and supports the following programming languages:
 
-* Java
-* JavaScript / TypeScript
-* Golang (coming soon)
-* .NET (coming soon)
+* Java and Kotlin
+* TypeScript / JavaScript
+* .NET
+* Golang
+* PHP
+* Swift
 * Python (coming soon)
