@@ -335,7 +335,7 @@ To provide specific updates or constraints for the test generation, use a concis
           
 `--instructions "Include the 'X-HMAC-SIGNATURE' header in all GET requests (format: 'SHA256-HMAC-SIGNATURE: {sig}')"`
 
-Alternatively, you can load instructions from a file `--instructions /path/to/instructions.txt`
+Alternatively, you can load instructions from a file `--instructions @/path/to/instructions.txt`
 
 This would instruct the test generation process to read the file content and use it as the instruction.
 
@@ -343,13 +343,14 @@ This would instruct the test generation process to read the file content and use
 
 `prompts.txt`:
 ```
+* Make sure to cover happy and non-happy paths
+  * Specifically, ensure to include test cases for the positive (HTTP 200) scenario and negative scenarios, specifically the case of 400, 401 and 404
+* Only include endpoints/properties used by the API client - do not include additional fields in the OAS that are not in the client code
+  * You can check the properties used in the Product class to help make this determination
 * Use the Jest testing framework
 * Use the native Jest expect (https://jestjs.io/docs/expect) matchers such as `toEqual` and `toBeTruthy`
 * Prefer the use of the async/await pattern when using Promises
-* Use a 3 level hierarchy for tests
-  1. Level 1 should be the API under test as a `describe` block e.g. "Product API"
-  2. Level 2 should be the endpoint as a `describe` block e.g. "GET /products/:id", "POST /products"
-  3. Level 3 should be the scenario as a `test` block e.g. "Given a valid user, returns a 200", "Given an invalid user, returns a 400"
+* Use the PactV4 interface
 ```
 
 ## Best Practices
