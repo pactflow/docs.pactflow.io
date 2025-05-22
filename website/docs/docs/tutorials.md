@@ -44,7 +44,7 @@ You will:
 | Node JS  | <https://killercoda.com/pactflow/scenario/pactflow-getting-started-js>   |
 | Java     | <https://killercoda.com/pactflow/scenario/pactflow-getting-started-java> |
 
-## Generating Tests with PactFlow's AI-Augmented Contract Testing Capabilities
+## Generate Tests with AI-Augmented Contract Testing in PactFlow
 
 _Level: Beginner_
 
@@ -52,7 +52,7 @@ In this tutorial, we guide you through creating a consumer Pact test with the he
 
 You will download and setup the CLI tool, and generate consumer Pact tests for a JavaScript codebase.
 
-Read more about our [test generation feature](https://pactflow.io/ai/), or check out our documentation [here](https://docs.pactflow.io/docs/ai).
+[Learn more about Test Generation](https://docs.pactflow.io/docs/ai).
 
 ### Goals
 
@@ -73,6 +73,26 @@ You will:
 | Language | Link                                                                   |
 | -------- | ---------------------------------------------------------------------- |
 | Node JS  | <https://killercoda.com/pactflow/scenario/pactflow-ai>   |
+
+## Use Test Templates with AI-Augmented Contract Testing in PactFlow
+
+_Level: Beginner_
+
+This tutorial introduces the **Test Templates** feature and shows you how to use it with PactFlow’s AI-powered **Test Generation** capability, powered by **HaloAI**.
+
+[Learn more about Test Templates](https://docs.pactflow.io/docs/ai).
+
+### What You'll Learn
+
+1. How to create and apply a template file to generate Pact tests
+2. How templates help align generated tests with your existing test suite
+3. How to improve test output—such as adding edge case coverage—by refining your prompts
+
+### Tutorial
+
+| Language | Link                                                                   |
+| -------- | ---------------------------------------------------------------------- |
+| Node JS  | <https://killercoda.com/pactflow/scenario/pactflow-ai-test-templates>  |
 
 ## Gating deployments with PactFlow
 
