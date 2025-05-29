@@ -84,9 +84,9 @@ This tutorial introduces the **Test Templates** feature and shows you how to use
 
 ### What You'll Learn
 
-1. How to create and apply a template file to generate Pact tests
-2. How templates help align generated tests with your existing test suite
-3. How to improve test output—such as adding edge case coverage—by refining your prompts
+* How to create and apply a template file to generate Pact tests.
+* How templates help align generated tests with your existing test suite.
+* How to improve test output—such as adding edge case coverage—by refining your prompts.
 
 ### Tutorial
 
