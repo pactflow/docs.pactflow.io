@@ -531,7 +531,7 @@ The secret used to encrypt the rack.session cookie.
 To generate an appropriate value, run the following on Linux/Mac:
 
 ```
-env LC_ALL=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 64 | head -n 1
+env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 | head -n 1
 ```
 
 **Required:** true<br/>

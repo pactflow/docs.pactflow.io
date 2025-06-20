@@ -103,7 +103,7 @@ else
   if [ -d $PACTFLOW_APPLICATION_DIR ]; then
       rm -rf $PACTFLOW_APPLICATION_DIR
   fi
-  git clone --shallow-since=$(date -v -6m "+%Y-%m-%d") git@github.com:pactflow/pactflow-application.git $PACTFLOW_APPLICATION_DIR >/dev/null 2>&1
+  git clone --shallow-since=$(date --date '9months ago' "+%Y-%m-%d") git@github.com:pactflow/pactflow-application.git $PACTFLOW_APPLICATION_DIR >/dev/null 2>&1
   cd $PACTFLOW_APPLICATION_DIR
 fi
 
