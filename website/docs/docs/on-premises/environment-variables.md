@@ -639,25 +639,3 @@ head < /dev/random -c 16 | base64
 
 **Required:** if `PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED` is set to `true`<br/>
 **Example:** `JUVDdnRzLXZyWHA7UF93RAo=`<br/>
-
-## OTEL
-
-<hr/>
-
-
-
-### OTEL_EXPORTER_OTLP_ENDPOINT
-
-Setting it with a OTLP exporter endpoint enables opentelemetry and spans are exported to the endpoint.
-
-**Required:** `false`<br/>
-**Default:** `nil`<br/>
-**Example:** `https://172.23.092.124:4318`<br/>
-
-### PACTFLOW_OTEL_DEPLOYMENT_ENVIRONMENT
-
-To set a deployment environment name.
-
-**Required:** `false`<br/>
-**Default:** `prod`<br/>
-**Example:** `production`<br/>
