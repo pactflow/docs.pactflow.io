@@ -531,7 +531,7 @@ The secret used to encrypt the rack.session cookie.
 To generate an appropriate value, run the following on Linux/Mac:
 
 ```
-env LC_ALL=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 64 | head -n 1
+env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 | head -n 1
 ```
 
 **Required:** true<br/>
@@ -639,3 +639,25 @@ head < /dev/random -c 16 | base64
 
 **Required:** if `PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED` is set to `true`<br/>
 **Example:** `JUVDdnRzLXZyWHA7UF93RAo=`<br/>
+
+## OTEL
+
+<hr/>
+
+
+
+### OTEL_EXPORTER_OTLP_ENDPOINT
+
+Setting it with a OTLP exporter endpoint enables opentelemetry and spans are exported to the endpoint.
+
+**Required:** `false`<br/>
+**Default:** `nil`<br/>
+**Example:** `https://172.23.092.124:4318`<br/>
+
+### PACTFLOW_OTEL_DEPLOYMENT_ENVIRONMENT
+
+To set a deployment environment name.
+
+**Required:** `false`<br/>
+**Default:** `prod`<br/>
+**Example:** `production`<br/>
