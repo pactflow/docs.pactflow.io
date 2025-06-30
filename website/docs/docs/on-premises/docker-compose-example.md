@@ -35,9 +35,9 @@ Which should produce an output such as:
 ```sh
 > docker images quay.io/pactflow/enterprise
 REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
-quay.io/pactflow/enterprise   1.9.0               32db429fda01        7 weeks ago         454MB
-quay.io/pactflow/enterprise   latest              32db429fda01        7 weeks ago         454MB
-quay.io/pactflow/enterprise   1.8.0               7f9b3c3aa50e        3 months ago        462MB
+quay.io/pactflow/enterprise   2.0.0               32db429fda01        1 day ago           462MB # <- this guide applies to 2.x.x version
+quay.io/pactflow/enterprise   latest              32db429fda01        1 day ago           462MB
+quay.io/pactflow/enterprise   1.36.0              7f9b3c3aa50e        7 weeks ago         454MB
 ```
 
 ## 2. PactFlow license file
@@ -56,9 +56,10 @@ version: "3"
 
 services:
   pactflow:
-    image: quay.io/pactflow/enterprise
+    image: quay.io/pactflow/enterprise:latest
     depends_on:
       - postgres
+      - redis
     environment:
       # This is set to localhost for this example but in a real deployment, this needs to be set to the actual URL of the application
       - PACTFLOW_BASE_URL=http://localhost
@@ -71,24 +72,23 @@ services:
       # 'Allow all' for the webhook host whitelist should only be used for demo purposes. See docs for configuring this in production.
       - PACTFLOW_WEBHOOK_HOST_WHITELIST=/.*/
       - PACTFLOW_HTTP_PORT=9292
+      # Link to the postgres database
       - PACTFLOW_DATABASE_URL=postgres://postgres:password@postgres/postgres
-      - Short log format only for demo purposes. Use json in production.
-      - PACTFLOW_LOG_FORMAT=short
       - PACTFLOW_LOG_LEVEL=info
       - PACTFLOW_ADMIN_API_KEY=admin
       - PACTFLOW_MASTER_ENCRYPTION_KEY=thisissomerandombytes
       - PACTFLOW_COOKIE_SECRET=at-least-64-char-secret---------at-least-64-char-secret---------
       - PACT_BROKER_ADMIN_API_KEY=admin 
       - PACTFLOW_HTTP_LOGGING_ENABLED=true
+      # Link to the redis cache
+      - REDIS_URL=redis://redis:6379
     ports:
       - "80:9292"
     healthcheck:
-      test: ["CMD", "wget", "-nv", "-t1", "--spider", "http://localhost:9292/diagnostic/status/heartbeat"]
+      test: ["CMD", "supervisorctl", "status", "haproxy", "marko", "pactflow"]
       interval: 30s
       timeout: 10s
       retries: 3
-    entrypoint: dockerize
-    command: -wait tcp://postgres:5432 docker-entrypoint
     volumes:
       - ./pactflow-onprem.lic:/home/pactflow-onprem.lic
 
@@ -103,6 +103,9 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: postgres
 
+  redis:
+    image: redis:latest
+
 volumes:
   postgres-volume:
 ```
@@ -110,10 +113,10 @@ volumes:
 You can verify all services by running `docker ps`:
 
 ```
-CONTAINER ID        IMAGE                         COMMAND                  CREATED             STATUS                             PORTS                                                    NAMES
-8318130fa98a        quay.io/pactflow/enterprise   "docker-entrypoint"      18 seconds ago      Up 17 seconds (health: starting)   9292/tcp, 0.0.0.0:80->9292/tcp                           tmp_pactflow_1
-7ba5d1679d09        kristophjunge/test-saml-idp   "docker-php-entrypoi…"   7 minutes ago       Up 17 seconds                      0.0.0.0:8080->8080/tcp, 80/tcp, 0.0.0.0:8443->8443/tcp   tmp_simplesaml_1
-c0e3059fa37c        postgres                      "docker-entrypoint.s…"   7 minutes ago       Up 17 seconds (health: starting)   0.0.0.0:5432->5432/tcp                                   tmp_postgres_1
+CONTAINER ID   IMAGE                                          COMMAND                  CREATED          STATUS                    PORTS                  NAMES
+1cefdf8b1e1b   quay.io/pactflow/enterprise:2.0.0              "docker-entrypoint"      24 minutes ago   Up 24 minutes (healthy)   0.0.0.0:80->9292/tcp   tmp_pactflow_1
+6bedae5936dc   redis:latest                                   "docker-entrypoint.s…"   2 hours ago      Up 24 minutes             6379/tcp               tmp_redis_1
+8b393d35a20c   postgres:13-alpine                             "docker-entrypoint.s…"   9 days ago       Up 24 minutes (healthy)   5432/tcp               tmp_postgres_1
 ```
 
 ## 3. Login to PactFlow

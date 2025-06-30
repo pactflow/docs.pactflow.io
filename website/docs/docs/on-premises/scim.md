@@ -72,29 +72,48 @@ services:
       - SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://localhost/auth/saml/callback
 
   pactflow:
-    image: quay.io/pactflow/enterprise
+    image: quay.io/pactflow/enterprise:2.0.0
     depends_on:
       - postgres
+      - redis
     environment:
-      - PACTFLOW_HTTP_PORT=9292
-      - PACTFLOW_BASE_URL=http://localhost http://pactflow:9292
-      - PACTFLOW_DATABASE_URL=postgres://postgres:password@postgres/postgres
-      # insecure settings only for the purposes of this demo! Not to be used in production.
+      # This is set to localhost for this example but in a real deployment, this needs to be set to the actual URL of the application
+      - PACTFLOW_BASE_URL=http://localhost
+      # Insecure setting only for the purposes of this demo! Not to be used in production.
       - PACTFLOW_DATABASE_SSLMODE=disable
+      # Insecure setting only for the purposes of this demo! Not to be used in production.
       - PACTFLOW_REQUIRE_HTTPS=false
-      - PACTFLOW_SECURE_COOKIES=false
-      - PACTFLOW_LOG_FORMAT=short # normally this would be set to json, use short for demo only
+      # Demo auth should only be used for demo purposes. Not to be used in production.
+      - PACTFLOW_DEMO_AUTH_ENABLED=true
+      # 'Allow all' for the webhook host whitelist should only be used for demo purposes. See docs for configuring this in production.
+      - PACTFLOW_WEBHOOK_HOST_WHITELIST=/.*/
+      - PACTFLOW_HTTP_PORT=9292
+      # Link to the postgres database
+      - PACTFLOW_DATABASE_URL=postgres://postgres:password@postgres/postgres
+      - PACTFLOW_LOG_LEVEL=info
       - PACTFLOW_ADMIN_API_KEY=admin
-      - PACTFLOW_MASTER_SECRETS_ENCRYPTION_KEY=thisissomerandombytes
+      - PACTFLOW_MASTER_ENCRYPTION_KEY=thisissomerandombytes
+      - PACTFLOW_COOKIE_SECRET=at-least-64-char-secret---------at-least-64-char-secret---------
+      - PACT_BROKER_ADMIN_API_KEY=admin 
+      - PACTFLOW_HTTP_LOGGING_ENABLED=true
+      # Link to the redis cache
+      - REDIS_URL=redis://redis:6379
+      # SAML settings
       - PACTFLOW_SAML_AUTH_ENABLED=true
       - PACTFLOW_SAML_IDP_NAME=Simple SAML
       - PACTFLOW_SAML_IDP_SSO_TARGET_URL=http://localhost:8080/simplesaml/saml2/idp/SSOService.php
       - PACTFLOW_SAML_IDP_CERT_FINGERPRINT=11:9B:9E:02:79:59:CD:B7:C6:62:CF:D0:75:D9:E2:EF:38:4E:44:5F
       - PACTFLOW_SAML_IDP_ID_ATTRIBUTE=uid
-      - PACTFLOW_SAML_EMAIL_ATTRIBUTE=email
-      - PACTFLOW_COOKIE_SECRET=at-least-64-char-secret---------at-least-64-char-secret---------
-      - PACT_BROKER_ADMIN_API_KEY=admin
-      - PACTFLOW_WEBHOOK_HOST_WHITELIST=/.*/
+      - PACTFLOW_SAML_EMAIL_ATTRIBUTE=email      
+    ports:
+      - "80:9294"
+    healthcheck:
+      test: ["CMD", "supervisorctl", "status", "haproxy", "marko", "pactflow"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - ./pactflow-onprem.lic:/home/pactflow-onprem.lic
     ports:
       - "80:9292"
     healthcheck:
@@ -130,6 +149,9 @@ services:
       LOGGING_LEVEL_ORG_APACHE_HC_CLIENT5_HTTP_WIRE: INFO
     ports:
       - "8100:8080"
+  
+  redis:
+    image: redis:latest
 
 volumes:
   postgres-volume:

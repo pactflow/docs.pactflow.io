@@ -1,13 +1,13 @@
 ---
-title: Redis Cache
+title: Cache
 ---
 
 ## Introduction
 
-PactFlow requires a Redis-compatible storage for the following functions:
+PactFlow requires a Redis Serialization Protocol (RESP)-compatible storage engine to support the following functions:
 
 - User session management
-- UI caching for performance
+- UI caching for improved performance
 
 ## Session management
 
@@ -35,4 +35,9 @@ As a fallback, the PactFlow UI follows HTTP cache-control conventions. If a user
 
 ## Supported versions
 
-Redis 7.0 and later is supported.
+Engines that implement the [Redis Serialization Protocol (RESP) version 3](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md) are supported.
+
+Example implementations include:
+
+- Redis
+- Valkey

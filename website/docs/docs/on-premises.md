@@ -9,6 +9,7 @@ sidebar_label: Architecture
 
 * An application server capable of running Docker
 * PostgreSQL database
+* Redis Serialization Protocol (RESP)-compatible key/value cache
 * SAML IDP for SSO
 * PactFlow license file
 
@@ -18,7 +19,7 @@ sidebar_label: Architecture
 
 ### Example AWS deployment using ECS
 
-![System architecture](/img/saas-architecture-aws.png)
+![System architecture](/img/on-prem-architecture-2x.png)
 
 ## Internal architecture
 
@@ -26,7 +27,7 @@ The PactFlow On-Premises application is distributed as a Docker image. It is bas
 
 ### Application user requirements
 
-The PactFlow application does not need any elevated privileges to run. It runs under the user `app:app`.
+You can run the application without elevated privileges. It runs under the user `app`.
 
 ### Application port
 
@@ -34,15 +35,21 @@ The PactFlow application runs on port `9292` by default. This can be configured 
 
 ### Healthcheck endpoint
 
-A healthcheck endpoint for use by a Docker container managment service is available at `http://<HOST>/diagnostic/status/heartbeat`. No authentication is required. This endpoint does not make a connection to the database.
+There's a healthcheck endpoint at `http://<HOST>/diagnostic/status/heartbeat` meant for Docker container management tools.
 
-If the healthcheck is running from inside the container, make sure to use the port defined in the environment variable `$PACTFLOW_HTTP_PORT`, which defaults to 9292. You can use `wget` to perform the healthcheck request.
+- It doesn't need authentication.
+- It doesn't touch the database.
+- You can use it to check if load balancer targets are working properly.
+
+If you're running the healthcheck from inside the container, be sure to use the port specified by the `$PACTFLOW_HTTP_PORT` environment variable (defaults to `9292` if not set).
+
+You can use `supervisorctl` to send the healthcheck request.
 
 An example healthcheck configuration for Docker Compose:
 
 ```yaml
 healthcheck:
-  test: ["CMD", "wget", "-nv", "-t1", "--spider", "http://localhost:9292/diagnostic/status/heartbeat"]
+  test: ["supervisorctl", "status", "haproxy", "marko", "pactflow"]
   interval: 30s
   timeout: 10s
   retries: 3

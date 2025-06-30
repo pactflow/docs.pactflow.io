@@ -20,9 +20,8 @@ The host names of these services should also be whitelisted in the [PACTFLOW_WEB
 
 ## Certificate and TLS termination
 
-The recommended configuration is to terminate TLS at the load balancer, communicating over HTTP to the target application servers.
+The recommended configuration is to terminate TLS at the load balancer, communicating over HTTP to the target application servers, which in turn communicate over local sockets to applications within the container.
 
-If you would like to run PactFlow in a TLS-everywhere configuration there are several options:
+If you would like to run PactFlow in a TLS-everywhere configuration, modify the HAProxy configuration file (`/tmp/haproxy.cfg`) to bind a certificate to the `frontend`, and ensure the certificate has been appropriately mounted/added to the container.
 
-* Run the PactFlow container with a sidecar reverse proxy such as nginx configured with the TLS configuration of your choosing
-* Raise a feature request with us so that we can add it to our backlog, and support it natively with the underlying application server (Puma)
+Refer to the [HAProxy documentation](https://www.haproxy.com/documentation/haproxy-configuration-tutorials/security/ssl-tls/client-side-encryption/) for further information.
