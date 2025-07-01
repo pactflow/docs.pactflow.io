@@ -99,7 +99,7 @@ https://app.pactflow.io
   - Directed to their default tenant, or
   - Presented with a list of organisations they belong to.
 
-> Your existing tenant-specific URL (e.g., `xyz.pactflow.io`) will continue to work.
+> Your existing tenant-specific URL (for example, `xyz.pactflow.io`) will continue to work.
 
 ### Website and Marketing Collateral
 

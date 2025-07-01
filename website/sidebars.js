@@ -78,6 +78,7 @@ module.exports = {
           type: "category",
           label: "Roles and permissions",
           items: [
+            "docs/permissions/rbac",
             "docs/permissions/predefined-roles",
             "docs/permissions/permissions",
             "docs/permissions/api-tokens",

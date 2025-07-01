@@ -487,4 +487,4 @@ You can discriminate between users based on the "identity provider" column in ou
 
 You can't make the username/password login dialog disappear, however only users that have been manually invited by email can login with this option. Inviting users is controlled by the [`user:invite` permission](https://docs.pactflow.io/docs/permissions/#userinvite), which by default is only available to Administrators. You can use this permission to create custom roles as needed to control the desired behaviour.
 
-Note it is wise to retain at least one administrative user who can login with a username and password to address break-glass scenarios (e.g., if your SSO provider is down or misconfigured).
+Note it is wise to retain at least one administrative user who can login with a username and password to address break-glass scenarios (for example, if your SSO provider is down or misconfigured).

@@ -51,7 +51,7 @@ Once SSO has been enabled, any users on the registered SAML domain _must_ login 
 
 Users not attached to the SAML domain that have been invited may login using any form. Inviting users is controlled by the [`user:invite` permission](https://docs.pactflow.io/docs/permissions/#userinvite), which by default is only available to Administrators. 
 
-We recommend at least one administrative user who can login with a username and password to address break-glass scenarios (e.g., if your SSO provider is down or misconfigured).
+We recommend at least one administrative user who can login with a username and password to address break-glass scenarios (for example, if your SSO provider is down or misconfigured).
 
 ### 2. I'm an enterprise customer and need SCIM enabled
 
