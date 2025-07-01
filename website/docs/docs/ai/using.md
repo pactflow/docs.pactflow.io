@@ -415,3 +415,43 @@ In AI, context is key. The more relevant information you can provide the more ta
 ### 3. Use Test Templates
 
 Test Templates reduce the amount of refactoring required after generation. If you start to see a common generation pattern you wish to avoid, update the Test Template to help PactFlow AI generate improved output.
+
+## Comparing PactFlow AI with Other AI Tools
+
+PactFlow AI is purpose-built for contract testing workflows. While general-purpose AI tools like ChatGPT, GitHub Copilot, and IDE-native assistants (e.g., Windsurf) offer broad utility, they are not optimized for *specific* domains and use cases like contract testing with Pact.
+
+The table below outlines key differences between these tools to help you understand how PactFlow AI can be incorporated into your development process.
+
+### Feature Comparison
+
+| Feature | **PactFlow AI** | **ChatGPT / Claude** | **GitHub Copilot** | **IDE-native AI (e.g., Windsurf)** |
+|--------|------------------|----------------------|--------------------|-------------------------------|
+| **Primary Use Case** | Contract test generation, review, and maintenance | General knowledge, Q&A, prototyping | Inline code suggestions | IDE-embedded assistant for development tasks |
+| **Breadth of Application** | Focused on Pact | Wide range of dev and non-dev tasks | General-purpose coding | Full-stack code, terminal, file editing |
+| **Strength in General Coding** |	❌ Not built for general-purpose coding |	✅ Excellent at most languages and use cases |	✅ Great for scaffolding and boilerplate	| ✅ Helps with app logic, CLI, tests, refactors |
+| **Integration Surface** |	CLI (now), IDE via MCP (coming), UI (planned) |	Chat/web/app with integrations | Deep IDE integration (VS Code, JetBrains), Web/UI |	Native to Cursor, Cline, etc. |
+| **Contract Testing Support** | ✅ Pact-specific knowledge, updated DSLs, test structure and matcher guidance | ❌ Generic or outdated knowledge | ❌ May suggest invalid or old Pact patterns | ❌ No contract testing awareness |
+| **Contract Testing Maintenance** | ✅ Review, update, and fix existing Pact tests | ❌ Prompt-based only | ❌ Suggests code, not test upkeep | ❌ Not designed for test maintenance |
+| **TDD Alignment** | ✅ Encourages scoped, purposeful test creation | ❌ May reinforce ad hoc development | ✅ Scaffolds tests, but not goal-oriented | ⚠️ Speed-optimized, not test-structured |
+| **Human-in-the-loop Design** | ✅ AI suggestions are reviewable and optional | ⚠️ User must prompt and validate output | ✅ Autocomplete with human review | ⚠️ High-speed, low-friction suggestions |
+| **Governance & Control** | ✅ RBAC-aware, CLI and platform-controlled | ⚠️ Black-box models, limited traceability | ⚠️ Limited observability | ⚠️ Tool-dependent privacy and trust model |
+
+### When to Use Each Tool
+
+| Use Case | Recommended Tool |
+|----------|------------------|
+| Creating and maintaining Pact tests | **PactFlow AI** |
+| Prototyping or researching APIs, code patterns | **ChatGPT / Claude** |
+| Writing app logic, scaffolding components or full-stack development in IDE | **GitHub Copilot**, **IDE-native AI tools** |
+
+### Summary
+
+PactFlow AI is not designed to replace general-purpose AI tools. Instead, it complements them by offering deep, current knowledge of contract testing—particularly Pact.
+
+While other tools can help with coding in general, they do not provide guidance on:
+- Pact test quality
+- Over-specification and drift detection
+- DSL correctness and best practices
+- And other contract-testing specific capabilities
+
+For teams working with Pact, PactFlow AI acts as a domain expert—reviewing, generating, and maintaining tests with precision and context.
