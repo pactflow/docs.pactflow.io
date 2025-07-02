@@ -24,15 +24,6 @@ The PactFlow application log level
 **Default:** `INFO`<br/>
 **Allowed values:** `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`<br/>
 
-### PACTFLOW_LOG_FORMAT
-
-The PactFlow application log format
-
-**Required:** false<br/>
-**Default:** `json`<br/>
-**Allowed values:** `json`, `default`, `color`<br/>
-**More information:** https://github.com/rocketjob/semantic_logger/tree/master/lib/semantic_logger/formatters<br/>
-
 ### PACTFLOW_HTTP_LOGGING_ENABLED
 
 When true, HTTP request details and response status and duration will be logged to stdout in json format
@@ -531,7 +522,7 @@ The secret used to encrypt the rack.session cookie.
 To generate an appropriate value, run the following on Linux/Mac:
 
 ```
-env LC_CTYPE=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 32 | head -n 1
+LC_ALL=C tr -dc '_A-Z-a-z-0-9!#$%&*+-\\.^_|~' < /dev/urandom | fold -w 64 | head -n 1
 ```
 
 **Required:** true<br/>
@@ -639,3 +630,17 @@ head < /dev/random -c 16 | base64
 
 **Required:** if `PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED` is set to `true`<br/>
 **Example:** `JUVDdnRzLXZyWHA7UF93RAo=`<br/>
+
+## User Interface
+
+<hr/>
+
+
+
+### PACTFLOW_CLARITY_DISABLED
+
+Disables the new user interface introduced in version 2.0.0. When this environment variable is set, the legacy interface becomes the default and users cannot switch to the new UI.
+
+**Required:** false<br/>
+**Default:** unset<br/>
+**Allowed values:** `true`<br/>

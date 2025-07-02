@@ -27,6 +27,7 @@ Configure the PactFlow On-Premises application in your identity provider. See th
 * Use the [environment variable templates](/docs/on-premises/environment-variables/templates) to create the appropriate deployment configuration artifacts for the PactFlow Docker image (eg. Cloudformation template, Helm chart etc.)
 * Ensure the [compute resources](/docs/on-premises/system-requirements) have the appropriate specifications.
 * Create a [PostgreSQL database](/docs/on-premises/database)
+* Setup a [Redis cache](/docs/on-premises/redis)
 * Ensure the [network](/docs/on-premises/network-configuration) is configured appropriately.
 * Ensure the [logs](/docs/on-premises/logging) are forwarded to a log aggregation service.
 * Make sure the [license file](/docs/on-premises/license) is mounted into the running containers.
@@ -39,3 +40,4 @@ Setup [database cleaning](/docs/on-premises/maintenance/database) to ensure opti
 :::warning this step is not optional
 Failure to enable database cleaning is likely to result in a gradual decline in system performance and, eventually, query timeouts and system failure.
 :::
+

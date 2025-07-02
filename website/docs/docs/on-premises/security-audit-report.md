@@ -106,54 +106,6 @@ This can be observed by viewing the source of the login form.
 </form>
 ```
 
-### CVE-2022-2625
-
-#### Description
-
-Given certain prerequisites, this vulnerability allows arbitrary code to be run.
-
-#### Component
-
-postgresql14-dev package for Alpine
-
-#### CVE
-
-[https://nvd.nist.gov/vuln/detail/CVE-2022-2625](https://nvd.nist.gov/vuln/detail/CVE-2022-2625)
-
-#### Status
-
-Non-exploitable.
-
-#### Notes
-
-This vulnerability applies to the PostgreSQL server only. The PactFlow Docker image only uses the PostgreSQL client, and hence is not affected by this vulnerability.
-
-### CVE-2022-37434
-
-#### Description
-
-A heap-based buffer over-read or buffer overflow in inflate in inflate.c via a large gzip header extra field.
-
-#### Component
-
-zlib package for Alpine
-
-#### CVE
-
-[https://nvd.nist.gov/vuln/detail/CVE-2022-37434](https://nvd.nist.gov/vuln/detail/CVE-2022-37434)
-
-#### Affected versions of PactFlow
-
-All.
-
-#### Status
-
-Unfixed.
-
-#### Notes
-
-As of 24 August 2022, there is no fix available. A patch release of PactFlow will be put out as soon as a fix is available.
-
 ### CVE-2021-41816
 
 #### Component
@@ -170,7 +122,7 @@ False positive.
 
 #### Notes
 
-This vulnerability only affects platforms that use a 4 byte long data type, typically Windows. The PactFlow base image uses 64 bit Alpine Linux, which uses an [8 byte long](https://www.ibm.com/docs/en/ibm-mq/9.0?topic=platforms-standard-data-types-unix-linux-windows).
+This vulnerability only affects platforms that use a 4 byte long data type, typically Windows. The PactFlow base image uses 64 bit Ubuntu Linux, which uses an [8 byte long](https://www.ibm.com/docs/en/ibm-mq/9.0?topic=platforms-standard-data-types-unix-linux-windows).
 
 ### CVE-2020-36599
 

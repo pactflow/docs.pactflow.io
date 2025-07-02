@@ -14,7 +14,7 @@ If you are on a PactFlow trial, creating a RedHat account is **not** required. Y
 
 To set you up with console access, you will need to create a [RedHat account](https://quay.io/signin/). Choose "Register for a RedHat account" and once comwpleted, provide the username/email address to us to add you to the registry.
 
-Once we have granted access to your given email address, you should receive an email from Red Hat Quay confirming access to the PactFlow organisation.
+Once we have granted access to your given email address, you should receive an email from Red Hat Quay confirming access to the PactFlow organization.
 
 ### CI Access
 
@@ -36,7 +36,7 @@ Once we have created you a new user, you will receive an email from Quay.io invi
 
    ![Completed signup](/on-premises/quay-completed.png)
 
-1. You should now have access to the `enterprise` repository in the `pactflow` organisation.
+1. You should now have access to the `enterprise` repository in the `pactflow` organization.
 
 1. You can now sign in with your account (in addition to your Robot Account) to quay to pull docker images. See [getting started with Quay.io](https://docs.quay.io/solution/getting-started.html) for more on this.
 
