@@ -10,7 +10,7 @@ steps:
       queue: pactflow-dev
     plugins:
       - docker#v5.12.0:
-          image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+          image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container/node/serverless:24"
           propagate-environment: true
           propagate-uid-gid: true
           always-pull: true
@@ -25,7 +25,7 @@ steps:
       queue: pactflow-dev
     plugins:
       - docker#v5.12.0:
-          image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-yarn:latest"
+          image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container/node/serverless:24"
           propagate-environment: true
           user: root
           always-pull: true
@@ -42,7 +42,7 @@ steps:
       queue: pactflow-prod
     plugins:
       - docker#v5.12.0:
-          image: "{PRODECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+          image: "{PRODECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container/node/serverless:24"
           propagate-environment: true
           propagate-uid-gid: true
           always-pull: true
@@ -57,7 +57,7 @@ steps:
       queue: pactflow-prod
     plugins:
       - docker#v5.12.0:
-          image: "{PRODECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container-awscli"
+          image: "{PRODECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container/node/serverless:24"
           propagate-environment: true
           always-pull: true
           propagate-uid-gid: true
