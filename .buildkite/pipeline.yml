@@ -9,7 +9,7 @@ steps:
     agents:
       queue: pactflow-dev
     plugins:
-      - docker#v5.12.0:
+      - docker#v5.13.0:
           image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container/node/serverless:24"
           propagate-environment: true
           propagate-uid-gid: true
@@ -24,7 +24,7 @@ steps:
     agents:
       queue: pactflow-dev
     plugins:
-      - docker#v5.12.0:
+      - docker#v5.13.0:
           image: "{ECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container/node/serverless:24"
           propagate-environment: true
           user: root
@@ -41,7 +41,7 @@ steps:
     agents:
       queue: pactflow-prod
     plugins:
-      - docker#v5.12.0:
+      - docker#v5.13.0:
           image: "{PRODECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container/node/serverless:24"
           propagate-environment: true
           propagate-uid-gid: true
@@ -56,7 +56,7 @@ steps:
     agents:
       queue: pactflow-prod
     plugins:
-      - docker#v5.12.0:
+      - docker#v5.13.0:
           image: "{PRODECR}.dkr.ecr.ap-southeast-2.amazonaws.com/build-container/node/serverless:24"
           propagate-environment: true
           always-pull: true
