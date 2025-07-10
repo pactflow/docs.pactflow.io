@@ -73,7 +73,7 @@ To list the gems installed on the PactFlow image run:
 docker run --rm -it --entrypoint gem quay.io/pactflow/enterprise:latest "list"
 ```
 
-## Known vulnerabilities
+## Known advisories
 
 ### CVE-2015-9284
 

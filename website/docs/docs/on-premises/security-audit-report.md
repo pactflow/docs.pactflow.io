@@ -73,7 +73,7 @@ To list the gems installed on the PactFlow image run:
 docker run --rm -it --entrypoint gem quay.io/pactflow/enterprise:latest "list"
 ```
 
-## Known vulnerabilities
+## Known advisories
 
 ### CVE-2015-9284
 
@@ -197,3 +197,63 @@ Up to and including 1.19.2.
 #### Notes
 
 PactFlow uses a custom failure endpoint so the vulnerable code is never executed.
+
+### CVE-2025-22872
+
+#### Description
+
+The https://pkg.go.dev/golang.org/x/net package tokenizer incorrectly interprets tags with unquoted attribute values that end with a solidus character (/) as self-closing. When directly using Tokenizer, this can result in such tags incorrectly being marked as self-closing, and when using the Parse functions, this can result in content following such tags as being placed in the wrong scope during DOM construction, but only when tags are in foreign content (e.g. `<math>`, `<svg>`, etc contexts).
+
+#### CVE
+
+[https://nvd.nist.gov/vuln/detail/CVE-2025-22872](https://nvd.nist.gov/vuln/detail/CVE-2025-22872)
+
+#### Component
+
+`dockerize` (a command-line utility available to use as a helpful entrypoint when starting PactFlow).
+
+#### Status
+
+Non-exploitable.
+
+#### Detectable in versions of PactFlow
+
+Up to and including 1.37.0.
+
+#### Fixed versions
+
+n/a
+
+#### Notes
+
+`dockerize` is not, and cannot, be used in a web-based context where the XSS threat is present. 
+
+### CVE-2025-22874 
+
+#### Description
+
+Calling `Verify` with a `VerifyOptions.KeyUsages` that contains `ExtKeyUsageAny` unintentionally disabled policy validation. This only affected certificate chains which contain policy graphs, which are rather uncommon.
+
+#### CVE
+
+[https://nvd.nist.gov/vuln/detail/CVE-2025-22872](https://nvd.nist.gov/vuln/detail/CVE-2025-22872)
+
+#### Component
+
+`dockerize` (a command-line utility available to use as a helpful entrypoint when starting PactFlow).
+
+#### Status
+
+Non-exploitable.
+
+#### Detectable in versions of PactFlow
+
+Up to and including 1.37.0.
+
+#### Fixed versions
+
+n/a
+
+#### Notes
+
+The primary use of `dockerize` in PactFlow is to wait for the network availability of a local, trusted connection on the *same* host - i.e. the PactFlow application - before starting the main process and marking the service as available. Customers should be aware of the potential risk if used in other use cases.
