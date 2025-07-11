@@ -150,9 +150,9 @@ Up to and including 1.19.2.
 
 PactFlow uses a custom failure endpoint so the vulnerable code is never executed.
 
-### `libpam` related security vulnerabilities
+### `libpam` and `perl` related security vulnerabilities
 
-The following CVEs affect the `libpam` libraries included in the base operating system used by PactFlow’s Docker image (Ubuntu 24.04). These packages are marked as essential system dependencies, and removing them would break standard package management functionality (`apt`, `dpkg`) within the container.
+The following CVEs affect the `libpam` and `perl` libraries included in the base operating system used by PactFlow’s Docker image (Ubuntu 24.04). These packages are marked as essential system dependencies, and removing them would break standard package (`apt`, `dpkg`) and user management functionality within the container.
 
 We are shipping the image with these packages included, as they are required for basic system operation. PactFlow itself does **not** use the PAM libraries at runtime. If your internal security policies require their removal, see the mitigation guidance below.
 
@@ -191,6 +191,28 @@ _Version:_ 1.5.3-5
 ##### CVE
 
 [https://nvd.nist.gov/vuln/detail/CVE-2024-10041](https://nvd.nist.gov/vuln/detail/CVE-2024-10041)
+
+##### Detectable in versions of PactFlow
+
+2.0.0 and later
+
+##### Notes
+
+As above — required only for essential base image functionality, and not invoked or referenced by PactFlow.
+
+#### CVE-2025-40909
+
+##### Affected Components
+
+- perl
+- perl-base
+- perl-modules-5.38
+- libperl5.38t64
+_Version:_ 5.38.2-3.2
+
+##### CVE
+
+[https://nvd.nist.gov/vuln/detail/CVE-2024-10963](https://nvd.nist.gov/vuln/detail/CVE-2025-40909)
 
 ##### Detectable in versions of PactFlow
 
