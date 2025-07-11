@@ -383,6 +383,7 @@ module.exports = {
             "docs/on-premises/network-configuration",
             "docs/on-premises/installation/migrating",
             "docs/on-premises/database",
+            "docs/on-premises/observability",
             "docs/on-premises/logging",
             {
               type: "category",
@@ -457,6 +458,7 @@ module.exports = {
             "docs/on-premises-2x/installation/migrating",
             "docs/on-premises-2x/database",
             "docs/on-premises-2x/redis",
+            "docs/on-premises-2x/observability",
             "docs/on-premises-2x/logging",
             {
               type: "category",
