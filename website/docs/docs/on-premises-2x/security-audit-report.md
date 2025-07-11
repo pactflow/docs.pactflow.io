@@ -149,3 +149,69 @@ Up to and including 1.19.2.
 #### Notes
 
 PactFlow uses a custom failure endpoint so the vulnerable code is never executed.
+
+### `libpam` related security vulnerabilities
+
+The following CVEs affect the `libpam` libraries included in the base operating system used by PactFlow’s Docker image (Ubuntu 24.04). These packages are marked as essential system dependencies, and removing them would break standard package management functionality (`apt`, `dpkg`) within the container.
+
+We are shipping the image with these packages included, as they are required for basic system operation. PactFlow itself does **not** use the PAM libraries at runtime. If your internal security policies require their removal, see the mitigation guidance below.
+
+#### CVE-2024-10963
+
+##### Affected Components
+
+- libpam0g
+- libpam-modules
+- libpam-runtime
+- libpam-modules-bin  
+_Version:_ 1.5.3-5
+
+##### CVE
+
+[https://nvd.nist.gov/vuln/detail/CVE-2024-10963](https://nvd.nist.gov/vuln/detail/CVE-2024-10963)
+
+##### Detectable in versions of PactFlow
+
+2.0.0 and later
+
+##### Notes
+
+These libraries are not used directly by PactFlow. They are included only to satisfy essential system package dependencies (e.g. `login`, `passwd`). Removing them using normal package tools will result in a broken package state.
+
+#### CVE-2024-10041
+
+##### Affected Components
+
+- libpam0g
+- libpam-modules
+- libpam-runtime
+- libpam-modules-bin  
+_Version:_ 1.5.3-5
+
+##### CVE
+
+[https://nvd.nist.gov/vuln/detail/CVE-2024-10041](https://nvd.nist.gov/vuln/detail/CVE-2024-10041)
+
+##### Detectable in versions of PactFlow
+
+2.0.0 and later
+
+##### Notes
+
+As above — required only for essential base image functionality, and not invoked or referenced by PactFlow.
+
+### Mitigation guidance
+
+If you must remove the `libpam*` packages for compliance reasons:
+
+1. Be aware that this action may break the container’s ability to use `apt`, `apt-get`, or `dpkg`.
+2. You must force-remove the packages using `dpkg` with dependency resolution disabled:
+
+```sh
+dpkg -r --force-depends libpam-modules libpam-runtime libpam0g libpam-modules-bin login passwd
+```
+
+3. This may prevent future upgrades or installation of packages within the running container.
+4. PactFlow will continue to function correctly, but package management inside the container will be unsupported.
+
+> **Warning:** This operation is not recommended unless you understand and accept the trade-offs.
