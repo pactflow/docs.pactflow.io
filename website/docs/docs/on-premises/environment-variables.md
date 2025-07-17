@@ -654,10 +654,10 @@ Setting it with a OTLP exporter endpoint enables opentelemetry and spans are exp
 **Default:** `nil`<br/>
 **Example:** `https://172.23.092.124:4318`<br/>
 
-### PACTFLOW_OTEL_DEPLOYMENT_ENVIRONMENT
+### OTEL_DEPLOYMENT_ENVIRONMENT
 
 To set a deployment environment name.
 
 **Required:** `false`<br/>
-**Default:** `prod`<br/>
+**Default:** `dev`<br/>
 **Example:** `production`<br/>
