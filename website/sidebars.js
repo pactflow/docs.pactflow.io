@@ -524,6 +524,7 @@ module.exports = {
       items: [
         //on-prem-release-placeholder
         'docs/on-premises/releases/2.1.1',
+        'docs/on-premises/releases/2.1.0',
         "docs/on-premises/releases/2.0.0",
         "docs/on-premises/releases/1.37.0",
         "docs/on-premises/releases/1.36.0",
