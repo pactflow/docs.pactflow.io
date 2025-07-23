@@ -80,7 +80,7 @@ We can generate a test for the `404` scenario by explicitly specifying the metho
 ```console
 pactflow-ai generate \
   --openapi  products.yml \
-  --endpoint '{"path": "/product/{id}", "methods": ["GET"], "status": ["404"]}' \
+  --endpoint '{"path": "/product/{id}", "methods": ["GET"], "status_codes": ["404"]}' \
   --output   src/api.pact.spec.ts \
   --language typescript
 ```
