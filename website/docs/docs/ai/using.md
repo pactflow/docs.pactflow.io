@@ -353,6 +353,46 @@ This would instruct the test generation process to read the file content and use
 * Use the PactV4 interface
 ```
 
+### Reviewing Pact Tests
+
+Use the `pactflow-ai review` command to check an existing Pact test against best practices.
+
+:::note
+This feature is currently in beta. Supported languages include JavaScript and Java.
+:::
+
+```sh
+pactflow-ai review \
+  --test ./src/api.pact.spec.ts \
+  --code ./src/api.js \
+  --code ./src/product.js
+```
+
+#### Applying Changes
+
+By default, the review command provides feedback and suggested changes without modifying files.
+
+To apply the suggestions automatically, use the `--apply` flag:
+
+```sh
+pactflow-ai review \
+  --test ./test.js \
+  --code ./src.js \
+  --apply
+```
+
+The command requires a clean Git state to avoid introducing irreversible changes. If the file is not part of a Git repository, or if it has uncommitted or staged changes, the command will fail.
+
+To override this behavior, use one or more of the following flags:
+
+- `--allow-no-vcs` – Allow editing files not tracked in a Git repository.
+- `--allow-dirty` – Allow changes to files with uncommitted modifications.
+- `--allow-staged` – Allow changes to files with staged but uncommitted changes.
+
+:::tip
+Run `pactflow-ai review --help` to see all available options and usage examples.
+:::
+
 ## Best Practices
 
 ### 1. Check PactFlow's work
