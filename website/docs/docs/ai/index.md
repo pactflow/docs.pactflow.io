@@ -12,7 +12,7 @@ PactFlow AI includes a suite of features to improve the efficiency and quality o
 * Generating Pact tests using various combinations of OpenAPI descriptions, code, or request-response pairs
 * Customizable prompts and test templates to tailor output to your specific needs
 * Seamless integration with PactFlow's Role-based Access Controls feature, enabling you to enforce and manage organizational policies
-* Code review (upcoming), enabling you to evaluate the quality of existing Pact tests and suggest best-practice improvements
+* Code review (beta), enabling you to evaluate the quality of existing Pact tests and suggest best-practice improvements
 
 PactFlow AI is available as a CLI and supports the following programming languages:
 
