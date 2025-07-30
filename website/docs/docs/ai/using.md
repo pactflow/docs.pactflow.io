@@ -244,7 +244,7 @@ Test Templates are supported for all forms of test generation.
 
 #### Providing Code Templates
 
-When generating code, you can ask PactFlow to use a template test to customise output. Using the template, PactFlow AI will attempt to use the style, conventions and patterns it sees in your code. To provide a template, use the `--test-template` parameter, passing the location of a file containing the template.
+When generating code, you can ask PactFlow to use a template test to customise output. Using the template, PactFlow AI will attempt to use the style, conventions and patterns it sees in your code. To provide a template, use the `--template` parameter, passing the location of a file containing the template.
 
 **Example:**
 
