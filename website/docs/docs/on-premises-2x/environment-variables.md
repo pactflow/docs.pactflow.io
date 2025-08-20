@@ -166,6 +166,13 @@ Required for running Postgres on RDS with IAM authentication. This must be set t
 
 **Required:** false<br/>
 
+### REDIS_URL
+
+The fully qualified connection string to a RESP-compatible service. The `redis://` and `rediss://` protocols are supported.
+
+**Required:** true<br/>
+**Example:** `redis://redis:6379`<br/>
+
 ## Webhooks
 
 <hr/>
@@ -644,3 +651,34 @@ Disables the new user interface introduced in version 2.0.0. When this environme
 **Required:** false<br/>
 **Default:** unset<br/>
 **Allowed values:** `true`<br/>
+
+## Observability
+
+<hr/>
+
+
+
+**Allowed values:** `true`<br/>
+
+### OTEL_EXPORTER_OTLP_ENDPOINT
+
+The OTLP (HTTP) endpoint to export spans to.
+
+**Required**: false<br/>
+**Example**: `https://172.23.92.124:4318`<br/>
+**Allowed values:** `true`, `false`<br/>
+
+
+### OTEL_DEPLOYMENT_ENVIRONMENT
+
+The name of the deployment environment (for example, `production`).
+
+**Required**: false<br/>
+**Default**: `dev`<br/>
+
+### OTEL_LOG_LEVEL
+
+Log level for the OpenTelemetry SDK instrumentation (such as `debug` or `info`).
+
+**Required**: false<br/>
+**Default**: `info`<br/>
