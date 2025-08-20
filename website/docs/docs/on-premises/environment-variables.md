@@ -639,3 +639,34 @@ head < /dev/random -c 16 | base64
 
 **Required:** if `PACTFLOW_API_TOKEN_ENCRYPTION_ENABLED` is set to `true`<br/>
 **Example:** `JUVDdnRzLXZyWHA7UF93RAo=`<br/>
+
+## Observability
+
+<hr/>
+
+
+
+**Allowed values:** `true`<br/>
+
+### OTEL_EXPORTER_OTLP_ENDPOINT
+
+The OTLP (HTTP) endpoint to export spans to.
+
+**Required**: false<br/>
+**Example**: `https://172.23.92.124:4318`<br/>
+**Allowed values:** `true`, `false`<br/>
+
+
+### OTEL_DEPLOYMENT_ENVIRONMENT
+
+The name of the deployment environment (for example, `production`).
+
+**Required**: false<br/>
+**Default**: `dev`<br/>
+
+### OTEL_LOG_LEVEL
+
+Log level for the OpenTelemetry SDK instrumentation (such as `debug` or `info`).
+
+**Required**: false<br/>
+**Default**: `info`<br/>
