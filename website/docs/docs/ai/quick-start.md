@@ -17,6 +17,23 @@ You must be an Administrator or a user with the [`system_preference:manage:*` pe
 
 ## Installation
 
+### Option 1: MCP Server (Recommended)
+
+The Model Context Protocol (MCP) is the recommended way to use PactFlow AI. It provides seamless integration with IDEs and modern developer environments.
+
+MCP Server exposes PactFlow AI as a *local* endpoint and works with tools like VS Code, IntelliJ, Cursor, and other MCP-compatible agents.
+
+Follow the official [MCP Server documentation](https://developer.smartbear.com/smartbear-mcp/docs/mcp-server) to perform the following steps:
+
+* Install the MCP Server.
+* Configure and start the local service.
+* Connect with MCP clients.
+
+This option is ideal for teams working with AI copilots or looking to automate testing workflows.
+
+### Option 2: CLI
+
+You can also use PactFlow AI using the CLI. It supports test generation and review from the terminal.
 For *nix users (including Windows users running WSL/msys2/mingw), use the following command to download and install:
 
 ```sh
@@ -29,7 +46,7 @@ For Windows PowerShell users, use the following command to download and install:
 Invoke-WebRequest -Uri https://download.pactflow.io/ai/get.ps1 | Invoke-Expression
 ```
 
-### Installation Options
+#### Installation Options
 
 There are some options which you can set during installation.
 
@@ -48,7 +65,7 @@ curl https://download.pactflow.io/ai/get.sh | sh -s -- -h
 
 Verify the installation by running `pactflow-ai` to ensure it executes successfully.
 
-### Manual installation
+#### Manual installation
 
 Alternatively, download the latest version for your OS and architecture from the table below. Be sure to add it to your environment's `PATH`:
 
@@ -60,7 +77,7 @@ Linux GNU users will require glibc version 2.23 or later.
 Environments which do not use glibc, or use a version of glibc prior to 2.23, should instead use the musl variant.
 :::
 
-## Getting Started
+### Getting Started
 
 :::note
 Running `pactflow-ai --help` will show detailed usage for any subcommands.
