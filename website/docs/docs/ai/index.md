@@ -7,7 +7,7 @@ PactFlow's Test Generation feature, is an AI-powered capability designed to help
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/mcp2.gif" width="1024" />
-  <p style={{marginTop: '-25px', fontStyle: 'italic', fontSize: '90%'}}>PactFlow AI with Copilot using MCP integration. Watch the <a href="https://www.youtube.com/watch?v=VNe_Y6FcBqA&t=444s">full video →</a></p>
+  <p style={{marginTop: '-25px', fontStyle: 'italic', fontSize: '90%'}}>PactFlow AI with Copilot using MCP integration. Watch the <a href="https://www.youtube.com/watch?v=VNe_Y6FcBqA&">full video →</a></p>
 </div>
 
 ## Features
