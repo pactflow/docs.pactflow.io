@@ -1,4 +1,4 @@
-FROM node:18@sha256:c6ae79e38498325db67193d391e6ec1d224d96c693a8a4d943498556716d3783
+FROM node:22@sha256:3266bc9e8bee1acc8a77386eefaf574987d2729b8c5ec35b0dbd6ddbc40b0ce2
 RUN apt-get update && apt-get install -y python3 \
         python3-pip \
         jq \
