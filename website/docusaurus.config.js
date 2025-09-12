@@ -38,7 +38,7 @@ module.exports = {
           position: "left",
         },
         { to: "docs/examples", label: "Examples", position: "left" },
-        { to: "docs/on-premises", label: "On-Premises", position: "left" },
+        { to: "docs/on-premises-2x", label: "On-Premises", position: "left" },
         { to: "notices", label: "Notices", position: "left" },
         { to: "https://support.smartbear.com/pactflow/message/", label: "Support ↗", position: "left" },
       ],
