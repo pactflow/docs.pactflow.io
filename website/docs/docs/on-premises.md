@@ -3,6 +3,12 @@ title: PactFlow On-Premises Architecture
 sidebar_label: Architecture
 ---
 
+:::warning
+The 1.x line of PactFlow On-Prem is now in maintenance mode and will only receive security updates. It will reach end of life on March 11, 2026, after which it will no longer be supported.
+
+To ensure you have access to the latest features and improvements, please upgrade to 2.x as soon as possible.
+:::
+
 ## System architecture
 
 ### Minimum requirements
