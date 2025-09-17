@@ -112,7 +112,7 @@ https://app.pactflow.io
 ## User and Org Management
 
 - Managing users is no longer done within the PactFlow UI.
-- All user management is now performed in the [SmartBear Admin Portal](https://support.smartbear.com/swaggerhub/docs/admin/manage-users.html).
+- All user management is now performed in the [SmartBear Admin Portal](https://support.smartbear.com/api-hub/docs/en/api-hub-administration-management/adding-and-managing-users.html#adding-and-managing-users).
 
 ![SmartBear Admin](/ui/apihub/migration-smartbear-admin.png)
 
