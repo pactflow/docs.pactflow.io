@@ -34,7 +34,10 @@ formatted text](https://commonmark.org/help/) (which also supports HTML markup).
 
 #### Default Role
 
-This preference assigns the default role for new users. If this preference is not set, new users will be assigned the [User](/docs/permissions/predefined-roles#user) role.
+This preference determines the default role assigned to new users, based on their seat type.
+
+- If not set, new users with the **Editor** seat type are assigned the [User](/docs/permissions/predefined-roles#user) role.
+- If not set, new users with the **Viewer** seat type are assigned the [Viewer](/docs/permissions/predefined-roles#viewer) role.
 
 #### Default Team
 

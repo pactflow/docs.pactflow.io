@@ -69,7 +69,11 @@ This role is automatically assigned to any user who is an administrator of a spe
 
 - [`team:manage:{uuid}`](/docs/permissions#teammanageuuid)
 
-## Viewer
+## Read-Only
+
+:::note
+This is a legacy role (previously called **Viewer**) and is no longer assigned to new accounts.
+:::
 
 #### Default permissions
 
@@ -78,15 +82,17 @@ This role is automatically assigned to any user who is an administrator of a spe
 - [`team:read:*`](/docs/permissions#teamread)
 - [`user:read:*`](/docs/permissions#userread)
 
-## Guest
+## Viewer
 
-A user with the guest role can only view contract related data through the UI and has no API access.
+A user with the **Viewer** role can view contract-related data through the UI, but does not have API access.
 
-The guest role permissions may not be modified.
+Viewer role permissions are fixed, and you cannot modify them.
 
 #### Permissions
 
 - [`contract_data:read:*`](/docs/permissions#contract_dataread)
+- [`team:read:*`](/docs/permissions#teamread)
+- [`user:read:*`](/docs/permissions#userread)
 
 ## SwaggerHub
 
