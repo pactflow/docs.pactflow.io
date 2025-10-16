@@ -371,6 +371,82 @@ module.exports = {
   onprem: [
     {
       type: "category",
+      label: "On-Premises 2.x",
+      items: [
+        {
+          type: "category",
+          label: "Installation",
+          items: [
+            "docs/on-premises-2x",
+            "docs/on-premises-2x/system-requirements",
+            "docs/on-premises-2x/migrating-from-1x",
+            "docs/on-premises-2x/docker-image-registry",
+            "docs/on-premises-2x/network-configuration",
+            "docs/on-premises-2x/installation/migrating",
+            "docs/on-premises-2x/database",
+            "docs/on-premises-2x/redis",
+            "docs/on-premises-2x/observability",
+            "docs/on-premises-2x/logging",
+            {
+              type: "category",
+              label: "Authentication",
+              items: [
+                "docs/on-premises-2x/authentication/demo",
+                "docs/on-premises-2x/authentication/saml",
+              ],
+            },
+            {
+              type: "category",
+              label: "Application configuration",
+              items: [
+                "docs/on-premises-2x/environment-variables",
+                "docs/on-premises-2x/environment-variables/templates",
+                "docs/on-premises-2x/environment-variables/timezones",
+                "docs/on-premises-2x/license",
+              ],
+            },
+            "docs/on-premises-2x/docker-compose-example",
+            "docs/on-premises-2x/installation/load-testing",
+            "docs/on-premises-2x/installation/checklist",
+          ],
+        },
+        {
+          type: "category",
+          label: "Upgrading",
+          items: ["docs/on-premises-2x/upgrading/database-migrations"],
+        },
+        {
+          type: "category",
+          label: "Operation",
+          items: ["docs/on-premises-2x/authentication"],
+        },
+        {
+          type: "category",
+          label: "Maintenance",
+          items: ["docs/on-premises-2x/maintenance/database"],
+        },
+        {
+          type: "category",
+          label: "SCIM",
+          items: ["docs/on-premises-2x/scim"],
+        },
+        {
+          type: "category",
+          label: "Security and support",
+          items: [
+            "docs/on-premises-2x/security-audit-report",
+            "docs/on-premises-2x/support-policy",
+          ],
+        },
+        {
+          type: "category",
+          label: "Troubleshooting",
+          items: ["docs/on-premises-2x/troubleshooting"],
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "On-Premises 1.x",
       items: [
         {
@@ -442,82 +518,7 @@ module.exports = {
           items: ["docs/on-premises/troubleshooting"],
         }
       ],
-    },
-    {
-      type: "category",
-      label: "On-Premises 2.x",
-      items: [
-        {
-          type: "category",
-          label: "Installation",
-          items: [
-            "docs/on-premises-2x",
-            "docs/on-premises-2x/system-requirements",
-            "docs/on-premises-2x/docker-image-registry",
-            "docs/on-premises-2x/network-configuration",
-            "docs/on-premises-2x/installation/migrating",
-            "docs/on-premises-2x/database",
-            "docs/on-premises-2x/redis",
-            "docs/on-premises-2x/observability",
-            "docs/on-premises-2x/logging",
-            {
-              type: "category",
-              label: "Authentication",
-              items: [
-                "docs/on-premises-2x/authentication/demo",
-                "docs/on-premises-2x/authentication/saml",
-              ],
-            },
-            {
-              type: "category",
-              label: "Application configuration",
-              items: [
-                "docs/on-premises-2x/environment-variables",
-                "docs/on-premises-2x/environment-variables/templates",
-                "docs/on-premises-2x/environment-variables/timezones",
-                "docs/on-premises-2x/license",
-              ],
-            },
-            "docs/on-premises-2x/docker-compose-example",
-            "docs/on-premises-2x/installation/load-testing",
-            "docs/on-premises-2x/installation/checklist",
-          ],
-        },
-        {
-          type: "category",
-          label: "Upgrading",
-          items: ["docs/on-premises-2x/upgrading/database-migrations"],
-        },
-        {
-          type: "category",
-          label: "Operation",
-          items: ["docs/on-premises-2x/authentication"],
-        },
-        {
-          type: "category",
-          label: "Maintenance",
-          items: ["docs/on-premises-2x/maintenance/database"],
-        },
-        {
-          type: "category",
-          label: "SCIM",
-          items: ["docs/on-premises-2x/scim"],
-        },
-        {
-          type: "category",
-          label: "Security and support",
-          items: [
-            "docs/on-premises-2x/security-audit-report",
-            "docs/on-premises-2x/support-policy",
-          ],
-        },
-        {
-          type: "category",
-          label: "Troubleshooting",
-          items: ["docs/on-premises-2x/troubleshooting"],
-        },
-      ],
-    },
+    },    
     {
       type: "category",
       label: "Releases",
