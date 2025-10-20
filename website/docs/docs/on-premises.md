@@ -3,6 +3,13 @@ title: PactFlow On-Premises Architecture
 sidebar_label: Architecture
 ---
 
+:::warning
+PactFlow On-Premises 1.x is now in maintenance mode and receives security updates only. It will no longer be supported after March 11, 2026.
+
+To benefit from the latest features and improvements, upgrade to version 2.x as soon as possible.
+:::
+
+
 ## System architecture
 
 ### Minimum requirements
