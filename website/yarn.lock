@@ -5819,10 +5819,10 @@ import-lazy@^2.1.0:
   resolved "https://registry.yarnpkg.com/import-lazy/-/import-lazy-2.1.0.tgz#05698e3d45c88e8d7e9d92cb0584e77f096f3e43"
   integrity sha512-m7ZEHgtw69qOGw+jwxXkHlrlIPdTGkyh66zXZ1ajZbxkDBNjSY/LGbmjc7h0s2ELsUDTAhFr55TrPSSqJGPG0A==
 
-improved-yarn-audit@3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/improved-yarn-audit/-/improved-yarn-audit-3.0.3.tgz#c203ca2e6f3e0a60c62a0a261779a3d014585d5f"
-  integrity sha512-S9KWk8IF+oJOm1hl+uyAdNDlA6GV1PjeKP5ABjAYgLit78lNwfoF2LO39kw2aYr1WvhH2tJ1doTxj4Cikzv7Kw==
+improved-yarn-audit@3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/improved-yarn-audit/-/improved-yarn-audit-3.0.4.tgz#5856ab354e21d98a12090ef690f6ff8b4c7bb8d3"
+  integrity sha512-secfgreRqLYmnp4qzaxxICpOC/RJxcfQSrDSVvkMTXS8bssjqMSuJiueqr07PVP87OlyfTytxDR2SkzIeoTfLQ==
 
 imurmurhash@^0.1.4:
   version "0.1.4"
