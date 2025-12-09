@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PactFlow Documentation - Now Part of SmartBear API Hub</title>
+    <meta name="description" content="PactFlow documentation has moved to SmartBear API Hub for Contract Testing. Redirecting you to the new location.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #f8f9fa;
+        }
+
+        .header {
+            background: #0d1b2a;
+            border-bottom: none;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo svg {
+            height: 40px;
+            width: 40px;
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #8b9098;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: white;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .notice-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .icon-info {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            background: #e8f4f8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-info svg {
+            width: 32px;
+            height: 32px;
+            color: #0078d4;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .redirect-info {
+            background: #f8f9fa;
+            border-left: 4px solid #0078d4;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+            border-radius: 4px;
+        }
+
+        .redirect-info h2 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+        }
+
+        .redirect-info p {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .redirect-url {
+            word-break: break-all;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            background: #fff;
+            padding: 0.75rem;
+            border-radius: 4px;
+            border: 1px solid #e1e4e8;
+            margin-top: 1rem;
+        }
+
+        .redirect-timer {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0078d4;
+            margin: 1.5rem 0;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #0078d4;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #005a9e;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,120,212,0.3);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: #0078d4;
+            border: 2px solid #0078d4;
+        }
+
+        .btn-secondary:hover {
+            background: #f0f6ff;
+        }
+
+        .help-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e1e4e8;
+        }
+
+        .help-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .help-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .help-link {
+            color: #0078d4;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .help-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+
+        .footer a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 2rem auto;
+                padding: 0 1rem;
+            }
+
+            .notice-card {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #0078d4;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/getting-started-with-pactflow.html" class="logo">
+                  <img src="data:image/png;base64,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"
+                    alt="SmartBear Swagger Contract Testing" class="logo-img">
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="notice-card">
+            <div class="icon-info">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                </svg>
+            </div>
+
+            <h1>Documentation Has Moved</h1>
+            <p class="subtitle">Swagger Contract Testing documentation has moved, please update your links</p>
+
+            <div class="redirect-info">
+                <h2>🎯 Redirecting you to the new documentation</h2>
+                <p>We're automatically redirecting you to the correct page on our new documentation site.</p>
+                <p><strong>You will be redirected in:</strong></p>
+                <div class="redirect-timer" id="countdown">5</div>
+                <div class="spinner"></div>
+                <p style="margin-top: 1rem;"><strong>New location:</strong></p>
+                <div class="redirect-url" id="redirect-url">Loading...</div>
+            </div>
+
+            <div class="button-group">
+                <a href="#" class="btn btn-primary" id="redirect-now">Go Now</a>
+                <button class="btn btn-secondary" id="cancel-redirect">Stay Here</button>
+            </div>
+
+            <div class="help-section">
+                <h3>📚 Quick Links to New Documentation</h3>
+                <div class="help-links">
+                    <a href="https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/getting-started-with-pactflow.html" class="help-link">Getting Started</a>
+                    <a href="https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/overview.html" class="help-link">PactFlow University</a>
+                    <a href="https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html" class="help-link">Examples</a>
+                    <a href="https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide.html" class="help-link">User Guide</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 SmartBear Software. All Rights Reserved.</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="https://smartbear.com/privacy/">Privacy Policy</a> | 
+            <a href="https://smartbear.com/terms-of-use/">Terms of Use</a> | 
+            <a href="https://support.smartbear.com/">Support</a>
+        </p>
+    </footer>
+
+    <script>
+        // Redirect mapping based on the current path
+        const redirectMap = {
+            '/': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/getting-started-with-swagger-contract-testing.html',
+            '/docs/ai': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/features/ai/test-generation-featuring-ai.html',
+            '/docs/ai/learning': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/features/ai/further-learning.html',
+            '/docs/ai/managing': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/features/ai/managing-ai.html',
+            '/docs/ai/quick-start': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/features/ai/quick-start.html',
+            '/docs/ai/troubleshooting': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/features/ai/troubleshooting.html',
+            '/docs/ai/using': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/features/ai/using-ai.html',
+            '/docs/authentication/legacy': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/design-first-with-swagger-studio/quick-start-guide-with-github-actions.html',
+            '/docs/authentication/main': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/features/authentication.html',
+            '/docs/authorization-help': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/troubleshooting/authorization-errors.html',
+            '/docs/bi-directional-contract-testing': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/overview.html',
+            '/docs/bi-directional-contract-testing/compatibility-checks': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/compatibility-checks.html',
+            '/docs/bi-directional-contract-testing/consumer': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/consumer.html',
+            '/docs/bi-directional-contract-testing/contracts/oas': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/supported-contracts/openapi-specification/overview.html',
+            '/docs/bi-directional-contract-testing/contracts/oas/changelog': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/supported-contracts/openapi-specification/changelog.html',
+            '/docs/bi-directional-contract-testing/contracts/oas/configuration': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/supported-contracts/openapi-specification/configuration.html',
+            '/docs/bi-directional-contract-testing/contracts/oas/features': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/supported-contracts/openapi-specification/features---testing.html',
+            '/docs/bi-directional-contract-testing/contracts/oas/keyword-support': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/supported-contracts/openapi-specification/keyword-support.html',
+            '/docs/bi-directional-contract-testing/contracts/pact': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/supported-contracts/pact.html',
+            '/docs/bi-directional-contract-testing/deploying': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/deploying-and-releasing.html',
+            '/docs/bi-directional-contract-testing/provider': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/provider.html',
+            '/docs/bi-directional-contract-testing/publishing': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/publishing-contracts.html',
+            '/docs/bi-directional-contract-testing/tools': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/tool-integration/overview.html',
+            '/docs/bi-directional-contract-testing/tools/cypress': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/tool-integration/cypress.html',
+            '/docs/bi-directional-contract-testing/tools/msw': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/tool-integration/msw.html',
+            '/docs/bi-directional-contract-testing/tools/swaggerhub': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/tool-integration/swaggerhub.html',
+            '/docs/bi-directional-contract-testing/tools/wiremock': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/tool-integration/wiremock--java-.html',
+            '/docs/bi-directional-contract-testing/tools/wiremock-net': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/tool-integration/wiremock---net-.html',
+            '/docs/cid-polling-bdc': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/bi-directional-contract-testing/deploying-and-releasing.html#id47587',
+            '/docs/examples': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/aws/sns/consumer': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/aws/sns/consumer/python': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/aws/sns/provider': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/bi-directional/consumer/cypress': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/bi-directional/consumer/dotnet': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/bi-directional/consumer/mountebank': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/bi-directional/consumer/msw': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/bi-directional/consumer/playwright_js': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/bi-directional/consumer/recordreplay': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/bi-directional/consumer/wiremock': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/bi-directional/provider': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/bi-directional/provider/dotnet': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/bi-directional/provider/dredd': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/bi-directional/provider/postman': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/bi-directional/provider/readyapi': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/bi-directional/provider/restassured': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/bi-directional/provider/soapui': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/cypress': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/dotnet/consumer': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/dotnet/provider': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/golang/consumer': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/golang/provider': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/java/consumer/graphql': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/java/consumer/junit': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/java/provider-springboot': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/java/provider/graphql': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/js/consumer': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/js/provider': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/kafka/java/consumer': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/kafka/java/provider': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/kafka/js/consumer': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/python/consumer': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/python/provider': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/soap/java/consumer': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/examples/soap/java/provider': 'https://support.smartbear.com/swagger/contract-testing/docs/en/examples.html',
+            '/docs/integrations/swaggerhub': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/integrations/swagger-studio-integration.html',
+            '/docs/login-help': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/troubleshooting/authorization-errors.html',
+            '/docs/pact': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/contract-testing/pact.html',
+            '/docs/permissions': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/features/roles-and-permissions/permissions.html',
+            '/docs/permissions/api-tokens': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/features/roles-and-permissions/api-token-permissions.html',
+            '/docs/permissions/predefined-roles': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/features/roles-and-permissions/predefined-roles.html',
+            '/docs/permissions/rbac': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/features/roles-and-permissions/overview.html',
+            '/docs/powershell-guide': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/troubleshooting/powershell-migration-guide.html',
+            '/docs/stubs': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/features/stubs.html',
+            '/docs/troubleshooting/apihub': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/migration-from-swagger-contract-testing-to-swagger-for-contract-testing/migration-faq.html',
+            '/docs/troubleshooting/disabling-dangerous-contract-modification': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/troubleshooting/disabling-dangerous-contract-modification.html',
+            '/docs/troubleshooting/glossary': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/troubleshooting/glossary.html',
+            '/docs/troubleshooting/slow-response-when-fetching-pacts-for-verification': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/troubleshooting/slow-responses-when-fetching-pacts-for-verification.html',
+            '/docs/tutorials': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/tutorials.html',
+            '/docs/user-interface': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x.html',
+            '/docs/user-interface/application': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x/application.html',
+            '/docs/user-interface/bi-directional': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x/bi-directional-contract-testing.html',
+            '/docs/user-interface/contract': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x/contract-details.html',
+            '/docs/user-interface/dashboard': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x/dashboard.html',
+            '/docs/user-interface/integration': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x/integration.html',
+            '/docs/user-interface/settings/api-tokens': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x/settings/api-tokens.html',
+            '/docs/user-interface/settings/environments': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x/settings/environments.html',
+            '/docs/user-interface/settings/preferences': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x/settings/preferences.html',
+            '/docs/user-interface/settings/roles': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x/settings/roles.html',
+            '/docs/user-interface/settings/secrets': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x/settings/secrets.html',
+            '/docs/user-interface/settings/system-accounts': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x/settings/system-accounts.html',
+            '/docs/user-interface/settings/teams': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x/settings/teams.html',
+            '/docs/user-interface/settings/users': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x/settings/system-accounts.html',
+            '/docs/user-interface/settings/webhooks': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/user-interface/user-interface-2-x-x/settings/webhooks.html',
+            '/docs/webhooks-help': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/troubleshooting/webhooks---public-ips.html',
+            '/docs/workshops': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/overview.html',
+            '/docs/workshops/advanced': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/advanced-pact/overview.html',
+            '/docs/workshops/bi-directional-contract-testing': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/bi-directional-contract-testing/overview.html',
+            '/docs/workshops/bi-directional/pre_requisites': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/bi-directional-contract-testing/workshop/setting-up.html',
+            '/docs/workshops/bi-directional/step1': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/bi-directional-contract-testing/workshop/1--setting-the-scene.html',
+            '/docs/workshops/bi-directional/step10': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/bi-directional-contract-testing/workshop/10--breaking-change-detection.html',
+            '/docs/workshops/bi-directional/step11': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/bi-directional-contract-testing/workshop/11--conclusion.html',
+            '/docs/workshops/bi-directional/step2': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/bi-directional-contract-testing/workshop/2--create-and-document-an-api-using-openapi.html',
+            '/docs/workshops/bi-directional/step3': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/bi-directional-contract-testing/workshop/3--write-tests-for-your-provider.html',
+            '/docs/workshops/bi-directional/step4': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/bi-directional-contract-testing/workshop/4--publish-the-provider-contract-to-swagger-contract-testing.html',
+            '/docs/workshops/bi-directional/step5': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/bi-directional-contract-testing/workshop/5--deploy-the-provider-to-production.html',
+            '/docs/workshops/bi-directional/step6': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/bi-directional-contract-testing/workshop/6--write-the-api-consumer.html',
+            '/docs/workshops/bi-directional/step7': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/bi-directional-contract-testing/workshop/7--write-consumer-tests.html',
+            '/docs/workshops/bi-directional/step8': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/bi-directional-contract-testing/workshop/8--publish-your-consumer-contract-to-swagger-contract-testing.html',
+            '/docs/workshops/bi-directional/step9': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/bi-directional-contract-testing/workshop/9--deploy-your-consumer-to-production.html',
+            '/docs/workshops/ci-cd': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/consumer-driven-contract-testing-ci-cd/introduction.html',
+            '/docs/workshops/ci-cd-legacy': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/consumer-driven-contract-testing-ci-cd--legacy-/introduction.html',
+            '/docs/workshops/introduction': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/introduction-to-pact/introduction.html',
+            '/docs/workshops/introduction/further': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/introduction-to-pact/further-reading.html',
+            '/docs/workshops/introduction/learning': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/introduction-to-pact/learning-outcomes.html',
+            '/docs/workshops/org_scale': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/advanced-pact/organisational-scale.html',
+            '/docs/workshops/quick_starts/bdc': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/bi-directional-contract-testing/quick-start-guide-with-github-actions.html',
+            '/docs/workshops/quick_starts/design_first': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/design-first-with-swagger-studio/quick-start-guide-with-github-actions.html',
+            '/docs/workshops/tutorials': 'https://support.smartbear.com/swagger/contract-testing/docs/en/swagger-contract-testing-university/language-tutorials.html'
+        };
+
+        // Get the current path
+        const currentPath = window.location.pathname;
+        const defaultUrl = 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/getting-started-with-pactflow.html';
+        
+        // Find the redirect URL
+        let redirectUrl = redirectMap[currentPath] || defaultUrl;
+        
+        // If redirectUrl is 'nan', use default
+        if (redirectUrl === 'nan' || !redirectUrl) {
+            redirectUrl = defaultUrl;
+        }
+
+        // Display the redirect URL
+        document.getElementById('redirect-url').textContent = redirectUrl;
+        document.getElementById('redirect-now').href = redirectUrl;
+
+        // Countdown timer
+        let countdown = 5;
+        let countdownInterval;
+        let redirectCancelled = false;
+
+        function startCountdown() {
+            countdownInterval = setInterval(() => {
+                countdown--;
+                document.getElementById('countdown').textContent = countdown;
+                
+                if (countdown <= 0 && !redirectCancelled) {
+                    clearInterval(countdownInterval);
+                    window.location.href = redirectUrl;
+                }
+            }, 1000);
+        }
+
+        // Start countdown on page load
+        startCountdown();
+
+        // Cancel redirect button
+        document.getElementById('cancel-redirect').addEventListener('click', () => {
+            redirectCancelled = true;
+            clearInterval(countdownInterval);
+            document.getElementById('countdown').textContent = 'Cancelled';
+            document.querySelector('.spinner').style.display = 'none';
+            
+            // Hide the "You will be redirected in:" message
+            const redirectParagraphs = document.querySelectorAll('.redirect-info p');
+            redirectParagraphs[1].style.display = 'none'; // Hide "You will be redirected in:"
+            
+            // Update the notice
+            const redirectInfo = document.querySelector('.redirect-info h2');
+            redirectInfo.textContent = '⏸️ Redirect Cancelled';
+            
+            const redirectP = document.querySelector('.redirect-info p');
+            redirectP.textContent = 'You can still access the new documentation using the links below or the "Go Now" button.';
+        });
+
+        // Redirect now button
+        document.getElementById('redirect-now').addEventListener('click', (e) => {
+            e.preventDefault();
+            redirectCancelled = true;
+            clearInterval(countdownInterval);
+            window.location.href = redirectUrl;
+        });
+    </script>
+</body>
+</html>
