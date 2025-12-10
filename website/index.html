@@ -316,6 +316,13 @@
     </footer>
 
     <script>
+        // Regex redirect patterns (checked first, in order)
+        const regexRedirects = [
+            { pattern: /^\/docs\/on-premises\/releases/, url: 'https://support.smartbear.com/swagger/contract-testing/docs/en/on-premises-admin-guide/on-premises-release-notes.html' },
+            { pattern: /^\/docs\/on-premises-2x/, url: 'https://support.smartbear.com/swagger/contract-testing/docs/en/on-premises-admin-guide/on-premises-2-x-x-admin-guide.html' },
+            { pattern: /^\/docs\/on-premises/, url: 'https://support.smartbear.com/swagger/contract-testing/docs/en/on-premises-admin-guide/on-premises-1-x-x-admin-guide.html' }
+        ];
+
         // Redirect mapping based on the current path
         const redirectMap = {
             '/': 'https://support.smartbear.com/swagger/contract-testing/docs/en/user-guide/getting-started-with-swagger-contract-testing.html',
@@ -443,8 +450,21 @@
         const currentPath = window.location.pathname;
         const defaultUrl = 'https://support.smartbear.com/api-hub/contract-testing/docs/en/user-guide/getting-started-with-swagger-contract-testing.html';
         
-        // Find the redirect URL
-        let redirectUrl = redirectMap[currentPath] || defaultUrl;
+        // Find the redirect URL - check regex patterns first
+        let redirectUrl = null;
+        
+        // Try regex patterns first (in order of precedence)
+        for (const redirect of regexRedirects) {
+            if (redirect.pattern.test(currentPath)) {
+                redirectUrl = redirect.url;
+                break;
+            }
+        }
+        
+        // Fall back to exact path matching
+        if (!redirectUrl) {
+            redirectUrl = redirectMap[currentPath] || defaultUrl;
+        }
         
         // If redirectUrl is 'nan', use default
         if (redirectUrl === 'nan' || !redirectUrl) {
